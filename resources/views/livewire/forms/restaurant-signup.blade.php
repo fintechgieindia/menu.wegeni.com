@@ -10,7 +10,10 @@
                 @endif
             </div>
             
-            <h2 class="text-2xl font-bold text-center mb-6 mt-3 dark:text-white">@lang('auth.createAccountSignup', ['appName' => global_setting()->name])</h2>
+            <div class="text-center mb-6 mt-3">
+                <h2 class="text-2xl font-bold text-black dark:text-white">Let’s Get You Started.</h2>
+                <p class="mt-2 text-sm text-black dark:text-gray-300">Create your account and take the first step toward managing your business with ease.</p>
+            </div>
             <div>
                 <x-label for="restaurantName" value="{{ __('modules.restaurant.name') }}" />
                 <x-input id="restaurantName" class="block mt-1 w-full" type="text" wire:model='restaurantName' />

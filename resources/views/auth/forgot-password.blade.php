@@ -1,8 +1,18 @@
 <x-auth-layout>
 
     <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white dark:bg-gray-800 shadow-md overflow-hidden sm:rounded-lg">
-        <div class="mb-4 text-sm text-gray-600 dark:text-gray-400">
-            {{ __('app.forgotPasswordMessage') }}
+        <div class="flex flex-col justify-center items-center mb-6">
+            <a class="flex gap-2 items-center text-xl font-medium dark:text-white app-logo">
+                <img src="{{ global_setting()->logoUrl }}" class="h-8" alt="Logo" />
+                @if (global_setting()->show_logo_text)
+                    {{ global_setting()->name }}
+                @endif
+            </a>
+        </div>
+
+        <div class="text-center mb-6">
+            <h2 class="text-2xl font-bold text-black dark:text-white">Forgot Your Password?</h2>
+            <p class="mt-2 text-sm text-black dark:text-gray-300">No problem. Just enter your email address and we’ll send you a password reset link to help you get back into your account.</p>
         </div>
 
         @session('status')

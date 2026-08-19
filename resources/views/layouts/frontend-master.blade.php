@@ -276,6 +276,7 @@
 <body class="font-sans antialiased :bg-gray-900">
 
     <div class="">
+        @if(!request()->is('restaurant-signup'))
         <header class="lg:hidden">
             <nav class="bg-white border-gray-200 px-4 py-2.5 :bg-gray-800 :text-gray">
                 <div class="flex flex-wrap justify-between items-center mx-auto">
@@ -455,8 +456,9 @@
                 </div>
             </nav>
         </header>
+        @endif
 
-        <div class="flex mt-4 overflow-hidden  mx-auto :bg-gray-900">
+        <div class="flex @if(!request()->is('restaurant-signup')) mt-4 @endif overflow-hidden mx-auto :bg-gray-900">
             <div id="main-content" class="w-full h-full overflow-y-auto :bg-gray-900 main-container">
                 <main>
 
