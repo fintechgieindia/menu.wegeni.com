@@ -341,14 +341,12 @@
                                 </a>
                             </li>
 
-							@if(!request()->routeIs('restaurant_signup'))
 							<li>
                                 <a href="https://wa.me/918667205661?text=Hi,%20I%20am%20interested%20in%20Geni%20Menu%20and%20would%20like%20to%20request%20a%20demo"
                                     class="block py-2 pr-4 pl-3 text-white rounded" style="background-color: green">
                                     Book a Demo
                                 </a>
                             </li>
-							@endif
 							
                             <li>
                                 <a href="{{ route('login') }}"
@@ -361,12 +359,6 @@
                                 </a>
                             </li>
 
-                            @if (!user())
-                            <li>
-                                <a href="{{ route('restaurant_signup') }}"
-                                    class="block py-2 pr-4 pl-3 text-gray-700 rounded :text-white">@lang('landing.getStarted')</a>
-                            </li>
-                            @endif
                           	
                         </ul>
                     </div>
@@ -395,11 +387,9 @@
                             <div class="tooltip-arrow" data-popper-arrow></div>
                         </div>
 
-						@if(!request()->routeIs('restaurant_signup'))
 						<a href="https://wa.me/918667205661?text=Hi,%20I%20am%20interested%20in%20Geni%20Menu%20and%20would%20like%20to%20request%20a%20demo"
                             class="text-white justify-center bg-skin-base hover:bg-skin-base/[.8] sm:w-auto :bg-skin-base :hover:bg-skin-base/[0.7] font-semibold rounded-lg text-sm px-5 py-2.5 text-center ml-2"
                             style="background-color: green">Book a Demo</a>
-						@endif
 
                         <a href="{{ route('login') }}"
                             class="inline-flex items-center px-4 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-500 rounded-lg font-semibold text-sm text-gray-700 dark:text-gray-300 shadow-sm hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 disabled:opacity-25 transition ease-in-out duration-150 ltr:pl-4 rtl:pr-4 ltr:ml-2 rtl:mr-2">
@@ -410,10 +400,6 @@
                             @endif
                         </a>
 
-                        @if (!user())
-                        <a href="{{ route('restaurant_signup') }}"
-                            class="text-white justify-center bg-skin-base hover:bg-skin-base/[.8] sm:w-auto dark:bg-skin-base dark:hover:bg-skin-base/[0.7] font-semibold rounded-lg text-sm px-5 py-2.5 text-center ltr:ml-2 rtl:mr-2">@lang('landing.getStarted')</a>
-                        @endif
                       	
                       
                         <button data-collapse-toggle="mobile-menu-2" type="button"
