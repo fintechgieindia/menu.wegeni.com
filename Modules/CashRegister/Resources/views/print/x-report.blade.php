@@ -213,7 +213,7 @@
             <table>
                 <tr>
                     <td>@lang('cashregister::app.generatedOn')</td>
-                    <td>{{ $reportData['generated_at']->timezone(timezone())->format(dateFormat() . ' ' . timeFormat()) }}</td>
+                    <td>{{ $reportData['generated_at']->timezone(timezone())->format('d-m-Y h:i A') }}</td>
                 </tr>
                 <tr>
                     <td>@lang('cashregister::app.branch')</td>

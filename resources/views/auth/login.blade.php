@@ -10,6 +10,11 @@
             </a>
         </div>
 
+        <div class="text-center mb-6">
+            <h2 class="text-2xl font-bold text-black dark:text-white">Welcome Back! Let’s Get Things Moving.</h2>
+            <p class="mt-2 text-sm text-black dark:text-gray-300">Good to see you again. Sign in and get back to managing your business with ease.</p>
+        </div>
+
         <x-validation-errors class="mb-4"/>
 
         @session('status')
