@@ -19,9 +19,10 @@
     }
     .breadcrumb-section {
     background-color: #FFF7EF;
-    padding-top: 2rem;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-top: 110px;
+    padding-bottom: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
     }
 
     .breadcrumb-container {
@@ -89,6 +90,13 @@
 
     /* Responsive */
     @media (max-width: 768px) {
+    .breadcrumb-section {
+        padding-top: 90px;
+        padding-bottom: 20px;
+    }
+    .breadcrumb-title {
+        font-size: 2rem;
+    }
     .breadcrumb-container {
         flex-direction: column;
         text-align: center;
@@ -99,10 +107,17 @@
         text-align: center;
         margin-bottom: 1rem;
     }
+    .breadcrumb {
+        justify-content: center;
+    }
 
     .breadcrumb-image-container {
         flex: 1 1 100%;
         text-align: center;
+    }
+    .breadcrumb-image {
+        max-height: 180px;
+        margin: 0 auto;
     }
     }
     /* Main Section */
@@ -230,12 +245,28 @@
     text-align: center;
   }
 
+  .profile-image img {
+    max-width: 240px;
+    height: auto;
+    margin: 0 auto;
+  }
+
   .info-grid {
     flex-direction: column;
   }
 
   .info-box {
     flex: 1 1 100%;
+  }
+
+  .social-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .social-icons {
+    justify-content: center;
   }
 }
 .btn__primary_new_outline {

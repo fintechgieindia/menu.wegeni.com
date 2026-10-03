@@ -1,0 +1,8 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.wegeni.menu.twa",
+    "sha256_cert_fingerprints": ["39:A9:B1:C6:81:82:D2:2C:54:DA:21:CC:AE:06:84:C0:25:A5:A3:84:C8:48:C8:9C:62:E7:67:2E:E0:31:D7:87"]
+  }
+}]

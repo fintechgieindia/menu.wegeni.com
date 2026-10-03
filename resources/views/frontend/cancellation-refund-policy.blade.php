@@ -12,11 +12,10 @@
 @section('content')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
-    <div class="col-10">
-        <div class="mx-auto max-w-6xl container px-4" style="justify-align: center; margin-bottom: 80px;margin-top: 80px;">
+    <div style="padding-top: 104px; padding-bottom: 60px;" class="px-4 sm:px-6">
+        <div class="mx-auto max-w-4xl bg-white rounded-2xl p-6 sm:p-10 shadow-sm border border-gray-100">
             <header class="mb-8">
-                <h1 class="text-4xl font-bold text-gray-900 mb-4 text-center">Cancellation and Refund Policy - Geni Fast
-                </h1>
+                <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 text-center">Cancellation and Refund Policy - Geni Fast</h1>
                 <p class="text-xl text-gray-600"></p>
                 <p class="text-sm text-gray-500 mt-2 text-center">Last updated: {{ date('F j, Y') }}</p>
             </header>

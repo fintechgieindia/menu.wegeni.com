@@ -2,67 +2,377 @@
 
 @section('content')
 
-    <section class="bg-white dark:bg-gray-900">
-        <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600;1,700&family=Poppins:wght@400;500;600;700;800;900&display=swap');
 
-            <h1
-                class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
-                @lang('landing.heroTitle')
+    .hero-wrap {
+        background: #FAF6F1;
+        font-family: 'Poppins', sans-serif;
+        position: relative;
+        overflow: hidden;
+        min-height: 88vh;
+        display: flex;
+        align-items: center;
+    }
+
+    .hero-wrap::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background:
+            radial-gradient(ellipse 60% 70% at 0% 50%, rgba(255,240,220,0.65) 0%, transparent 70%),
+            radial-gradient(ellipse 50% 60% at 100% 0%, rgba(240,224,200,0.45) 0%, transparent 60%);
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    .hero-inner {
+        max-width: 1320px;
+        margin: 0 auto;
+        padding: 80px 40px;
+        display: grid;
+        grid-template-columns: 48% 52%;
+        gap: 48px;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+        width: 100%;
+    }
+
+    .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(160,116,75,0.1);
+        border: 1px solid rgba(160,116,75,0.25);
+        color: #8B5E3C;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        padding: 7px 16px;
+        border-radius: 100px;
+        margin-bottom: 28px;
+    }
+
+    .hero-badge-dot {
+        width: 6px; height: 6px;
+        background: #A0744B;
+        border-radius: 50%;
+        animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+        0%,100%{opacity:1;transform:scale(1);}
+        50%{opacity:0.5;transform:scale(0.75);}
+    }
+
+    .hero-headline {
+        font-size: 56px;
+        font-weight: 900;
+        color: #1E1810;
+        line-height: 1.08;
+        letter-spacing: -2px;
+        margin: 0 0 4px;
+    }
+
+    .hero-headline-italic {
+        font-family: 'Playfair Display', serif;
+        font-style: italic;
+        font-weight: 700;
+        font-size: 60px;
+        color: #A0744B;
+        display: block;
+        line-height: 1.1;
+        letter-spacing: -1px;
+        margin-top: 6px;
+    }
+
+    .hero-desc {
+        font-size: 16px;
+        color: #6B6059;
+        line-height: 1.7;
+        margin: 26px 0 34px;
+        max-width: 430px;
+    }
+
+    .hero-cta-row {
+        display: flex;
+        gap: 14px;
+        margin-bottom: 34px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .h-btn-fill {
+        background: #A0744B;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 700;
+        padding: 15px 30px;
+        border-radius: 10px;
+        text-decoration: none;
+        transition: all 0.25s;
+        box-shadow: 0 6px 20px rgba(160,116,75,0.35);
+        display: inline-block;
+    }
+    .h-btn-fill:hover {
+        background: #8b623d;
+        color: #fff;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 28px rgba(160,116,75,0.4);
+    }
+
+    .h-btn-outline {
+        background: transparent;
+        color: #A0744B;
+        font-size: 14px;
+        font-weight: 600;
+        padding: 14px 28px;
+        border-radius: 10px;
+        border: 1.5px solid #A0744B;
+        text-decoration: none;
+        transition: all 0.25s;
+        display: inline-block;
+    }
+    .h-btn-outline:hover {
+        background: rgba(160,116,75,0.07);
+        color: #8b623d;
+    }
+
+    .h-trust { display: flex; flex-direction: column; gap: 8px; }
+    .h-trust-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 13px;
+        color: #6B6059;
+        font-weight: 500;
+    }
+    .h-trust-item svg { flex-shrink: 0; color: #A0744B; }
+
+    /* RIGHT VISUAL */
+    .hero-right {
+        position: relative;
+        height: 600px;
+    }
+
+    .hero-photo-card {
+        position: absolute;
+        inset: 0;
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 32px 70px rgba(0,0,0,0.18);
+    }
+    .hero-photo-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+    }
+    .hero-photo-card::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, rgba(30,24,16,0.5) 0%, rgba(20,14,6,0.1) 55%, transparent 100%);
+    }
+
+    /* POS Panel */
+    .hero-pos-panel {
+        position: absolute;
+        top: 28px;
+        right: 18px;
+        width: 252px;
+        background: rgba(255,255,255,0.97);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        border-radius: 18px;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.15), 0 0 0 1px rgba(255,255,255,0.5);
+        padding: 18px;
+        z-index: 20;
+        animation: float-up 3.5s ease-in-out infinite alternate;
+    }
+    @keyframes float-up {
+        0%{transform:translateY(0);}
+        100%{transform:translateY(-8px);}
+    }
+
+    .pos-ph { display:flex;align-items:center;justify-content:space-between;margin-bottom:14px; }
+    .pos-ph-title { display:flex;align-items:center;gap:6px;font-size:10.5px;font-weight:800;color:#A0744B;text-transform:uppercase;letter-spacing:0.8px; }
+    .pos-ph-live { font-size:9px;font-weight:700;color:#22c55e;display:flex;align-items:center;gap:4px; }
+    .pos-live-dot { width:7px;height:7px;background:#22c55e;border-radius:50%;animation:blink 1.5s ease-in-out infinite; }
+    @keyframes blink{0%,100%{opacity:1;}50%{opacity:0.3;}}
+
+    .pos-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:12px; }
+    .pos-ic { background:#F8F4EF;border-radius:9px;padding:9px 7px;text-align:center;border:1.5px solid transparent; }
+    .pos-ic.sel { background:#A0744B;border-color:#A0744B; }
+    .pos-ic-n { font-size:9.5px;font-weight:700;color:#333;margin-bottom:3px; }
+    .pos-ic.sel .pos-ic-n,.pos-ic.sel .pos-ic-p { color:#fff; }
+    .pos-ic-p { font-size:9px;color:#888; }
+    .pos-ic.sel .pos-ic-p { color:rgba(255,255,255,0.85); }
+
+    .pos-div { border:none;border-top:1px dashed #D9D0C5;margin:10px 0; }
+    .pos-bl { display:flex;justify-content:space-between;font-size:10px;color:#666;margin-bottom:5px; }
+    .pos-bl.tot { font-weight:800;font-size:13px;color:#1E1810;padding-top:7px;border-top:1px solid #eee;margin-top:5px; }
+
+    /* Mobile */
+    .hero-mobile-frame {
+        position: absolute;
+        bottom: 24px;
+        left: -18px;
+        width: 178px;
+        background: #1A1A1A;
+        border-radius: 32px;
+        padding: 9px;
+        box-shadow: -12px 24px 55px rgba(0,0,0,0.32);
+        z-index: 30;
+        animation: float-dn 4s ease-in-out infinite alternate;
+    }
+    @keyframes float-dn {
+        0%{transform:translateY(0) rotate(-2deg);}
+        100%{transform:translateY(-10px) rotate(-2deg);}
+    }
+    .hmob-screen { background:#fff;border-radius:24px;overflow:hidden;display:flex;flex-direction:column;height:348px; }
+    .hmob-top { background:#A0744B;padding:12px 13px 9px;color:#fff; }
+    .hmob-top-t { font-size:12px;font-weight:800; }
+    .hmob-top-s { font-size:9px;opacity:0.85;margin-top:1px; }
+    .hmob-list { flex:1;padding:9px;overflow:hidden; }
+    .hmob-item { display:flex;align-items:center;gap:7px;padding:7px;border-radius:9px;margin-bottom:7px;background:#fafafa;border:1px solid #f0f0f0; }
+    .hmob-img { width:32px;height:32px;border-radius:7px;object-fit:cover;flex-shrink:0; }
+    .hmob-n { font-size:10px;font-weight:700;color:#222; }
+    .hmob-p { font-size:9px;color:#888; }
+    .hmob-pay { background:#A0744B;margin:0 9px 9px;border-radius:100px;padding:10px 13px;display:flex;justify-content:space-between;align-items:center;color:#fff;font-size:10px;font-weight:800; }
+
+    /* Notification Badges */
+    .h-notif { position:absolute;background:#fff;border-radius:13px;padding:9px 14px;box-shadow:0 8px 28px rgba(0,0,0,0.12);z-index:35;font-family:'Poppins',sans-serif;min-width:155px; }
+    .h-notif.nk { top:18px;left:18px;animation:fn1 3s ease-in-out infinite alternate; }
+    .h-notif.ns { bottom:28px;right:28px;animation:fn2 3.5s ease-in-out infinite alternate; }
+    @keyframes fn1{0%{transform:translateY(0);}100%{transform:translateY(-6px);}}
+    @keyframes fn2{0%{transform:translateY(0);}100%{transform:translateY(-8px);}}
+    .nh { display:flex;align-items:center;gap:5px;font-size:9px;font-weight:700;color:#A0744B;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px; }
+    .nt { font-size:12px;font-weight:800;color:#1E1810; }
+    .ns2 { font-size:9.5px;color:#888;margin-top:1px; }
+
+    /* Responsive */
+    @media(max-width:1023px){
+        .hero-inner{grid-template-columns:1fr;padding:60px 24px;}
+        .hero-headline{font-size:40px;}
+        .hero-headline-italic{font-size:44px;}
+        .hero-right{height:460px;}
+    }
+    @media(max-width:639px){
+        .hero-headline{font-size:32px;}
+        .hero-headline-italic{font-size:36px;}
+        .hero-right{height:360px;}
+        .hero-mobile-frame{display:none;}
+        .hero-pos-panel{width:195px;right:8px;}
+    }
+</style>
+
+<section class="hero-wrap">
+    <div class="hero-inner">
+        <!-- LEFT -->
+        <div>
+            <div class="hero-badge">
+                <span class="hero-badge-dot"></span>
+                RESTAURANT OPERATIONS, SIMPLIFIED
+            </div>
+            <h1 class="hero-headline">
+                Every Part of<br>Your Restaurant.
+                <span class="hero-headline-italic">One Smart System.</span>
             </h1>
-            <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">
-                @lang('landing.heroSubTitle')
+            <p class="hero-desc">
+                Manage your menu, tables, orders, billing, kitchen, staff, inventory and more &mdash; all in one simple platform built for restaurants.
             </p>
-            <div
-                class="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4 rtl:space-x-reverse">
-                <a href="{{ route('restaurant_signup') }}"
-                    class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-skin-base hover:bg-skin-base/[0.7] focus:ring-4 focus:ring-skin-base dark:focus:ring-skin-base">
-                    @if($trialPackage)
-                        @lang('landing.startTrial', ['days' => $trialPackage->trial_days])
-                    @else
-                        @lang('landing.getStartedFree')
-                    @endif
-                    <svg class="ml-2 rtl:ml-0 rtl:mr-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd"
-                            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                            clip-rule="evenodd"></path>
-                    </svg>
-                </a>
-
+            <div class="hero-cta-row">
+                <a href="{{ route('restaurant_signup') }}" class="h-btn-fill">Book a Demo &rarr;</a>
+                <a href="{{ route('features') }}" class="h-btn-outline">Explore Features</a>
             </div>
-
-            <div class="relative  max-w-screen-lg flex justify-center mx-auto">
-                <img src="{{ asset('landing/dashboard.png') }}" class="shadow-lg border rounded-lg" alt="">
-                <!-- SVG Element -->
-                <div class="hidden md:block absolute top-0 end-0 -translate-y-12 translate-x-20">
-                    <svg class="w-16 h-auto text-skin-base" width="121" height="135" viewBox="0 0 121 135" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path d="M5 16.4754C11.7688 27.4499 21.2452 57.3224 5 89.0164" stroke="currentColor"
-                            stroke-width="10" stroke-linecap="round" />
-                        <path d="M33.6761 112.104C44.6984 98.1239 74.2618 57.6776 83.4821 5" stroke="currentColor"
-                            stroke-width="10" stroke-linecap="round" />
-                        <path d="M50.5525 130C68.2064 127.495 110.731 117.541 116 78.0874" stroke="currentColor"
-                            stroke-width="10" stroke-linecap="round" />
-                    </svg>
+            <div class="h-trust">
+                <div class="h-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    For Restaurants, Caf&eacute;s, Bakeries, QSRs &amp; Canteens
                 </div>
-                <!-- End SVG Element -->
-
-                <!-- SVG Element -->
-                <div class="hidden md:block absolute bottom-0 start-0 translate-y-10 -translate-x-32">
-                    <svg class="w-40 h-auto text-gray-500" width="347" height="188" viewBox="0 0 347 188" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M4 82.4591C54.7956 92.8751 30.9771 162.782 68.2065 181.385C112.642 203.59 127.943 78.57 122.161 25.5053C120.504 2.2376 93.4028 -8.11128 89.7468 25.5053C85.8633 61.2125 130.186 199.678 180.982 146.248L214.898 107.02C224.322 95.4118 242.9 79.2851 258.6 107.02C274.299 134.754 299.315 125.589 309.861 117.539L343 93.4426"
-                            stroke="currentColor" stroke-width="7" stroke-linecap="round" />
-                    </svg>
+                <div class="h-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    Zero commission &middot; No hidden charges &middot; Free setup
                 </div>
-                <!-- End SVG Element -->
+                <div class="h-trust-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    Trusted by 1,200+ restaurants across India
+                </div>
             </div>
-
         </div>
-    </section>
 
-    <!-- Features -->
+        <!-- RIGHT -->
+        <div class="hero-right">
+            <div class="hero-photo-card">
+                <img src="{{ asset('landing/hero-restaurant-photo.png') }}" alt="Restaurant powered by Geni Menu">
+            </div>
+
+            <!-- POS Panel -->
+            <div class="hero-pos-panel">
+                <div class="pos-ph">
+                    <div class="pos-ph-title">
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                        POS &amp; Billing
+                    </div>
+                    <div class="pos-ph-live"><span class="pos-live-dot"></span>LIVE</div>
+                </div>
+                <div class="pos-grid">
+                    <div class="pos-ic"><div class="pos-ic-n">Paneer Tikka</div><div class="pos-ic-p">&#8377;280</div></div>
+                    <div class="pos-ic"><div class="pos-ic-n">Butter Naan</div><div class="pos-ic-p">&#8377;60</div></div>
+                    <div class="pos-ic sel"><div class="pos-ic-n">Filter Coffee</div><div class="pos-ic-p">&#8377;90</div></div>
+                    <div class="pos-ic"><div class="pos-ic-n">Veg Biryani</div><div class="pos-ic-p">&#8377;240</div></div>
+                    <div class="pos-ic"><div class="pos-ic-n">Gulab Jamun</div><div class="pos-ic-p">&#8377;110</div></div>
+                    <div class="pos-ic"><div class="pos-ic-n">Masala Dosa</div><div class="pos-ic-p">&#8377;140</div></div>
+                </div>
+                <hr class="pos-div">
+                <div class="pos-bl"><span>Subtotal</span><span>&#8377;430</span></div>
+                <div class="pos-bl"><span>CGST + SGST</span><span>&#8377;22</span></div>
+                <div class="pos-bl tot"><span>Total</span><span>&#8377;452</span></div>
+            </div>
+
+            <!-- Mobile -->
+            <div class="hero-mobile-frame">
+                <div class="hmob-screen">
+                    <div class="hmob-top">
+                        <div class="hmob-top-t">Your Restaurant</div>
+                        <div class="hmob-top-s">Table 12 &middot; Scan QR &amp; Order</div>
+                    </div>
+                    <div class="hmob-list">
+                        <div class="hmob-item">
+                            <img class="hmob-img" src="https://images.unsplash.com/photo-1599487405270-86430b8e611b?w=80&q=80" alt="">
+                            <div><div class="hmob-n">Paneer Tikka</div><div class="hmob-p">&#8377;280</div></div>
+                        </div>
+                        <div class="hmob-item">
+                            <img class="hmob-img" src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=80&q=80" alt="">
+                            <div><div class="hmob-n">Wood-fired Pizza</div><div class="hmob-p">&#8377;360</div></div>
+                        </div>
+                        <div class="hmob-item">
+                            <img class="hmob-img" src="https://images.unsplash.com/photo-1461023058943-0708e5223f03?w=80&q=80" alt="">
+                            <div><div class="hmob-n">Cold Coffee</div><div class="hmob-p">&#8377;190</div></div>
+                        </div>
+                    </div>
+                    <div class="hmob-pay"><span>2 items &middot; &#8377;640</span><span>Pay Now &rarr;</span></div>
+                </div>
+            </div>
+
+            <!-- Notification Badges -->
+            <div class="h-notif nk">
+                <div class="nh">&#9889; Live Kitchen Alert</div>
+                <div class="nt">Table 4 &rarr; KOT Sent</div>
+                <div class="ns2">Kitchen confirmed &middot; 2 min ago</div>
+            </div>
+            <div class="h-notif ns">
+                <div class="nh">&#128200; Today's Performance</div>
+                <div class="nt">126 orders &middot; &#8377;48,200</div>
+                <div class="ns2">&#8593; 18% vs yesterday</div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Features -->
     <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto space-y-8">
 
         <!-- Title -->
@@ -170,19 +480,14 @@
         <!-- End Title -->
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-12">
 
-            <!-- Icon Block -->
+            <!-- Icon Block 1: QR Code Menu -->
             <div>
                 <div
                     class="relative flex justify-center items-center size-12 bg-white rounded-xl before:absolute before:-inset-px before:-z-[1] before:bg-gradient-to-br before:from-gray-700 before:via-transparent before:to-gray-600 before:rounded-xl dark:bg-neutral-900">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-qr-code-scan text-skin-base dark:text-skin-base size-6" viewBox="0 0 16 16">
-                        <path
-                            d="M0 .5A.5.5 0 0 1 .5 0h3a.5.5 0 0 1 0 1H1v2.5a.5.5 0 0 1-1 0zm12 0a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0V1h-2.5a.5.5 0 0 1-.5-.5M.5 12a.5.5 0 0 1 .5.5V15h2.5a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5v-3a.5.5 0 0 1 .5-.5m15 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1 0-1H15v-2.5a.5.5 0 0 1 .5-.5M4 4h1v1H4z" />
-                        <path d="M7 2H2v5h5zM3 3h3v3H3zm2 8H4v1h1z" />
-                        <path d="M7 9H2v5h5zm-4 1h3v3H3zm8-6h1v1h-1z" />
-                        <path
-                            d="M9 2h5v5H9zm1 1v3h3V3zM8 8v2h1v1H8v1h2v-2h1v2h1v-1h2v-1h-3V8zm2 2H9V9h1zm4 2h-1v1h-2v1h3zm-4 2v-1H8v1z" />
-                        <path d="M12 9h2V8h-2z" />
+                    <svg class="size-6 text-skin-base dark:text-skin-base" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/>
+                        <path d="M9 8h6"/>
+                        <path d="M9 12h4"/>
                     </svg>
                 </div>
                 <div class="mt-5">
@@ -192,14 +497,15 @@
             </div>
             <!-- End Icon Block -->
 
-            <!-- Icon Block -->
+            <!-- Icon Block 2: Payment Gateway Integration -->
             <div>
                 <div
                     class="relative flex justify-center items-center size-12 bg-white rounded-xl before:absolute before:-inset-px before:-z-[1] before:bg-gradient-to-br before:from-gray-700 before:via-transparent before:to-gray-600 before:rounded-xl dark:bg-neutral-900">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-qr-code-scan text-skin-base dark:text-skin-base size-6" viewBox="0 0 16 16">
-                        <path
-                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm6.226 5.385c-.584 0-.937.164-.937.593 0 .468.607.674 1.36.93 1.228.415 2.844.963 2.851 2.993C11.5 11.868 9.924 13 7.63 13a7.7 7.7 0 0 1-3.009-.626V9.758c.926.506 2.095.88 3.01.88.617 0 1.058-.165 1.058-.671 0-.518-.658-.755-1.453-1.041C6.026 8.49 4.5 7.94 4.5 6.11 4.5 4.165 5.988 3 8.226 3a7.3 7.3 0 0 1 2.734.505v2.583c-.838-.45-1.896-.703-2.734-.703" />
+                    <svg class="size-6 text-skin-base dark:text-skin-base" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect width="20" height="14" x="2" y="5" rx="2"/>
+                        <line x1="2" x2="22" y1="10" y2="10"/>
+                        <path d="M6 15h4"/>
+                        <circle cx="16" cy="15" r="1"/>
                     </svg>
                 </div>
                 <div class="mt-5">
@@ -209,14 +515,13 @@
             </div>
             <!-- End Icon Block -->
 
-            <!-- Icon Block -->
+            <!-- Icon Block 3: Staff Management -->
             <div>
                 <div
                     class="relative flex justify-center items-center size-12 bg-white rounded-xl before:absolute before:-inset-px before:-z-[1] before:bg-gradient-to-br before:from-gray-700 before:via-transparent before:to-gray-600 before:rounded-xl dark:bg-neutral-900">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-qr-code-scan text-skin-base dark:text-skin-base size-6" viewBox="0 0 16 16">
-                        <path
-                            d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1zm-7.978-1L7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002-.014.002zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0M6.936 9.28a6 6 0 0 0-1.23-.247A7 7 0 0 0 5 9c-4 0-5 3-5 4q0 1 1 1h4.216A2.24 2.24 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816M4.92 10A5.5 5.5 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0m3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4" />
+                    <svg class="size-6 text-skin-base dark:text-skin-base" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 13.87A6 6 0 0 1 7.41 2a6 6 0 0 1 9.18 0A6 6 0 0 1 18 13.87V21H6z"/>
+                        <line x1="6" y1="17" x2="18" y2="17"/>
                     </svg>
                 </div>
                 <div class="mt-5">
@@ -226,19 +531,17 @@
             </div>
             <!-- End Icon Block -->
 
-            <!-- Icon Block -->
+            <!-- Icon Block 4: POS -->
             <div>
                 <div
                     class="relative flex justify-center items-center size-12 bg-white rounded-xl before:absolute before:-inset-px before:-z-[1] before:bg-gradient-to-br before:from-gray-700 before:via-transparent before:to-gray-600 before:rounded-xl dark:bg-neutral-900">
-                    <svg class="size-6 transition duration-75 text-skin-base dark:text-skin-base" fill="currentColor"
-                        viewBox="0 -0.5 25 25" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                        <g id="SVGRepo_iconCarrier">
-                            <path fill-rule="evenodd"
-                                d="M16,6 L20,6 C21.1045695,6 22,6.8954305 22,8 L22,16 C22,17.1045695 21.1045695,18 20,18 L16,18 L16,19.9411765 C16,21.0658573 15.1177541,22 14,22 L4,22 C2.88224586,22 2,21.0658573 2,19.9411765 L2,4.05882353 C2,2.93414267 2.88224586,2 4,2 L14,2 C15.1177541,2 16,2.93414267 16,4.05882353 L16,6 Z M20,11 L16,11 L16,16 L20,16 L20,11 Z M14,19.9411765 L14,4.05882353 C14,4.01396021 13.9868154,4 14,4 L4,4 C4.01318464,4 4,4.01396021 4,4.05882353 L4,19.9411765 C4,19.9860398 4.01318464,20 4,20 L14,20 C13.9868154,20 14,19.9860398 14,19.9411765 Z M5,19 L5,17 L7,17 L7,19 L5,19 Z M8,19 L8,17 L10,17 L10,19 L8,19 Z M11,19 L11,17 L13,17 L13,19 L11,19 Z M5,16 L5,14 L7,14 L7,16 L5,16 Z M8,16 L8,14 L10,14 L10,16 L8,16 Z M11,16 L11,14 L13,14 L13,16 L11,16 Z M13,5 L13,13 L5,13 L5,5 L13,5 Z M7,7 L7,11 L11,11 L11,7 L7,7 Z M20,9 L20,8 L16,8 L16,9 L20,9 Z">
-                            </path>
-                        </g>
+                    <svg class="size-6 text-skin-base dark:text-skin-base" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="4" y="3" width="16" height="10" rx="2"/>
+                        <path d="M4 17h16"/>
+                        <path d="M8 21h8"/>
+                        <path d="M12 17v4"/>
+                        <path d="M8 7h3"/>
+                        <circle cx="15" cy="7" r="1"/>
                     </svg>
                 </div>
                 <div class="mt-5">
@@ -248,14 +551,16 @@
             </div>
             <!-- End Icon Block -->
 
-            <!-- Icon Block -->
+            <!-- Icon Block 5: Custom Floor Plans -->
             <div>
                 <div
                     class="relative flex justify-center items-center size-12 bg-white rounded-xl before:absolute before:-inset-px before:-z-[1] before:bg-gradient-to-br before:from-gray-700 before:via-transparent before:to-gray-600 before:rounded-xl dark:bg-neutral-900">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-qr-code-scan text-skin-base dark:text-skin-base size-6" viewBox="0 0 16 16">
-                        <path
-                            d="M8.235 1.559a.5.5 0 0 0-.47 0l-7.5 4a.5.5 0 0 0 0 .882L3.188 8 .264 9.559a.5.5 0 0 0 0 .882l7.5 4a.5.5 0 0 0 .47 0l7.5-4a.5.5 0 0 0 0-.882L12.813 8l2.922-1.559a.5.5 0 0 0 0-.882zm3.515 7.008L14.438 10 8 13.433 1.562 10 4.25 8.567l3.515 1.874a.5.5 0 0 0 .47 0zM8 9.433 1.562 6 8 2.567 14.438 6z" />
+                    <svg class="size-6 text-skin-base dark:text-skin-base" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="8" width="18" height="4" rx="1"/>
+                        <path d="M6 12v7"/>
+                        <path d="M18 12v7"/>
+                        <path d="M8 4a2 2 0 0 0-2 2v2h4V6a2 2 0 0 0-2-2z"/>
+                        <path d="M16 4a2 2 0 0 0-2 2v2h4V6a2 2 0 0 0-2-2z"/>
                     </svg>
                 </div>
                 <div class="mt-5">
@@ -265,16 +570,14 @@
             </div>
             <!-- End Icon Block -->
 
-            <!-- Icon Block -->
+            <!-- Icon Block 6: Kitchen Order Tickets (KOT) -->
             <div>
                 <div
                     class="relative flex justify-center items-center size-12 bg-white rounded-xl before:absolute before:-inset-px before:-z-[1] before:bg-gradient-to-br before:from-gray-700 before:via-transparent before:to-gray-600 before:rounded-xl dark:bg-neutral-900">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-qr-code-scan text-skin-base dark:text-skin-base size-6" viewBox="0 0 16 16">
-                        <path
-                            d="M3 4.5a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5M11.5 4a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1zm0 2a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1zm0 2a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1zm0 2a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1zm0 2a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1z" />
-                        <path
-                            d="M2.354.646a.5.5 0 0 0-.801.13l-.5 1A.5.5 0 0 0 1 2v13H.5a.5.5 0 0 0 0 1h15a.5.5 0 0 0 0-1H15V2a.5.5 0 0 0-.053-.224l-.5-1a.5.5 0 0 0-.8-.13L13 1.293l-.646-.647a.5.5 0 0 0-.708 0L11 1.293l-.646-.647a.5.5 0 0 0-.708 0L9 1.293 8.354.646a.5.5 0 0 0-.708 0L7 1.293 6.354.646a.5.5 0 0 0-.708 0L5 1.293 4.354.646a.5.5 0 0 0-.708 0L3 1.293zm-.217 1.198.51.51a.5.5 0 0 0 .707 0L4 1.707l.646.647a.5.5 0 0 0 .708 0L6 1.707l.646.647a.5.5 0 0 0 .708 0L8 1.707l.646.647a.5.5 0 0 0 .708 0L10 1.707l.646.647a.5.5 0 0 0 .708 0L12 1.707l.646.647a.5.5 0 0 0 .708 0l.509-.51.137.274V15H2V2.118z" />
+                    <svg class="size-6 text-skin-base dark:text-skin-base" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 18h16a1 1 0 0 0 1-1A9 9 0 0 0 3 17a1 1 0 0 0 1 1z"/>
+                        <path d="M12 4a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+                        <line x1="2" y1="20" x2="22" y2="20"/>
                     </svg>
                 </div>
                 <div class="mt-5">
@@ -284,15 +587,15 @@
             </div>
             <!-- End Icon Block -->
 
-            <!-- Icon Block -->
+            <!-- Icon Block 7: Bill Printing -->
             <div>
                 <div
                     class="relative flex justify-center items-center size-12 bg-white rounded-xl before:absolute before:-inset-px before:-z-[1] before:bg-gradient-to-br before:from-gray-700 before:via-transparent before:to-gray-600 before:rounded-xl dark:bg-neutral-900">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-qr-code-scan text-skin-base dark:text-skin-base size-6" viewBox="0 0 16 16">
-                        <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1" />
-                        <path
-                            d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1" />
+                    <svg class="size-6 text-skin-base dark:text-skin-base" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 2v20l3-2 3 2 3-2 3 2 3-2 3 2V2l-3 2-3-2-3 2-3-2-3 2z"/>
+                        <line x1="8" y1="7" x2="16" y2="7"/>
+                        <line x1="8" y1="11" x2="16" y2="11"/>
+                        <line x1="8" y1="15" x2="13" y2="15"/>
                     </svg>
                 </div>
                 <div class="mt-5">
@@ -302,14 +605,15 @@
             </div>
             <!-- End Icon Block -->
 
-            <!-- Icon Block -->
+            <!-- Icon Block 8: Reports -->
             <div>
                 <div
                     class="relative flex justify-center items-center size-12 bg-white rounded-xl before:absolute before:-inset-px before:-z-[1] before:bg-gradient-to-br before:from-gray-700 before:via-transparent before:to-gray-600 before:rounded-xl dark:bg-neutral-900">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-qr-code-scan text-skin-base dark:text-skin-base size-6" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd"
-                            d="M0 0h1v15h15v1H0zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4.9l-3.613 4.417a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61L13.445 4H10.5a.5.5 0 0 1-.5-.5" />
+                    <svg class="size-6 text-skin-base dark:text-skin-base" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="20" x2="18" y2="10"/>
+                        <line x1="12" y1="20" x2="12" y2="4"/>
+                        <line x1="6" y1="20" x2="6" y2="14"/>
+                        <line x1="2" y1="20" x2="22" y2="20"/>
                     </svg>
                 </div>
                 <div class="mt-5">

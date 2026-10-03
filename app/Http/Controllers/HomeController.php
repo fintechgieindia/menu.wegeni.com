@@ -102,11 +102,8 @@ class HomeController extends Controller
         $frontFaqs = FrontFaq::where('language_setting_id', $languageId)->get();
         $frontContact = Contact::where('language_setting_id', $languageId)->first();
 
-        if ($global->landing_type == 'static') {
-            return view('frontend.index', compact('packages', 'AllModulesWithFeature', 'trialPackage', 'monthlyPackages', 'annualPackages', 'lifetimePackages'));
-        }
-
-        return view('landing.dynamic-index', compact('packages', 'AllModulesWithFeature', 'trialPackage', 'monthlyPackages', 'annualPackages', 'lifetimePackages', 'customMenu', 'frontDetails', 'frontFeatures', 'frontReviews', 'frontFaqs', 'frontContact'));
+        // Always serve the new Geni Menu homepage design
+        return view('frontend.index', compact('packages', 'AllModulesWithFeature', 'trialPackage', 'monthlyPackages', 'annualPackages', 'lifetimePackages'));
     }
 
     public function signup()
@@ -179,6 +176,24 @@ class HomeController extends Controller
         ];
         return view('frontend.privacy-policy', compact('meta'));
     }
+    public function howItWorks()
+    {
+        $meta = [
+            'title' => 'How Geni Menu Works | Restaurant Workflow Connected',
+            'description' => 'See how Geni Menu connects your restaurant operations from digital menus and orders to kitchen KOT, billing, and reporting in one seamless workflow.',
+            'keywords' => 'restaurant workflow software, how restaurant POS works, KOT workflow, restaurant connected operations, Geni Menu how it works'
+        ];
+        return view('frontend.how-it-works', compact('meta'));
+    }
+    public function faqHelp()
+    {
+        $meta = [
+            'title' => 'FAQ & Help | Geni Menu Support Center',
+            'description' => 'Find answers to common questions, explore setup guidance, and get help with your Geni Menu restaurant management platform.',
+            'keywords' => 'restaurant software FAQ, Geni Menu support, POS help center, restaurant setup guide, KOT troubleshooting'
+        ];
+        return view('frontend.faq-help', compact('meta'));
+    }
     public function features()
     {
         $meta = [
@@ -188,6 +203,204 @@ class HomeController extends Controller
         ];
         return view('frontend.features', compact('meta'));
     }
+    public function menuManagement()
+    {
+        $meta = [
+            'title' => 'Menu Management — Geni Menu | WeGeni',
+            'description' => 'Create, organize and manage your restaurant menu from one simple dashboard. Update dishes, categories, prices, and availability instantly with Geni Menu.',
+            'keywords' => 'restaurant menu management, digital menu software, QR code menu, restaurant menu editor, menu availability control, price management, Geni Menu, WeGeni'
+        ];
+        return view('frontend.menu-management', compact('meta'));
+    }
+    public function reservationManagement()
+    {
+        $meta = [
+            'title' => 'Reservation Management — Geni Menu | WeGeni',
+            'description' => 'Manage restaurant reservations, guest details, table allocation and booking status from one simple dashboard with Geni Menu.',
+            'keywords' => 'restaurant reservation software, table booking system, restaurant table allocation, guest reservation software, table status tracking, Geni Menu, WeGeni'
+        ];
+        return view('frontend.reservation-management', compact('meta'));
+    }
+    public function waiterRequest()
+    {
+        $meta = [
+            'title' => 'Waiter Requests — Geni Menu | WeGeni',
+            'description' => 'Let restaurant guests send table-side requests to staff instantly. Track, respond and complete waiter requests from one connected dashboard with Geni Menu.',
+            'keywords' => 'waiter request software, restaurant table service, guest request management, restaurant service management, table request system, Geni Menu, WeGeni'
+        ];
+        return view('frontend.waiter-request', compact('meta'));
+    }
+    public function posManagement()
+    {
+        $meta = [
+            'title' => 'POS Management — Geni Menu | WeGeni',
+            'description' => 'Faster Billing. Smoother Restaurant Operations. Manage orders, bills, payments and restaurant transactions from one connected POS with Geni Menu.',
+            'keywords' => 'restaurant POS management, restaurant billing software, restaurant POS system, order billing software, restaurant table billing, POS transaction software, Geni Menu, WeGeni'
+        ];
+        return view('frontend.pos-management', compact('meta'));
+    }
+    public function tableManagement()
+    {
+        $meta = [
+            'title' => 'Table Management — Geni Menu | WeGeni',
+            'description' => 'Know Every Table. Manage Every Seat. Visualize your restaurant floor plan, track table availability, and manage guest seating with Geni Menu.',
+            'keywords' => 'restaurant table management, restaurant floor plan software, table availability tracking, restaurant seating software, table occupancy management, Geni Menu, WeGeni'
+        ];
+        return view('frontend.table-management', compact('meta'));
+    }
+    public function orderManagement()
+    {
+        $meta = [
+            'title' => 'Order Management — Geni Menu | WeGeni',
+            'description' => 'Every Order. Clear From Start to Finish. Manage dine-in, takeaway, pickup and delivery orders from one connected workspace with Geni Menu.',
+            'keywords' => 'restaurant order management, dine-in order tracking, takeaway order software, delivery order management, kitchen order tracking, Geni Menu, WeGeni'
+        ];
+        return view('frontend.order-management', compact('meta'));
+    }
+    public function kotManagement()
+    {
+        $meta = [
+            'title' => 'KOT Management — Geni Menu | WeGeni',
+            'description' => 'From Order to Kitchen. Without the Confusion. Send clear kitchen order tickets from floor to kitchen team with Geni Menu.',
+            'keywords' => 'KOT management, kitchen order ticket software, restaurant kitchen display, KOT routing, kitchen order tracking, chef order display, Geni Menu, WeGeni'
+        ];
+        return view('frontend.kot-management', compact('meta'));
+    }
+    public function inventoryManagement()
+    {
+        $meta = [
+            'title' => 'Inventory Management — Geni Menu | WeGeni',
+            'description' => 'Know What You Have. Know What You Need. Track ingredients, monitor stock levels, manage purchases and stock adjustments with Geni Menu.',
+            'keywords' => 'restaurant inventory management, ingredient tracking software, stock level monitoring, food business inventory, restaurant purchasing software, Geni Menu, WeGeni'
+        ];
+        return view('frontend.inventory-management', compact('meta'));
+    }
+    public function reports()
+    {
+        $meta = [
+            'title' => 'Restaurant Reports & Analytics — Geni Menu | WeGeni',
+            'description' => 'Turn Restaurant Data Into Better Decisions. Track sales, order volume, payment methods, category performance and dining activity with Geni Menu Reports.',
+            'keywords' => 'restaurant reports, restaurant analytics, sales reporting software, restaurant POS reports, menu performance analysis, restaurant business intelligence, Geni Menu, WeGeni'
+        ];
+        return view('frontend.reports', compact('meta'));
+    }
+    public function familyRestaurantSolution()
+    {
+        $meta = [
+            'title' => 'Family Restaurant Management Software | Geni Menu',
+            'description' => 'Manage menus, tables, orders, kitchen operations, billing and reports with Geni Menu — a connected restaurant management platform for family restaurants.',
+            'keywords' => 'Family Restaurant Management Software, Restaurant Management Software, Family Restaurant POS, Family Restaurant Software, Restaurant Billing Software, Restaurant Order Management, Restaurant Table Management, Restaurant KOT Management, Restaurant Inventory Management, Digital Menu for Restaurants, Geni Menu, WeGeni'
+        ];
+        return view('frontend.solutions.family-restaurant', compact('meta'));
+    }
+    public function dineInRestaurantSolution()
+    {
+        $meta = [
+            'title' => 'Dine-in Restaurant Management Software | Geni Menu',
+            'description' => 'Deliver a Better Dine-in Experience. From Table to Payment. Manage tables, digital menus, dine-in orders, KOT, kitchen operations, billing and reports with Geni Menu.',
+            'keywords' => 'Dine-in Restaurant Management Software, Dine-in Restaurant Software, Restaurant Management Software, Restaurant POS, Restaurant Table Management, Restaurant Order Management, Restaurant KOT Software, Digital Menu for Restaurants, Restaurant Billing Software, Dine-in POS Software, Geni Menu, WeGeni'
+        ];
+        return view('frontend.solutions.dine-in-restaurant', compact('meta'));
+    }
+    public function multiCuisineRestaurantSolution()
+    {
+        $meta = [
+            'title' => 'Multi-Cuisine Restaurant Management Software | Geni Menu',
+            'description' => 'One Restaurant. Many Cuisines. One Connected Platform. Manage diverse menus, tables, orders, KOTs, kitchen stations, POS billing, inventory and reports for multi-cuisine restaurants with Geni Menu.',
+            'keywords' => 'Multi-Cuisine Restaurant Management Software, Multi-Cuisine Restaurant Software, Restaurant Management Software, Multi-Cuisine POS, Restaurant Table Management, Multi-Cuisine KOT Software, Digital Menu for Restaurants, Restaurant Billing Software, Multi-Cuisine Inventory, Geni Menu, WeGeni'
+        ];
+        return view('frontend.solutions.multi-cuisine-restaurant', compact('meta'));
+    }
+    public function qsrRestaurantSolution()
+    {
+        $meta = [
+            'title' => 'Quick Service Restaurant (QSR) Management Software | Geni Menu',
+            'description' => 'Fast Service. Smooth Operations. Happier Customers. Manage high-volume orders, digital menus, fast KOTs, POS billing, inventory and reports for QSRs and fast food outlets with Geni Menu.',
+            'keywords' => 'Quick Service Restaurant Management Software, QSR Software, Fast Food Restaurant POS, QSR Billing Software, QSR KOT System, Fast Food Order Management, QSR Inventory Software, Digital Menu for QSR, Geni Menu, WeGeni'
+        ];
+        return view('frontend.solutions.quick-service-restaurant', compact('meta'));
+    }
+
+    public function takeawayRestaurantSolution()
+    {
+        $meta = [
+            'title' => 'Takeaway Restaurant Management Software | Geni Menu',
+            'description' => 'Make Every Takeaway Order Fast, Simple & Organized. Manage takeaway menus, orders, KOTs, kitchen operations, pickup, billing, inventory and reports with Geni Menu.',
+            'keywords' => 'Takeaway Restaurant Management Software, Takeaway Software, Takeaway POS, Pickup Management System, Counter Order POS, Takeaway KOT System, Takeaway Billing Software, Geni Menu, WeGeni'
+        ];
+        return view('frontend.solutions.takeaway-restaurants', compact('meta'));
+    }
+
+    public function collegeCanteenSolution()
+    {
+        $meta = [
+            'title' => 'College Canteen Management Software | Geni Menu',
+            'description' => 'Smarter Canteen Operations. Better Student Experience. Manage college canteen menus, food orders, multi-counter operations, KOTs, kitchen preparation, POS billing, inventory and daily analytics with Geni Menu.',
+            'keywords' => 'College Canteen Management Software, Campus Cafeteria Software, University Food Service Software, Student Canteen POS, College Food Ordering System, Canteen KOT Software, Canteen Billing Software, Geni Menu, WeGeni'
+        ];
+        return view('frontend.solutions.college-canteen', compact('meta'));
+    }
+
+    public function officeCanteenSolution()
+    {
+        $meta = [
+            'title' => 'Office Canteen Management Software | Geni Menu',
+            'description' => 'Smarter Office Canteen Operations. Better Employee Experience. Manage office canteen menus, employee food orders, corporate cafeteria counters, KOTs, kitchen operations, billing, inventory and reports with Geni Menu.',
+            'keywords' => 'Office Canteen Management Software, Corporate Cafeteria Software, Workplace Food Service Software, Employee Canteen POS, Office Food Ordering System, Corporate KOT System, Office Canteen Billing Software, Geni Menu, WeGeni'
+        ];
+        return view('frontend.solutions.office-canteen', compact('meta'));
+    }
+
+    public function sweetShopSolution()
+    {
+        $meta = [
+            'title' => 'Sweet Shop Management Software | Geni Menu',
+            'description' => 'Manage sweet shop products, orders, billing, customers, inventory and reports with Geni Menu. Built for modern sweet shops and multi-branch sweet businesses.',
+            'keywords' => 'Sweet Shop Management Software, Mithai Shop Software, Sweet Store POS, Indian Sweet Shop Billing Software, Bakery and Sweet Shop Management, Weight Based Billing Software, Geni Menu, WeGeni'
+        ];
+        return view('frontend.solutions.sweet-shop', compact('meta'));
+    }
+
+    public function bakerySolution()
+    {
+        $meta = [
+            'title' => 'Bakery & Cake Shop Management Software | Geni Menu',
+            'description' => 'Manage your bakery products, cakes, custom cake orders, billing, inventory, and daily operations from one connected platform built for modern bakeries and cake shops.',
+            'keywords' => 'Bakery Management Software, Cake Shop POS, Bakery Billing Software, Custom Cake Order Management, Cake Shop Inventory Software, Geni Menu, WeGeni'
+        ];
+        return view('frontend.solutions.bakery', compact('meta'));
+    }
+
+    public function juiceAndSnacksSolution()
+    {
+        $meta = [
+            'title' => 'Juice & Snack Shop Management Software | Geni Menu',
+            'description' => 'Manage your drinks, desserts, snacks, customer orders, billing, inventory and daily operations from one connected platform built for juice shops, ice cream parlours, chaat and tea shops.',
+            'keywords' => 'Juice Shop POS, Ice Cream Parlour Software, Chaat Shop Billing, Tea Shop Management, Snack Shop Software, Restaurant POS, Geni Menu, WeGeni'
+        ];
+        return view('frontend.solutions.juice-and-snacks', compact('meta'));
+    }
+
+    public function barsAndBreweriesSolution()
+    {
+        $meta = [
+            'title' => 'Bars & Breweries Management Software | Geni Menu',
+            'description' => 'Manage menus, table service, orders, billing, payments, inventory and daily operations from one connected platform built for modern bars, pubs and breweries.',
+            'keywords' => 'Bar Management Software, Brewery POS, Pub Management System, Restobar Software, Restaurant Table Management, Geni Menu, WeGeni'
+        ];
+        return view('frontend.solutions.bars-and-breweries', compact('meta'));
+    }
+
+    public function pizzeriasSolution()
+    {
+        $meta = [
+            'title' => 'Pizzeria & Specialty Food Shop Management | Geni Menu',
+            'description' => 'Manage your signature products, customer orders, billing, kitchen workflow, inventory and business reports from one connected platform built for pizzerias, burger shops, and specialty cafes.',
+            'keywords' => 'Pizzeria Software, Burger Shop POS, Specialty Food Shop Management, Fast Food POS, Restaurant Management, Geni Menu, WeGeni'
+        ];
+        return view('frontend.solutions.pizzerias', compact('meta'));
+    }
+
     public function aboutUs()
     {
         $meta = [
