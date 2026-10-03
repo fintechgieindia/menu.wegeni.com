@@ -294,11 +294,6 @@
 <body class="font-sans antialiased :bg-gray-900">
 
     <div class="">
-<<<<<<< HEAD
-        @include('layouts.partials.zoho-navbar')
-
-        <div class="flex overflow-hidden mx-auto :bg-gray-900">
-=======
         @if(!request()->is('restaurant-signup'))
         <header class="lg:hidden">
             <nav class="bg-white border-gray-200 px-4 py-2.5 :bg-gray-800 :text-gray">
@@ -482,7 +477,6 @@
         @endif
 
         <div class="flex @if(!request()->is('restaurant-signup')) mt-4 @endif overflow-hidden mx-auto :bg-gray-900">
->>>>>>> 62b8b7803a78de9fc8258a784c2837deef8dd638
             <div id="main-content" class="w-full h-full overflow-y-auto :bg-gray-900 main-container">
                 <main>
 

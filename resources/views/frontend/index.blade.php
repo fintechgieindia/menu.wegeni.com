@@ -2262,15 +2262,325 @@ section.alt .faq .q {
   color: var(--br-dark);
 }
 
-/* Growth Section */
-.dots { display: flex; justify-content: center; align-items: center; gap: 14px; margin-bottom: 44px; font-weight: 700; flex-wrap: wrap; font-family: 'Plus Jakarta Sans', sans-serif; }
-.dots span { padding: 10px 22px; border-radius: 99px; border: 1px solid var(--br); color: var(--br); background: var(--bg2); font-size: 15px; display: inline-flex; align-items: center; gap: 8px; }
-.dots b { color: var(--br); font-size: 18px; }
-.gr { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.gr > div, .gr .card { padding: 32px; background: #fff; border-radius: 20px; border: 1px solid var(--line); box-shadow: var(--shadow-sm); display: flex; flex-direction: column; transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease; }
-.gr > div:hover, .gr .card:hover { transform: translateY(-5px); border-color: rgba(135, 96, 57, 0.38); box-shadow: var(--shadow-md); }
-.gr h3 { margin: 16px 0 8px; font-size: 20px; font-family: 'Outfit', sans-serif; font-weight: 800; color: #21160F; }
-.gr p { font-size: 14.5px; line-height: 1.55; color: var(--mute); }
+/* ==========================================================================
+   SCALE & GROWTH SECTION — EXACT DESIGN MATCHING SCREENSHOT
+   ========================================================================== */
+.growth-section {
+  padding: 85px 0 105px;
+  background-color: #FBF7F1;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Side decorative ambiance & food images */
+.growth-side-decor-left {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  width: 170px;
+  height: auto;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.95;
+}
+
+.growth-side-decor-right {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  width: 180px;
+  height: auto;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.95;
+}
+
+/* Floating 3-Icon Curved Dotted Wave Line */
+.growth-flow-wrapper {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto 12px;
+  padding: 0 20px;
+}
+
+.growth-connector-svg {
+  position: absolute;
+  top: 50%;
+  left: 14%;
+  right: 14%;
+  width: 72%;
+  height: 40px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.growth-floating-icons-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.growth-floating-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #FFFDF9;
+  border: 1.5px solid #E7D5C3;
+  box-shadow: 0 4px 14px rgba(91, 53, 29, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #A85B2B;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.growth-floating-icon svg {
+  width: 20px;
+  height: 20px;
+  stroke-width: 1.8;
+}
+
+.growth-floating-icon:hover {
+  transform: scale(1.12);
+  border-color: #A85B2B;
+  background: #FFFFFF;
+  box-shadow: 0 6px 18px rgba(168, 91, 43, 0.22);
+}
+
+/* Header Area */
+.growth-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.growth-title {
+  font-family: 'Plus Jakarta Sans', 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: clamp(34px, 4.4vw, 48px);
+  color: #21160F;
+  line-height: 1.15;
+  letter-spacing: -1px;
+  margin: 0 0 6px;
+}
+
+.growth-title .growth-serif {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-weight: 700;
+  color: #A85B2B;
+  display: inline-block;
+  position: relative;
+}
+
+.growth-sparkle {
+  color: #A85B2B;
+  font-size: 18px;
+  display: inline-block;
+  vertical-align: middle;
+  opacity: 0.75;
+  margin: 0 4px;
+}
+
+.growth-subtitle {
+  font-family: 'Nunito Sans', 'Plus Jakarta Sans', sans-serif;
+  font-size: 15.5px;
+  color: #76675D;
+  line-height: 1.55;
+  margin: 14px auto 22px;
+  max-width: 620px;
+}
+
+/* Connected Stage Pills */
+.growth-pills-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 34px;
+}
+
+.growth-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  border-radius: 99px;
+  background: #FFFFFF;
+  border: 1px solid #E7D5C3;
+  color: #5B351D;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13.5px;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(33, 22, 15, 0.04);
+}
+
+.growth-pill svg {
+  color: #A85B2B;
+}
+
+.growth-pill-arrow {
+  color: #A85B2B;
+  font-size: 16px;
+  font-weight: 900;
+  opacity: 0.8;
+}
+
+/* 3 Growth Cards Grid */
+.growth-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.growth-card {
+  background: #FFFFFF;
+  border: 1.5px solid #E7D5C3;
+  border-radius: 24px;
+  padding: 16px;
+  box-shadow: 0 6px 22px rgba(33, 22, 15, 0.04);
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 12px;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+}
+
+.growth-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(168, 91, 43, 0.12);
+  border-color: rgba(168, 91, 43, 0.4);
+}
+
+.growth-card-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: 4px 0 4px 4px;
+}
+
+.growth-card-icon-box {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #A85B2B;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 10px rgba(168, 91, 43, 0.25);
+  transition: transform 0.25s ease;
+}
+
+.growth-card:hover .growth-card-icon-box {
+  transform: scale(1.08);
+}
+
+.growth-card-icon-box svg {
+  width: 20px;
+  height: 20px;
+  stroke-width: 2;
+}
+
+.growth-card-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: 14.5px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: #21160F;
+  margin: 0 0 6px;
+  line-height: 1.2;
+}
+
+.growth-card-desc {
+  font-family: 'Nunito Sans', 'Plus Jakarta Sans', sans-serif;
+  font-size: 11.8px;
+  color: #76675D;
+  line-height: 1.45;
+  margin: 0 0 14px;
+}
+
+.growth-card-arrow {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #F4E8D8;
+  color: #A85B2B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 800;
+  border: 1px solid rgba(168, 91, 43, 0.15);
+  margin-top: auto;
+  transition: background-color 0.25s, color 0.25s, transform 0.25s;
+}
+
+.growth-card:hover .growth-card-arrow {
+  background: #A85B2B;
+  color: #FFFFFF;
+  transform: translateX(3px);
+}
+
+.growth-card-visual-wrap {
+  position: relative;
+  height: 138px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #F4ECE1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.growth-card-visual-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.growth-card:hover .growth-card-visual-img {
+  transform: scale(1.06);
+}
+
+@media (max-width: 1100px) {
+  .growth-side-decor-left,
+  .growth-side-decor-right {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .growth-cards-grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+  }
+  .growth-flow-wrapper {
+    display: none;
+  }
+}
 
 /* Reports Section - Clean White Styled */
 .dk { background: #FFFFFF; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
@@ -3087,23 +3397,109 @@ footer li a:hover { color: var(--br); }
 </section>
 
 <!-- Section: Scale & Growth -->
-<section class="alt">
-  <div class="food-bg-icon float-2" style="top: 15%; right: 4%; width: 120px; height: 120px;" title="Multi-branch Building">
-    <svg viewBox="0 0 24 24"><path d="M3 21h18M3 7v14M21 7v14M6 7l6-4 6 4M9 11h2M13 11h2M9 15h2M13 15h2"/></svg>
-  </div>
+<section class="growth-section">
+  <!-- Decorative side ambiance photo and food plate -->
+  <img src="{{ asset('assets/images/growth-header-left-ambiance.png') }}" class="growth-side-decor-left" alt="Restaurant Dining Ambiance" loading="lazy">
+  <img src="{{ asset('assets/images/growth-header-right-biryani.png') }}" class="growth-side-decor-right" alt="Fresh Aromatic Food Plate" loading="lazy">
+
   <div class="w">
-    <div class="hd r">
-      <h2><span class="title-grad">Start Small.</span><br><span class="sf">Grow Easily.</span></h2>
-      <p>Whether you have one outlet or multiple branches, Geni Menu helps you manage your business as you grow.</p>
+    <!-- Floating 3-Icon Curved Dotted Wave Line -->
+    <div class="growth-flow-wrapper r">
+      <svg class="growth-connector-svg" viewBox="0 0 800 40" preserveAspectRatio="none">
+        <path d="M 60 20 Q 220 5, 400 20 T 740 20" fill="none" stroke="#D4A574" stroke-width="1.8" stroke-dasharray="5 5" opacity="0.75" />
+      </svg>
+      <div class="growth-floating-icons-row">
+        <!-- 1. Store/Branch -->
+        <div class="growth-floating-icon" title="One Restaurant">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <!-- 2. Kitchen -->
+        <div class="growth-floating-icon" title="Multiple Kitchens">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 13.8A6 6 0 0 1 12 4a6 6 0 0 1 6 9.8V17H6v-3.2zM4 17h16v3H4zM12 4V2"/></svg>
+        </div>
+        <!-- 3. Multi-branch -->
+        <div class="growth-floating-icon" title="Multiple Branches">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 21h18M3 7v14M21 7v14M6 7l6-4 6 4M9 11h2M13 11h2M9 15h2M13 15h2"/></svg>
+        </div>
+      </div>
     </div>
-    <div class="dots r">
-      <span>🍽️ One restaurant</span>
-      <b>→</b>
-      <span>👨‍🍳 Multiple kitchens</span>
-      <b>→</b>
-      <span>🏢 Multiple branches</span>
+
+    <!-- Section Header -->
+    <div class="growth-header r">
+      <h2 class="growth-title">
+        Start Small.<br>
+        <span class="growth-serif"><span class="growth-sparkle">✦</span> Grow Easily. <span class="growth-sparkle">✦</span></span>
+      </h2>
+      <p class="growth-subtitle">
+        Whether you have one outlet or multiple branches, Geni Menu helps you manage your business as you grow.
+      </p>
+
+      <!-- Connected Stage Pills -->
+      <div class="growth-pills-row">
+        <span class="growth-pill">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8zM6 1v3M10 1v3M14 1v3"/></svg>
+          One restaurant
+        </span>
+        <span class="growth-pill-arrow">&rarr;</span>
+        <span class="growth-pill">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 13.8A6 6 0 0 1 12 4a6 6 0 0 1 6 9.8V17H6v-3.2zM4 17h16v3H4zM12 4V2"/></svg>
+          Multiple kitchens
+        </span>
+        <span class="growth-pill-arrow">&rarr;</span>
+        <span class="growth-pill">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M3 7v14M21 7v14M6 7l6-4 6 4M9 11h2M13 11h2M9 15h2M13 15h2"/></svg>
+          Multiple branches
+        </span>
+      </div>
     </div>
-    <div class="gr" id="gr"></div>
+
+    <!-- 3 Growth Cards Grid -->
+    <div class="growth-cards-grid r">
+      <!-- Card 01: One Branch -->
+      <div class="growth-card">
+        <div class="growth-card-info">
+          <div class="growth-card-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <h3 class="growth-card-title">ONE BRANCH</h3>
+          <p class="growth-card-desc">Manage your complete daily dining and counter operations.</p>
+          <div class="growth-card-arrow">&rarr;</div>
+        </div>
+        <div class="growth-card-visual-wrap">
+          <img src="{{ asset('assets/images/growth-clean-photo-1.png') }}" alt="Single Restaurant Branch Operations" class="growth-card-visual-img" loading="lazy">
+        </div>
+      </div>
+
+      <!-- Card 02: Multiple Kitchens -->
+      <div class="growth-card">
+        <div class="growth-card-info">
+          <div class="growth-card-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 13.8A6 6 0 0 1 12 4a6 6 0 0 1 6 9.8V17H6v-3.2zM4 17h16v3H4zM12 4V2"/></svg>
+          </div>
+          <h3 class="growth-card-title">MULTIPLE KITCHENS</h3>
+          <p class="growth-card-desc">Keep main kitchen, pantry and bar orders organized.</p>
+          <div class="growth-card-arrow">&rarr;</div>
+        </div>
+        <div class="growth-card-visual-wrap">
+          <img src="{{ asset('assets/images/growth-clean-photo-2.png') }}" alt="Multiple Kitchen KOT Routing" class="growth-card-visual-img" loading="lazy">
+        </div>
+      </div>
+
+      <!-- Card 03: Multiple Branches -->
+      <div class="growth-card">
+        <div class="growth-card-info">
+          <div class="growth-card-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 21h18M3 7v14M21 7v14M6 7l6-4 6 4M9 11h2M13 11h2M9 15h2M13 15h2"/></svg>
+          </div>
+          <h3 class="growth-card-title">MULTIPLE BRANCHES</h3>
+          <p class="growth-card-desc">Manage all your restaurant outlets from one central dashboard.</p>
+          <div class="growth-card-arrow">&rarr;</div>
+        </div>
+        <div class="growth-card-visual-wrap">
+          <img src="{{ asset('assets/images/growth-clean-photo-3.png') }}" alt="Multi-outlet Restaurant Chain Management" class="growth-card-visual-img" loading="lazy">
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
