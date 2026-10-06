@@ -84,6 +84,19 @@ class RestaurantSignup extends Component
 
         $this->allPhoneCodes = $allCountries->pluck('phonecode')->unique()->filter()->values();
         $this->filteredPhoneCodes = $this->allPhoneCodes;
+
+        if (request()->has('plan')) {
+            session(['selected_plan' => request()->get('plan')]);
+        }
+        if (request()->has('package_id')) {
+            session(['selected_package_id' => request()->get('package_id')]);
+        }
+        if (request()->has('package')) {
+            session(['selected_package_id' => request()->get('package')]);
+        }
+        if (request()->has('cycle')) {
+            session(['selected_billing_cycle' => request()->get('cycle')]);
+        }
     }
 
 
@@ -347,7 +360,21 @@ class RestaurantSignup extends Component
             // Reset form state after successful creation
             $this->resetFormState();
 
-            return redirect(RouteServiceProvider::ONBOARDING_STEPS);
+            $packageParam = session('selected_package_id');
+            $planParam = session('selected_plan');
+            $cycleParam = session('selected_billing_cycle');
+
+            $redirectParams = [];
+            if ($packageParam) {
+                $redirectParams['package_id'] = $packageParam;
+            } elseif ($planParam) {
+                $redirectParams['plan'] = $planParam;
+            }
+            if ($cycleParam) {
+                $redirectParams['cycle'] = $cycleParam;
+            }
+
+            return redirect()->route('pricing.plan', $redirectParams);
         } catch (\Exception $e) {
             \Log::error('Error during restaurant signup: ' . $e->getMessage());
             session()->flash('error', 'An error occurred during signup. Please try again.');

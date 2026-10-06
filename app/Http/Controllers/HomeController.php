@@ -194,6 +194,15 @@ class HomeController extends Controller
         ];
         return view('frontend.faq-help', compact('meta'));
     }
+    public function solutions()
+    {
+        $meta = [
+            'title' => 'Geni Menu Solutions | Restaurant & Food Business Management Platform',
+            'description' => 'Explore tailored Geni Menu solutions for family restaurants, dine-in, fine dining, QSR, takeaway, bakeries, cafes, canteens, sweet shops, pizzerias, bars, and multi-branch chains.',
+            'keywords' => 'restaurant solutions, food business management software, QSR software, bakery POS, canteen management system, fine dining software, sweet shop POS, multi-branch restaurant ERP, Geni Menu solutions'
+        ];
+        return view('frontend.solutions', compact('meta'));
+    }
     public function features()
     {
         $meta = [

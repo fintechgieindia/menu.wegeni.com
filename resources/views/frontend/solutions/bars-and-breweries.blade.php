@@ -46,7 +46,7 @@ body {
 h1, h2, h3, h4, h5 {
   margin: 0;
   font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
-  font-weight: 800;
+  font-weight: 500;
   line-height: 1.15;
   letter-spacing: -0.02em;
   color: var(--ink);
@@ -80,7 +80,7 @@ ul { list-style: none; margin: 0; padding: 0; }
   gap: 8px;
   font-size: 12px;
   letter-spacing: .16em;
-  font-weight: 800;
+  font-weight: 500;
   text-transform: uppercase;
   color: var(--br);
   margin-bottom: 16px;
@@ -117,7 +117,7 @@ section.dark-sec p { color: rgba(255, 255, 255, 0.7); }
 .btn.o:hover { background: var(--br); color: #fff; transform: translateY(-2px); }
 
 /* Badges */
-.badge { font-size: 11px; font-weight: 800; padding: 4px 10px; border-radius: 8px; text-transform: uppercase; display: inline-block; letter-spacing: .04em; }
+.badge { font-size: 11px; font-weight: 500; padding: 4px 10px; border-radius: 8px; text-transform: uppercase; display: inline-block; letter-spacing: .04em; }
 .badge.ready { background: #d1fae5; color: #047857; }
 .badge.preparing { background: #ffedd5; color: #c2410c; }
 .badge.new { background: #eff6ff; color: #1d4ed8; }
@@ -127,7 +127,7 @@ section.dark-sec p { color: rgba(255, 255, 255, 0.7); }
 .badge.available { background: #d1fae5; color: #047857; }
 
 /* ---------------- BREADCRUMB ---------------- */
-.bc { padding: 104px 0 16px; background: var(--dark); border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 14px; color: rgba(255,255,255,0.6); font-weight: 600; }
+.bc { padding: 18px 0 16px; background: var(--dark); border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 14px; color: rgba(255,255,255,0.6); font-weight: 600; }
 .bc .w { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .bc a { color: rgba(255,255,255,0.6); transition: color .2s; }
 .bc a:hover { color: #fff; }
@@ -141,12 +141,12 @@ section.dark-sec p { color: rgba(255, 255, 255, 0.7); }
 
 .hero-ui { background: var(--dark2); border: 1px solid var(--line-dark); border-radius: 24px; box-shadow: var(--shadow-lg); overflow: hidden; position: relative; }
 .hero-ui-hdr { background: rgba(0,0,0,0.2); padding: 16px 20px; border-bottom: 1px solid var(--line-dark); display: flex; justify-content: space-between; align-items: center; }
-.hero-ui-hdr-title { font-weight: 800; font-size: 14px; color: #fff; display: flex; align-items: center; gap: 8px; }
+.hero-ui-hdr-title { font-weight: 500; font-size: 14px; color: #fff; display: flex; align-items: center; gap: 8px; }
 .hero-ui-grid { padding: 20px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
 
 .hu-stat { padding: 16px; border-radius: 12px; border: 1px solid var(--line-dark); background: rgba(255,255,255,0.03); }
-.hu-stat-lbl { font-size: 11px; font-weight: 800; color: rgba(255,255,255,0.5); text-transform: uppercase; margin-bottom: 4px; }
-.hu-stat-val { font-size: 24px; font-weight: 900; color: #fff; }
+.hu-stat-lbl { font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.5); text-transform: uppercase; margin-bottom: 4px; }
+.hu-stat-val { font-size: 24px; font-weight: 500; color: #fff; }
 
 /* ---------------- SECTION 4: FEATURES ---------------- */
 .eco-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
@@ -175,38 +175,38 @@ section.dark-sec p { color: rgba(255, 255, 255, 0.7); }
 .table-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
 .t-card { background: var(--dark2); border: 1px solid var(--line-dark); border-radius: 16px; padding: 20px; }
 .t-hdr { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
-.t-name { font-size: 18px; font-weight: 800; color: #fff; }
+.t-name { font-size: 18px; font-weight: 500; color: #fff; }
 .t-det { font-size: 13px; color: rgba(255,255,255,0.6); display: flex; justify-content: space-between; margin-bottom: 8px; }
 
 /* ---------------- SECTION 7 & 8: TABLE ORDERS & POS ---------------- */
 .order-ticket { background: var(--dark2); border: 1px solid var(--line-dark); border-radius: 16px; padding: 20px; position: relative; color: #fff; }
 .ot-hdr { display: flex; justify-content: space-between; margin-bottom: 16px; border-bottom: 1px solid var(--line-dark); padding-bottom: 12px; }
 .bill-panel { background: #fff; border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow-md); overflow: hidden; }
-.bp-hdr { padding: 16px 20px; background: var(--bg2); border-bottom: 1px solid var(--line); font-weight: 800; font-size: 15px; display: flex; justify-content: space-between; }
+.bp-hdr { padding: 16px 20px; background: var(--bg2); border-bottom: 1px solid var(--line); font-weight: 500; font-size: 15px; display: flex; justify-content: space-between; }
 .bp-body { padding: 20px; }
 .bp-item { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; font-size: 14px; }
 .bp-item-qty { font-size: 12px; color: var(--mute); display: block; }
-.bp-total { display: flex; justify-content: space-between; padding: 16px 0; border-top: 2px dashed var(--line); margin-top: 8px; font-weight: 800; font-size: 20px; color: var(--br); }
+.bp-total { display: flex; justify-content: space-between; padding: 16px 0; border-top: 2px dashed var(--line); margin-top: 8px; font-weight: 500; font-size: 20px; color: var(--br); }
 .bp-actions { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 16px; }
 .bp-btn { padding: 12px; border-radius: 8px; border: 1px solid var(--line); background: #fff; font-weight: 700; font-size: 13px; cursor: pointer; text-align: center; }
 .bp-btn.p { background: var(--br); color: #fff; border-color: var(--br); }
 
 /* ---------------- SECTION 9 & 10: ORDERS & KOT ---------------- */
 .ot-flow { display: flex; gap: 8px; margin-top: 16px; }
-.ot-step { flex: 1; text-align: center; font-size: 10px; font-weight: 800; text-transform: uppercase; padding: 8px 4px; border-radius: 6px; background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.5); border: 1px solid var(--line-dark); display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.ot-step { flex: 1; text-align: center; font-size: 10px; font-weight: 500; text-transform: uppercase; padding: 8px 4px; border-radius: 6px; background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.5); border: 1px solid var(--line-dark); display: flex; flex-direction: column; align-items: center; gap: 4px; }
 .ot-step svg { width: 14px; height: 14px; }
 .ot-step.done { background: rgba(135,96,57,0.2); color: #e6c594; border-color: rgba(135,96,57,0.5); }
 
 /* ---------------- SECTION 11 & 12: PEAK & RESERVATIONS ---------------- */
 .fest-dash { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 16px; }
 .fd-card { padding: 20px; background: #fff; border: 1px solid var(--line); border-radius: 16px; text-align: center; }
-.fd-val { font-size: 32px; font-weight: 900; color: var(--br); line-height: 1.2; }
+.fd-val { font-size: 32px; font-weight: 500; color: var(--br); line-height: 1.2; }
 .fd-lbl { font-size: 12px; font-weight: 700; color: var(--mute); text-transform: uppercase; }
 
 .res-list { background: #fff; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
 .res-item { display: flex; justify-content: space-between; align-items: center; padding: 16px; border-bottom: 1px solid var(--line); }
 .res-item:last-child { border-bottom: none; }
-.res-time { font-weight: 800; color: var(--br); width: 80px; }
+.res-time { font-weight: 500; color: var(--br); width: 80px; }
 .res-name { font-weight: 700; flex: 1; }
 .res-guests { color: var(--mute); font-size: 14px; width: 80px; text-align: right; }
 
@@ -216,7 +216,7 @@ section.dark-sec p { color: rgba(255, 255, 255, 0.7); }
 .avail-item:last-child { border: none; }
 
 .inv-table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 16px; overflow: hidden; border: 1px solid var(--line); }
-.inv-table th { background: var(--bg2); padding: 12px 16px; text-align: left; font-size: 12px; font-weight: 800; color: var(--mute); text-transform: uppercase; border-bottom: 1px solid var(--line); }
+.inv-table th { background: var(--bg2); padding: 12px 16px; text-align: left; font-size: 12px; font-weight: 500; color: var(--mute); text-transform: uppercase; border-bottom: 1px solid var(--line); }
 .inv-table td { padding: 12px 16px; font-size: 14px; border-bottom: 1px solid var(--bg2); }
 .inv-table tr:last-child td { border-bottom: none; }
 
@@ -224,7 +224,7 @@ section.dark-sec p { color: rgba(255, 255, 255, 0.7); }
 .reports-preview { background: var(--dark2); color: #fff; border: 1px solid var(--line-dark); border-radius: 24px; padding: 36px; box-shadow: var(--shadow-lg); }
 .rp-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 32px; }
 .rp-stat-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 16px; }
-.rp-val { font-size: 24px; font-weight: 800; color: #fff; }
+.rp-val { font-size: 24px; font-weight: 500; color: #fff; }
 .rp-lbl { font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.6); }
 
 .cust-card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 20px; }
@@ -236,7 +236,7 @@ section.dark-sec p { color: rgba(255, 255, 255, 0.7); }
 .mb-panel { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 24px; }
 .mb-row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--line); }
 .mb-row:last-child { border-bottom: none; }
-.mb-val { font-weight: 800; color: var(--br); }
+.mb-val { font-weight: 500; color: var(--br); }
 
 /* ---------------- SECTION 19: BENEFITS ---------------- */
 .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
@@ -268,11 +268,9 @@ section.dark-sec p { color: rgba(255, 255, 255, 0.7); }
 .faq-item p { margin-top: 12px; font-size: 15px; color: var(--mute); }
 
 /* ---------------- CTA ---------------- */
-.cta-sec { padding: 120px 0; position: relative; }
-.cta-bg { position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=1920') center/cover; }
-.cta-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(26,21,18,0.9) 0%, rgba(26,21,18,0.95) 100%); }
+.cta-sec { padding: 100px 0; background: linear-gradient(135deg, #FAF4ED 0%, #EFE4D6 50%, #FAF4ED 100%); position: relative; overflow: hidden; border-top: 1px solid rgba(135, 96, 57, 0.16); text-align: center; }
 .cta-box { max-width: 760px; margin: auto; position: relative; z-index: 2; text-align: center; }
-.cta-box h2 { color: #fff; margin-bottom: 16px; }
+.cta-box h2 { color: #21160F; margin-bottom: 16px; }
 
 /* Responsive */
 @media (max-width: 1024px) {
@@ -284,7 +282,7 @@ section.dark-sec p { color: rgba(255, 255, 255, 0.7); }
 }
 
 @media (max-width: 768px) {
-  .bc { padding: 85px 0 14px; }
+  .bc { padding: 14px 0 14px; }
   .w { padding: 0 16px; }
 }
 
@@ -444,7 +442,7 @@ section.dark-sec p { color: rgba(255, 255, 255, 0.7); }
           <h4>Loaded Fries</h4>
           <p>Crispy fries topped with melted cheese, jalapeños and signature sauce.</p>
           <div class="pc-ft">
-            <span style="font-weight:800; color:var(--br);">₹280</span>
+            <span style="font-weight: 500; color:var(--br);">₹280</span>
             <span class="badge ready">Available</span>
           </div>
         </div>
@@ -455,7 +453,7 @@ section.dark-sec p { color: rgba(255, 255, 255, 0.7); }
           <h4>Classic Nachos</h4>
           <p>Tortilla chips with salsa, sour cream, guacamole and cheese.</p>
           <div class="pc-ft">
-            <span style="font-weight:800; color:var(--br);">₹320</span>
+            <span style="font-weight: 500; color:var(--br);">₹320</span>
             <span class="badge ready">Available</span>
           </div>
         </div>
@@ -466,7 +464,7 @@ section.dark-sec p { color: rgba(255, 255, 255, 0.7); }
           <h4>Spicy BBQ Wings</h4>
           <p>Chicken wings tossed in our house-made spicy BBQ sauce.</p>
           <div class="pc-ft">
-            <span style="font-weight:800; color:var(--br);">₹380</span>
+            <span style="font-weight: 500; color:var(--br);">₹380</span>
             <span class="badge ready">Available</span>
           </div>
         </div>
@@ -477,7 +475,7 @@ section.dark-sec p { color: rgba(255, 255, 255, 0.7); }
           <h4>Virgin Mojito</h4>
           <p>Classic refreshing mocktail with mint, lime and soda.</p>
           <div class="pc-ft">
-            <span style="font-weight:800; color:var(--br);">₹220</span>
+            <span style="font-weight: 500; color:var(--br);">₹220</span>
             <span class="badge ready">Available</span>
           </div>
         </div>
@@ -523,7 +521,7 @@ section.dark-sec p { color: rgba(255, 255, 255, 0.7); }
 
       <div class="order-ticket">
         <div class="ot-hdr">
-          <span style="font-weight:900; font-size:16px;">TABLE 08</span>
+          <span style="font-weight: 500; font-size:16px;">TABLE 08</span>
           <span class="badge preparing">Preparing</span>
         </div>
         
@@ -600,7 +598,7 @@ section.dark-sec p { color: rgba(255, 255, 255, 0.7); }
       <div class="order-ticket" style="background:#fff; color:var(--ink); border-color:var(--line);">
         <div class="ot-hdr" style="border-color:var(--line);">
           <div>
-            <span style="font-weight:900; font-size:16px; display:block;">ORDER #5082</span>
+            <span style="font-weight: 500; font-size:16px; display:block;">ORDER #5082</span>
             <span style="font-size:13px; color:var(--mute);">Table 08</span>
           </div>
           <span class="badge preparing">Preparing</span>
@@ -662,8 +660,8 @@ section.dark-sec p { color: rgba(255, 255, 255, 0.7); }
         <h3 style="margin-bottom:16px;">Keep the Kitchen in Sync.</h3>
         <div style="background:#fff; padding:16px; border-radius:12px; border:1px solid var(--line);">
           <div style="display:flex; justify-content:space-between; border-bottom:1px dashed var(--line); padding-bottom:8px; margin-bottom:12px;">
-            <span style="font-weight:800;">KOT #3098</span>
-            <span style="font-weight:800; color:var(--br);">TABLE 08</span>
+            <span style="font-weight: 500;">KOT #3098</span>
+            <span style="font-weight: 500; color:var(--br);">TABLE 08</span>
           </div>
           <ul style="font-size:14px; margin-bottom:12px;">
             <li style="display:flex; justify-content:space-between; margin-bottom:4px;"><span>2 × Grilled Chicken</span></li>
@@ -800,11 +798,11 @@ section.dark-sec p { color: rgba(255, 255, 255, 0.7); }
             <strong style="display:block; font-size:18px; color:#fff;">Arun Kumar</strong>
           </div>
           <div style="text-align:right;">
-            <span style="font-size:11px; font-weight:800; color:rgba(255,255,255,0.5);">TOTAL ORDERS</span>
+            <span style="font-size:11px; font-weight: 500; color:rgba(255,255,255,0.5);">TOTAL ORDERS</span>
             <strong style="display:block; font-size:18px; color:#e6c594;">18</strong>
           </div>
         </div>
-        <div style="font-size:12px; font-weight:800; color:rgba(255,255,255,0.5); margin-bottom:8px; text-transform:uppercase;">Recent Visits:</div>
+        <div style="font-size:12px; font-weight: 500; color:rgba(255,255,255,0.5); margin-bottom:8px; text-transform:uppercase;">Recent Visits:</div>
         <ul style="font-size:13px; color:rgba(255,255,255,0.8);">
           <li style="display:flex; justify-content:space-between; margin-bottom:4px;"><span>Dinner — Table 08</span></li>
           <li style="display:flex; justify-content:space-between; margin-bottom:4px;"><span>Lunch — Table 12</span></li>
@@ -827,19 +825,19 @@ section.dark-sec p { color: rgba(255, 255, 255, 0.7); }
       <div class="kit-grid">
         <div class="k-card">
           <h4 style="font-size:14px; margin-bottom:8px; color:#e6c594;">Main Kitchen</h4>
-          <span style="font-size:20px; font-weight:800;">12</span> <span style="font-size:13px; color:rgba(255,255,255,0.6);">Orders</span>
+          <span style="font-size:20px; font-weight: 500;">12</span> <span style="font-size:13px; color:rgba(255,255,255,0.6);">Orders</span>
         </div>
         <div class="k-card">
           <h4 style="font-size:14px; margin-bottom:8px; color:#e6c594;">Grill Station</h4>
-          <span style="font-size:20px; font-weight:800;">7</span> <span style="font-size:13px; color:rgba(255,255,255,0.6);">Orders</span>
+          <span style="font-size:20px; font-weight: 500;">7</span> <span style="font-size:13px; color:rgba(255,255,255,0.6);">Orders</span>
         </div>
         <div class="k-card">
           <h4 style="font-size:14px; margin-bottom:8px; color:#e6c594;">Snacks Station</h4>
-          <span style="font-size:20px; font-weight:800;">8</span> <span style="font-size:13px; color:rgba(255,255,255,0.6);">Orders</span>
+          <span style="font-size:20px; font-weight: 500;">8</span> <span style="font-size:13px; color:rgba(255,255,255,0.6);">Orders</span>
         </div>
         <div class="k-card">
           <h4 style="font-size:14px; margin-bottom:8px; color:#e6c594;">Dessert Station</h4>
-          <span style="font-size:20px; font-weight:800;">4</span> <span style="font-size:13px; color:rgba(255,255,255,0.6);">Orders</span>
+          <span style="font-size:20px; font-weight: 500;">4</span> <span style="font-size:13px; color:rgba(255,255,255,0.6);">Orders</span>
         </div>
       </div>
       <div style="font-size:12px; font-weight:700; color:var(--mute); text-align:center; margin-top:16px;">Order → Station → Preparation → Ready</div>
@@ -852,7 +850,7 @@ section.dark-sec p { color: rgba(255, 255, 255, 0.7); }
       <p style="margin-bottom:24px;">Monitor branch sales, tables, orders and inventory where multi-branch functionality is enabled.</p>
 
       <div class="mb-panel">
-        <div style="font-weight:800; font-size:14px; color:var(--mute); text-transform:uppercase; margin-bottom:12px;">All Locations</div>
+        <div style="font-weight: 500; font-size:14px; color:var(--mute); text-transform:uppercase; margin-bottom:12px;">All Locations</div>
         <div class="mb-row"><span>Tiruchengode</span><span class="mb-val">₹1,84,650</span></div>
         <div class="mb-row"><span>Namakkal</span><span class="mb-val">₹1,42,300</span></div>
         <div class="mb-row"><span>Salem</span><span class="mb-val">₹2,08,450</span></div>
@@ -930,27 +928,27 @@ section.dark-sec p { color: rgba(255, 255, 255, 0.7); }
 
     <div class="mob-preview">
       <div class="mob-inner">
-        <div style="font-weight:800; font-size:16px; margin-bottom:16px; color:#e6c594;">Bar Dashboard</div>
+        <div style="font-weight: 500; font-size:16px; margin-bottom:16px; color:#e6c594;">Bar Dashboard</div>
         <div style="background:rgba(255,255,255,0.05); border:1px solid var(--line-dark); padding:12px; border-radius:12px; margin-bottom:12px;">
           <div style="font-size:11px; font-weight:700; color:rgba(255,255,255,0.5);">TODAY'S SALES</div>
-          <div style="font-size:20px; font-weight:800; color:#fff;">₹1,84,650</div>
+          <div style="font-size:20px; font-weight: 500; color:#fff;">₹1,84,650</div>
         </div>
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:16px;">
           <div style="background:rgba(255,255,255,0.05); border:1px solid var(--line-dark); padding:12px; border-radius:12px;">
             <div style="font-size:11px; font-weight:700; color:rgba(255,255,255,0.5);">ACTIVE TABLES</div>
-            <div style="font-size:20px; font-weight:800; color:#fff;">18</div>
+            <div style="font-size:20px; font-weight: 500; color:#fff;">18</div>
           </div>
           <div style="background:rgba(255,255,255,0.05); border:1px solid var(--line-dark); padding:12px; border-radius:12px;">
             <div style="font-size:11px; font-weight:700; color:rgba(255,255,255,0.5);">OPEN ORDERS</div>
-            <div style="font-size:20px; font-weight:800; color:#fff;">24</div>
+            <div style="font-size:20px; font-weight: 500; color:#fff;">24</div>
           </div>
           <div style="background:rgba(255,255,255,0.05); border:1px solid var(--line-dark); padding:12px; border-radius:12px;">
             <div style="font-size:11px; font-weight:700; color:rgba(255,255,255,0.5);">RESERVATIONS</div>
-            <div style="font-size:20px; font-weight:800; color:#fff;">9</div>
+            <div style="font-size:20px; font-weight: 500; color:#fff;">9</div>
           </div>
           <div style="background:rgba(255,255,255,0.05); border:1px solid var(--line-dark); padding:12px; border-radius:12px;">
             <div style="font-size:11px; font-weight:700; color:rgba(255,255,255,0.5);">LOW STOCK</div>
-            <div style="font-size:20px; font-weight:800; color:#ef4444;">6</div>
+            <div style="font-size:20px; font-weight: 500; color:#ef4444;">6</div>
           </div>
         </div>
       </div>
@@ -1053,14 +1051,12 @@ section.dark-sec p { color: rgba(255, 255, 255, 0.7); }
 
 {{-- FINAL CTA --}}
 <section class="cta-sec">
-  <div class="cta-bg"></div>
-  <div class="cta-overlay"></div>
   <div class="w cta-box">
     <h2>Ready to Run Your Hospitality Business Smarter?</h2>
-    <p style="color:rgba(255,255,255,0.7); max-width:600px; margin:0 auto;">Manage menus, tables, reservations, orders, billing, inventory and business insights from one connected platform with Geni Menu.</p>
+    <p style="color:#6E6157; max-width:600px; margin:0 auto;">Manage menus, tables, reservations, orders, billing, inventory and business insights from one connected platform with Geni Menu.</p>
     <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:24px;">
-      <a href="{{ route('contact.us') }}" class="btn p">Get Started →</a>
-      <a href="{{ route('contact.us') }}" class="btn o" style="background:transparent; border-color:rgba(255,255,255,0.2); color:#fff;">Book a Demo</a>
+      <a href="{{ route('restaurant_signup') }}" class="btn p" style="background:#876039; color:#fff;">Get Started →</a>
+      <a href="{{ route('contact.us') }}" class="btn o" style="background:#fff; border-color:#876039; color:#876039;">Book a Demo</a>
     </div>
   </div>
 </section>

@@ -142,7 +142,7 @@
                 <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
                     <p class="text-blue-800 text-sm">
                         Please review our full Privacy Policy:
-                        <a href="{{ route('privacy_policy') }}" class="underline font-medium">Privacy Policy</a>
+                        <a href="{{ route('privacy.policy') }}" class="underline font-medium">Privacy Policy</a>
                     </p>
                 </div>
             </section>

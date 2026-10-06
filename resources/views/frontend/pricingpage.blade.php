@@ -46,7 +46,7 @@ body {
 h1, h2, h3, h4, h5 {
   margin: 0;
   font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
-  font-weight: 800;
+  font-weight: 500;
   line-height: 1.15;
   letter-spacing: -0.02em;
   color: var(--ink);
@@ -64,7 +64,7 @@ ul { list-style: none; margin: 0; padding: 0; }
   gap: 8px;
   font-size: 12px;
   letter-spacing: .16em;
-  font-weight: 800;
+  font-weight: 500;
   text-transform: uppercase;
   color: var(--br);
   margin-bottom: 16px;
@@ -93,7 +93,7 @@ section.alt { background: var(--bg2); }
 .billing-toggle { display: inline-flex; align-items: center; justify-content: center; background: #fff; border: 1px solid var(--line); border-radius: 99px; padding: 6px; box-shadow: var(--shadow-sm); margin: 0 auto; gap: 4px; }
 .bt-btn { padding: 10px 24px; border-radius: 99px; font-size: 14px; font-weight: 700; color: var(--mute); cursor: pointer; transition: .2s; user-select: none; border: none; background: transparent; }
 .bt-btn.act { background: var(--br); color: #fff; box-shadow: 0 4px 12px rgba(135,96,57,0.2); }
-.bt-save { font-size: 13px; font-weight: 800; color: var(--green); margin-left: 12px; padding: 4px 12px; background: #d1fae5; border-radius: 99px; display: inline-block; vertical-align: middle; }
+.bt-save { font-size: 13px; font-weight: 500; color: var(--green); margin-left: 12px; padding: 4px 12px; background: #d1fae5; border-radius: 99px; display: inline-block; vertical-align: middle; }
 
 /* Main Pricing Cards */
 .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1100px; margin: 0 auto; align-items: start; }
@@ -101,14 +101,14 @@ section.alt { background: var(--bg2); }
 .pr-card:hover { border-color: var(--br); box-shadow: var(--shadow-md); transform: translateY(-4px); }
 .pr-card.popular { border: 2px solid var(--br); box-shadow: var(--shadow-lg); transform: scale(1.02); }
 .pr-card.popular:hover { transform: scale(1.02) translateY(-4px); }
-.pr-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--br); color: #fff; font-size: 11px; font-weight: 800; padding: 6px 16px; border-radius: 99px; letter-spacing: .05em; box-shadow: 0 4px 10px rgba(135,96,57,0.3); }
-.pr-label { font-size: 13px; font-weight: 800; color: var(--mute); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 8px; }
-.pr-sub { font-size: 18px; font-weight: 800; color: var(--ink); margin-bottom: 12px; }
+.pr-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--br); color: #fff; font-size: 11px; font-weight: 500; padding: 6px 16px; border-radius: 99px; letter-spacing: .05em; box-shadow: 0 4px 10px rgba(135,96,57,0.3); }
+.pr-label { font-size: 13px; font-weight: 500; color: var(--mute); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 8px; }
+.pr-sub { font-size: 18px; font-weight: 500; color: var(--ink); margin-bottom: 12px; }
 .pr-desc { font-size: 14px; color: var(--mute); margin-bottom: 24px; line-height: 1.5; min-height: 42px; }
-.pr-price { font-size: 36px; font-weight: 900; color: var(--ink); margin-bottom: 8px; }
+.pr-price { font-size: 36px; font-weight: 500; color: var(--ink); margin-bottom: 8px; }
 .pr-price span { font-size: 14px; font-weight: 600; color: var(--mute); }
 .pr-freq { font-size: 13px; color: var(--mute); margin-bottom: 32px; font-weight: 600; }
-.pr-custom-price { font-size: 32px; font-weight: 900; color: var(--ink); margin-bottom: 8px; line-height: 1.2; padding-bottom: 18px; }
+.pr-custom-price { font-size: 32px; font-weight: 500; color: var(--ink); margin-bottom: 8px; line-height: 1.2; padding-bottom: 18px; }
 .pr-features { margin-top: 32px; margin-bottom: 32px; flex: 1; }
 .pr-feat-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 14px; font-size: 14px; color: var(--ink); }
 .pr-feat-icon { flex-shrink: 0; color: var(--br); }
@@ -126,19 +126,19 @@ section.alt { background: var(--bg2); }
 /* Compact Cards */
 .c-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .c-card { background: #fff; border: 1px solid var(--line); border-radius: 20px; padding: 24px; box-shadow: var(--shadow-sm); }
-.c-label { font-size: 12px; font-weight: 800; color: var(--mute); text-transform: uppercase; margin-bottom: 12px; }
-.c-price { font-size: 28px; font-weight: 900; color: var(--ink); margin-bottom: 16px; }
+.c-label { font-size: 12px; font-weight: 500; color: var(--mute); text-transform: uppercase; margin-bottom: 12px; }
+.c-price { font-size: 28px; font-weight: 500; color: var(--ink); margin-bottom: 16px; }
 .c-price span { font-size: 13px; font-weight: 600; color: var(--mute); }
 .c-feat { font-size: 14px; line-height: 1.6; color: var(--ink); }
 
 /* Comparison Table */
 .comp-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; background: #fff; border-radius: 20px; border: 1px solid var(--line); box-shadow: var(--shadow-md); margin-top: 32px; }
 .comp-table { width: 100%; border-collapse: collapse; min-width: 700px; }
-.comp-table th { padding: 16px 18px; text-align: center; font-size: 14px; font-weight: 800; border-bottom: 1px solid var(--line); background: #fff; position: sticky; top: 0; z-index: 10; }
+.comp-table th { padding: 16px 18px; text-align: center; font-size: 14px; font-weight: 500; border-bottom: 1px solid var(--line); background: #fff; position: sticky; top: 0; z-index: 10; }
 .comp-table th:first-child { text-align: left; }
 .comp-table td { padding: 14px 18px; text-align: center; border-bottom: 1px solid var(--bg2); font-size: 13.5px; }
 .comp-table td:first-child { text-align: left; font-weight: 600; color: var(--ink); }
-.comp-group { background: var(--bg2); font-weight: 800; text-transform: uppercase; font-size: 12px; letter-spacing: .05em; color: var(--mute); text-align: left !important; padding: 14px 18px !important; }
+.comp-group { background: var(--bg2); font-weight: 500; text-transform: uppercase; font-size: 12px; letter-spacing: .05em; color: var(--mute); text-align: left !important; padding: 14px 18px !important; }
 .check { color: var(--br); }
 .dash { color: #d1d5db; }
 
@@ -147,7 +147,7 @@ section.alt { background: var(--bg2); }
 .stage-card { padding: 32px 24px; background: #fff; border: 1px solid var(--line); border-radius: 20px; position: relative; }
 .stage-card::after { content: '→'; position: absolute; right: -20px; top: 50%; transform: translateY(-50%); font-size: 24px; color: var(--mute); z-index: 2; }
 .stage-card:last-child::after { display: none; }
-.stage-lbl { font-size: 12px; font-weight: 800; color: var(--br); margin-bottom: 16px; letter-spacing: .1em; }
+.stage-lbl { font-size: 12px; font-weight: 500; color: var(--br); margin-bottom: 16px; letter-spacing: .1em; }
 .stage-card h3 { margin-bottom: 8px; }
 
 /* FAQ */
@@ -158,12 +158,12 @@ section.alt { background: var(--bg2); }
 .faq-item p { margin-top: 12px; font-size: 15px; color: var(--mute); line-height: 1.6; }
 
 /* CTA */
-.cta-sec { padding: 80px 0; background: #1a1512; color: #fff; text-align: center; position: relative; overflow: hidden; }
+.cta-sec { padding: 90px 0; background: linear-gradient(135deg, #FAF4ED 0%, #EFE4D6 50%, #FAF4ED 100%); color: #21160F; text-align: center; position: relative; overflow: hidden; border-top: 1px solid rgba(135, 96, 57, 0.16); }
 .cta-box { position: relative; z-index: 2; max-width: 760px; margin: auto; }
-.cta-box h2 { color: #fff; margin-bottom: 16px; }
-.cta-box p { color: rgba(255,255,255,0.7); }
-.cta-flow { display: flex; justify-content: center; gap: 16px; align-items: center; margin-top: 40px; font-size: 13px; font-weight: 800; letter-spacing: .05em; color: rgba(255,255,255,0.5); flex-wrap: wrap; }
-.cta-flow span { color: #b88e56; }
+.cta-box h2 { color: #21160F; margin-bottom: 16px; }
+.cta-box p { color: #6E6157; font-size: 16.5px; line-height: 1.6; }
+.cta-flow { display: flex; justify-content: center; gap: 16px; align-items: center; margin-top: 36px; font-size: 13px; font-weight: 600; letter-spacing: .05em; color: #8C7C71; flex-wrap: wrap; }
+.cta-flow span { color: #876039; }
 
 /* Responsive */
 @media (max-width: 1024px) {
@@ -225,10 +225,10 @@ section.alt { background: var(--bg2); }
                         <div class="pr-freq">Starting price • Yearly plans available</div>
                     </div>
                     
-                    <a href="{{ route('contact.us') }}" class="btn o" style="width:100%;">Get Started →</a>
+                    <a href="{{ route('restaurant_signup', ['plan' => 'standard']) }}" class="btn o" style="width:100%;">Get Started &rarr;</a>
                     
                     <div class="pr-features">
-                        <div style="font-size:13px; font-weight:800; color:var(--ink); margin-bottom:16px;">INCLUDED</div>
+                        <div style="font-size:13px; font-weight: 500; color:var(--ink); margin-bottom:16px;">INCLUDED</div>
                         <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Menu Management</div>
                         <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Menu Categories</div>
                         <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Product Management</div>
@@ -254,10 +254,10 @@ section.alt { background: var(--bg2); }
                         <div class="pr-freq">Starting price • Yearly plans available</div>
                     </div>
                     
-                    <a href="{{ route('contact.us') }}" class="btn p" style="width:100%;">Start Premium →</a>
+                    <a href="{{ route('restaurant_signup', ['plan' => 'premium']) }}" class="btn p" style="width:100%;">Start Premium &rarr;</a>
                     
                     <div class="pr-features">
-                        <div style="font-size:13px; font-weight:800; color:var(--ink); margin-bottom:16px;">EVERYTHING IN STANDARD, PLUS:</div>
+                        <div style="font-size:13px; font-weight: 500; color:var(--ink); margin-bottom:16px;">EVERYTHING IN STANDARD, PLUS:</div>
                         <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Kitchen Management</div>
                         <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>KOT Management</div>
                         <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Table Management</div>
@@ -286,7 +286,7 @@ section.alt { background: var(--bg2); }
                     <a href="{{ route('contact.us') }}" class="btn o" style="width:100%;">Talk to Sales →</a>
                     
                     <div class="pr-features">
-                        <div style="font-size:13px; font-weight:800; color:var(--ink); margin-bottom:16px;">EVERYTHING IN PREMIUM, PLUS:</div>
+                        <div style="font-size:13px; font-weight: 500; color:var(--ink); margin-bottom:16px;">EVERYTHING IN PREMIUM, PLUS:</div>
                         <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Multi-Branch Management</div>
                         <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Branch-Wise Operations</div>
                         <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Centralized Management</div>
@@ -524,8 +524,8 @@ section.alt { background: var(--bg2); }
                 STANDARD <span>→</span> PREMIUM <span>→</span> ENTERPRISE
             </div>
             <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:32px;">
-                <a href="{{ route('contact.us') }}" class="btn p">Get Started →</a>
-                <a href="{{ route('contact.us') }}" class="btn o" style="background:transparent; border-color:rgba(255,255,255,0.2); color:#fff;">Book a Demo →</a>
+                <a href="{{ route('restaurant_signup') }}" class="btn p">Get Started &rarr;</a>
+                <a href="{{ route('restaurant_signup') }}" class="btn o" style="background:transparent; border:1.5px solid #876039; color:#876039;">Book a Demo &rarr;</a>
             </div>
         </div>
     </section>

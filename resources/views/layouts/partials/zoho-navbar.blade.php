@@ -7,10 +7,10 @@
     right: 0;
     z-index: 9999;
     background: #ffffff;
-    border-bottom: 1px solid #eaeaea;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    color: #222222;
+    border-bottom: 1px solid rgba(135, 96, 57, 0.14);
+    box-shadow: 0 4px 16px rgba(33, 22, 15, 0.04);
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    color: #21160F;
     -webkit-font-smoothing: antialiased;
   }
 
@@ -60,10 +60,10 @@
   }
 
   .geni-pos-nav .brand-title {
-    font-family: 'Fraunces', Georgia, serif;
+    font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
     font-size: 21px;
-    font-weight: 700;
-    color: #2A2420;
+    font-weight: 500;
+    color: #21160F;
     letter-spacing: -0.3px;
     display: inline-flex;
     align-items: center;
@@ -71,8 +71,8 @@
   }
 
   .geni-pos-nav .brand-highlight {
-    color: #9C6F3E;
-    font-weight: 800;
+    color: #876039;
+    font-weight: 500;
   }
 
   .geni-pos-nav .brand-tag {
@@ -98,32 +98,35 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    color: #262626;
+    color: #21160F;
     text-decoration: none;
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 600;
     transition: color 0.18s ease;
     white-space: nowrap;
     padding-right: 6px;
   }
 
   .geni-pos-nav .nav-tollfree:hover {
-    color: #9C6F3E;
+    color: #876039;
   }
 
   .geni-pos-nav .tollfree-circle {
     width: 26px;
     height: 26px;
     border-radius: 50%;
-    border: 1.5px solid #262626;
+    border: 1.5px solid #876039;
+    color: #876039;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: border-color 0.18s ease;
+    transition: all 0.18s ease;
   }
 
   .geni-pos-nav .nav-tollfree:hover .tollfree-circle {
-    border-color: #9C6F3E;
+    background: #876039;
+    color: #FFFFFF;
+    border-color: #876039;
   }
 
   .geni-pos-nav .tollfree-circle svg {
@@ -152,8 +155,8 @@
     align-items: center;
     gap: 5px;
     font-size: 14.5px;
-    font-weight: 500;
-    color: #262626;
+    font-weight: 600;
+    color: #21160F;
     text-decoration: none;
     background: transparent;
     border: none;
@@ -166,11 +169,11 @@
   .geni-pos-nav .nav-menu-link:hover,
   .geni-pos-nav .nav-menu-btn:hover,
   .geni-pos-nav .nav-menu-item:hover .nav-menu-btn {
-    color: #9C6F3E;
+    color: #876039;
   }
 
   .geni-pos-nav .nav-menu-link.nav-active {
-    color: #9C6F3E;
+    color: #876039;
     font-weight: 700;
   }
 
@@ -184,7 +187,7 @@
   .geni-pos-nav .nav-menu-item:hover .chevron-icon {
     transform: rotate(180deg);
     opacity: 1;
-    stroke: #9C6F3E;
+    stroke: #876039;
   }
 
   /* Dropdown panel */
@@ -294,21 +297,21 @@
 
   .geni-pos-nav .dropdown-card .card-title {
     font-size: 14px;
-    font-weight: 600;
-    color: #111827;
+    font-weight: 700;
+    color: #21160F;
     margin-bottom: 2px;
   }
 
   .geni-pos-nav .dropdown-card .card-desc {
     font-size: 12px;
-    color: #6b7280;
+    color: #6E6157;
     line-height: 1.4;
   }
 
   .geni-pos-nav .dropdown-footer {
     margin-top: 14px;
     padding-top: 12px;
-    border-top: 1px solid #f0f0f0;
+    border-top: 1px solid rgba(135, 96, 57, 0.12);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -317,7 +320,7 @@
   .geni-pos-nav .dropdown-footer a {
     font-size: 13px;
     font-weight: 600;
-    color: #9C6F3E;
+    color: #876039;
     text-decoration: none;
   }
 
@@ -329,6 +332,7 @@
   .geni-pos-nav .nav-dropdown.dropdown-simple {
     width: 290px;
     padding: 8px;
+    border: 1px solid rgba(135, 96, 57, 0.14);
   }
 
   .geni-pos-nav .dropdown-link-item {
@@ -343,20 +347,20 @@
   }
 
   .geni-pos-nav .dropdown-link-item:hover {
-    background: #f9f9fb;
+    background: #FAF7F2;
   }
 
   .geni-pos-nav .dropdown-link-item .item-icon {
     width: 36px;
     height: 36px;
     border-radius: 8px;
-    background: #fdfaf6;
-    color: #9C6F3E;
+    background: #FAF7F2;
+    color: #876039;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    border: 1px solid rgba(156, 111, 62, 0.15);
+    border: 1px solid rgba(135, 96, 57, 0.18);
   }
 
   .geni-pos-nav .dropdown-link-item .item-icon svg {
@@ -372,13 +376,13 @@
   .geni-pos-nav .dropdown-link-item .item-title {
     font-size: 13.5px;
     font-weight: 600;
-    color: #111827;
+    color: #21160F;
     display: block;
   }
 
   .geni-pos-nav .dropdown-link-item .item-sub {
     font-size: 11.5px;
-    color: #6b7280;
+    color: #6E6157;
     display: block;
     margin-top: 1px;
   }
@@ -393,19 +397,19 @@
 
   .geni-pos-nav .btn-signin {
     font-size: 14px;
-    font-weight: 500;
-    color: #262626;
+    font-weight: 600;
+    color: #21160F;
     text-decoration: none;
     transition: color 0.18s ease;
   }
 
   .geni-pos-nav .btn-signin:hover {
-    color: #9C6F3E;
+    color: #876039;
   }
 
   /* Geni Menu Sign Up Now pill button */
   .geni-pos-nav .btn-signup-pill {
-    background: #4A3524;
+    background: #876039;
     color: #ffffff !important;
     text-decoration: none;
     padding: 9px 24px;
@@ -418,15 +422,15 @@
     justify-content: center;
     border: none;
     cursor: pointer;
-    box-shadow: 0 2px 8px rgba(74, 53, 36, 0.28);
+    box-shadow: 0 3px 12px rgba(135, 96, 57, 0.28);
     transition: background 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
     white-space: nowrap;
   }
 
   .geni-pos-nav .btn-signup-pill:hover {
-    background: #362619;
+    background: #6f4e2d;
     transform: translateY(-1px);
-    box-shadow: 0 4px 14px rgba(74, 53, 36, 0.35);
+    box-shadow: 0 5px 16px rgba(135, 96, 57, 0.38);
   }
 
   /* Hamburger for mobile */
@@ -447,14 +451,14 @@
   }
 
   .geni-pos-nav .nav-burger-btn:hover {
-    background: rgba(0, 0, 0, 0.04);
+    background: rgba(135, 96, 57, 0.08);
   }
 
   .geni-pos-nav .nav-burger-btn span {
     display: block;
     width: 22px;
     height: 2px;
-    background: #262626;
+    background: #21160F;
     border-radius: 2px;
     transition: transform 0.25s ease, opacity 0.25s ease, background 0.25s ease;
   }
@@ -484,8 +488,8 @@
     -webkit-overflow-scrolling: touch;
     padding: 20px 20px 40px;
     z-index: 9998;
-    border-top: 1px solid #f0f0f0;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border-top: 1px solid rgba(135, 96, 57, 0.12);
+    box-shadow: 0 10px 30px rgba(33, 22, 15, 0.1);
   }
 
   .geni-pos-nav .mobile-panel.is-open {
@@ -497,12 +501,12 @@
     align-items: center;
     gap: 10px;
     padding: 12px 16px;
-    background: #fdfaf6;
-    border: 1px solid rgba(156, 111, 62, 0.18);
+    background: #FAF7F2;
+    border: 1px solid rgba(135, 96, 57, 0.18);
     border-radius: 12px;
     font-size: 14px;
     font-weight: 600;
-    color: #4A3524;
+    color: #21160F;
     text-decoration: none;
     margin-bottom: 16px;
   }
@@ -514,7 +518,7 @@
   }
 
   .geni-pos-nav .mobile-list-item {
-    border-bottom: 1px solid #f3f4f6;
+    border-bottom: 1px solid rgba(135, 96, 57, 0.1);
   }
 
   .geni-pos-nav .mobile-direct-link,
@@ -526,7 +530,7 @@
     padding: 14px 4px;
     font-size: 15px;
     font-weight: 600;
-    color: #1f2937;
+    color: #21160F;
     text-decoration: none;
     background: transparent;
     border: none;
@@ -544,7 +548,7 @@
 
   .geni-pos-nav .mobile-list-item.is-expanded .mobile-chevron {
     transform: rotate(90deg);
-    color: #9C6F3E;
+    color: #876039;
   }
 
   .geni-pos-nav .mobile-sub-menu {
@@ -560,7 +564,7 @@
 
   .geni-pos-nav .mobile-sub-link {
     font-size: 13.5px;
-    color: #4b5563;
+    color: #6E6157;
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -572,8 +576,8 @@
 
   .geni-pos-nav .mobile-sub-link:active,
   .geni-pos-nav .mobile-sub-link:hover {
-    background: #fdfaf6;
-    color: #9C6F3E;
+    background: #FAF7F2;
+    color: #876039;
   }
 
   .geni-pos-nav .mobile-sub-link svg {
@@ -584,7 +588,7 @@
     stroke-width: 1.8;
     stroke-linecap: round;
     stroke-linejoin: round;
-    color: #9C6F3E;
+    color: #876039;
     flex-shrink: 0;
   }
 
@@ -654,7 +658,9 @@
 
     <!-- Brand Logo: Geni Menu -->
     <a href="{{ url('/') }}" class="nav-brand" title="Geni Menu">
-      <img src="{{ asset('assets/images/geni-menu-logo-light.png') }}" alt="Geni Menu" class="brand-logo-img" style="height: 42px; width: auto; object-fit: contain;">
+      <img src="https://menu.wegeni.com/user-uploads/logo/22afe8e48716500b5a2730bca0ede64a.png"
+           onerror="this.onerror=null;this.src='{{ asset('assets/images/geni-menu-logo-light.png') }}';"
+           alt="Geni Menu" class="brand-logo-img" style="height: 44px; width: auto; object-fit: contain;">
     </a>
 
     <!-- Center Navigation: Support + Links -->
@@ -774,7 +780,7 @@
           </button>
           <div class="nav-dropdown dropdown-simple">
             <a href="{{ route('how-it-works') }}" class="dropdown-link-item">
-              <span class="item-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 22l10-4 10 4L12 2z"/></svg></span>
+              <span class="item-icon"><svg viewBox="0 0 24 24"><circle cx="6" cy="12" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="M9 10.5l6-3M9 13.5l6 3"/></svg></span>
               <div>
                 <span class="item-title">How It Works</span>
                 <span class="item-sub">Complete 7-step operational loop</span>
@@ -829,7 +835,7 @@
                 </div>
               </a>
               <a href="{{ route('solutions.dine-in-restaurant') }}" class="dropdown-card">
-                <div class="card-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+                <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 002-2V2M7 2v20M21 15V2s-5 2-5 7 5 7 5 7v-1z"/></svg></div>
                 <div>
                   <div class="card-title">Fine Dining</div>
                   <div class="card-desc">Table ordering & steward mobility</div>
@@ -922,7 +928,7 @@
             </div>
             <div class="dropdown-footer">
               <span style="font-size:12px;color:#9ca3af;">Tailored solutions for every food business</span>
-              <a href="{{ route('solutions.family-restaurant') }}">Explore all solutions →</a>
+              <a href="{{ route('solutions') }}">Explore all solutions &rarr;</a>
             </div>
           </div>
         </li>
@@ -959,7 +965,11 @@
   <!-- Mobile Drawer Menu -->
   <div class="mobile-panel" id="geniMobilePanel">
     <a href="tel:+918667205661" class="mobile-tollfree">
-      <span>📞</span>
+      <span style="width:20px;height:20px;flex-shrink:0;display:flex;align-items:center;">
+        <svg viewBox="0 0 24 24" fill="#876039" style="width:18px;height:18px;">
+          <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.44-5.15-3.75-6.59-6.59l1.97-1.57c.28-.28.37-.67.25-1.02A11.36 11.36 0 0 1 8.96 4.3a1 1 0 0 0-1-1H4.21a1 1 0 0 0-1 1c0 9.39 7.63 17.02 17.02 17.02a1 1 0 0 0 1-1v-3.77a1 1 0 0 0-.22-.67z"/>
+        </svg>
+      </span>
       <span>+91 86672 05661</span>
     </a>
 
@@ -977,7 +987,7 @@
           <svg class="mobile-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
         </button>
         <div class="mobile-sub-menu">
-          <a href="{{ route('features') }}" class="mobile-sub-link" onclick="closeGeniMobile()" style="font-weight: 700; color: #9C6F3E;"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> View All Features &rarr;</a>
+          <a href="{{ route('features') }}" class="mobile-sub-link" onclick="closeGeniMobile()" style="font-weight: 600; color: #9C6F3E;"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg> View All Features &rarr;</a>
           <a href="{{ route('features.menu-management') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/><circle cx="18" cy="18" r="3"/><path d="M18 15v6M15 18h6"/></svg> Menu Management</a>
           <a href="{{ route('features.reservation-management') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Reservation Management</a>
           <a href="{{ route('features.waiter-request') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 006 8v4h12V8zM3 16h18v2H3zM12 4v2"/></svg> Waiter Requests</a>
@@ -1003,7 +1013,7 @@
           <svg class="mobile-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
         </button>
         <div class="mobile-sub-menu">
-          <a href="{{ route('how-it-works') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><path d="M12 2L2 22l10-4 10 4L12 2z"/></svg> How It Works</a>
+          <a href="{{ route('how-it-works') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><circle cx="6" cy="12" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="M9 10.5l6-3M9 13.5l6 3"/></svg> How It Works</a>
           <a href="{{ route('faq-help') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg> FAQ & Help</a>
           <a href="{{ route('contact.us') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Contact Support</a>
           <a href="{{ route('terms-and-conditions') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg> Terms & Policies</a>
@@ -1016,6 +1026,7 @@
           <svg class="mobile-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
         </button>
         <div class="mobile-sub-menu">
+          <a href="{{ route('solutions') }}" class="mobile-sub-link" onclick="closeGeniMobile()" style="font-weight: 600; color: #9C6F3E;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg> Explore All Solutions &rarr;</a>
           <a href="{{ route('solutions.family-restaurant') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> Family Restaurant</a>
           <a href="{{ route('solutions.dine-in-restaurant') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><path d="M4 9h16M5 9v10M19 9v10M9 9V5h6v4M7 15h10"/></svg> Dine-in Restaurant</a>
           <a href="{{ route('solutions.qsr-restaurant') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Quick Service (QSR)</a>

@@ -59,7 +59,9 @@
 
     <link rel="icon" type="image/png" href="{{ asset('assets/images/geni-favicon.png') }}">
     <link rel="apple-touch-icon" href="{{ asset('assets/images/geni-favicon.png') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
 
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -126,11 +128,49 @@
 
 
     <style>
+        :root {
+            --font-heading: 'Outfit', 'Plus Jakarta Sans', system-ui, sans-serif;
+            --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+            --font-accent: 'Playfair Display', Georgia, serif;
+
+            /* Food & Hospitality Warm Theme Colors (No pure black/cold grays) */
+            --br: #876039;
+            --br-dark: #6f4e2d;
+            --br-light: #FAF6EF;
+            --br-gold: #b88e56;
+
+            --bg: #FFFFFF;
+            --bg2: #FAF7F2;
+            --bg3: #F5EFE6;
+
+            --ink: #21160F;
+            --ink-light: #3D2D23;
+            --mute: #6E6157;
+            --mute-light: #94867B;
+
+            --line: rgba(135, 96, 57, 0.16);
+            --line-solid: #E8DDD1;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--ink);
+            background-color: var(--bg);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            color: var(--ink);
+            font-weight: 500;
+        }
+
         /* Footer styles */
         .footer {
-            background-color: var(--bg2, #f8f6f1);
+            background-color: var(--bg2, #FAF7F2);
             padding: 60px 20px 20px;
-            border-top: 1px solid var(--line, rgba(135, 96, 57, 0.14));
+            border-top: 1px solid var(--line, rgba(168, 91, 43, 0.16));
         }
 
         @media (min-width: 768px) {
@@ -171,7 +211,7 @@
 
         /* Headings */
         .footer h5 {
-            color: var(--ink, #241A14);
+            color: var(--ink, #21160F);
             font-weight: 700;
             margin-bottom: 20px;
             font-size: 18px;
@@ -179,7 +219,7 @@
 
         /* Text */
         .footer p {
-            color: var(--mute, #6F665E);
+            color: var(--mute, #6E6157);
             font-size: 15px;
             line-height: 1.6;
             margin-bottom: 10px;
@@ -188,7 +228,7 @@
         /* Links */
         .footer a {
             text-decoration: none;
-            color: var(--mute, #6F665E);
+            color: var(--mute, #6E6157);
             display: block;
             margin-bottom: 12px;
             transition: color 0.3s ease;
@@ -229,11 +269,11 @@
             max-width: 1240px;
             margin: 0 auto;
             padding-top: 24px;
-            border-top: 1px solid var(--line, rgba(135, 96, 57, 0.14));
+            border-top: 1px solid var(--line, rgba(168, 91, 43, 0.16));
             text-align: center;
         }
         .footer-bottom span {
-            color: var(--mute, #6F665E);
+            color: var(--mute, #6E6157);
             font-size: 14px;
         }
         .footer-bottom a {
@@ -729,6 +769,33 @@
     </style>
 
     <script>
+        function openPopup(title) {
+            const modal = document.getElementById("popupLeadModal") || document.getElementById("leadPopup");
+            if (modal) {
+                modal.classList.add("active");
+                if (modal.id === "leadPopup") {
+                    modal.style.display = "flex";
+                }
+                if (title && typeof title === 'string') {
+                    const desc = modal.querySelector(".popup-header p, .ft-popup-card p");
+                    if (desc) {
+                        desc.textContent = "Interested in " + title + "? Fill out your details and our team will get in touch shortly.";
+                    }
+                }
+            }
+        }
+        function closePopup() {
+            const modal = document.getElementById("popupLeadModal") || document.getElementById("leadPopup");
+            if (modal) {
+                modal.classList.remove("active");
+                if (modal.id === "leadPopup") {
+                    modal.style.display = "none";
+                }
+            }
+        }
+        window.openPopup = openPopup;
+        window.closePopup = closePopup;
+
         document.addEventListener("DOMContentLoaded", function() {
             const modal = document.getElementById("popupLeadModal");
             const btn = document.getElementById("floatingDemoBtn");
@@ -743,16 +810,16 @@
             }
 
             // Open modal on button click
-            if(btn && modal) {
+            if(btn) {
                 btn.addEventListener("click", () => {
-                    modal.classList.add("active");
+                    openPopup();
                 });
             }
 
             // Close modal on close button click
-            if(closeBtn && modal) {
+            if(closeBtn) {
                 closeBtn.addEventListener("click", () => {
-                    modal.classList.remove("active");
+                    closePopup();
                 });
             }
 
@@ -760,7 +827,7 @@
             if(modal) {
                 window.addEventListener("click", (e) => {
                     if(e.target === modal) {
-                        modal.classList.remove("active");
+                        closePopup();
                     }
                 });
             }

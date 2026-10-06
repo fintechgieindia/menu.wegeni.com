@@ -19,18 +19,18 @@
 :root {
   --br: #876039;
   --br-dark: #6f4e2d;
-  --br-light: #f4efe9;
+  --br-light: #FBF6EE;
   --br-gold: #b88e56;
   --bg: #ffffff;
-  --bg2: #f9f6f0;
-  --bg3: #f3ece1;
-  --ink: #241A14;
-  --mute: #6F665E;
-  --line: rgba(135, 96, 57, 0.14);
+  --bg2: #FAF7F2;
+  --bg3: #F5EFE6;
+  --ink: #21160F;
+  --mute: #6E6157;
+  --line: rgba(135, 96, 57, 0.16);
   --card: #ffffff;
-  --shadow-sm: 0 4px 20px rgba(36, 26, 20, 0.04);
-  --shadow-md: 0 16px 40px rgba(36, 26, 20, 0.08);
-  --shadow-lg: 0 26px 50px rgba(36, 26, 20, 0.12);
+  --shadow-sm: 0 4px 20px rgba(33, 22, 15, 0.04);
+  --shadow-md: 0 16px 40px rgba(33, 22, 15, 0.08);
+  --shadow-lg: 0 26px 50px rgba(33, 22, 15, 0.12);
   --green: #10B981;
   --red: #EF4444;
 }
@@ -50,14 +50,14 @@ body {
 h1, h2, h3, h4, h5 {
   margin: 0;
   font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
-  font-weight: 800;
+  font-weight: 500;
   line-height: 1.14;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
   color: var(--ink);
 }
-h1 { font-size: clamp(38px, 5.5vw, 64px); font-weight: 800; }
-h2 { font-size: clamp(30px, 4vw, 46px); font-weight: 800; }
-h3 { font-size: 21px; font-weight: 700; color: var(--ink); }
+h1 { font-size: clamp(38px, 5.5vw, 64px); font-weight: 500; }
+h2 { font-size: clamp(30px, 4vw, 46px); font-weight: 500; }
+h3 { font-size: 21px; font-weight: 500; color: var(--ink); }
 p { margin: 0; color: var(--mute); font-size: 16px; line-height: 1.65; }
 a { color: inherit; text-decoration: none; }
 ul { list-style: none; margin: 0; padding: 0; }
@@ -65,8 +65,8 @@ ul { list-style: none; margin: 0; padding: 0; }
 .sf {
   font-family: 'Playfair Display', Georgia, serif;
   font-style: italic;
-  font-weight: 700;
-  background: linear-gradient(135deg, #876039 0%, #a87646 50%, #c89659 100%);
+  font-weight: 500;
+  background: linear-gradient(135deg, #876039 0%, #b88e56 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
@@ -79,7 +79,7 @@ ul { list-style: none; margin: 0; padding: 0; }
   gap: 6px;
   font-size: 12px;
   letter-spacing: .16em;
-  font-weight: 800;
+  font-weight: 500;
   text-transform: uppercase;
   color: var(--br);
   margin-bottom: 16px;
@@ -104,7 +104,7 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
 .btn.o:hover { background: var(--br); color: #fff; transform: translateY(-2px); }
 
 /* Breadcrumb */
-.bc { padding: 104px 0 16px; background: var(--bg2); border-bottom: 1px solid var(--line); font-size: 14px; color: var(--mute); font-weight: 600; }
+.bc { padding: 18px 0 16px; background: var(--bg2); border-bottom: 1px solid var(--line); font-size: 14px; color: var(--mute); font-weight: 600; }
 .bc .w { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .bc a { color: var(--mute); transition: color .2s; }
 .bc a:hover { color: var(--br); }
@@ -126,13 +126,13 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
 .wb i:nth-child(1) { background: #ff5f56; }
 .wb i:nth-child(2) { background: #ffbd2e; }
 .wb i:nth-child(3) { background: #27c93f; }
-.wb .ttl { color: var(--br); font-weight: 800; font-family: 'Outfit', sans-serif; letter-spacing: 0.05em; font-size: 13px; text-transform: uppercase; }
+.wb .ttl { color: var(--br); font-weight: 500; font-family: 'Outfit', sans-serif; letter-spacing: 0.05em; font-size: 13px; text-transform: uppercase; }
 
 /* Mobile Phone Mockup */
 .ph-frame { width: 270px; border-radius: 40px; background: #1c1815; padding: 10px; box-shadow: 0 24px 50px rgba(36, 26, 20, 0.3); border: 2px solid #3d342d; flex: none; margin: 0 auto; max-width: 100%; }
 .ph-inner { height: 510px; border-radius: 32px; background: #fff; color: var(--ink); padding: 20px 14px 14px; display: flex; flex-direction: column; gap: 10px; overflow: hidden; position: relative; }
 .ph-header { text-align: center; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
-.ph-header h6 { margin: 0; font-family: 'Outfit', sans-serif; font-size: 15px; font-weight: 800; color: var(--ink); }
+.ph-header h6 { margin: 0; font-family: 'Outfit', sans-serif; font-size: 15px; font-weight: 500; color: var(--ink); }
 .ph-header p { font-size: 11px; color: var(--mute); }
 .ph-cats { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: none; }
 .ph-cat { padding: 5px 12px; border-radius: 20px; font-size: 11px; font-weight: 700; white-space: nowrap; background: var(--bg2); color: var(--mute); border: 1px solid var(--line); }
@@ -142,8 +142,8 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
 .ph-img { width: 44px; height: 44px; border-radius: 10px; background-size: cover; background-position: center; flex: none; }
 .ph-info { flex: 1; min-width: 0; }
 .ph-info h5 { margin: 0; font-size: 13px; font-weight: 700; color: var(--ink); line-height: 1.2; }
-.ph-info p { font-size: 11px; color: var(--br); font-weight: 800; margin-top: 2px; }
-.ph-badge { font-size: 9px; font-weight: 800; padding: 2px 6px; border-radius: 6px; text-transform: uppercase; }
+.ph-info p { font-size: 11px; color: var(--br); font-weight: 500; margin-top: 2px; }
+.ph-badge { font-size: 9px; font-weight: 500; padding: 2px 6px; border-radius: 6px; text-transform: uppercase; }
 .ph-badge.avail { background: #d1fae5; color: #065f46; }
 .ph-badge.unavail { background: #fee2e2; color: #991b1b; }
 
@@ -181,21 +181,541 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
 .faq-a { padding: 0 24px 20px; font-size: 15px; color: var(--mute); display: none; line-height: 1.65; border-top: 1px solid rgba(135,96,57,0.08); padding-top: 16px; }
 .faq-item.open .faq-a { display: block; }
 
+/* --- Comparison Section: Traditional Paper Menu vs Geni Menu Digital Workflow --- */
+.compare-container {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: stretch;
+}
+
+.compare-center-arrow {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  pointer-events: none;
+}
+
+.center-arrow-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--br);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 18px rgba(168, 91, 43, 0.4);
+  border: 3px solid #FFFFFF;
+  transition: transform 0.3s ease;
+}
+
+.center-arrow-circle svg {
+  width: 20px;
+  height: 20px;
+}
+
+.compare-card {
+  border-radius: 24px;
+  padding: 26px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.compare-card-traditional {
+  background: #FFFDFC;
+  border: 1.5px solid #FECDD3;
+  box-shadow: 0 10px 30px rgba(220, 38, 38, 0.04);
+}
+
+.compare-card-digital {
+  background: #FFFFFF;
+  border: 1.5px solid rgba(168, 91, 43, 0.28);
+  box-shadow: 0 14px 40px rgba(168, 91, 43, 0.08);
+}
+
+.compare-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.compare-badge-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.compare-badge-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.badge-icon-red {
+  background: #FEE2E2;
+  color: #DC2626;
+}
+
+.badge-icon-brown {
+  background: #6F4522;
+  color: #FFFFFF;
+}
+
+.compare-card-title {
+  font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  margin: 0 0 2px;
+  line-height: 1.2;
+}
+
+.compare-card-title.text-red {
+  color: #991B1B;
+}
+
+.compare-card-title.text-brown {
+  color: #21160F;
+}
+
+.compare-card-subtitle {
+  font-size: 12.5px;
+  color: #76675D;
+  margin: 0;
+}
+
+.compare-split-body {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 16px;
+  align-items: stretch;
+  flex: 1;
+}
+
+.compare-card-digital .compare-split-body {
+  grid-template-columns: 1fr 1.05fr;
+  gap: 14px;
+}
+
+/* Traditional Paper Menu Visual */
+.traditional-paper-visual {
+  background: #F8F4EE;
+  border-radius: 16px;
+  border: 1px solid #EADBCE;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.paper-menu-board {
+  width: 100%;
+  background: #845A3C;
+  border-radius: 12px;
+  padding: 10px 8px 8px;
+  box-shadow: 0 6px 16px rgba(42, 24, 13, 0.2);
+  position: relative;
+}
+
+.paper-board-clip {
+  width: 32px;
+  height: 8px;
+  background: #C4B5A5;
+  border-radius: 3px;
+  margin: 0 auto 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+}
+
+.paper-sheet {
+  background: #FFFDF9;
+  border-radius: 6px;
+  padding: 10px 8px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  border: 1px solid #EBE1D3;
+}
+
+.paper-header {
+  font-family: 'Outfit', 'Playfair Display', serif;
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-align: center;
+  color: #2A1C14;
+  border-bottom: 1.5px solid #2A1C14;
+  padding-bottom: 4px;
+  margin-bottom: 6px;
+}
+
+.paper-section-title {
+  font-size: 8px;
+  font-weight: 500;
+  color: #876039;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+
+.paper-item-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 7.5px;
+  color: #4A3E38;
+  padding: 1.5px 0;
+}
+
+.paper-item-row span {
+  font-weight: 500;
+}
+
+.paper-item-row b {
+  color: #2A1C14;
+  font-weight: 700;
+}
+
+/* 5 Traditional Points List */
+.traditional-points-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: space-between;
+}
+
+.point-item-card {
+  background: #FFFFFF;
+  border: 1px solid #FEE2E2;
+  border-radius: 12px;
+  padding: 9px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.point-item-card:hover {
+  transform: translateX(2px);
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.08);
+}
+
+.point-icon-box {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #FEE2E2;
+  color: #DC2626;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.point-icon-box svg {
+  width: 16px;
+  height: 16px;
+}
+
+.point-text-box {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.point-text-box b {
+  font-size: 13px;
+  font-weight: 700;
+  color: #21160F;
+  line-height: 1.25;
+}
+
+.point-text-box span {
+  font-size: 11px;
+  color: #76675D;
+  line-height: 1.3;
+}
+
+/* Digital Workflow Steps (Left in Right Card) */
+.digital-workflow-steps {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+}
+
+.workflow-step-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(168, 91, 43, 0.2);
+  border-radius: 14px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 2px 8px rgba(135, 96, 57, 0.04);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.workflow-step-card:hover {
+  transform: translateY(-2px);
+  border-color: #876039;
+}
+
+.workflow-icon-box {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: #FBF6EE;
+  color: #876039;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid rgba(135, 96, 57, 0.18);
+}
+
+.workflow-icon-box svg {
+  width: 18px;
+  height: 18px;
+}
+
+.workflow-text-box {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.workflow-text-box b {
+  font-size: 13px;
+  font-weight: 600;
+  color: #21160F;
+  line-height: 1.25;
+}
+
+.workflow-text-box span {
+  font-size: 11.5px;
+  color: #76675D;
+  line-height: 1.3;
+}
+
+.workflow-down-arrow {
+  text-align: center;
+  font-size: 15px;
+  font-weight: 500;
+  color: #876039;
+  line-height: 1;
+}
+
+/* Smartphone Mockup */
+.digital-phone-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.workflow-phone-mockup {
+  width: 100%;
+  max-width: 220px;
+  background: #1C1510;
+  border-radius: 28px;
+  padding: 7px;
+  box-shadow: 0 16px 36px rgba(28, 20, 15, 0.28);
+  border: 2px solid #362920;
+}
+
+.wf-phone-screen {
+  background: #FFFFFF;
+  border-radius: 22px;
+  padding: 10px 9px 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+.wf-phone-island {
+  width: 38px;
+  height: 4px;
+  background: #1C1510;
+  border-radius: 4px;
+  margin: 0 auto 6px;
+}
+
+.wf-phone-header {
+  text-align: center;
+  margin-bottom: 7px;
+}
+
+.wf-phone-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #21160F;
+  line-height: 1.2;
+}
+
+.wf-phone-sub {
+  font-size: 8px;
+  color: #76675D;
+}
+
+.wf-phone-cats {
+  display: flex;
+  gap: 3.5px;
+  overflow-x: auto;
+  margin-bottom: 7px;
+  scrollbar-width: none;
+}
+
+.wf-cat-pill {
+  font-size: 7.5px;
+  font-weight: 700;
+  padding: 2.5px 7px;
+  border-radius: 12px;
+  background: #FAF7F2;
+  color: #6E6157;
+  white-space: nowrap;
+}
+
+.wf-cat-active {
+  background: #875A38;
+  color: #FFFFFF;
+}
+
+.wf-dishes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.wf-dish-card {
+  display: flex;
+  gap: 6px;
+  padding: 5px;
+  background: #FFFFFF;
+  border: 1px solid #EFE8DE;
+  border-radius: 8px;
+  align-items: center;
+}
+
+.wf-dish-thumb {
+  width: 38px;
+  height: 38px;
+  border-radius: 6px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.wf-dish-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.wf-dish-name {
+  font-size: 9.5px;
+  font-weight: 700;
+  color: #21160F;
+  line-height: 1.15;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.wf-dish-desc {
+  font-size: 7px;
+  color: #76675D;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 1px 0 2px;
+}
+
+.wf-dish-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wf-dish-price {
+  font-size: 9px;
+  font-weight: 500;
+  color: #21160F;
+}
+
+.wf-dish-badge {
+  font-size: 6.5px;
+  font-weight: 700;
+  padding: 1px 4.5px;
+  border-radius: 4px;
+  background: #DCFCE7;
+  color: #16A34A;
+  text-transform: capitalize;
+}
+
+.compare-bottom-cta {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.bottom-cta-badge {
+  background: linear-gradient(135deg, #6f4e2d 0%, #876039 100%);
+  color: #FFFFFF;
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 6px 18px;
+  border-radius: 99px;
+  box-shadow: 0 4px 14px rgba(135, 96, 57, 0.3);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
 /* Responsive adjustments */
-@media (max-width: 1024px) {
+@media (max-width: 1080px) {
   .hero-split { grid-template-columns: 1fr; gap: 32px; }
   .ind-grid { grid-template-columns: repeat(2, 1fr); }
   .hero-combo { flex-direction: column; }
+  .compare-container {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .compare-center-arrow {
+    display: none;
+  }
 }
 @media (max-width: 768px) {
-  .bc { padding: 85px 0 14px; }
+  .bc { padding: 14px 0 14px; }
   .w { padding: 0 16px; }
   .ind-grid { grid-template-columns: 1fr; }
   .hero-combo { width: 100%; }
   .win { min-width: 0 !important; width: 100%; }
 }
+@media (max-width: 640px) {
+  .compare-split-body,
+  .compare-card-digital .compare-split-body {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .traditional-paper-visual {
+    max-width: 260px;
+    margin: 0 auto;
+  }
+  .workflow-phone-mockup {
+    max-width: 240px;
+    margin: 0 auto;
+  }
+}
 @media (max-width: 480px) {
   .btn { width: 100%; }
+  .compare-card { padding: 20px 16px; }
 }
 </style>
 
@@ -264,12 +784,12 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
 
               <!-- Menu Items List -->
               <div style="display: flex; flex-direction: column; gap: 8px;">
-                <div style="font-size: 10px; font-weight: 800; color: var(--mute); letter-spacing: 0.05em;">MENU ITEMS</div>
+                <div style="font-size: 10px; font-weight: 500; color: var(--mute); letter-spacing: 0.05em;">MENU ITEMS</div>
                 
                 <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px; background: #fff;">
                   <div>
                     <div style="font-weight: 700; color: var(--ink);">Chicken Biryani</div>
-                    <div style="color: var(--br); font-weight: 800;">₹240</div>
+                    <div style="color: var(--br); font-weight: 500;">₹240</div>
                   </div>
                   <div style="color: var(--green); font-size: 11px; font-weight: 700;">● Available</div>
                 </div>
@@ -277,7 +797,7 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
                 <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px; background: #fff;">
                   <div>
                     <div style="font-weight: 700; color: var(--ink);">Paneer Butter Masala</div>
-                    <div style="color: var(--br); font-weight: 800;">₹220</div>
+                    <div style="color: var(--br); font-weight: 500;">₹220</div>
                   </div>
                   <div style="color: var(--green); font-size: 11px; font-weight: 700;">● Available</div>
                 </div>
@@ -285,7 +805,7 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
                 <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px; background: #fff;">
                   <div>
                     <div style="font-weight: 700; color: var(--ink);">Chicken 65</div>
-                    <div style="color: var(--br); font-weight: 800;">₹180</div>
+                    <div style="color: var(--br); font-weight: 500;">₹180</div>
                   </div>
                   <div style="color: var(--green); font-size: 11px; font-weight: 700;">● Available</div>
                 </div>
@@ -293,7 +813,7 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
                 <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px; background: #fff; opacity: 0.7;">
                   <div>
                     <div style="font-weight: 700; color: var(--ink);">Fresh Lime Soda</div>
-                    <div style="color: var(--br); font-weight: 800;">₹80</div>
+                    <div style="color: var(--br); font-weight: 500;">₹80</div>
                   </div>
                   <div style="color: var(--red); font-size: 11px; font-weight: 700;">○ Unavailable</div>
                 </div>
@@ -390,59 +910,273 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
   </div>
 </section>
 
-<!-- ================= SECTION 5: PROBLEM SECTION ================= -->
-<section>
-  <div class="w">
-    <div class="hd r">
-      <h2>Still Managing Your Menu <span class="sf">the Hard Way?</span></h2>
-      <p>
+<!-- ================= SECTION 5: STILL MANAGING YOUR MENU THE HARD WAY? ================= -->
+<section class="menu-compare-section" style="padding: 70px 0 90px; background: #FFFDFC; position: relative; overflow: hidden;">
+  <!-- Subtle ambient glow in background -->
+  <div style="position: absolute; top: -5%; left: 50%; transform: translateX(-50%); width: 800px; height: 350px; background: radial-gradient(50% 50% at 50% 50%, rgba(251, 246, 238, 0.8) 0%, rgba(255,255,255,0) 100%); pointer-events: none; z-index: 0;"></div>
+
+  <div class="w" style="position: relative; z-index: 1;">
+    <!-- Section Header -->
+    <div class="hd r in" style="text-align: center; max-width: 760px; margin: 0 auto 50px;">
+      <h2 style="font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif; font-size: clamp(34px, 4.4vw, 48px); color: #21160F; font-weight: 500; line-height: 1.15; margin: 0 0 14px;">
+        Still Managing Your Menu<br>
+        <span class="sf" style="font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 500; background: linear-gradient(135deg, #876039 0%, #b88e56 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">the Hard Way?</span>
+      </h2>
+      <p style="font-size: 16px; color: #6E6157; line-height: 1.65; margin: 0;">
         Your menu changes every day. New dishes, price changes, sold-out items and seasonal specials shouldn't mean rebuilding your menu every time.
       </p>
     </div>
 
-    <!-- Visual Comparison -->
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px; align-items: stretch;">
-      <!-- Traditional Menu Workflow -->
-      <div class="card" style="padding: 32px; background: #fff5f5; border-color: #fecdd3;">
-        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
-          <div style="width: 36px; height: 36px; border-radius: 10px; background: #fee2e2; color: #dc2626; display: grid; place-items: center; font-weight: 800;">✕</div>
-          <h3 style="color: #991b1b; font-size: 20px;">Traditional Paper Menu</h3>
-        </div>
-
-        <div style="display: flex; flex-direction: column; gap: 12px; text-align: center; font-weight: 700; color: #7f1d1d;">
-          <div style="padding: 12px; background: #fff; border-radius: 10px; border: 1px solid #fca5a5;">📄 Printed Paper Menu</div>
-          <div style="color: #ef4444; font-size: 18px;">↓</div>
-          <div style="padding: 12px; background: #fff; border-radius: 10px; border: 1px solid #fca5a5;">💰 Price / Item Changes</div>
-          <div style="color: #ef4444; font-size: 18px;">↓</div>
-          <div style="padding: 12px; background: #fff; border-radius: 10px; border: 1px solid #fca5a5;">🖨️ Expensive Reprinting</div>
-          <div style="color: #ef4444; font-size: 18px;">↓</div>
-          <div style="padding: 12px; background: #fff; border-radius: 10px; border: 1px solid #fca5a5;">🔄 Manual Replacement</div>
-          <div style="color: #ef4444; font-size: 18px;">↓</div>
-          <div style="padding: 12px; background: #fee2e2; border-radius: 10px; border: 1px solid #dc2626; color: #dc2626;">🔁 High Cost & Continuous Errors</div>
+    <!-- Comparison Grid Container with Central Connector -->
+    <div class="compare-container r in">
+      
+      <!-- Central Transition Arrow -->
+      <div class="compare-center-arrow">
+        <div class="center-arrow-circle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
         </div>
       </div>
 
-      <!-- Geni Menu Workflow -->
-      <div class="card" style="padding: 32px; background: #fbf7f2; border-color: var(--br); box-shadow: var(--shadow-md);">
-        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
-          <div style="width: 36px; height: 36px; border-radius: 10px; background: var(--br); color: #fff; display: grid; place-items: center; font-weight: 800;">✓</div>
-          <h3 style="color: var(--br); font-size: 20px;">Geni Menu Digital Workflow</h3>
+      <!-- LEFT CARD: Traditional Paper Menu (Red Tint) -->
+      <div class="compare-card compare-card-traditional">
+        <!-- Card Header -->
+        <div class="compare-card-header">
+          <div class="compare-badge-icon badge-icon-red">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </div>
+          <div>
+            <h3 class="compare-card-title text-red">Traditional Paper Menu</h3>
+            <p class="compare-card-subtitle">Time consuming, costly and difficult to manage</p>
+          </div>
         </div>
 
-        <div style="display: flex; flex-direction: column; gap: 16px; text-align: center; font-weight: 700;">
-          <div style="padding: 14px; background: #fff; border-radius: 12px; border: 1px solid var(--line); color: var(--ink); box-shadow: var(--shadow-sm);">
-            ⚡ Update Item / Price / Status
+        <!-- Card Body Split: Left Paper Visual + Right Pain Points -->
+        <div class="compare-split-body">
+          <!-- Left: Realistic Paper Menu Board -->
+          <div class="traditional-paper-visual">
+            <div class="paper-menu-board">
+              <div class="paper-board-clip"></div>
+              <div class="paper-sheet">
+                <div class="paper-header">MENU</div>
+                
+                <div class="paper-section-title">STARTERS</div>
+                <div class="paper-item-row"><span>Tomato Soup</span><b>₹120</b></div>
+                <div class="paper-item-row"><span>Chicken Wings</span><b>₹180</b></div>
+                <div class="paper-item-row"><span>French Fries</span><b>₹150</b></div>
+
+                <div class="paper-section-title" style="margin-top: 7px;">MAIN COURSE</div>
+                <div class="paper-item-row"><span>Chicken Biryani</span><b>₹280</b></div>
+                <div class="paper-item-row"><span>Mutton Biryani</span><b>₹320</b></div>
+                <div class="paper-item-row"><span>Paneer Butter Masala</span><b>₹260</b></div>
+
+                <div class="paper-section-title" style="margin-top: 7px;">DESSERTS</div>
+                <div class="paper-item-row"><span>Gulab Jamun</span><b>₹120</b></div>
+                <div class="paper-item-row"><span>Ice Cream</span><b>₹150</b></div>
+              </div>
+            </div>
           </div>
-          <div style="color: var(--br); font-size: 22px;">↓</div>
-          <div style="padding: 14px; background: #fff; border-radius: 12px; border: 1px solid var(--line); color: var(--ink); box-shadow: var(--shadow-sm);">
-            🚀 Instant 1-Click Publish
-          </div>
-          <div style="color: var(--br); font-size: 22px;">↓</div>
-          <div style="padding: 16px; background: linear-gradient(135deg, #876039 0%, #a87646 100%); border-radius: 12px; color: #fff; box-shadow: 0 4px 16px rgba(135,96,57,0.3);">
-            ✨ Customers See It Instantly on Mobile!
+
+          <!-- Right: 5 Pain Point Cards -->
+          <div class="traditional-points-list">
+            <!-- Point 1 -->
+            <div class="point-item-card">
+              <div class="point-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>
+              </div>
+              <div class="point-text-box">
+                <b>Printed Paper Menu</b>
+                <span>Need to reprint for every change</span>
+              </div>
+            </div>
+
+            <!-- Point 2 -->
+            <div class="point-item-card">
+              <div class="point-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><line x1="12" y1="6" x2="12" y2="8"/><line x1="12" y1="16" x2="12" y2="18"/></svg>
+              </div>
+              <div class="point-text-box">
+                <b>Price / Item Changes</b>
+                <span>Time consuming and error prone</span>
+              </div>
+            </div>
+
+            <!-- Point 3 -->
+            <div class="point-item-card">
+              <div class="point-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+              </div>
+              <div class="point-text-box">
+                <b>Expensive Reprinting</b>
+                <span>Extra cost for every update</span>
+              </div>
+            </div>
+
+            <!-- Point 4 -->
+            <div class="point-item-card">
+              <div class="point-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+              </div>
+              <div class="point-text-box">
+                <b>Manual Replacement</b>
+                <span>Hard to manage multiple outlets</span>
+              </div>
+            </div>
+
+            <!-- Point 5 -->
+            <div class="point-item-card point-item-highlight">
+              <div class="point-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              </div>
+              <div class="point-text-box">
+                <b>High Cost & Continuous Errors</b>
+                <span>Old menus lead to customer confusion</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+
+      <!-- RIGHT CARD: Geni Menu Digital Workflow (Theme Brown / Clean White) -->
+      <div class="compare-card compare-card-digital">
+        <!-- Card Header -->
+        <div class="compare-card-header">
+          <div class="compare-badge-icon badge-icon-brown">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          <div>
+            <h3 class="compare-card-title text-brown">Geni Menu Digital Workflow</h3>
+            <p class="compare-card-subtitle">Update, publish and let your customers see it instantly</p>
+          </div>
+        </div>
+
+        <!-- Card Body Split: Left 3 Workflow Steps + Right Smartphone Menu -->
+        <div class="compare-split-body">
+          <!-- Left: 3 Connected Workflow Steps -->
+          <div class="digital-workflow-steps">
+            <!-- Step 1 -->
+            <div class="workflow-step-card">
+              <div class="workflow-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+              </div>
+              <div class="workflow-text-box">
+                <b>Update Item / Price / Status</b>
+                <span>Make changes in seconds</span>
+              </div>
+            </div>
+
+            <!-- Down Arrow Connector 1 -->
+            <div class="workflow-down-arrow">↓</div>
+
+            <!-- Step 2 -->
+            <div class="workflow-step-card">
+              <div class="workflow-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/></svg>
+              </div>
+              <div class="workflow-text-box">
+                <b>Instant 1-Click Publish</b>
+                <span>Update goes live immediately</span>
+              </div>
+            </div>
+
+            <!-- Down Arrow Connector 2 -->
+            <div class="workflow-down-arrow">↓</div>
+
+            <!-- Step 3 -->
+            <div class="workflow-step-card workflow-step-active">
+              <div class="workflow-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+              </div>
+              <div class="workflow-text-box">
+                <b>Customers See It Instantly on Mobile!</b>
+                <span>Always up-to-date menu</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Real Smartphone Menu Mockup -->
+          <div class="digital-phone-visual">
+            <div class="workflow-phone-mockup">
+              <!-- Phone Bezel / Screen -->
+              <div class="wf-phone-screen">
+                <!-- Top Notch / Speaker -->
+                <div class="wf-phone-island"></div>
+
+                <!-- Menu Header -->
+                <div class="wf-phone-header">
+                  <div class="wf-phone-title">Our Menu</div>
+                  <div class="wf-phone-sub">Delicious food for every mood</div>
+                </div>
+
+                <!-- Categories Row -->
+                <div class="wf-phone-cats">
+                  <span class="wf-cat-pill wf-cat-active">All</span>
+                  <span class="wf-cat-pill">Starters</span>
+                  <span class="wf-cat-pill">Main Course</span>
+                  <span class="wf-cat-pill">Desserts</span>
+                </div>
+
+                <!-- Live Dish List -->
+                <div class="wf-dishes-list">
+                  <!-- Dish 1: Chicken Biryani -->
+                  <div class="wf-dish-card">
+                    <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=160&auto=format&fit=crop&q=80" alt="Chicken Biryani" class="wf-dish-thumb">
+                    <div class="wf-dish-content">
+                      <div class="wf-dish-name">Chicken Biryani</div>
+                      <div class="wf-dish-desc">Aromatic basmati rice with spices and tender chicken</div>
+                      <div class="wf-dish-bottom">
+                        <span class="wf-dish-price">₹280</span>
+                        <span class="wf-dish-badge">Available</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Dish 2: Paneer Butter Masala -->
+                  <div class="wf-dish-card">
+                    <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=160&auto=format&fit=crop&q=80" alt="Paneer Butter Masala" class="wf-dish-thumb">
+                    <div class="wf-dish-content">
+                      <div class="wf-dish-name">Paneer Butter Masala</div>
+                      <div class="wf-dish-desc">Rich and creamy tomato gravy</div>
+                      <div class="wf-dish-bottom">
+                        <span class="wf-dish-price">₹260</span>
+                        <span class="wf-dish-badge">Available</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Dish 3: Gulab Jamun -->
+                  <div class="wf-dish-card">
+                    <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=160&auto=format&fit=crop&q=80" alt="Gulab Jamun" class="wf-dish-thumb">
+                    <div class="wf-dish-content">
+                      <div class="wf-dish-name">Gulab Jamun</div>
+                      <div class="wf-dish-desc">Soft and juicy dessert</div>
+                      <div class="wf-dish-bottom">
+                        <span class="wf-dish-price">₹120</span>
+                        <span class="wf-dish-badge">Available</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom CTA Pill -->
+        <div class="compare-bottom-cta">
+          <div class="bottom-cta-badge">
+            <span class="cta-sparkle">✨</span> Customers See It Instantly on Mobile!
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -463,14 +1197,14 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
         <p style="margin: 16px 0 24px;">Create and manage every dish from a single interface effortlessly.</p>
 
         <ul style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; font-weight: 600; color: var(--ink);">
-          <li style="display: flex; align-items: center; gap: 8px;"><span style="color: var(--br); font-weight: 900;">✓</span> Add new menu items</li>
-          <li style="display: flex; align-items: center; gap: 8px;"><span style="color: var(--br); font-weight: 900;">✓</span> Edit item names</li>
-          <li style="display: flex; align-items: center; gap: 8px;"><span style="color: var(--br); font-weight: 900;">✓</span> Update descriptions</li>
-          <li style="display: flex; align-items: center; gap: 8px;"><span style="color: var(--br); font-weight: 900;">✓</span> Change prices</li>
-          <li style="display: flex; align-items: center; gap: 8px;"><span style="color: var(--br); font-weight: 900;">✓</span> Add food images</li>
-          <li style="display: flex; align-items: center; gap: 8px;"><span style="color: var(--br); font-weight: 900;">✓</span> Manage item details</li>
-          <li style="display: flex; align-items: center; gap: 8px;"><span style="color: var(--br); font-weight: 900;">✓</span> Assign categories</li>
-          <li style="display: flex; align-items: center; gap: 8px;"><span style="color: var(--br); font-weight: 900;">✓</span> Control availability</li>
+          <li style="display: flex; align-items: center; gap: 8px;"><span style="color: var(--br); font-weight: 500;">✓</span> Add new menu items</li>
+          <li style="display: flex; align-items: center; gap: 8px;"><span style="color: var(--br); font-weight: 500;">✓</span> Edit item names</li>
+          <li style="display: flex; align-items: center; gap: 8px;"><span style="color: var(--br); font-weight: 500;">✓</span> Update descriptions</li>
+          <li style="display: flex; align-items: center; gap: 8px;"><span style="color: var(--br); font-weight: 500;">✓</span> Change prices</li>
+          <li style="display: flex; align-items: center; gap: 8px;"><span style="color: var(--br); font-weight: 500;">✓</span> Add food images</li>
+          <li style="display: flex; align-items: center; gap: 8px;"><span style="color: var(--br); font-weight: 500;">✓</span> Manage item details</li>
+          <li style="display: flex; align-items: center; gap: 8px;"><span style="color: var(--br); font-weight: 500;">✓</span> Assign categories</li>
+          <li style="display: flex; align-items: center; gap: 8px;"><span style="color: var(--br); font-weight: 500;">✓</span> Control availability</li>
         </ul>
       </div>
 
@@ -503,7 +1237,7 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
             <div>
               <label style="font-weight: 700; font-size: 12px; color: var(--ink); display: block; margin-bottom: 4px;">Price (₹)</label>
-              <input type="text" value="₹240" style="width: 100%; padding: 8px 12px; border: 1px solid var(--line); border-radius: 8px; font-weight: 800; color: var(--br);">
+              <input type="text" value="₹240" style="width: 100%; padding: 8px 12px; border: 1px solid var(--line); border-radius: 8px; font-weight: 500; color: var(--br);">
             </div>
             <div>
               <label style="font-weight: 700; font-size: 12px; color: var(--ink); display: block; margin-bottom: 4px;">Category</label>
@@ -545,7 +1279,7 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
           </div>
 
           <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; border: 1px solid var(--br); border-radius: 12px; background: #fff; box-shadow: 0 4px 12px rgba(135,96,57,0.15);">
-            <div style="display: flex; align-items: center; gap: 10px; font-weight: 800; color: var(--br);">
+            <div style="display: flex; align-items: center; gap: 10px; font-weight: 500; color: var(--br);">
               <span style="cursor: grab;">:::</span> 🍛 Main Course
             </div>
             <span style="font-size: 11px; background: var(--br); color: #fff; padding: 3px 8px; border-radius: 6px;">18 Items</span>
@@ -622,12 +1356,12 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
 
       <!-- Interactive Price Change Simulator -->
       <div class="card" style="padding: 32px; background: #fff;">
-        <div style="font-size: 12px; font-weight: 800; color: var(--br); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px;">LIVE PRICE UPDATE SIMULATOR</div>
+        <div style="font-size: 12px; font-weight: 500; color: var(--br); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px;">LIVE PRICE UPDATE SIMULATOR</div>
         
         <div style="padding: 20px; border: 1px solid var(--line); border-radius: 16px; background: var(--bg2); display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
           <div>
-            <div style="font-weight: 800; font-size: 18px;">Chicken Biryani</div>
-            <div id="price-display" style="font-size: 24px; font-weight: 900; color: var(--br); margin-top: 4px;">₹220</div>
+            <div style="font-weight: 500; font-size: 18px;">Chicken Biryani</div>
+            <div id="price-display" style="font-size: 24px; font-weight: 500; color: var(--br); margin-top: 4px;">₹220</div>
           </div>
           <button id="price-btn" onclick="updatePriceSim()" class="btn p" style="padding: 10px 18px; font-size: 13px;">Edit Price</button>
         </div>
@@ -661,7 +1395,7 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
         <div style="display: flex; justify-content: space-between; align-items: center; padding: 14px 18px; border: 1px solid var(--line); border-radius: 12px; background: #fff;">
           <div style="font-weight: 700; font-size: 16px;">Chicken Biryani</div>
           <div style="display: flex; align-items: center; gap: 14px;">
-            <span style="color: var(--green); font-weight: 800; font-size: 13px;">● Available</span>
+            <span style="color: var(--green); font-weight: 500; font-size: 13px;">● Available</span>
             <div class="tgl-sw on" onclick="this.classList.toggle('on')"><div class="tgl-knob"></div></div>
           </div>
         </div>
@@ -669,7 +1403,7 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
         <div style="display: flex; justify-content: space-between; align-items: center; padding: 14px 18px; border: 1px solid var(--line); border-radius: 12px; background: #fff;">
           <div style="font-weight: 700; font-size: 16px;">Paneer Tikka</div>
           <div style="display: flex; align-items: center; gap: 14px;">
-            <span style="color: var(--green); font-weight: 800; font-size: 13px;">● Available</span>
+            <span style="color: var(--green); font-weight: 500; font-size: 13px;">● Available</span>
             <div class="tgl-sw on" onclick="this.classList.toggle('on')"><div class="tgl-knob"></div></div>
           </div>
         </div>
@@ -677,7 +1411,7 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
         <div style="display: flex; justify-content: space-between; align-items: center; padding: 14px 18px; border: 1px solid #fca5a5; border-radius: 12px; background: #fff5f5;">
           <div style="font-weight: 700; font-size: 16px; color: var(--ink);">Mutton Biryani</div>
           <div style="display: flex; align-items: center; gap: 14px;">
-            <span style="color: var(--red); font-weight: 800; font-size: 13px;">○ Unavailable</span>
+            <span style="color: var(--red); font-weight: 500; font-size: 13px;">○ Unavailable</span>
             <div class="tgl-sw" onclick="this.classList.toggle('on')"><div class="tgl-knob"></div></div>
           </div>
         </div>
@@ -685,7 +1419,7 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
         <div style="display: flex; justify-content: space-between; align-items: center; padding: 14px 18px; border: 1px solid var(--line); border-radius: 12px; background: #fff;">
           <div style="font-weight: 700; font-size: 16px;">Fresh Lime Soda</div>
           <div style="display: flex; align-items: center; gap: 14px;">
-            <span style="color: var(--green); font-weight: 800; font-size: 13px;">● Available</span>
+            <span style="color: var(--green); font-weight: 500; font-size: 13px;">● Available</span>
             <div class="tgl-sw on" onclick="this.classList.toggle('on')"><div class="tgl-knob"></div></div>
           </div>
         </div>
@@ -711,12 +1445,12 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
       <!-- Customer Card Preview -->
       <div class="card" style="padding: 0; max-width: 440px; margin: auto; box-shadow: var(--shadow-lg);">
         <div style="height: 240px; background-image: url('https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=800&auto=format&fit=crop&q=80'); background-size: cover; background-position: center; position: relative;">
-          <span style="position: absolute; top: 16px; left: 16px; background: var(--br); color: #fff; padding: 4px 12px; border-radius: 8px; font-weight: 800; font-size: 11px;">★ TODAY'S SPECIAL</span>
+          <span style="position: absolute; top: 16px; left: 16px; background: var(--br); color: #fff; padding: 4px 12px; border-radius: 8px; font-weight: 500; font-size: 11px;">★ TODAY'S SPECIAL</span>
         </div>
         <div style="padding: 24px;">
           <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 8px;">
             <h3 style="font-size: 22px;">Chicken Biryani</h3>
-            <span style="font-size: 20px; font-weight: 900; color: var(--br);">₹240</span>
+            <span style="font-size: 20px; font-weight: 500; color: var(--br);">₹240</span>
           </div>
           <p style="font-size: 14px; margin-bottom: 20px;">Aromatic basmati rice, tender chicken and traditional spices.</p>
           <button class="btn p" style="width: 100%; justify-content: center;">Add +</button>
@@ -735,33 +1469,33 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
           <p style="font-size: 13px; margin-bottom: 20px;">Classic hand-tossed pizza topped with chicken, mozzarella and herbs.</p>
 
           <div style="margin-bottom: 20px;">
-            <div style="font-weight: 800; font-size: 11px; letter-spacing: 0.1em; color: var(--mute); text-transform: uppercase; margin-bottom: 10px;">SIZE OPTIONS</div>
+            <div style="font-weight: 500; font-size: 11px; letter-spacing: 0.1em; color: var(--mute); text-transform: uppercase; margin-bottom: 10px;">SIZE OPTIONS</div>
             <div style="display: flex; gap: 10px;">
               <div style="flex: 1; padding: 10px; border: 1px solid var(--line); border-radius: 10px; text-align: center; cursor: pointer;">
                 <div style="font-weight: 700;">Regular</div>
-                <div style="color: var(--br); font-weight: 800; margin-top: 2px;">₹220</div>
+                <div style="color: var(--br); font-weight: 500; margin-top: 2px;">₹220</div>
               </div>
               <div style="flex: 1; padding: 10px; border: 2px solid var(--br); border-radius: 10px; text-align: center; background: var(--bg2); cursor: pointer;">
-                <div style="font-weight: 800; color: var(--br);">Medium</div>
-                <div style="color: var(--br); font-weight: 800; margin-top: 2px;">₹320</div>
+                <div style="font-weight: 500; color: var(--br);">Medium</div>
+                <div style="color: var(--br); font-weight: 500; margin-top: 2px;">₹320</div>
               </div>
               <div style="flex: 1; padding: 10px; border: 1px solid var(--line); border-radius: 10px; text-align: center; cursor: pointer;">
                 <div style="font-weight: 700;">Large</div>
-                <div style="color: var(--br); font-weight: 800; margin-top: 2px;">₹420</div>
+                <div style="color: var(--br); font-weight: 500; margin-top: 2px;">₹420</div>
               </div>
             </div>
           </div>
 
           <div>
-            <div style="font-weight: 800; font-size: 11px; letter-spacing: 0.1em; color: var(--mute); text-transform: uppercase; margin-bottom: 10px;">ADD-ONS</div>
+            <div style="font-weight: 500; font-size: 11px; letter-spacing: 0.1em; color: var(--mute); text-transform: uppercase; margin-bottom: 10px;">ADD-ONS</div>
             <div style="display: flex; flex-direction: column; gap: 8px;">
               <label style="display: flex; justify-content: space-between; padding: 10px 14px; border: 1px solid var(--line); border-radius: 10px; cursor: pointer;">
                 <span><input type="checkbox" checked> Extra Cheese</span>
-                <span style="font-weight: 800; color: var(--br);">+₹40</span>
+                <span style="font-weight: 500; color: var(--br);">+₹40</span>
               </label>
               <label style="display: flex; justify-content: space-between; padding: 10px 14px; border: 1px solid var(--line); border-radius: 10px; cursor: pointer;">
                 <span><input type="checkbox" checked> Extra Chicken</span>
-                <span style="font-weight: 800; color: var(--br);">+₹70</span>
+                <span style="font-weight: 500; color: var(--br);">+₹70</span>
               </label>
             </div>
           </div>
@@ -782,27 +1516,27 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
 
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px;">
       <div class="card" style="padding: 20px;">
-        <span style="background: #fef3c7; color: #92400e; font-size: 11px; font-weight: 800; padding: 4px 10px; border-radius: 6px; text-transform: uppercase;">★ TODAY'S SPECIAL</span>
+        <span style="background: #fef3c7; color: #92400e; font-size: 11px; font-weight: 500; padding: 4px 10px; border-radius: 6px; text-transform: uppercase;">★ TODAY'S SPECIAL</span>
         <h4 style="font-size: 18px; margin: 12px 0 4px;">Chicken Biryani</h4>
-        <p style="font-weight: 800; color: var(--br); font-size: 16px;">₹240</p>
+        <p style="font-weight: 500; color: var(--br); font-size: 16px;">₹240</p>
       </div>
 
       <div class="card" style="padding: 20px;">
-        <span style="background: #dbeafe; color: #1e40af; font-size: 11px; font-weight: 800; padding: 4px 10px; border-radius: 6px; text-transform: uppercase;">🔥 BEST SELLER</span>
+        <span style="background: #dbeafe; color: #1e40af; font-size: 11px; font-weight: 500; padding: 4px 10px; border-radius: 6px; text-transform: uppercase;">🔥 BEST SELLER</span>
         <h4 style="font-size: 18px; margin: 12px 0 4px;">Paneer Butter Masala</h4>
-        <p style="font-weight: 800; color: var(--br); font-size: 16px;">₹220</p>
+        <p style="font-weight: 500; color: var(--br); font-size: 16px;">₹220</p>
       </div>
 
       <div class="card" style="padding: 20px;">
-        <span style="background: #d1fae5; color: #065f46; font-size: 11px; font-weight: 800; padding: 4px 10px; border-radius: 6px; text-transform: uppercase;">✨ NEW</span>
+        <span style="background: #d1fae5; color: #065f46; font-size: 11px; font-weight: 500; padding: 4px 10px; border-radius: 6px; text-transform: uppercase;">✨ NEW</span>
         <h4 style="font-size: 18px; margin: 12px 0 4px;">Truffle Garlic Naan</h4>
-        <p style="font-weight: 800; color: var(--br); font-size: 16px;">₹110</p>
+        <p style="font-weight: 500; color: var(--br); font-size: 16px;">₹110</p>
       </div>
 
       <div class="card" style="padding: 20px;">
-        <span style="background: #fce7f3; color: #9d174d; font-size: 11px; font-weight: 800; padding: 4px 10px; border-radius: 6px; text-transform: uppercase;">👑 POPULAR</span>
+        <span style="background: #fce7f3; color: #9d174d; font-size: 11px; font-weight: 500; padding: 4px 10px; border-radius: 6px; text-transform: uppercase;">👑 POPULAR</span>
         <h4 style="font-size: 18px; margin: 12px 0 4px;">Mango Lassi</h4>
-        <p style="font-weight: 800; color: var(--br); font-size: 16px;">₹90</p>
+        <p style="font-weight: 500; color: var(--br); font-size: 16px;">₹90</p>
       </div>
     </div>
   </div>
@@ -829,12 +1563,12 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
             <div style="font-weight: 700; margin-bottom: 4px;">Chicken Biryani</div>
             <div style="display: flex; items-center; gap: 8px;">
               <span style="text-decoration: line-through; color: var(--mute);">₹220</span>
-              <span style="color: var(--br); font-weight: 900; font-size: 16px;">₹240</span>
+              <span style="color: var(--br); font-weight: 500; font-size: 16px;">₹240</span>
             </div>
           </div>
           <div style="display: flex; justify-content: space-between; align-items: center; padding: 14px; border: 1px solid var(--line); border-radius: 12px;">
             <span style="font-weight: 700;">Status Toggle</span>
-            <span style="color: var(--red); font-weight: 800;">Available → Unavailable</span>
+            <span style="color: var(--red); font-weight: 500;">Available → Unavailable</span>
           </div>
         </div>
       </div>
@@ -885,19 +1619,19 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
         <div></div>
       </div>
       <div style="padding: 28px; background: #fff;" id="menu-structure-content">
-        <div style="font-weight: 800; color: var(--br); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px;">STARTERS</div>
+        <div style="font-weight: 500; color: var(--br); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px;">STARTERS</div>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 24px;">
           <div style="padding: 10px; border: 1px solid var(--line); border-radius: 8px; font-weight: 700;">Chicken 65 <span style="float: right; color: var(--br);">₹180</span></div>
           <div style="padding: 10px; border: 1px solid var(--line); border-radius: 8px; font-weight: 700;">Paneer Tikka <span style="float: right; color: var(--br);">₹190</span></div>
         </div>
 
-        <div style="font-weight: 800; color: var(--br); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px;">MAIN COURSE</div>
+        <div style="font-weight: 500; color: var(--br); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px;">MAIN COURSE</div>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 24px;">
           <div style="padding: 10px; border: 1px solid var(--line); border-radius: 8px; font-weight: 700;">Butter Chicken <span style="float: right; color: var(--br);">₹260</span></div>
           <div style="padding: 10px; border: 1px solid var(--line); border-radius: 8px; font-weight: 700;">Paneer Butter Masala <span style="float: right; color: var(--br);">₹220</span></div>
         </div>
 
-        <div style="font-weight: 800; color: var(--br); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px;">BIRYANI</div>
+        <div style="font-weight: 500; color: var(--br); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px;">BIRYANI</div>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
           <div style="padding: 10px; border: 1px solid var(--line); border-radius: 8px; font-weight: 700;">Chicken Biryani <span style="float: right; color: var(--br);">₹240</span></div>
           <div style="padding: 10px; border: 1px solid var(--line); border-radius: 8px; font-weight: 700;">Mutton Biryani <span style="float: right; color: var(--br);">₹340</span></div>
@@ -1052,7 +1786,7 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
 
     <!-- ECOSYSTEM FLOW -->
     <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 48px;" class="r">
-      <div style="padding: 14px 20px; background: var(--br); color: #fff; font-weight: 800; border-radius: 12px; box-shadow: var(--shadow-sm);">MENU</div>
+      <div style="padding: 14px 20px; background: var(--br); color: #fff; font-weight: 500; border-radius: 12px; box-shadow: var(--shadow-sm);">MENU</div>
       <div style="align-self: center; color: var(--br); font-size: 20px;">→</div>
       <div style="padding: 14px 20px; background: #fff; border: 1px solid var(--line); font-weight: 700; border-radius: 12px;">ORDERS</div>
       <div style="align-self: center; color: var(--br); font-size: 20px;">→</div>
@@ -1083,7 +1817,7 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
         </div>
         <h4>Reservation Management</h4>
         <p style="font-size: 14px; margin: 6px 0 14px;">Manage table bookings and seating schedules.</p>
-        <a href="{{ route('features') }}" style="color: var(--br); font-weight: 700; font-size: 14px;">Explore →</a>
+        <a href="{{ route('features.reservation-management') }}" style="color: var(--br); font-weight: 700; font-size: 14px;">Explore →</a>
       </div>
 
       <div class="card" style="padding: 24px;">
@@ -1092,7 +1826,7 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
         </div>
         <h4>Table Management</h4>
         <p style="font-size: 14px; margin: 6px 0 14px;">Organize floor plans and table statuses.</p>
-        <a href="{{ route('features') }}" style="color: var(--br); font-weight: 700; font-size: 14px;">Explore →</a>
+        <a href="{{ route('features.table-management') }}" style="color: var(--br); font-weight: 700; font-size: 14px;">Explore →</a>
       </div>
 
       <div class="card" style="padding: 24px; border-color: var(--br);">
@@ -1101,7 +1835,7 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
         </div>
         <h4>Order Management</h4>
         <p style="font-size: 14px; margin: 6px 0 14px;">Move menu selections into an organized order workflow.</p>
-        <a href="{{ route('features') }}" style="color: var(--br); font-weight: 800; font-size: 14px;">Explore →</a>
+        <a href="{{ route('features.order-management') }}" style="color: var(--br); font-weight: 500; font-size: 14px;">Explore →</a>
       </div>
 
       <div class="card" style="padding: 24px;">
@@ -1110,7 +1844,7 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
         </div>
         <h4>KOT Management</h4>
         <p style="font-size: 14px; margin: 6px 0 14px;">Send tickets straight to the kitchen display.</p>
-        <a href="{{ route('features') }}" style="color: var(--br); font-weight: 700; font-size: 14px;">Explore →</a>
+        <a href="{{ route('features.kot-management') }}" style="color: var(--br); font-weight: 700; font-size: 14px;">Explore →</a>
       </div>
 
       <div class="card" style="padding: 24px;">
@@ -1119,7 +1853,7 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
         </div>
         <h4>POS Management</h4>
         <p style="font-size: 14px; margin: 6px 0 14px;">Speed up billing and checkout with integrated POS.</p>
-        <a href="{{ route('features') }}" style="color: var(--br); font-weight: 700; font-size: 14px;">Explore →</a>
+        <a href="{{ route('features.pos-management') }}" style="color: var(--br); font-weight: 700; font-size: 14px;">Explore →</a>
       </div>
 
       <div class="card" style="padding: 24px;">
@@ -1128,7 +1862,7 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
         </div>
         <h4>Inventory Management</h4>
         <p style="font-size: 14px; margin: 6px 0 14px;">Track recipe ingredients and stock usage.</p>
-        <a href="{{ route('features') }}" style="color: var(--br); font-weight: 700; font-size: 14px;">Explore →</a>
+        <a href="{{ route('features.inventory-management') }}" style="color: var(--br); font-weight: 700; font-size: 14px;">Explore →</a>
       </div>
     </div>
   </div>
@@ -1279,12 +2013,12 @@ function switchMenu(type) {
   if (type === 'dine-in') {
     titleDisplay.innerText = 'DINE-IN MENU STRUCTURE';
     content.innerHTML = `
-      <div style="font-weight: 800; color: var(--br); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px;">STARTERS</div>
+      <div style="font-weight: 500; color: var(--br); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px;">STARTERS</div>
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 24px;">
         <div style="padding: 10px; border: 1px solid var(--line); border-radius: 8px; font-weight: 700;">Chicken 65 <span style="float: right; color: var(--br);">₹180</span></div>
         <div style="padding: 10px; border: 1px solid var(--line); border-radius: 8px; font-weight: 700;">Paneer Tikka <span style="float: right; color: var(--br);">₹190</span></div>
       </div>
-      <div style="font-weight: 800; color: var(--br); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px;">BIRYANI & MAINS</div>
+      <div style="font-weight: 500; color: var(--br); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px;">BIRYANI & MAINS</div>
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
         <div style="padding: 10px; border: 1px solid var(--line); border-radius: 8px; font-weight: 700;">Chicken Biryani <span style="float: right; color: var(--br);">₹240</span></div>
         <div style="padding: 10px; border: 1px solid var(--line); border-radius: 8px; font-weight: 700;">Paneer Butter Masala <span style="float: right; color: var(--br);">₹220</span></div>
@@ -1292,7 +2026,7 @@ function switchMenu(type) {
   } else if (type === 'takeaway') {
     titleDisplay.innerText = 'TAKEAWAY EXPRESS MENU';
     content.innerHTML = `
-      <div style="font-weight: 800; color: var(--br); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px;">QUICK COMBO PACKS</div>
+      <div style="font-weight: 500; color: var(--br); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px;">QUICK COMBO PACKS</div>
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 24px;">
         <div style="padding: 10px; border: 1px solid var(--line); border-radius: 8px; font-weight: 700;">Biryani Box + Thums Up <span style="float: right; color: var(--br);">₹280</span></div>
         <div style="padding: 10px; border: 1px solid var(--line); border-radius: 8px; font-weight: 700;">Paneer Naan Combo <span style="float: right; color: var(--br);">₹230</span></div>
@@ -1300,7 +2034,7 @@ function switchMenu(type) {
   } else if (type === 'delivery') {
     titleDisplay.innerText = 'ONLINE DELIVERY MENU';
     content.innerHTML = `
-      <div style="font-weight: 800; color: var(--br); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px;">DELIVERY PACKS</div>
+      <div style="font-weight: 500; color: var(--br); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px;">DELIVERY PACKS</div>
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
         <div style="padding: 10px; border: 1px solid var(--line); border-radius: 8px; font-weight: 700;">Family Biryani Pack <span style="float: right; color: var(--br);">₹850</span></div>
         <div style="padding: 10px; border: 1px solid var(--line); border-radius: 8px; font-weight: 700;">Party Starter Platter <span style="float: right; color: var(--br);">₹690</span></div>
@@ -1308,7 +2042,7 @@ function switchMenu(type) {
   } else if (type === 'breakfast') {
     titleDisplay.innerText = 'MORNING BREAKFAST MENU';
     content.innerHTML = `
-      <div style="font-weight: 800; color: var(--br); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px;">SOUTH INDIAN SPECIALS</div>
+      <div style="font-weight: 500; color: var(--br); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px;">SOUTH INDIAN SPECIALS</div>
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
         <div style="padding: 10px; border: 1px solid var(--line); border-radius: 8px; font-weight: 700;">Masala Dosa + Filter Coffee <span style="float: right; color: var(--br);">₹110</span></div>
         <div style="padding: 10px; border: 1px solid var(--line); border-radius: 8px; font-weight: 700;">Idli Vada Combo <span style="float: right; color: var(--br);">₹80</span></div>
@@ -1316,7 +2050,7 @@ function switchMenu(type) {
   } else if (type === 'special') {
     titleDisplay.innerText = 'FESTIVE & SEASONAL SPECIALS';
     content.innerHTML = `
-      <div style="font-weight: 800; color: var(--br); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px;">CHEF'S SIGNATURE</div>
+      <div style="font-weight: 500; color: var(--br); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px;">CHEF'S SIGNATURE</div>
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
         <div style="padding: 10px; border: 1px solid var(--line); border-radius: 8px; font-weight: 700;">Special Mutton Nalli Nihari <span style="float: right; color: var(--br);">₹420</span></div>
         <div style="padding: 10px; border: 1px solid var(--line); border-radius: 8px; font-weight: 700;">Saffron Kheer <span style="float: right; color: var(--br);">₹140</span></div>

@@ -113,6 +113,35 @@ class PlanList extends Component
             $this->PackageFeatures
         );
         $this->loadAvailablePackages();
+
+        $cycle = request()->get('cycle') ?? session('selected_billing_cycle');
+        if ($cycle === 'annual' || $cycle === 'yearly') {
+            $this->isAnnual = true;
+            $this->loadAvailablePackages();
+        }
+
+        $packageId = request()->get('package_id') ?? request()->get('package') ?? session('selected_package_id');
+        $planName = request()->get('plan') ?? session('selected_plan');
+
+        $targetPackage = null;
+        if ($packageId) {
+            $targetPackage = Package::where('is_private', false)
+                ->where('package_type', '!=', PackageType::TRIAL)
+                ->find($packageId);
+        } elseif ($planName) {
+            $targetPackage = Package::where('is_private', false)
+                ->where('package_type', '!=', PackageType::TRIAL)
+                ->where(function ($q) use ($planName) {
+                    $q->where('package_name', 'like', '%' . $planName . '%')
+                        ->orWhere('category_slug', 'like', '%' . $planName . '%');
+                })->first();
+        }
+
+        if ($targetPackage) {
+            $this->selectedPackage($targetPackage->id);
+        }
+
+        session()->forget(['selected_package_id', 'selected_plan', 'selected_billing_cycle']);
     }
 
     public function switchPaymentMethod($method)

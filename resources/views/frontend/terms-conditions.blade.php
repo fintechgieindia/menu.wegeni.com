@@ -104,7 +104,7 @@
         <section class="mb-8">
             <h2 class="text-2xl font-semibold text-gray-900 mb-4">Privacy Policy</h2>
             <p class="mb-4">
-                We are committed to protecting your privacy. Your data will be collected, stored, and processed in accordance with the <a href="{{ route('privacy_policy') }}" class="text-blue-600 underline" style="color: #b39271;">Geni Fast Privacy Policy</a>. By using our Services, you agree to the terms outlined therein.
+                We are committed to protecting your privacy. Your data will be collected, stored, and processed in accordance with the <a href="{{ route('privacy.policy') }}" class="text-blue-600 underline" style="color: #b39271;">Geni Fast Privacy Policy</a>. By using our Services, you agree to the terms outlined therein.
             </p>
         </section>
 

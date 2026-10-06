@@ -43,7 +43,7 @@ body {
 h1, h2, h3, h4, h5 {
   margin: 0;
   font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
-  font-weight: 800;
+  font-weight: 500;
   line-height: 1.15;
   letter-spacing: -0.02em;
   color: var(--ink);
@@ -72,7 +72,7 @@ ul { list-style: none; margin: 0; padding: 0; }
   gap: 8px;
   font-size: 12px;
   letter-spacing: .16em;
-  font-weight: 800;
+  font-weight: 500;
   text-transform: uppercase;
   color: var(--br);
   margin-bottom: 16px;
@@ -100,7 +100,7 @@ section.alt { background: var(--bg2); }
 .btn.o:hover { background: var(--bg2); transform: translateY(-2px); }
 
 /* Badges */
-.badge { font-size: 11px; font-weight: 800; padding: 4px 10px; border-radius: 8px; text-transform: uppercase; display: inline-block; letter-spacing: .04em; }
+.badge { font-size: 11px; font-weight: 500; padding: 4px 10px; border-radius: 8px; text-transform: uppercase; display: inline-block; letter-spacing: .04em; }
 .badge.ready { background: #d1fae5; color: #047857; }
 .badge.preparing { background: #ffedd5; color: #c2410c; }
 .badge.new { background: #eff6ff; color: #1d4ed8; }
@@ -110,7 +110,7 @@ section.alt { background: var(--bg2); }
 .badge.available { background: #d1fae5; color: #047857; }
 
 /* ---------------- BREADCRUMB ---------------- */
-.bc { padding: 104px 0 16px; background: var(--bg); border-bottom: 1px solid var(--line); font-size: 14px; color: var(--mute); font-weight: 600; }
+.bc { padding: 18px 0 16px; background: var(--bg); border-bottom: 1px solid var(--line); font-size: 14px; color: var(--mute); font-weight: 600; }
 .bc .w { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .bc a { color: var(--mute); transition: color .2s; }
 .bc a:hover { color: var(--ink); }
@@ -124,12 +124,12 @@ section.alt { background: var(--bg2); }
 
 .hero-ui { background: #fff; border: 1px solid var(--line); border-radius: 24px; box-shadow: var(--shadow-lg); overflow: hidden; position: relative; }
 .hero-ui-hdr { background: var(--bg2); padding: 16px 20px; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; }
-.hero-ui-hdr-title { font-weight: 800; font-size: 14px; color: var(--ink); display: flex; align-items: center; gap: 8px; }
+.hero-ui-hdr-title { font-weight: 500; font-size: 14px; color: var(--ink); display: flex; align-items: center; gap: 8px; }
 .hero-ui-grid { padding: 20px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
 
 .hu-stat { padding: 16px; border-radius: 12px; border: 1px solid var(--line); background: var(--bg); box-shadow: var(--shadow-sm); }
-.hu-stat-lbl { font-size: 11px; font-weight: 800; color: var(--mute); text-transform: uppercase; margin-bottom: 4px; }
-.hu-stat-val { font-size: 24px; font-weight: 900; color: var(--ink); }
+.hu-stat-lbl { font-size: 11px; font-weight: 500; color: var(--mute); text-transform: uppercase; margin-bottom: 4px; }
+.hu-stat-val { font-size: 24px; font-weight: 500; color: var(--ink); }
 
 /* ---------------- SECTION 4: FEATURES ---------------- */
 .eco-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
@@ -156,32 +156,32 @@ section.alt { background: var(--bg2); }
 /* ---------------- SECTION 6 & 17: VARIATIONS & COMBOS ---------------- */
 .two-col-flow { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
 .v-card, .combo-card { background: #fff; border: 1px solid var(--line); border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-md); }
-.v-hdr, .combo-hdr { background: var(--bg2); padding: 16px 20px; border-bottom: 1px solid var(--line); font-weight: 800; }
+.v-hdr, .combo-hdr { background: var(--bg2); padding: 16px 20px; border-bottom: 1px solid var(--line); font-weight: 500; }
 .v-body, .combo-body { padding: 20px; font-size: 14px; }
 .v-sec { margin-bottom: 16px; }
-.v-sec-title { font-size: 11px; font-weight: 800; color: var(--mute); text-transform: uppercase; margin-bottom: 8px; }
+.v-sec-title { font-size: 11px; font-weight: 500; color: var(--mute); text-transform: uppercase; margin-bottom: 8px; }
 .v-item { display: flex; justify-content: space-between; margin-bottom: 6px; padding: 6px 10px; background: var(--bg2); border-radius: 8px; }
 .v-item.act { background: var(--br-light); color: var(--br); font-weight: 700; border: 1px solid rgba(135,96,57,0.2); }
 
 .combo-item { padding: 16px; border: 1px dashed var(--line); border-radius: 12px; margin-bottom: 12px; text-align: center; }
-.combo-plus { color: var(--mute); font-weight: 800; font-size: 18px; margin: 8px 0; }
+.combo-plus { color: var(--mute); font-weight: 500; font-size: 18px; margin: 8px 0; }
 
 /* ---------------- SECTION 7, 8, 9, 10: POS, ORDERS, KOT, PEAK ---------------- */
 .bill-panel, .order-panel, .kot-panel { background: #fff; border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow-md); overflow: hidden; }
-.bp-hdr, .op-hdr, .kp-hdr { padding: 16px 20px; background: var(--bg2); border-bottom: 1px solid var(--line); font-weight: 800; font-size: 15px; display: flex; justify-content: space-between; }
+.bp-hdr, .op-hdr, .kp-hdr { padding: 16px 20px; background: var(--bg2); border-bottom: 1px solid var(--line); font-weight: 500; font-size: 15px; display: flex; justify-content: space-between; }
 .bp-body, .op-body, .kp-body { padding: 20px; }
 .bp-item { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; font-size: 14px; }
 .bp-item-qty { font-size: 12px; color: var(--mute); display: block; }
-.bp-total { display: flex; justify-content: space-between; padding: 16px 0; border-top: 2px dashed var(--line); margin-top: 8px; font-weight: 800; font-size: 20px; color: var(--br); }
+.bp-total { display: flex; justify-content: space-between; padding: 16px 0; border-top: 2px dashed var(--line); margin-top: 8px; font-weight: 500; font-size: 20px; color: var(--br); }
 
 .ot-flow { display: flex; gap: 8px; margin-top: 24px; }
-.ot-step { flex: 1; text-align: center; font-size: 10px; font-weight: 800; text-transform: uppercase; padding: 8px 4px; border-radius: 6px; background: var(--bg2); color: var(--mute); border: 1px solid var(--line); display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.ot-step { flex: 1; text-align: center; font-size: 10px; font-weight: 500; text-transform: uppercase; padding: 8px 4px; border-radius: 6px; background: var(--bg2); color: var(--mute); border: 1px solid var(--line); display: flex; flex-direction: column; align-items: center; gap: 4px; }
 .ot-step svg { width: 14px; height: 14px; }
 .ot-step.done { background: var(--br-light); color: var(--br); border-color: var(--br); }
 
 .fest-dash { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
 .fd-card { padding: 20px; background: #fff; border: 1px solid var(--line); border-radius: 16px; text-align: center; box-shadow: var(--shadow-sm); }
-.fd-val { font-size: 32px; font-weight: 900; color: var(--br); line-height: 1.2; }
+.fd-val { font-size: 32px; font-weight: 500; color: var(--br); line-height: 1.2; }
 .fd-lbl { font-size: 12px; font-weight: 700; color: var(--mute); text-transform: uppercase; }
 
 /* ---------------- SECTION 11 & 12: SERVICE MODES & TABLES ---------------- */
@@ -193,7 +193,7 @@ section.alt { background: var(--bg2); }
 .table-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
 .t-card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 20px; }
 .t-hdr { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
-.t-name { font-size: 18px; font-weight: 800; color: var(--ink); }
+.t-name { font-size: 18px; font-weight: 500; color: var(--ink); }
 .t-det { font-size: 13px; color: var(--mute); display: flex; justify-content: space-between; margin-bottom: 8px; }
 
 /* ---------------- SECTION 13 & 14: AVAILABILITY & INVENTORY ---------------- */
@@ -202,7 +202,7 @@ section.alt { background: var(--bg2); }
 .avail-item:last-child { border: none; }
 
 .inv-table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 16px; overflow: hidden; border: 1px solid var(--line); box-shadow: var(--shadow-md); }
-.inv-table th { background: var(--bg2); padding: 12px 16px; text-align: left; font-size: 12px; font-weight: 800; color: var(--mute); text-transform: uppercase; border-bottom: 1px solid var(--line); }
+.inv-table th { background: var(--bg2); padding: 12px 16px; text-align: left; font-size: 12px; font-weight: 500; color: var(--mute); text-transform: uppercase; border-bottom: 1px solid var(--line); }
 .inv-table td { padding: 12px 16px; font-size: 14px; border-bottom: 1px solid var(--bg2); }
 .inv-table tr:last-child td { border-bottom: none; }
 
@@ -210,7 +210,7 @@ section.alt { background: var(--bg2); }
 .reports-preview { background: #fff; border: 1px solid var(--line); border-radius: 24px; padding: 36px; box-shadow: var(--shadow-lg); }
 .rp-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 32px; }
 .rp-stat-card { background: var(--bg2); border: 1px solid var(--line); border-radius: 14px; padding: 16px; }
-.rp-val { font-size: 24px; font-weight: 800; color: var(--ink); }
+.rp-val { font-size: 24px; font-weight: 500; color: var(--ink); }
 .rp-lbl { font-size: 12px; font-weight: 700; color: var(--mute); }
 
 .cust-card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 20px; box-shadow: var(--shadow-md); }
@@ -235,7 +235,7 @@ section.alt { background: var(--bg2); }
 /* ---------------- SECTION 22 & 23: CUSTOMER & MOBILE ---------------- */
 .phone-mockup { max-width: 300px; margin: 0 auto; background: #111; border: 6px solid #222; border-radius: 40px; padding: 12px; box-shadow: var(--shadow-lg); }
 .phone-inner { background: #fff; border-radius: 28px; height: 560px; overflow: hidden; position: relative; }
-.pi-hdr { background: var(--bg2); padding: 16px; text-align: center; font-weight: 800; border-bottom: 1px solid var(--line); }
+.pi-hdr { background: var(--bg2); padding: 16px; text-align: center; font-weight: 500; border-bottom: 1px solid var(--line); }
 .pi-body { padding: 16px; }
 .pi-card { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 12px; margin-bottom: 12px; box-shadow: var(--shadow-sm); }
 
@@ -248,7 +248,7 @@ section.alt { background: var(--bg2); }
 .mb-panel { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 24px; box-shadow: var(--shadow-md); }
 .mb-row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--line); }
 .mb-row:last-child { border-bottom: none; }
-.mb-val { font-weight: 800; color: var(--br); }
+.mb-val { font-weight: 500; color: var(--br); }
 
 .conn-grid { display: grid; grid-template-columns: repeat(8, 1fr); gap: 12px; text-align: center; }
 .conn-card { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 16px 8px; font-size: 11px; font-weight: 700; }
@@ -262,10 +262,10 @@ section.alt { background: var(--bg2); }
 .faq-item p { margin-top: 12px; font-size: 15px; color: var(--mute); }
 
 /* ---------------- CTA ---------------- */
-.cta-sec { padding: 100px 0; background: #1a1512; color: #fff; text-align: center; position: relative; overflow: hidden; }
+.cta-sec { padding: 100px 0; background: linear-gradient(135deg, #FAF4ED 0%, #EFE4D6 50%, #FAF4ED 100%); color: #21160F; text-align: center; position: relative; overflow: hidden; border-top: 1px solid rgba(135, 96, 57, 0.16); }
 .cta-box { position: relative; z-index: 2; max-width: 760px; margin: auto; }
-.cta-box h2 { color: #fff; margin-bottom: 16px; }
-.cta-box p { color: rgba(255,255,255,0.7); }
+.cta-box h2 { color: #21160F; margin-bottom: 16px; }
+.cta-box p { color: #6E6157; }
 
 /* Responsive */
 @media (max-width: 1024px) {
@@ -278,7 +278,7 @@ section.alt { background: var(--bg2); }
 }
 
 @media (max-width: 768px) {
-  .bc { padding: 85px 0 14px; }
+  .bc { padding: 14px 0 14px; }
   .w { padding: 0 16px; }
   .win { min-width: 0 !important; width: 100%; overflow-x: auto; }
 }
@@ -449,7 +449,7 @@ section.alt { background: var(--bg2); }
           <h4>Margherita Pizza</h4>
           <p>Classic delight with 100% real mozzarella cheese and signature tomato sauce.</p>
           <div class="pc-ft">
-            <span style="font-weight:800; color:var(--br);">From ₹299</span>
+            <span style="font-weight: 500; color:var(--br);">From ₹299</span>
             <span class="badge ready">Available</span>
           </div>
         </div>
@@ -460,7 +460,7 @@ section.alt { background: var(--bg2); }
           <h4>Farmhouse Pizza</h4>
           <p>Loaded with fresh mushrooms, onions, crisp capsicum, and sliced tomatoes.</p>
           <div class="pc-ft">
-            <span style="font-weight:800; color:var(--br);">From ₹399</span>
+            <span style="font-weight: 500; color:var(--br);">From ₹399</span>
             <span class="badge ready">Available</span>
           </div>
         </div>
@@ -471,7 +471,7 @@ section.alt { background: var(--bg2); }
           <h4>Signature Chicken Burger</h4>
           <p>Juicy chicken patty, fresh lettuce, tomatoes, and our special sauce.</p>
           <div class="pc-ft">
-            <span style="font-weight:800; color:var(--br);">₹249</span>
+            <span style="font-weight: 500; color:var(--br);">₹249</span>
             <span class="badge ready">Available</span>
           </div>
         </div>
@@ -482,7 +482,7 @@ section.alt { background: var(--bg2); }
           <h4>Creamy Alfredo Pasta</h4>
           <p>Rich and creamy white sauce pasta with bell peppers and olives.</p>
           <div class="pc-ft">
-            <span style="font-weight:800; color:var(--br);">₹349</span>
+            <span style="font-weight: 500; color:var(--br);">₹349</span>
             <span class="badge ready">Available</span>
           </div>
         </div>
@@ -617,7 +617,7 @@ section.alt { background: var(--bg2); }
           <span class="badge preparing">Preparing</span>
         </div>
         <div class="kp-body">
-          <div style="font-weight:800; margin-bottom:12px;">ORDER #4068</div>
+          <div style="font-weight: 500; margin-bottom:12px;">ORDER #4068</div>
           <ul style="font-size:14px; margin-bottom:24px; font-family:monospace; font-size:15px; color:var(--ink);">
             <li style="margin-bottom:8px;">[1] Lrg Farmhouse Pz</li>
             <li style="margin-bottom:8px;">[1] Garlic Bread</li>
@@ -812,11 +812,11 @@ section.alt { background: var(--bg2); }
             <strong style="display:block; font-size:18px; color:var(--ink);">Priya Kumar</strong>
           </div>
           <div style="text-align:right;">
-            <span style="font-size:11px; font-weight:800; color:var(--mute);">TOTAL ORDERS</span>
+            <span style="font-size:11px; font-weight: 500; color:var(--mute);">TOTAL ORDERS</span>
             <strong style="display:block; font-size:18px; color:var(--br);">14</strong>
           </div>
         </div>
-        <div style="font-size:12px; font-weight:800; color:var(--mute); margin-bottom:8px; text-transform:uppercase;">Recent Orders:</div>
+        <div style="font-size:12px; font-weight: 500; color:var(--mute); margin-bottom:8px; text-transform:uppercase;">Recent Orders:</div>
         <ul style="font-size:13px; color:var(--ink); font-weight:600;">
           <li style="margin-bottom:4px;">Farmhouse Pizza</li>
           <li style="margin-bottom:4px;">Garlic Bread</li>
@@ -947,7 +947,7 @@ section.alt { background: var(--bg2); }
               <div>
                 <div style="font-weight:700; font-size:14px;">Margherita Pizza</div>
                 <div style="font-size:12px; color:var(--mute); margin-bottom:4px;">Classic delight...</div>
-                <div style="font-weight:800; color:var(--br); font-size:13px;">₹299</div>
+                <div style="font-weight: 500; color:var(--br); font-size:13px;">₹299</div>
               </div>
             </div>
             <div class="pi-card" style="display:flex; gap:12px; text-align:left;">
@@ -955,7 +955,7 @@ section.alt { background: var(--bg2); }
               <div>
                 <div style="font-weight:700; font-size:14px;">Signature Burger</div>
                 <div style="font-size:12px; color:var(--mute); margin-bottom:4px;">Juicy chicken patty...</div>
-                <div style="font-weight:800; color:var(--br); font-size:13px;">₹249</div>
+                <div style="font-weight: 500; color:var(--br); font-size:13px;">₹249</div>
               </div>
             </div>
             <div style="text-align:center; padding:12px; background:var(--br); color:#fff; border-radius:8px; font-weight:700; font-size:14px; margin-top:24px;">View Cart</div>
@@ -976,21 +976,21 @@ section.alt { background: var(--bg2); }
           <div class="pi-body">
             <div style="background:#fff; border-radius:12px; padding:16px; margin-bottom:12px; border:1px solid var(--line); text-align:left;">
               <div style="font-size:11px; font-weight:700; color:var(--mute);">TODAY'S SALES</div>
-              <div style="font-size:24px; font-weight:800; color:var(--ink);">₹86,450</div>
+              <div style="font-size:24px; font-weight: 500; color:var(--ink);">₹86,450</div>
             </div>
             <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:12px; text-align:left;">
               <div style="background:#fff; border-radius:12px; padding:12px; border:1px solid var(--line);">
                 <div style="font-size:11px; font-weight:700; color:var(--mute);">ORDERS</div>
-                <div style="font-size:18px; font-weight:800;">18</div>
+                <div style="font-size:18px; font-weight: 500;">18</div>
               </div>
               <div style="background:#fff; border-radius:12px; padding:12px; border:1px solid var(--line);">
                 <div style="font-size:11px; font-weight:700; color:var(--mute);">PREPARING</div>
-                <div style="font-size:18px; font-weight:800;">9</div>
+                <div style="font-size:18px; font-weight: 500;">9</div>
               </div>
             </div>
             <div style="background:#fff; border-radius:12px; padding:16px; border:1px solid var(--line); text-align:left;">
               <div style="font-size:11px; font-weight:700; color:var(--mute);">LOW STOCK</div>
-              <div style="font-size:16px; font-weight:800; color:var(--red);">4 Items</div>
+              <div style="font-size:16px; font-weight: 500; color:var(--red);">4 Items</div>
             </div>
           </div>
         </div>
@@ -1027,7 +1027,7 @@ section.alt { background: var(--bg2); }
         <h2>Growing Beyond One Location? Stay Connected.</h2>
       </div>
       <div class="mb-panel">
-        <div style="font-weight:800; font-size:14px; color:var(--mute); text-transform:uppercase; margin-bottom:12px;">All Locations</div>
+        <div style="font-weight: 500; font-size:14px; color:var(--mute); text-transform:uppercase; margin-bottom:12px;">All Locations</div>
         <div class="mb-row"><span>Tiruchengode</span><span class="mb-val">₹86,450</span></div>
         <div class="mb-row"><span>Namakkal</span><span class="mb-val">₹74,280</span></div>
         <div class="mb-row"><span>Salem</span><span class="mb-val">₹1,08,650</span></div>
@@ -1111,8 +1111,8 @@ section.alt { background: var(--bg2); }
     <h2>Ready to Run Your Specialty Food Business Smarter?</h2>
     <p>Manage your menu, orders, kitchen, billing, customers, inventory and business insights from one connected platform with Geni Menu.</p>
     <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:32px;">
-      <a href="{{ route('contact.us') }}" class="btn p">Get Started →</a>
-      <a href="{{ route('contact.us') }}" class="btn o" style="background:transparent; border-color:rgba(255,255,255,0.2); color:#fff;">Book a Demo</a>
+      <a href="{{ route('restaurant_signup') }}" class="btn p" style="background:#876039; color:#fff;">Get Started →</a>
+      <a href="{{ route('contact.us') }}" class="btn o" style="background:#fff; border-color:#876039; color:#876039;">Book a Demo</a>
     </div>
   </div>
 </section>

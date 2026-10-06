@@ -1,4 +1,4 @@
-@extends('layouts.frontend-master')
+﻿@extends('layouts.frontend-master')
 
 @section('content')
 
@@ -45,7 +45,7 @@ body {
 h1, h2, h3, h4, h5 {
   margin: 0;
   font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
-  font-weight: 800;
+  font-weight: 500;
   line-height: 1.14;
   letter-spacing: -0.03em;
   color: var(--ink);
@@ -74,7 +74,7 @@ ul { list-style: none; margin: 0; padding: 0; }
   gap: 8px;
   font-size: 12px;
   letter-spacing: .16em;
-  font-weight: 800;
+  font-weight: 500;
   text-transform: uppercase;
   color: var(--br);
   margin-bottom: 16px;
@@ -99,7 +99,7 @@ section { padding: clamp(60px, 7vw, 96px) 0; background: var(--bg); position: re
 .btn.o:hover { background: var(--br); color: #fff; transform: translateY(-2px); }
 
 /* Breadcrumb */
-.bc { padding: 104px 0 16px; background: var(--bg2); border-bottom: 1px solid var(--line); font-size: 14px; color: var(--mute); font-weight: 600; }
+.bc { padding: 18px 0 16px; background: var(--bg2); border-bottom: 1px solid var(--line); font-size: 14px; color: var(--mute); font-weight: 600; }
 .bc .w { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .bc a { color: var(--mute); transition: color .2s; }
 .bc a:hover { color: var(--br); }
@@ -120,9 +120,9 @@ section { padding: clamp(60px, 7vw, 96px) 0; background: var(--bg); position: re
 .wb i:nth-child(1) { background: #ff5f56; }
 .wb i:nth-child(2) { background: #ffbd2e; }
 .wb i:nth-child(3) { background: #27c93f; }
-.wb .ttl { color: var(--br); font-weight: 800; font-family: 'Outfit', sans-serif; letter-spacing: 0.05em; font-size: 12px; text-transform: uppercase; }
+.wb .ttl { color: var(--br); font-weight: 500; font-family: 'Outfit', sans-serif; letter-spacing: 0.05em; font-size: 12px; text-transform: uppercase; }
 
-.badge { font-size: 11px; font-weight: 800; padding: 4px 10px; border-radius: 8px; text-transform: uppercase; display: inline-block; letter-spacing: .04em; }
+.badge { font-size: 11px; font-weight: 500; padding: 4px 10px; border-radius: 8px; text-transform: uppercase; display: inline-block; letter-spacing: .04em; }
 .badge.new { background: #eff6ff; color: #1d4ed8; }
 .badge.confirmed { background: #fef3c7; color: #b45309; }
 .badge.preparing { background: #ffedd5; color: #c2410c; }
@@ -146,7 +146,7 @@ section { padding: clamp(60px, 7vw, 96px) 0; background: var(--bg); position: re
 .hero-orders-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 16px; background: #faf8f5; }
 .order-mini-card { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; box-shadow: 0 2px 8px rgba(0,0,0,0.03); }
 .om-hdr { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
-.om-id { font-weight: 800; font-size: 13px; color: var(--ink); }
+.om-id { font-weight: 500; font-size: 13px; color: var(--ink); }
 .om-cust { font-size: 12px; font-weight: 600; color: var(--mute); }
 .om-items { font-size: 12px; color: var(--ink); margin-bottom: 8px; font-weight: 500; }
 .om-ftr { display: flex; justify-content: space-between; align-items: center; border-top: 1px dashed var(--line); padding-top: 6px; font-size: 11px; color: var(--mute); }
@@ -180,12 +180,12 @@ section { padding: clamp(60px, 7vw, 96px) 0; background: var(--bg); position: re
 .menu-item-row { display: flex; align-items: center; justify-content: space-between; padding: 12px; background: #fff; border: 1px solid var(--line); border-radius: 14px; gap: 14px; }
 .menu-item-row img { width: 60px; height: 60px; border-radius: 12px; object-fit: cover; }
 .mi-details h4 { font-size: 15px; font-weight: 700; margin-bottom: 2px; }
-.mi-details span { font-size: 13px; font-weight: 800; color: var(--br); }
-.mi-add-btn { padding: 6px 14px; border-radius: 8px; background: var(--br-light); color: var(--br); font-weight: 800; font-size: 13px; border: 1px solid rgba(135,96,57,0.2); }
+.mi-details span { font-size: 13px; font-weight: 500; color: var(--br); }
+.mi-add-btn { padding: 6px 14px; border-radius: 8px; background: var(--br-light); color: var(--br); font-weight: 500; font-size: 13px; border: 1px solid rgba(135,96,57,0.2); }
 
 /* ---------------- SECTION 3: ORDER LIFECYCLE ---------------- */
 .lifecycle-bar { display: flex; justify-content: space-between; align-items: center; background: var(--bg2); padding: 16px 24px; border-radius: 16px; border: 1px solid var(--line); margin-top: 24px; flex-wrap: wrap; gap: 12px; }
-.lc-step { display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 13px; color: var(--mute); }
+.lc-step { display: flex; align-items: center; gap: 8px; font-weight: 500; font-size: 13px; color: var(--mute); }
 .lc-step.act { color: var(--br); }
 .lc-dot { width: 10px; height: 10px; border-radius: 50%; background: #ccc; }
 .lc-step.act .lc-dot { background: var(--br); box-shadow: 0 0 0 4px rgba(135,96,57,0.2); }
@@ -206,13 +206,13 @@ section { padding: clamp(60px, 7vw, 96px) 0; background: var(--bg); position: re
 /* ---------------- SECTION 5: PICKUP DASHBOARD ---------------- */
 .pickup-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .pickup-col { background: var(--bg2); border: 1px solid var(--line); border-radius: 18px; padding: 20px; }
-.pcol-hdr { display: flex; justify-content: space-between; align-items: center; font-weight: 800; font-size: 14px; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid var(--line); }
+.pcol-hdr { display: flex; justify-content: space-between; align-items: center; font-weight: 500; font-size: 14px; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid var(--line); }
 .pickup-ticket { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 12px 16px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }
 
 /* ---------------- SECTION 6: COUNTER OPERATIONS Workflow ---------------- */
 .workflow-flow-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; text-align: center; position: relative; margin-top: 40px; }
 .wf-step-box { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 20px 10px; box-shadow: var(--shadow-sm); }
-.wf-step-num { width: 28px; height: 28px; border-radius: 50%; background: var(--br-light); color: var(--br); font-weight: 800; font-size: 12px; display: grid; place-items: center; margin: 0 auto 10px; }
+.wf-step-num { width: 28px; height: 28px; border-radius: 50%; background: var(--br-light); color: var(--br); font-weight: 500; font-size: 12px; display: grid; place-items: center; margin: 0 auto 10px; }
 
 /* ---------------- SECTION 7 & 8: BILLING & CUSTOMER ---------------- */
 .two-col-demo { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
@@ -226,7 +226,7 @@ section { padding: clamp(60px, 7vw, 96px) 0; background: var(--bg); position: re
 .rp-hdr { display: flex; justify-content: space-between; align-items: center; margin-bottom: 28px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 16px; }
 .rp-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 28px; }
 .rp-stat-card { background: var(--dark-card); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 16px; }
-.rp-stat-val { font-size: 24px; font-weight: 800; color: #fff; margin-top: 4px; }
+.rp-stat-val { font-size: 24px; font-weight: 500; color: #fff; margin-top: 4px; }
 
 /* ---------------- SECTION 11: CONNECTED WORKFLOW ---------------- */
 .connected-flow { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; background: var(--bg2); padding: 32px; border-radius: 24px; border: 1px solid var(--line); margin-top: 36px; }
@@ -250,7 +250,7 @@ section { padding: clamp(60px, 7vw, 96px) 0; background: var(--bg); position: re
 .biz-types-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
 .biz-card { background: #fff; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
 .biz-card img { width: 100%; height: 140px; object-fit: cover; }
-.biz-ctx { padding: 16px; text-align: center; font-weight: 800; font-size: 15px; }
+.biz-ctx { padding: 16px; text-align: center; font-weight: 500; font-size: 15px; }
 
 /* ---------------- FAQ ---------------- */
 .faq-list { max-width: 840px; margin: auto; display: flex; flex-direction: column; gap: 16px; }
@@ -275,7 +275,7 @@ section { padding: clamp(60px, 7vw, 96px) 0; background: var(--bg); position: re
 }
 
 @media (max-width: 768px) {
-  .bc { padding: 85px 0 14px; }
+  .bc { padding: 14px 0 14px; }
   .w { padding: 0 16px; }
   .food-float-tag { display: none; }
   .win { min-width: 0 !important; width: 100%; overflow-x: auto; }
@@ -337,7 +337,7 @@ section { padding: clamp(60px, 7vw, 96px) 0; background: var(--bg); position: re
 
       <div class="hero-dashboard">
         <div class="hero-hdr">
-          <div style="font-weight:800; font-size:14px; color:var(--ink); display:flex; align-items:center; gap:8px;">
+          <div style="font-weight: 500; font-size:14px; color:var(--ink); display:flex; align-items:center; gap:8px;">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--br)" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
             Live Takeaway Counter
           </div>
@@ -551,7 +551,7 @@ section { padding: clamp(60px, 7vw, 96px) 0; background: var(--bg); position: re
     <div class="win" style="max-width: 900px; margin: auto; padding: 28px;">
       <div class="odc-hdr">
         <div>
-          <span style="font-weight:800; font-size:18px; color:var(--ink);">ORDER #1256</span>
+          <span style="font-weight: 500; font-size:18px; color:var(--ink);">ORDER #1256</span>
           <span class="badge preparing" style="margin-left:10px;">Preparing</span>
         </div>
         <div style="font-weight:700; color:var(--mute); font-size:14px;">
@@ -562,11 +562,11 @@ section { padding: clamp(60px, 7vw, 96px) 0; background: var(--bg); position: re
       <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 20px; font-size: 14px;">
         <div><strong>Customer:</strong> Arun Kumar</div>
         <div><strong>Phone:</strong> +91 98*** **321</div>
-        <div><strong>Payment:</strong> <span style="color:var(--green); font-weight:800;">PAID (UPI)</span></div>
+        <div><strong>Payment:</strong> <span style="color:var(--green); font-weight: 500;">PAID (UPI)</span></div>
       </div>
 
       <div style="background:var(--bg2); padding:16px; border-radius:12px; margin-bottom:20px;">
-        <div style="font-weight:800; font-size:13px; margin-bottom:8px; color:var(--mute);">ORDER ITEMS</div>
+        <div style="font-weight: 500; font-size:13px; margin-bottom:8px; color:var(--mute);">ORDER ITEMS</div>
         <div style="display:flex; justify-content:space-between; margin-bottom:4px; font-weight:600;">
           <span>Chicken Biryani × 2</span>
           <span>₹640</span>
@@ -605,7 +605,7 @@ section { padding: clamp(60px, 7vw, 96px) 0; background: var(--bg); position: re
       <div class="kot-card prep">
         <div class="kot-hdr">
           <div>
-            <span style="font-weight:900; font-size:16px;">KOT #1256</span>
+            <span style="font-weight: 500; font-size:16px;">KOT #1256</span>
             <div style="font-size:11px; font-weight:700; color:var(--mute);">TAKEAWAY • Arun</div>
           </div>
           <span class="badge preparing">Preparing</span>
@@ -623,7 +623,7 @@ section { padding: clamp(60px, 7vw, 96px) 0; background: var(--bg); position: re
       <div class="kot-card ready">
         <div class="kot-hdr">
           <div>
-            <span style="font-weight:900; font-size:16px;">KOT #1257</span>
+            <span style="font-weight: 500; font-size:16px;">KOT #1257</span>
             <div style="font-size:11px; font-weight:700; color:var(--mute);">TAKEAWAY • Priya</div>
           </div>
           <span class="badge ready">Ready</span>
@@ -640,7 +640,7 @@ section { padding: clamp(60px, 7vw, 96px) 0; background: var(--bg); position: re
       <div class="kot-card new">
         <div class="kot-hdr">
           <div>
-            <span style="font-weight:900; font-size:16px;">KOT #1260</span>
+            <span style="font-weight: 500; font-size:16px;">KOT #1260</span>
             <div style="font-size:11px; font-weight:700; color:var(--mute);">TAKEAWAY • Suresh</div>
           </div>
           <span class="badge new">New</span>
@@ -811,7 +811,7 @@ section { padding: clamp(60px, 7vw, 96px) 0; background: var(--bg); position: re
           <span>Fresh Lime × 2</span>
           <strong>₹160</strong>
         </div>
-        <div style="border-top:2px solid var(--line); padding-top:10px; display:flex; justify-content:space-between; font-weight:800; font-size:16px; color:var(--br);">
+        <div style="border-top:2px solid var(--line); padding-top:10px; display:flex; justify-content:space-between; font-weight: 500; font-size:16px; color:var(--br);">
           <span>Total Amount</span>
           <span>₹1,020</span>
         </div>
@@ -864,27 +864,27 @@ section { padding: clamp(60px, 7vw, 96px) 0; background: var(--bg); position: re
       <div class="inv-card">
         <div class="inv-hdr">
           <strong style="font-size:15px;">Basmati Rice</strong>
-          <span style="color:var(--green); font-weight:800; font-size:12px;">Sufficient</span>
+          <span style="color:var(--green); font-weight: 500; font-size:12px;">Sufficient</span>
         </div>
-        <div style="font-size:24px; font-weight:800; color:var(--ink);">25 kg</div>
+        <div style="font-size:24px; font-weight: 500; color:var(--ink);">25 kg</div>
         <div style="font-size:12px; color:var(--mute); margin-top:4px;">Used for Biryani & Meals</div>
       </div>
 
       <div class="inv-card">
         <div class="inv-hdr">
           <strong style="font-size:15px;">Fresh Chicken</strong>
-          <span style="color:var(--green); font-weight:800; font-size:12px;">Sufficient</span>
+          <span style="color:var(--green); font-weight: 500; font-size:12px;">Sufficient</span>
         </div>
-        <div style="font-size:24px; font-weight:800; color:var(--ink);">18 kg</div>
+        <div style="font-size:24px; font-weight: 500; color:var(--ink);">18 kg</div>
         <div style="font-size:12px; color:var(--mute); margin-top:4px;">Daily fresh stock</div>
       </div>
 
       <div class="inv-card" style="border-color:var(--amber);">
         <div class="inv-hdr">
           <strong style="font-size:15px;">Takeaway Containers</strong>
-          <span style="color:var(--amber); font-weight:800; font-size:12px;">Low Stock</span>
+          <span style="color:var(--amber); font-weight: 500; font-size:12px;">Low Stock</span>
         </div>
-        <div style="font-size:24px; font-weight:800; color:var(--amber);">42 pcs</div>
+        <div style="font-size:24px; font-weight: 500; color:var(--amber);">42 pcs</div>
         <div style="font-size:12px; color:var(--mute); margin-top:4px;">Reorder suggested</div>
       </div>
     </div>
@@ -943,49 +943,49 @@ section { padding: clamp(60px, 7vw, 96px) 0; background: var(--bg); position: re
     <div class="connected-flow">
       <div class="cf-node">
         <div class="cf-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
-        <span style="font-size:12px; font-weight:800;">Customer</span>
+        <span style="font-size:12px; font-weight: 500;">Customer</span>
       </div>
       <div class="cf-arrow">→</div>
 
       <div class="cf-node">
         <div class="cf-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
-        <span style="font-size:12px; font-weight:800;">Menu</span>
+        <span style="font-size:12px; font-weight: 500;">Menu</span>
       </div>
       <div class="cf-arrow">→</div>
 
       <div class="cf-node">
         <div class="cf-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/></svg></div>
-        <span style="font-size:12px; font-weight:800;">Order</span>
+        <span style="font-size:12px; font-weight: 500;">Order</span>
       </div>
       <div class="cf-arrow">→</div>
 
       <div class="cf-node">
         <div class="cf-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg></div>
-        <span style="font-size:12px; font-weight:800;">KOT</span>
+        <span style="font-size:12px; font-weight: 500;">KOT</span>
       </div>
       <div class="cf-arrow">→</div>
 
       <div class="cf-node">
         <div class="cf-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 13.87A8 8 0 0 1 17.64 6.11a8 8 0 0 1 3.11 11.41"/></svg></div>
-        <span style="font-size:12px; font-weight:800;">Kitchen</span>
+        <span style="font-size:12px; font-weight: 500;">Kitchen</span>
       </div>
       <div class="cf-arrow">→</div>
 
       <div class="cf-node">
         <div class="cf-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-        <span style="font-size:12px; font-weight:800;">Ready</span>
+        <span style="font-size:12px; font-weight: 500;">Ready</span>
       </div>
       <div class="cf-arrow">→</div>
 
       <div class="cf-node">
         <div class="cf-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/></svg></div>
-        <span style="font-size:12px; font-weight:800;">Pickup</span>
+        <span style="font-size:12px; font-weight: 500;">Pickup</span>
       </div>
       <div class="cf-arrow">→</div>
 
       <div class="cf-node">
         <div class="cf-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
-        <span style="font-size:12px; font-weight:800;">Reports</span>
+        <span style="font-size:12px; font-weight: 500;">Reports</span>
       </div>
     </div>
   </div>
@@ -1113,19 +1113,19 @@ section { padding: clamp(60px, 7vw, 96px) 0; background: var(--bg); position: re
 
     <div class="mob-preview-box">
       <div class="mob-inner">
-        <div style="text-align:center; font-weight:800; border-bottom:1px solid #eee; padding-bottom:8px; margin-bottom:12px;">Geni Menu Takeaway</div>
+        <div style="text-align:center; font-weight: 500; border-bottom:1px solid #eee; padding-bottom:8px; margin-bottom:12px;">Geni Menu Takeaway</div>
         <div style="background:var(--bg2); border-radius:10px; padding:10px; margin-bottom:10px;">
           <div style="font-size:10px; color:var(--mute);">TODAY'S SALES</div>
-          <div style="font-size:18px; font-weight:800; color:var(--br);">₹48,920</div>
+          <div style="font-size:18px; font-weight: 500; color:var(--br);">₹48,920</div>
         </div>
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:10px;">
           <div style="background:#eff6ff; padding:8px; border-radius:8px;">
             <div style="font-size:9px; color:#1d4ed8;">PREPARING</div>
-            <div style="font-size:14px; font-weight:800;">6 Orders</div>
+            <div style="font-size:14px; font-weight: 500;">6 Orders</div>
           </div>
           <div style="background:#ecfdf5; padding:8px; border-radius:8px;">
             <div style="font-size:9px; color:#047857;">READY</div>
-            <div style="font-size:14px; font-weight:800;">4 Orders</div>
+            <div style="font-size:14px; font-weight: 500;">4 Orders</div>
           </div>
         </div>
       </div>

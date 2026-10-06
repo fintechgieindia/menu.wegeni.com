@@ -1,4 +1,4 @@
-@extends('layouts.frontend-master')
+﻿@extends('layouts.frontend-master')
 
 @section('content')
 
@@ -46,7 +46,7 @@ body {
 h1, h2, h3, h4, h5 {
   margin: 0;
   font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
-  font-weight: 800;
+  font-weight: 500;
   line-height: 1.14;
   letter-spacing: -0.03em;
   color: var(--ink);
@@ -75,7 +75,7 @@ ul { list-style: none; margin: 0; padding: 0; }
   gap: 8px;
   font-size: 12px;
   letter-spacing: .16em;
-  font-weight: 800;
+  font-weight: 500;
   text-transform: uppercase;
   color: var(--br);
   margin-bottom: 16px;
@@ -100,7 +100,7 @@ section { padding: clamp(60px, 7vw, 96px) 0; background: var(--bg); position: re
 .btn.o:hover { background: var(--br); color: #fff; transform: translateY(-2px); }
 
 /* Breadcrumb */
-.bc { padding: 104px 0 16px; background: var(--bg2); border-bottom: 1px solid var(--line); font-size: 14px; color: var(--mute); font-weight: 600; }
+.bc { padding: 18px 0 16px; background: var(--bg2); border-bottom: 1px solid var(--line); font-size: 14px; color: var(--mute); font-weight: 600; }
 .bc .w { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .bc a { color: var(--mute); transition: color .2s; }
 .bc a:hover { color: var(--br); }
@@ -121,9 +121,9 @@ section { padding: clamp(60px, 7vw, 96px) 0; background: var(--bg); position: re
 .wb i:nth-child(1) { background: #ff5f56; }
 .wb i:nth-child(2) { background: #ffbd2e; }
 .wb i:nth-child(3) { background: #27c93f; }
-.wb .ttl { color: var(--br); font-weight: 800; font-family: 'Outfit', sans-serif; letter-spacing: 0.05em; font-size: 12px; text-transform: uppercase; }
+.wb .ttl { color: var(--br); font-weight: 500; font-family: 'Outfit', sans-serif; letter-spacing: 0.05em; font-size: 12px; text-transform: uppercase; }
 
-.badge { font-size: 11px; font-weight: 800; padding: 4px 10px; border-radius: 8px; text-transform: uppercase; display: inline-block; letter-spacing: .04em; }
+.badge { font-size: 11px; font-weight: 500; padding: 4px 10px; border-radius: 8px; text-transform: uppercase; display: inline-block; letter-spacing: .04em; }
 .badge.new { background: #eff6ff; color: #1d4ed8; }
 .badge.confirmed { background: #fef3c7; color: #b45309; }
 .badge.preparing { background: #ffedd5; color: #c2410c; }
@@ -147,7 +147,7 @@ section { padding: clamp(60px, 7vw, 96px) 0; background: var(--bg); position: re
 .hero-orders-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 16px; background: #faf8f5; }
 .order-mini-card { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; box-shadow: 0 2px 8px rgba(0,0,0,0.03); }
 .om-hdr { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
-.om-id { font-weight: 800; font-size: 13px; color: var(--ink); }
+.om-id { font-weight: 500; font-size: 13px; color: var(--ink); }
 .om-cust { font-size: 12px; font-weight: 600; color: var(--mute); }
 .om-items { font-size: 12px; color: var(--ink); margin-bottom: 8px; font-weight: 500; }
 .om-ftr { display: flex; justify-content: space-between; align-items: center; border-top: 1px dashed var(--line); padding-top: 6px; font-size: 11px; color: var(--mute); }
@@ -181,13 +181,13 @@ section { padding: clamp(60px, 7vw, 96px) 0; background: var(--bg); position: re
 .campus-food-card img { width: 100%; height: 90px; object-fit: cover; }
 .cfc-ctx { padding: 10px; }
 .cfc-hdr { font-weight: 700; font-size: 14px; margin-bottom: 2px; }
-.cfc-price { font-weight: 800; color: var(--br); font-size: 13px; }
-.cfc-btn { width: 100%; margin-top: 8px; padding: 6px; border-radius: 6px; background: var(--br-light); color: var(--br); font-weight: 800; font-size: 12px; border: none; cursor: pointer; }
+.cfc-price { font-weight: 500; color: var(--br); font-size: 13px; }
+.cfc-btn { width: 100%; margin-top: 8px; padding: 6px; border-radius: 6px; background: var(--br-light); color: var(--br); font-weight: 500; font-size: 12px; border: none; cursor: pointer; }
 
 /* ---------------- SECTION 3: BUSY BREAK TIME ---------------- */
 .busy-metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 32px; }
 .bm-card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 20px; text-align: center; }
-.bm-val { font-size: 36px; font-weight: 900; color: var(--br); line-height: 1; margin-bottom: 6px; }
+.bm-val { font-size: 36px; font-weight: 500; color: var(--br); line-height: 1; margin-bottom: 6px; }
 .bm-lbl { font-size: 13px; font-weight: 700; color: var(--mute); text-transform: uppercase; letter-spacing: .05em; }
 
 /* ---------------- SECTION 5: KITCHEN OPERATIONS ---------------- */
@@ -219,7 +219,7 @@ section { padding: clamp(60px, 7vw, 96px) 0; background: var(--bg); position: re
 .rp-hdr { display: flex; justify-content: space-between; align-items: center; margin-bottom: 28px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 16px; }
 .rp-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 28px; }
 .rp-stat-card { background: var(--dark-card); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 16px; }
-.rp-stat-val { font-size: 24px; font-weight: 800; color: #fff; margin-top: 4px; }
+.rp-stat-val { font-size: 24px; font-weight: 500; color: #fff; margin-top: 4px; }
 
 /* ---------------- SECTION 11: CONNECTED WORKFLOW ---------------- */
 .connected-flow { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; background: var(--bg2); padding: 32px; border-radius: 24px; border: 1px solid var(--line); margin-top: 36px; }
@@ -243,7 +243,7 @@ section { padding: clamp(60px, 7vw, 96px) 0; background: var(--bg); position: re
 .biz-types-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
 .biz-card { background: #fff; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
 .biz-card img { width: 100%; height: 140px; object-fit: cover; }
-.biz-ctx { padding: 16px; text-align: center; font-weight: 800; font-size: 15px; }
+.biz-ctx { padding: 16px; text-align: center; font-weight: 500; font-size: 15px; }
 
 /* ---------------- FAQ ---------------- */
 .faq-list { max-width: 840px; margin: auto; display: flex; flex-direction: column; gap: 16px; }
@@ -269,7 +269,7 @@ section { padding: clamp(60px, 7vw, 96px) 0; background: var(--bg); position: re
 }
 
 @media (max-width: 768px) {
-  .bc { padding: 85px 0 14px; }
+  .bc { padding: 14px 0 14px; }
   .w { padding: 0 16px; }
   .food-float-tag { display: none; }
   .win { min-width: 0 !important; width: 100%; overflow-x: auto; }
@@ -331,7 +331,7 @@ section { padding: clamp(60px, 7vw, 96px) 0; background: var(--bg); position: re
 
       <div class="hero-dashboard">
         <div class="hero-hdr">
-          <div style="font-weight:800; font-size:14px; color:var(--ink); display:flex; align-items:center; gap:8px;">
+          <div style="font-weight: 500; font-size:14px; color:var(--ink); display:flex; align-items:center; gap:8px;">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--br)" stroke-width="2.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
             Workplace Canteen Operations
           </div>
@@ -582,7 +582,7 @@ section { padding: clamp(60px, 7vw, 96px) 0; background: var(--bg); position: re
           <span>Cold Coffee × 2</span>
           <strong>₹120</strong>
         </div>
-        <div style="border-top:2px solid var(--line); padding-top:10px; display:flex; justify-content:space-between; font-weight:800; font-size:16px; color:var(--br);">
+        <div style="border-top:2px solid var(--line); padding-top:10px; display:flex; justify-content:space-between; font-weight: 500; font-size:16px; color:var(--br);">
           <span>Total Amount</span>
           <span>₹440</span>
         </div>
@@ -626,7 +626,7 @@ section { padding: clamp(60px, 7vw, 96px) 0; background: var(--bg); position: re
       <div class="kot-card prep">
         <div class="kot-hdr">
           <div>
-            <span style="font-weight:900; font-size:16px;">KOT #3048</span>
+            <span style="font-weight: 500; font-size:16px;">KOT #3048</span>
             <div style="font-size:11px; font-weight:700; color:var(--mute);">MAIN COUNTER • Lunch</div>
           </div>
           <span class="badge preparing">Preparing</span>
@@ -643,7 +643,7 @@ section { padding: clamp(60px, 7vw, 96px) 0; background: var(--bg); position: re
       <div class="kot-card ready">
         <div class="kot-hdr">
           <div>
-            <span style="font-weight:900; font-size:16px;">KOT #3049</span>
+            <span style="font-weight: 500; font-size:16px;">KOT #3049</span>
             <div style="font-size:11px; font-weight:700; color:var(--mute);">CAFE BAR • Break</div>
           </div>
           <span class="badge ready">Ready</span>
@@ -660,7 +660,7 @@ section { padding: clamp(60px, 7vw, 96px) 0; background: var(--bg); position: re
       <div class="kot-card new">
         <div class="kot-hdr">
           <div>
-            <span style="font-weight:900; font-size:16px;">KOT #3051</span>
+            <span style="font-weight: 500; font-size:16px;">KOT #3051</span>
             <div style="font-size:11px; font-weight:700; color:var(--mute);">PANTRY • Meeting</div>
           </div>
           <span class="badge new">New</span>
@@ -766,7 +766,7 @@ section { padding: clamp(60px, 7vw, 96px) 0; background: var(--bg); position: re
           <span>Fruit Bowl × 1</span>
           <span>₹60</span>
         </div>
-        <div style="border-top:2px solid var(--line); padding-top:8px; display:flex; justify-content:space-between; font-weight:800; font-size:16px; color:var(--br);">
+        <div style="border-top:2px solid var(--line); padding-top:8px; display:flex; justify-content:space-between; font-weight: 500; font-size:16px; color:var(--br);">
           <span>TOTAL</span>
           <span>₹220</span>
         </div>
@@ -794,27 +794,27 @@ section { padding: clamp(60px, 7vw, 96px) 0; background: var(--bg); position: re
       <div class="inv-card">
         <div class="inv-hdr">
           <strong style="font-size:15px;">Coffee Beans (Arabica)</strong>
-          <span style="color:var(--green); font-weight:800; font-size:12px;">Sufficient</span>
+          <span style="color:var(--green); font-weight: 500; font-size:12px;">Sufficient</span>
         </div>
-        <div style="font-size:24px; font-weight:800; color:var(--ink);">12 kg</div>
+        <div style="font-size:24px; font-weight: 500; color:var(--ink);">12 kg</div>
         <div style="font-size:12px; color:var(--mute); margin-top:4px;">Cafe Counter</div>
       </div>
 
       <div class="inv-card">
         <div class="inv-hdr">
           <strong style="font-size:15px;">Fresh Vegetables</strong>
-          <span style="color:var(--green); font-weight:800; font-size:12px;">Sufficient</span>
+          <span style="color:var(--green); font-weight: 500; font-size:12px;">Sufficient</span>
         </div>
-        <div style="font-size:24px; font-weight:800; color:var(--ink);">30 kg</div>
+        <div style="font-size:24px; font-weight: 500; color:var(--ink);">30 kg</div>
         <div style="font-size:12px; color:var(--mute); margin-top:4px;">Main Kitchen Delivery</div>
       </div>
 
       <div class="inv-card" style="border-color:var(--amber);">
         <div class="inv-hdr">
           <strong style="font-size:15px;">Diet Soda Cans</strong>
-          <span style="color:var(--amber); font-weight:800; font-size:12px;">Low Stock</span>
+          <span style="color:var(--amber); font-weight: 500; font-size:12px;">Low Stock</span>
         </div>
-        <div style="font-size:24px; font-weight:800; color:var(--ink);">48 units</div>
+        <div style="font-size:24px; font-weight: 500; color:var(--ink);">48 units</div>
         <div style="font-size:12px; color:var(--mute); margin-top:4px;">Reorder recommended</div>
       </div>
     </div>
@@ -832,7 +832,7 @@ section { padding: clamp(60px, 7vw, 96px) 0; background: var(--bg); position: re
 
     <div class="reports-preview">
       <div class="rp-hdr">
-        <div style="font-size:20px; font-weight:800;">Today's Canteen Performance</div>
+        <div style="font-size:20px; font-weight: 500;">Today's Canteen Performance</div>
         <div style="background:rgba(255,255,255,0.1); padding:8px 16px; border-radius:8px; font-size:13px; font-weight:700;">Live Updates</div>
       </div>
       <div class="rp-stats">

@@ -45,7 +45,7 @@ body {
 h1, h2, h3, h4, h5 {
   margin: 0;
   font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
-  font-weight: 800;
+  font-weight: 500;
   line-height: 1.15;
   letter-spacing: -0.02em;
   color: var(--ink);
@@ -63,7 +63,7 @@ ul { list-style: none; margin: 0; padding: 0; }
   gap: 8px;
   font-size: 12px;
   letter-spacing: .16em;
-  font-weight: 800;
+  font-weight: 500;
   text-transform: uppercase;
   color: var(--br);
   margin-bottom: 16px;
@@ -105,7 +105,7 @@ section.alt { background: var(--bg2); }
 .help-card .ic { width: 48px; height: 48px; flex-shrink: 0; background: var(--bg2); border-radius: 12px; color: var(--br); display: grid; place-items: center; }
 .help-card h3 { font-size: 18px; margin-bottom: 4px; }
 .help-card p { font-size: 14px; margin-bottom: 12px; }
-.help-card a { font-size: 14px; font-weight: 800; color: var(--br); display: inline-flex; align-items: center; gap: 4px; }
+.help-card a { font-size: 14px; font-weight: 500; color: var(--br); display: inline-flex; align-items: center; gap: 4px; }
 .help-card a:hover { text-decoration: underline; }
 
 .c-form-box { background: #fff; border: 1px solid var(--line); border-radius: 24px; padding: 40px; box-shadow: var(--shadow-lg); }
@@ -154,12 +154,12 @@ section.alt { background: var(--bg2); }
 .ind-ic { font-size: 32px; margin-bottom: 12px; }
 .ind-card h4 { font-size: 18px; margin-bottom: 8px; }
 .ind-card p { font-size: 14px; margin-bottom: 16px; min-height: 44px; }
-.ind-link { font-size: 13px; font-weight: 800; color: var(--br); }
+.ind-link { font-size: 13px; font-weight: 500; color: var(--br); }
 
 /* 9. CONTACT INFORMATION */
 .info-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
 .info-card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 24px; text-align: center; }
-.info-lbl { font-size: 11px; font-weight: 800; color: var(--mute); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 8px; }
+.info-lbl { font-size: 11px; font-weight: 500; color: var(--mute); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 8px; }
 .info-val { font-size: 16px; font-weight: 700; color: var(--ink); }
 
 /* 10. OFFICE LOCATION */
@@ -181,10 +181,10 @@ section.alt { background: var(--bg2); }
 .faq-item p { margin-top: 12px; font-size: 15px; color: var(--mute); line-height: 1.6; }
 
 /* 13. FINAL CTA */
-.cta-sec { padding: 100px 0; background: #1a1512; color: #fff; text-align: center; position: relative; overflow: hidden; }
+.cta-sec { padding: 90px 0; background: linear-gradient(135deg, #FAF4ED 0%, #EFE4D6 50%, #FAF4ED 100%); color: #21160F; text-align: center; position: relative; overflow: hidden; border-top: 1px solid rgba(135, 96, 57, 0.16); }
 .cta-box { position: relative; z-index: 2; max-width: 760px; margin: auto; }
-.cta-box h2 { color: #fff; margin-bottom: 16px; }
-.cta-box p { color: rgba(255,255,255,0.7); }
+.cta-box h2 { color: #21160F; margin-bottom: 16px; }
+.cta-box p { color: #6E6157; font-size: 16.5px; line-height: 1.6; }
 
 /* Responsive */
 @media (max-width: 1024px) {
@@ -268,7 +268,7 @@ section.alt { background: var(--bg2); }
                 <div class="alert-success">
                     <h2>Thanks for Reaching Out.</h2>
                     <div style="font-weight:400; margin-top:8px;">Your enquiry has been received. Our team will get in touch with you soon.</div>
-                    <a href="{{ url('/') }}" style="color:#065f46; font-weight:800; display:inline-block; margin-top:16px;">Back to Geni Menu →</a>
+                    <a href="{{ url('/') }}" style="color:#065f46; font-weight: 500; display:inline-block; margin-top:16px;">Back to Geni Menu →</a>
                 </div>
             @endif
 
@@ -620,7 +620,7 @@ section.alt { background: var(--bg2); }
         <p>Ready to simplify your restaurant operations? Talk to the Geni Menu team and find the right solution for your business.</p>
         <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:32px;">
             <a href="#form" class="btn p">Book a Demo →</a>
-            <a href="#form" class="btn o" style="background:transparent; border-color:rgba(255,255,255,0.2); color:#fff;">Get Started →</a>
+            <a href="#form" class="btn o" style="background:transparent; border:1.5px solid #876039; color:#876039;">Get Started →</a>
         </div>
     </div>
 </section>

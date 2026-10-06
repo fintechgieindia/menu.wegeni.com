@@ -50,7 +50,7 @@ body {
 h1, h2, h3, h4, h5 {
   margin: 0;
   font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
-  font-weight: 800;
+  font-weight: 500;
   line-height: 1.14;
   letter-spacing: -0.03em;
   color: var(--ink);
@@ -79,7 +79,7 @@ ul { list-style: none; margin: 0; padding: 0; }
   gap: 6px;
   font-size: 12px;
   letter-spacing: .16em;
-  font-weight: 800;
+  font-weight: 500;
   text-transform: uppercase;
   color: var(--br);
   margin-bottom: 16px;
@@ -104,7 +104,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 .btn.o:hover { background: var(--br); color: #fff; transform: translateY(-2px); }
 
 /* ===================== BREADCRUMB ===================== */
-.bc { padding: 104px 0 16px; background: var(--bg2); border-bottom: 1px solid var(--line); font-size: 14px; color: var(--mute); font-weight: 600; }
+.bc { padding: 18px 0 16px; background: var(--bg2); border-bottom: 1px solid var(--line); font-size: 14px; color: var(--mute); font-weight: 600; }
 .bc .w { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .bc a { color: var(--mute); transition: color .2s; }
 .bc a:hover { color: var(--br); }
@@ -122,8 +122,8 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 
 /* Dynamic Flow Pipeline */
 .flow-step { flex: 1; min-width: 90px; text-align: center; position: relative; padding: 12px 6px; }
-.flow-step .num { width: 28px; height: 28px; border-radius: 50%; background: var(--br-light); color: var(--br); font-weight: 800; font-size: 12px; display: grid; place-items: center; margin: 0 auto 8px; border: 1px solid rgba(135,96,57,0.2); }
-.flow-step .lbl { font-size: 11px; font-weight: 800; text-transform: uppercase; color: var(--ink); letter-spacing: 0.04em; }
+.flow-step .num { width: 28px; height: 28px; border-radius: 50%; background: var(--br-light); color: var(--br); font-weight: 500; font-size: 12px; display: grid; place-items: center; margin: 0 auto 8px; border: 1px solid rgba(135,96,57,0.2); }
+.flow-step .lbl { font-size: 11px; font-weight: 500; text-transform: uppercase; color: var(--ink); letter-spacing: 0.04em; }
 
 /* FAQ Accordion */
 .faq-list { max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
@@ -145,7 +145,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 }
 
 @media (max-width: 768px) {
-  .bc { padding: 85px 0 14px; }
+  .bc { padding: 14px 0 14px; }
   .w { padding: 0 16px; }
   .win { min-width: 0 !important; width: 100%; overflow-x: auto; }
 }
@@ -189,10 +189,10 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 
         <!-- Multi-cuisine pill badges -->
         <div style="margin-top: 32px; display: flex; gap: 10px; flex-wrap: wrap;">
-          <span style="background: var(--bg3); border: 1px solid var(--line); color: var(--br-dark); font-size: 12px; font-weight: 800; padding: 6px 14px; border-radius: 99px;">🇮🇳 Indian & Tandoor</span>
-          <span style="background: var(--bg3); border: 1px solid var(--line); color: var(--br-dark); font-size: 12px; font-weight: 800; padding: 6px 14px; border-radius: 99px;">🥢 Chinese & Asian</span>
-          <span style="background: var(--bg3); border: 1px solid var(--line); color: var(--br-dark); font-size: 12px; font-weight: 800; padding: 6px 14px; border-radius: 99px;">🍕 Italian & Continental</span>
-          <span style="background: var(--bg3); border: 1px solid var(--line); color: var(--br-dark); font-size: 12px; font-weight: 800; padding: 6px 14px; border-radius: 99px;">🍹 Mocktails & Desserts</span>
+          <span style="background: var(--bg3); border: 1px solid var(--line); color: var(--br-dark); font-size: 12px; font-weight: 500; padding: 6px 14px; border-radius: 99px;">🇮🇳 Indian & Tandoor</span>
+          <span style="background: var(--bg3); border: 1px solid var(--line); color: var(--br-dark); font-size: 12px; font-weight: 500; padding: 6px 14px; border-radius: 99px;">🥢 Chinese & Asian</span>
+          <span style="background: var(--bg3); border: 1px solid var(--line); color: var(--br-dark); font-size: 12px; font-weight: 500; padding: 6px 14px; border-radius: 99px;">🍕 Italian & Continental</span>
+          <span style="background: var(--bg3); border: 1px solid var(--line); color: var(--br-dark); font-size: 12px; font-weight: 500; padding: 6px 14px; border-radius: 99px;">🍹 Mocktails & Desserts</span>
         </div>
       </div>
 
@@ -204,7 +204,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
           <!-- Multi-Cuisine Live Dashboard Overlay -->
           <div style="position: absolute; bottom: 20px; left: 20px; right: 20px; background: rgba(255, 255, 255, 0.96); backdrop-filter: blur(12px); border-radius: 16px; padding: 18px; border: 1px solid var(--line); box-shadow: var(--shadow-md);">
             <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; border-bottom: 1px solid var(--line); padding-bottom: 10px;">
-              <div style="font-weight: 800; font-size: 14px; color: var(--ink); display: flex; align-items: center; gap: 8px;">
+              <div style="font-weight: 500; font-size: 14px; color: var(--ink); display: flex; align-items: center; gap: 8px;">
                 <span style="width: 10px; height: 10px; border-radius: 50%; background: var(--green); display: inline-block;"></span>
                 MULTI-CUISINE OPERATIONS MONITOR
               </div>
@@ -214,19 +214,19 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
             <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; text-align: center;">
               <div style="background: var(--bg2); padding: 8px; border-radius: 10px; border: 1px solid var(--line);">
                 <div style="font-size: 11px; font-weight: 700; color: var(--mute);">INDIAN KITCHEN</div>
-                <div style="font-size: 14px; font-weight: 800; color: var(--br);">04 Items Prep</div>
+                <div style="font-size: 14px; font-weight: 500; color: var(--br);">04 Items Prep</div>
               </div>
               <div style="background: var(--bg2); padding: 8px; border-radius: 10px; border: 1px solid var(--line);">
                 <div style="font-size: 11px; font-weight: 700; color: var(--mute);">CHINESE WOK</div>
-                <div style="font-size: 14px; font-weight: 800; color: var(--amber);">02 Items Prep</div>
+                <div style="font-size: 14px; font-weight: 500; color: var(--amber);">02 Items Prep</div>
               </div>
               <div style="background: var(--bg2); padding: 8px; border-radius: 10px; border: 1px solid var(--line);">
                 <div style="font-size: 11px; font-weight: 700; color: var(--mute);">PIZZA STATION</div>
-                <div style="font-size: 14px; font-weight: 800; color: var(--green-text);">01 Item Ready</div>
+                <div style="font-size: 14px; font-weight: 500; color: var(--green-text);">01 Item Ready</div>
               </div>
               <div style="background: var(--bg2); padding: 8px; border-radius: 10px; border: 1px solid var(--line);">
                 <div style="font-size: 11px; font-weight: 700; color: var(--mute);">BAR & DESSERTS</div>
-                <div style="font-size: 14px; font-weight: 800; color: var(--blue);">03 Items Ready</div>
+                <div style="font-size: 14px; font-weight: 500; color: var(--blue);">03 Items Ready</div>
               </div>
             </div>
           </div>
@@ -325,7 +325,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
     <!-- Cuisine Tabs Preview -->
     <div class="win" style="padding: 28px; max-width: 1060px; margin: 0 auto;">
       <div style="display: flex; gap: 12px; border-bottom: 1px solid var(--line); padding-bottom: 16px; margin-bottom: 24px; overflow-x: auto;">
-        <span style="background: var(--br); color: #fff; font-size: 13px; font-weight: 800; padding: 8px 18px; border-radius: 99px;">🇮🇳 Indian</span>
+        <span style="background: var(--br); color: #fff; font-size: 13px; font-weight: 500; padding: 8px 18px; border-radius: 99px;">🇮🇳 Indian</span>
         <span style="background: var(--bg2); color: var(--ink); font-size: 13px; font-weight: 700; padding: 8px 18px; border-radius: 99px; border: 1px solid var(--line);">🥢 Chinese</span>
         <span style="background: var(--bg2); color: var(--ink); font-size: 13px; font-weight: 700; padding: 8px 18px; border-radius: 99px; border: 1px solid var(--line);">🍕 Italian</span>
         <span style="background: var(--bg2); color: var(--ink); font-size: 13px; font-weight: 700; padding: 8px 18px; border-radius: 99px; border: 1px solid var(--line);">🥗 Continental</span>
@@ -337,11 +337,11 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
         <div style="background: var(--bg2); border-radius: 14px; padding: 16px; border: 1px solid var(--line);">
           <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 8px;">
             <strong style="font-size: 16px; color: var(--ink);">Chicken Dum Biryani</strong>
-            <span style="font-weight: 800; color: var(--br); font-size: 15px;">₹320</span>
+            <span style="font-weight: 500; color: var(--br); font-size: 15px;">₹320</span>
           </div>
           <p style="font-size: 12.5px; color: var(--mute);">Aromatic Basmati rice slow-cooked with tender chicken and authentic spices.</p>
           <div style="margin-top: 12px; display: flex; justify-content: space-between; align-items: center;">
-            <span style="font-size: 11px; font-weight: 800; color: var(--green-text); background: var(--green-bg); padding: 2px 8px; border-radius: 99px;">INDIAN MAIN</span>
+            <span style="font-size: 11px; font-weight: 500; color: var(--green-text); background: var(--green-bg); padding: 2px 8px; border-radius: 99px;">INDIAN MAIN</span>
             <span style="font-size: 12px; font-weight: 700; color: var(--br);">In Stock</span>
           </div>
         </div>
@@ -349,11 +349,11 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
         <div style="background: var(--bg2); border-radius: 14px; padding: 16px; border: 1px solid var(--line);">
           <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 8px;">
             <strong style="font-size: 16px; color: var(--ink);">Veg Hakka Noodles</strong>
-            <span style="font-weight: 800; color: var(--br); font-size: 15px;">₹240</span>
+            <span style="font-weight: 500; color: var(--br); font-size: 15px;">₹240</span>
           </div>
           <p style="font-size: 12.5px; color: var(--mute);">Wok-tossed noodles with crisp bell peppers, cabbage and Indo-Chinese sauces.</p>
           <div style="margin-top: 12px; display: flex; justify-content: space-between; align-items: center;">
-            <span style="font-size: 11px; font-weight: 800; color: var(--amber-text); background: var(--amber-bg); padding: 2px 8px; border-radius: 99px;">CHINESE WOK</span>
+            <span style="font-size: 11px; font-weight: 500; color: var(--amber-text); background: var(--amber-bg); padding: 2px 8px; border-radius: 99px;">CHINESE WOK</span>
             <span style="font-size: 12px; font-weight: 700; color: var(--br);">In Stock</span>
           </div>
         </div>
@@ -361,11 +361,11 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
         <div style="background: var(--bg2); border-radius: 14px; padding: 16px; border: 1px solid var(--line);">
           <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 8px;">
             <strong style="font-size: 16px; color: var(--ink);">Margherita Pizza</strong>
-            <span style="font-weight: 800; color: var(--br); font-size: 15px;">₹380</span>
+            <span style="font-weight: 500; color: var(--br); font-size: 15px;">₹380</span>
           </div>
           <p style="font-size: 12.5px; color: var(--mute);">Wood-fired thin crust topped with fresh mozzarella, San Marzano tomato sauce & basil.</p>
           <div style="margin-top: 12px; display: flex; justify-content: space-between; align-items: center;">
-            <span style="font-size: 11px; font-weight: 800; color: #1e40af; background: #dbeafe; padding: 2px 8px; border-radius: 99px;">ITALIAN PIZZA</span>
+            <span style="font-size: 11px; font-weight: 500; color: #1e40af; background: #dbeafe; padding: 2px 8px; border-radius: 99px;">ITALIAN PIZZA</span>
             <span style="font-size: 12px; font-weight: 700; color: var(--br);">In Stock</span>
           </div>
         </div>
@@ -387,7 +387,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 
         <!-- Hierarchy Diagram -->
         <div style="background: #fff; padding: 20px; border-radius: 14px; border: 1px solid var(--line); display: flex; flex-direction: column; gap: 10px; font-size: 14px;">
-          <div style="display: flex; align-items: center; gap: 10px; color: var(--br); font-weight: 800;">
+          <div style="display: flex; align-items: center; gap: 10px; color: var(--br); font-weight: 500;">
             <span>CUISINE</span>
             <span style="color: var(--mute);">→</span>
             <span>CATEGORY</span>
@@ -442,7 +442,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
           <div style="background: var(--bg2); padding: 12px; text-align: center; border-radius: 8px; border: 1px solid var(--br);"><strong style="font-size: 14px;">T03</strong><span style="display:block; font-size:11px; color:var(--br);">Occ</span></div>
           <div style="background: var(--bg2); padding: 12px; text-align: center; border-radius: 8px; border: 1px solid var(--green);"><strong style="font-size: 14px;">T04</strong><span style="display:block; font-size:11px; color:var(--green-text);">Avail</span></div>
           <div style="background: var(--bg2); padding: 12px; text-align: center; border-radius: 8px; border: 1px solid var(--green);"><strong style="font-size: 14px;">T05</strong><span style="display:block; font-size:11px; color:var(--green-text);">Avail</span></div>
-          <div style="background: #fff7ef; padding: 12px; text-align: center; border-radius: 8px; border: 2px solid var(--br);"><strong style="font-size: 14px; color:var(--br);">T06*</strong><span style="display:block; font-size:11px; font-weight:800; color:var(--br);">Active</span></div>
+          <div style="background: #fff7ef; padding: 12px; text-align: center; border-radius: 8px; border: 2px solid var(--br);"><strong style="font-size: 14px; color:var(--br);">T06*</strong><span style="display:block; font-size:11px; font-weight: 500; color:var(--br);">Active</span></div>
           <div style="background: var(--bg2); padding: 12px; text-align: center; border-radius: 8px; border: 1px solid var(--br);"><strong style="font-size: 14px;">T07</strong><span style="display:block; font-size:11px; color:var(--br);">Occ</span></div>
           <div style="background: var(--bg2); padding: 12px; text-align: center; border-radius: 8px; border: 1px solid var(--amber);"><strong style="font-size: 14px;">T08</strong><span style="display:block; font-size:11px; color:var(--amber-text);">Rsvd</span></div>
         </div>
@@ -482,32 +482,32 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 
         <div style="display: flex; flex-direction: column; gap: 8px; font-size: 13.5px; margin-bottom: 16px;">
           <div style="display: flex; justify-content: space-between;">
-            <span><span style="color: var(--br); font-weight: 800;">[Indian]</span> Chicken Biryani × 2</span>
+            <span><span style="color: var(--br); font-weight: 500;">[Indian]</span> Chicken Biryani × 2</span>
             <strong>₹640</strong>
           </div>
           <div style="display: flex; justify-content: space-between;">
-            <span><span style="color: var(--br); font-weight: 800;">[Indian]</span> Paneer Tikka × 1</span>
+            <span><span style="color: var(--br); font-weight: 500;">[Indian]</span> Paneer Tikka × 1</span>
             <strong>₹280</strong>
           </div>
           <div style="display: flex; justify-content: space-between;">
-            <span><span style="color: var(--amber-text); font-weight: 800;">[Chinese]</span> Veg Hakka Noodles × 2</span>
+            <span><span style="color: var(--amber-text); font-weight: 500;">[Chinese]</span> Veg Hakka Noodles × 2</span>
             <strong>₹480</strong>
           </div>
           <div style="display: flex; justify-content: space-between;">
-            <span><span style="color: #1e40af; font-weight: 800;">[Italian]</span> Margherita Pizza × 1</span>
+            <span><span style="color: #1e40af; font-weight: 500;">[Italian]</span> Margherita Pizza × 1</span>
             <strong>₹380</strong>
           </div>
           <div style="display: flex; justify-content: space-between;">
-            <span><span style="color: var(--mute); font-weight: 800;">[Beverages]</span> Fresh Lime Soda × 3</span>
+            <span><span style="color: var(--mute); font-weight: 500;">[Beverages]</span> Fresh Lime Soda × 3</span>
             <strong>₹270</strong>
           </div>
           <div style="display: flex; justify-content: space-between;">
-            <span><span style="color: var(--mute); font-weight: 800;">[Desserts]</span> Brownie × 2</span>
+            <span><span style="color: var(--mute); font-weight: 500;">[Desserts]</span> Brownie × 2</span>
             <strong>₹410</strong>
           </div>
         </div>
 
-        <div style="display: flex; justify-content: space-between; border-top: 1px solid var(--line); padding-top: 10px; font-size: 16px; font-weight: 800; color: var(--ink);">
+        <div style="display: flex; justify-content: space-between; border-top: 1px solid var(--line); padding-top: 10px; font-size: 16px; font-weight: 500; color: var(--ink);">
           <span>Total Order Value:</span>
           <span style="color: var(--br);">₹2,460</span>
         </div>
@@ -561,7 +561,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
       <div class="win" style="padding: 24px;">
         <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--line); padding-bottom: 10px; margin-bottom: 14px;">
           <strong style="font-size: 16px; color: var(--br);">KOT #1048</strong>
-          <span style="font-size: 12px; font-weight: 800; color: var(--amber-text); background: var(--amber-bg); padding: 2px 8px; border-radius: 99px;">PREPARING</span>
+          <span style="font-size: 12px; font-weight: 500; color: var(--amber-text); background: var(--amber-bg); padding: 2px 8px; border-radius: 99px;">PREPARING</span>
         </div>
         <div style="font-size: 13px; color: var(--mute); margin-bottom: 12px;">Table T08 · 4 Items Routed</div>
         
@@ -620,7 +620,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
           <div style="display: flex; justify-content: space-between;"><span>Margherita Pizza × 1</span><span>₹380</span></div>
         </div>
 
-        <div style="border-top: 1px solid var(--line); padding-top: 10px; display: flex; justify-content: space-between; font-size: 16px; font-weight: 800; color: var(--ink);">
+        <div style="border-top: 1px solid var(--line); padding-top: 10px; display: flex; justify-content: space-between; font-size: 16px; font-weight: 500; color: var(--ink);">
           <span>Grand Total</span>
           <span style="color: var(--br);">₹2,460.00</span>
         </div>
@@ -832,17 +832,17 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 </section>
 
 <!-- ================= FINAL CTA ================= -->
-<section style="background: linear-gradient(135deg, #241a14 0%, #3a2b21 100%); color: #fff; text-align: center; padding: 80px 0;">
+<section style="background: linear-gradient(135deg, #FAF4ED 0%, #EFE4D6 50%, #FAF4ED 100%); color: #21160F; text-align: center; padding: 80px 0; border-top: 1px solid rgba(135, 96, 57, 0.16);">
   <div class="w" style="max-width: 760px;">
-    <h2 style="color: #fff; font-size: clamp(32px, 4vw, 48px); margin-bottom: 20px;">
-      Bring Every Cuisine <span style="color: var(--br-gold); font-family: 'Playfair Display', Georgia, serif; font-style: italic;">Together.</span>
+    <h2 style="color: #21160F; font-size: clamp(32px, 4vw, 48px); margin-bottom: 20px;">
+      Bring Every Cuisine <span style="color: #876039; font-family: 'Playfair Display', Georgia, serif; font-style: italic;">Together.</span>
     </h2>
-    <p style="color: #c7b8a8; font-size: 18px; margin-bottom: 36px; line-height: 1.6;">
+    <p style="color: #6E6157; font-size: 18px; margin-bottom: 36px; line-height: 1.6;">
       Manage your menus, tables, orders, kitchens, billing, inventory and reports from one connected restaurant platform with Geni Menu.
     </p>
     <div style="display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap;">
-      <a href="{{ route('restaurant_signup') }}" class="btn p" style="padding: 16px 36px; font-size: 16px;">Get Started →</a>
-      <a href="{{ route('contact.us') }}" class="btn o" style="padding: 16px 32px; font-size: 16px; background: transparent; color: #fff; border-color: rgba(255,255,255,0.3);">Book a Demo →</a>
+      <a href="{{ route('restaurant_signup') }}" class="btn p" style="padding: 16px 36px; font-size: 16px; background: #876039; color: #fff;">Get Started →</a>
+      <a href="{{ route('contact.us') }}" class="btn o" style="padding: 16px 32px; font-size: 16px; background: #fff; color: #876039; border: 1.5px solid #876039;">Book a Demo →</a>
     </div>
   </div>
 </section>

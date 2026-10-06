@@ -47,7 +47,7 @@ body {
 h1, h2, h3, h4, h5 {
   margin: 0;
   font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
-  font-weight: 800;
+  font-weight: 500;
   line-height: 1.14;
   letter-spacing: -0.03em;
   color: var(--ink);
@@ -76,7 +76,7 @@ ul { list-style: none; margin: 0; padding: 0; }
   gap: 6px;
   font-size: 12px;
   letter-spacing: .16em;
-  font-weight: 800;
+  font-weight: 500;
   text-transform: uppercase;
   color: var(--br);
   margin-bottom: 16px;
@@ -101,7 +101,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 .btn.o:hover { background: var(--br); color: #fff; transform: translateY(-2px); }
 
 /* ===================== BREADCRUMB ===================== */
-.bc { padding: 104px 0 16px; background: var(--bg2); border-bottom: 1px solid var(--line); font-size: 14px; color: var(--mute); font-weight: 600; }
+.bc { padding: 18px 0 16px; background: var(--bg2); border-bottom: 1px solid var(--line); font-size: 14px; color: var(--mute); font-weight: 600; }
 .bc .w { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .bc a { color: var(--mute); transition: color .2s; }
 .bc a:hover { color: var(--br); }
@@ -122,9 +122,9 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 .wb i:nth-child(1) { background: #ff5f56; }
 .wb i:nth-child(2) { background: #ffbd2e; }
 .wb i:nth-child(3) { background: #27c93f; }
-.wb .ttl { color: var(--br); font-weight: 800; font-family: 'Outfit', sans-serif; letter-spacing: 0.05em; font-size: 12px; text-transform: uppercase; }
+.wb .ttl { color: var(--br); font-weight: 500; font-family: 'Outfit', sans-serif; letter-spacing: 0.05em; font-size: 12px; text-transform: uppercase; }
 
-.badge { font-size: 11px; font-weight: 800; padding: 4px 10px; border-radius: 8px; text-transform: uppercase; display: inline-block; letter-spacing: .04em; }
+.badge { font-size: 11px; font-weight: 500; padding: 4px 10px; border-radius: 8px; text-transform: uppercase; display: inline-block; letter-spacing: .04em; }
 .badge.avail { background: #d1fae5; color: #065f46; }
 .badge.reserved { background: var(--br-light); color: var(--br); }
 .badge.occupied { background: #dbeafe; color: #1e40af; }
@@ -138,9 +138,9 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 .t-node.occupied { border-color: var(--blue); background: #eff6ff; }
 .t-node.cleaning { border-color: var(--amber); background: #fffbeb; }
 
-.t-num { font-weight: 900; font-size: 16px; font-family: 'Outfit', sans-serif; color: var(--ink); }
+.t-num { font-weight: 500; font-size: 16px; font-family: 'Outfit', sans-serif; color: var(--ink); }
 .t-sub { font-size: 11px; color: var(--mute); margin-top: 2px; }
-.t-tag { font-size: 10px; font-weight: 800; text-transform: uppercase; padding: 2px 8px; border-radius: 4px; margin-top: 6px; display: inline-block; }
+.t-tag { font-size: 10px; font-weight: 500; text-transform: uppercase; padding: 2px 8px; border-radius: 4px; margin-top: 6px; display: inline-block; }
 .t-node.avail .t-tag { background: #d1fae5; color: #065f46; }
 .t-node.reserved .t-tag { background: var(--br); color: #fff; }
 .t-node.occupied .t-tag { background: #dbeafe; color: #1e40af; }
@@ -189,7 +189,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
   .g2, .g3, .g4, .ind-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
 }
 @media (max-width: 768px) {
-  .bc { padding: 85px 0 14px; }
+  .bc { padding: 14px 0 14px; }
   .w { padding: 0 16px; }
   .win { min-width: 0 !important; width: 100%; overflow-x: auto; }
 }
@@ -375,7 +375,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
   <div class="w">
     <div class="g4">
       <div style="display: flex; gap: 16px; align-items: flex-start;">
-        <div style="font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 900; color: var(--br-gold); line-height: 1;">01</div>
+        <div style="font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 500; color: var(--br-gold); line-height: 1;">01</div>
         <div>
           <h4 style="font-size: 16px; margin-bottom: 4px;">Live Table Visibility</h4>
           <p style="font-size: 13.5px; line-height: 1.5;">See your restaurant tables and their current status at a glance.</p>
@@ -383,7 +383,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
       </div>
 
       <div style="display: flex; gap: 16px; align-items: flex-start;">
-        <div style="font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 900; color: var(--br-gold); line-height: 1;">02</div>
+        <div style="font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 500; color: var(--br-gold); line-height: 1;">02</div>
         <div>
           <h4 style="font-size: 16px; margin-bottom: 4px;">Smarter Seating</h4>
           <p style="font-size: 13.5px; line-height: 1.5;">Assign guests to suitable tables based on availability and seating.</p>
@@ -391,7 +391,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
       </div>
 
       <div style="display: flex; gap: 16px; align-items: flex-start;">
-        <div style="font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 900; color: var(--br-gold); line-height: 1;">03</div>
+        <div style="font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 500; color: var(--br-gold); line-height: 1;">03</div>
         <div>
           <h4 style="font-size: 16px; margin-bottom: 4px;">Better Floor Control</h4>
           <p style="font-size: 13.5px; line-height: 1.5;">Keep your dining areas organized throughout lunch and dinner service.</p>
@@ -399,7 +399,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
       </div>
 
       <div style="display: flex; gap: 16px; align-items: flex-start;">
-        <div style="font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 900; color: var(--br-gold); line-height: 1;">04</div>
+        <div style="font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 500; color: var(--br-gold); line-height: 1;">04</div>
         <div>
           <h4 style="font-size: 16px; margin-bottom: 4px;">Connected Operations</h4>
           <p style="font-size: 13.5px; line-height: 1.5;">Connect tables with reservations, orders, billing and restaurant operations.</p>
@@ -422,7 +422,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
       <!-- Traditional Table Management -->
       <div class="card" style="padding: 32px; background: #fff5f5; border-color: rgba(239, 68, 68, 0.2);">
         <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
-          <div style="width: 40px; height: 40px; border-radius: 10px; background: #fee2e2; color: #dc2626; display: grid; place-items: center; font-weight: 800;">✕</div>
+          <div style="width: 40px; height: 40px; border-radius: 10px; background: #fee2e2; color: #dc2626; display: grid; place-items: center; font-weight: 500;">✕</div>
           <div>
             <h3 style="color: #991b1b;">Traditional Table Management</h3>
             <p style="font-size: 13px; color: #b91c1c;">Manual & Paper-Based Floor Operations</p>
@@ -431,16 +431,16 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 
         <ul style="display: flex; flex-direction: column; gap: 14px;">
           <li style="display: flex; gap: 12px; font-size: 14px; color: #7f1d1d;">
-            <span style="color: #dc2626; font-weight: 800;">•</span> Staff physically walking across dining hall to check open tables
+            <span style="color: #dc2626; font-weight: 500;">•</span> Staff physically walking across dining hall to check open tables
           </li>
           <li style="display: flex; gap: 12px; font-size: 14px; color: #7f1d1d;">
-            <span style="color: #dc2626; font-weight: 800;">•</span> Reservation confusion with double-booked or misplaced tables
+            <span style="color: #dc2626; font-weight: 500;">•</span> Reservation confusion with double-booked or misplaced tables
           </li>
           <li style="display: flex; gap: 12px; font-size: 14px; color: #7f1d1d;">
-            <span style="color: #dc2626; font-weight: 800;">•</span> Limited visibility between host stand, waiters, and kitchen
+            <span style="color: #dc2626; font-weight: 500;">•</span> Limited visibility between host stand, waiters, and kitchen
           </li>
           <li style="display: flex; gap: 12px; font-size: 14px; color: #7f1d1d;">
-            <span style="color: #dc2626; font-weight: 800;">•</span> Difficult peak-hour seating coordination causing long guest wait times
+            <span style="color: #dc2626; font-weight: 500;">•</span> Difficult peak-hour seating coordination causing long guest wait times
           </li>
         </ul>
       </div>
@@ -448,7 +448,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
       <!-- With Geni Menu -->
       <div class="card" style="padding: 32px; background: #f0fdf4; border-color: rgba(16, 185, 129, 0.3);">
         <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
-          <div style="width: 40px; height: 40px; border-radius: 10px; background: #d1fae5; color: #059669; display: grid; place-items: center; font-weight: 800;">✓</div>
+          <div style="width: 40px; height: 40px; border-radius: 10px; background: #d1fae5; color: #059669; display: grid; place-items: center; font-weight: 500;">✓</div>
           <div>
             <h3 style="color: #065f46;">With Geni Menu</h3>
             <p style="font-size: 13px; color: #047857;">Real-time Connected Floor Map</p>
@@ -457,16 +457,16 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 
         <ul style="display: flex; flex-direction: column; gap: 14px;">
           <li style="display: flex; gap: 12px; font-size: 14px; color: #064e3b;">
-            <span style="color: #10b981; font-weight: 800;">✓</span> Digital floor plan updated live across tablets and staff devices
+            <span style="color: #10b981; font-weight: 500;">✓</span> Digital floor plan updated live across tablets and staff devices
           </li>
           <li style="display: flex; gap: 12px; font-size: 14px; color: #064e3b;">
-            <span style="color: #10b981; font-weight: 800;">✓</span> Clear table status badges (Available, Reserved, Occupied, Cleaning)
+            <span style="color: #10b981; font-weight: 500;">✓</span> Clear table status badges (Available, Reserved, Occupied, Cleaning)
           </li>
           <li style="display: flex; gap: 12px; font-size: 14px; color: #064e3b;">
-            <span style="color: #10b981; font-weight: 800;">✓</span> Automatic reservation sync ensuring booked tables stay reserved
+            <span style="color: #10b981; font-weight: 500;">✓</span> Automatic reservation sync ensuring booked tables stay reserved
           </li>
           <li style="display: flex; gap: 12px; font-size: 14px; color: #064e3b;">
-            <span style="color: #10b981; font-weight: 800;">✓</span> Effortless guest seating coordination during peak dining rushes
+            <span style="color: #10b981; font-weight: 500;">✓</span> Effortless guest seating coordination during peak dining rushes
           </li>
         </ul>
       </div>
@@ -485,7 +485,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 
     <!-- Area Filter Tabs -->
     <div style="display: flex; justify-content: center; gap: 12px; margin-bottom: 32px; flex-wrap: wrap;">
-      <button style="padding: 10px 24px; border-radius: 12px; border: 1.5px solid var(--br); background: var(--br); color: #fff; font-weight: 800; font-size: 14px; cursor: pointer;">Main Dining (18 Tables)</button>
+      <button style="padding: 10px 24px; border-radius: 12px; border: 1.5px solid var(--br); background: var(--br); color: #fff; font-weight: 500; font-size: 14px; cursor: pointer;">Main Dining (18 Tables)</button>
       <button style="padding: 10px 24px; border-radius: 12px; border: 1px solid var(--line); background: #fff; color: var(--ink); font-weight: 600; font-size: 14px; cursor: pointer;">Outdoor Patio (08 Tables)</button>
       <button style="padding: 10px 24px; border-radius: 12px; border: 1px solid var(--line); background: #fff; color: var(--ink); font-weight: 600; font-size: 14px; cursor: pointer;">Private Dining (04 Tables)</button>
       <button style="padding: 10px 24px; border-radius: 12px; border: 1px solid var(--line); background: #fff; color: var(--ink); font-weight: 600; font-size: 14px; cursor: pointer;">Bar & Lounge (06 Tables)</button>
@@ -586,7 +586,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
     <div class="g2">
       <!-- Left: Table Selection -->
       <div class="card" style="padding: 28px;">
-        <div style="font-size: 12px; font-weight: 800; color: var(--br); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 8px;">Interactive Inspector</div>
+        <div style="font-size: 12px; font-weight: 500; color: var(--br); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 8px;">Interactive Inspector</div>
         <h3 style="font-size: 22px; margin-bottom: 20px;">Selected Table: T08</h3>
 
         <div style="background: var(--bg2); border: 1px solid var(--line); border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px;">
@@ -633,33 +633,33 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 
         <div style="display: flex; flex-direction: column; gap: 14px;">
           <div style="display: flex; align-items: center; gap: 14px; background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 14px;">
-            <div style="width: 32px; height: 32px; border-radius: 8px; background: var(--br-light); color: var(--br); display: grid; place-items: center; font-weight: 800;">1</div>
+            <div style="width: 32px; height: 32px; border-radius: 8px; background: var(--br-light); color: var(--br); display: grid; place-items: center; font-weight: 500;">1</div>
             <div>
-              <div style="font-weight: 800; font-size: 14px;">TABLE T08 SEATED</div>
+              <div style="font-weight: 500; font-size: 14px;">TABLE T08 SEATED</div>
               <div style="font-size: 12px; color: var(--mute);">Host assigns table to 3 guests</div>
             </div>
           </div>
 
           <div style="display: flex; align-items: center; gap: 14px; background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 14px;">
-            <div style="width: 32px; height: 32px; border-radius: 8px; background: var(--br-light); color: var(--br); display: grid; place-items: center; font-weight: 800;">2</div>
+            <div style="width: 32px; height: 32px; border-radius: 8px; background: var(--br-light); color: var(--br); display: grid; place-items: center; font-weight: 500;">2</div>
             <div>
-              <div style="font-weight: 800; font-size: 14px;">ORDER #ORD-2084 PLACED</div>
+              <div style="font-weight: 500; font-size: 14px;">ORDER #ORD-2084 PLACED</div>
               <div style="font-weight: 700; font-size: 12px; color: var(--br);">2 Biryani · 1 Pasta · 2 Coffee</div>
             </div>
           </div>
 
           <div style="display: flex; align-items: center; gap: 14px; background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 14px;">
-            <div style="width: 32px; height: 32px; border-radius: 8px; background: var(--br-light); color: var(--br); display: grid; place-items: center; font-weight: 800;">3</div>
+            <div style="width: 32px; height: 32px; border-radius: 8px; background: var(--br-light); color: var(--br); display: grid; place-items: center; font-weight: 500;">3</div>
             <div>
-              <div style="font-weight: 800; font-size: 14px;">KOT SENT TO KITCHEN</div>
+              <div style="font-weight: 500; font-size: 14px;">KOT SENT TO KITCHEN</div>
               <div style="font-size: 12px; color: var(--mute);">Chef receives ticket for Table T08</div>
             </div>
           </div>
 
           <div style="display: flex; align-items: center; gap: 14px; background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 14px;">
-            <div style="width: 32px; height: 32px; border-radius: 8px; background: var(--br-light); color: var(--br); display: grid; place-items: center; font-weight: 800;">4</div>
+            <div style="width: 32px; height: 32px; border-radius: 8px; background: var(--br-light); color: var(--br); display: grid; place-items: center; font-weight: 500;">4</div>
             <div>
-              <div style="font-weight: 800; font-size: 14px;">POS BILL SETTLED</div>
+              <div style="font-weight: 500; font-size: 14px;">POS BILL SETTLED</div>
               <div style="font-size: 12px; color: var(--mute);">Cashier collects payment & frees table</div>
             </div>
           </div>
@@ -743,15 +743,15 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 
       <!-- Drag & Move Visual -->
       <div class="card" style="padding: 28px; text-align: center; background: #fff;">
-        <div style="font-size: 12px; font-weight: 800; color: var(--br); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 8px;">Visual Placement</div>
+        <div style="font-size: 12px; font-weight: 500; color: var(--br); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 8px;">Visual Placement</div>
         <h3 style="font-size: 20px; margin-bottom: 16px;">Drag, Arrange & Resize</h3>
         <p style="font-size: 14px; margin-bottom: 24px;">Drag tables across your screen to mirror your physical dining room layout.</p>
 
         <div style="border: 2px dashed var(--br); border-radius: 16px; padding: 40px 20px; background: var(--bg2); position: relative;">
           <div style="display: inline-block; padding: 16px 24px; border-radius: 14px; background: #fff; border: 2px solid var(--br); box-shadow: var(--shadow-md);">
-            <div style="font-weight: 900; font-size: 18px; color: var(--br);">Table T12</div>
+            <div style="font-weight: 500; font-size: 18px; color: var(--br);">Table T12</div>
             <div style="font-size: 12px; color: var(--mute);">8 Seats · Oval</div>
-            <div style="margin-top: 8px; font-size: 10px; font-weight: 800; color: var(--br); text-transform: uppercase;">⚡ Positioning Active</div>
+            <div style="margin-top: 8px; font-size: 10px; font-weight: 500; color: var(--br); text-transform: uppercase;">⚡ Positioning Active</div>
           </div>
         </div>
       </div>
@@ -842,38 +842,38 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
     <!-- 7 Stage Horizontal Workflow -->
     <div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px;">
       <div style="background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 16px; text-align: center;">
-        <div style="font-weight: 900; font-size: 11px; color: var(--green);">STAGE 01</div>
-        <div style="font-weight: 800; font-size: 13px; margin-top: 4px;">Available</div>
+        <div style="font-weight: 500; font-size: 11px; color: var(--green);">STAGE 01</div>
+        <div style="font-weight: 500; font-size: 13px; margin-top: 4px;">Available</div>
       </div>
 
       <div style="background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 16px; text-align: center;">
-        <div style="font-weight: 900; font-size: 11px; color: var(--br);">STAGE 02</div>
-        <div style="font-weight: 800; font-size: 13px; margin-top: 4px;">Reserved</div>
+        <div style="font-weight: 500; font-size: 11px; color: var(--br);">STAGE 02</div>
+        <div style="font-weight: 500; font-size: 13px; margin-top: 4px;">Reserved</div>
       </div>
 
       <div style="background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 16px; text-align: center;">
-        <div style="font-weight: 900; font-size: 11px; color: var(--blue);">STAGE 03</div>
-        <div style="font-weight: 800; font-size: 13px; margin-top: 4px;">Occupied</div>
+        <div style="font-weight: 500; font-size: 11px; color: var(--blue);">STAGE 03</div>
+        <div style="font-weight: 500; font-size: 13px; margin-top: 4px;">Occupied</div>
       </div>
 
       <div style="background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 16px; text-align: center;">
-        <div style="font-weight: 900; font-size: 11px; color: var(--ink);">STAGE 04</div>
-        <div style="font-weight: 800; font-size: 13px; margin-top: 4px;">Ordering</div>
+        <div style="font-weight: 500; font-size: 11px; color: var(--ink);">STAGE 04</div>
+        <div style="font-weight: 500; font-size: 13px; margin-top: 4px;">Ordering</div>
       </div>
 
       <div style="background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 16px; text-align: center;">
-        <div style="font-weight: 900; font-size: 11px; color: var(--br-gold);">STAGE 05</div>
-        <div style="font-weight: 800; font-size: 13px; margin-top: 4px;">Billing</div>
+        <div style="font-weight: 500; font-size: 11px; color: var(--br-gold);">STAGE 05</div>
+        <div style="font-weight: 500; font-size: 13px; margin-top: 4px;">Billing</div>
       </div>
 
       <div style="background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 16px; text-align: center;">
-        <div style="font-weight: 900; font-size: 11px; color: var(--amber);">STAGE 06</div>
-        <div style="font-weight: 800; font-size: 13px; margin-top: 4px;">Cleaning</div>
+        <div style="font-weight: 500; font-size: 11px; color: var(--amber);">STAGE 06</div>
+        <div style="font-weight: 500; font-size: 13px; margin-top: 4px;">Cleaning</div>
       </div>
 
       <div style="background: var(--br); color: #fff; border-radius: 14px; padding: 16px; text-align: center; box-shadow: 0 4px 14px rgba(135,96,57,0.3);">
-        <div style="font-weight: 900; font-size: 11px; color: var(--br-gold);">STAGE 07</div>
-        <div style="font-weight: 800; font-size: 13px; margin-top: 4px; color: #fff;">Available</div>
+        <div style="font-weight: 500; font-size: 11px; color: var(--br-gold);">STAGE 07</div>
+        <div style="font-weight: 500; font-size: 13px; margin-top: 4px; color: #fff;">Available</div>
       </div>
     </div>
   </div>
@@ -1001,7 +1001,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
     </div>
 
     <div class="card" style="padding: 40px; text-align: center; background: linear-gradient(180deg, #ffffff 0%, #faf8f5 100%);">
-      <div style="display: inline-block; padding: 14px 28px; background: var(--br); color: #fff; border-radius: 16px; font-weight: 900; font-size: 20px; font-family: 'Outfit', sans-serif; box-shadow: 0 8px 24px rgba(135,96,57,0.3); margin-bottom: 32px;">
+      <div style="display: inline-block; padding: 14px 28px; background: var(--br); color: #fff; border-radius: 16px; font-weight: 500; font-size: 20px; font-family: 'Outfit', sans-serif; box-shadow: 0 8px 24px rgba(135,96,57,0.3); margin-bottom: 32px;">
         CENTRAL TABLE ENGINE
       </div>
 
@@ -1104,18 +1104,18 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 </section>
 
 <!-- ================= FINAL CTA ================= -->
-<section style="padding: 96px 0; background: linear-gradient(135deg, #1e140e 0%, #2e2017 100%); color: #fff;">
+<section style="padding: 96px 0; background: linear-gradient(135deg, #FAF4ED 0%, #EFE4D6 50%, #FAF4ED 100%); color: #21160F; border-top: 1px solid rgba(135, 96, 57, 0.16);">
   <div class="w" style="text-align: center; max-width: 800px;">
-    <div class="eb" style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.18); color: var(--br-gold);">TRANSFORM YOUR DINING FLOOR</div>
-    <h2 style="color: #fff; font-size: clamp(32px, 4vw, 48px); margin-bottom: 20px;">
-      Bring Your Restaurant Floor <span style="color: var(--br-gold); font-family: 'Playfair Display', Georgia, serif; font-style: italic;">Under Control.</span>
+    <div class="eb" style="background: rgba(135, 96, 57, 0.1); border-color: rgba(135, 96, 57, 0.2); color: #876039;">TRANSFORM YOUR DINING FLOOR</div>
+    <h2 style="color: #21160F; font-size: clamp(32px, 4vw, 48px); margin-bottom: 20px;">
+      Bring Your Restaurant Floor <span style="color: #876039; font-family: 'Playfair Display', Georgia, serif; font-style: italic;">Under Control.</span>
     </h2>
-    <p style="color: #c7b8a8; font-size: 18px; margin-bottom: 36px; line-height: 1.6;">
+    <p style="color: #6E6157; font-size: 18px; margin-bottom: 36px; line-height: 1.6;">
       Manage tables, seating and dining areas with a connected table management experience built for modern restaurants.
     </p>
     <div style="display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap;">
-      <a href="{{ route('restaurant_signup') }}" class="btn p" style="padding: 16px 36px; font-size: 16px;">Get Started →</a>
-      <a href="{{ route('contact.us') }}" class="btn o" style="padding: 16px 32px; font-size: 16px; background: transparent; color: #fff; border-color: rgba(255,255,255,0.3);">Book a Demo</a>
+      <a href="{{ route('restaurant_signup') }}" class="btn p" style="padding: 16px 36px; font-size: 16px; background: #876039; color: #fff;">Get Started →</a>
+      <a href="{{ route('contact.us') }}" class="btn o" style="padding: 16px 32px; font-size: 16px; background: #fff; color: #876039; border: 1.5px solid #876039;">Book a Demo</a>
     </div>
   </div>
 </section>

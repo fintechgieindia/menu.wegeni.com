@@ -1,4 +1,4 @@
-@extends('layouts.landing')
+﻿@extends('layouts.landing')
 
 @section('content')
 
@@ -69,7 +69,7 @@
 
     .hero-headline {
         font-size: 56px;
-        font-weight: 900;
+        font-weight: 500;
         color: #1E1810;
         line-height: 1.08;
         letter-spacing: -2px;
@@ -198,7 +198,7 @@
     }
 
     .pos-ph { display:flex;align-items:center;justify-content:space-between;margin-bottom:14px; }
-    .pos-ph-title { display:flex;align-items:center;gap:6px;font-size:10.5px;font-weight:800;color:#A0744B;text-transform:uppercase;letter-spacing:0.8px; }
+    .pos-ph-title { display:flex;align-items:center;gap:6px;font-size:10.5px;font-weight: 500;color:#A0744B;text-transform:uppercase;letter-spacing:0.8px; }
     .pos-ph-live { font-size:9px;font-weight:700;color:#22c55e;display:flex;align-items:center;gap:4px; }
     .pos-live-dot { width:7px;height:7px;background:#22c55e;border-radius:50%;animation:blink 1.5s ease-in-out infinite; }
     @keyframes blink{0%,100%{opacity:1;}50%{opacity:0.3;}}
@@ -213,7 +213,7 @@
 
     .pos-div { border:none;border-top:1px dashed #D9D0C5;margin:10px 0; }
     .pos-bl { display:flex;justify-content:space-between;font-size:10px;color:#666;margin-bottom:5px; }
-    .pos-bl.tot { font-weight:800;font-size:13px;color:#1E1810;padding-top:7px;border-top:1px solid #eee;margin-top:5px; }
+    .pos-bl.tot { font-weight: 500;font-size:13px;color:#1E1810;padding-top:7px;border-top:1px solid #eee;margin-top:5px; }
 
     /* Mobile */
     .hero-mobile-frame {
@@ -234,14 +234,14 @@
     }
     .hmob-screen { background:#fff;border-radius:24px;overflow:hidden;display:flex;flex-direction:column;height:348px; }
     .hmob-top { background:#A0744B;padding:12px 13px 9px;color:#fff; }
-    .hmob-top-t { font-size:12px;font-weight:800; }
+    .hmob-top-t { font-size:12px;font-weight: 500; }
     .hmob-top-s { font-size:9px;opacity:0.85;margin-top:1px; }
     .hmob-list { flex:1;padding:9px;overflow:hidden; }
     .hmob-item { display:flex;align-items:center;gap:7px;padding:7px;border-radius:9px;margin-bottom:7px;background:#fafafa;border:1px solid #f0f0f0; }
     .hmob-img { width:32px;height:32px;border-radius:7px;object-fit:cover;flex-shrink:0; }
     .hmob-n { font-size:10px;font-weight:700;color:#222; }
     .hmob-p { font-size:9px;color:#888; }
-    .hmob-pay { background:#A0744B;margin:0 9px 9px;border-radius:100px;padding:10px 13px;display:flex;justify-content:space-between;align-items:center;color:#fff;font-size:10px;font-weight:800; }
+    .hmob-pay { background:#A0744B;margin:0 9px 9px;border-radius:100px;padding:10px 13px;display:flex;justify-content:space-between;align-items:center;color:#fff;font-size:10px;font-weight: 500; }
 
     /* Notification Badges */
     .h-notif { position:absolute;background:#fff;border-radius:13px;padding:9px 14px;box-shadow:0 8px 28px rgba(0,0,0,0.12);z-index:35;font-family:'Poppins',sans-serif;min-width:155px; }
@@ -250,7 +250,7 @@
     @keyframes fn1{0%{transform:translateY(0);}100%{transform:translateY(-6px);}}
     @keyframes fn2{0%{transform:translateY(0);}100%{transform:translateY(-8px);}}
     .nh { display:flex;align-items:center;gap:5px;font-size:9px;font-weight:700;color:#A0744B;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px; }
-    .nt { font-size:12px;font-weight:800;color:#1E1810; }
+    .nt { font-size:12px;font-weight: 500;color:#1E1810; }
     .ns2 { font-size:9.5px;color:#888;margin-top:1px; }
 
     /* Responsive */

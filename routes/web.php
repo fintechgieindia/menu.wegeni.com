@@ -105,6 +105,7 @@ if (!function_exists('module_enabled') || !module_enabled('Subdomain')) {
     Route::get('/features/kot-management', [HomeController::class, 'kotManagement'])->name('features.kot-management');
     Route::get('/features/inventory-management', [HomeController::class, 'inventoryManagement'])->name('features.inventory-management');
     Route::get('/features/reports', [HomeController::class, 'reports'])->name('features.reports');
+    Route::get('/solutions', [HomeController::class, 'solutions'])->name('solutions');
     Route::get('/solutions/family-restaurant', [HomeController::class, 'familyRestaurantSolution'])->name('solutions.family-restaurant');
     Route::get('/solutions/dine-in-restaurant', [HomeController::class, 'dineInRestaurantSolution'])->name('solutions.dine-in-restaurant');
     Route::get('/solutions/multi-cuisine-restaurant', [HomeController::class, 'multiCuisineRestaurantSolution'])->name('solutions.multi-cuisine-restaurant');

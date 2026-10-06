@@ -1,4 +1,4 @@
-@extends('layouts.frontend-master')
+﻿@extends('layouts.frontend-master')
 
 @section('content')
 
@@ -44,7 +44,7 @@ body {
 h1, h2, h3, h4, h5 {
   margin: 0;
   font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
-  font-weight: 800;
+  font-weight: 500;
   line-height: 1.15;
   letter-spacing: -0.02em;
   color: var(--ink);
@@ -73,7 +73,7 @@ ul { list-style: none; margin: 0; padding: 0; }
   gap: 8px;
   font-size: 12px;
   letter-spacing: .16em;
-  font-weight: 800;
+  font-weight: 500;
   text-transform: uppercase;
   color: var(--br);
   margin-bottom: 16px;
@@ -100,14 +100,14 @@ section.alt { background: var(--bg2); }
 .btn.o:hover { background: var(--br); color: #fff; transform: translateY(-2px); }
 
 /* Breadcrumb */
-.bc { padding: 104px 0 16px; background: var(--bg2); border-bottom: 1px solid var(--line); font-size: 14px; color: var(--mute); font-weight: 600; }
+.bc { padding: 18px 0 16px; background: var(--bg2); border-bottom: 1px solid var(--line); font-size: 14px; color: var(--mute); font-weight: 600; }
 .bc .w { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .bc a { color: var(--mute); transition: color .2s; }
 .bc a:hover { color: var(--br); }
 .bc span.cur { color: var(--br); font-weight: 700; }
 
 /* Badges */
-.badge { font-size: 11px; font-weight: 800; padding: 4px 10px; border-radius: 8px; text-transform: uppercase; display: inline-block; letter-spacing: .04em; }
+.badge { font-size: 11px; font-weight: 500; padding: 4px 10px; border-radius: 8px; text-transform: uppercase; display: inline-block; letter-spacing: .04em; }
 .badge.ready { background: #d1fae5; color: #047857; }
 .badge.preparing { background: #ffedd5; color: #c2410c; }
 .badge.new { background: #eff6ff; color: #1d4ed8; }
@@ -121,7 +121,7 @@ section.alt { background: var(--bg2); }
 .wb i:nth-child(1) { background: #ff5f56; }
 .wb i:nth-child(2) { background: #ffbd2e; }
 .wb i:nth-child(3) { background: #27c93f; }
-.wb .ttl { color: var(--br); font-weight: 800; font-family: 'Outfit', sans-serif; letter-spacing: 0.05em; font-size: 12px; text-transform: uppercase; }
+.wb .ttl { color: var(--br); font-weight: 500; font-family: 'Outfit', sans-serif; letter-spacing: 0.05em; font-size: 12px; text-transform: uppercase; }
 
 /* ---------------- HERO ---------------- */
 .hero { padding: 60px 0 90px; background: linear-gradient(180deg, var(--bg2) 0%, #ffffff 100%); }
@@ -131,7 +131,7 @@ section.alt { background: var(--bg2); }
 
 .hero-ui { background: #fff; border: 1px solid var(--line); border-radius: 24px; box-shadow: var(--shadow-lg); overflow: hidden; position: relative; }
 .hero-ui-hdr { background: var(--bg2); padding: 16px 20px; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; }
-.hero-ui-hdr-title { font-weight: 800; font-size: 14px; color: var(--ink); display: flex; align-items: center; gap: 8px; }
+.hero-ui-hdr-title { font-weight: 500; font-size: 14px; color: var(--ink); display: flex; align-items: center; gap: 8px; }
 .hero-ui-grid { display: grid; grid-template-columns: 2fr 1fr; }
 .hu-left { padding: 20px; border-right: 1px solid var(--line); }
 .hu-right { padding: 20px; background: #faf8f5; }
@@ -144,11 +144,11 @@ section.alt { background: var(--bg2); }
 .hu-prod { border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
 .hu-prod-img { height: 80px; width: 100%; object-fit: cover; }
 .hu-prod-ctx { padding: 10px; font-size: 12px; }
-.hu-prod-ctx strong { display: block; font-size: 13px; font-weight: 800; margin-bottom: 2px; }
+.hu-prod-ctx strong { display: block; font-size: 13px; font-weight: 500; margin-bottom: 2px; }
 .hu-prod-ctx span { color: var(--br); font-weight: 700; }
 
 .hu-bill-item { display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 8px; padding-bottom: 8px; border-bottom: 1px dashed var(--line); }
-.hu-bill-total { display: flex; justify-content: space-between; font-weight: 800; font-size: 15px; color: var(--br); margin-top: 16px; }
+.hu-bill-total { display: flex; justify-content: space-between; font-weight: 500; font-size: 15px; color: var(--br); margin-top: 16px; }
 
 /* ---------------- SECTION 1 ---------------- */
 .eco-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
@@ -170,7 +170,7 @@ section.alt { background: var(--bg2); }
 /* ---------------- SECTION 3: WEIGHT ---------------- */
 .wt-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .wt-card { background: #fff; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
-.wt-hdr { padding: 12px 16px; background: var(--bg2); border-bottom: 1px solid var(--line); font-weight: 800; display: flex; justify-content: space-between; }
+.wt-hdr { padding: 12px 16px; background: var(--bg2); border-bottom: 1px solid var(--line); font-weight: 500; display: flex; justify-content: space-between; }
 .wt-opts { padding: 12px; }
 .wt-opt { display: flex; justify-content: space-between; padding: 8px; border: 1px solid transparent; border-radius: 8px; cursor: pointer; transition: .2s; }
 .wt-opt:hover { background: var(--br-light); border-color: var(--line); }
@@ -178,11 +178,11 @@ section.alt { background: var(--bg2); }
 
 /* ---------------- SECTION 4: BILLING ---------------- */
 .bill-panel { background: #fff; border: 1px solid var(--line); border-radius: 20px; max-width: 480px; margin: 0 auto; box-shadow: var(--shadow-md); overflow: hidden; }
-.bp-hdr { padding: 16px 20px; background: var(--bg2); border-bottom: 1px solid var(--line); font-weight: 800; font-size: 15px; }
+.bp-hdr { padding: 16px 20px; background: var(--bg2); border-bottom: 1px solid var(--line); font-weight: 500; font-size: 15px; }
 .bp-body { padding: 20px; }
 .bp-item { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; font-size: 14px; }
 .bp-item-qty { font-size: 12px; color: var(--mute); display: block; }
-.bp-total { display: flex; justify-content: space-between; padding: 16px 0; border-top: 2px dashed var(--line); margin-top: 8px; font-weight: 800; font-size: 20px; color: var(--br); }
+.bp-total { display: flex; justify-content: space-between; padding: 16px 0; border-top: 2px dashed var(--line); margin-top: 8px; font-weight: 500; font-size: 20px; color: var(--br); }
 .bp-actions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 16px; }
 .bp-btn { padding: 10px; border-radius: 8px; border: 1px solid var(--line); background: #fff; font-weight: 700; font-size: 12px; cursor: pointer; }
 .bp-btn.p { background: var(--br); color: #fff; border-color: var(--br); }
@@ -192,12 +192,12 @@ section.alt { background: var(--bg2); }
 .order-ticket { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 20px; position: relative; }
 .ot-hdr { display: flex; justify-content: space-between; margin-bottom: 16px; border-bottom: 1px solid var(--line); padding-bottom: 12px; }
 .ot-flow { display: flex; gap: 12px; margin-top: 16px; }
-.ot-step { flex: 1; text-align: center; font-size: 10px; font-weight: 800; text-transform: uppercase; padding: 6px; border-radius: 6px; background: var(--bg2); color: var(--mute); border: 1px solid var(--line); }
+.ot-step { flex: 1; text-align: center; font-size: 10px; font-weight: 500; text-transform: uppercase; padding: 6px; border-radius: 6px; background: var(--bg2); color: var(--mute); border: 1px solid var(--line); }
 .ot-step.done { background: var(--br-light); color: var(--br); border-color: var(--br); }
 
 .fest-dash { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
 .fd-card { padding: 20px; background: #fff; border: 1px solid var(--line); border-radius: 16px; text-align: center; position: relative; overflow: hidden; }
-.fd-val { font-size: 32px; font-weight: 900; color: var(--br); line-height: 1.2; }
+.fd-val { font-size: 32px; font-weight: 500; color: var(--br); line-height: 1.2; }
 .fd-lbl { font-size: 12px; font-weight: 700; color: var(--mute); text-transform: uppercase; letter-spacing: 0.05em; }
 
 /* ---------------- SECTION 7 & 8 ---------------- */
@@ -208,7 +208,7 @@ section.alt { background: var(--bg2); }
 .inv-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .inv-card { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 16px; }
 .inv-hdr { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px; font-weight: 700; }
-.inv-val { font-size: 22px; font-weight: 800; color: var(--ink); }
+.inv-val { font-size: 22px; font-weight: 500; color: var(--ink); }
 
 /* ---------------- SECTION 9 & 10 ---------------- */
 .po-card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 20px; }
@@ -218,7 +218,7 @@ section.alt { background: var(--bg2); }
 .reports-preview { background: var(--dark); color: #fff; border-radius: 24px; padding: 36px; box-shadow: var(--shadow-lg); }
 .rp-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 32px; }
 .rp-stat-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 16px; }
-.rp-val { font-size: 24px; font-weight: 800; color: #fff; }
+.rp-val { font-size: 24px; font-weight: 500; color: #fff; }
 .rp-lbl { font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.6); }
 
 /* ---------------- SECTION 12: WORKFLOW ---------------- */
@@ -244,7 +244,7 @@ section.alt { background: var(--bg2); }
 .showcase-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
 .showcase-card { border-radius: 16px; overflow: hidden; position: relative; height: 200px; }
 .showcase-card img { width: 100%; height: 100%; object-fit: cover; }
-.showcase-card div { position: absolute; bottom: 0; left: 0; right: 0; padding: 20px 16px 12px; background: linear-gradient(0deg, rgba(0,0,0,0.8), transparent); color: #fff; font-weight: 800; font-size: 15px; }
+.showcase-card div { position: absolute; bottom: 0; left: 0; right: 0; padding: 20px 16px 12px; background: linear-gradient(0deg, rgba(0,0,0,0.8), transparent); color: #fff; font-weight: 500; font-size: 15px; }
 
 /* ---------------- FAQ ---------------- */
 .faq-list { max-width: 840px; margin: auto; display: flex; flex-direction: column; gap: 16px; }
@@ -266,7 +266,7 @@ section.alt { background: var(--bg2); }
 }
 
 @media (max-width: 768px) {
-  .bc { padding: 85px 0 14px; }
+  .bc { padding: 14px 0 14px; }
   .w { padding: 0 16px; }
   .win { min-width: 0 !important; width: 100%; overflow-x: auto; }
 }
@@ -358,7 +358,7 @@ section.alt { background: var(--bg2); }
           </div>
         </div>
         <div class="hu-right">
-          <div style="font-weight:800; font-size:13px; margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid var(--line);">Current Bill</div>
+          <div style="font-weight: 500; font-size:13px; margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid var(--line);">Current Bill</div>
           <div class="hu-bill-item">
             <div>Kaju Katli<br><span style="color:var(--mute);">500g</span></div>
             <strong>₹560</strong>
@@ -465,7 +465,7 @@ section.alt { background: var(--bg2); }
           <img class="pc-img" src="https://images.unsplash.com/photo-1625902127814-ff476e33db0c?w=150&q=80" alt="Kaju Katli">
           <div class="pc-ctx">
             <h4>Kaju Katli</h4>
-            <span style="font-weight:800; color:var(--br);">₹1,120</span>
+            <span style="font-weight: 500; color:var(--br);">₹1,120</span>
             <div class="wt">per kg</div>
           </div>
         </div>
@@ -473,7 +473,7 @@ section.alt { background: var(--bg2); }
           <img class="pc-img" src="https://images.unsplash.com/photo-1595209386221-5079a40dd798?w=150&q=80" alt="Mysore Pak">
           <div class="pc-ctx">
             <h4>Mysore Pak</h4>
-            <span style="font-weight:800; color:var(--br);">₹880</span>
+            <span style="font-weight: 500; color:var(--br);">₹880</span>
             <div class="wt">per kg</div>
           </div>
         </div>
@@ -481,7 +481,7 @@ section.alt { background: var(--bg2); }
           <img class="pc-img" src="https://images.unsplash.com/photo-1605197136015-776263f350da?w=150&q=80" alt="Gulab Jamun">
           <div class="pc-ctx">
             <h4>Gulab Jamun</h4>
-            <span style="font-weight:800; color:var(--br);">₹250</span>
+            <span style="font-weight: 500; color:var(--br);">₹250</span>
             <div class="wt">10 pcs</div>
           </div>
         </div>
@@ -489,7 +489,7 @@ section.alt { background: var(--bg2); }
           <img class="pc-img" src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=150&q=80" alt="Mixture">
           <div class="pc-ctx">
             <h4>Madras Mixture</h4>
-            <span style="font-weight:800; color:var(--br);">₹360</span>
+            <span style="font-weight: 500; color:var(--br);">₹360</span>
             <div class="wt">per kg</div>
           </div>
         </div>
@@ -604,7 +604,7 @@ section.alt { background: var(--bg2); }
       
       <div class="order-ticket">
         <div class="ot-hdr">
-          <span style="font-weight:900; font-size:16px;">ORDER #2084</span>
+          <span style="font-weight: 500; font-size:16px;">ORDER #2084</span>
           <span class="badge ready">Ready</span>
         </div>
         <div style="font-size:13px; margin-bottom:16px;">
@@ -740,11 +740,11 @@ section.alt { background: var(--bg2); }
       <div class="cust-card">
         <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--line); padding-bottom:12px; margin-bottom:12px;">
           <div>
-            <span style="font-size:11px; font-weight:800; color:var(--mute);">CUSTOMER</span>
+            <span style="font-size:11px; font-weight: 500; color:var(--mute);">CUSTOMER</span>
             <strong style="display:block; font-size:18px;">Priya Kumar</strong>
           </div>
           <div style="text-align:right;">
-            <span style="font-size:11px; font-weight:800; color:var(--mute);">TOTAL ORDERS</span>
+            <span style="font-size:11px; font-weight: 500; color:var(--mute);">TOTAL ORDERS</span>
             <strong style="display:block; font-size:18px; color:var(--br);">12</strong>
           </div>
         </div>
@@ -897,9 +897,9 @@ section.alt { background: var(--bg2); }
             <p style="font-size:13px; margin:4px 0 16px;">Rich cashew sweet made with pure ghee.</p>
             <div style="border:1px solid var(--line); border-radius:12px; padding:12px; margin-bottom:12px; display:flex; justify-content:space-between; align-items:center;">
               <span style="font-weight:700;">500 g</span>
-              <span style="color:var(--br); font-weight:800;">₹560</span>
+              <span style="color:var(--br); font-weight: 500;">₹560</span>
             </div>
-            <button style="width:100%; padding:14px; border-radius:12px; background:var(--br); color:#fff; font-weight:800; border:none;">Add to Order</button>
+            <button style="width:100%; padding:14px; border-radius:12px; background:var(--br); color:#fff; font-weight: 500; border:none;">Add to Order</button>
           </div>
         </div>
       </div>
@@ -911,14 +911,14 @@ section.alt { background: var(--bg2); }
       <p style="margin-bottom:24px;">Stay connected to your shop operations even when you are away from the counter.</p>
       <div class="mob-preview">
         <div class="mob-inner">
-          <div style="font-weight:800; font-size:16px; margin-bottom:16px;">Shop Dashboard</div>
+          <div style="font-weight: 500; font-size:16px; margin-bottom:16px;">Shop Dashboard</div>
           <div style="background:var(--bg2); border:1px solid var(--line); padding:12px; border-radius:12px; margin-bottom:12px;">
             <div style="font-size:11px; font-weight:700; color:var(--mute);">TODAY'S SALES</div>
-            <div style="font-size:20px; font-weight:800; color:var(--br);">₹82,400</div>
+            <div style="font-size:20px; font-weight: 500; color:var(--br);">₹82,400</div>
           </div>
           <div style="background:var(--bg2); border:1px solid var(--line); padding:12px; border-radius:12px; margin-bottom:12px;">
             <div style="font-size:11px; font-weight:700; color:var(--mute);">ACTIVE ORDERS</div>
-            <div style="font-size:20px; font-weight:800; color:var(--ink);">16</div>
+            <div style="font-size:20px; font-weight: 500; color:var(--ink);">16</div>
           </div>
           <div style="font-weight:700; font-size:13px; margin:16px 0 8px;">Low Stock Alerts</div>
           <div style="font-size:13px; padding:8px; border-bottom:1px solid var(--line); display:flex; justify-content:space-between;"><span>Diet Soda</span><span style="color:var(--red);">48 units</span></div>

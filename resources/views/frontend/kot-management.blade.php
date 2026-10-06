@@ -46,7 +46,7 @@ body {
 h1, h2, h3, h4, h5 {
   margin: 0;
   font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
-  font-weight: 800;
+  font-weight: 500;
   line-height: 1.14;
   letter-spacing: -0.03em;
   color: var(--ink);
@@ -75,7 +75,7 @@ ul { list-style: none; margin: 0; padding: 0; }
   gap: 6px;
   font-size: 12px;
   letter-spacing: .16em;
-  font-weight: 800;
+  font-weight: 500;
   text-transform: uppercase;
   color: var(--br);
   margin-bottom: 16px;
@@ -100,7 +100,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 .btn.o:hover { background: var(--br); color: #fff; transform: translateY(-2px); }
 
 /* ===================== BREADCRUMB ===================== */
-.bc { padding: 104px 0 16px; background: var(--bg2); border-bottom: 1px solid var(--line); font-size: 14px; color: var(--mute); font-weight: 600; }
+.bc { padding: 18px 0 16px; background: var(--bg2); border-bottom: 1px solid var(--line); font-size: 14px; color: var(--mute); font-weight: 600; }
 .bc .w { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .bc a { color: var(--mute); transition: color .2s; }
 .bc a:hover { color: var(--br); }
@@ -121,9 +121,9 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 .wb i:nth-child(1) { background: #ff5f56; }
 .wb i:nth-child(2) { background: #ffbd2e; }
 .wb i:nth-child(3) { background: #27c93f; }
-.wb .ttl { color: var(--br); font-weight: 800; font-family: 'Outfit', sans-serif; letter-spacing: 0.05em; font-size: 12px; text-transform: uppercase; }
+.wb .ttl { color: var(--br); font-weight: 500; font-family: 'Outfit', sans-serif; letter-spacing: 0.05em; font-size: 12px; text-transform: uppercase; }
 
-.badge { font-size: 11px; font-weight: 800; padding: 4px 10px; border-radius: 8px; text-transform: uppercase; display: inline-block; letter-spacing: .04em; }
+.badge { font-size: 11px; font-weight: 500; padding: 4px 10px; border-radius: 8px; text-transform: uppercase; display: inline-block; letter-spacing: .04em; }
 .badge.new { background: #fef3c7; color: #92400e; }
 .badge.preparing { background: #dbeafe; color: #1e40af; }
 .badge.ready { background: #d1fae5; color: #065f46; }
@@ -176,7 +176,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
   .g2, .g3, .g4, .ind-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
 }
 @media (max-width: 768px) {
-  .bc { padding: 85px 0 14px; }
+  .bc { padding: 14px 0 14px; }
   .w { padding: 0 16px; }
   .win { min-width: 0 !important; width: 100%; overflow-x: auto; }
 }
@@ -232,7 +232,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
       <!-- KDS Kitchen Header Bar -->
       <div style="background: #1c1510; color: #fff; padding: 14px 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px;">
         <div style="display: flex; align-items: center; gap: 16px;">
-          <div style="font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 16px; color: var(--br-gold);">MAIN KITCHEN PASS</div>
+          <div style="font-family: 'Outfit', sans-serif; font-weight: 500; font-size: 16px; color: var(--br-gold);">MAIN KITCHEN PASS</div>
           <span style="background: rgba(255,255,255,0.12); padding: 4px 10px; border-radius: 6px; font-size: 11px;">Chef: Suresh Kumar</span>
         </div>
         <div style="display: flex; gap: 10px; font-size: 12px; font-weight: 700;">
@@ -367,7 +367,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
   <div class="w">
     <div class="g4">
       <div style="display: flex; gap: 16px; align-items: flex-start;">
-        <div style="font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 900; color: var(--br-gold); line-height: 1;">01</div>
+        <div style="font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 500; color: var(--br-gold); line-height: 1;">01</div>
         <div>
           <h4 style="font-size: 16px; margin-bottom: 4px;">Clear Kitchen Tickets</h4>
           <p style="font-size: 13.5px; line-height: 1.5;">Give kitchen staff clear item, portion and modifier instructions.</p>
@@ -375,7 +375,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
       </div>
 
       <div style="display: flex; gap: 16px; align-items: flex-start;">
-        <div style="font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 900; color: var(--br-gold); line-height: 1;">02</div>
+        <div style="font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 500; color: var(--br-gold); line-height: 1;">02</div>
         <div>
           <h4 style="font-size: 16px; margin-bottom: 4px;">Better Order Visibility</h4>
           <p style="font-size: 13.5px; line-height: 1.5;">Know what is waiting, currently preparing and ready at the pass.</p>
@@ -383,7 +383,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
       </div>
 
       <div style="display: flex; gap: 16px; align-items: flex-start;">
-        <div style="font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 900; color: var(--br-gold); line-height: 1;">03</div>
+        <div style="font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 500; color: var(--br-gold); line-height: 1;">03</div>
         <div>
           <h4 style="font-size: 16px; margin-bottom: 4px;">Organized Kitchen Flow</h4>
           <p style="font-size: 13.5px; line-height: 1.5;">Keep kitchen preparation work clear and visible during dinner rush.</p>
@@ -391,7 +391,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
       </div>
 
       <div style="display: flex; gap: 16px; align-items: flex-start;">
-        <div style="font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 900; color: var(--br-gold); line-height: 1;">04</div>
+        <div style="font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 500; color: var(--br-gold); line-height: 1;">04</div>
         <div>
           <h4 style="font-size: 16px; margin-bottom: 4px;">Connected Operations</h4>
           <p style="font-size: 13.5px; line-height: 1.5;">Connect KOT tickets with dining tables, waiters, POS and billing.</p>
@@ -414,7 +414,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
       <!-- Traditional Kitchen Communication -->
       <div class="card" style="padding: 32px; background: #fff5f5; border-color: rgba(239, 68, 68, 0.2);">
         <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
-          <div style="width: 40px; height: 40px; border-radius: 10px; background: #fee2e2; color: #dc2626; display: grid; place-items: center; font-weight: 800;">✕</div>
+          <div style="width: 40px; height: 40px; border-radius: 10px; background: #fee2e2; color: #dc2626; display: grid; place-items: center; font-weight: 500;">✕</div>
           <div>
             <h3 style="color: #991b1b;">Traditional Kitchen Communication</h3>
             <p style="font-size: 13px; color: #b91c1c;">Paper Tickets & Verbal Clarifications</p>
@@ -423,16 +423,16 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 
         <ul style="display: flex; flex-direction: column; gap: 14px;">
           <li style="display: flex; gap: 12px; font-size: 14px; color: #7f1d1d;">
-            <span style="color: #dc2626; font-weight: 800;">•</span> Unclear paper ticket handwriting leading to wrong dish preparation
+            <span style="color: #dc2626; font-weight: 500;">•</span> Unclear paper ticket handwriting leading to wrong dish preparation
           </li>
           <li style="display: flex; gap: 12px; font-size: 14px; color: #7f1d1d;">
-            <span style="color: #dc2626; font-weight: 800;">•</span> Manual verbal communication causing kitchen noise and confusion
+            <span style="color: #dc2626; font-weight: 500;">•</span> Manual verbal communication causing kitchen noise and confusion
           </li>
           <li style="display: flex; gap: 12px; font-size: 14px; color: #7f1d1d;">
-            <span style="color: #dc2626; font-weight: 800;">•</span> Difficult ticket prioritization during rush hours
+            <span style="color: #dc2626; font-weight: 500;">•</span> Difficult ticket prioritization during rush hours
           </li>
           <li style="display: flex; gap: 12px; font-size: 14px; color: #7f1d1d;">
-            <span style="color: #dc2626; font-weight: 800;">•</span> Status visibility gaps between kitchen pass and dining room waiters
+            <span style="color: #dc2626; font-weight: 500;">•</span> Status visibility gaps between kitchen pass and dining room waiters
           </li>
         </ul>
       </div>
@@ -440,7 +440,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
       <!-- Geni Menu KOT -->
       <div class="card" style="padding: 32px; background: #f0fdf4; border-color: rgba(16, 185, 129, 0.3);">
         <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
-          <div style="width: 40px; height: 40px; border-radius: 10px; background: #d1fae5; color: #059669; display: grid; place-items: center; font-weight: 800;">✓</div>
+          <div style="width: 40px; height: 40px; border-radius: 10px; background: #d1fae5; color: #059669; display: grid; place-items: center; font-weight: 500;">✓</div>
           <div>
             <h3 style="color: #065f46;">Geni Menu KOT</h3>
             <p style="font-size: 13px; color: #047857;">Structured Digital Kitchen Order Tickets</p>
@@ -449,16 +449,16 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 
         <ul style="display: flex; flex-direction: column; gap: 14px;">
           <li style="display: flex; gap: 12px; font-size: 14px; color: #064e3b;">
-            <span style="color: #10b981; font-weight: 800;">✓</span> Digital tickets with clear item quantities, sizes, and special notes
+            <span style="color: #10b981; font-weight: 500;">✓</span> Digital tickets with clear item quantities, sizes, and special notes
           </li>
           <li style="display: flex; gap: 12px; font-size: 14px; color: #064e3b;">
-            <span style="color: #10b981; font-weight: 800;">✓</span> Automatic table and order type identification (Dine-in, Takeaway)
+            <span style="color: #10b981; font-weight: 500;">✓</span> Automatic table and order type identification (Dine-in, Takeaway)
           </li>
           <li style="display: flex; gap: 12px; font-size: 14px; color: #064e3b;">
-            <span style="color: #10b981; font-weight: 800;">✓</span> Visible preparation status (New → Preparing → Ready)
+            <span style="color: #10b981; font-weight: 500;">✓</span> Visible preparation status (New → Preparing → Ready)
           </li>
           <li style="display: flex; gap: 12px; font-size: 14px; color: #064e3b;">
-            <span style="color: #10b981; font-weight: 800;">✓</span> Seamless 2-way status synchronization with POS and waiter devices
+            <span style="color: #10b981; font-weight: 500;">✓</span> Seamless 2-way status synchronization with POS and waiter devices
           </li>
         </ul>
       </div>
@@ -479,7 +479,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
     <div class="g2">
       <!-- Left: Front of House Order -->
       <div class="card" style="padding: 28px;">
-        <div style="font-size: 12px; font-weight: 800; color: var(--br); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 8px;">1. Front of House Order</div>
+        <div style="font-size: 12px; font-weight: 500; color: var(--br); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 8px;">1. Front of House Order</div>
         <h3 style="font-size: 20px; margin-bottom: 16px;">Order #ORD-2084</h3>
         
         <div style="background: var(--bg2); border: 1px solid var(--line); border-radius: 12px; padding: 16px; margin-bottom: 16px;">
@@ -512,18 +512,18 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 
       <!-- Right: Generated KOT -->
       <div class="card" style="padding: 28px; background: #fff; border: 2px solid var(--br);">
-        <div style="font-size: 12px; font-weight: 800; color: var(--br); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 8px;">2. Generated KOT Ticket</div>
+        <div style="font-size: 12px; font-weight: 500; color: var(--br); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 8px;">2. Generated KOT Ticket</div>
         <h3 style="font-size: 20px; margin-bottom: 16px; color: var(--br);">KOT #1048</h3>
 
         <div style="background: var(--br-light); border: 1px solid rgba(135,96,57,0.3); border-radius: 12px; padding: 16px; margin-bottom: 16px;">
-          <div style="display: flex; justify-content: space-between; font-size: 14px; font-weight: 800; color: var(--ink);">
+          <div style="display: flex; justify-content: space-between; font-size: 14px; font-weight: 500; color: var(--ink);">
             <span>TABLE T08</span>
             <span class="badge new">New KOT</span>
           </div>
           <div style="font-size: 12px; color: var(--mute); margin-top: 4px;">Dispatched to Main Kitchen Pass</div>
         </div>
 
-        <div style="display: flex; flex-direction: column; gap: 10px; font-size: 14px; font-weight: 800; color: var(--ink); margin-bottom: 16px;">
+        <div style="display: flex; flex-direction: column; gap: 10px; font-size: 14px; font-weight: 500; color: var(--ink); margin-bottom: 16px;">
           <div style="display: flex; justify-content: space-between; padding-bottom: 6px; border-bottom: 1px solid var(--line);">
             <span>Chicken Biryani (Dum)</span>
             <span style="font-size: 16px; color: var(--br);">2 Qty</span>
@@ -538,7 +538,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
           </div>
         </div>
 
-        <div style="background: #fffbeb; border: 1.5px solid var(--amber); border-radius: 8px; padding: 10px; font-size: 12px; font-weight: 800; color: #92400e;">
+        <div style="background: #fffbeb; border: 1.5px solid var(--amber); border-radius: 8px; padding: 10px; font-size: 12px; font-weight: 500; color: #92400e;">
           ⚠️ CHEF INSTRUCTION: "Less spicy, Extra Raita"
         </div>
       </div>
@@ -600,7 +600,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
     <div class="card" style="max-width: 600px; margin: 0 auto; padding: 32px; box-shadow: var(--shadow-lg);">
       <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 16px; border-bottom: 2px dashed var(--line); margin-bottom: 20px;">
         <div>
-          <div style="font-family: 'Outfit', sans-serif; font-weight: 900; font-size: 24px; color: var(--ink);">KOT #1052</div>
+          <div style="font-family: 'Outfit', sans-serif; font-weight: 500; font-size: 24px; color: var(--ink);">KOT #1052</div>
           <div style="font-size: 13px; color: var(--mute);">Main Kitchen · Table T12 · 4 Guests</div>
         </div>
         <span class="badge preparing">Cooking (08 min)</span>
@@ -612,22 +612,22 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
             <strong style="font-size: 16px; color: var(--ink);">Chicken Biryani (Large Dum)</strong>
             <div style="font-size: 12px; color: var(--br); font-weight: 700; margin-top: 2px;">+ Extra Egg (2)</div>
           </div>
-          <span style="font-family: 'Outfit', sans-serif; font-weight: 900; font-size: 20px; color: var(--br);">× 2</span>
+          <span style="font-family: 'Outfit', sans-serif; font-weight: 500; font-size: 20px; color: var(--br);">× 2</span>
         </div>
 
         <div style="display: flex; justify-content: space-between; align-items: center; background: var(--bg2); padding: 12px 16px; border-radius: 10px;">
           <div>
             <strong style="font-size: 16px; color: var(--ink);">Paneer Butter Masala</strong>
-            <div style="font-size: 12px; color: #dc2626; font-weight: 800; margin-top: 2px;">⚠️ Instruction: "No Onion, Less Spicy"</div>
+            <div style="font-size: 12px; color: #dc2626; font-weight: 500; margin-top: 2px;">⚠️ Instruction: "No Onion, Less Spicy"</div>
           </div>
-          <span style="font-family: 'Outfit', sans-serif; font-weight: 900; font-size: 20px; color: var(--br);">× 1</span>
+          <span style="font-family: 'Outfit', sans-serif; font-weight: 500; font-size: 20px; color: var(--br);">× 1</span>
         </div>
 
         <div style="display: flex; justify-content: space-between; align-items: center; background: var(--bg2); padding: 12px 16px; border-radius: 10px;">
           <div>
             <strong style="font-size: 16px; color: var(--ink);">Butter Garlic Naan</strong>
           </div>
-          <span style="font-family: 'Outfit', sans-serif; font-weight: 900; font-size: 20px; color: var(--br);">× 4</span>
+          <span style="font-family: 'Outfit', sans-serif; font-weight: 500; font-size: 20px; color: var(--br);">× 4</span>
         </div>
       </div>
 
@@ -652,25 +652,25 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
     <div class="g4" style="margin-bottom: 36px;">
       <div class="card" style="padding: 20px; border-top: 4px solid var(--amber); text-align: center;">
         <span class="badge new" style="margin-bottom: 8px;">NEW KOTs</span>
-        <div style="font-size: 32px; font-weight: 900; color: var(--amber);">05</div>
+        <div style="font-size: 32px; font-weight: 500; color: var(--amber);">05</div>
         <p style="font-size: 12px; color: var(--mute); margin-top: 4px;">Awaiting Chef Acceptance</p>
       </div>
 
       <div class="card" style="padding: 20px; border-top: 4px solid var(--blue); text-align: center;">
         <span class="badge preparing" style="margin-bottom: 8px;">PREPARING</span>
-        <div style="font-size: 32px; font-weight: 900; color: var(--blue);">08</div>
+        <div style="font-size: 32px; font-weight: 500; color: var(--blue);">08</div>
         <p style="font-size: 12px; color: var(--mute); margin-top: 4px;">Currently Cooking</p>
       </div>
 
       <div class="card" style="padding: 20px; border-top: 4px solid var(--green); text-align: center;">
         <span class="badge ready" style="margin-bottom: 8px;">READY AT PASS</span>
-        <div style="font-size: 32px; font-weight: 900; color: var(--green);">05</div>
+        <div style="font-size: 32px; font-weight: 500; color: var(--green);">05</div>
         <p style="font-size: 12px; color: var(--mute); margin-top: 4px;">Awaiting Server Pickup</p>
       </div>
 
       <div class="card" style="padding: 20px; border-top: 4px solid var(--br); text-align: center;">
         <span class="badge completed" style="margin-bottom: 8px;">COMPLETED</span>
-        <div style="font-size: 32px; font-weight: 900; color: var(--br);">173</div>
+        <div style="font-size: 32px; font-weight: 500; color: var(--br);">173</div>
         <p style="font-size: 12px; color: var(--mute); margin-top: 4px;">Dispatched Today</p>
       </div>
     </div>
@@ -689,55 +689,55 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
     <!-- 12 Step Flow Grid -->
     <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-bottom: 24px;">
       <div style="background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 12px; text-align: center;">
-        <div style="font-weight: 900; color: var(--mute); font-size: 10px;">STEP 01</div>
-        <div style="font-weight: 800; font-size: 12.5px; margin-top: 2px;">Guest Arrives</div>
+        <div style="font-weight: 500; color: var(--mute); font-size: 10px;">STEP 01</div>
+        <div style="font-weight: 500; font-size: 12.5px; margin-top: 2px;">Guest Arrives</div>
       </div>
       <div style="background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 12px; text-align: center;">
-        <div style="font-weight: 900; color: var(--mute); font-size: 10px;">STEP 02</div>
-        <div style="font-weight: 800; font-size: 12.5px; margin-top: 2px;">Table Seated</div>
+        <div style="font-weight: 500; color: var(--mute); font-size: 10px;">STEP 02</div>
+        <div style="font-weight: 500; font-size: 12.5px; margin-top: 2px;">Table Seated</div>
       </div>
       <div style="background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 12px; text-align: center;">
-        <div style="font-weight: 900; color: var(--mute); font-size: 10px;">STEP 03</div>
-        <div style="font-weight: 800; font-size: 12.5px; margin-top: 2px;">Menu Choice</div>
+        <div style="font-weight: 500; color: var(--mute); font-size: 10px;">STEP 03</div>
+        <div style="font-weight: 500; font-size: 12.5px; margin-top: 2px;">Menu Choice</div>
       </div>
       <div style="background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 12px; text-align: center;">
-        <div style="font-weight: 900; color: var(--mute); font-size: 10px;">STEP 04</div>
-        <div style="font-weight: 800; font-size: 12.5px; margin-top: 2px;">Order Placed</div>
+        <div style="font-weight: 500; color: var(--mute); font-size: 10px;">STEP 04</div>
+        <div style="font-weight: 500; font-size: 12.5px; margin-top: 2px;">Order Placed</div>
       </div>
       <div style="background: var(--br-light); border: 1.5px solid var(--br); border-radius: 12px; padding: 12px; text-align: center;">
-        <div style="font-weight: 900; color: var(--br); font-size: 10px;">STEP 05</div>
-        <div style="font-weight: 800; font-size: 12.5px; margin-top: 2px; color: var(--br);">KOT Created</div>
+        <div style="font-weight: 500; color: var(--br); font-size: 10px;">STEP 05</div>
+        <div style="font-weight: 500; font-size: 12.5px; margin-top: 2px; color: var(--br);">KOT Created</div>
       </div>
       <div style="background: var(--br-light); border: 1.5px solid var(--br); border-radius: 12px; padding: 12px; text-align: center;">
-        <div style="font-weight: 900; color: var(--br); font-size: 10px;">STEP 06</div>
-        <div style="font-weight: 800; font-size: 12.5px; margin-top: 2px; color: var(--br);">Kitchen Receives</div>
+        <div style="font-weight: 500; color: var(--br); font-size: 10px;">STEP 06</div>
+        <div style="font-weight: 500; font-size: 12.5px; margin-top: 2px; color: var(--br);">Kitchen Receives</div>
       </div>
     </div>
 
     <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px;">
       <div style="background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 12px; text-align: center;">
-        <div style="font-weight: 900; color: var(--blue); font-size: 10px;">STEP 07</div>
-        <div style="font-weight: 800; font-size: 12.5px; margin-top: 2px;">Food Prepared</div>
+        <div style="font-weight: 500; color: var(--blue); font-size: 10px;">STEP 07</div>
+        <div style="font-weight: 500; font-size: 12.5px; margin-top: 2px;">Food Prepared</div>
       </div>
       <div style="background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 12px; text-align: center;">
-        <div style="font-weight: 900; color: var(--green); font-size: 10px;">STEP 08</div>
-        <div style="font-weight: 800; font-size: 12.5px; margin-top: 2px;">Order Ready</div>
+        <div style="font-weight: 500; color: var(--green); font-size: 10px;">STEP 08</div>
+        <div style="font-weight: 500; font-size: 12.5px; margin-top: 2px;">Order Ready</div>
       </div>
       <div style="background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 12px; text-align: center;">
-        <div style="font-weight: 900; color: var(--mute); font-size: 10px;">STEP 09</div>
-        <div style="font-weight: 800; font-size: 12.5px; margin-top: 2px;">Food Served</div>
+        <div style="font-weight: 500; color: var(--mute); font-size: 10px;">STEP 09</div>
+        <div style="font-weight: 500; font-size: 12.5px; margin-top: 2px;">Food Served</div>
       </div>
       <div style="background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 12px; text-align: center;">
-        <div style="font-weight: 900; color: var(--mute); font-size: 10px;">STEP 10</div>
-        <div style="font-weight: 800; font-size: 12.5px; margin-top: 2px;">Bill Generated</div>
+        <div style="font-weight: 500; color: var(--mute); font-size: 10px;">STEP 10</div>
+        <div style="font-weight: 500; font-size: 12.5px; margin-top: 2px;">Bill Generated</div>
       </div>
       <div style="background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 12px; text-align: center;">
-        <div style="font-weight: 900; color: var(--mute); font-size: 10px;">STEP 11</div>
-        <div style="font-weight: 800; font-size: 12.5px; margin-top: 2px;">Payment Settled</div>
+        <div style="font-weight: 500; color: var(--mute); font-size: 10px;">STEP 11</div>
+        <div style="font-weight: 500; font-size: 12.5px; margin-top: 2px;">Payment Settled</div>
       </div>
       <div style="background: var(--br); color: #fff; border-radius: 12px; padding: 12px; text-align: center;">
-        <div style="font-weight: 900; color: var(--br-gold); font-size: 10px;">STEP 12</div>
-        <div style="font-weight: 800; font-size: 12.5px; margin-top: 2px; color: #fff;">Table Reset</div>
+        <div style="font-weight: 500; color: var(--br-gold); font-size: 10px;">STEP 12</div>
+        <div style="font-weight: 500; font-size: 12.5px; margin-top: 2px; color: #fff;">Table Reset</div>
       </div>
     </div>
   </div>
@@ -799,7 +799,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
     </div>
 
     <div class="card" style="padding: 40px; text-align: center; background: linear-gradient(180deg, #ffffff 0%, #faf8f5 100%);">
-      <div style="display: inline-block; padding: 14px 28px; background: var(--br); color: #fff; border-radius: 16px; font-weight: 900; font-size: 20px; font-family: 'Outfit', sans-serif; box-shadow: 0 8px 24px rgba(135,96,57,0.3); margin-bottom: 32px;">
+      <div style="display: inline-block; padding: 14px 28px; background: var(--br); color: #fff; border-radius: 16px; font-weight: 500; font-size: 20px; font-family: 'Outfit', sans-serif; box-shadow: 0 8px 24px rgba(135,96,57,0.3); margin-bottom: 32px;">
         CENTRAL KOT ENGINE
       </div>
 
@@ -902,18 +902,18 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 </section>
 
 <!-- ================= FINAL CTA ================= -->
-<section style="padding: 96px 0; background: linear-gradient(135deg, #1e140e 0%, #2e2017 100%); color: #fff;">
+<section style="padding: 96px 0; background: linear-gradient(135deg, #FAF4ED 0%, #EFE4D6 50%, #FAF4ED 100%); color: #21160F; border-top: 1px solid rgba(135, 96, 57, 0.16);">
   <div class="w" style="text-align: center; max-width: 800px;">
-    <div class="eb" style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.18); color: var(--br-gold);">TRANSFORM YOUR KITCHEN PASS</div>
-    <h2 style="color: #fff; font-size: clamp(32px, 4vw, 48px); margin-bottom: 20px;">
-      Bring Every Order Into a <span style="color: var(--br-gold); font-family: 'Playfair Display', Georgia, serif; font-style: italic;">Clear Kitchen Workflow.</span>
+    <div class="eb" style="background: rgba(135,96,57,0.08); border-color: rgba(135,96,57,0.2); color: #876039;">TRANSFORM YOUR KITCHEN PASS</div>
+    <h2 style="color: #21160F; font-size: clamp(32px, 4vw, 48px); margin-bottom: 20px;">
+      Bring Every Order Into a <span style="color: #876039; font-family: 'Playfair Display', Georgia, serif; font-style: italic;">Clear Kitchen Workflow.</span>
     </h2>
-    <p style="color: #c7b8a8; font-size: 18px; margin-bottom: 36px; line-height: 1.6;">
+    <p style="color: #6E6157; font-size: 18px; margin-bottom: 36px; line-height: 1.6;">
       Give your kitchen team the visibility they need to move orders from ticket to preparation to ready with Geni Menu.
     </p>
     <div style="display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap;">
-      <a href="{{ route('restaurant_signup') }}" class="btn p" style="padding: 16px 36px; font-size: 16px;">Get Started →</a>
-      <a href="{{ route('contact.us') }}" class="btn o" style="padding: 16px 32px; font-size: 16px; background: transparent; color: #fff; border-color: rgba(255,255,255,0.3);">Book a Demo</a>
+      <a href="{{ route('restaurant_signup') }}" class="btn p" style="padding: 16px 36px; font-size: 16px; background: #876039; color: #fff;">Get Started →</a>
+      <a href="{{ route('contact.us') }}" class="btn o" style="padding: 16px 32px; font-size: 16px; background: transparent; color: #876039; border: 1.5px solid #876039;">Book a Demo</a>
     </div>
   </div>
 </section>

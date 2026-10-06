@@ -1,4 +1,4 @@
-@extends('layouts.frontend-master')
+﻿@extends('layouts.frontend-master')
 
 @section('content')
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,7 +19,7 @@
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;font:400 16px/1.65 'Plus Jakarta Sans',sans-serif;color:var(--ink);background:var(--bg);overflow-x:hidden;-webkit-font-smoothing:antialiased}
-h1,h2,h3,h4,h5{margin:0;font-family:'Outfit',sans-serif;font-weight:800;line-height:1.15;letter-spacing:-.025em;color:var(--ink)}
+h1,h2,h3,h4,h5{margin:0;font-family:'Outfit',sans-serif;font-weight: 500;line-height:1.15;letter-spacing:-.025em;color:var(--ink)}
 h1{font-size:clamp(34px,4.8vw,58px)}
 h2{font-size:clamp(28px,3.6vw,44px)}
 h3{font-size:20px;font-weight:700}
@@ -34,7 +34,7 @@ ul{list-style:none;margin:0;padding:0}
 
 /* Eyebrow badge */
 .eb{display:inline-flex;align-items:center;gap:6px;font-size:11px;letter-spacing:.18em;
-  font-weight:800;text-transform:uppercase;color:var(--br);margin-bottom:14px;
+  font-weight: 500;text-transform:uppercase;color:var(--br);margin-bottom:14px;
   background:linear-gradient(135deg,#fbf7f2,#f4efe9);padding:6px 16px;border-radius:99px;
   border:1px solid rgba(135,96,57,.2);font-family:'Plus Jakarta Sans',sans-serif}
 
@@ -56,7 +56,7 @@ section{padding:clamp(56px,7vw,96px) 0;background:var(--bg);position:relative;ov
 .btn.o:hover{background:var(--br);color:#fff;transform:translateY(-2px)}
 
 /* Breadcrumb */
-.bc{padding:104px 0 16px;background:var(--bg2);border-bottom:1px solid var(--line);
+.bc{padding:18px 0 16px;background:var(--bg2);border-bottom:1px solid var(--line);
   font-size:13px;color:var(--mute);font-weight:600}
 .bc .w{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
 .bc a{color:var(--mute);transition:color .2s}
@@ -83,11 +83,11 @@ section{padding:clamp(56px,7vw,96px) 0;background:var(--bg);position:relative;ov
 .wb i:nth-child(1){background:#ff5f56}
 .wb i:nth-child(2){background:#ffbd2e}
 .wb i:nth-child(3){background:#27c93f}
-.wb .wt{color:var(--br);font-weight:800;font-family:'Outfit',sans-serif;
+.wb .wt{color:var(--br);font-weight: 500;font-family:'Outfit',sans-serif;
   letter-spacing:.06em;font-size:11px;text-transform:uppercase}
 
 /* Status badges */
-.bdg{font-size:10px;font-weight:800;padding:3px 9px;border-radius:7px;
+.bdg{font-size:10px;font-weight: 500;padding:3px 9px;border-radius:7px;
   text-transform:uppercase;display:inline-block;letter-spacing:.04em}
 .bdg.new{background:#fef3c7;color:#92400e}
 .bdg.ip{background:#dbeafe;color:#1e40af}
@@ -102,11 +102,11 @@ section{padding:clamp(56px,7vw,96px) 0;background:var(--bg);position:relative;ov
 .req-card.new-r{border-left:3px solid var(--amber)}
 .req-card.ip-r{border-left:3px solid var(--blue)}
 .req-card.done-r{border-left:3px solid var(--green)}
-.req-tbl{font-size:10px;font-weight:800;color:var(--br);letter-spacing:.1em;
+.req-tbl{font-size:10px;font-weight: 500;color:var(--br);letter-spacing:.1em;
   text-transform:uppercase;margin-bottom:3px}
-.req-type{font-weight:800;font-size:14px;color:var(--ink)}
+.req-type{font-weight: 500;font-size:14px;color:var(--ink)}
 .req-meta{font-size:11px;color:var(--mute);margin-top:2px}
-.req-act{padding:5px 13px;border-radius:8px;font-size:11px;font-weight:800;
+.req-act{padding:5px 13px;border-radius:8px;font-size:11px;font-weight: 500;
   cursor:pointer;border:1px solid var(--line);background:var(--bg2);color:var(--ink);white-space:nowrap;transition:.18s}
 .req-act:hover{background:var(--br);color:#fff;border-color:var(--br)}
 .req-act.done-btn{background:#d1fae5;color:#065f46;border-color:#a7f3d0}
@@ -119,7 +119,7 @@ section{padding:clamp(56px,7vw,96px) 0;background:var(--bg);position:relative;ov
 .tbl-node.idle{border-color:var(--line);background:#fff}
 .tbl-node.active-r{border-color:var(--amber);background:#fffbeb}
 .tbl-node.done-r{border-color:var(--green);background:#ecfdf5}
-.tbl-num{font-weight:900;font-size:15px;font-family:'Outfit',sans-serif;margin-bottom:4px}
+.tbl-num{font-weight: 500;font-size:15px;font-family:'Outfit',sans-serif;margin-bottom:4px}
 .tbl-lbl{font-size:10px;font-weight:700;margin-top:6px;padding:2px 8px;
   border-radius:5px;display:inline-block}
 .tbl-node.active-r .tbl-lbl{background:var(--amber);color:#fff}
@@ -131,11 +131,11 @@ section{padding:clamp(56px,7vw,96px) 0;background:var(--bg);position:relative;ov
 .wf-step{position:relative;z-index:1;text-align:center;flex:1}
 .wf-icon{width:48px;height:48px;border-radius:50%;border:2px solid var(--br);
   color:var(--br);display:grid;place-items:center;margin:0 auto 12px;
-  font-weight:800;font-size:15px;transition:.3s;background:#fff;
+  font-weight: 500;font-size:15px;transition:.3s;background:#fff;
   font-family:'Outfit',sans-serif}
 .wf-step.active .wf-icon{background:var(--br);color:#fff;
   box-shadow:0 4px 14px rgba(135,96,57,.32)}
-.wf-step h5{font-size:13px;font-weight:800;color:var(--ink);margin-bottom:4px}
+.wf-step h5{font-size:13px;font-weight: 500;color:var(--ink);margin-bottom:4px}
 .wf-step p{font-size:11px;color:var(--mute)}
 .wf-line{flex:1;height:2px;background:var(--line);margin-top:24px;max-width:60px;align-self:flex-start;margin-top:23px}
 .wf-line.active{background:var(--br)}
@@ -155,13 +155,13 @@ section{padding:clamp(56px,7vw,96px) 0;background:var(--bg);position:relative;ov
 .ph-in{height:520px;border-radius:32px;background:#fff;
   overflow:hidden;display:flex;flex-direction:column}
 .ph-top{background:linear-gradient(135deg,#876039,#a07040);padding:18px 16px 14px;color:#fff}
-.ph-title{font-weight:800;font-size:14px;font-family:'Outfit',sans-serif}
+.ph-title{font-weight: 500;font-size:14px;font-family:'Outfit',sans-serif}
 .ph-sub{font-size:10px;opacity:.8;margin-top:2px}
 .ph-body{flex:1;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:9px;scrollbar-width:none}
 .ph-tbl{background:var(--br-lt);border:1px solid var(--line);border-radius:12px;
   padding:10px 12px;text-align:center;margin-bottom:4px}
-.ph-tbl-lbl{font-size:10px;font-weight:800;color:var(--br);letter-spacing:.1em;text-transform:uppercase}
-.ph-tbl-num{font-size:22px;font-weight:900;font-family:'Outfit',sans-serif;color:var(--ink)}
+.ph-tbl-lbl{font-size:10px;font-weight: 500;color:var(--br);letter-spacing:.1em;text-transform:uppercase}
+.ph-tbl-num{font-size:22px;font-weight: 500;font-family:'Outfit',sans-serif;color:var(--ink)}
 .ph-help{font-size:11px;font-weight:600;color:var(--mute);margin-bottom:8px;text-align:center}
 .ph-btn{width:100%;padding:10px 14px;border-radius:10px;border:1px solid var(--line);
   background:#fff;font-weight:700;font-size:12px;color:var(--ink);
@@ -225,7 +225,7 @@ section{padding:clamp(56px,7vw,96px) 0;background:var(--bg);position:relative;ov
   border:2px solid var(--br);display:grid;place-items:center;color:var(--br);
   flex:none;transition:.28s}
 .jstep.hi .jstep-icon{background:var(--br);color:#fff;box-shadow:0 4px 12px rgba(135,96,57,.3)}
-.jstep-content h5{font-size:15px;font-weight:800;color:var(--ink);margin-bottom:3px}
+.jstep-content h5{font-size:15px;font-weight: 500;color:var(--ink);margin-bottom:3px}
 .jstep-content p{font-size:13px}
 
 /* Inline SVG icon util */
@@ -235,7 +235,7 @@ section{padding:clamp(56px,7vw,96px) 0;background:var(--bg);position:relative;ov
 .stats-row{display:flex;gap:24px;flex-wrap:wrap}
 .stat-box{flex:1;min-width:120px;padding:20px 24px;background:#fff;
   border:1px solid var(--line);border-radius:16px;text-align:center}
-.stat-val{font-size:36px;font-weight:900;font-family:'Outfit',sans-serif;
+.stat-val{font-size:36px;font-weight: 500;font-family:'Outfit',sans-serif;
   color:var(--br);line-height:1}
 .stat-lbl{font-size:13px;font-weight:700;color:var(--ink);margin-top:6px}
 
@@ -248,7 +248,7 @@ section{padding:clamp(56px,7vw,96px) 0;background:var(--bg);position:relative;ov
   .eco-arr{display:none}
 }
 @media(max-width:768px){
-  .bc{padding:85px 0 14px}
+  .bc{padding:14px 0 14px}
   .w{padding:0 16px}
   .hs,.two{grid-template-columns:1fr!important}
   .tbl-grid{grid-template-columns:repeat(3,1fr)}
@@ -313,21 +313,21 @@ section{padding:clamp(56px,7vw,96px) 0;background:var(--bg);position:relative;ov
       <div class="wb">
         <div class="dots"><i></i><i></i><i></i></div>
         <div class="wt">WAITER REQUESTS — LIVE</div>
-        <div style="font-size:10px;background:var(--br-lt);color:var(--br);padding:3px 10px;border-radius:7px;font-weight:800">Today · 29 Sep</div>
+        <div style="font-size:10px;background:var(--br-lt);color:var(--br);padding:3px 10px;border-radius:7px;font-weight: 500">Today · 29 Sep</div>
       </div>
       <div style="padding:14px;background:#fff">
         <!-- Stats row -->
         <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px">
           <div style="text-align:center;padding:10px 8px;background:var(--bg2);border-radius:10px;border:1px solid var(--line)">
-            <div style="font-size:20px;font-weight:900;font-family:'Outfit',sans-serif;color:#92400e">08</div>
+            <div style="font-size:20px;font-weight: 500;font-family:'Outfit',sans-serif;color:#92400e">08</div>
             <div style="font-size:10px;font-weight:700;color:var(--mute);margin-top:2px">New</div>
           </div>
           <div style="text-align:center;padding:10px 8px;background:var(--bg2);border-radius:10px;border:1px solid var(--line)">
-            <div style="font-size:20px;font-weight:900;font-family:'Outfit',sans-serif;color:var(--blue)">05</div>
+            <div style="font-size:20px;font-weight: 500;font-family:'Outfit',sans-serif;color:var(--blue)">05</div>
             <div style="font-size:10px;font-weight:700;color:var(--mute);margin-top:2px">In Progress</div>
           </div>
           <div style="text-align:center;padding:10px 8px;background:var(--bg2);border-radius:10px;border:1px solid var(--line)">
-            <div style="font-size:20px;font-weight:900;font-family:'Outfit',sans-serif;color:var(--green)">24</div>
+            <div style="font-size:20px;font-weight: 500;font-family:'Outfit',sans-serif;color:var(--green)">24</div>
             <div style="font-size:10px;font-weight:700;color:var(--mute);margin-top:2px">Completed</div>
           </div>
         </div>
@@ -360,12 +360,12 @@ section{padding:clamp(56px,7vw,96px) 0;background:var(--bg);position:relative;ov
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0"/></svg>
         </div>
         <div>
-          <div style="font-size:9px;font-weight:800;color:var(--br);letter-spacing:.08em">NEW REQUEST</div>
-          <div style="font-weight:800;color:var(--ink);font-size:12px">Table 08 — Call Waiter</div>
+          <div style="font-size:9px;font-weight: 500;color:var(--br);letter-spacing:.08em">NEW REQUEST</div>
+          <div style="font-weight: 500;color:var(--ink);font-size:12px">Table 08 — Call Waiter</div>
           <div style="font-size:10px;color:var(--mute)">Just now</div>
         </div>
         <button style="background:var(--br);color:#fff;border:0;padding:5px 10px;
-          border-radius:7px;font-weight:800;font-size:10px;cursor:pointer;white-space:nowrap">Respond</button>
+          border-radius:7px;font-weight: 500;font-size:10px;cursor:pointer;white-space:nowrap">Respond</button>
       </div>
     </div>
   </div>
@@ -418,14 +418,14 @@ section{padding:clamp(56px,7vw,96px) 0;background:var(--bg);position:relative;ov
       </div>
       <div style="display:flex;flex-direction:column;gap:7px">
         <div style="padding:10px 14px;background:#fff;border-radius:11px;border:1px solid #fca5a5;font-weight:700;color:#7f1d1d;font-size:13px">Guest looks around for help</div>
-        <div style="text-align:center;color:#ef4444;font-weight:800;font-size:16px">↓</div>
+        <div style="text-align:center;color:#ef4444;font-weight: 500;font-size:16px">↓</div>
         <div style="padding:10px 14px;background:#fff;border-radius:11px;border:1px solid #fca5a5;font-weight:700;color:#7f1d1d;font-size:13px">Tries to get waiter's attention</div>
-        <div style="text-align:center;color:#ef4444;font-weight:800;font-size:16px">↓</div>
+        <div style="text-align:center;color:#ef4444;font-weight: 500;font-size:16px">↓</div>
         <div style="padding:10px 14px;background:#fff;border-radius:11px;border:1px solid #fca5a5;font-weight:700;color:#7f1d1d;font-size:13px">Waits... waiter is busy</div>
-        <div style="text-align:center;color:#ef4444;font-weight:800;font-size:16px">↓</div>
+        <div style="text-align:center;color:#ef4444;font-weight: 500;font-size:16px">↓</div>
         <div style="padding:10px 14px;background:#fff;border-radius:11px;border:1px solid #fca5a5;font-weight:700;color:#7f1d1d;font-size:13px">Waiter notices (eventually)</div>
-        <div style="text-align:center;color:#ef4444;font-weight:800;font-size:16px">↓</div>
-        <div style="padding:12px 14px;background:#fee2e2;border-radius:11px;border:1.5px solid #dc2626;font-weight:800;color:#dc2626;font-size:13px;text-align:center">Request handled — after a delay</div>
+        <div style="text-align:center;color:#ef4444;font-weight: 500;font-size:16px">↓</div>
+        <div style="padding:12px 14px;background:#fee2e2;border-radius:11px;border:1.5px solid #dc2626;font-weight: 500;color:#dc2626;font-size:13px;text-align:center">Request handled — after a delay</div>
       </div>
     </div>
     <!-- With Geni Menu -->
@@ -438,14 +438,14 @@ section{padding:clamp(56px,7vw,96px) 0;background:var(--bg);position:relative;ov
       </div>
       <div style="display:flex;flex-direction:column;gap:7px">
         <div style="padding:10px 14px;background:#fff;border-radius:11px;border:1px solid var(--line);font-weight:700;color:var(--ink);font-size:13px">Guest sends a request from the table</div>
-        <div style="text-align:center;color:var(--br);font-weight:800;font-size:16px">↓</div>
+        <div style="text-align:center;color:var(--br);font-weight: 500;font-size:16px">↓</div>
         <div style="padding:10px 14px;background:#fff;border-radius:11px;border:1px solid var(--line);font-weight:700;color:var(--ink);font-size:13px">Restaurant team receives notification</div>
-        <div style="text-align:center;color:var(--br);font-weight:800;font-size:16px">↓</div>
+        <div style="text-align:center;color:var(--br);font-weight: 500;font-size:16px">↓</div>
         <div style="padding:10px 14px;background:#fff;border-radius:11px;border:1px solid var(--line);font-weight:700;color:var(--ink);font-size:13px">Staff member responds</div>
-        <div style="text-align:center;color:var(--br);font-weight:800;font-size:16px">↓</div>
+        <div style="text-align:center;color:var(--br);font-weight: 500;font-size:16px">↓</div>
         <div style="padding:10px 14px;background:#fff;border-radius:11px;border:1px solid var(--line);font-weight:700;color:var(--ink);font-size:13px">Request marked as complete</div>
-        <div style="text-align:center;color:var(--br);font-weight:800;font-size:16px">↓</div>
-        <div style="padding:12px 14px;background:linear-gradient(135deg,#876039,#a07040);border-radius:11px;color:#fff;font-weight:800;font-size:13px;text-align:center">Smooth, organized table-side service</div>
+        <div style="text-align:center;color:var(--br);font-weight: 500;font-size:16px">↓</div>
+        <div style="padding:12px 14px;background:linear-gradient(135deg,#876039,#a07040);border-radius:11px;color:#fff;font-weight: 500;font-size:13px;text-align:center">Smooth, organized table-side service</div>
       </div>
     </div>
   </div>
@@ -464,7 +464,7 @@ section{padding:clamp(56px,7vw,96px) 0;background:var(--bg);position:relative;ov
       <div class="dots"><i></i><i></i><i></i></div>
       <div class="wt">WAITER REQUESTS CONSOLE</div>
       <div style="display:flex;gap:6px;flex-wrap:wrap">
-        <button style="padding:4px 11px;border-radius:7px;border:1px solid var(--br);background:var(--br);color:#fff;font-size:11px;font-weight:800;cursor:pointer">All</button>
+        <button style="padding:4px 11px;border-radius:7px;border:1px solid var(--br);background:var(--br);color:#fff;font-size:11px;font-weight: 500;cursor:pointer">All</button>
         <button style="padding:4px 11px;border-radius:7px;border:1px solid var(--line);background:#fff;font-size:11px;font-weight:700;cursor:pointer">New</button>
         <button style="padding:4px 11px;border-radius:7px;border:1px solid var(--line);background:#fff;font-size:11px;font-weight:700;cursor:pointer">In Progress</button>
         <button style="padding:4px 11px;border-radius:7px;border:1px solid var(--line);background:#fff;font-size:11px;font-weight:700;cursor:pointer">Completed</button>
@@ -473,42 +473,42 @@ section{padding:clamp(56px,7vw,96px) 0;background:var(--bg);position:relative;ov
     <div style="padding:18px;background:#fff">
       <div style="display:grid;grid-template-columns:1fr 180px;gap:16px">
         <div>
-          <div style="font-size:10px;font-weight:800;color:var(--mute);letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px">TODAY'S REQUESTS</div>
+          <div style="font-size:10px;font-weight: 500;color:var(--mute);letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px">TODAY'S REQUESTS</div>
           <div style="display:flex;flex-direction:column;gap:8px">
             <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border:1px solid var(--line);border-left:3px solid var(--amber);border-radius:12px">
-              <div><div style="font-size:10px;font-weight:800;color:var(--br);letter-spacing:.08em;text-transform:uppercase">TABLE 08</div><div style="font-weight:800;font-size:14px;color:var(--ink)">Call Waiter</div><div style="font-size:11px;color:var(--mute)">2 min ago</div></div>
+              <div><div style="font-size:10px;font-weight: 500;color:var(--br);letter-spacing:.08em;text-transform:uppercase">TABLE 08</div><div style="font-weight: 500;font-size:14px;color:var(--ink)">Call Waiter</div><div style="font-size:11px;color:var(--mute)">2 min ago</div></div>
               <div style="display:flex;align-items:center;gap:7px"><span class="bdg new">New</span><button class="req-act">Respond</button></div>
             </div>
             <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:12px">
-              <div><div style="font-size:10px;font-weight:800;color:var(--br);letter-spacing:.08em;text-transform:uppercase">TABLE 14</div><div style="font-weight:800;font-size:14px;color:var(--ink)">Extra Water</div><div style="font-size:11px;color:var(--mute)">4 min ago</div></div>
+              <div><div style="font-size:10px;font-weight: 500;color:var(--br);letter-spacing:.08em;text-transform:uppercase">TABLE 14</div><div style="font-weight: 500;font-size:14px;color:var(--ink)">Extra Water</div><div style="font-size:11px;color:var(--mute)">4 min ago</div></div>
               <div style="display:flex;align-items:center;gap:7px"><span class="bdg ip">In Progress</span><button class="req-act">View</button></div>
             </div>
             <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border:1px solid var(--line);border-left:3px solid var(--green);border-radius:12px;opacity:.75">
-              <div><div style="font-size:10px;font-weight:800;color:var(--br);letter-spacing:.08em;text-transform:uppercase">TABLE 05</div><div style="font-weight:800;font-size:14px;color:var(--ink)">Request Bill</div><div style="font-size:11px;color:var(--mute)">7 min ago</div></div>
+              <div><div style="font-size:10px;font-weight: 500;color:var(--br);letter-spacing:.08em;text-transform:uppercase">TABLE 05</div><div style="font-weight: 500;font-size:14px;color:var(--ink)">Request Bill</div><div style="font-size:11px;color:var(--mute)">7 min ago</div></div>
               <div style="display:flex;align-items:center;gap:7px"><span class="bdg done">Completed</span><button class="req-act done-btn">Done ✓</button></div>
             </div>
             <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border:1px solid var(--line);border-left:3px solid var(--amber);border-radius:12px">
-              <div><div style="font-size:10px;font-weight:800;color:var(--br);letter-spacing:.08em;text-transform:uppercase">TABLE 21</div><div style="font-weight:800;font-size:14px;color:var(--ink)">Extra Spoon</div><div style="font-size:11px;color:var(--mute)">9 min ago</div></div>
+              <div><div style="font-size:10px;font-weight: 500;color:var(--br);letter-spacing:.08em;text-transform:uppercase">TABLE 21</div><div style="font-weight: 500;font-size:14px;color:var(--ink)">Extra Spoon</div><div style="font-size:11px;color:var(--mute)">9 min ago</div></div>
               <div style="display:flex;align-items:center;gap:7px"><span class="bdg new">New</span><button class="req-act">Respond</button></div>
             </div>
           </div>
         </div>
         <!-- Summary sidebar -->
         <div style="background:var(--bg2);border-radius:14px;padding:16px;border:1px solid var(--line);display:flex;flex-direction:column;gap:12px">
-          <div style="font-size:10px;font-weight:800;color:var(--mute);letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px">SUMMARY</div>
+          <div style="font-size:10px;font-weight: 500;color:var(--mute);letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px">SUMMARY</div>
           <div style="display:flex;justify-content:space-between;align-items:center">
             <span style="font-size:13px;font-weight:600;color:var(--mute)">New Requests</span>
-            <span style="font-size:20px;font-weight:900;font-family:'Outfit',sans-serif;color:#92400e">08</span>
+            <span style="font-size:20px;font-weight: 500;font-family:'Outfit',sans-serif;color:#92400e">08</span>
           </div>
           <div style="height:1px;background:var(--line)"></div>
           <div style="display:flex;justify-content:space-between;align-items:center">
             <span style="font-size:13px;font-weight:600;color:var(--mute)">In Progress</span>
-            <span style="font-size:20px;font-weight:900;font-family:'Outfit',sans-serif;color:var(--blue)">05</span>
+            <span style="font-size:20px;font-weight: 500;font-family:'Outfit',sans-serif;color:var(--blue)">05</span>
           </div>
           <div style="height:1px;background:var(--line)"></div>
           <div style="display:flex;justify-content:space-between;align-items:center">
             <span style="font-size:13px;font-weight:600;color:var(--mute)">Completed</span>
-            <span style="font-size:20px;font-weight:900;font-family:'Outfit',sans-serif;color:var(--green)">24</span>
+            <span style="font-size:20px;font-weight: 500;font-family:'Outfit',sans-serif;color:var(--green)">24</span>
           </div>
         </div>
       </div>
@@ -654,36 +654,36 @@ section{padding:clamp(56px,7vw,96px) 0;background:var(--bg);position:relative;ov
   <div class="two r" style="grid-template-columns:1.1fr 1fr">
     <!-- Detail panel -->
     <div class="win" style="box-shadow:var(--s3)">
-      <div class="wb"><div class="dots"><i></i><i></i><i></i></div><div class="wt">REQUEST DETAIL</div><div style="font-size:10px;background:var(--amber);color:#fff;padding:3px 9px;border-radius:6px;font-weight:800">NEW</div></div>
+      <div class="wb"><div class="dots"><i></i><i></i><i></i></div><div class="wt">REQUEST DETAIL</div><div style="font-size:10px;background:var(--amber);color:#fff;padding:3px 9px;border-radius:6px;font-weight: 500">NEW</div></div>
       <div style="padding:22px;background:#fff">
         <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid var(--line)">
           <div>
-            <div style="font-size:10px;font-weight:800;color:var(--mute);letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px">REQUEST ID</div>
-            <div style="font-size:18px;font-weight:900;font-family:'Outfit',sans-serif;color:var(--br)">#REQ-1048</div>
+            <div style="font-size:10px;font-weight: 500;color:var(--mute);letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px">REQUEST ID</div>
+            <div style="font-size:18px;font-weight: 500;font-family:'Outfit',sans-serif;color:var(--br)">#REQ-1048</div>
           </div>
           <span class="bdg new" style="font-size:11px;padding:4px 12px">New</span>
         </div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:13px;margin-bottom:16px">
           <div style="padding:11px 13px;background:var(--bg2);border-radius:10px;border:1px solid var(--line)">
-            <div style="font-size:10px;font-weight:800;color:var(--mute);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px">Table</div>
-            <div style="font-weight:800;color:var(--br);font-size:16px">T08</div>
+            <div style="font-size:10px;font-weight: 500;color:var(--mute);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px">Table</div>
+            <div style="font-weight: 500;color:var(--br);font-size:16px">T08</div>
           </div>
           <div style="padding:11px 13px;background:var(--bg2);border-radius:10px;border:1px solid var(--line)">
-            <div style="font-size:10px;font-weight:800;color:var(--mute);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px">Created</div>
+            <div style="font-size:10px;font-weight: 500;color:var(--mute);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px">Created</div>
             <div style="font-weight:700;color:var(--ink)">12:42 PM</div>
           </div>
           <div style="padding:11px 13px;background:var(--bg2);border-radius:10px;border:1px solid var(--line);grid-column:1/-1">
-            <div style="font-size:10px;font-weight:800;color:var(--mute);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px">Request Type</div>
-            <div style="font-weight:800;color:var(--ink);font-size:15px">Extra Water</div>
+            <div style="font-size:10px;font-weight: 500;color:var(--mute);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px">Request Type</div>
+            <div style="font-weight: 500;color:var(--ink);font-size:15px">Extra Water</div>
           </div>
         </div>
         <div style="padding:11px 13px;background:#fffbeb;border:1px solid #fde68a;border-radius:10px;margin-bottom:16px">
-          <div style="font-size:10px;font-weight:800;color:#92400e;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px">Guest Note</div>
+          <div style="font-size:10px;font-weight: 500;color:#92400e;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px">Guest Note</div>
           <div style="font-weight:600;color:#78350f;font-size:13px;font-style:italic">"Please bring two bottles."</div>
         </div>
         <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 13px;background:var(--bg2);border-radius:10px;border:1px solid var(--line);margin-bottom:16px">
           <span style="font-size:13px;font-weight:700;color:var(--mute)">Assigned Staff</span>
-          <span style="font-weight:800;color:var(--ink);font-size:13px">Waiter 03</span>
+          <span style="font-weight: 500;color:var(--ink);font-size:13px">Waiter 03</span>
         </div>
         <div style="display:flex;flex-direction:column;gap:8px">
           <button class="btn p" style="justify-content:center;padding:11px;font-size:13px">Accept Request</button>
@@ -749,25 +749,25 @@ section{padding:clamp(56px,7vw,96px) 0;background:var(--bg);position:relative;ov
       <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(20,14,10,.88) 100%)"></div>
       <div style="position:absolute;top:16px;left:16px;right:16px">
         <div style="background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-radius:14px;padding:14px 16px;border:1px solid rgba(135,96,57,.2)">
-          <div style="font-size:10px;font-weight:800;color:var(--br);letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px">LIVE REQUEST STATUS</div>
+          <div style="font-size:10px;font-weight: 500;color:var(--br);letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px">LIVE REQUEST STATUS</div>
           <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px">
             <div style="text-align:center">
-              <div style="font-size:22px;font-weight:900;font-family:'Outfit',sans-serif;color:#92400e">12</div>
+              <div style="font-size:22px;font-weight: 500;font-family:'Outfit',sans-serif;color:#92400e">12</div>
               <div style="font-size:10px;font-weight:700;color:var(--mute)">Active</div>
             </div>
             <div style="text-align:center">
-              <div style="font-size:22px;font-weight:900;font-family:'Outfit',sans-serif;color:var(--amber)">08</div>
+              <div style="font-size:22px;font-weight: 500;font-family:'Outfit',sans-serif;color:var(--amber)">08</div>
               <div style="font-size:10px;font-weight:700;color:var(--mute)">New</div>
             </div>
             <div style="text-align:center">
-              <div style="font-size:22px;font-weight:900;font-family:'Outfit',sans-serif;color:var(--blue)">04</div>
+              <div style="font-size:22px;font-weight: 500;font-family:'Outfit',sans-serif;color:var(--blue)">04</div>
               <div style="font-size:10px;font-weight:700;color:var(--mute)">In Progress</div>
             </div>
           </div>
         </div>
       </div>
       <div style="position:absolute;bottom:20px;left:20px;right:20px;color:#fff">
-        <div style="font-weight:900;font-size:18px;font-family:'Outfit',sans-serif;margin-bottom:4px">Peak Dinner Service — 8 PM</div>
+        <div style="font-weight: 500;font-size:18px;font-family:'Outfit',sans-serif;margin-bottom:4px">Peak Dinner Service — 8 PM</div>
         <div style="font-size:13px;opacity:.85">12 requests across multiple tables, all visible from one dashboard</div>
       </div>
     </div>
@@ -974,7 +974,7 @@ section{padding:clamp(56px,7vw,96px) 0;background:var(--bg);position:relative;ov
           <div style="width:40px;height:40px;border-radius:50%;background:var(--br);border:2px solid var(--br-dk);display:grid;place-items:center;margin:0 auto 6px;color:#fff;box-shadow:0 4px 12px rgba(135,96,57,.3)">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/></svg>
           </div>
-          <div style="font-size:11px;font-weight:800;color:var(--br)">Waiter Request</div>
+          <div style="font-size:11px;font-weight: 500;color:var(--br)">Waiter Request</div>
         </div>
         <div style="font-size:14px;color:var(--br);padding:0 4px;margin-bottom:18px">→</div>
       </div>
@@ -1074,7 +1074,7 @@ section{padding:clamp(56px,7vw,96px) 0;background:var(--bg);position:relative;ov
 <div class="w">
   <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:36px">
     <div>
-      <div style="font-family:'Outfit',sans-serif;font-weight:800;font-size:21px;color:#fff;margin-bottom:12px">Geni <span style="color:var(--br-g)">Menu</span></div>
+      <div style="font-family:'Outfit',sans-serif;font-weight: 500;font-size:21px;color:#fff;margin-bottom:12px">Geni <span style="color:var(--br-g)">Menu</span></div>
       <p style="color:#7a6c64;font-size:13px;max-width:260px;line-height:1.7">Smart restaurant management for modern food businesses. Built by WeGeni.</p>
     </div>
     <div>

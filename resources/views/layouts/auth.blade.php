@@ -25,6 +25,9 @@
     <meta name="description" content="{{ global_setting()->meta_description ?? global_setting()->name }}">
 
     <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 	@include('layouts.meta-pixel')
@@ -54,7 +57,7 @@
 <body>
     <div class="font-sans text-gray-900 dark:text-gray-100 antialiased">
         <button id="theme-toggle" data-tooltip-target="tooltip-toggle" type="button"
-            class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 absolute top-2 right-2">
+            class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 absolute top-2 right-2 z-50 {{ (request()->routeIs('login') || request()->routeIs('restaurant_signup')) ? 'hidden' : '' }}">
             <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg">
                 <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
@@ -72,19 +75,23 @@
             <div class="tooltip-arrow" data-popper-arrow></div>
         </div>
 
-        <div
-            class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 dark:bg-gray-900 bg-cover bg-center relative" style="background-image: url('{{ request()->routeIs('password.*') ? asset('assets/images/forget password.png') : asset('assets/images/login2.png') }}');">
+        @if (request()->routeIs('login') || request()->routeIs('restaurant_signup'))
+            <div class="min-h-screen w-full bg-[#FFFFFF] text-[#21160F]">
+                {{ $slot }}
+            </div>
+        @else
+            <div
+                class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 dark:bg-gray-900 bg-cover bg-center relative" style="background-image: url('{{ request()->routeIs('password.*') ? asset('assets/images/forget password.png') : asset('assets/images/login2.png') }}');">
 
+                {{ $slot }}
 
-            {{ $slot }}
-
-
-            @if (languages()->count() > 1)
-                <div class="mt-4">
-                    @livewire('shop.languageSwitcher')
-                </div>
-            @endif
-        </div>
+                @if (languages()->count() > 1)
+                    <div class="mt-4">
+                        @livewire('shop.languageSwitcher')
+                    </div>
+                @endif
+            </div>
+        @endif
     </div>
 
     @livewireScripts

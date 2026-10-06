@@ -12,24 +12,28 @@
 <!-- Import Google Fonts: Outfit (Headings), Plus Jakarta Sans (Body & UI), Playfair Display (Accent) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,500;1,600;1,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
 
 <style>
 
 :root {
   --br: #876039;
-  --br-dark: #6f4e2d;
-  --br-light: #f4efe9;
-  --br-gold: #b88e56;
+  --br-dark: #6F4522;
+  --br-light: #FBF6EE;
+  --br-gold: #C88A3B;
   --bg: #ffffff;
-  --bg2: #f8f6f1;
-  --ink: #241A14;
-  --mute: #6F665E;
-  --line: rgba(135, 96, 57, 0.14);
+  --bg2: #FAF7F2;
+  --bg3: #F5EFE6;
+  --ink: #21160F;
+  --ink-light: #3D2D23;
+  --mute: #6E6157;
+  --mute-light: #8E8177;
+  --line: rgba(135, 96, 57, 0.16);
+  --line-solid: #E8DDD1;
   --card: #ffffff;
-  --shadow-sm: 0 4px 20px rgba(36, 26, 20, 0.04);
-  --shadow-md: 0 16px 40px rgba(36, 26, 20, 0.08);
-  --shadow-lg: 0 26px 50px rgba(36, 26, 20, 0.12);
+  --shadow-sm: 0 4px 20px rgba(33, 22, 15, 0.04);
+  --shadow-md: 0 16px 40px rgba(33, 22, 15, 0.08);
+  --shadow-lg: 0 26px 50px rgba(33, 22, 15, 0.12);
   box-sizing: border-box;
 }
 
@@ -48,35 +52,36 @@ body {
 h1, h2, h3, h4 {
   margin: 0;
   font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
-  font-weight: 800;
+  font-weight: 500;
   line-height: 1.12;
-  letter-spacing: -0.03em;
-  color: #241A14;
+  letter-spacing: -0.02em;
+  color: #21160F;
 }
-h1 { font-size: clamp(40px, 5.8vw, 70px); font-weight: 800; }
-h2 { font-size: clamp(32px, 4.2vw, 50px); font-weight: 800; }
-h3 { font-size: 21px; font-weight: 700; color: #241A14; transition: color 0.25s ease; }
+h1 { font-size: clamp(40px, 5.8vw, 70px); font-weight: 500; }
+h2 { font-size: clamp(32px, 4.2vw, 50px); font-weight: 500; }
+h3 { font-size: 21px; font-weight: 500; color: #21160F; transition: color 0.25s ease; }
 .card:hover h3 { color: var(--br); }
 
-p { margin: 0; color: #6F665E; font-size: 16px; }
+p { margin: 0; color: #6E6157; font-size: 16px; }
 a { color: inherit; text-decoration: none; }
 ul { list-style: none; margin: 0; padding: 0; }
 
-/* Main Title Text — Deep Espresso (#241A14) */
+/* Main Title Text — Deep Warm Espresso (#21160F) */
 .title-grad {
-  color: #241A14;
+  color: #21160F;
   background: none;
   -webkit-background-clip: unset;
   -webkit-text-fill-color: initial;
   display: inline-block;
+  font-weight: 500;
 }
 
-/* Highlighted Word / Accent — Brand Brown Gradient */
+/* Highlighted Word / Accent — Brand Warm Brown Gradient */
 .sf {
   font-family: 'Playfair Display', Georgia, serif;
   font-style: italic;
-  font-weight: 700;
-  background: linear-gradient(135deg, #876039 0%, #a87646 50%, #c89659 100%);
+  font-weight: 500;
+  background: linear-gradient(135deg, #876039 0%, #C88A3B 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
@@ -89,11 +94,11 @@ ul { list-style: none; margin: 0; padding: 0; }
   gap: 6px;
   font-size: 12px;
   letter-spacing: .16em;
-  font-weight: 800;
+  font-weight: 500;
   text-transform: uppercase;
   color: var(--br);
   margin-bottom: 14px;
-  background: linear-gradient(135deg, #fbf7f2 0%, #f4efe9 100%);
+  background: linear-gradient(135deg, #FBF6EE 0%, #FAF7F2 100%);
   padding: 7px 18px;
   border-radius: 99px;
   border: 1px solid rgba(135, 96, 57, 0.22);
@@ -177,8 +182,8 @@ nav.s .in { background: rgba(255, 255, 255, 0.98); border-color: var(--line); bo
 /* Brand Logo Container */
 .lg { display: flex; align-items: center; gap: 10px; text-decoration: none; }
 .lg img { height: 42px; width: auto; object-fit: contain; }
-.lg-text { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 20px; letter-spacing: -0.01em; color: var(--ink); display: flex; align-items: center; gap: 6px; }
-.lg-text span { color: var(--br); font-weight: 900; }
+.lg-text { font-family: 'Outfit', sans-serif; font-weight: 500; font-size: 20px; letter-spacing: -0.01em; color: var(--ink); display: flex; align-items: center; gap: 6px; }
+.lg-text span { color: var(--br); font-weight: 500; }
 
 nav ul.m { display: flex; gap: 30px; font-weight: 600; font-size: 15px; font-family: 'Plus Jakarta Sans', sans-serif; }
 nav li { position: relative; padding: 8px 0; }
@@ -228,7 +233,7 @@ li:hover > .dm { opacity: 1; visibility: visible; transform: none; }
 .ph1 .it { display: flex; gap: 8px; align-items: center; padding: 7px; border: 1px solid var(--line); border-radius: 12px; background: #fff; box-shadow: 0 2px 6px rgba(0,0,0,0.02); }
 .ph1 u { width: 34px; height: 34px; border-radius: 8px; flex: none; background-size: cover; background-position: center; }
 .ph1 .it span { flex: 1; font-weight: 700; color: var(--ink); line-height: 1.2; }
-.ph1 em { font-style: normal; color: var(--br); font-weight: 800; font-size: 12px; }
+.ph1 em { font-style: normal; color: var(--br); font-weight: 500; font-size: 12px; }
 .ph1 .ct { margin-top: auto; background: var(--br); color: #fff; border-radius: 14px; padding: 10px 14px; display: flex; justify-content: space-between; align-items: center; font-weight: 700; box-shadow: 0 4px 12px rgba(135,96,57,0.3); }
 
 /* Floating Cards */
@@ -288,7 +293,7 @@ section.alt .faq .q {
   position: absolute;
   pointer-events: none;
   opacity: 0.05;
-  color: #A85B2B;
+  color: #876039;
   z-index: 0;
 }
 .hero-line-art.art-1 { top: 10%; left: 2%; width: 110px; height: 110px; }
@@ -316,35 +321,35 @@ section.alt .faq .q {
   align-items: center;
   gap: 8px;
   background: #F4E8D8;
-  color: #A85B2B;
+  color: #876039;
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 11px;
-  font-weight: 800;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 1.2px;
   padding: 7px 16px;
   border-radius: 24px;
   margin-bottom: 22px;
-  border: 1px solid rgba(168, 91, 43, 0.22);
+  border: 1px solid rgba(135, 96, 57, 0.22);
 }
 .hero-eyebrow-pill svg { width: 12px; height: 12px; fill: currentColor; }
 
 .hero-main-title {
   font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
-  font-weight: 800;
+  font-weight: 500;
   font-size: clamp(38px, 4.4vw, 56px);
   line-height: 1.1;
   color: #21160F;
   margin: 0 0 4px;
-  letter-spacing: -1.5px;
+  letter-spacing: -1px;
 }
 
 .hero-serif-highlight {
   font-family: 'Playfair Display', Georgia, serif;
   font-style: italic;
-  font-weight: 700;
+  font-weight: 500;
   font-size: clamp(42px, 4.8vw, 62px);
-  color: #A85B2B;
+  color: #876039;
   display: block;
   line-height: 1.12;
   letter-spacing: -0.5px;
@@ -369,7 +374,7 @@ section.alt .faq .q {
 }
 
 .hero-btn-primary-demo {
-  background: #A85B2B;
+  background: #876039;
   color: #ffffff !important;
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 14.5px;
@@ -377,23 +382,23 @@ section.alt .faq .q {
   padding: 14px 28px;
   border-radius: 10px;
   text-decoration: none;
-  box-shadow: 0 4px 18px rgba(168, 91, 43, 0.32);
+  box-shadow: 0 4px 18px rgba(135, 96, 57, 0.32);
   transition: all 0.25s ease;
   display: inline-flex;
   align-items: center;
   gap: 8px;
 }
 .hero-btn-primary-demo:hover {
-  background: #8e4c22;
+  background: #6f4e2d;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(168, 91, 43, 0.42);
+  box-shadow: 0 8px 24px rgba(135, 96, 57, 0.42);
   color: #ffffff !important;
 }
 
 .hero-btn-secondary-features {
   background: transparent;
-  color: #A85B2B !important;
-  border: 1.5px solid #A85B2B;
+  color: #876039 !important;
+  border: 1.5px solid #876039;
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 14.5px;
   font-weight: 700;
@@ -405,7 +410,7 @@ section.alt .faq .q {
   align-items: center;
 }
 .hero-btn-secondary-features:hover {
-  background: rgba(168, 91, 43, 0.08);
+  background: rgba(135, 96, 57, 0.08);
   transform: translateY(-2px);
 }
 
@@ -441,7 +446,7 @@ section.alt .faq .q {
 .industry-item svg {
   width: 15px;
   height: 15px;
-  color: #A85B2B;
+  color: #876039;
   stroke-width: 1.8;
   flex-shrink: 0;
 }
@@ -579,7 +584,7 @@ section.alt .faq .q {
 }
 .sidebar-logo {
   font-size: 10.5px;
-  font-weight: 800;
+  font-weight: 500;
   color: #21160F;
   padding: 2px 4px 8px;
   display: flex;
@@ -591,13 +596,13 @@ section.alt .faq .q {
 .sidebar-logo-icon {
   width: 15px;
   height: 15px;
-  background: #A85B2B;
+  background: #876039;
   color: #fff;
   border-radius: 4px;
   display: grid;
   place-items: center;
   font-size: 8.5px;
-  font-weight: 900;
+  font-weight: 500;
 }
 .sidebar-link {
   display: flex;
@@ -620,11 +625,11 @@ section.alt .faq .q {
 }
 .sidebar-link.active {
   background: #F4E8D8;
-  color: #A85B2B;
+  color: #876039;
   font-weight: 700;
 }
 .sidebar-link.active svg {
-  color: #A85B2B;
+  color: #876039;
 }
 
 /* Dashboard Main View */
@@ -651,7 +656,7 @@ section.alt .faq .q {
 }
 .kpi-tile.featured {
   background: linear-gradient(135deg, #FFFDFB 0%, #FBF6EF 100%);
-  border-color: rgba(168, 91, 43, 0.28);
+  border-color: rgba(135, 96, 57, 0.28);
 }
 .kpi-title {
   font-size: 8px;
@@ -663,14 +668,14 @@ section.alt .faq .q {
 }
 .kpi-number {
   font-size: 13.5px;
-  font-weight: 800;
+  font-weight: 500;
   color: #21160F;
   margin-top: 2px;
   display: block;
   line-height: 1.15;
 }
 .kpi-tile.featured .kpi-number {
-  color: #A85B2B;
+  color: #876039;
 }
 .kpi-badge-sub {
   font-size: 7.5px;
@@ -707,7 +712,7 @@ section.alt .faq .q {
 }
 .dash-panel-title {
   font-size: 9.5px;
-  font-weight: 800;
+  font-weight: 500;
   color: #21160F;
 }
 .dash-panel-extra {
@@ -732,7 +737,7 @@ section.alt .faq .q {
 .mini-order-table td {
   padding: 4px 3px;
   border-bottom: 1px solid #F6F6F6;
-  color: #333;
+  color: #21160F;
 }
 .status-pill {
   display: inline-block;
@@ -744,7 +749,7 @@ section.alt .faq .q {
 }
 .status-pill.preparing { background: #FEF3C7; color: #D97706; }
 .status-pill.ready { background: #DCFCE7; color: #16A34A; }
-.status-pill.paid { background: #F4E8D8; color: #A85B2B; }
+.status-pill.paid { background: #F4E8D8; color: #876039; }
 
 /* Micro Chart */
 .mini-chart-wrap {
@@ -762,7 +767,7 @@ section.alt .faq .q {
   border-radius: 2px 2px 0 0;
 }
 .chart-bar.active {
-  background: #A85B2B;
+  background: #876039;
 }
 .top-item-highlight {
   font-size: 8px;
@@ -819,14 +824,14 @@ section.alt .faq .q {
 }
 .phone-resto-name {
   font-size: 11.5px;
-  font-weight: 800;
+  font-weight: 500;
   color: #21160F;
 }
 .phone-table-tag {
   background: #F4E8D8;
-  color: #A85B2B;
+  color: #876039;
   font-size: 8.5px;
-  font-weight: 800;
+  font-weight: 500;
   padding: 2px 7px;
   border-radius: 10px;
 }
@@ -853,7 +858,7 @@ section.alt .faq .q {
   white-space: nowrap;
 }
 .phone-tab-btn.active {
-  background: #A85B2B;
+  background: #876039;
   color: #FFFFFF;
 }
 
@@ -893,29 +898,29 @@ section.alt .faq .q {
 }
 .phone-dish-price {
   font-size: 9px;
-  font-weight: 800;
-  color: #A85B2B;
+  font-weight: 500;
+  color: #876039;
   margin-top: 1px;
 }
 .phone-add-btn {
   background: #FFFFFF;
-  border: 1px solid #A85B2B;
-  color: #A85B2B;
+  border: 1px solid #876039;
+  color: #876039;
   font-size: 8px;
-  font-weight: 800;
+  font-weight: 500;
   padding: 3px 7px;
   border-radius: 5px;
   cursor: pointer;
   white-space: nowrap;
 }
 .phone-add-btn.added {
-  background: #A85B2B;
+  background: #876039;
   color: #FFFFFF;
 }
 
 /* Phone Cart Summary */
 .phone-cart-bar {
-  background: #A85B2B;
+  background: #876039;
   color: #FFFFFF;
   margin: 0 8px 8px;
   border-radius: 100px;
@@ -925,7 +930,7 @@ section.alt .faq .q {
   align-items: center;
   font-size: 10px;
   font-weight: 700;
-  box-shadow: 0 3px 12px rgba(168, 91, 43, 0.4);
+  box-shadow: 0 3px 12px rgba(135, 96, 57, 0.4);
 }
 .phone-cart-bar span:last-child {
   font-size: 9px;
@@ -1047,7 +1052,7 @@ section.alt .faq .q {
   border-color: rgba(135, 96, 57, 0.38);
   box-shadow: var(--shadow-md);
 }
-.b4 h3 { margin: 14px 0 6px; font-size: 18px; display: flex; align-items: center; gap: 8px; font-family: 'Outfit', sans-serif; font-weight: 800; color: #21160F; }
+.b4 h3 { margin: 14px 0 6px; font-size: 18px; display: flex; align-items: center; gap: 8px; font-family: 'Outfit', sans-serif; font-weight: 500; color: #21160F; }
 .b4 p { font-size: 14px; line-height: 1.55; color: var(--mute); }
 
 /* Core Features */
@@ -1087,7 +1092,7 @@ section.alt .faq .q {
 .fc.big h3 {
   color: #FFFFFF !important;
   font-size: 22px;
-  font-weight: 800;
+  font-weight: 500;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
 }
 .fc.big:hover h3 {
@@ -1124,7 +1129,7 @@ section.alt .faq .q {
   border-radius: 10px;
   width: fit-content;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
-  font-weight: 800;
+  font-weight: 500;
   margin-top: 16px;
   transition: all 0.25s ease;
 }
@@ -1156,22 +1161,22 @@ section.alt .faq .q {
   align-items: center;
   gap: 7px;
   background: #F4E8D8;
-  color: #A85B2B;
+  color: #876039;
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 11px;
-  font-weight: 800;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 1.4px;
   padding: 7px 18px;
   border-radius: 99px;
   border: 1px solid #E7D5C3;
   margin-bottom: 16px;
-  box-shadow: 0 2px 8px rgba(168, 91, 43, 0.06);
+  box-shadow: 0 2px 8px rgba(135, 96, 57, 0.06);
 }
 
 .hiw-title {
   font-family: 'Plus Jakarta Sans', 'Outfit', sans-serif;
-  font-weight: 800;
+  font-weight: 500;
   font-size: clamp(34px, 4vw, 46px);
   color: #21160F;
   line-height: 1.15;
@@ -1183,7 +1188,7 @@ section.alt .faq .q {
   font-family: 'Playfair Display', Georgia, serif;
   font-style: italic;
   font-weight: 700;
-  color: #A85B2B;
+  color: #876039;
   display: inline-block;
 }
 
@@ -1211,8 +1216,8 @@ section.alt .faq .q {
 
 .hiw-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 14px 32px rgba(168, 91, 43, 0.12);
-  border-color: rgba(168, 91, 43, 0.4);
+  box-shadow: 0 14px 32px rgba(135, 96, 57, 0.12);
+  border-color: rgba(135, 96, 57, 0.4);
 }
 
 /* Step Number Badge */
@@ -1221,15 +1226,15 @@ section.alt .faq .q {
   align-items: center;
   gap: 4px;
   background: #F4E8D8;
-  color: #A85B2B;
+  color: #876039;
   font-size: 10.5px;
-  font-weight: 800;
+  font-weight: 500;
   letter-spacing: 0.8px;
   padding: 3px 9px;
   border-radius: 6px;
   margin-bottom: 12px;
   align-self: flex-start;
-  border: 1px solid rgba(168, 91, 43, 0.18);
+  border: 1px solid rgba(135, 96, 57, 0.18);
 }
 
 /* Visual UI Preview Container */
@@ -1254,7 +1259,7 @@ section.alt .faq .q {
 /* Step Typography */
 .hiw-step-title {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight: 800;
+  font-weight: 500;
   font-size: 13.5px;
   letter-spacing: 0.4px;
   text-transform: uppercase;
@@ -1281,11 +1286,11 @@ section.alt .faq .q {
   background: #FFFFFF;
   border: 1px solid #E7D5C3;
   border-radius: 50%;
-  color: #A85B2B;
+  color: #876039;
   display: grid;
   place-items: center;
   font-size: 11px;
-  font-weight: 900;
+  font-weight: 500;
   box-shadow: 0 3px 8px rgba(0,0,0,0.06);
   z-index: 5;
 }
@@ -1316,7 +1321,7 @@ section.alt .faq .q {
   justify-content: space-between;
   align-items: center;
   font-size: 7.5px;
-  font-weight: 800;
+  font-weight: 500;
   color: #21160F;
   padding-bottom: 3px;
   border-bottom: 1px solid #F0EAE1;
@@ -1324,9 +1329,9 @@ section.alt .faq .q {
 }
 .mock-phone-table-pill {
   background: #F4E8D8;
-  color: #A85B2B;
+  color: #876039;
   font-size: 6.5px;
-  font-weight: 800;
+  font-weight: 500;
   padding: 1.5px 5px;
   border-radius: 10px;
 }
@@ -1348,7 +1353,7 @@ section.alt .faq .q {
 .mock-phone-item-name {
   font-size: 7.5px;
   font-weight: 700;
-  color: #333;
+  color: #21160F;
   display: flex;
   align-items: center;
   gap: 3px;
@@ -1367,20 +1372,20 @@ section.alt .faq .q {
 }
 .mock-phone-price {
   font-size: 7px;
-  font-weight: 800;
-  color: #A85B2B;
+  font-weight: 500;
+  color: #876039;
 }
 .mock-phone-plus-btn {
   width: 11px;
   height: 11px;
-  background: #A85B2B;
+  background: #876039;
   color: #fff;
   border-radius: 3px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 8px;
-  font-weight: 800;
+  font-weight: 500;
   flex-shrink: 0;
 }
 .mock-qr-badge {
@@ -1397,7 +1402,7 @@ section.alt .faq .q {
   gap: 2px;
 }
 .mock-qr-badge svg { width: 22px; height: 22px; color: #21160F; }
-.mock-qr-badge span { font-size: 6px; font-weight: 800; color: #A85B2B; line-height: 1.1; }
+.mock-qr-badge span { font-size: 6px; font-weight: 500; color: #876039; line-height: 1.1; }
 
 /* --- Step 02: Kitchen Order Dashboard Preview --- */
 .mock-kds-header {
@@ -1405,8 +1410,8 @@ section.alt .faq .q {
   justify-content: space-between;
   align-items: center;
   font-size: 7.5px;
-  font-weight: 800;
-  color: #A85B2B;
+  font-weight: 500;
+  color: #876039;
   text-transform: uppercase;
   margin-bottom: 4px;
   padding-bottom: 2px;
@@ -1452,7 +1457,7 @@ section.alt .faq .q {
 .mock-kds-thumb { width: 18px; height: 18px; border-radius: 3px; object-fit: cover; flex-shrink: 0; }
 .mock-status-pill {
   font-size: 5.5px;
-  font-weight: 800;
+  font-weight: 500;
   padding: 1.5px 3.5px;
   border-radius: 3px;
   text-transform: uppercase;
@@ -1481,7 +1486,7 @@ section.alt .faq .q {
 .mock-kot-top {
   display: flex;
   justify-content: space-between;
-  font-weight: 800;
+  font-weight: 500;
   color: #21160F;
   border-bottom: 1px dashed #E0D5C7;
   padding-bottom: 2px;
@@ -1489,7 +1494,7 @@ section.alt .faq .q {
 }
 .mock-kot-dish {
   font-size: 6.2px;
-  color: #333;
+  color: #21160F;
   margin-bottom: 1px;
   font-weight: 600;
   white-space: nowrap;
@@ -1513,7 +1518,7 @@ section.alt .faq .q {
 .mock-kot-pill-btn {
   text-align: center;
   font-size: 6px;
-  font-weight: 800;
+  font-weight: 500;
   padding: 2px 0;
   border-radius: 3px;
   text-transform: uppercase;
@@ -1536,8 +1541,8 @@ section.alt .faq .q {
   display: flex;
   justify-content: space-between;
   font-size: 7.5px;
-  font-weight: 800;
-  color: #A85B2B;
+  font-weight: 500;
+  color: #876039;
   border-bottom: 1px solid #EBE4D8;
   padding-bottom: 2px;
   margin-bottom: 3px;
@@ -1550,7 +1555,7 @@ section.alt .faq .q {
   margin-bottom: 1.5px;
 }
 .mock-bill-line.total {
-  font-weight: 900;
+  font-weight: 500;
   font-size: 8px;
   color: #21160F;
   border-top: 1px dashed #DDD;
@@ -1601,8 +1606,8 @@ section.alt .faq .q {
   margin-bottom: 2px;
 }
 .mock-analytics-metric small { font-size: 6px; color: #76675D; font-weight: 700; display: block; text-transform: uppercase; }
-.mock-analytics-metric b { font-size: 11px; color: #A85B2B; font-weight: 900; }
-.mock-analytics-growth { font-size: 6px; color: #25834F; font-weight: 800; }
+.mock-analytics-metric b { font-size: 11px; color: #876039; font-weight: 500; }
+.mock-analytics-growth { font-size: 6px; color: #25834F; font-weight: 500; }
 .mock-analytics-bars-wrap {
   display: flex;
   flex-direction: column;
@@ -1619,7 +1624,7 @@ section.alt .faq .q {
   background: #E8D9C8;
   border-radius: 2px 2px 0 0;
 }
-.mock-bar-col.peak { background: #A85B2B; }
+.mock-bar-col.peak { background: #876039; }
 .mock-bar-labels {
   display: flex;
   justify-content: space-between;
@@ -1639,7 +1644,7 @@ section.alt .faq .q {
   padding: 2px 4px;
   margin-top: auto;
 }
-.mock-top-dish-info small { font-size: 5.5px; color: #A85B2B; font-weight: 700; display: flex; align-items: center; gap: 1.5px; }
+.mock-top-dish-info small { font-size: 5.5px; color: #876039; font-weight: 700; display: flex; align-items: center; gap: 1.5px; }
 .mock-top-dish-info b { font-size: 6.8px; color: #21160F; display: block; }
 .mock-top-dish-img { width: 18px; height: 18px; border-radius: 3px; object-fit: cover; }
 
@@ -1670,11 +1675,11 @@ section.alt .faq .q {
   height: 32px;
   border-radius: 50%;
   background: #F4E8D8;
-  color: #A85B2B;
+  color: #876039;
   display: grid;
   place-items: center;
   flex-shrink: 0;
-  border: 1px solid rgba(168, 91, 43, 0.15);
+  border: 1px solid rgba(135, 96, 57, 0.15);
   transition: transform 0.25s, background 0.25s, color 0.25s;
 }
 
@@ -1688,7 +1693,7 @@ section.alt .faq .q {
 
 .hiw-timeline-stage:hover .hiw-stage-icon-circle {
   transform: scale(1.08);
-  background: #A85B2B;
+  background: #876039;
   color: #FFFFFF;
 }
 
@@ -1701,9 +1706,9 @@ section.alt .faq .q {
 }
 
 .hiw-timeline-arrow {
-  color: #A85B2B;
+  color: #876039;
   font-size: 14px;
-  font-weight: 900;
+  font-weight: 500;
   opacity: 0.6;
 }
 
@@ -1785,22 +1790,22 @@ section.alt .faq .q {
   align-items: center;
   gap: 7px;
   background: #F4E8D8;
-  color: #A85B2B;
+  color: #876039;
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 11px;
-  font-weight: 800;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 1.4px;
   padding: 7px 18px;
   border-radius: 99px;
   border: 1px solid #E7D5C3;
   margin-bottom: 16px;
-  box-shadow: 0 2px 8px rgba(168, 91, 43, 0.06);
+  box-shadow: 0 2px 8px rgba(135, 96, 57, 0.06);
 }
 
 .team-title {
-  font-family: 'Plus Jakarta Sans', 'Outfit', sans-serif;
-  font-weight: 800;
+  font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+  font-weight: 500;
   font-size: clamp(34px, 4.2vw, 48px);
   color: #21160F;
   line-height: 1.15;
@@ -1811,8 +1816,8 @@ section.alt .faq .q {
 .team-title .team-serif {
   font-family: 'Playfair Display', Georgia, serif;
   font-style: italic;
-  font-weight: 700;
-  color: #A85B2B;
+  font-weight: 500;
+  color: #876039;
   display: inline-block;
 }
 
@@ -1869,7 +1874,7 @@ section.alt .faq .q {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #A85B2B;
+  color: #876039;
   transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
   margin-bottom: 9px;
 }
@@ -1882,28 +1887,28 @@ section.alt .faq .q {
 
 .team-step-col:hover .team-floating-icon {
   transform: scale(1.12);
-  border-color: #A85B2B;
+  border-color: #876039;
   background: #FFFFFF;
-  box-shadow: 0 6px 18px rgba(168, 91, 43, 0.2);
+  box-shadow: 0 6px 18px rgba(135, 96, 57, 0.2);
 }
 
 .team-step-pill {
-  background: #A85B2B;
+  background: #876039;
   color: #FFFFFF;
   font-size: 10px;
-  font-weight: 800;
+  font-weight: 500;
   letter-spacing: 0.8px;
   padding: 3.5px 11px;
   border-radius: 20px;
   display: inline-block;
   margin-bottom: 6px;
-  box-shadow: 0 2px 6px rgba(168, 91, 43, 0.18);
+  box-shadow: 0 2px 6px rgba(135, 96, 57, 0.18);
   text-transform: uppercase;
 }
 
 .team-step-name {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight: 800;
+  font-weight: 500;
   font-size: 13.5px;
   color: #21160F;
   margin: 0 0 3px;
@@ -1947,8 +1952,8 @@ section.alt .faq .q {
 
 .team-card-col:hover .team-card {
   transform: translateY(-6px);
-  box-shadow: 0 16px 36px rgba(168, 91, 43, 0.12);
-  border-color: rgba(168, 91, 43, 0.4);
+  box-shadow: 0 16px 36px rgba(135, 96, 57, 0.12);
+  border-color: rgba(135, 96, 57, 0.4);
 }
 
 /* Upper Visual Area with Real Staff Photo + Device Mockup */
@@ -1991,19 +1996,19 @@ section.alt .faq .q {
   width: 36px;
   height: 36px;
   border-radius: 10px;
-  background: #A85B2B;
+  background: #876039;
   color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  box-shadow: 0 3px 10px rgba(168, 91, 43, 0.25);
+  box-shadow: 0 3px 10px rgba(135, 96, 57, 0.25);
   transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .team-card-col:hover .team-role-icon-box {
   transform: scale(1.06);
-  background: #8e4c22;
+  background: #6f4e2d;
 }
 
 .team-role-icon-box svg {
@@ -2019,7 +2024,7 @@ section.alt .faq .q {
 
 .team-role-title {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight: 800;
+  font-weight: 500;
   font-size: 11.5px;
   letter-spacing: 0.5px;
   text-transform: uppercase;
@@ -2041,20 +2046,20 @@ section.alt .faq .q {
   height: 26px;
   border-radius: 50%;
   background: #F4E8D8;
-  color: #A85B2B;
+  color: #876039;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 12px;
-  font-weight: 800;
+  font-weight: 500;
   flex-shrink: 0;
-  border: 1px solid rgba(168, 91, 43, 0.15);
+  border: 1px solid rgba(135, 96, 57, 0.15);
   transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
 .team-card-col:hover .team-role-arrow {
   transform: translateX(3px);
-  background: #A85B2B;
+  background: #876039;
   color: #FFFFFF;
 }
 
@@ -2221,7 +2226,7 @@ section.alt .faq .q {
 .so-body h3 {
   font-size: 17.5px;
   font-family: 'Outfit', sans-serif;
-  font-weight: 800;
+  font-weight: 500;
   color: var(--ink) !important;
   margin: 0;
   line-height: 1.25;
@@ -2263,7 +2268,7 @@ section.alt .faq .q {
 }
 
 /* ==========================================================================
-   SCALE & GROWTH SECTION — EXACT DESIGN MATCHING SCREENSHOT
+   SCALE & GROWTH SECTION
    ========================================================================== */
 .growth-section {
   padding: 85px 0 105px;
@@ -2273,43 +2278,20 @@ section.alt .faq .q {
   font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
-/* Side decorative ambiance & food images */
-.growth-side-decor-left {
-  position: absolute;
-  top: 30px;
-  left: 0;
-  width: 170px;
-  height: auto;
-  pointer-events: none;
-  z-index: 1;
-  opacity: 0.95;
-}
-
-.growth-side-decor-right {
-  position: absolute;
-  top: 30px;
-  right: 0;
-  width: 180px;
-  height: auto;
-  pointer-events: none;
-  z-index: 1;
-  opacity: 0.95;
-}
-
 /* Floating 3-Icon Curved Dotted Wave Line */
 .growth-flow-wrapper {
   position: relative;
-  max-width: 900px;
-  margin: 0 auto 12px;
+  max-width: 800px;
+  margin: 0 auto 16px;
   padding: 0 20px;
 }
 
 .growth-connector-svg {
   position: absolute;
   top: 50%;
-  left: 14%;
-  right: 14%;
-  width: 72%;
+  left: 10%;
+  right: 10%;
+  width: 80%;
   height: 40px;
   transform: translateY(-50%);
   pointer-events: none;
@@ -2322,7 +2304,7 @@ section.alt .faq .q {
   align-items: center;
   position: relative;
   z-index: 2;
-  max-width: 680px;
+  max-width: 620px;
   margin: 0 auto;
 }
 
@@ -2336,7 +2318,7 @@ section.alt .faq .q {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #A85B2B;
+  color: #876039;
   transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
@@ -2348,41 +2330,41 @@ section.alt .faq .q {
 
 .growth-floating-icon:hover {
   transform: scale(1.12);
-  border-color: #A85B2B;
+  border-color: #876039;
   background: #FFFFFF;
-  box-shadow: 0 6px 18px rgba(168, 91, 43, 0.22);
+  box-shadow: 0 6px 18px rgba(135, 96, 57, 0.22);
 }
 
 /* Header Area */
 .growth-header {
   text-align: center;
   max-width: 760px;
-  margin: 0 auto 24px;
+  margin: 0 auto 28px;
   position: relative;
   z-index: 2;
 }
 
 .growth-title {
-  font-family: 'Plus Jakarta Sans', 'Outfit', sans-serif;
-  font-weight: 800;
+  font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+  font-weight: 500;
   font-size: clamp(34px, 4.4vw, 48px);
   color: #21160F;
   line-height: 1.15;
   letter-spacing: -1px;
-  margin: 0 0 6px;
+  margin: 0 0 10px;
 }
 
 .growth-title .growth-serif {
   font-family: 'Playfair Display', Georgia, serif;
   font-style: italic;
-  font-weight: 700;
-  color: #A85B2B;
+  font-weight: 500;
+  color: #876039;
   display: inline-block;
   position: relative;
 }
 
 .growth-sparkle {
-  color: #A85B2B;
+  color: #876039;
   font-size: 18px;
   display: inline-block;
   vertical-align: middle;
@@ -2395,7 +2377,7 @@ section.alt .faq .q {
   font-size: 15.5px;
   color: #76675D;
   line-height: 1.55;
-  margin: 14px auto 22px;
+  margin: 14px auto 24px;
   max-width: 620px;
 }
 
@@ -2406,7 +2388,7 @@ section.alt .faq .q {
   justify-content: center;
   gap: 12px;
   flex-wrap: wrap;
-  margin-bottom: 34px;
+  margin-bottom: 36px;
 }
 
 .growth-pill {
@@ -2425,13 +2407,13 @@ section.alt .faq .q {
 }
 
 .growth-pill svg {
-  color: #A85B2B;
+  color: #876039;
 }
 
 .growth-pill-arrow {
-  color: #A85B2B;
+  color: #876039;
   font-size: 16px;
-  font-weight: 900;
+  font-weight: 500;
   opacity: 0.8;
 }
 
@@ -2439,23 +2421,24 @@ section.alt .faq .q {
 .growth-cards-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
+  gap: 24px;
   position: relative;
   z-index: 2;
-  max-width: 1200px;
+  max-width: 1240px;
   margin: 0 auto;
+  width: 100%;
 }
 
 .growth-card {
   background: #FFFFFF;
   border: 1.5px solid #E7D5C3;
   border-radius: 24px;
-  padding: 16px;
-  box-shadow: 0 6px 22px rgba(33, 22, 15, 0.04);
-  display: grid;
-  grid-template-columns: 1fr 1.15fr;
-  gap: 12px;
-  align-items: center;
+  padding: 22px 20px;
+  box-shadow: 0 6px 24px rgba(33, 22, 15, 0.04);
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 16px;
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   position: relative;
   overflow: hidden;
@@ -2465,29 +2448,30 @@ section.alt .faq .q {
 
 .growth-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 16px 36px rgba(168, 91, 43, 0.12);
-  border-color: rgba(168, 91, 43, 0.4);
+  box-shadow: 0 16px 36px rgba(135, 96, 57, 0.12);
+  border-color: rgba(135, 96, 57, 0.4);
 }
 
 .growth-card-info {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100%;
-  padding: 4px 0 4px 4px;
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 2px 0 2px 2px;
 }
 
 .growth-card-icon-box {
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   border-radius: 12px;
-  background: #A85B2B;
+  background: #876039;
   color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 12px;
-  box-shadow: 0 4px 10px rgba(168, 91, 43, 0.25);
+  margin-bottom: 14px;
+  box-shadow: 0 4px 12px rgba(135, 96, 57, 0.22);
   transition: transform 0.25s ease;
 }
 
@@ -2496,67 +2480,72 @@ section.alt .faq .q {
 }
 
 .growth-card-icon-box svg {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   stroke-width: 2;
 }
 
 .growth-card-title {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight: 800;
-  font-size: 14.5px;
+  font-weight: 500;
+  font-size: 15px;
   letter-spacing: 0.4px;
   text-transform: uppercase;
   color: #21160F;
-  margin: 0 0 6px;
-  line-height: 1.2;
+  margin: 0 0 8px;
+  line-height: 1.25;
 }
 
 .growth-card-desc {
   font-family: 'Nunito Sans', 'Plus Jakarta Sans', sans-serif;
-  font-size: 11.8px;
+  font-size: 13px;
   color: #76675D;
-  line-height: 1.45;
-  margin: 0 0 14px;
+  line-height: 1.5;
+  margin: 0 0 16px;
 }
 
 .growth-card-arrow {
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   background: #F4E8D8;
-  color: #A85B2B;
+  color: #876039;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 13px;
-  font-weight: 800;
-  border: 1px solid rgba(168, 91, 43, 0.15);
+  font-size: 14px;
+  font-weight: 500;
+  border: 1px solid rgba(135, 96, 57, 0.15);
   margin-top: auto;
   transition: background-color 0.25s, color 0.25s, transform 0.25s;
 }
 
 .growth-card:hover .growth-card-arrow {
-  background: #A85B2B;
+  background: #876039;
   color: #FFFFFF;
   transform: translateX(3px);
 }
 
 .growth-card-visual-wrap {
   position: relative;
-  height: 138px;
-  border-radius: 16px;
+  width: 140px;
+  min-width: 130px;
+  max-width: 150px;
+  height: 146px;
+  border-radius: 18px;
   overflow: hidden;
   background: #F4ECE1;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .growth-card-visual-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   display: block;
   transition: transform 0.4s ease;
 }
@@ -2566,13 +2555,13 @@ section.alt .faq .q {
 }
 
 @media (max-width: 1100px) {
-  .growth-side-decor-left,
-  .growth-side-decor-right {
-    display: none;
+  .growth-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   .growth-cards-grid {
     grid-template-columns: 1fr;
     max-width: 480px;
@@ -2586,18 +2575,96 @@ section.alt .faq .q {
 .dk { background: #FFFFFF; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .dk h2 { color: var(--ink); }
 .dk p { color: var(--mute); }
-.dk .hd { margin-bottom: 40px; }
-.rp { max-width: 1000px; margin: auto; }
-.rp .g3 { gap: 12px; }
-.rp .cnt { display: grid; grid-template-columns: 2.2fr 1fr; gap: 16px; margin-top: 14px; }
-.tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 0 0 36px; font-family: 'Plus Jakarta Sans', sans-serif; }
-.tags span { padding: 8px 18px; border-radius: 99px; border: 1px solid var(--line); background: #fff; color: var(--ink); font-size: 13px; font-weight: 700; display: inline-flex; align-items: center; gap: 6px; box-shadow: var(--shadow-sm); }
+.dk .hd { margin-bottom: 34px; }
+.rp { max-width: 1080px; margin: 0 auto; width: 100%; }
+.rp-window {
+  background: #FFFFFF;
+  border: 1.5px solid #E7D5C3;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 12px 36px rgba(33, 22, 15, 0.08), 0 2px 8px rgba(33, 22, 15, 0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.rp-window:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 48px rgba(135, 96, 57, 0.12), 0 4px 14px rgba(33, 22, 15, 0.06);
+  border-color: rgba(135, 96, 57, 0.45);
+}
+.rp-window .wb {
+  background: #FDFBF8;
+  border-bottom: 1px solid #EFE4D6;
+  padding: 12px 18px;
+}
+.rp-window .wb b {
+  color: #876039;
+  font-size: 11.5px;
+  letter-spacing: 0.06em;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.rp-img-wrap {
+  position: relative;
+  width: 100%;
+  background: #FFFFFF;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rp-dashboard-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin: 0 auto 34px;
+  max-width: 900px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.tags span {
+  padding: 8px 20px;
+  border-radius: 99px;
+  border: 1.5px solid #E7D5C3;
+  background: #FFFDF9;
+  color: #5B351D;
+  font-size: 13.5px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 2px 8px rgba(33, 22, 15, 0.04);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease, background-color 0.25s ease;
+  cursor: default;
+}
+.tags span svg {
+  color: #876039;
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+.tags span:hover {
+  transform: translateY(-2px);
+  border-color: #876039;
+  background: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(135, 96, 57, 0.14);
+  color: #876039;
+}
+.tags span:hover svg {
+  transform: scale(1.15);
+}
 
 /* Showcase Section */
-.sh { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-.sh .win { font-size: 10px; box-shadow: var(--shadow-sm); border: 1px solid var(--line); }
-.sh > div > small { display: block; text-align: center; margin-top: 12px; font-weight: 800; color: var(--br); letter-spacing: .12em; font-size: 12px; font-family: 'Outfit', sans-serif; }
-.sh .c2 { grid-column: span 3; max-width: 840px; margin: 0 auto; width: 100%; }
+.sh { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1140px; margin: 0 auto; }
+.sh .win { font-size: 11px; box-shadow: 0 8px 24px rgba(33, 22, 15, 0.06); border: 1.5px solid #E7D5C3; border-radius: 18px; overflow: hidden; background: #FFFFFF; transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; }
+.sh .win:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(135, 96, 57, 0.12); border-color: rgba(135, 96, 57, 0.45); }
+.sh > div > small { display: block; text-align: center; margin-top: 14px; font-weight: 500; color: #876039; letter-spacing: .08em; font-size: 12.5px; font-family: 'Outfit', sans-serif; }
+.sh .c2 { grid-column: span 3; max-width: 960px; margin: 0 auto; width: 100%; }
 
 /* Highlights Grid */
 .wg { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px 40px; }
@@ -2605,21 +2672,154 @@ section.alt .faq .q {
 .wg h3 { font-size: 21px; letter-spacing: -.01em; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
 .wg h3 svg { color: var(--br); stroke-width: 2.2; }
 
-/* Testimonials & Pricing */
-.tg, .pg { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.tc { padding: 36px; background: #fff; display: flex; flex-direction: column; border-radius: 20px; border: 1px solid var(--line); box-shadow: var(--shadow-sm); transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease; }
-.tc:hover { transform: translateY(-5px); border-color: rgba(135, 96, 57, 0.38); box-shadow: var(--shadow-md); }
-.tc h3 { font-size: 17.5px; line-height: 1.5; margin: 12px 0 20px; font-weight: 700; color: var(--ink); font-family: 'Plus Jakarta Sans', sans-serif; }
-.tc b { font-family: 'Outfit', sans-serif; font-weight: 700; color: #21160F; font-size: 14.5px; }
-.tc small { color: var(--mute); font-size: 13px; }
-.qm { font: 72px/0.5 'Playfair Display', serif; color: var(--br); opacity: 0.6; }
-.pc { padding: 36px; display: flex; flex-direction: column; gap: 14px; background: #fff; border-radius: 20px; border: 1px solid var(--line); box-shadow: var(--shadow-sm); transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease; }
-.pc:hover { transform: translateY(-5px); border-color: rgba(135, 96, 57, 0.38); box-shadow: var(--shadow-md); }
-.pc.f { border-color: var(--br); border-width: 2px; box-shadow: var(--shadow-md); position: relative; }
-.pc.f::before { content: "MOST POPULAR"; position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--br); color: #fff; padding: 4px 14px; border-radius: 99px; font-size: 10px; font-weight: 900; letter-spacing: .12em; font-family: 'Plus Jakarta Sans', sans-serif; }
-.pc h3 { letter-spacing: .12em; font-size: 15px; color: var(--br); font-family: 'Outfit', sans-serif; font-weight: 800; }
-.pc b { font-size: 32px; color: var(--ink); font-family: 'Outfit', sans-serif; }
-.pc .btn { justify-content: center; margin-top: 14px; width: 100%; }
+/* Pricing Section - Matching Original Pricing Page */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+.pr-card {
+  background: #FFFFFF;
+  border: 1.5px solid #E7D5C3;
+  border-radius: 24px;
+  padding: 34px 28px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  position: relative;
+  box-shadow: 0 6px 20px rgba(33, 22, 15, 0.04);
+}
+
+.pr-card:hover {
+  border-color: #876039;
+  box-shadow: 0 16px 36px rgba(135, 96, 57, 0.12);
+  transform: translateY(-5px);
+}
+
+.pr-card.popular {
+  border: 2px solid #876039;
+  box-shadow: 0 16px 40px rgba(135, 96, 57, 0.14);
+}
+
+.pr-badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #876039;
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 6px 16px;
+  border-radius: 99px;
+  letter-spacing: .08em;
+  box-shadow: 0 4px 12px rgba(135, 96, 57, 0.35);
+  white-space: nowrap;
+}
+
+.pr-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #876039;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  margin-bottom: 6px;
+  font-family: 'Outfit', sans-serif;
+}
+
+.pr-sub {
+  font-size: 18px;
+  font-weight: 500;
+  color: #21160F;
+  margin-bottom: 10px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.pr-desc {
+  font-size: 13.5px;
+  color: #76675D;
+  margin-bottom: 22px;
+  line-height: 1.55;
+  min-height: 44px;
+}
+
+.pr-price-box {
+  margin-bottom: 22px;
+}
+
+.pr-price {
+  font-size: 38px;
+  font-weight: 500;
+  color: #21160F;
+  margin-bottom: 4px;
+  font-family: 'Outfit', sans-serif;
+  line-height: 1.1;
+}
+
+.pr-price span {
+  font-size: 15px;
+  font-weight: 600;
+  color: #76675D;
+}
+
+.pr-custom-price {
+  font-size: 32px;
+  font-weight: 500;
+  color: #21160F;
+  margin-bottom: 4px;
+  font-family: 'Outfit', sans-serif;
+  line-height: 1.2;
+}
+
+.pr-freq {
+  font-size: 12.5px;
+  color: #8C7B70;
+  font-weight: 600;
+}
+
+.pr-features {
+  margin-top: 26px;
+  padding-top: 22px;
+  border-top: 1px dashed rgba(135, 96, 57, 0.2);
+  flex: 1;
+}
+
+.pr-feat-title {
+  font-size: 12px;
+  font-weight: 500;
+  color: #21160F;
+  letter-spacing: .08em;
+  margin-bottom: 16px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.pr-feat-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 12px;
+  font-size: 13.5px;
+  color: #4A3525;
+  line-height: 1.45;
+  font-weight: 600;
+}
+
+.pr-feat-icon {
+  flex-shrink: 0;
+  color: #876039;
+  margin-top: 2px;
+}
+
+@media (max-width: 1024px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+  }
+}
 
 /* FAQ Accordion */
 .faq { max-width: 840px; margin: auto; display: flex; flex-direction: column; gap: 12px; }
@@ -2634,18 +2834,20 @@ section.alt .faq .q {
 .a p { padding: 0 0 22px; color: var(--mute); font-size: 15.5px; line-height: 1.65; border-top: 1px dashed rgba(135, 96, 57, 0.15); padding-top: 16px; }
 
 /* Call to Action Banner */
-.cta { position: relative; color: #fff; text-align: center; overflow: hidden; padding: 110px 0; background: #211D19; }
-.cta > .ph { position: absolute; inset: 0; border-radius: 0; opacity: 0.35; }
+.cta { position: relative; color: #21160F; text-align: center; overflow: hidden; padding: 100px 0; background: linear-gradient(135deg, #FAF4ED 0%, #EFE4D6 50%, #FAF4ED 100%); border-top: 1px solid rgba(135, 96, 57, 0.16); }
+.cta > .ph { display: none; }
 .cta .w { position: relative; z-index: 2; }
-.cta h2 { color: #fff; max-width: 760px; margin: 0 auto 18px; }
-.cta p { color: rgba(255, 255, 255, 0.88); margin-bottom: 36px; font-size: 19px; }
-.cta .bts { justify-content: center; }
-.cta small { display: block; margin-top: 32px; color: rgba(255, 255, 255, 0.7); font-size: 14px; }
+.cta h2 { color: #21160F; max-width: 760px; margin: 0 auto 18px; }
+.cta p { color: #6E6157; margin-bottom: 36px; font-size: 19px; }
+.cta .bts { justify-content: center; display: flex; gap: 16px; flex-wrap: wrap; }
+.cta .bts .btn.ow { background: transparent; border: 1.5px solid #876039; color: #876039; }
+.cta .bts .btn.ow:hover { background: rgba(135, 96, 57, 0.08); color: #6f4e2d; border-color: #6f4e2d; }
+.cta small { display: block; margin-top: 32px; color: #8C7C71; font-size: 14px; }
 
 /* Footer */
 footer { padding: 80px 0 32px; background: #ffffff; border-top: 1px solid var(--line); }
 .fg2 { display: grid; grid-template-columns: 1.6fr repeat(4, 1fr); gap: 36px; }
-footer h4 { font-size: 13px; letter-spacing: .16em; color: var(--br); margin: 0 0 16px; text-transform: uppercase; font-weight: 800; font-family: 'Outfit', sans-serif; }
+footer h4 { font-size: 13px; letter-spacing: .16em; color: var(--br); margin: 0 0 16px; text-transform: uppercase; font-weight: 500; font-family: 'Outfit', sans-serif; }
 footer li { margin-bottom: 10px; font-size: 15px; color: var(--mute); }
 footer li a:hover { color: var(--br); }
 .fb { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 14px; margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--line); font-size: 14px; color: var(--mute); }
@@ -2668,6 +2870,7 @@ footer li a:hover { color: var(--br); }
   .hv { height: 520px; }
   .ig > .ph { min-height: 360px; }
   .cxv { height: 460px; }
+  .cx-phone-mockup { width: 220px; bottom: -15px; right: 15px; }
   .gr, .wg, .tg, .pg { grid-template-columns: 1fr; }
   .sh { grid-template-columns: 1fr; }
   .sh .c2 { grid-column: auto; }
@@ -2685,12 +2888,18 @@ footer li a:hover { color: var(--br); }
   .fg2 { grid-template-columns: 1fr; }
   .hv .fl { display: none; }
   .hv .win { width: 100%; }
-  .cxv { height: 380px; }
-  .cxv > .ph { inset: 0; }
+  .cxv { height: 420px; position: relative; }
+  .cxv > .ph { inset: 0 45px 60px 0; border-radius: 20px; }
+  .cx-phone-mockup { width: 195px; right: 0; bottom: -10px; }
   .fl { display: none; }
   .sp { grid-template-columns: 1fr; }
   .hd { margin-bottom: 36px; }
   .hd p { font-size: 15.5px; }
+}
+@media (max-width: 420px) {
+  .cxv { height: 370px; }
+  .cxv > .ph { inset: 0 30px 50px 0; border-radius: 16px; }
+  .cx-phone-mockup { width: 165px; right: 0; bottom: -5px; }
 }
 </style>
 
@@ -2792,7 +3001,7 @@ footer li a:hover { color: var(--br); }
       <!-- Overlapping Smartphone Mobile App Mockup (Bottom Left) -->
       <div class="hero-phone-mockup">
         <div class="phone-inner-screen" style="background: transparent; overflow: hidden; position: relative;">
-          <img src="{{ asset('assets/images/geni-mobile-hero.png') }}" alt="Geni Menu Mobile POS Table Ordering" style="width: 100%; height: 100%; display: block; object-fit: cover; border-radius: 24px;">
+          <img src="{{ asset('assets/images/geni-mobile-hero.png') }}" alt="Geni Menu Mobile POS Table Ordering" style="width: 100%; height: auto; display: block;">
         </div>
       </div>
     </div>
@@ -3019,7 +3228,7 @@ footer li a:hover { color: var(--br); }
             </div>
             <div class="mock-bill-line total">
               <span>Total Amount</span>
-              <span style="color:#A85B2B;font-weight:900;">&#8377;557</span>
+              <span style="color:#876039;font-weight: 500;">&#8377;557</span>
             </div>
             <div class="mock-pay-tags">
               <div class="mock-pay-pill active">UPI Pay &check;</div>
@@ -3165,7 +3374,7 @@ footer li a:hover { color: var(--br); }
         <span>🍷 Seamless Dine-in &amp; Digital Ordering</span>
       </div>
       <div class="cx-phone-mockup">
-        <img src="{{ asset('assets/images/geni-mobile-hero.png') }}" alt="Geni Menu Live Smartphone Table Ordering" loading="lazy">
+        <img src="{{ asset('assets/images/geni-cx-mobile.png') }}" alt="Geni Menu Live Smartphone Customer QR Table Ordering" loading="lazy">
       </div>
     </div>
     <div class="r">
@@ -3398,10 +3607,6 @@ footer li a:hover { color: var(--br); }
 
 <!-- Section: Scale & Growth -->
 <section class="growth-section">
-  <!-- Decorative side ambiance photo and food plate -->
-  <img src="{{ asset('assets/images/growth-header-left-ambiance.png') }}" class="growth-side-decor-left" alt="Restaurant Dining Ambiance" loading="lazy">
-  <img src="{{ asset('assets/images/growth-header-right-biryani.png') }}" class="growth-side-decor-right" alt="Fresh Aromatic Food Plate" loading="lazy">
-
   <div class="w">
     <!-- Floating 3-Icon Curved Dotted Wave Line -->
     <div class="growth-flow-wrapper r">
@@ -3519,16 +3724,49 @@ footer li a:hover { color: var(--br); }
       <p>See the information that matters to you.</p>
     </div>
     <div class="tags">
-      <span>💰 Sales</span>
-      <span>📦 Orders</span>
-      <span>💳 Payments</span>
-      <span>🥬 Inventory</span>
-      <span>👥 Customers</span>
-      <span>🏬 Branch Performance</span>
+      <span>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        Sales
+      </span>
+      <span>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        Orders
+      </span>
+      <span>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+        Payments
+      </span>
+      <span>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+        Inventory
+      </span>
+      <span>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        Customers
+      </span>
+      <span>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M3 7v14M21 7v14M6 7l6-4 6 4M9 11h2M13 11h2M9 15h2M13 15h2"/></svg>
+        Branch Performance
+      </span>
     </div>
-    <div class="rp r" id="rp"></div>
+    
+    <!-- Real Software Sales Report Dashboard Preview -->
+    <div class="rp r">
+      <div class="rp-window">
+        <div class="wb">
+          <i></i><i></i><i></i>
+          <b>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            RESTAURANT SALES &amp; PERFORMANCE DASHBOARD
+          </b>
+        </div>
+        <div class="rp-img-wrap">
+          <img src="{{ asset('assets/images/reports-sales-dashboard.png') }}" alt="Geni Menu Sales Report and Restaurant Performance Analytics Dashboard" class="rp-dashboard-img" loading="lazy">
+        </div>
+      </div>
+    </div>
     <p style="text-align:center;margin-top:36px">
-      <a href="#contact" class="btn p">Explore Reports →</a>
+      <a href="{{ route('features.reports') }}" class="btn p">Explore Reports &rarr;</a>
     </p>
   </div>
 </section>
@@ -3560,21 +3798,8 @@ footer li a:hover { color: var(--br); }
   </div>
 </section>
 
-<!-- Section: Testimonials -->
-<section class="alt">
-  <div class="food-bg-icon float-3" style="top: 10%; left: 3%; width: 110px; height: 110px;" title="Customer Rating Heart">
-    <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-  </div>
-  <div class="w">
-    <div class="hd r">
-      <h2><span class="title-grad">Built for Everyday</span> <span class="sf">Restaurant Operations.</span></h2>
-    </div>
-    <div class="tg" id="tg"></div>
-  </div>
-</section>
-
 <!-- Section: Pricing -->
-<section id="pricing">
+<section id="pricing" class="alt">
   <div class="food-bg-icon float-2" style="top: 12%; right: 2%; width: 125px; height: 125px;" title="Pricing Tag">
     <svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
   </div>
@@ -3584,15 +3809,79 @@ footer li a:hover { color: var(--br); }
       <h2><span class="title-grad">A Plan for</span> <span class="sf">Every Business.</span></h2>
       <p>Choose what fits your business today and upgrade as you grow.</p>
     </div>
-    <div class="pg" id="pg"></div>
+    <div class="pricing-grid r">
+      <!-- STANDARD -->
+      <div class="pr-card">
+        <div class="pr-label">STANDARD</div>
+        <div class="pr-sub">Essential Operations</div>
+        <div class="pr-desc">For small restaurants and food businesses that need the essentials to manage daily sales and operations.</div>
+        <div class="pr-price-box">
+          <div class="pr-price">₹799 <span>/ mo</span></div>
+          <div class="pr-freq">Starting price • Yearly plans available</div>
+        </div>
+        <a href="{{ route('restaurant_signup', ['plan' => 'standard']) }}" class="btn o" style="width:100%;">Get Started &rarr;</a>
+        <div class="pr-features">
+          <div class="pr-feat-title">INCLUDED</div>
+          <div class="pr-feat-item"><svg class="pr-feat-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Menu &amp; Product Management</div>
+          <div class="pr-feat-item"><svg class="pr-feat-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Order Management</div>
+          <div class="pr-feat-item"><svg class="pr-feat-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>POS &amp; Fast Counter Billing</div>
+          <div class="pr-feat-item"><svg class="pr-feat-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Payment &amp; GST Invoicing</div>
+          <div class="pr-feat-item"><svg class="pr-feat-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Basic Customer Management</div>
+          <div class="pr-feat-item"><svg class="pr-feat-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Daily Sales &amp; Order Reports</div>
+        </div>
+      </div>
+
+      <!-- PREMIUM (MOST POPULAR) -->
+      <div class="pr-card popular">
+        <div class="pr-badge">MOST POPULAR</div>
+        <div class="pr-label">PREMIUM</div>
+        <div class="pr-sub">Complete Business Management</div>
+        <div class="pr-desc">For growing restaurants and food businesses that need connected kitchen, inventory, customer and operational management.</div>
+        <div class="pr-price-box">
+          <div class="pr-price">₹1,999 <span>/ mo</span></div>
+          <div class="pr-freq">Starting price • Yearly plans available</div>
+        </div>
+        <a href="{{ route('restaurant_signup', ['plan' => 'premium']) }}" class="btn p" style="width:100%;">Start Premium &rarr;</a>
+        <div class="pr-features">
+          <div class="pr-feat-title">EVERYTHING IN STANDARD, PLUS:</div>
+          <div class="pr-feat-item"><svg class="pr-feat-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Kitchen &amp; KOT Management</div>
+          <div class="pr-feat-item"><svg class="pr-feat-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Table Layout &amp; Reservations</div>
+          <div class="pr-feat-item"><svg class="pr-feat-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Inventory &amp; Stock Control</div>
+          <div class="pr-feat-item"><svg class="pr-feat-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Customer Loyalty &amp; Staff Management</div>
+          <div class="pr-feat-item"><svg class="pr-feat-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Online Payment Gateways &amp; Waiter Calls</div>
+          <div class="pr-feat-item"><svg class="pr-feat-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Advanced Analytics &amp; Export Reports</div>
+        </div>
+      </div>
+
+      <!-- ENTERPRISE -->
+      <div class="pr-card">
+        <div class="pr-label">ENTERPRISE</div>
+        <div class="pr-sub">Advanced &amp; Multi-Branch Operations</div>
+        <div class="pr-desc">For established businesses, restaurant chains and growing businesses managing multiple locations.</div>
+        <div class="pr-price-box">
+          <div class="pr-custom-price">Custom Pricing</div>
+          <div class="pr-freq">Built around your business requirements</div>
+        </div>
+        <a href="{{ route('contact.us') }}" class="btn o" style="width:100%;">Talk to Sales →</a>
+        <div class="pr-features">
+          <div class="pr-feat-title">EVERYTHING IN PREMIUM, PLUS:</div>
+          <div class="pr-feat-item"><svg class="pr-feat-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Multi-Branch &amp; Multi-Outlet Management</div>
+          <div class="pr-feat-item"><svg class="pr-feat-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Centralized Menu &amp; Price Controls</div>
+          <div class="pr-feat-item"><svg class="pr-feat-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Self-Ordering Kiosk Mode</div>
+          <div class="pr-feat-item"><svg class="pr-feat-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Multi-Location Inventory Tracking</div>
+          <div class="pr-feat-item"><svg class="pr-feat-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Consolidated Chain Reporting &amp; Analytics</div>
+          <div class="pr-feat-item"><svg class="pr-feat-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Dedicated Account Setup &amp; Priority Support</div>
+        </div>
+      </div>
+    </div>
     <p style="text-align:center;margin-top:36px">
-      <a href="#pricing" style="color:var(--br);font-weight:700">View Detailed Pricing →</a>
+      <a href="{{ route('pricing') }}" style="color:var(--br);font-weight:700">View Detailed Pricing &amp; Comparison →</a>
     </p>
   </div>
 </section>
 
 <!-- Section: FAQ -->
-<section class="alt">
+<section>
   <div class="w">
     <div class="hd r">
       <h2><span class="title-grad">Got Questions?</span> <span class="sf">We Have Answers.</span></h2>
@@ -3603,10 +3892,10 @@ footer li a:hover { color: var(--br); }
 
 <!-- CTA Section -->
 <section id="contact" class="cta">
-  <div class="food-bg-icon float-1" style="top: 18%; left: 5%; width: 150px; height: 150px; opacity: 0.16; color: #fff;">
+  <div class="food-bg-icon float-1" style="top: 18%; left: 5%; width: 150px; height: 150px; opacity: 0.12; color: #876039;">
     <svg viewBox="0 0 24 24"><path d="M6 13.8A6 6 0 0 1 12 4a6 6 0 0 1 6 9.8V17H6v-3.2zM4 17h16v3H4zM12 4V2"/></svg>
   </div>
-  <div class="food-bg-icon float-2" style="bottom: 12%; right: 5%; width: 160px; height: 160px; opacity: 0.16; color: #fff;">
+  <div class="food-bg-icon float-2" style="bottom: 12%; right: 5%; width: 160px; height: 160px; opacity: 0.12; color: #876039;">
     <svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8zM6 1v3M10 1v3M14 1v3"/></svg>
   </div>
 
@@ -3618,7 +3907,7 @@ footer li a:hover { color: var(--br); }
     <p>Manage your daily restaurant work with one simple system.</p>
     <div class="bts">
       <a href="{{ route('restaurant_signup') }}" class="btn p">Book a Demo</a>
-      <a href="#contact" class="btn ow">Contact Us</a>
+      <a href="{{ route('contact.us') }}" class="btn ow">Contact Us</a>
     </div>
     <small>Geni Menu — Simple tools for better restaurant management.</small>
   </div>
@@ -3682,11 +3971,11 @@ const bars = (a) => a.map(([n, v]) => `<div><div class="row" style="border:0;pad
 
 // UI Mockups
 const POS = win('POS &amp; BILLING', `<div class="g g3">${tl('Paneer Tikka','₹280') + tl('Butter Naan','₹60') + tl('Filter Coffee','₹90','a') + tl('Biryani','₹320') + tl('Gulab Jamun','₹110') + tl('Masala Dosa','₹140')}</div><div><div class="row"><span>Table 4 · 3 items</span><b>₹430</b></div><div class="row"><span>GST (5%)</span><b>₹22</b></div><div class="row"><b>Total Bill</b><b style="color:var(--br);font-size:13px">₹452</b></div></div>`);
-const TAB = win('TABLES', `<div class="g g4">${[['T1','Free','b'],['T2','Serving','a'],['T3','Free','b'],['T4','Occupied','c'],['T5','Occupied','c'],['T6','Reserved',''],['T7','Free','b'],['T8','Serving','a']].map(([n,s,c]) => tl(n,s,c)).join('')}</div>`);
-const KOT = win('KOT KITCHEN TRACKER', `<div class="g g3">${tl('KOT #218','Table 2 · 3 items','a') + tl('KOT #219','Takeaway · 2 items') + tl('KOT #220','Table 6 · 4 items','b')}</div>${bars([['Preparing Dishes', 65], ['Ready to Serve', 35]])}`);
+const TAB = win('TABLE MANAGEMENT', `<div style="padding:0;overflow:hidden;background:#FAF8F5;"><img src="{{ asset('assets/images/showcase-table-management-crop.png') }}" style="width:100%;height:150px;object-fit:cover;object-position:top left;display:block;" alt="Table Management View"></div>`);
+const KOT = win('KOT KITCHEN TRACKER', `<div style="padding:0;overflow:hidden;background:#FAF8F5;"><img src="{{ asset('assets/images/showcase-kitchen-kot.png') }}" style="width:100%;height:150px;object-fit:cover;object-position:top left;display:block;" alt="Kitchen KOT Tracker"></div>`);
 const INV = win('INVENTORY STOCK', bars([['Paneer (kg)', 82], ['Basmati Rice (kg)', 55], ['Fresh Milk (L)', 25], ['Tea leaves (kg)', 68]]));
-const REP = win('DAILY ANALYTICS', `<div class="g g3">${tl('Sales','₹48,200') + tl('Orders','126') + tl('Avg. Bill','₹382')}</div><div style="display:flex;align-items:flex-end;gap:6px;height:64px;margin-top:4px">${[40,55,35,70,60,85,75].map(h => `<i style="flex:1;height:${h}%;background:var(--br);border-radius:4px 4px 0 0;opacity:${h/100+.15}"></i>`).join('')}</div>`);
-const KIO = win('KIOSK SELF-ORDER', `<b>Welcome — Touch screen to start</b><div class="g g3" style="margin-top:6px">${tl('Burgers','Quick food') + tl('Fries &amp; Sides','','a') + tl('Beverages','Cold &amp; Hot')}</div>`);
+const REP = win('COMPREHENSIVE ANALYTICS &amp; REPORTS', `<div style="padding:0;overflow:hidden;background:#FFFFFF;"><img src="{{ asset('assets/images/reports-sales-dashboard.png') }}" style="width:100%;height:220px;object-fit:cover;object-position:top;display:block;" alt="Geni Menu Sales & Analytics Dashboard"></div>`);
+const KIO = win('ORDERING KIOSK', `<div style="padding:0;overflow:hidden;background:#FFFFFF;"><img src="{{ asset('assets/images/showcase-ordering-kiosk.png') }}" style="width:100%;height:150px;object-fit:cover;object-position:center;display:block;" alt="Ordering Kiosk Item Customization"></div>`);
 
 const phone = `<div class="ph1"><div><div style="display:flex;justify-space-between;align-items:center"><b style="font-size:13px;color:var(--ink)">Your Restaurant</b><small style="color:var(--br);font-weight:700">Table 12</small></div><small style="color:var(--mute);margin-bottom:4px">Scan QR &amp; Place Order</small>${[['Paneer Tikka','₹280','https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?q=80&w=150&auto=format&fit=crop'],['Wood-fired Pizza','₹360','https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=150&auto=format&fit=crop'],['Cold Coffee','₹190','https://images.unsplash.com/photo-1517701604599-bb29b565090c?q=80&w=150&auto=format&fit=crop']].map(([a,b,c]) => `<div class="it"><u style="background-image:url('${c}')"></u><span>${a}</span><em>${b}</em></div>`).join('')}<div class="ct"><span>2 items · ₹640</span><b>Pay Now →</b></div></div></div>`;
 
@@ -3753,20 +4042,11 @@ $('ind').innerHTML = solHtml + solHtml;
 // Growth Cards
 $('gr').innerHTML = [['t','ONE BRANCH','Manage your complete daily dining and counter operations.'],['k','MULTIPLE KITCHENS','Keep main kitchen, pantry and bar orders organized.'],['l','MULTIPLE BRANCHES','Manage all your restaurant outlets from one central dashboard.']].map(([i,t,d]) => `<div class="card r">${ic(i)}<h3>${t}</h3><p>${d}</p>${wm(i)}</div>`).join('');
 
-// Reports Dashboard Preview
-$('rp').innerHTML = win('RESTAURANT PERFORMANCE DASHBOARD', `<div class="g g4">${tl('Today Sales','₹48,200','a') + tl('Total Orders','126') + tl('Collected','₹45,900') + tl('Unique Guests','84')}</div><div class="cnt"><div style="display:flex;align-items:flex-end;gap:8px;height:130px">${[40,55,35,70,60,85,75,90,65,80].map(h => `<i style="flex:1;height:${h}%;background:var(--br);border-radius:4px 4px 0 0;opacity:${h/100+.15}"></i>`).join('')}</div><div>${bars([['Outlet A (Main)', 85], ['Outlet B (Mall)', 62], ['Outlet C (Express)', 48]])}</div></div>`);
-
 // Showcase Section
-$('sh').innerHTML = [['POS BILLING SYSTEM', POS],['TABLE MANAGEMENT', TAB],['KITCHEN KOT TRACKER', KOT],['INVENTORY CONTROL', INV],['ORDERING KIOSK', KIO],['GUEST MANAGEMENT', win('CUSTOMER LOYALTY', `<div class="row"><span>Regular Dining Guests</span><b>84</b></div><div class="row"><span>Repeat Visit Rate</span><b>42%</b></div>`)]].map(([n,v]) => `<div>${v}<small>${n}</small></div>`).join('') + `<div class="c2">${REP}<small style="display:block;text-align:center;margin-top:12px;font-weight:800;color:var(--br)">COMPREHENSIVE ANALYTICS &amp; REPORTS</small></div>`;
+$('sh').innerHTML = [['POS BILLING SYSTEM', POS],['TABLE MANAGEMENT', TAB],['KITCHEN KOT TRACKER', KOT],['INVENTORY CONTROL', INV],['ORDERING KIOSK', KIO],['GUEST MANAGEMENT', win('CUSTOMER LOYALTY', `<div class="row"><span>Regular Dining Guests</span><b>84</b></div><div class="row"><span>Repeat Visit Rate</span><b>42%</b></div>`)]].map(([n,v]) => `<div>${v}<small>${n}</small></div>`).join('') + `<div class="c2">${REP}<small style="display:block;text-align:center;margin-top:12px;font-weight: 500;color:var(--br)">COMPREHENSIVE ANALYTICS &amp; REPORTS</small></div>`;
 
 // Highlights Grid
 $('wg').innerHTML = [['EASY TO USE','Simple screens your staff can understand in 5 minutes without technical training.'],['EVERYTHING IN ONE PLACE','No need to manage separate apps for billing, inventory, QR menu and KOT.'],['FASTER SERVICE','Help your team take orders 2x faster and clear tables quickly.'],['BETTER CONTROL','Real-time visibility into stock usage, sales and staff activity.'],['READY TO GROW','Easily add more kitchen display stations and multi-location outlets.'],['ONE PLATFORM FOR EVERYONE','Connect owners, managers, waiters, kitchen chefs and cashiers smoothly.']].map(([t,d]) => `<div class="r"><h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>${t}</h3><p>${d}</p></div>`).join('');
-
-// Testimonials
-$('tg').innerHTML = [['"Managing our daily restaurant work and kitchen orders is much simpler and faster now. Our staff adapted instantly."','Restaurant Owner — Royal Dine','u'],['"Orders, POS billing and kitchen operations are easy to manage without slip delays. Great for rush hours."','General Manager — Spice Garden','a'],['"Having everything connected from QR menu to accounting saves our team a lot of time every single day."','Business Director — Cafe Mocha Chain','b']].map(([q,n,k]) => `<div class="card tc r"><div class="qm">“</div><h3>${q}</h3><b>— ${n}</b>${wm(k)}</div>`).join('');
-
-// Pricing Plans
-$('pg').innerHTML = [['STARTER PLAN','Ideal for small cafes, bakeries and single food outlets.','₹999 / mo','m'],['BUSINESS PLAN','Perfect for growing dine-in restaurants and QSR outlets.','₹1,999 / mo','b'],['ENTERPRISE PLAN','Built for multi-branch chains, large hotels and food courts.','Custom Plan','l']].map(([n,d,p,k], i) => `<div class="card pc r ${i===1?'f':''}"><h3>${n}</h3><p>${d}</p><b style="color:var(--br)">${p}</b><a href="#contact" class="btn ${i===1?'p':'o'}">Book a Demo</a>${wm(k)}</div>`).join('');
 
 // FAQ Accordion
 $('fq').innerHTML = [['What can I manage with Geni Menu?','Your menu, tables, reservations, orders, KOT, billing, inventory, staff, customer loyalty and multi-branch reports.'],['Who can use Geni Menu?','Restaurants, cafés, bakeries, QSRs, canteens, sweet shops, bars, food courts and cloud kitchens.'],['Can I manage multiple branches?','Yes. You can manage all your outlets, prices, and consolidated sales reports from one central dashboard.'],['Can I manage multiple kitchen stations?','Yes. Orders automatically route to specific kitchens (e.g. Pantry, Main Kitchen, Bar) instantly.'],['Can my customers order through a self-ordering kiosk?','Yes. Kiosk ordering is fully supported alongside mobile table QR code and counter POS ordering.'],['Can I manage inventory & stock?','Yes. Track raw ingredients, low-stock alerts, and recipe consumption in real-time.'],['Does Geni Menu support GST billing and POS?','Yes. Generate compliant GST bills, split bills, and accept UPI, Cards, Cash, and Online payments.'],['Can I manage table reservations?','Yes. See real-time free, occupied, and reserved table layouts and take bookings online or at counter.']].map(([q,a]) => `<div class="q"><button>${q}<i>+</i></button><div class="a"><div><p>${a}</p></div></div></div>`).join('');

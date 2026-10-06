@@ -53,7 +53,7 @@ body {
 h1, h2, h3, h4, h5 {
   margin: 0;
   font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
-  font-weight: 800;
+  font-weight: 500;
   line-height: 1.14;
   letter-spacing: -0.03em;
   color: var(--ink);
@@ -82,7 +82,7 @@ ul { list-style: none; margin: 0; padding: 0; }
   gap: 6px;
   font-size: 12px;
   letter-spacing: .16em;
-  font-weight: 800;
+  font-weight: 500;
   text-transform: uppercase;
   color: var(--br);
   margin-bottom: 16px;
@@ -107,7 +107,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 .btn.o:hover { background: var(--br); color: #fff; transform: translateY(-2px); }
 
 /* ===================== BREADCRUMB ===================== */
-.bc { padding: 104px 0 16px; background: var(--bg2); border-bottom: 1px solid var(--line); font-size: 14px; color: var(--mute); font-weight: 600; }
+.bc { padding: 18px 0 16px; background: var(--bg2); border-bottom: 1px solid var(--line); font-size: 14px; color: var(--mute); font-weight: 600; }
 .bc .w { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .bc a { color: var(--mute); transition: color .2s; }
 .bc a:hover { color: var(--br); }
@@ -128,10 +128,10 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 .wb i:nth-child(1) { background: #ff5f56; }
 .wb i:nth-child(2) { background: #ffbd2e; }
 .wb i:nth-child(3) { background: #27c93f; }
-.wb .ttl { color: var(--br); font-weight: 800; font-family: 'Outfit', sans-serif; letter-spacing: 0.05em; font-size: 12px; text-transform: uppercase; }
+.wb .ttl { color: var(--br); font-weight: 500; font-family: 'Outfit', sans-serif; letter-spacing: 0.05em; font-size: 12px; text-transform: uppercase; }
 
 /* Badges & Status */
-.st-badge { font-size: 11.5px; font-weight: 800; padding: 4px 10px; border-radius: 8px; text-transform: uppercase; display: inline-flex; align-items: center; gap: 5px; letter-spacing: .03em; }
+.st-badge { font-size: 11.5px; font-weight: 500; padding: 4px 10px; border-radius: 8px; text-transform: uppercase; display: inline-flex; align-items: center; gap: 5px; letter-spacing: .03em; }
 .st-badge.instock { background: var(--green-bg); color: var(--green-text); }
 .st-badge.lowstock { background: var(--amber-bg); color: var(--amber-text); }
 .st-badge.critical { background: var(--red-bg); color: var(--red-text); }
@@ -144,7 +144,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 
 /* Table styling */
 .inv-tbl { width: 100%; border-collapse: collapse; text-align: left; font-size: 13.5px; }
-.inv-tbl th { background: var(--bg2); padding: 12px 16px; font-weight: 800; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--mute); border-bottom: 1px solid var(--line); }
+.inv-tbl th { background: var(--bg2); padding: 12px 16px; font-weight: 500; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--mute); border-bottom: 1px solid var(--line); }
 .inv-tbl td { padding: 14px 16px; border-bottom: 1px solid rgba(135,96,57,0.08); vertical-align: middle; color: var(--ink); }
 .inv-tbl tr:last-child td { border-bottom: none; }
 .inv-tbl tr:hover td { background: rgba(249, 246, 240, 0.6); }
@@ -180,7 +180,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
   .g2, .g3, .g4, .ind-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
 }
 @media (max-width: 768px) {
-  .bc { padding: 85px 0 14px; }
+  .bc { padding: 14px 0 14px; }
   .w { padding: 0 16px; }
   .win { min-width: 0 !important; width: 100%; overflow-x: auto; }
 }
@@ -221,22 +221,22 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
         </p>
 
         <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 36px;">
-          <a href="https://menu.wegeni.com/register" class="btn p">Get Started →</a>
+          <a href="{{ route('restaurant_signup') }}" onclick="if(typeof openPopup === 'function'){ openPopup(); return false; }" class="btn p">Get Started →</a>
           <a href="{{ route('contact.us') }}" class="btn o">Book a Demo</a>
         </div>
 
         <!-- Factual highlights -->
         <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; padding-top: 24px; border-top: 1px solid var(--line);">
           <div>
-            <div style="font-size: 22px; font-weight: 800; color: var(--br); font-family: 'Outfit', sans-serif;">Real-Time</div>
+            <div style="font-size: 22px; font-weight: 500; color: var(--br); font-family: 'Outfit', sans-serif;">Real-Time</div>
             <div style="font-size: 12px; font-weight: 600; color: var(--mute);">Stock Tracking</div>
           </div>
           <div>
-            <div style="font-size: 22px; font-weight: 800; color: var(--br); font-family: 'Outfit', sans-serif;">Unit-Based</div>
+            <div style="font-size: 22px; font-weight: 500; color: var(--br); font-family: 'Outfit', sans-serif;">Unit-Based</div>
             <div style="font-size: 12px; font-weight: 600; color: var(--mute);">kg, L, pcs & Packs</div>
           </div>
           <div>
-            <div style="font-size: 22px; font-weight: 800; color: var(--br); font-family: 'Outfit', sans-serif;">Alerts</div>
+            <div style="font-size: 22px; font-weight: 500; color: var(--br); font-family: 'Outfit', sans-serif;">Alerts</div>
             <div style="font-size: 12px; font-weight: 600; color: var(--mute);">Low Stock Warnings</div>
           </div>
         </div>
@@ -260,20 +260,20 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
             <!-- Stock Overview Stat Chips -->
             <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 18px;">
               <div style="background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px;">
-                <div style="font-size: 10px; font-weight: 800; color: var(--mute); text-transform: uppercase;">Total Items</div>
-                <div style="font-size: 22px; font-weight: 900; color: var(--ink); font-family: 'Outfit', sans-serif;">186</div>
+                <div style="font-size: 10px; font-weight: 500; color: var(--mute); text-transform: uppercase;">Total Items</div>
+                <div style="font-size: 22px; font-weight: 500; color: var(--ink); font-family: 'Outfit', sans-serif;">186</div>
               </div>
               <div style="background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px;">
-                <div style="font-size: 10px; font-weight: 800; color: var(--green-text); text-transform: uppercase;">In Stock</div>
-                <div style="font-size: 22px; font-weight: 900; color: var(--green); font-family: 'Outfit', sans-serif;">142</div>
+                <div style="font-size: 10px; font-weight: 500; color: var(--green-text); text-transform: uppercase;">In Stock</div>
+                <div style="font-size: 22px; font-weight: 500; color: var(--green); font-family: 'Outfit', sans-serif;">142</div>
               </div>
               <div style="background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px;">
-                <div style="font-size: 10px; font-weight: 800; color: var(--amber-text); text-transform: uppercase;">Low Stock</div>
-                <div style="font-size: 22px; font-weight: 900; color: var(--amber); font-family: 'Outfit', sans-serif;">28</div>
+                <div style="font-size: 10px; font-weight: 500; color: var(--amber-text); text-transform: uppercase;">Low Stock</div>
+                <div style="font-size: 22px; font-weight: 500; color: var(--amber); font-family: 'Outfit', sans-serif;">28</div>
               </div>
               <div style="background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px;">
-                <div style="font-size: 10px; font-weight: 800; color: var(--red-text); text-transform: uppercase;">Critical</div>
-                <div style="font-size: 22px; font-weight: 900; color: var(--red); font-family: 'Outfit', sans-serif;">16</div>
+                <div style="font-size: 10px; font-weight: 500; color: var(--red-text); text-transform: uppercase;">Critical</div>
+                <div style="font-size: 22px; font-weight: 500; color: var(--red); font-family: 'Outfit', sans-serif;">16</div>
               </div>
             </div>
 
@@ -293,37 +293,37 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
                   <tbody>
                     <tr>
                       <td style="font-weight: 700;">Basmati Rice</td>
-                      <td style="font-weight: 800;">42 kg</td>
+                      <td style="font-weight: 500;">42 kg</td>
                       <td>kg</td>
                       <td><span class="st-badge instock"><i class="st-dot"></i> In Stock</span></td>
                     </tr>
                     <tr>
                       <td style="font-weight: 700;">Cooking Oil</td>
-                      <td style="font-weight: 800;">18 L</td>
+                      <td style="font-weight: 500;">18 L</td>
                       <td>L</td>
                       <td><span class="st-badge instock"><i class="st-dot"></i> In Stock</span></td>
                     </tr>
                     <tr>
                       <td style="font-weight: 700;">Chicken</td>
-                      <td style="font-weight: 800; color: var(--amber-text);">12 kg</td>
+                      <td style="font-weight: 500; color: var(--amber-text);">12 kg</td>
                       <td>kg</td>
                       <td><span class="st-badge lowstock"><i class="st-dot"></i> Low Stock</span></td>
                     </tr>
                     <tr>
                       <td style="font-weight: 700;">Paneer</td>
-                      <td style="font-weight: 800; color: var(--amber-text);">5 kg</td>
+                      <td style="font-weight: 500; color: var(--amber-text);">5 kg</td>
                       <td>kg</td>
                       <td><span class="st-badge lowstock"><i class="st-dot"></i> Low Stock</span></td>
                     </tr>
                     <tr>
                       <td style="font-weight: 700;">Tomato</td>
-                      <td style="font-weight: 800; color: var(--red-text);">3 kg</td>
+                      <td style="font-weight: 500; color: var(--red-text);">3 kg</td>
                       <td>kg</td>
                       <td><span class="st-badge critical"><i class="st-dot"></i> Critical</span></td>
                     </tr>
                     <tr>
                       <td style="font-weight: 700;">Onion</td>
-                      <td style="font-weight: 800;">28 kg</td>
+                      <td style="font-weight: 500;">28 kg</td>
                       <td>kg</td>
                       <td><span class="st-badge instock"><i class="st-dot"></i> In Stock</span></td>
                     </tr>
@@ -334,7 +334,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
               <!-- Small Stock Alert Panel -->
               <div style="background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 14px; display: flex; flex-direction: column; gap: 10px;">
                 <div style="display: flex; align-items: center; justify-content: space-between; padding-bottom: 8px; border-bottom: 1px solid var(--line);">
-                  <div style="font-size: 11px; font-weight: 800; color: var(--amber-text); letter-spacing: 0.05em;">LOW STOCK ALERTS</div>
+                  <div style="font-size: 11px; font-weight: 500; color: var(--amber-text); letter-spacing: 0.05em;">LOW STOCK ALERTS</div>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="2.5"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
                 </div>
 
@@ -369,7 +369,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 <section style="padding: 40px 0; background: var(--bg2); border-bottom: 1px solid var(--line);">
   <div class="w">
     <div style="text-align: center; margin-bottom: 24px;">
-      <div style="font-size: 12px; font-weight: 800; letter-spacing: 0.15em; color: var(--br); text-transform: uppercase;">RESTAURANT INVENTORY LIFECYCLE</div>
+      <div style="font-size: 12px; font-weight: 500; letter-spacing: 0.15em; color: var(--br); text-transform: uppercase;">RESTAURANT INVENTORY LIFECYCLE</div>
     </div>
     
     <div style="display: flex; align-items: center; justify-content: space-between; max-width: 1040px; margin: 0 auto; flex-wrap: wrap; gap: 12px;">
@@ -377,47 +377,47 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
         <div style="width: 44px; height: 44px; border-radius: 50%; background: #fff; border: 1.5px solid var(--br); display: grid; place-items: center; margin: 0 auto 8px; color: var(--br);">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg>
         </div>
-        <div style="font-size: 12px; font-weight: 800; color: var(--ink);">1. PURCHASE</div>
+        <div style="font-size: 12px; font-weight: 500; color: var(--ink);">1. PURCHASE</div>
       </div>
-      <div style="color: var(--br); font-weight: 900; font-size: 18px;">↓</div>
+      <div style="color: var(--br); font-weight: 500; font-size: 18px;">↓</div>
 
       <div style="text-align: center; flex: 1; min-width: 110px;">
         <div style="width: 44px; height: 44px; border-radius: 50%; background: #fff; border: 1.5px solid var(--br); display: grid; place-items: center; margin: 0 auto 8px; color: var(--br);">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
         </div>
-        <div style="font-size: 12px; font-weight: 800; color: var(--ink);">2. RECEIVE</div>
+        <div style="font-size: 12px; font-weight: 500; color: var(--ink);">2. RECEIVE</div>
       </div>
-      <div style="color: var(--br); font-weight: 900; font-size: 18px;">↓</div>
+      <div style="color: var(--br); font-weight: 500; font-size: 18px;">↓</div>
 
       <div style="text-align: center; flex: 1; min-width: 110px;">
         <div style="width: 44px; height: 44px; border-radius: 50%; background: #fff; border: 1.5px solid var(--br); display: grid; place-items: center; margin: 0 auto 8px; color: var(--br);">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
         </div>
-        <div style="font-size: 12px; font-weight: 800; color: var(--ink);">3. STOCK</div>
+        <div style="font-size: 12px; font-weight: 500; color: var(--ink);">3. STOCK</div>
       </div>
-      <div style="color: var(--br); font-weight: 900; font-size: 18px;">↓</div>
+      <div style="color: var(--br); font-weight: 500; font-size: 18px;">↓</div>
 
       <div style="text-align: center; flex: 1; min-width: 110px;">
         <div style="width: 44px; height: 44px; border-radius: 50%; background: #fff; border: 1.5px solid var(--br); display: grid; place-items: center; margin: 0 auto 8px; color: var(--br);">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M6 21h12"/></svg>
         </div>
-        <div style="font-size: 12px; font-weight: 800; color: var(--ink);">4. CONSUME</div>
+        <div style="font-size: 12px; font-weight: 500; color: var(--ink);">4. CONSUME</div>
       </div>
-      <div style="color: var(--br); font-weight: 900; font-size: 18px;">↓</div>
+      <div style="color: var(--br); font-weight: 500; font-size: 18px;">↓</div>
 
       <div style="text-align: center; flex: 1; min-width: 110px;">
         <div style="width: 44px; height: 44px; border-radius: 50%; background: #fff; border: 1.5px solid var(--br); display: grid; place-items: center; margin: 0 auto 8px; color: var(--br);">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
         </div>
-        <div style="font-size: 12px; font-weight: 800; color: var(--ink);">5. MONITOR</div>
+        <div style="font-size: 12px; font-weight: 500; color: var(--ink);">5. MONITOR</div>
       </div>
-      <div style="color: var(--br); font-weight: 900; font-size: 18px;">↓</div>
+      <div style="color: var(--br); font-weight: 500; font-size: 18px;">↓</div>
 
       <div style="text-align: center; flex: 1; min-width: 110px;">
         <div style="width: 44px; height: 44px; border-radius: 50%; background: #fff; border: 1.5px solid var(--br); display: grid; place-items: center; margin: 0 auto 8px; color: var(--br);">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 11-.57-8.38l5.67-5.67"/></svg>
         </div>
-        <div style="font-size: 12px; font-weight: 800; color: var(--ink);">6. REPLENISH</div>
+        <div style="font-size: 12px; font-weight: 500; color: var(--ink);">6. REPLENISH</div>
       </div>
     </div>
   </div>
@@ -429,7 +429,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
     <div class="g4">
       <!-- Point 1 -->
       <div style="padding: 20px; background: var(--bg2); border-radius: 16px; border: 1px solid var(--line);">
-        <div style="font-size: 12px; font-weight: 900; color: var(--br); margin-bottom: 8px;">01</div>
+        <div style="font-size: 12px; font-weight: 500; color: var(--br); margin-bottom: 8px;">01</div>
         <div class="ic" style="margin-bottom: 14px;">
           <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
         </div>
@@ -439,7 +439,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 
       <!-- Point 2 -->
       <div style="padding: 20px; background: var(--bg2); border-radius: 16px; border: 1px solid var(--line);">
-        <div style="font-size: 12px; font-weight: 900; color: var(--br); margin-bottom: 8px;">02</div>
+        <div style="font-size: 12px; font-weight: 500; color: var(--br); margin-bottom: 8px;">02</div>
         <div class="ic" style="margin-bottom: 14px;">
           <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
         </div>
@@ -449,7 +449,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 
       <!-- Point 3 -->
       <div style="padding: 20px; background: var(--bg2); border-radius: 16px; border: 1px solid var(--line);">
-        <div style="font-size: 12px; font-weight: 900; color: var(--br); margin-bottom: 8px;">03</div>
+        <div style="font-size: 12px; font-weight: 500; color: var(--br); margin-bottom: 8px;">03</div>
         <div class="ic" style="margin-bottom: 14px;">
           <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
         </div>
@@ -459,7 +459,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 
       <!-- Point 4 -->
       <div style="padding: 20px; background: var(--bg2); border-radius: 16px; border: 1px solid var(--line);">
-        <div style="font-size: 12px; font-weight: 900; color: var(--br); margin-bottom: 8px;">04</div>
+        <div style="font-size: 12px; font-weight: 500; color: var(--br); margin-bottom: 8px;">04</div>
         <div class="ic" style="margin-bottom: 14px;">
           <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
         </div>
@@ -481,7 +481,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 
     <!-- Traditional Workflow Diagram -->
     <div style="max-width: 900px; margin: 0 auto 48px; background: #fff; padding: 24px; border-radius: 18px; border: 1px solid var(--line);">
-      <div style="font-size: 12px; font-weight: 800; color: var(--mute); text-align: center; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px;">THE TRADITIONAL MANIFEST PROBLEM</div>
+      <div style="font-size: 12px; font-weight: 500; color: var(--mute); text-align: center; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px;">THE TRADITIONAL MANIFEST PROBLEM</div>
       <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-size: 12px; font-weight: 700; color: var(--ink);">
         <span>Purchase ingredients</span> <span>→</span>
         <span>Receive stock</span> <span>→</span>
@@ -498,7 +498,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
       <!-- Left: Traditional Inventory -->
       <div style="background: #fff; padding: 32px; border-radius: 20px; border: 1px solid #fee2e2;">
         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
-          <div style="width: 38px; height: 38px; border-radius: 10px; background: #fee2e2; color: #dc2626; display: grid; place-items: center; font-weight: 900;">✕</div>
+          <div style="width: 38px; height: 38px; border-radius: 10px; background: #fee2e2; color: #dc2626; display: grid; place-items: center; font-weight: 500;">✕</div>
           <h3 style="font-size: 20px; color: #991b1b;">Traditional Inventory</h3>
         </div>
         <ul style="display: flex; flex-direction: column; gap: 14px; font-size: 15px; color: var(--mute);">
@@ -528,7 +528,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
       <!-- Right: Geni Menu Inventory -->
       <div style="background: #fff; padding: 32px; border-radius: 20px; border: 1.5px solid var(--br); box-shadow: var(--shadow-sm);">
         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
-          <div style="width: 38px; height: 38px; border-radius: 10px; background: var(--br-light); color: var(--br); display: grid; place-items: center; font-weight: 900;">✓</div>
+          <div style="width: 38px; height: 38px; border-radius: 10px; background: var(--br-light); color: var(--br); display: grid; place-items: center; font-weight: 500;">✓</div>
           <h3 style="font-size: 20px; color: var(--br);">Geni Menu Inventory</h3>
         </div>
         <ul style="display: flex; flex-direction: column; gap: 14px; font-size: 15px; color: var(--ink); font-weight: 600;">
@@ -616,7 +616,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
               <tr data-status="instock">
                 <td style="font-weight: 700; color: var(--ink);">Basmati Rice</td>
                 <td style="color: var(--mute); font-size: 12.5px;">Grains & Raw</td>
-                <td style="font-weight: 800;">42</td>
+                <td style="font-weight: 500;">42</td>
                 <td>kg</td>
                 <td><span class="st-badge instock"><i class="st-dot"></i> In Stock</span></td>
                 <td style="text-align: right;">
@@ -628,7 +628,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
               <tr data-status="lowstock">
                 <td style="font-weight: 700; color: var(--ink);">Chicken</td>
                 <td style="color: var(--mute); font-size: 12.5px;">Meat & Poultry</td>
-                <td style="font-weight: 800; color: var(--amber-text);">12</td>
+                <td style="font-weight: 500; color: var(--amber-text);">12</td>
                 <td>kg</td>
                 <td><span class="st-badge lowstock"><i class="st-dot"></i> Low Stock</span></td>
                 <td style="text-align: right;">
@@ -640,7 +640,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
               <tr data-status="lowstock">
                 <td style="font-weight: 700; color: var(--ink);">Paneer</td>
                 <td style="color: var(--mute); font-size: 12.5px;">Dairy</td>
-                <td style="font-weight: 800; color: var(--amber-text);">5</td>
+                <td style="font-weight: 500; color: var(--amber-text);">5</td>
                 <td>kg</td>
                 <td><span class="st-badge lowstock"><i class="st-dot"></i> Low Stock</span></td>
                 <td style="text-align: right;">
@@ -652,7 +652,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
               <tr data-status="critical">
                 <td style="font-weight: 700; color: var(--ink);">Tomato</td>
                 <td style="color: var(--mute); font-size: 12.5px;">Vegetables</td>
-                <td style="font-weight: 800; color: var(--red-text);">3</td>
+                <td style="font-weight: 500; color: var(--red-text);">3</td>
                 <td>kg</td>
                 <td><span class="st-badge critical"><i class="st-dot"></i> Critical</span></td>
                 <td style="text-align: right;">
@@ -664,7 +664,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
               <tr data-status="instock">
                 <td style="font-weight: 700; color: var(--ink);">Cooking Oil</td>
                 <td style="color: var(--mute); font-size: 12.5px;">Raw Materials</td>
-                <td style="font-weight: 800;">18</td>
+                <td style="font-weight: 500;">18</td>
                 <td>L</td>
                 <td><span class="st-badge instock"><i class="st-dot"></i> In Stock</span></td>
                 <td style="text-align: right;">
@@ -826,16 +826,16 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
       <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 24px;">
         <!-- Left: Menu Item -->
         <div style="flex: 1; min-width: 220px; background: #fff; border: 1px solid var(--line); padding: 20px; border-radius: 16px; text-align: center;">
-          <div style="font-size: 11px; font-weight: 800; color: var(--br); text-transform: uppercase; margin-bottom: 8px;">MENU ITEM</div>
-          <div style="font-size: 20px; font-weight: 800; color: var(--ink);">Chicken Biryani</div>
+          <div style="font-size: 11px; font-weight: 500; color: var(--br); text-transform: uppercase; margin-bottom: 8px;">MENU ITEM</div>
+          <div style="font-size: 20px; font-weight: 500; color: var(--ink);">Chicken Biryani</div>
           <div style="font-size: 16px; font-weight: 700; color: var(--br); margin-top: 4px;">₹280</div>
         </div>
 
-        <div style="font-size: 24px; font-weight: 900; color: var(--br);">→</div>
+        <div style="font-size: 24px; font-weight: 500; color: var(--br);">→</div>
 
         <!-- Middle: Ingredients -->
         <div style="flex: 1.5; min-width: 260px; background: #fff; border: 1px solid var(--line); padding: 20px; border-radius: 16px;">
-          <div style="font-size: 11px; font-weight: 800; color: var(--br); text-transform: uppercase; margin-bottom: 10px; text-align: center;">INGREDIENTS REQUIRED</div>
+          <div style="font-size: 11px; font-weight: 500; color: var(--br); text-transform: uppercase; margin-bottom: 10px; text-align: center;">INGREDIENTS REQUIRED</div>
           <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;">
             <span style="padding: 5px 10px; background: var(--bg2); border-radius: 6px; font-size: 12px; font-weight: 700;">Basmati Rice</span>
             <span style="padding: 5px 10px; background: var(--bg2); border-radius: 6px; font-size: 12px; font-weight: 700;">Chicken</span>
@@ -846,11 +846,11 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
           </div>
         </div>
 
-        <div style="font-size: 24px; font-weight: 900; color: var(--br);">→</div>
+        <div style="font-size: 24px; font-weight: 500; color: var(--br);">→</div>
 
         <!-- Right: Inventory Status -->
         <div style="flex: 1; min-width: 220px; background: #fff; border: 1px solid var(--line); padding: 20px; border-radius: 16px; text-align: center;">
-          <div style="font-size: 11px; font-weight: 800; color: var(--br); text-transform: uppercase; margin-bottom: 8px;">INVENTORY MONITOR</div>
+          <div style="font-size: 11px; font-weight: 500; color: var(--br); text-transform: uppercase; margin-bottom: 8px;">INVENTORY MONITOR</div>
           <div style="font-size: 14px; font-weight: 700; color: var(--ink);">Stock Levels Active</div>
           <div style="margin-top: 8px;">
             <span class="st-badge lowstock"><i class="st-dot"></i> Check Stock</span>
@@ -887,24 +887,24 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
       <!-- Movement Breakdown Grid -->
       <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-bottom: 24px; text-align: center;">
         <div style="background: var(--bg2); padding: 14px; border-radius: 12px; border: 1px solid var(--line);">
-          <div style="font-size: 11px; font-weight: 800; color: var(--mute);">OPENING STOCK</div>
-          <div style="font-size: 20px; font-weight: 800; color: var(--ink); margin-top: 4px;">50 kg</div>
+          <div style="font-size: 11px; font-weight: 500; color: var(--mute);">OPENING STOCK</div>
+          <div style="font-size: 20px; font-weight: 500; color: var(--ink); margin-top: 4px;">50 kg</div>
         </div>
         <div style="background: var(--green-bg); padding: 14px; border-radius: 12px; border: 1px solid rgba(16,185,129,0.2);">
-          <div style="font-size: 11px; font-weight: 800; color: var(--green-text);">PURCHASE</div>
-          <div style="font-size: 20px; font-weight: 800; color: var(--green-text); margin-top: 4px;">+20 kg</div>
+          <div style="font-size: 11px; font-weight: 500; color: var(--green-text);">PURCHASE</div>
+          <div style="font-size: 20px; font-weight: 500; color: var(--green-text); margin-top: 4px;">+20 kg</div>
         </div>
         <div style="background: #fff3ed; padding: 14px; border-radius: 12px; border: 1px solid rgba(234,88,12,0.2);">
-          <div style="font-size: 11px; font-weight: 800; color: #c2410c;">CONSUMPTION</div>
-          <div style="font-size: 20px; font-weight: 800; color: #c2410c; margin-top: 4px;">-18 kg</div>
+          <div style="font-size: 11px; font-weight: 500; color: #c2410c;">CONSUMPTION</div>
+          <div style="font-size: 20px; font-weight: 500; color: #c2410c; margin-top: 4px;">-18 kg</div>
         </div>
         <div style="background: var(--red-bg); padding: 14px; border-radius: 12px; border: 1px solid rgba(239,68,68,0.2);">
-          <div style="font-size: 11px; font-weight: 800; color: var(--red-text);">ADJUSTMENT</div>
-          <div style="font-size: 20px; font-weight: 800; color: var(--red-text); margin-top: 4px;">-2 kg</div>
+          <div style="font-size: 11px; font-weight: 500; color: var(--red-text);">ADJUSTMENT</div>
+          <div style="font-size: 20px; font-weight: 500; color: var(--red-text); margin-top: 4px;">-2 kg</div>
         </div>
         <div style="background: var(--br-light); padding: 14px; border-radius: 12px; border: 1.5px solid var(--br);">
-          <div style="font-size: 11px; font-weight: 800; color: var(--br);">CURRENT STOCK</div>
-          <div style="font-size: 20px; font-weight: 900; color: var(--br); margin-top: 4px;">50 kg</div>
+          <div style="font-size: 11px; font-weight: 500; color: var(--br);">CURRENT STOCK</div>
+          <div style="font-size: 20px; font-weight: 500; color: var(--br); margin-top: 4px;">50 kg</div>
         </div>
       </div>
 
@@ -930,7 +930,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
       <div class="win" style="padding: 24px;">
         <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 14px; border-bottom: 1px solid var(--line); margin-bottom: 16px;">
           <div>
-            <div style="font-size: 12px; font-weight: 800; color: var(--br);">PURCHASE ORDER</div>
+            <div style="font-size: 12px; font-weight: 500; color: var(--br);">PURCHASE ORDER</div>
             <h3 style="font-size: 20px;">PO-2048</h3>
           </div>
           <span class="st-badge instock"><i class="st-dot"></i> Received</span>
@@ -965,7 +965,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
           </tbody>
         </table>
 
-        <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 12px; border-top: 1px solid var(--line); font-weight: 800; font-size: 15px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 12px; border-top: 1px solid var(--line); font-weight: 500; font-size: 15px;">
           <div>Total Cost:</div>
           <div style="color: var(--br); font-size: 18px;">₹18,500</div>
         </div>
@@ -977,33 +977,33 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 
         <div style="background: #fff; padding: 18px; border-radius: 16px; border: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center;">
           <div>
-            <div style="font-weight: 800; font-size: 16px; color: var(--ink);">PO-2048</div>
+            <div style="font-weight: 500; font-size: 16px; color: var(--ink);">PO-2048</div>
             <div style="font-size: 13px; color: var(--mute);">ABC Foods • 29 Sep 2026</div>
           </div>
           <div style="text-align: right;">
-            <div style="font-weight: 800; font-size: 15px; color: var(--ink);">₹18,500</div>
+            <div style="font-weight: 500; font-size: 15px; color: var(--ink);">₹18,500</div>
             <span class="st-badge instock" style="margin-top: 4px;"><i class="st-dot"></i> Received</span>
           </div>
         </div>
 
         <div style="background: #fff; padding: 18px; border-radius: 16px; border: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center;">
           <div>
-            <div style="font-weight: 800; font-size: 16px; color: var(--ink);">PO-2047</div>
+            <div style="font-weight: 500; font-size: 16px; color: var(--ink);">PO-2047</div>
             <div style="font-size: 13px; color: var(--mute);">Fresh Farms • 27 Sep 2026</div>
           </div>
           <div style="text-align: right;">
-            <div style="font-weight: 800; font-size: 15px; color: var(--ink);">₹12,800</div>
+            <div style="font-weight: 500; font-size: 15px; color: var(--ink);">₹12,800</div>
             <span class="st-badge instock" style="margin-top: 4px;"><i class="st-dot"></i> Received</span>
           </div>
         </div>
 
         <div style="background: #fff; padding: 18px; border-radius: 16px; border: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center;">
           <div>
-            <div style="font-weight: 800; font-size: 16px; color: var(--ink);">PO-2046</div>
+            <div style="font-weight: 500; font-size: 16px; color: var(--ink);">PO-2046</div>
             <div style="font-size: 13px; color: var(--mute);">Dairy Fresh Co. • 25 Sep 2026</div>
           </div>
           <div style="text-align: right;">
-            <div style="font-weight: 800; font-size: 15px; color: var(--ink);">₹8,400</div>
+            <div style="font-weight: 500; font-size: 15px; color: var(--ink);">₹8,400</div>
             <span class="st-badge instock" style="margin-top: 4px;"><i class="st-dot"></i> Received</span>
           </div>
         </div>
@@ -1025,7 +1025,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
     <div class="win" style="max-width: 900px; margin: 0 auto; padding: 28px;">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
         <div>
-          <div style="font-size: 12px; font-weight: 800; color: var(--br);">RECEIVING DOCK LOG</div>
+          <div style="font-size: 12px; font-weight: 500; color: var(--br);">RECEIVING DOCK LOG</div>
           <h3 style="font-size: 22px;">PO-2048 Receipt Verification</h3>
         </div>
         <span class="st-badge lowstock"><i class="st-dot"></i> Partially Received</span>
@@ -1044,20 +1044,20 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
           <tr>
             <td style="font-weight: 700;">Basmati Rice</td>
             <td>50 kg</td>
-            <td style="font-weight: 800; color: var(--green-text);">50 kg</td>
-            <td><span style="color: var(--green); font-weight: 800;">✓ Verified</span></td>
+            <td style="font-weight: 500; color: var(--green-text);">50 kg</td>
+            <td><span style="color: var(--green); font-weight: 500;">✓ Verified</span></td>
           </tr>
           <tr>
             <td style="font-weight: 700;">Cooking Oil</td>
             <td>20 L</td>
-            <td style="font-weight: 800; color: var(--green-text);">20 L</td>
-            <td><span style="color: var(--green); font-weight: 800;">✓ Verified</span></td>
+            <td style="font-weight: 500; color: var(--green-text);">20 L</td>
+            <td><span style="color: var(--green); font-weight: 500;">✓ Verified</span></td>
           </tr>
           <tr>
             <td style="font-weight: 700;">Onion</td>
             <td>30 kg</td>
-            <td style="font-weight: 800; color: var(--amber-text);">28 kg</td>
-            <td><span style="color: var(--amber-text); font-weight: 800;">⚠ Short 2 kg</span></td>
+            <td style="font-weight: 500; color: var(--amber-text);">28 kg</td>
+            <td><span style="color: var(--amber-text); font-weight: 500;">⚠ Short 2 kg</span></td>
           </tr>
         </tbody>
       </table>
@@ -1083,13 +1083,13 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
       <!-- Alert Card 1 -->
       <div class="card" style="padding: 24px; border-top: 4px solid var(--amber);">
         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px;">
-          <div style="width: 36px; height: 36px; border-radius: 10px; background: var(--amber-bg); color: var(--amber-text); display: grid; place-items: center; font-weight: 900;">⚠</div>
+          <div style="width: 36px; height: 36px; border-radius: 10px; background: var(--amber-bg); color: var(--amber-text); display: grid; place-items: center; font-weight: 500;">⚠</div>
           <div>
             <h4 style="font-size: 18px; color: var(--amber-text);">Chicken</h4>
             <div style="font-size: 12px; color: var(--mute);">Meat Category</div>
           </div>
         </div>
-        <div style="font-size: 22px; font-weight: 900; color: var(--ink); margin-bottom: 12px;">12 kg remaining</div>
+        <div style="font-size: 22px; font-weight: 500; color: var(--ink); margin-bottom: 12px;">12 kg remaining</div>
         <div style="padding: 10px 14px; background: var(--bg2); border-radius: 8px; font-size: 13px; font-weight: 700; color: var(--br);">
           Recommended Action: Review Stock & Order
         </div>
@@ -1098,13 +1098,13 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
       <!-- Alert Card 2 -->
       <div class="card" style="padding: 24px; border-top: 4px solid var(--amber);">
         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px;">
-          <div style="width: 36px; height: 36px; border-radius: 10px; background: var(--amber-bg); color: var(--amber-text); display: grid; place-items: center; font-weight: 900;">⚠</div>
+          <div style="width: 36px; height: 36px; border-radius: 10px; background: var(--amber-bg); color: var(--amber-text); display: grid; place-items: center; font-weight: 500;">⚠</div>
           <div>
             <h4 style="font-size: 18px; color: var(--amber-text);">Paneer</h4>
             <div style="font-size: 12px; color: var(--mute);">Dairy Category</div>
           </div>
         </div>
-        <div style="font-size: 22px; font-weight: 900; color: var(--ink); margin-bottom: 12px;">5 kg remaining</div>
+        <div style="font-size: 22px; font-weight: 500; color: var(--ink); margin-bottom: 12px;">5 kg remaining</div>
         <div style="padding: 10px 14px; background: var(--bg2); border-radius: 8px; font-size: 13px; font-weight: 700; color: var(--br);">
           Recommended Action: Replenish Promptly
         </div>
@@ -1113,14 +1113,14 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
       <!-- Alert Card 3 -->
       <div class="card" style="padding: 24px; border-top: 4px solid var(--red);">
         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px;">
-          <div style="width: 36px; height: 36px; border-radius: 10px; background: var(--red-bg); color: var(--red-text); display: grid; place-items: center; font-weight: 900;">🚨</div>
+          <div style="width: 36px; height: 36px; border-radius: 10px; background: var(--red-bg); color: var(--red-text); display: grid; place-items: center; font-weight: 500;">🚨</div>
           <div>
             <h4 style="font-size: 18px; color: var(--red-text);">Tomato</h4>
             <div style="font-size: 12px; color: var(--mute);">Vegetables Category</div>
           </div>
         </div>
-        <div style="font-size: 22px; font-weight: 900; color: var(--red-text); margin-bottom: 12px;">3 kg remaining</div>
-        <div style="padding: 10px 14px; background: var(--red-bg); border-radius: 8px; font-size: 13px; font-weight: 800; color: var(--red-text);">
+        <div style="font-size: 22px; font-weight: 500; color: var(--red-text); margin-bottom: 12px;">3 kg remaining</div>
+        <div style="padding: 10px 14px; background: var(--red-bg); border-radius: 8px; font-size: 13px; font-weight: 500; color: var(--red-text);">
           Status: Critical • Urgent Purchase
         </div>
       </div>
@@ -1152,7 +1152,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 
         <div>
           <label style="display: block; font-weight: 700; margin-bottom: 6px; font-size: 13px;">Stock Adjustment Quantity:</label>
-          <input type="text" value="-2 kg" style="width: 100%; padding: 10px 14px; border-radius: 10px; border: 1px solid var(--line); font-weight: 800; color: var(--red-text); outline: none;">
+          <input type="text" value="-2 kg" style="width: 100%; padding: 10px 14px; border-radius: 10px; border: 1px solid var(--line); font-weight: 500; color: var(--red-text); outline: none;">
         </div>
 
         <div>
@@ -1165,7 +1165,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
           </select>
         </div>
 
-        <div style="display: flex; justify-content: space-between; padding: 12px; background: var(--br-light); border-radius: 10px; font-weight: 800;">
+        <div style="display: flex; justify-content: space-between; padding: 12px; background: var(--br-light); border-radius: 10px; font-weight: 500;">
           <div>Updated Stock Level:</div>
           <div style="color: var(--br); font-size: 16px;">8 kg</div>
         </div>
@@ -1200,24 +1200,24 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 
       <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; text-align: center; margin-bottom: 24px;">
         <div style="background: #fff; padding: 14px; border-radius: 12px; border: 1px solid var(--line);">
-          <div style="font-size: 11px; font-weight: 800; color: var(--mute);">PURCHASED</div>
-          <div style="font-size: 18px; font-weight: 800; color: var(--ink); margin-top: 4px;">30 kg</div>
+          <div style="font-size: 11px; font-weight: 500; color: var(--mute);">PURCHASED</div>
+          <div style="font-size: 18px; font-weight: 500; color: var(--ink); margin-top: 4px;">30 kg</div>
         </div>
         <div style="background: #fff; padding: 14px; border-radius: 12px; border: 1px solid var(--line);">
-          <div style="font-size: 11px; font-weight: 800; color: var(--green-text);">CONSUMED</div>
-          <div style="font-size: 18px; font-weight: 800; color: var(--green-text); margin-top: 4px;">24 kg</div>
+          <div style="font-size: 11px; font-weight: 500; color: var(--green-text);">CONSUMED</div>
+          <div style="font-size: 18px; font-weight: 500; color: var(--green-text); margin-top: 4px;">24 kg</div>
         </div>
         <div style="background: var(--red-bg); padding: 14px; border-radius: 12px; border: 1px solid rgba(239,68,68,0.2);">
-          <div style="font-size: 11px; font-weight: 800; color: var(--red-text);">SPOILED</div>
-          <div style="font-size: 18px; font-weight: 800; color: var(--red-text); margin-top: 4px;">2 kg</div>
+          <div style="font-size: 11px; font-weight: 500; color: var(--red-text);">SPOILED</div>
+          <div style="font-size: 18px; font-weight: 500; color: var(--red-text); margin-top: 4px;">2 kg</div>
         </div>
         <div style="background: #fff; padding: 14px; border-radius: 12px; border: 1px solid var(--line);">
-          <div style="font-size: 11px; font-weight: 800; color: var(--mute);">ADJUSTED</div>
-          <div style="font-size: 18px; font-weight: 800; color: var(--ink); margin-top: 4px;">1 kg</div>
+          <div style="font-size: 11px; font-weight: 500; color: var(--mute);">ADJUSTED</div>
+          <div style="font-size: 18px; font-weight: 500; color: var(--ink); margin-top: 4px;">1 kg</div>
         </div>
         <div style="background: var(--br-light); padding: 14px; border-radius: 12px; border: 1px solid var(--br);">
-          <div style="font-size: 11px; font-weight: 800; color: var(--br);">REMAINING</div>
-          <div style="font-size: 18px; font-weight: 900; color: var(--br); margin-top: 4px;">3 kg</div>
+          <div style="font-size: 11px; font-weight: 500; color: var(--br);">REMAINING</div>
+          <div style="font-size: 18px; font-weight: 500; color: var(--br); margin-top: 4px;">3 kg</div>
         </div>
       </div>
 
@@ -1243,19 +1243,19 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 
     <div class="g3">
       <div class="card" style="padding: 20px; text-align: center;">
-        <div style="font-size: 32px; font-weight: 900; color: var(--br); font-family: 'Outfit', sans-serif; margin-bottom: 6px;">kg</div>
+        <div style="font-size: 32px; font-weight: 500; color: var(--br); font-family: 'Outfit', sans-serif; margin-bottom: 6px;">kg</div>
         <h4 style="font-size: 18px; margin-bottom: 4px;">Kilograms</h4>
         <p style="font-size: 13px;">Basmati Rice, Vegetables, Poultry, Flour</p>
       </div>
 
       <div class="card" style="padding: 20px; text-align: center;">
-        <div style="font-size: 32px; font-weight: 900; color: var(--br); font-family: 'Outfit', sans-serif; margin-bottom: 6px;">L</div>
+        <div style="font-size: 32px; font-weight: 500; color: var(--br); font-family: 'Outfit', sans-serif; margin-bottom: 6px;">L</div>
         <h4 style="font-size: 18px; margin-bottom: 4px;">Liters</h4>
         <p style="font-size: 13px;">Cooking Oil, Milk, Syrups, Juices</p>
       </div>
 
       <div class="card" style="padding: 20px; text-align: center;">
-        <div style="font-size: 32px; font-weight: 900; color: var(--br); font-family: 'Outfit', sans-serif; margin-bottom: 6px;">pcs</div>
+        <div style="font-size: 32px; font-weight: 500; color: var(--br); font-family: 'Outfit', sans-serif; margin-bottom: 6px;">pcs</div>
         <h4 style="font-size: 18px; margin-bottom: 4px;">Pieces & Packs</h4>
         <p style="font-size: 13px;">Eggs, Burger Buns, Takeaway Boxes, Cans</p>
       </div>
@@ -1275,7 +1275,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
     <!-- Operational Visual Banner -->
     <div style="max-width: 980px; margin: 0 auto; background: #fff; padding: 28px; border-radius: 20px; border: 1px solid var(--line);">
       <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; margin-bottom: 24px;">
-        <span style="font-size: 12px; font-weight: 800; color: var(--br); letter-spacing: 0.08em; text-transform: uppercase;">ACTIVE ORDER PIPELINE</span>
+        <span style="font-size: 12px; font-weight: 500; color: var(--br); letter-spacing: 0.08em; text-transform: uppercase;">ACTIVE ORDER PIPELINE</span>
         <span class="st-badge instock"><i class="st-dot"></i> Live Sync</span>
       </div>
 
@@ -1335,20 +1335,20 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
     <!-- Active Stats Grid -->
     <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; max-width: 980px; margin: 0 auto 32px;">
       <div style="background: #fff; padding: 20px; border-radius: 16px; border: 1px solid var(--line); text-align: center;">
-        <div style="font-size: 11px; font-weight: 800; color: var(--mute); text-transform: uppercase;">ACTIVE ORDERS</div>
-        <div style="font-size: 32px; font-weight: 900; color: var(--ink); font-family: 'Outfit', sans-serif; margin-top: 4px;">18</div>
+        <div style="font-size: 11px; font-weight: 500; color: var(--mute); text-transform: uppercase;">ACTIVE ORDERS</div>
+        <div style="font-size: 32px; font-weight: 500; color: var(--ink); font-family: 'Outfit', sans-serif; margin-top: 4px;">18</div>
       </div>
       <div style="background: #fff; padding: 20px; border-radius: 16px; border: 1px solid var(--line); text-align: center;">
-        <div style="font-size: 11px; font-weight: 800; color: var(--amber-text); text-transform: uppercase;">INGREDIENTS LOW</div>
-        <div style="font-size: 32px; font-weight: 900; color: var(--amber); font-family: 'Outfit', sans-serif; margin-top: 4px;">06</div>
+        <div style="font-size: 11px; font-weight: 500; color: var(--amber-text); text-transform: uppercase;">INGREDIENTS LOW</div>
+        <div style="font-size: 32px; font-weight: 500; color: var(--amber); font-family: 'Outfit', sans-serif; margin-top: 4px;">06</div>
       </div>
       <div style="background: #fff; padding: 20px; border-radius: 16px; border: 1px solid var(--line); text-align: center;">
-        <div style="font-size: 11px; font-weight: 800; color: var(--red-text); text-transform: uppercase;">CRITICAL ITEMS</div>
-        <div style="font-size: 32px; font-weight: 900; color: var(--red); font-family: 'Outfit', sans-serif; margin-top: 4px;">02</div>
+        <div style="font-size: 11px; font-weight: 500; color: var(--red-text); text-transform: uppercase;">CRITICAL ITEMS</div>
+        <div style="font-size: 32px; font-weight: 500; color: var(--red); font-family: 'Outfit', sans-serif; margin-top: 4px;">02</div>
       </div>
       <div style="background: #fff; padding: 20px; border-radius: 16px; border: 1px solid var(--line); text-align: center;">
-        <div style="font-size: 11px; font-weight: 800; color: var(--green-text); text-transform: uppercase;">PURCHASES TODAY</div>
-        <div style="font-size: 32px; font-weight: 900; color: var(--green); font-family: 'Outfit', sans-serif; margin-top: 4px;">08</div>
+        <div style="font-size: 11px; font-weight: 500; color: var(--green-text); text-transform: uppercase;">PURCHASES TODAY</div>
+        <div style="font-size: 32px; font-weight: 500; color: var(--green); font-family: 'Outfit', sans-serif; margin-top: 4px;">08</div>
       </div>
     </div>
 
@@ -1374,36 +1374,36 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
     <div style="max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px;">
       <!-- Timeline Item 1 -->
       <div style="display: flex; gap: 16px; background: #fff; padding: 18px; border-radius: 14px; border: 1px solid var(--line); align-items: center;">
-        <div style="font-size: 13px; font-weight: 800; color: var(--br); width: 80px; flex: none;">09:12 AM</div>
+        <div style="font-size: 13px; font-weight: 500; color: var(--br); width: 80px; flex: none;">09:12 AM</div>
         <div style="flex: 1;">
-          <div style="font-weight: 700; color: var(--ink);">Basmati Rice <span style="color: var(--green-text); font-weight: 800;">+50 kg</span></div>
+          <div style="font-weight: 700; color: var(--ink);">Basmati Rice <span style="color: var(--green-text); font-weight: 500;">+50 kg</span></div>
           <div style="font-size: 12px; color: var(--mute);">Purchase Received • PO-2048</div>
         </div>
       </div>
 
       <!-- Timeline Item 2 -->
       <div style="display: flex; gap: 16px; background: #fff; padding: 18px; border-radius: 14px; border: 1px solid var(--line); align-items: center;">
-        <div style="font-size: 13px; font-weight: 800; color: var(--br); width: 80px; flex: none;">10:25 AM</div>
+        <div style="font-size: 13px; font-weight: 500; color: var(--br); width: 80px; flex: none;">10:25 AM</div>
         <div style="flex: 1;">
-          <div style="font-weight: 700; color: var(--ink);">Chicken <span style="color: var(--red-text); font-weight: 800;">-5 kg</span></div>
+          <div style="font-weight: 700; color: var(--ink);">Chicken <span style="color: var(--red-text); font-weight: 500;">-5 kg</span></div>
           <div style="font-size: 12px; color: var(--mute);">Stock Adjustment • Prep Room</div>
         </div>
       </div>
 
       <!-- Timeline Item 3 -->
       <div style="display: flex; gap: 16px; background: #fff; padding: 18px; border-radius: 14px; border: 1px solid var(--line); align-items: center;">
-        <div style="font-size: 13px; font-weight: 800; color: var(--br); width: 80px; flex: none;">11:40 AM</div>
+        <div style="font-size: 13px; font-weight: 500; color: var(--br); width: 80px; flex: none;">11:40 AM</div>
         <div style="flex: 1;">
-          <div style="font-weight: 700; color: var(--ink);">Tomato <span style="color: var(--amber-text); font-weight: 800;">-3 kg</span></div>
+          <div style="font-weight: 700; color: var(--ink);">Tomato <span style="color: var(--amber-text); font-weight: 500;">-3 kg</span></div>
           <div style="font-size: 12px; color: var(--mute);">Kitchen Consumption • Lunch Batch</div>
         </div>
       </div>
 
       <!-- Timeline Item 4 -->
       <div style="display: flex; gap: 16px; background: #fff; padding: 18px; border-radius: 14px; border: 1px solid var(--line); align-items: center;">
-        <div style="font-size: 13px; font-weight: 800; color: var(--br); width: 80px; flex: none;">12:15 PM</div>
+        <div style="font-size: 13px; font-weight: 500; color: var(--br); width: 80px; flex: none;">12:15 PM</div>
         <div style="flex: 1;">
-          <div style="font-weight: 700; color: var(--ink);">Paneer <span style="color: var(--red-text); font-weight: 800;">-2 kg</span></div>
+          <div style="font-weight: 700; color: var(--ink);">Paneer <span style="color: var(--red-text); font-weight: 500;">-2 kg</span></div>
           <div style="font-size: 12px; color: var(--mute);">Adjustment • Spoilage Logged</div>
         </div>
       </div>
@@ -1443,24 +1443,24 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
       <!-- Mobile View Mockup -->
       <div style="background: #fff; border: 4px solid var(--ink); border-radius: 28px; padding: 18px 14px; box-shadow: var(--shadow-md);">
         <div style="width: 50px; height: 4px; background: #ccc; border-radius: 2px; margin: 0 auto 16px;"></div>
-        <div style="font-size: 12px; font-weight: 800; color: var(--br); margin-bottom: 10px;">MOBILE INVENTORY</div>
+        <div style="font-size: 12px; font-weight: 500; color: var(--br); margin-bottom: 10px;">MOBILE INVENTORY</div>
 
         <div style="display: flex; flex-direction: column; gap: 10px;">
           <div style="padding: 10px; background: var(--bg2); border-radius: 10px; font-size: 12px;">
             <div style="font-weight: 700;">Chicken</div>
-            <div style="color: var(--amber-text); font-weight: 800;">12 kg • Low Stock</div>
+            <div style="color: var(--amber-text); font-weight: 500;">12 kg • Low Stock</div>
           </div>
           <div style="padding: 10px; background: var(--bg2); border-radius: 10px; font-size: 12px;">
             <div style="font-weight: 700;">Paneer</div>
-            <div style="color: var(--amber-text); font-weight: 800;">5 kg • Low Stock</div>
+            <div style="color: var(--amber-text); font-weight: 500;">5 kg • Low Stock</div>
           </div>
           <div style="padding: 10px; background: var(--red-bg); border-radius: 10px; font-size: 12px;">
             <div style="font-weight: 700;">Tomato</div>
-            <div style="color: var(--red-text); font-weight: 800;">3 kg • Critical</div>
+            <div style="color: var(--red-text); font-weight: 500;">3 kg • Critical</div>
           </div>
           <div style="padding: 10px; background: var(--green-bg); border-radius: 10px; font-size: 12px;">
             <div style="font-weight: 700;">Rice</div>
-            <div style="color: var(--green-text); font-weight: 800;">42 kg • In Stock</div>
+            <div style="color: var(--green-text); font-weight: 500;">42 kg • In Stock</div>
           </div>
         </div>
       </div>
@@ -1669,7 +1669,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 
       <div class="g2" style="gap: 20px;">
         <div style="background: #fff; padding: 20px; border-radius: 14px; border: 1px solid var(--line);">
-          <div style="font-size: 12px; font-weight: 800; color: var(--br); margin-bottom: 10px;">CHENNAI BRANCH STOCK</div>
+          <div style="font-size: 12px; font-weight: 500; color: var(--br); margin-bottom: 10px;">CHENNAI BRANCH STOCK</div>
           <div style="display: flex; flex-direction: column; gap: 8px; font-size: 14px;">
             <div style="display: justify-content; display: flex; justify-content: space-between;"><span>Rice:</span> <strong>120 kg</strong></div>
             <div style="display: justify-content; display: flex; justify-content: space-between;"><span>Cooking Oil:</span> <strong>48 L</strong></div>
@@ -1678,7 +1678,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
         </div>
 
         <div style="background: #fff; padding: 20px; border-radius: 14px; border: 1px solid var(--line);">
-          <div style="font-size: 12px; font-weight: 800; color: var(--br); margin-bottom: 10px;">COIMBATORE BRANCH STOCK</div>
+          <div style="font-size: 12px; font-weight: 500; color: var(--br); margin-bottom: 10px;">COIMBATORE BRANCH STOCK</div>
           <div style="display: flex; flex-direction: column; gap: 8px; font-size: 14px;">
             <div style="display: justify-content; display: flex; justify-content: space-between;"><span>Rice:</span> <strong>90 kg</strong></div>
             <div style="display: justify-content; display: flex; justify-content: space-between;"><span>Cooking Oil:</span> <strong>35 L</strong></div>
@@ -1704,7 +1704,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
       <!-- Central Hub -->
       <div style="width: 180px; height: 180px; border-radius: 50%; background: linear-gradient(135deg, #876039 0%, #a87646 100%); color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0 auto 36px; box-shadow: 0 10px 30px rgba(135,96,57,0.3); border: 4px solid #fff;">
         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
-        <div style="font-size: 14px; font-weight: 900; margin-top: 6px;">INVENTORY</div>
+        <div style="font-size: 14px; font-weight: 500; margin-top: 6px;">INVENTORY</div>
         <div style="font-size: 10px; opacity: 0.9;">MANAGEMENT</div>
       </div>
 
@@ -1735,7 +1735,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
     <!-- Complete Journey Banner -->
     <div class="win" style="max-width: 1040px; margin: 0 auto; padding: 32px;">
       <div style="display: flex; flex-direction: column; gap: 16px;">
-        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 13px; font-weight: 800;">
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 13px; font-weight: 500;">
           <span style="padding: 10px 16px; background: #fff; border-radius: 10px; border: 1px solid var(--line);">1. PURCHASE INGREDIENTS</span>
           <span style="color: var(--br);">→</span>
           <span style="padding: 10px 16px; background: #fff; border-radius: 10px; border: 1px solid var(--line);">2. RECEIVE STOCK</span>
@@ -1745,7 +1745,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
           <span style="padding: 10px 16px; background: #fff; border-radius: 10px; border: 1px solid var(--line);">4. PREPARE FOOD</span>
         </div>
 
-        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 13px; font-weight: 800;">
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 13px; font-weight: 500;">
           <span style="padding: 10px 16px; background: #fff; border-radius: 10px; border: 1px solid var(--line);">5. CONSUME INGREDIENTS</span>
           <span style="color: var(--br);">→</span>
           <span style="padding: 10px 16px; background: #fff; border-radius: 10px; border: 1px solid var(--line);">6. MONITOR STOCK</span>
@@ -1771,20 +1771,20 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
     <!-- Reporting Metrics Grid -->
     <div class="g4" style="margin-bottom: 32px;">
       <div style="background: #fff; padding: 20px; border-radius: 16px; border: 1px solid var(--line); text-align: center;">
-        <div style="font-size: 11px; font-weight: 800; color: var(--mute);">TOTAL INVENTORY ITEMS</div>
-        <div style="font-size: 32px; font-weight: 900; color: var(--ink); font-family: 'Outfit', sans-serif; margin-top: 4px;">186</div>
+        <div style="font-size: 11px; font-weight: 500; color: var(--mute);">TOTAL INVENTORY ITEMS</div>
+        <div style="font-size: 32px; font-weight: 500; color: var(--ink); font-family: 'Outfit', sans-serif; margin-top: 4px;">186</div>
       </div>
       <div style="background: #fff; padding: 20px; border-radius: 16px; border: 1px solid var(--line); text-align: center;">
-        <div style="font-size: 11px; font-weight: 800; color: var(--amber-text);">LOW STOCK ITEMS</div>
-        <div style="font-size: 32px; font-weight: 900; color: var(--amber); font-family: 'Outfit', sans-serif; margin-top: 4px;">28</div>
+        <div style="font-size: 11px; font-weight: 500; color: var(--amber-text);">LOW STOCK ITEMS</div>
+        <div style="font-size: 32px; font-weight: 500; color: var(--amber); font-family: 'Outfit', sans-serif; margin-top: 4px;">28</div>
       </div>
       <div style="background: #fff; padding: 20px; border-radius: 16px; border: 1px solid var(--line); text-align: center;">
-        <div style="font-size: 11px; font-weight: 800; color: var(--red-text);">CRITICAL ITEMS</div>
-        <div style="font-size: 32px; font-weight: 900; color: var(--red); font-family: 'Outfit', sans-serif; margin-top: 4px;">06</div>
+        <div style="font-size: 11px; font-weight: 500; color: var(--red-text);">CRITICAL ITEMS</div>
+        <div style="font-size: 32px; font-weight: 500; color: var(--red); font-family: 'Outfit', sans-serif; margin-top: 4px;">06</div>
       </div>
       <div style="background: #fff; padding: 20px; border-radius: 16px; border: 1px solid var(--line); text-align: center;">
-        <div style="font-size: 11px; font-weight: 800; color: var(--br);">TOTAL PURCHASES</div>
-        <div style="font-size: 32px; font-weight: 900; color: var(--br); font-family: 'Outfit', sans-serif; margin-top: 4px;">₹48,620</div>
+        <div style="font-size: 11px; font-weight: 500; color: var(--br);">TOTAL PURCHASES</div>
+        <div style="font-size: 32px; font-weight: 500; color: var(--br); font-family: 'Outfit', sans-serif; margin-top: 4px;">₹48,620</div>
       </div>
     </div>
   </div>
@@ -1876,7 +1876,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
       <span style="padding: 10px 20px; border-radius: 99px; background: var(--bg2); border: 1px solid var(--line); font-size: 14px; font-weight: 700; color: var(--ink);">Order Management</span>
       <span style="padding: 10px 20px; border-radius: 99px; background: var(--bg2); border: 1px solid var(--line); font-size: 14px; font-weight: 700; color: var(--ink);">KOT Management</span>
       <span style="padding: 10px 20px; border-radius: 99px; background: var(--bg2); border: 1px solid var(--line); font-size: 14px; font-weight: 700; color: var(--ink);">POS</span>
-      <span style="padding: 10px 20px; border-radius: 99px; background: var(--br-light); border: 1.5px solid var(--br); font-size: 14px; font-weight: 800; color: var(--br);">Inventory Management</span>
+      <span style="padding: 10px 20px; border-radius: 99px; background: var(--br-light); border: 1.5px solid var(--br); font-size: 14px; font-weight: 500; color: var(--br);">Inventory Management</span>
       <span style="padding: 10px 20px; border-radius: 99px; background: var(--bg2); border: 1px solid var(--line); font-size: 14px; font-weight: 700; color: var(--ink);">Payments</span>
       <span style="padding: 10px 20px; border-radius: 99px; background: var(--bg2); border: 1px solid var(--line); font-size: 14px; font-weight: 700; color: var(--ink);">Staff</span>
       <span style="padding: 10px 20px; border-radius: 99px; background: var(--bg2); border: 1px solid var(--line); font-size: 14px; font-weight: 700; color: var(--ink);">Reports</span>
@@ -2054,26 +2054,23 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 </section>
 
 <!-- ================= 30. FINAL CTA ================= -->
-<section style="padding: 100px 0; background: linear-gradient(135deg, #241A14 0%, #3a2b21 100%); color: #fff; position: relative; overflow: hidden;">
-  <!-- Background subtle pattern -->
-  <div style="position: absolute; inset: 0; background: radial-gradient(circle at right center, rgba(135,96,57,0.25) 0%, transparent 60%); pointer-events: none;"></div>
-
+<section style="padding: 100px 0; background: linear-gradient(135deg, #FAF4ED 0%, #EFE4D6 50%, #FAF4ED 100%); color: #21160F; position: relative; overflow: hidden; border-top: 1px solid rgba(135, 96, 57, 0.16);">
   <div class="w" style="text-align: center; position: relative; z-index: 1;">
-    <div class="eb" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: #fff; margin-bottom: 24px;">
+    <div class="eb" style="background: rgba(135,96,57,0.08); border-color: rgba(135,96,57,0.2); color: #876039; margin-bottom: 24px;">
       READY FOR BETTER INVENTORY CONTROL?
     </div>
 
-    <h2 style="color: #fff; font-size: clamp(32px, 4.5vw, 52px); margin-bottom: 20px;">
-      Know Your Stock <span style="color: #c89659; font-family: 'Playfair Display', serif; font-style: italic;">Before You Need It.</span>
+    <h2 style="color: #21160F; font-size: clamp(32px, 4.5vw, 52px); margin-bottom: 20px;">
+      Know Your Stock <span style="color: #876039; font-family: 'Playfair Display', serif; font-style: italic;">Before You Need It.</span>
     </h2>
 
-    <p style="color: rgba(255,255,255,0.8); font-size: 18px; max-width: 640px; margin: 0 auto 36px;">
+    <p style="color: #6E6157; font-size: 18px; max-width: 640px; margin: 0 auto 36px;">
       Bring ingredients, purchases, stock levels and inventory activity into one connected restaurant workflow with Geni Menu.
     </p>
 
     <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-      <a href="https://menu.wegeni.com/register" class="btn p" style="padding: 16px 36px; font-size: 16px;">Get Started →</a>
-      <a href="{{ route('contact.us') }}" class="btn o" style="padding: 16px 36px; font-size: 16px; background: rgba(255,255,255,0.1); color: #fff; border-color: rgba(255,255,255,0.3);">Book a Demo</a>
+      <a href="{{ route('restaurant_signup') }}" onclick="if(typeof openPopup === 'function'){ openPopup(); return false; }" class="btn p" style="padding: 16px 36px; font-size: 16px; background: #876039; color: #fff;">Get Started →</a>
+      <a href="{{ route('contact.us') }}" class="btn o" style="padding: 16px 36px; font-size: 16px; background: transparent; color: #876039; border: 1.5px solid #876039;">Book a Demo</a>
     </div>
   </div>
 </section>

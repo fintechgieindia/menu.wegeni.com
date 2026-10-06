@@ -46,7 +46,7 @@ body {
 h1, h2, h3, h4, h5 {
   margin: 0;
   font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
-  font-weight: 800;
+  font-weight: 500;
   line-height: 1.14;
   letter-spacing: -0.03em;
   color: var(--ink);
@@ -75,7 +75,7 @@ ul { list-style: none; margin: 0; padding: 0; }
   gap: 6px;
   font-size: 12px;
   letter-spacing: .16em;
-  font-weight: 800;
+  font-weight: 500;
   text-transform: uppercase;
   color: var(--br);
   margin-bottom: 16px;
@@ -100,7 +100,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 .btn.o:hover { background: var(--br); color: #fff; transform: translateY(-2px); }
 
 /* ===================== BREADCRUMB ===================== */
-.bc { padding: 104px 0 16px; background: var(--bg2); border-bottom: 1px solid var(--line); font-size: 14px; color: var(--mute); font-weight: 600; }
+.bc { padding: 18px 0 16px; background: var(--bg2); border-bottom: 1px solid var(--line); font-size: 14px; color: var(--mute); font-weight: 600; }
 .bc .w { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .bc a { color: var(--mute); transition: color .2s; }
 .bc a:hover { color: var(--br); }
@@ -121,9 +121,9 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 .wb i:nth-child(1) { background: #ff5f56; }
 .wb i:nth-child(2) { background: #ffbd2e; }
 .wb i:nth-child(3) { background: #27c93f; }
-.wb .ttl { color: var(--br); font-weight: 800; font-family: 'Outfit', sans-serif; letter-spacing: 0.05em; font-size: 12px; text-transform: uppercase; }
+.wb .ttl { color: var(--br); font-weight: 500; font-family: 'Outfit', sans-serif; letter-spacing: 0.05em; font-size: 12px; text-transform: uppercase; }
 
-.badge { font-size: 11px; font-weight: 800; padding: 4px 10px; border-radius: 8px; text-transform: uppercase; display: inline-block; letter-spacing: .04em; }
+.badge { font-size: 11px; font-weight: 500; padding: 4px 10px; border-radius: 8px; text-transform: uppercase; display: inline-block; letter-spacing: .04em; }
 .badge.new { background: #fef3c7; color: #92400e; }
 .badge.preparing { background: #dbeafe; color: #1e40af; }
 .badge.ready { background: #d1fae5; color: #065f46; }
@@ -136,7 +136,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 /* Kanban Board Layout */
 .kb-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
 .kb-col { background: var(--bg2); border: 1px solid var(--line); border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 12px; }
-.kb-head { display: flex; justify-content: space-between; align-items: center; font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 13px; text-transform: uppercase; letter-spacing: .05em; padding-bottom: 8px; border-bottom: 1px solid var(--line); color: var(--ink); }
+.kb-head { display: flex; justify-content: space-between; align-items: center; font-family: 'Outfit', sans-serif; font-weight: 500; font-size: 13px; text-transform: uppercase; letter-spacing: .05em; padding-bottom: 8px; border-bottom: 1px solid var(--line); color: var(--ink); }
 .kb-card { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 14px; box-shadow: var(--shadow-sm); transition: transform .2s, box-shadow .2s; }
 .kb-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); border-color: rgba(135,96,57,0.3); }
 
@@ -179,7 +179,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
   .g2, .g3, .g4, .ind-grid, .kb-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
 }
 @media (max-width: 768px) {
-  .bc { padding: 85px 0 14px; }
+  .bc { padding: 14px 0 14px; }
   .w { padding: 0 16px; }
   .win { min-width: 0 !important; width: 100%; overflow-x: auto; }
 }
@@ -313,7 +313,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
               <div style="font-size: 12.5px; color: var(--mute); margin-bottom: 10px;">4 Items · ₹1,240</div>
               <div style="display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: var(--mute);">
                 <span>12:49 PM</span>
-                <span style="color: var(--green); font-weight: 800;">Serve Now ✓</span>
+                <span style="color: var(--green); font-weight: 500;">Serve Now ✓</span>
               </div>
             </div>
 
@@ -325,7 +325,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
               <div style="font-size: 12.5px; color: var(--mute); margin-bottom: 10px;">3 Items · ₹640</div>
               <div style="display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: var(--mute);">
                 <span>12:38 PM</span>
-                <span style="color: var(--green); font-weight: 800;">Handover ✓</span>
+                <span style="color: var(--green); font-weight: 500;">Handover ✓</span>
               </div>
             </div>
           </div>
@@ -360,7 +360,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
   <div class="w">
     <div class="g4">
       <div style="display: flex; gap: 16px; align-items: flex-start;">
-        <div style="font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 900; color: var(--br-gold); line-height: 1;">01</div>
+        <div style="font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 500; color: var(--br-gold); line-height: 1;">01</div>
         <div>
           <h4 style="font-size: 16px; margin-bottom: 4px;">One Order View</h4>
           <p style="font-size: 13.5px; line-height: 1.5;">Keep restaurant orders visible in one central workspace.</p>
@@ -368,7 +368,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
       </div>
 
       <div style="display: flex; gap: 16px; align-items: flex-start;">
-        <div style="font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 900; color: var(--br-gold); line-height: 1;">02</div>
+        <div style="font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 500; color: var(--br-gold); line-height: 1;">02</div>
         <div>
           <h4 style="font-size: 16px; margin-bottom: 4px;">Clear Order Status</h4>
           <p style="font-size: 13.5px; line-height: 1.5;">Know what is new, preparing, ready or completed instantly.</p>
@@ -376,7 +376,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
       </div>
 
       <div style="display: flex; gap: 16px; align-items: flex-start;">
-        <div style="font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 900; color: var(--br-gold); line-height: 1;">03</div>
+        <div style="font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 500; color: var(--br-gold); line-height: 1;">03</div>
         <div>
           <h4 style="font-size: 16px; margin-bottom: 4px;">Better Team Coordination</h4>
           <p style="font-size: 13.5px; line-height: 1.5;">Connect front-of-house service staff with kitchen workflows.</p>
@@ -384,7 +384,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
       </div>
 
       <div style="display: flex; gap: 16px; align-items: flex-start;">
-        <div style="font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 900; color: var(--br-gold); line-height: 1;">04</div>
+        <div style="font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 500; color: var(--br-gold); line-height: 1;">04</div>
         <div>
           <h4 style="font-size: 16px; margin-bottom: 4px;">Multiple Order Types</h4>
           <p style="font-size: 13.5px; line-height: 1.5;">Manage dine-in, takeaway, pickup and delivery in one system.</p>
@@ -407,7 +407,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
       <!-- Traditional Order Handling -->
       <div class="card" style="padding: 32px; background: #fff5f5; border-color: rgba(239, 68, 68, 0.2);">
         <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
-          <div style="width: 40px; height: 40px; border-radius: 10px; background: #fee2e2; color: #dc2626; display: grid; place-items: center; font-weight: 800;">✕</div>
+          <div style="width: 40px; height: 40px; border-radius: 10px; background: #fee2e2; color: #dc2626; display: grid; place-items: center; font-weight: 500;">✕</div>
           <div>
             <h3 style="color: #991b1b;">Traditional Order Handling</h3>
             <p style="font-size: 13px; color: #b91c1c;">Paper Slips & Fragmented Communication</p>
@@ -416,16 +416,16 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 
         <ul style="display: flex; flex-direction: column; gap: 14px;">
           <li style="display: flex; gap: 12px; font-size: 14px; color: #7f1d1d;">
-            <span style="color: #dc2626; font-weight: 800;">•</span> Orders spread across notepad slips, WhatsApp and separate channels
+            <span style="color: #dc2626; font-weight: 500;">•</span> Orders spread across notepad slips, WhatsApp and separate channels
           </li>
           <li style="display: flex; gap: 12px; font-size: 14px; color: #7f1d1d;">
-            <span style="color: #dc2626; font-weight: 800;">•</span> Difficult status visibility—staff repeatedly running to kitchen to check
+            <span style="color: #dc2626; font-weight: 500;">•</span> Difficult status visibility—staff repeatedly running to kitchen to check
           </li>
           <li style="display: flex; gap: 12px; font-size: 14px; color: #7f1d1d;">
-            <span style="color: #dc2626; font-weight: 800;">•</span> Manual follow-ups leading to missed item modifiers and guest complaints
+            <span style="color: #dc2626; font-weight: 500;">•</span> Manual follow-ups leading to missed item modifiers and guest complaints
           </li>
           <li style="display: flex; gap: 12px; font-size: 14px; color: #7f1d1d;">
-            <span style="color: #dc2626; font-weight: 800;">•</span> Chaotic peak-hour coordination at the food pickup counter
+            <span style="color: #dc2626; font-weight: 500;">•</span> Chaotic peak-hour coordination at the food pickup counter
           </li>
         </ul>
       </div>
@@ -433,7 +433,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
       <!-- Geni Menu Order Management -->
       <div class="card" style="padding: 32px; background: #f0fdf4; border-color: rgba(16, 185, 129, 0.3);">
         <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
-          <div style="width: 40px; height: 40px; border-radius: 10px; background: #d1fae5; color: #059669; display: grid; place-items: center; font-weight: 800;">✓</div>
+          <div style="width: 40px; height: 40px; border-radius: 10px; background: #d1fae5; color: #059669; display: grid; place-items: center; font-weight: 500;">✓</div>
           <div>
             <h3 style="color: #065f46;">Geni Menu Order Management</h3>
             <p style="font-size: 13px; color: #047857;">Central Digital Order Workspace</p>
@@ -442,16 +442,16 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 
         <ul style="display: flex; flex-direction: column; gap: 14px;">
           <li style="display: flex; gap: 12px; font-size: 14px; color: #064e3b;">
-            <span style="color: #10b981; font-weight: 800;">✓</span> Single order board tracking dine-in, takeaway, pickup and delivery
+            <span style="color: #10b981; font-weight: 500;">✓</span> Single order board tracking dine-in, takeaway, pickup and delivery
           </li>
           <li style="display: flex; gap: 12px; font-size: 14px; color: #064e3b;">
-            <span style="color: #10b981; font-weight: 800;">✓</span> Real-time status stages (New → Preparing → Ready → Completed)
+            <span style="color: #10b981; font-weight: 500;">✓</span> Real-time status stages (New → Preparing → Ready → Completed)
           </li>
           <li style="display: flex; gap: 12px; font-size: 14px; color: #064e3b;">
-            <span style="color: #10b981; font-weight: 800;">✓</span> Direct integration with Kitchen Display (KOT) & POS cashier
+            <span style="color: #10b981; font-weight: 500;">✓</span> Direct integration with Kitchen Display (KOT) & POS cashier
           </li>
           <li style="display: flex; gap: 12px; font-size: 14px; color: #064e3b;">
-            <span style="color: #10b981; font-weight: 800;">✓</span> Clear item notes, variations, and automatic bill calculation
+            <span style="color: #10b981; font-weight: 500;">✓</span> Clear item notes, variations, and automatic bill calculation
           </li>
         </ul>
       </div>
@@ -471,7 +471,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
     <!-- Filter & Search Control Bar -->
     <div style="background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 16px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px;">
       <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-        <button style="padding: 8px 18px; border-radius: 10px; border: 1.5px solid var(--br); background: var(--br); color: #fff; font-weight: 800; font-size: 13px; cursor: pointer;">All Orders (18)</button>
+        <button style="padding: 8px 18px; border-radius: 10px; border: 1.5px solid var(--br); background: var(--br); color: #fff; font-weight: 500; font-size: 13px; cursor: pointer;">All Orders (18)</button>
         <button style="padding: 8px 18px; border-radius: 10px; border: 1px solid var(--line); background: #fff; color: var(--ink); font-weight: 600; font-size: 13px; cursor: pointer;">🍽️ Dine-in (11)</button>
         <button style="padding: 8px 18px; border-radius: 10px; border: 1px solid var(--line); background: #fff; color: var(--ink); font-weight: 600; font-size: 13px; cursor: pointer;">🛍️ Takeaway (04)</button>
         <button style="padding: 8px 18px; border-radius: 10px; border: 1px solid var(--line); background: #fff; color: var(--ink); font-weight: 600; font-size: 13px; cursor: pointer;">📦 Pickup (01)</button>
@@ -486,12 +486,12 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
       <div class="g4">
         <!-- New -->
         <div style="background: var(--bg2); padding: 14px; border-radius: 12px; border: 1px solid var(--line);">
-          <div style="font-weight: 800; font-size: 12px; color: #92400e; margin-bottom: 12px;">● NEW ORDERS (2)</div>
+          <div style="font-weight: 500; font-size: 12px; color: #92400e; margin-bottom: 12px;">● NEW ORDERS (2)</div>
           <div style="background: #fff; padding: 12px; border-radius: 10px; border: 1px solid var(--line); margin-bottom: 10px;">
-            <div style="font-weight: 800; font-size: 14px;">#ORD-2084</div>
+            <div style="font-weight: 500; font-size: 14px;">#ORD-2084</div>
             <div style="font-size: 12px; color: var(--mute);">Table T08 · 3 Items</div>
             <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
-              <span style="font-weight: 800; color: var(--br);">₹1,050</span>
+              <span style="font-weight: 500; color: var(--br);">₹1,050</span>
               <span class="badge new">Confirm Order</span>
             </div>
           </div>
@@ -499,12 +499,12 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 
         <!-- Preparing -->
         <div style="background: var(--bg2); padding: 14px; border-radius: 12px; border: 1px solid var(--line);">
-          <div style="font-weight: 800; font-size: 12px; color: #1e40af; margin-bottom: 12px;">● PREPARING (3)</div>
+          <div style="font-weight: 500; font-size: 12px; color: #1e40af; margin-bottom: 12px;">● PREPARING (3)</div>
           <div style="background: #fff; padding: 12px; border-radius: 10px; border: 1px solid var(--line); margin-bottom: 10px;">
-            <div style="font-weight: 800; font-size: 14px;">#ORD-2082</div>
+            <div style="font-weight: 500; font-size: 14px;">#ORD-2082</div>
             <div style="font-size: 12px; color: var(--mute);">Table T04 · 5 Items</div>
             <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
-              <span style="font-weight: 800; color: var(--br);">₹1,240</span>
+              <span style="font-weight: 500; color: var(--br);">₹1,240</span>
               <span class="badge preparing">Cooking</span>
             </div>
           </div>
@@ -512,12 +512,12 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 
         <!-- Ready -->
         <div style="background: var(--bg2); padding: 14px; border-radius: 12px; border: 1px solid var(--line);">
-          <div style="font-weight: 800; font-size: 12px; color: #065f46; margin-bottom: 12px;">● READY (2)</div>
+          <div style="font-weight: 500; font-size: 12px; color: #065f46; margin-bottom: 12px;">● READY (2)</div>
           <div style="background: #fff; padding: 12px; border-radius: 10px; border: 1px solid var(--line); margin-bottom: 10px;">
-            <div style="font-weight: 800; font-size: 14px;">#ORD-2081</div>
+            <div style="font-weight: 500; font-size: 14px;">#ORD-2081</div>
             <div style="font-size: 12px; color: var(--mute);">Table T06 · 4 Items</div>
             <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
-              <span style="font-weight: 800; color: var(--br);">₹920</span>
+              <span style="font-weight: 500; color: var(--br);">₹920</span>
               <span class="badge ready">Serve Now ✓</span>
             </div>
           </div>
@@ -525,12 +525,12 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 
         <!-- Completed -->
         <div style="background: var(--bg2); padding: 14px; border-radius: 12px; border: 1px solid var(--line);">
-          <div style="font-weight: 800; font-size: 12px; color: #6b21a8; margin-bottom: 12px;">● COMPLETED</div>
+          <div style="font-weight: 500; font-size: 12px; color: #6b21a8; margin-bottom: 12px;">● COMPLETED</div>
           <div style="background: #fff; padding: 12px; border-radius: 10px; border: 1px solid var(--line); opacity: 0.8;">
-            <div style="font-weight: 800; font-size: 14px;">#ORD-2079</div>
+            <div style="font-weight: 500; font-size: 14px;">#ORD-2079</div>
             <div style="font-size: 12px; color: var(--mute);">Table T02 · 3 Items</div>
             <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
-              <span style="font-weight: 800; color: var(--br);">₹760</span>
+              <span style="font-weight: 500; color: var(--br);">₹760</span>
               <span class="badge completed">Billed & Paid</span>
             </div>
           </div>
@@ -603,7 +603,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
               <strong style="color: var(--ink);">Chicken Biryani × 2</strong>
               <div style="font-size: 12px; color: var(--br); font-weight: 700;">Note: "Extra Raita, Medium Spicy"</div>
             </div>
-            <div style="font-weight: 800; color: var(--ink);">₹560.00</div>
+            <div style="font-weight: 500; color: var(--ink);">₹560.00</div>
           </div>
 
           <div style="display: flex; justify-content: space-between; align-items: center; font-size: 14px;">
@@ -611,7 +611,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
               <strong style="color: var(--ink);">Paneer Tikka × 1</strong>
               <div style="font-size: 12px; color: var(--mute);">Starter · Mint Dip</div>
             </div>
-            <div style="font-weight: 800; color: var(--ink);">₹220.00</div>
+            <div style="font-weight: 500; color: var(--ink);">₹220.00</div>
           </div>
 
           <div style="display: flex; justify-content: space-between; align-items: center; font-size: 14px;">
@@ -619,13 +619,13 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
               <strong style="color: var(--ink);">Fresh Lime Soda × 2</strong>
               <div style="font-size: 12px; color: var(--br); font-weight: 700;">Note: "No Ice, Less Sugar"</div>
             </div>
-            <div style="font-weight: 800; color: var(--ink);">₹160.00</div>
+            <div style="font-weight: 500; color: var(--ink);">₹160.00</div>
           </div>
         </div>
 
         <div style="padding-top: 14px; border-top: 1px dashed var(--line); display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
           <span style="font-size: 15px; font-weight: 700; color: var(--mute);">Total Order Value</span>
-          <span style="font-size: 22px; font-weight: 900; color: var(--br);">₹940.00</span>
+          <span style="font-size: 22px; font-weight: 500; color: var(--br);">₹940.00</span>
         </div>
 
         <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px;">
@@ -642,22 +642,22 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 
         <div style="display: flex; flex-direction: column; gap: 14px;">
           <div style="display: flex; align-items: center; gap: 12px; background: var(--bg2); padding: 12px 16px; border-radius: 12px; border: 1px solid var(--line);">
-            <span style="font-weight: 800; color: var(--br);">MENU LINK</span>
+            <span style="font-weight: 500; color: var(--br);">MENU LINK</span>
             <span style="font-size: 13px;">Items & modifier prices selected directly from menu</span>
           </div>
 
           <div style="display: flex; align-items: center; gap: 12px; background: var(--bg2); padding: 12px 16px; border-radius: 12px; border: 1px solid var(--line);">
-            <span style="font-weight: 800; color: var(--br);">TABLE LINK</span>
+            <span style="font-weight: 500; color: var(--br);">TABLE LINK</span>
             <span style="font-size: 13px;">Dine-in orders attached to Table T08 tab</span>
           </div>
 
           <div style="display: flex; align-items: center; gap: 12px; background: var(--bg2); padding: 12px 16px; border-radius: 12px; border: 1px solid var(--line);">
-            <span style="font-weight: 800; color: var(--br);">KOT LINK</span>
+            <span style="font-weight: 500; color: var(--br);">KOT LINK</span>
             <span style="font-size: 13px;">Triggers KOT #KOT-1048 on Kitchen Display</span>
           </div>
 
           <div style="display: flex; align-items: center; gap: 12px; background: var(--bg2); padding: 12px 16px; border-radius: 12px; border: 1px solid var(--line);">
-            <span style="font-weight: 800; color: var(--br);">POS LINK</span>
+            <span style="font-weight: 500; color: var(--br);">POS LINK</span>
             <span style="font-size: 13px;">Bill INV-2048 ready for single-click payment</span>
           </div>
         </div>
@@ -678,33 +678,33 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
     <!-- 6 Step Horizontal Process -->
     <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px;">
       <div style="background: var(--bg2); border: 1px solid var(--line); border-radius: 14px; padding: 16px; text-align: center;">
-        <div style="font-weight: 900; font-size: 11px; color: var(--amber);">STEP 01</div>
-        <div style="font-weight: 800; font-size: 13.5px; margin-top: 4px;">New Order</div>
+        <div style="font-weight: 500; font-size: 11px; color: var(--amber);">STEP 01</div>
+        <div style="font-weight: 500; font-size: 13.5px; margin-top: 4px;">New Order</div>
       </div>
 
       <div style="background: var(--bg2); border: 1px solid var(--line); border-radius: 14px; padding: 16px; text-align: center;">
-        <div style="font-weight: 900; font-size: 11px; color: var(--br);">STEP 02</div>
-        <div style="font-weight: 800; font-size: 13.5px; margin-top: 4px;">Confirmed</div>
+        <div style="font-weight: 500; font-size: 11px; color: var(--br);">STEP 02</div>
+        <div style="font-weight: 500; font-size: 13.5px; margin-top: 4px;">Confirmed</div>
       </div>
 
       <div style="background: var(--bg2); border: 1px solid var(--line); border-radius: 14px; padding: 16px; text-align: center;">
-        <div style="font-weight: 900; font-size: 11px; color: var(--blue);">STEP 03</div>
-        <div style="font-weight: 800; font-size: 13.5px; margin-top: 4px;">Preparing</div>
+        <div style="font-weight: 500; font-size: 11px; color: var(--blue);">STEP 03</div>
+        <div style="font-weight: 500; font-size: 13.5px; margin-top: 4px;">Preparing</div>
       </div>
 
       <div style="background: var(--bg2); border: 1px solid var(--line); border-radius: 14px; padding: 16px; text-align: center;">
-        <div style="font-weight: 900; font-size: 11px; color: var(--green);">STEP 04</div>
-        <div style="font-weight: 800; font-size: 13.5px; margin-top: 4px;">Order Ready</div>
+        <div style="font-weight: 500; font-size: 11px; color: var(--green);">STEP 04</div>
+        <div style="font-weight: 500; font-size: 13.5px; margin-top: 4px;">Order Ready</div>
       </div>
 
       <div style="background: var(--bg2); border: 1px solid var(--line); border-radius: 14px; padding: 16px; text-align: center;">
-        <div style="font-weight: 900; font-size: 11px; color: var(--br-gold);">STEP 05</div>
-        <div style="font-weight: 800; font-size: 13.5px; margin-top: 4px;">Served / Dispatched</div>
+        <div style="font-weight: 500; font-size: 11px; color: var(--br-gold);">STEP 05</div>
+        <div style="font-weight: 500; font-size: 13.5px; margin-top: 4px;">Served / Dispatched</div>
       </div>
 
       <div style="background: var(--br); color: #fff; border-radius: 14px; padding: 16px; text-align: center; box-shadow: 0 4px 14px rgba(135,96,57,0.3);">
-        <div style="font-weight: 900; font-size: 11px; color: var(--br-gold);">STEP 06</div>
-        <div style="font-weight: 800; font-size: 13.5px; margin-top: 4px; color: #fff;">Completed</div>
+        <div style="font-weight: 500; font-size: 11px; color: var(--br-gold);">STEP 06</div>
+        <div style="font-weight: 500; font-size: 13.5px; margin-top: 4px; color: #fff;">Completed</div>
       </div>
     </div>
   </div>
@@ -726,31 +726,31 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 
         <div style="display: flex; flex-direction: column; gap: 16px; position: relative; padding-left: 20px; border-left: 2px solid var(--line);">
           <div>
-            <div style="font-size: 11px; font-weight: 800; color: var(--br);">12:42 PM</div>
+            <div style="font-size: 11px; font-weight: 500; color: var(--br);">12:42 PM</div>
             <strong style="font-size: 14px;">Order Created</strong>
             <p style="font-size: 12.5px;">Order placed by Waiter Ankit for Table T08</p>
           </div>
 
           <div>
-            <div style="font-size: 11px; font-weight: 800; color: var(--br);">12:43 PM</div>
+            <div style="font-size: 11px; font-weight: 500; color: var(--br);">12:43 PM</div>
             <strong style="font-size: 14px;">Order Confirmed & KOT Generated</strong>
             <p style="font-size: 12.5px;">Ticket #KOT-1048 sent to Main Kitchen Display</p>
           </div>
 
           <div>
-            <div style="font-size: 11px; font-weight: 800; color: var(--blue);">12:45 PM</div>
+            <div style="font-size: 11px; font-weight: 500; color: var(--blue);">12:45 PM</div>
             <strong style="font-size: 14px;">Kitchen Started Preparation</strong>
             <p style="font-size: 12.5px;">Chef accepted ticket and began cooking</p>
           </div>
 
           <div>
-            <div style="font-size: 11px; font-weight: 800; color: var(--green);">12:58 PM</div>
+            <div style="font-size: 11px; font-weight: 500; color: var(--green);">12:58 PM</div>
             <strong style="font-size: 14px;">Order Marked Ready</strong>
             <p style="font-size: 12.5px;">Food placed at pickup counter pass</p>
           </div>
 
           <div>
-            <div style="font-size: 11px; font-weight: 800; color: #065f46;">01:01 PM</div>
+            <div style="font-size: 11px; font-weight: 500; color: #065f46;">01:01 PM</div>
             <strong style="font-size: 14px;">Food Served to Table T08</strong>
             <p style="font-size: 12.5px;">Waiter delivered dishes to guests</p>
           </div>
@@ -764,19 +764,19 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px;">
           <div style="background: var(--bg2); padding: 16px; border-radius: 12px; border: 1px solid var(--line);">
             <div style="font-size: 12px; color: var(--mute);">Orders Today</div>
-            <div style="font-size: 30px; font-weight: 900; color: var(--br); margin-top: 4px;">186</div>
+            <div style="font-size: 30px; font-weight: 500; color: var(--br); margin-top: 4px;">186</div>
           </div>
           <div style="background: var(--bg2); padding: 16px; border-radius: 12px; border: 1px solid var(--line);">
             <div style="font-size: 12px; color: var(--mute);">Active Orders</div>
-            <div style="font-size: 30px; font-weight: 900; color: var(--ink); margin-top: 4px;">18</div>
+            <div style="font-size: 30px; font-weight: 500; color: var(--ink); margin-top: 4px;">18</div>
           </div>
           <div style="background: var(--bg2); padding: 16px; border-radius: 12px; border: 1px solid var(--line);">
             <div style="font-size: 12px; color: var(--mute);">Avg Prep Time</div>
-            <div style="font-size: 30px; font-weight: 900; color: var(--green); margin-top: 4px;">14 min</div>
+            <div style="font-size: 30px; font-weight: 500; color: var(--green); margin-top: 4px;">14 min</div>
           </div>
           <div style="background: var(--bg2); padding: 16px; border-radius: 12px; border: 1px solid var(--line);">
             <div style="font-size: 12px; color: var(--mute);">Avg Order Value</div>
-            <div style="font-size: 30px; font-weight: 900; color: var(--ink); margin-top: 4px;">₹640</div>
+            <div style="font-size: 30px; font-weight: 500; color: var(--ink); margin-top: 4px;">₹640</div>
           </div>
         </div>
 
@@ -844,7 +844,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
     </div>
 
     <div class="card" style="padding: 40px; text-align: center; background: linear-gradient(180deg, #ffffff 0%, #faf8f5 100%);">
-      <div style="display: inline-block; padding: 14px 28px; background: var(--br); color: #fff; border-radius: 16px; font-weight: 900; font-size: 20px; font-family: 'Outfit', sans-serif; box-shadow: 0 8px 24px rgba(135,96,57,0.3); margin-bottom: 32px;">
+      <div style="display: inline-block; padding: 14px 28px; background: var(--br); color: #fff; border-radius: 16px; font-weight: 500; font-size: 20px; font-family: 'Outfit', sans-serif; box-shadow: 0 8px 24px rgba(135,96,57,0.3); margin-bottom: 32px;">
         CENTRAL ORDER MANAGEMENT ENGINE
       </div>
 
@@ -947,18 +947,18 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 </section>
 
 <!-- ================= FINAL CTA ================= -->
-<section style="padding: 96px 0; background: linear-gradient(135deg, #1e140e 0%, #2e2017 100%); color: #fff;">
+<section style="padding: 96px 0; background: linear-gradient(135deg, #FAF4ED 0%, #EFE4D6 50%, #FAF4ED 100%); color: #21160F; border-top: 1px solid rgba(135, 96, 57, 0.16);">
   <div class="w" style="text-align: center; max-width: 800px;">
-    <div class="eb" style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.18); color: var(--br-gold);">TRANSFORM YOUR ORDER FLOW</div>
-    <h2 style="color: #fff; font-size: clamp(32px, 4vw, 48px); margin-bottom: 20px;">
-      Bring Every Restaurant Order Into <span style="color: var(--br-gold); font-family: 'Playfair Display', Georgia, serif; font-style: italic;">One Clear Workflow.</span>
+    <div class="eb" style="background: rgba(135, 96, 57, 0.1); border-color: rgba(135, 96, 57, 0.2); color: #876039;">TRANSFORM YOUR ORDER FLOW</div>
+    <h2 style="color: #21160F; font-size: clamp(32px, 4vw, 48px); margin-bottom: 20px;">
+      Bring Every Restaurant Order Into <span style="color: #876039; font-family: 'Playfair Display', Georgia, serif; font-style: italic;">One Clear Workflow.</span>
     </h2>
-    <p style="color: #c7b8a8; font-size: 18px; margin-bottom: 36px; line-height: 1.6;">
+    <p style="color: #6E6157; font-size: 18px; margin-bottom: 36px; line-height: 1.6;">
       From the first order to the final handoff, keep your restaurant team connected with Geni Menu Order Management.
     </p>
     <div style="display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap;">
-      <a href="{{ route('restaurant_signup') }}" class="btn p" style="padding: 16px 36px; font-size: 16px;">Get Started →</a>
-      <a href="{{ route('contact.us') }}" class="btn o" style="padding: 16px 32px; font-size: 16px; background: transparent; color: #fff; border-color: rgba(255,255,255,0.3);">Book a Demo</a>
+      <a href="{{ route('restaurant_signup') }}" class="btn p" style="padding: 16px 36px; font-size: 16px; background: #876039; color: #fff;">Get Started →</a>
+      <a href="{{ route('contact.us') }}" class="btn o" style="padding: 16px 32px; font-size: 16px; background: #fff; color: #876039; border: 1.5px solid #876039;">Book a Demo</a>
     </div>
   </div>
 </section>

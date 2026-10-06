@@ -1,4 +1,4 @@
-@extends('layouts.frontend-master')
+﻿@extends('layouts.frontend-master')
 
 @section('content')
 
@@ -44,7 +44,7 @@ body {
 h1, h2, h3, h4, h5 {
   margin: 0;
   font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
-  font-weight: 800;
+  font-weight: 500;
   line-height: 1.15;
   letter-spacing: -0.02em;
   color: var(--ink);
@@ -73,7 +73,7 @@ ul { list-style: none; margin: 0; padding: 0; }
   gap: 8px;
   font-size: 12px;
   letter-spacing: .16em;
-  font-weight: 800;
+  font-weight: 500;
   text-transform: uppercase;
   color: var(--br);
   margin-bottom: 16px;
@@ -100,14 +100,14 @@ section.alt { background: var(--bg2); }
 .btn.o:hover { background: var(--br); color: #fff; transform: translateY(-2px); }
 
 /* Breadcrumb */
-.bc { padding: 104px 0 16px; background: var(--bg2); border-bottom: 1px solid var(--line); font-size: 14px; color: var(--mute); font-weight: 600; }
+.bc { padding: 18px 0 16px; background: var(--bg2); border-bottom: 1px solid var(--line); font-size: 14px; color: var(--mute); font-weight: 600; }
 .bc .w { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .bc a { color: var(--mute); transition: color .2s; }
 .bc a:hover { color: var(--br); }
 .bc span.cur { color: var(--br); font-weight: 700; }
 
 /* Badges */
-.badge { font-size: 11px; font-weight: 800; padding: 4px 10px; border-radius: 8px; text-transform: uppercase; display: inline-block; letter-spacing: .04em; }
+.badge { font-size: 11px; font-weight: 500; padding: 4px 10px; border-radius: 8px; text-transform: uppercase; display: inline-block; letter-spacing: .04em; }
 .badge.ready { background: #d1fae5; color: #047857; }
 .badge.preparing { background: #ffedd5; color: #c2410c; }
 .badge.new { background: #eff6ff; color: #1d4ed8; }
@@ -123,7 +123,7 @@ section.alt { background: var(--bg2); }
 .wb i:nth-child(1) { background: #ff5f56; }
 .wb i:nth-child(2) { background: #ffbd2e; }
 .wb i:nth-child(3) { background: #27c93f; }
-.wb .ttl { color: var(--br); font-weight: 800; font-family: 'Outfit', sans-serif; letter-spacing: 0.05em; font-size: 12px; text-transform: uppercase; }
+.wb .ttl { color: var(--br); font-weight: 500; font-family: 'Outfit', sans-serif; letter-spacing: 0.05em; font-size: 12px; text-transform: uppercase; }
 
 /* ---------------- HERO ---------------- */
 .hero { padding: 60px 0 90px; background: linear-gradient(180deg, var(--bg2) 0%, #ffffff 100%); }
@@ -133,13 +133,13 @@ section.alt { background: var(--bg2); }
 
 .hero-ui { background: #fff; border: 1px solid var(--line); border-radius: 24px; box-shadow: var(--shadow-lg); overflow: hidden; position: relative; }
 .hero-ui-hdr { background: var(--bg2); padding: 16px 20px; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; }
-.hero-ui-hdr-title { font-weight: 800; font-size: 14px; color: var(--ink); display: flex; align-items: center; gap: 8px; }
+.hero-ui-hdr-title { font-weight: 500; font-size: 14px; color: var(--ink); display: flex; align-items: center; gap: 8px; }
 .hero-ui-grid { padding: 20px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
 
 .hu-stat { padding: 16px; border-radius: 12px; border: 1px solid var(--line); background: var(--bg2); }
-.hu-stat-lbl { font-size: 11px; font-weight: 800; color: var(--mute); text-transform: uppercase; margin-bottom: 4px; }
-.hu-stat-val { font-size: 24px; font-weight: 900; color: var(--ink); }
-.hu-stat-val.sm { font-size: 16px; font-weight: 800; }
+.hu-stat-lbl { font-size: 11px; font-weight: 500; color: var(--mute); text-transform: uppercase; margin-bottom: 4px; }
+.hu-stat-val { font-size: 24px; font-weight: 500; color: var(--ink); }
+.hu-stat-val.sm { font-size: 16px; font-weight: 500; }
 
 /* ---------------- SECTION 4: FEATURES ---------------- */
 .eco-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
@@ -168,14 +168,14 @@ section.alt { background: var(--bg2); }
 .var-panel { background: #fff; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; margin-bottom: 24px; }
 .var-row { display: flex; justify-content: space-between; padding: 16px; border-bottom: 1px solid var(--line); font-size: 14px; }
 .var-row:last-child { border-bottom: none; }
-.var-row.h { background: var(--bg2); font-weight: 800; font-size: 12px; color: var(--mute); text-transform: uppercase; }
+.var-row.h { background: var(--bg2); font-weight: 500; font-size: 12px; color: var(--mute); text-transform: uppercase; }
 
 .bill-panel { background: #fff; border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow-md); overflow: hidden; }
-.bp-hdr { padding: 16px 20px; background: var(--bg2); border-bottom: 1px solid var(--line); font-weight: 800; font-size: 15px; }
+.bp-hdr { padding: 16px 20px; background: var(--bg2); border-bottom: 1px solid var(--line); font-weight: 500; font-size: 15px; }
 .bp-body { padding: 20px; }
 .bp-item { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; font-size: 14px; }
 .bp-item-qty { font-size: 12px; color: var(--mute); display: block; }
-.bp-total { display: flex; justify-content: space-between; padding: 16px 0; border-top: 2px dashed var(--line); margin-top: 8px; font-weight: 800; font-size: 20px; color: var(--br); }
+.bp-total { display: flex; justify-content: space-between; padding: 16px 0; border-top: 2px dashed var(--line); margin-top: 8px; font-weight: 500; font-size: 20px; color: var(--br); }
 .bp-actions { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 16px; }
 .bp-btn { padding: 12px; border-radius: 8px; border: 1px solid var(--line); background: #fff; font-weight: 700; font-size: 13px; cursor: pointer; }
 .bp-btn.p { background: var(--br); color: #fff; border-color: var(--br); }
@@ -184,13 +184,13 @@ section.alt { background: var(--bg2); }
 .order-ticket { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 20px; position: relative; }
 .ot-hdr { display: flex; justify-content: space-between; margin-bottom: 16px; border-bottom: 1px solid var(--line); padding-bottom: 12px; }
 .ot-flow { display: flex; gap: 8px; margin-top: 16px; }
-.ot-step { flex: 1; text-align: center; font-size: 10px; font-weight: 800; text-transform: uppercase; padding: 8px 4px; border-radius: 6px; background: var(--bg2); color: var(--mute); border: 1px solid var(--line); display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.ot-step { flex: 1; text-align: center; font-size: 10px; font-weight: 500; text-transform: uppercase; padding: 8px 4px; border-radius: 6px; background: var(--bg2); color: var(--mute); border: 1px solid var(--line); display: flex; flex-direction: column; align-items: center; gap: 4px; }
 .ot-step svg { width: 14px; height: 14px; }
 .ot-step.done { background: var(--br-light); color: var(--br); border-color: var(--br); }
 
 .fest-dash { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 16px; }
 .fd-card { padding: 20px; background: #fff; border: 1px solid var(--line); border-radius: 16px; text-align: center; }
-.fd-val { font-size: 32px; font-weight: 900; color: var(--br); line-height: 1.2; }
+.fd-val { font-size: 32px; font-weight: 500; color: var(--br); line-height: 1.2; }
 .fd-lbl { font-size: 12px; font-weight: 700; color: var(--mute); text-transform: uppercase; }
 
 .occ-tags { display: flex; gap: 8px; flex-wrap: wrap; }
@@ -202,7 +202,7 @@ section.alt { background: var(--bg2); }
 .avail-item:last-child { border: none; }
 
 .inv-table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 16px; overflow: hidden; border: 1px solid var(--line); }
-.inv-table th { background: var(--bg2); padding: 12px 16px; text-align: left; font-size: 12px; font-weight: 800; color: var(--mute); text-transform: uppercase; border-bottom: 1px solid var(--line); }
+.inv-table th { background: var(--bg2); padding: 12px 16px; text-align: left; font-size: 12px; font-weight: 500; color: var(--mute); text-transform: uppercase; border-bottom: 1px solid var(--line); }
 .inv-table td { padding: 12px 16px; font-size: 14px; border-bottom: 1px solid var(--bg2); }
 .inv-table tr:last-child td { border-bottom: none; }
 
@@ -213,7 +213,7 @@ section.alt { background: var(--bg2); }
 .reports-preview { background: var(--dark); color: #fff; border-radius: 24px; padding: 36px; box-shadow: var(--shadow-lg); }
 .rp-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 32px; }
 .rp-stat-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 16px; }
-.rp-val { font-size: 24px; font-weight: 800; color: #fff; }
+.rp-val { font-size: 24px; font-weight: 500; color: #fff; }
 .rp-lbl { font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.6); }
 
 /* ---------------- SECTION 15: WORKFLOW ---------------- */
@@ -249,7 +249,7 @@ section.alt { background: var(--bg2); }
 .mb-panel { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 24px; }
 .mb-row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--line); }
 .mb-row:last-child { border-bottom: none; }
-.mb-val { font-weight: 800; color: var(--br); }
+.mb-val { font-weight: 500; color: var(--br); }
 
 /* ---------------- SECTION 22: CONNECTED ---------------- */
 .conn-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 12px; text-align: center; }
@@ -277,7 +277,7 @@ section.alt { background: var(--bg2); }
 }
 
 @media (max-width: 768px) {
-  .bc { padding: 85px 0 14px; }
+  .bc { padding: 14px 0 14px; }
   .w { padding: 0 16px; }
   .win { min-width: 0 !important; width: 100%; overflow-x: auto; }
 }
@@ -444,7 +444,7 @@ section.alt { background: var(--bg2); }
           <h4>Fresh Mango Juice</h4>
           <p>Freshly blended seasonal mangoes without added sugar.</p>
           <div class="pc-ft">
-            <span style="font-weight:800; color:var(--br);">₹120</span>
+            <span style="font-weight: 500; color:var(--br);">₹120</span>
             <span class="badge ready">Available</span>
           </div>
         </div>
@@ -455,7 +455,7 @@ section.alt { background: var(--bg2); }
           <h4>Watermelon Splash</h4>
           <p>Refreshing watermelon juice with a hint of mint.</p>
           <div class="pc-ft">
-            <span style="font-weight:800; color:var(--br);">₹90</span>
+            <span style="font-weight: 500; color:var(--br);">₹90</span>
             <span class="badge ready">Available</span>
           </div>
         </div>
@@ -466,7 +466,7 @@ section.alt { background: var(--bg2); }
           <h4>Thick Chocolate Shake</h4>
           <p>Rich chocolate ice cream blended with premium cocoa.</p>
           <div class="pc-ft">
-            <span style="font-weight:800; color:var(--br);">₹150</span>
+            <span style="font-weight: 500; color:var(--br);">₹150</span>
             <span class="badge ready">Available</span>
           </div>
         </div>
@@ -477,7 +477,7 @@ section.alt { background: var(--bg2); }
           <h4>Seasonal Fruit Bowl</h4>
           <p>A healthy mix of fresh cut seasonal fruits.</p>
           <div class="pc-ft">
-            <span style="font-weight:800; color:var(--br);">₹180</span>
+            <span style="font-weight: 500; color:var(--br);">₹180</span>
             <span class="badge ready">Available</span>
           </div>
         </div>
@@ -565,7 +565,7 @@ section.alt { background: var(--bg2); }
       
       <div class="order-ticket">
         <div class="ot-hdr">
-          <span style="font-weight:900; font-size:16px;">ORDER #2048</span>
+          <span style="font-weight: 500; font-size:16px;">ORDER #2048</span>
           <span class="badge preparing">Preparing</span>
         </div>
         
@@ -686,7 +686,7 @@ section.alt { background: var(--bg2); }
       
       <div style="background:#fff; border:1px solid var(--line); border-radius:16px; overflow:hidden;">
         <div style="display:flex; border-bottom:1px solid var(--line); background:var(--bg2);">
-          <div style="padding:12px 16px; font-weight:800; font-size:14px; border-bottom:2px solid var(--br); color:var(--br);">Summer Specials</div>
+          <div style="padding:12px 16px; font-weight: 500; font-size:14px; border-bottom:2px solid var(--br); color:var(--br);">Summer Specials</div>
           <div style="padding:12px 16px; font-weight:600; font-size:14px; color:var(--mute);">Monsoon</div>
           <div style="padding:12px 16px; font-weight:600; font-size:14px; color:var(--mute);">Festive</div>
         </div>
@@ -715,11 +715,11 @@ section.alt { background: var(--bg2); }
             <span style="font-size:13px; color:var(--mute);">+91 98765 43210</span>
           </div>
           <div style="text-align:right;">
-            <span style="font-size:11px; font-weight:800; color:var(--mute);">TOTAL ORDERS</span>
+            <span style="font-size:11px; font-weight: 500; color:var(--mute);">TOTAL ORDERS</span>
             <strong style="display:block; font-size:18px; color:var(--br);">12</strong>
           </div>
         </div>
-        <div style="font-size:12px; font-weight:800; color:var(--mute); margin-bottom:8px; text-transform:uppercase;">Recent Purchases:</div>
+        <div style="font-size:12px; font-weight: 500; color:var(--mute); margin-bottom:8px; text-transform:uppercase;">Recent Purchases:</div>
         <ul style="font-size:13px; color:var(--ink);">
           <li style="display:flex; justify-content:space-between; margin-bottom:4px;"><span>Mango Juice</span> <strong>× 2</strong></li>
           <li style="display:flex; justify-content:space-between; margin-bottom:4px;"><span>Chocolate Milkshake</span> <strong>× 1</strong></li>
@@ -893,14 +893,14 @@ section.alt { background: var(--bg2); }
         <div class="mob-inner" style="background:#fdfaf6; padding:0;">
           <img src="https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?w=400&q=80" alt="Juice" style="width:100%; height:200px; object-fit:cover;">
           <div style="padding:16px;">
-            <div style="font-size:11px; font-weight:800; color:var(--br); text-transform:uppercase; margin-bottom:4px;">Fresh Juices</div>
+            <div style="font-size:11px; font-weight: 500; color:var(--br); text-transform:uppercase; margin-bottom:4px;">Fresh Juices</div>
             <h4 style="font-size:18px;">Mango Juice</h4>
             <p style="font-size:13px; margin:4px 0 16px;">Freshly blended seasonal mangoes without added sugar.</p>
             <div style="border:1px solid var(--line); border-radius:12px; padding:12px; margin-bottom:12px; display:flex; justify-content:space-between; align-items:center;">
               <span style="font-weight:700;">Regular</span>
-              <span style="color:var(--br); font-weight:800;">₹120</span>
+              <span style="color:var(--br); font-weight: 500;">₹120</span>
             </div>
-            <button style="width:100%; padding:14px; border-radius:12px; background:var(--br); color:#fff; font-weight:800; border:none;">Select Options</button>
+            <button style="width:100%; padding:14px; border-radius:12px; background:var(--br); color:#fff; font-weight: 500; border:none;">Select Options</button>
           </div>
         </div>
       </div>
@@ -912,19 +912,19 @@ section.alt { background: var(--bg2); }
       <p style="margin-bottom:24px;">Keep an eye on sales, orders and stock levels directly from your smartphone.</p>
       <div class="mob-preview">
         <div class="mob-inner">
-          <div style="font-weight:800; font-size:16px; margin-bottom:16px;">Shop Dashboard</div>
+          <div style="font-weight: 500; font-size:16px; margin-bottom:16px;">Shop Dashboard</div>
           <div style="background:var(--bg2); border:1px solid var(--line); padding:12px; border-radius:12px; margin-bottom:12px;">
             <div style="font-size:11px; font-weight:700; color:var(--mute);">TODAY'S SALES</div>
-            <div style="font-size:20px; font-weight:800; color:var(--br);">₹32,850</div>
+            <div style="font-size:20px; font-weight: 500; color:var(--br);">₹32,850</div>
           </div>
           <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:16px;">
             <div style="background:var(--bg2); border:1px solid var(--line); padding:12px; border-radius:12px;">
               <div style="font-size:11px; font-weight:700; color:var(--mute);">ACTIVE</div>
-              <div style="font-size:20px; font-weight:800; color:var(--ink);">14</div>
+              <div style="font-size:20px; font-weight: 500; color:var(--ink);">14</div>
             </div>
             <div style="background:var(--bg2); border:1px solid var(--line); padding:12px; border-radius:12px;">
               <div style="font-size:11px; font-weight:700; color:var(--mute);">PAYMENTS</div>
-              <div style="font-size:18px; font-weight:800; color:var(--ink);">₹29.4k</div>
+              <div style="font-size:18px; font-weight: 500; color:var(--ink);">₹29.4k</div>
             </div>
           </div>
           <div style="font-weight:700; font-size:13px; margin:16px 0 8px;">Low Stock Alerts</div>
@@ -970,7 +970,7 @@ section.alt { background: var(--bg2); }
     </div>
 
     <div class="mb-panel" style="max-width:500px; margin:0 auto;">
-      <div style="font-weight:800; font-size:14px; color:var(--mute); text-transform:uppercase; margin-bottom:12px;">All Branches Sales</div>
+      <div style="font-weight: 500; font-size:14px; color:var(--mute); text-transform:uppercase; margin-bottom:12px;">All Branches Sales</div>
       <div class="mb-row"><span>Tiruchengode</span><span class="mb-val">₹32,850</span></div>
       <div class="mb-row"><span>Namakkal</span><span class="mb-val">₹28,420</span></div>
       <div class="mb-row"><span>Salem</span><span class="mb-val">₹41,680</span></div>

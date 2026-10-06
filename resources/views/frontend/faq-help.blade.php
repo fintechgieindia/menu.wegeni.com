@@ -1,4 +1,4 @@
-@extends('layouts.frontend-master')
+﻿@extends('layouts.frontend-master')
 
 @section('content')
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -26,7 +26,7 @@
   /* Typography */
   .faq-title {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-weight: 800;
+    font-weight: 500;
     line-height: 1.15;
     letter-spacing: -0.02em;
   }
@@ -605,25 +605,25 @@
           <div class="faq-guide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
           <h3 class="faq-title">POS & Counter Setup</h3>
           <p>Learn about setting up your billing workflow and preparing your counter.</p>
-          <a href="{{ route('contact.us') }}" class="faq-guide-link">Read Guide &rarr;</a>
+          <a href="{{ route('features.pos-management') }}" class="faq-guide-link">Read Guide &rarr;</a>
         </div>
         <div class="faq-guide-card" data-aos="fade-up" data-aos-delay="50">
           <div class="faq-guide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg></div>
           <h3 class="faq-title">Printer & KOT Setup</h3>
           <p>Find guidance for supported printer configurations and kitchen workflows.</p>
-          <a href="{{ route('contact.us') }}" class="faq-guide-link">Read Guide &rarr;</a>
+          <a href="{{ route('features.kot-management') }}" class="faq-guide-link">Read Guide &rarr;</a>
         </div>
         <div class="faq-guide-card" data-aos="fade-up" data-aos-delay="100">
           <div class="faq-guide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
           <h3 class="faq-title">Tablet & Device Setup</h3>
           <p>Understand how to prepare compatible devices for restaurant operations.</p>
-          <a href="{{ route('contact.us') }}" class="faq-guide-link">Read Guide &rarr;</a>
+          <a href="{{ route('features.table-management') }}" class="faq-guide-link">Read Guide &rarr;</a>
         </div>
         <div class="faq-guide-card" data-aos="fade-up" data-aos-delay="150">
           <div class="faq-guide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg></div>
           <h3 class="faq-title">Network & Connectivity</h3>
           <p>Review basic connectivity checks for your restaurant's supported devices.</p>
-          <a href="{{ route('contact.us') }}" class="faq-guide-link">Read Guide &rarr;</a>
+          <a href="{{ route('contact.us') }}" class="faq-guide-link">Get Support &rarr;</a>
         </div>
       </div>
     </div>

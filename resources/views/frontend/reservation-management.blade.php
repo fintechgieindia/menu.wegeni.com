@@ -19,18 +19,18 @@
 :root {
   --br: #876039;
   --br-dark: #6f4e2d;
-  --br-light: #f4efe9;
+  --br-light: #FBF6EE;
   --br-gold: #b88e56;
   --bg: #ffffff;
-  --bg2: #f9f6f0;
-  --bg3: #f3ece1;
-  --ink: #241A14;
-  --mute: #6F665E;
-  --line: rgba(135, 96, 57, 0.14);
+  --bg2: #FAF7F2;
+  --bg3: #F5EFE6;
+  --ink: #21160F;
+  --mute: #6E6157;
+  --line: rgba(135, 96, 57, 0.16);
   --card: #ffffff;
-  --shadow-sm: 0 4px 20px rgba(36, 26, 20, 0.04);
-  --shadow-md: 0 16px 40px rgba(36, 26, 20, 0.08);
-  --shadow-lg: 0 26px 50px rgba(36, 26, 20, 0.12);
+  --shadow-sm: 0 4px 20px rgba(33, 22, 15, 0.04);
+  --shadow-md: 0 16px 40px rgba(33, 22, 15, 0.08);
+  --shadow-lg: 0 26px 50px rgba(33, 22, 15, 0.12);
   --green: #10B981;
   --blue: #3B82F6;
   --yellow: #F59E0B;
@@ -52,14 +52,14 @@ body {
 h1, h2, h3, h4, h5 {
   margin: 0;
   font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
-  font-weight: 800;
+  font-weight: 500;
   line-height: 1.14;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
   color: var(--ink);
 }
-h1 { font-size: clamp(38px, 5.5vw, 64px); font-weight: 800; }
-h2 { font-size: clamp(30px, 4vw, 46px); font-weight: 800; }
-h3 { font-size: 21px; font-weight: 700; color: var(--ink); }
+h1 { font-size: clamp(38px, 5.5vw, 64px); font-weight: 500; }
+h2 { font-size: clamp(30px, 4vw, 46px); font-weight: 500; }
+h3 { font-size: 21px; font-weight: 500; color: var(--ink); }
 p { margin: 0; color: var(--mute); font-size: 16px; line-height: 1.65; }
 a { color: inherit; text-decoration: none; }
 ul { list-style: none; margin: 0; padding: 0; }
@@ -67,8 +67,8 @@ ul { list-style: none; margin: 0; padding: 0; }
 .sf {
   font-family: 'Playfair Display', Georgia, serif;
   font-style: italic;
-  font-weight: 700;
-  background: linear-gradient(135deg, #876039 0%, #a87646 50%, #c89659 100%);
+  font-weight: 500;
+  background: linear-gradient(135deg, #876039 0%, #b88e56 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
@@ -81,7 +81,7 @@ ul { list-style: none; margin: 0; padding: 0; }
   gap: 6px;
   font-size: 12px;
   letter-spacing: .16em;
-  font-weight: 800;
+  font-weight: 500;
   text-transform: uppercase;
   color: var(--br);
   margin-bottom: 16px;
@@ -106,7 +106,7 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
 .btn.o:hover { background: var(--br); color: #fff; transform: translateY(-2px); }
 
 /* Breadcrumb */
-.bc { padding: 104px 0 16px; background: var(--bg2); border-bottom: 1px solid var(--line); font-size: 14px; color: var(--mute); font-weight: 600; }
+.bc { padding: 18px 0 16px; background: var(--bg2); border-bottom: 1px solid var(--line); font-size: 14px; color: var(--mute); font-weight: 600; }
 .bc .w { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .bc a { color: var(--mute); transition: color .2s; }
 .bc a:hover { color: var(--br); }
@@ -128,10 +128,10 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
 .wb i:nth-child(1) { background: #ff5f56; }
 .wb i:nth-child(2) { background: #ffbd2e; }
 .wb i:nth-child(3) { background: #27c93f; }
-.wb .ttl { color: var(--br); font-weight: 800; font-family: 'Outfit', sans-serif; letter-spacing: 0.05em; font-size: 13px; text-transform: uppercase; }
+.wb .ttl { color: var(--br); font-weight: 500; font-family: 'Outfit', sans-serif; letter-spacing: 0.05em; font-size: 13px; text-transform: uppercase; }
 
 /* Status Badges */
-.badge { font-size: 11px; font-weight: 800; padding: 4px 10px; border-radius: 8px; text-transform: uppercase; display: inline-block; }
+.badge { font-size: 11px; font-weight: 500; padding: 4px 10px; border-radius: 8px; text-transform: uppercase; display: inline-block; }
 .badge.confirmed { background: #d1fae5; color: #065f46; }
 .badge.pending { background: #fef3c7; color: #92400e; }
 .badge.cancelled { background: #fee2e2; color: #991b1b; }
@@ -141,7 +141,7 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
 .timeline { display: flex; justify-content: space-between; position: relative; margin: 40px 0; }
 .timeline::before { content: ""; position: absolute; top: 20px; left: 0; right: 0; height: 3px; background: var(--line); z-index: 0; }
 .t-step { position: relative; z-index: 1; text-align: center; background: #fff; padding: 0 10px; }
-.t-icon { width: 42px; height: 42px; border-radius: 50%; background: var(--bg2); border: 2px solid var(--br); color: var(--br); display: grid; place-items: center; margin: 0 auto 10px; font-weight: 800; font-size: 14px; transition: .3s; }
+.t-icon { width: 42px; height: 42px; border-radius: 50%; background: var(--bg2); border: 2px solid var(--br); color: var(--br); display: grid; place-items: center; margin: 0 auto 10px; font-weight: 500; font-size: 14px; transition: .3s; }
 .t-step.active .t-icon { background: var(--br); color: #fff; box-shadow: 0 4px 12px rgba(135,96,57,0.3); }
 .t-step h5 { font-size: 14px; font-weight: 700; color: var(--ink); margin: 0 0 2px; }
 .t-step p { font-size: 12px; color: var(--mute); }
@@ -179,7 +179,7 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
   .t-icon { margin: 0; }
 }
 @media (max-width: 768px) {
-  .bc { padding: 85px 0 14px; }
+  .bc { padding: 14px 0 14px; }
   .w { padding: 0 16px; }
   .ind-grid { grid-template-columns: 1fr; }
   .win { min-width: 0 !important; width: 100%; overflow-x: auto; }
@@ -242,12 +242,12 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
           <div style="display: grid; grid-template-columns: 1fr 140px; gap: 16px;">
             <!-- Today's Reservations List -->
             <div>
-              <div style="font-size: 10px; font-weight: 800; color: var(--mute); letter-spacing: 0.05em; margin-bottom: 8px;">TODAY'S RESERVATIONS</div>
+              <div style="font-size: 10px; font-weight: 500; color: var(--mute); letter-spacing: 0.05em; margin-bottom: 8px;">TODAY'S RESERVATIONS</div>
               
               <div style="display: flex; flex-direction: column; gap: 8px;">
                 <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; border: 1px solid var(--line); border-radius: 10px; background: #fff;">
                   <div>
-                    <div style="font-weight: 800; color: var(--ink);">Rahul Kumar <span style="font-weight: 600; color: var(--mute); font-size: 11px;">(4 Guests)</span></div>
+                    <div style="font-weight: 500; color: var(--ink);">Rahul Kumar <span style="font-weight: 600; color: var(--mute); font-size: 11px;">(4 Guests)</span></div>
                     <div style="font-size: 11px; color: var(--br); font-weight: 700;">10:30 AM • Table T12</div>
                   </div>
                   <span class="badge confirmed">Confirmed</span>
@@ -255,7 +255,7 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
 
                 <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; border: 1px solid var(--line); border-radius: 10px; background: #fff;">
                   <div>
-                    <div style="font-weight: 800; color: var(--ink);">Priya Sharma <span style="font-weight: 600; color: var(--mute); font-size: 11px;">(2 Guests)</span></div>
+                    <div style="font-weight: 500; color: var(--ink);">Priya Sharma <span style="font-weight: 600; color: var(--mute); font-size: 11px;">(2 Guests)</span></div>
                     <div style="font-size: 11px; color: var(--br); font-weight: 700;">12:00 PM • Table T08</div>
                   </div>
                   <span class="badge confirmed">Confirmed</span>
@@ -263,7 +263,7 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
 
                 <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; border: 1px solid var(--line); border-radius: 10px; background: #fff;">
                   <div>
-                    <div style="font-weight: 800; color: var(--ink);">Arun Kumar <span style="font-weight: 600; color: var(--mute); font-size: 11px;">(6 Guests)</span></div>
+                    <div style="font-weight: 500; color: var(--ink);">Arun Kumar <span style="font-weight: 600; color: var(--mute); font-size: 11px;">(6 Guests)</span></div>
                     <div style="font-size: 11px; color: var(--br); font-weight: 700;">1:30 PM • Table T15</div>
                   </div>
                   <span class="badge pending">Pending</span>
@@ -271,7 +271,7 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
 
                 <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; border: 1px solid var(--line); border-radius: 10px; background: #fff;">
                   <div>
-                    <div style="font-weight: 800; color: var(--ink);">Karthik <span style="font-weight: 600; color: var(--mute); font-size: 11px;">(2 Guests)</span></div>
+                    <div style="font-weight: 500; color: var(--ink);">Karthik <span style="font-weight: 600; color: var(--mute); font-size: 11px;">(2 Guests)</span></div>
                     <div style="font-size: 11px; color: var(--br); font-weight: 700;">7:30 PM • Table T04</div>
                   </div>
                   <span class="badge confirmed">Confirmed</span>
@@ -281,7 +281,7 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
 
             <!-- Table Status Side Panel -->
             <div style="background: var(--bg2); border-radius: 12px; padding: 12px; border: 1px solid var(--line); display: flex; flex-direction: column; gap: 10px;">
-              <div style="font-size: 10px; font-weight: 800; color: var(--mute); letter-spacing: 0.05em;">TABLE STATUS</div>
+              <div style="font-size: 10px; font-weight: 500; color: var(--mute); letter-spacing: 0.05em;">TABLE STATUS</div>
               <div style="display: flex; justify-content: space-between; font-size: 12px;"><span>Available</span> <b style="color: var(--green);">12</b></div>
               <div style="display: flex; justify-content: space-between; font-size: 12px;"><span>Reserved</span> <b style="color: var(--br);">8</b></div>
               <div style="display: flex; justify-content: space-between; font-size: 12px;"><span>Occupied</span> <b style="color: var(--blue);">14</b></div>
@@ -292,13 +292,13 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
 
         <!-- Floating Notification Card -->
         <div style="position: absolute; bottom: 20px; right: 20px; background: #fff; border: 2px solid var(--br); border-radius: 14px; padding: 12px 16px; box-shadow: var(--shadow-lg); font-size: 12px; display: flex; gap: 12px; align-items: center; z-index: 10;">
-          <div style="width: 36px; height: 36px; border-radius: 50%; background: var(--br-light); color: var(--br); display: grid; place-items: center; font-weight: 900;">🔔</div>
+          <div style="width: 36px; height: 36px; border-radius: 50%; background: var(--br-light); color: var(--br); display: grid; place-items: center; font-weight: 500;">🔔</div>
           <div>
-            <div style="font-size: 10px; font-weight: 800; color: var(--br); letter-spacing: 0.05em;">NEW RESERVATION</div>
-            <div style="font-weight: 800;">Rahul Kumar • 4 Guests</div>
+            <div style="font-size: 10px; font-weight: 500; color: var(--br); letter-spacing: 0.05em;">NEW RESERVATION</div>
+            <div style="font-weight: 500;">Rahul Kumar • 4 Guests</div>
             <div style="font-size: 11px; color: var(--mute);">7:30 PM • Table T12</div>
           </div>
-          <button style="background: var(--br); color: #fff; border: 0; padding: 6px 12px; border-radius: 8px; font-weight: 800; font-size: 11px; cursor: pointer;">Confirm →</button>
+          <button style="background: var(--br); color: #fff; border: 0; padding: 6px 12px; border-radius: 8px; font-weight: 500; font-size: 11px; cursor: pointer;">Confirm →</button>
         </div>
       </div>
     </div>
@@ -361,7 +361,7 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
       <!-- Without Geni Menu -->
       <div class="card" style="padding: 32px; background: #fff5f5; border-color: #fecdd3;">
         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
-          <div style="width: 36px; height: 36px; border-radius: 10px; background: #fee2e2; color: #dc2626; display: grid; place-items: center; font-weight: 800;">✕</div>
+          <div style="width: 36px; height: 36px; border-radius: 10px; background: #fee2e2; color: #dc2626; display: grid; place-items: center; font-weight: 500;">✕</div>
           <h3 style="color: #991b1b; font-size: 20px;">Without Geni Menu</h3>
         </div>
 
@@ -383,7 +383,7 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
       <!-- With Geni Menu -->
       <div class="card" style="padding: 32px; background: #fbf7f2; border-color: var(--br); box-shadow: var(--shadow-md);">
         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
-          <div style="width: 36px; height: 36px; border-radius: 10px; background: var(--br); color: #fff; display: grid; place-items: center; font-weight: 800;">✓</div>
+          <div style="width: 36px; height: 36px; border-radius: 10px; background: var(--br); color: #fff; display: grid; place-items: center; font-weight: 500;">✓</div>
           <h3 style="color: var(--br); font-size: 20px;">With Geni Menu</h3>
         </div>
 
@@ -448,7 +448,7 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
           </thead>
           <tbody>
             <tr style="border-bottom: 1px solid var(--line);">
-              <td style="padding: 14px; font-weight: 800; color: var(--ink);">Rahul Kumar</td>
+              <td style="padding: 14px; font-weight: 500; color: var(--ink);">Rahul Kumar</td>
               <td style="padding: 14px;">4 Guests</td>
               <td style="padding: 14px; font-weight: 700; color: var(--br);">7:30 PM</td>
               <td style="padding: 14px; font-weight: 700;">Table T12</td>
@@ -457,7 +457,7 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
             </tr>
 
             <tr style="border-bottom: 1px solid var(--line);">
-              <td style="padding: 14px; font-weight: 800; color: var(--ink);">Priya Sharma</td>
+              <td style="padding: 14px; font-weight: 500; color: var(--ink);">Priya Sharma</td>
               <td style="padding: 14px;">2 Guests</td>
               <td style="padding: 14px; font-weight: 700; color: var(--br);">8:00 PM</td>
               <td style="padding: 14px; font-weight: 700;">Table T08</td>
@@ -466,7 +466,7 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
             </tr>
 
             <tr style="border-bottom: 1px solid var(--line);">
-              <td style="padding: 14px; font-weight: 800; color: var(--ink);">Arun Kumar</td>
+              <td style="padding: 14px; font-weight: 500; color: var(--ink);">Arun Kumar</td>
               <td style="padding: 14px;">6 Guests</td>
               <td style="padding: 14px; font-weight: 700; color: var(--br);">8:30 PM</td>
               <td style="padding: 14px; font-weight: 700;">Table T15</td>
@@ -475,7 +475,7 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
             </tr>
 
             <tr>
-              <td style="padding: 14px; font-weight: 800; color: var(--ink);">Meena Family</td>
+              <td style="padding: 14px; font-weight: 500; color: var(--ink);">Meena Family</td>
               <td style="padding: 14px;">5 Guests</td>
               <td style="padding: 14px; font-weight: 700; color: var(--br);">9:00 PM</td>
               <td style="padding: 14px; font-weight: 700;">Table T18</td>
@@ -587,33 +587,33 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px;">
           
           <div style="padding: 16px; border: 2px solid var(--green); border-radius: 14px; background: #ecfdf5; text-align: center;">
-            <div style="font-weight: 900; font-size: 18px; color: var(--ink);">TABLE T01</div>
+            <div style="font-weight: 500; font-size: 18px; color: var(--ink);">TABLE T01</div>
             <div style="font-size: 12px; color: var(--mute);">2 Seats</div>
-            <div style="margin-top: 8px; font-weight: 800; font-size: 11px; color: #065f46; background: #d1fae5; padding: 3px 8px; border-radius: 6px; display: inline-block;">AVAILABLE</div>
+            <div style="margin-top: 8px; font-weight: 500; font-size: 11px; color: #065f46; background: #d1fae5; padding: 3px 8px; border-radius: 6px; display: inline-block;">AVAILABLE</div>
           </div>
 
           <div style="padding: 16px; border: 2px solid var(--br); border-radius: 14px; background: var(--bg2); text-align: center;">
-            <div style="font-weight: 900; font-size: 18px; color: var(--ink);">TABLE T02</div>
+            <div style="font-weight: 500; font-size: 18px; color: var(--ink);">TABLE T02</div>
             <div style="font-size: 12px; color: var(--mute);">4 Seats</div>
-            <div style="margin-top: 8px; font-weight: 800; font-size: 11px; color: #fff; background: var(--br); padding: 3px 8px; border-radius: 6px; display: inline-block;">RESERVED</div>
+            <div style="margin-top: 8px; font-weight: 500; font-size: 11px; color: #fff; background: var(--br); padding: 3px 8px; border-radius: 6px; display: inline-block;">RESERVED</div>
           </div>
 
           <div style="padding: 16px; border: 2px solid var(--green); border-radius: 14px; background: #ecfdf5; text-align: center;">
-            <div style="font-weight: 900; font-size: 18px; color: var(--ink);">TABLE T03</div>
+            <div style="font-weight: 500; font-size: 18px; color: var(--ink);">TABLE T03</div>
             <div style="font-size: 12px; color: var(--mute);">6 Seats</div>
-            <div style="margin-top: 8px; font-weight: 800; font-size: 11px; color: #065f46; background: #d1fae5; padding: 3px 8px; border-radius: 6px; display: inline-block;">AVAILABLE</div>
+            <div style="margin-top: 8px; font-weight: 500; font-size: 11px; color: #065f46; background: #d1fae5; padding: 3px 8px; border-radius: 6px; display: inline-block;">AVAILABLE</div>
           </div>
 
           <div style="padding: 16px; border: 2px solid var(--blue); border-radius: 14px; background: #eff6ff; text-align: center;">
-            <div style="font-weight: 900; font-size: 18px; color: var(--ink);">TABLE T04</div>
+            <div style="font-weight: 500; font-size: 18px; color: var(--ink);">TABLE T04</div>
             <div style="font-size: 12px; color: var(--mute);">2 Seats</div>
-            <div style="margin-top: 8px; font-weight: 800; font-size: 11px; color: #1e40af; background: #dbeafe; padding: 3px 8px; border-radius: 6px; display: inline-block;">OCCUPIED</div>
+            <div style="margin-top: 8px; font-weight: 500; font-size: 11px; color: #1e40af; background: #dbeafe; padding: 3px 8px; border-radius: 6px; display: inline-block;">OCCUPIED</div>
           </div>
 
           <div style="padding: 16px; border: 2px solid var(--yellow); border-radius: 14px; background: #fffbeb; text-align: center;">
-            <div style="font-weight: 900; font-size: 18px; color: var(--ink);">TABLE T05</div>
+            <div style="font-weight: 500; font-size: 18px; color: var(--ink);">TABLE T05</div>
             <div style="font-size: 12px; color: var(--mute);">4 Seats</div>
-            <div style="margin-top: 8px; font-weight: 800; font-size: 11px; color: #92400e; background: #fef3c7; padding: 3px 8px; border-radius: 6px; display: inline-block;">CLEANING</div>
+            <div style="margin-top: 8px; font-weight: 500; font-size: 11px; color: #92400e; background: #fef3c7; padding: 3px 8px; border-radius: 6px; display: inline-block;">CLEANING</div>
           </div>
 
         </div>
@@ -635,11 +635,11 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
 
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px;">
           <div class="card" style="padding: 20px; text-align: center; background: var(--bg2);">
-            <div style="font-size: 28px; font-weight: 900; color: var(--br);">18</div>
+            <div style="font-size: 28px; font-weight: 500; color: var(--br);">18</div>
             <div style="font-size: 13px; font-weight: 700; color: var(--ink);">Today's Reservations</div>
           </div>
           <div class="card" style="padding: 20px; text-align: center; background: var(--bg2);">
-            <div style="font-size: 28px; font-weight: 900; color: var(--br);">64</div>
+            <div style="font-size: 28px; font-weight: 500; color: var(--br);">64</div>
             <div style="font-size: 13px; font-weight: 700; color: var(--ink);">Guests Expected</div>
           </div>
         </div>
@@ -650,7 +650,7 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
         <div class="wb">
           <div class="dots"><i></i><i></i><i></i></div>
           <div class="ttl">SEPTEMBER 2026 SCHEDULE</div>
-          <div style="color: var(--br); font-weight: 800;">Date: 29</div>
+          <div style="color: var(--br); font-weight: 500;">Date: 29</div>
         </div>
         <div style="padding: 20px; background: #fff;">
           <div style="display: flex; flex-direction: column; gap: 8px;">
@@ -743,7 +743,7 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
         <div class="wb">
           <div class="dots"><i></i><i></i><i></i></div>
           <div class="ttl">GUEST PROFILE CARD</div>
-          <div style="background: #fef3c7; color: #92400e; padding: 2px 8px; border-radius: 6px; font-weight: 800;">4 Visits</div>
+          <div style="background: #fef3c7; color: #92400e; padding: 2px 8px; border-radius: 6px; font-weight: 500;">4 Visits</div>
         </div>
         <div style="padding: 24px; background: #fff;">
           <h3 style="font-size: 20px; margin-bottom: 4px;">RAHUL KUMAR</h3>
@@ -763,24 +763,24 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
         <div class="wb">
           <div class="dots"><i></i><i></i><i></i></div>
           <div class="ttl">UPDATE RESERVATION #GM1024</div>
-          <div style="color: var(--br); font-weight: 800;">ADAPT BOOKING</div>
+          <div style="color: var(--br); font-weight: 500;">ADAPT BOOKING</div>
         </div>
         <div style="padding: 24px; background: #fff; display: flex; flex-direction: column; gap: 12px;">
-          <div style="font-weight: 800; font-size: 16px;">Rahul Kumar</div>
+          <div style="font-weight: 500; font-size: 16px;">Rahul Kumar</div>
           
           <div style="display: flex; justify-content: space-between; padding: 8px 12px; background: var(--bg2); border-radius: 8px; font-size: 13px;">
             <span>Guests</span>
-            <span style="font-weight: 800; color: var(--br);">4 Guests → 6 Guests</span>
+            <span style="font-weight: 500; color: var(--br);">4 Guests → 6 Guests</span>
           </div>
 
           <div style="display: flex; justify-content: space-between; padding: 8px 12px; background: var(--bg2); border-radius: 8px; font-size: 13px;">
             <span>Time</span>
-            <span style="font-weight: 800; color: var(--br);">7:30 PM → 8:00 PM</span>
+            <span style="font-weight: 500; color: var(--br);">7:30 PM → 8:00 PM</span>
           </div>
 
           <div style="display: flex; justify-content: space-between; padding: 8px 12px; background: var(--bg2); border-radius: 8px; font-size: 13px;">
             <span>Table</span>
-            <span style="font-weight: 800; color: var(--br);">Table T12 → Table T18</span>
+            <span style="font-weight: 500; color: var(--br);">Table T12 → Table T18</span>
           </div>
 
           <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px;">
@@ -859,7 +859,7 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
   <div class="w">
     <div class="hd r">
       <h2>A Better Reservation Experience <span class="sf">Starts Before Arrival.</span></h2>
-      <p style="font-size: 20px; font-weight: 800; color: var(--br); margin-top: 12px;">Less Waiting. Better Preparation. Smoother Service.</p>
+      <p style="font-size: 20px; font-weight: 500; color: var(--br); margin-top: 12px;">Less Waiting. Better Preparation. Smoother Service.</p>
     </div>
 
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px;" class="r">
@@ -970,7 +970,7 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
 
     <!-- ECOSYSTEM FLOW -->
     <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 60px;" class="r">
-      <div style="padding: 14px 20px; background: var(--br); color: #fff; font-weight: 800; border-radius: 12px; box-shadow: var(--shadow-sm);">RESERVATIONS</div>
+      <div style="padding: 14px 20px; background: var(--br); color: #fff; font-weight: 500; border-radius: 12px; box-shadow: var(--shadow-sm);">RESERVATIONS</div>
       <div style="align-self: center; color: var(--br); font-size: 20px;">→</div>
       <div style="padding: 14px 20px; background: #fff; border: 1px solid var(--line); font-weight: 700; border-radius: 12px;">TABLES</div>
       <div style="align-self: center; color: var(--br); font-size: 20px;">→</div>
