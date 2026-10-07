@@ -38,6 +38,13 @@
     flex-shrink: 0;
   }
 
+  .geni-pos-nav .brand-logo-img {
+    height: 44px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+  }
+
   .geni-pos-nav .brand-icon-box {
     width: 36px;
     height: 36px;
@@ -658,8 +665,8 @@
 
     <!-- Brand Logo: Geni Menu -->
     <a href="{{ url('/') }}" class="nav-brand" title="Geni Menu">
-      <img src="https://menu.wegeni.com/user-uploads/logo/22afe8e48716500b5a2730bca0ede64a.png"
-           onerror="this.onerror=null;this.src='{{ asset('assets/images/geni-menu-logo-light.png') }}';"
+      <img src="{{ asset('assets/images/geni-menu-logo-light.png') }}"
+           onerror="this.onerror=null;this.src='{{ asset('assets/images/geni-menu-logo.png') }}';"
            alt="Geni Menu" class="brand-logo-img" style="height: 44px; width: auto; object-fit: contain;">
     </a>
 
