@@ -1,985 +1,1935 @@
+@php
+$meta = [
+    'title'       => 'Order Management Software for Restaurants | Geni Menu',
+    'description' => 'Manage dine-in, takeaway, counter and online delivery orders on one live Kanban board. Prevent missed orders, track prep timers, and unify every channel with Geni Menu.',
+    'keywords'    => 'restaurant order management, unified order board, dine-in takeaway delivery orders, KOT management, Swiggy Zomato aggregator, order tracking software India',
+];
+@endphp
+
 @extends('layouts.frontend-master')
 
 @section('content')
 
-{{-- Google Fonts --}}
+{{-- ═══════════════════════════════════════════════════════════════
+     GOOGLE FONTS + AOS
+═══════════════════════════════════════════════════════════════ --}}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,600;1,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@1,400;1,700&family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
 
 <style>
-/* Hide legacy default header/footer if present in master layout */
-/* Master header and footer active */
-
+/* ─── CSS VARIABLES ───────────────────────────────────────────── */
 :root {
-  --br: #876039;
-  --br-dark: #6f4e2d;
-  --br-light: #f4efe9;
-  --br-gold: #b88e56;
-  --bg: #ffffff;
-  --bg2: #f9f6f0;
-  --bg3: #f3ece1;
-  --ink: #241A14;
-  --mute: #6F665E;
-  --line: rgba(135, 96, 57, 0.14);
-  --card: #ffffff;
-  --shadow-sm: 0 4px 20px rgba(36, 26, 20, 0.04);
-  --shadow-md: 0 16px 40px rgba(36, 26, 20, 0.08);
-  --shadow-lg: 0 26px 50px rgba(36, 26, 20, 0.12);
-  --green: #10B981;
-  --blue: #3B82F6;
-  --amber: #F59E0B;
-  --red: #EF4444;
+    --bg-page:       #FAF6EF;
+    --bg-card:       #FFFFFF;
+    --bg-surface:    #F5EFEB;
+    --ink:           #21160F;
+    --ink-soft:      #63584E;
+    --ink-faint:     #8E8277;
+    --coffee:        #876039;
+    --coffee-dark:   #6F4E2D;
+    --coffee-light:  #F4EFEA;
+    --coffee-border: rgba(135,96,57,0.16);
+    --green:         #15803D;
+    --green-bg:      #DCFCE7;
+    --amber:         #B45309;
+    --amber-bg:      #FEF3C7;
+    --red:           #DC2626;
+    --red-bg:        #FEE2E2;
+    --line:          rgba(135,96,57,0.12);
 }
 
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+/* ─── BASE ────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
 body {
-  margin: 0;
-  font: 400 16px/1.65 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  color: var(--ink);
-  background: var(--bg) !important;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
+    background: var(--bg-page);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: var(--ink-soft);
+    line-height: 1.65;
 }
 
 h1, h2, h3, h4, h5 {
-  margin: 0;
-  font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
-  font-weight: 500;
-  line-height: 1.14;
-  letter-spacing: -0.03em;
-  color: var(--ink);
-}
-h1 { font-size: clamp(34px, 4.8vw, 58px); }
-h2 { font-size: clamp(28px, 3.6vw, 44px); }
-h3 { font-size: 20px; font-weight: 700; }
-p { margin: 0; color: var(--mute); font-size: 16px; line-height: 1.65; }
-a { color: inherit; text-decoration: none; }
-ul { list-style: none; margin: 0; padding: 0; }
-
-.sf {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-style: italic;
-  font-weight: 700;
-  background: linear-gradient(135deg, #876039 0%, #a87646 50%, #c89659 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: inline-block;
-  padding-right: 4px;
+    font-family: 'Outfit', sans-serif;
+    color: var(--ink);
+    line-height: 1.2;
+    letter-spacing: -0.025em;
 }
 
-.eb {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 12px;
-  letter-spacing: .16em;
-  font-weight: 500;
-  text-transform: uppercase;
-  color: var(--br);
-  margin-bottom: 16px;
-  background: linear-gradient(135deg, #fbf7f2 0%, #f4efe9 100%);
-  padding: 7px 18px;
-  border-radius: 99px;
-  border: 1px solid rgba(135, 96, 57, 0.22);
-  box-shadow: 0 2px 10px rgba(135, 96, 57, 0.08);
-  font-family: 'Plus Jakarta Sans', sans-serif;
+.italic-serif {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    color: var(--coffee);
 }
 
-.w { max-width: 1240px; margin: auto; padding: 0 24px; position: relative; z-index: 1; }
-section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: relative; overflow: hidden; }
-.hd { max-width: 740px; margin: 0 auto 52px; text-align: center; }
-.hd p { margin-top: 14px; font-size: 17px; }
-
-/* ===================== BUTTONS ===================== */
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 28px; border-radius: 12px; font: 700 15px 'Plus Jakarta Sans', sans-serif; border: 1.5px solid var(--br); transition: .25s ease; cursor: pointer; text-decoration: none; }
-.btn.p { background: linear-gradient(135deg, #876039 0%, #a87646 100%); color: #fff; box-shadow: 0 4px 16px rgba(135,96,57,0.28); }
-.btn.p:hover { transform: translateY(-2px); background: linear-gradient(135deg, #6f4e2d 0%, #876039 100%); box-shadow: 0 8px 24px rgba(135,96,57,0.38); }
-.btn.o { color: var(--br); background: #fff; }
-.btn.o:hover { background: var(--br); color: #fff; transform: translateY(-2px); }
-
-/* ===================== BREADCRUMB ===================== */
-.bc { padding: 18px 0 16px; background: var(--bg2); border-bottom: 1px solid var(--line); font-size: 14px; color: var(--mute); font-weight: 600; }
-.bc .w { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-.bc a { color: var(--mute); transition: color .2s; }
-.bc a:hover { color: var(--br); }
-.bc span.cur { color: var(--br); font-weight: 700; }
-
-/* ===================== CARDS & KANBAN COMPONENTS ===================== */
-.card { position: relative; overflow: hidden; background: var(--card); border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow-sm); transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease; }
-.card:hover { border-color: rgba(135,96,57,0.3); box-shadow: var(--shadow-md); }
-
-.ic { width: 46px; height: 46px; border-radius: 13px; background: var(--bg2); color: var(--br); display: grid; place-items: center; flex: none; border: 1px solid var(--line); transition: .3s ease; }
-.ic svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-.card:hover .ic { background: var(--br); color: #fff; border-color: var(--br); }
-
-.win { background: #fff; color: var(--ink); border: 1px solid var(--line); border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-md); font-size: 13px; }
-.wb { display: flex; align-items: center; justify-content: space-between; padding: 12px 18px; background: var(--bg2); border-bottom: 1px solid var(--line); flex-wrap: wrap; gap: 8px; }
-.wb .dots { display: flex; gap: 6px; }
-.wb i { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
-.wb i:nth-child(1) { background: #ff5f56; }
-.wb i:nth-child(2) { background: #ffbd2e; }
-.wb i:nth-child(3) { background: #27c93f; }
-.wb .ttl { color: var(--br); font-weight: 500; font-family: 'Outfit', sans-serif; letter-spacing: 0.05em; font-size: 12px; text-transform: uppercase; }
-
-.badge { font-size: 11px; font-weight: 500; padding: 4px 10px; border-radius: 8px; text-transform: uppercase; display: inline-block; letter-spacing: .04em; }
-.badge.new { background: #fef3c7; color: #92400e; }
-.badge.preparing { background: #dbeafe; color: #1e40af; }
-.badge.ready { background: #d1fae5; color: #065f46; }
-.badge.completed { background: #f3e8ff; color: #6b21a8; }
-.badge.dinein { background: var(--br-light); color: var(--br); }
-.badge.takeaway { background: #ffedd5; color: #c2410c; }
-.badge.delivery { background: #e0f2fe; color: #0369a1; }
-.badge.pickup { background: #fce7f3; color: #9d174d; }
-
-/* Kanban Board Layout */
-.kb-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-.kb-col { background: var(--bg2); border: 1px solid var(--line); border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 12px; }
-.kb-head { display: flex; justify-content: space-between; align-items: center; font-family: 'Outfit', sans-serif; font-weight: 500; font-size: 13px; text-transform: uppercase; letter-spacing: .05em; padding-bottom: 8px; border-bottom: 1px solid var(--line); color: var(--ink); }
-.kb-card { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 14px; box-shadow: var(--shadow-sm); transition: transform .2s, box-shadow .2s; }
-.kb-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); border-color: rgba(135,96,57,0.3); }
-
-/* Industry Grid */
-.ind-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.ind-card { border-radius: 18px; overflow: hidden; background: #fff; border: 1px solid var(--line); transition: transform .3s, box-shadow .3s; }
-.ind-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: rgba(135,96,57,0.3); }
-.ind-img { height: 180px; background-size: cover; background-position: center; position: relative; }
-.ind-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 30%, rgba(36,26,20,0.88) 100%); }
-.ind-icon { position: absolute; bottom: 14px; left: 16px; width: 36px; height: 36px; border-radius: 10px; background: rgba(255,255,255,0.18); backdrop-filter: blur(8px); display: grid; place-items: center; color: #fff; border: 1px solid rgba(255,255,255,0.25); }
-.ind-icon svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; }
-.ind-content { padding: 20px; }
-.ind-content h4 { font-size: 18px; margin-bottom: 6px; }
-.ind-content p { font-size: 14px; }
-
-/* FAQ */
-.faq-list { max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
-.faq-item { background: #fff; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; transition: border-color .2s, box-shadow .2s; }
-.faq-item.open { border-color: var(--br); box-shadow: 0 4px 20px rgba(135,96,57,0.1); }
-.faq-q { padding: 20px 24px; font-size: 17px; font-weight: 700; color: var(--ink); cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; gap: 12px; }
-.faq-q svg { width: 20px; height: 20px; transition: transform .3s; stroke: var(--br); flex: none; }
-.faq-item.open .faq-q svg { transform: rotate(180deg); }
-.faq-a { padding: 0 24px; max-height: 0; overflow: hidden; transition: max-height .4s ease, padding .3s; font-size: 15px; color: var(--mute); line-height: 1.65; }
-.faq-item.open .faq-a { max-height: 240px; padding: 16px 24px 20px; border-top: 1px solid rgba(135,96,57,0.08); }
-
-/* Bar Chart */
-.bar-chart { display: flex; flex-direction: column; gap: 14px; }
-.bar-row { display: flex; align-items: center; gap: 14px; font-size: 13px; font-weight: 700; }
-.bar-label { width: 70px; color: var(--mute); font-size: 12px; text-align: right; flex: none; }
-.bar-track { flex: 1; height: 12px; background: #e2d5c0; border-radius: 6px; overflow: hidden; }
-.bar-fill { height: 100%; background: linear-gradient(90deg, #876039 0%, #a87646 100%); border-radius: 6px; transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1); width: 0; }
-.bar-count { width: 80px; font-size: 12px; color: var(--ink); font-weight: 700; flex: none; }
-
-/* Responsive Grid helpers */
-.g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
-.g3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.g4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-
-@media (max-width: 992px) {
-  .g2, .g3, .g4, .ind-grid, .kb-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+.container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 24px;
 }
-@media (max-width: 768px) {
-  .bc { padding: 14px 0 14px; }
-  .w { padding: 0 16px; }
-  .win { min-width: 0 !important; width: 100%; overflow-x: auto; }
+
+/* ─── BREADCRUMB ──────────────────────────────────────────────── */
+.breadcrumb {
+    padding: 18px 0 0;
+    font-size: 13px;
+    color: var(--ink-faint);
 }
-@media (max-width: 480px) {
-  .btn { width: 100%; }
+.breadcrumb a {
+    color: var(--coffee);
+    text-decoration: none;
+    font-weight: 600;
+}
+.breadcrumb a:hover { text-decoration: underline; }
+.breadcrumb span { margin: 0 6px; }
+
+/* ─── EYEBROW ─────────────────────────────────────────────────── */
+.sec-eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: var(--coffee);
+    background: var(--coffee-light);
+    border: 1px solid var(--coffee-border);
+    padding: 6px 16px;
+    border-radius: 9999px;
+    margin-bottom: 18px;
+}
+
+/* ─── BUTTONS ─────────────────────────────────────────────────── */
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--coffee);
+    color: #fff;
+    border: none;
+    border-radius: 9999px;
+    padding: 13px 30px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    box-shadow: 0 4px 18px rgba(135,96,57,0.28);
+}
+.btn-primary:hover {
+    background: var(--coffee-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(135,96,57,0.32);
+}
+
+.btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff;
+    color: var(--coffee);
+    border: 1px solid rgba(135,96,57,0.22);
+    border-radius: 9999px;
+    padding: 12px 28px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s, transform 0.15s;
+}
+.btn-outline:hover {
+    background: var(--coffee-light);
+    border-color: var(--coffee);
+    transform: translateY(-1px);
+}
+
+/* ─── HERO ────────────────────────────────────────────────────── */
+.hero {
+    padding: 60px 0 80px;
+    background: var(--bg-page);
+    overflow: hidden;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -120px; right: -200px;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(135,96,57,0.07) 0%, transparent 65%);
+    pointer-events: none;
+}
+
+.hero-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.hero-copy h1 {
+    font-size: clamp(38px, 5vw, 58px);
+    font-weight: 800;
+    margin-bottom: 20px;
+    letter-spacing: -0.03em;
+}
+
+.hero-copy p {
+    font-size: 18px;
+    color: var(--ink-soft);
+    max-width: 500px;
+    margin-bottom: 32px;
+    line-height: 1.7;
+}
+
+.hero-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 36px;
+}
+
+.hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 9999px;
+    padding: 6px 14px;
+}
+.hero-badge .badge-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--green);
+}
+
+/* ─── DEVICE WINDOW ───────────────────────────────────────────── */
+.device-window {
+    background: #fff;
+    border-radius: 20px;
+    border: 1px solid var(--line);
+    box-shadow: 0 24px 60px rgba(33,22,15,0.10);
+    overflow: hidden;
+}
+
+.window-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 18px;
+    background: #F9F5F0;
+    border-bottom: 1px solid var(--line);
+}
+
+.win-dots {
+    display: flex;
+    gap: 6px;
+}
+.win-dot {
+    width: 11px; height: 11px;
+    border-radius: 50%;
+}
+.win-dot.r { background: #FC5F57; }
+.win-dot.y { background: #FDBC2C; }
+.win-dot.g { background: #34C749; }
+
+.win-url {
+    flex: 1;
+    background: #EDEAE6;
+    border-radius: 6px;
+    font-size: 11.5px;
+    color: var(--ink-faint);
+    padding: 4px 12px;
+    font-family: monospace;
+}
+
+.win-status {
+    font-size: 11px;
+    font-weight: 700;
+    background: var(--green-bg);
+    color: var(--green);
+    border-radius: 9999px;
+    padding: 3px 10px;
+}
+
+/* ─── KANBAN BOARD ────────────────────────────────────────────── */
+.kanban-board {
+    padding: 16px;
+    background: #F9F4EE;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+}
+
+.kanban-header-bar {
+    padding: 10px 16px;
+    background: #fff;
+    border-radius: 12px 12px 0 0;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0;
+}
+
+.kanban-col {
+    border-radius: 14px;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid var(--line);
+}
+
+.kanban-col-head {
+    padding: 10px 14px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.col-incoming .kanban-col-head { background: var(--amber-bg); color: var(--amber); border-bottom: 2px solid #FDE68A; }
+.col-preparing .kanban-col-head { background: var(--coffee-light); color: var(--coffee-dark); border-bottom: 2px solid var(--coffee-border); }
+.col-ready .kanban-col-head { background: var(--green-bg); color: var(--green); border-bottom: 2px solid #86EFAC; }
+
+.col-badge {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 9999px;
+}
+.col-incoming .col-badge { background: #FDE68A; color: var(--amber); }
+.col-preparing .col-badge { background: var(--coffee-light); color: var(--coffee); border: 1px solid var(--coffee-border); }
+.col-ready .col-badge { background: #86EFAC; color: var(--green); }
+
+.kanban-cards {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.k-card {
+    background: #FDFBF8;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 10px 12px;
+    font-size: 11.5px;
+    position: relative;
+}
+
+.k-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.k-order-id {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    color: var(--ink);
+}
+
+.k-type-badge {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+.type-dinein { background: #EDE9FE; color: #6D28D9; }
+.type-takeaway { background: #DBEAFE; color: #1D4ED8; }
+.type-delivery { background: #FFE4E6; color: #BE123C; }
+.type-counter { background: #F3F4F6; color: #374151; }
+
+.k-items {
+    color: var(--ink-soft);
+    font-size: 11px;
+    margin-bottom: 6px;
+    line-height: 1.5;
+}
+
+.k-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.k-price {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    color: var(--ink);
+}
+
+.k-time {
+    font-size: 10.5px;
+    color: var(--ink-faint);
+}
+
+.k-timer {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 6px;
+}
+.timer-ok { background: var(--green-bg); color: var(--green); }
+.timer-warn { background: var(--amber-bg); color: var(--amber); }
+
+.k-status-pill {
+    font-size: 10.5px;
+    font-weight: 700;
+    padding: 3px 9px;
+    border-radius: 9999px;
+}
+.status-called { background: var(--green-bg); color: var(--green); }
+.status-counter { background: #E0F2FE; color: #0369A1; }
+
+.kanban-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 16px;
+    background: #fff;
+    border-top: 1px solid var(--line);
+    font-size: 11.5px;
+    color: var(--ink-soft);
+}
+
+.summary-stat {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 600;
+}
+.summary-stat .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); }
+.summary-stat .rev { color: var(--coffee); font-family: 'Outfit', sans-serif; font-weight: 700; }
+
+/* ─── VALUE STRIP ─────────────────────────────────────────────── */
+.value-strip {
+    padding: 32px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background: #fff;
+}
+
+.value-strip-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+}
+
+.value-item {
+    padding: 20px 28px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    border-right: 1px solid var(--line);
+}
+.value-item:last-child { border-right: none; }
+
+.value-icon {
+    width: 42px; height: 42px;
+    border-radius: 12px;
+    background: var(--coffee-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.value-text h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 3px;
+}
+.value-text p {
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    line-height: 1.45;
+}
+
+/* ─── SECTION SHARED ──────────────────────────────────────────── */
+.section { padding: 100px 0; }
+.section-alt {
+    padding: 100px 0;
+    background: var(--bg-surface);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+
+.section-header {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto 60px;
+}
+.section-header h2 {
+    font-size: clamp(30px, 4vw, 44px);
+    font-weight: 800;
+    margin-bottom: 16px;
+}
+.section-header p {
+    font-size: 17px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+}
+
+/* ─── DEEP FEATURE SHOWCASE ───────────────────────────────────── */
+.showcase-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 520px;
+    gap: 64px;
+    align-items: center;
+}
+
+.showcase-copy h2 {
+    font-size: clamp(28px, 3.5vw, 40px);
+    font-weight: 800;
+    margin-bottom: 18px;
+}
+
+.showcase-copy p {
+    font-size: 16.5px;
+    color: var(--ink-soft);
+    margin-bottom: 28px;
+    line-height: 1.7;
+}
+
+.showcase-points {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.showcase-point {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.sp-icon {
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    background: var(--coffee-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+    border: 1px solid var(--coffee-border);
+}
+
+.sp-text h4 {
+    font-size: 14.5px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 2px;
+}
+.sp-text p {
+    font-size: 13.5px;
+    color: var(--ink-faint);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Large Kanban for showcase */
+.showcase-kanban {
+    background: #fff;
+    border-radius: 20px;
+    border: 1px solid var(--line);
+    box-shadow: 0 24px 60px rgba(33,22,15,0.10);
+    overflow: hidden;
+}
+
+.sk-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 18px;
+    background: #F9F5F0;
+    border-bottom: 1px solid var(--line);
+}
+
+.sk-topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sk-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--ink);
+}
+
+.sk-live-dot {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--green);
+}
+.sk-live-dot::before {
+    content: '';
+    display: block;
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--green);
+    animation: pulse 1.4s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.3); }
+}
+
+.sk-stats {
+    display: flex;
+    gap: 14px;
+}
+.sk-stat {
+    font-size: 11px;
+    color: var(--ink-faint);
+    font-weight: 600;
+}
+.sk-stat strong {
+    color: var(--ink);
+    font-family: 'Outfit', sans-serif;
+}
+
+.sk-board {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
+}
+
+.sk-col {
+    padding: 0;
+    border-right: 1px solid var(--line);
+}
+.sk-col:last-child { border-right: none; }
+
+.sk-col-head {
+    padding: 10px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sk-incoming .sk-col-head { background: var(--amber-bg); color: var(--amber); border-bottom: 2px solid #FDE68A; }
+.sk-preparing .sk-col-head { background: var(--coffee-light); color: var(--coffee-dark); border-bottom: 2px solid var(--coffee-border); }
+.sk-ready .sk-col-head { background: var(--green-bg); color: var(--green); border-bottom: 2px solid #86EFAC; }
+
+.sk-count {
+    font-size: 11px;
+    font-weight: 800;
+    padding: 2px 8px;
+    border-radius: 9999px;
+}
+.sk-incoming .sk-count { background: #FDE68A; }
+.sk-preparing .sk-count { background: rgba(135,96,57,0.15); }
+.sk-ready .sk-count { background: #86EFAC; }
+
+.sk-cards {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-height: 240px;
+}
+
+.sk-card {
+    background: #FEFCFA;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 10px 12px;
+    font-size: 11px;
+}
+
+.sk-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.sk-order-num {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    color: var(--ink);
+}
+
+.sk-items {
+    color: var(--ink-soft);
+    font-size: 11px;
+    line-height: 1.45;
+    margin-bottom: 7px;
+}
+
+.sk-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sk-price {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    color: var(--ink);
+}
+
+.sk-bot {
+    padding: 10px 14px;
+    background: #F9F5F0;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--ink-faint);
+    font-weight: 600;
+}
+
+/* ─── HOW IT WORKS ────────────────────────────────────────────── */
+.how-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+    position: relative;
+}
+
+.how-steps::before {
+    content: '';
+    position: absolute;
+    top: 28px;
+    left: calc(12.5% + 16px);
+    right: calc(12.5% + 16px);
+    height: 2px;
+    background: linear-gradient(90deg, var(--coffee-border), var(--coffee), var(--coffee-border));
+    z-index: 0;
+}
+
+.how-step {
+    background: #fff;
+    border-radius: 20px;
+    border: 1px solid var(--line);
+    padding: 28px 22px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+.how-step:hover {
+    box-shadow: 0 16px 40px rgba(33,22,15,0.09);
+    transform: translateY(-4px);
+}
+
+.how-step-num {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    background: var(--coffee);
+    color: #fff;
+    font-family: 'Outfit', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 18px;
+    box-shadow: 0 6px 20px rgba(135,96,57,0.30);
+}
+
+.how-step h4 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+.how-step p {
+    font-size: 13.5px;
+    color: var(--ink-faint);
+    line-height: 1.6;
+}
+
+.how-step-icon {
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+/* ─── FEATURE GRID ────────────────────────────────────────────── */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.feature-card {
+    background: #fff;
+    border-radius: 20px;
+    border: 1px solid var(--line);
+    padding: 30px 26px;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+.feature-card:hover {
+    box-shadow: 0 16px 40px rgba(33,22,15,0.09);
+    transform: translateY(-4px);
+}
+
+.fc-icon {
+    width: 52px; height: 52px;
+    border-radius: 14px;
+    background: var(--coffee-light);
+    border: 1px solid var(--coffee-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    margin-bottom: 18px;
+}
+
+.feature-card h3 {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+.feature-card p {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.65;
+}
+
+/* ─── METRICS STRIP ───────────────────────────────────────────── */
+.metrics-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+}
+
+.metric-item {
+    padding: 40px 32px;
+    text-align: center;
+    border-right: 1px solid rgba(255,255,255,0.12);
+    position: relative;
+}
+.metric-item:last-child { border-right: none; }
+
+.metric-value {
+    font-family: 'Outfit', sans-serif;
+    font-size: 44px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.metric-label {
+    font-size: 14px;
+    color: rgba(255,255,255,0.72);
+    line-height: 1.45;
+}
+
+.metrics-section {
+    background: linear-gradient(135deg, #3D1F07 0%, #6F4E2D 50%, #876039 100%);
+    padding: 0;
+    border-radius: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.metrics-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.metrics-header {
+    text-align: center;
+    padding: 60px 0 20px;
+    position: relative;
+}
+.metrics-header h2 {
+    font-size: 34px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 10px;
+}
+.metrics-header p {
+    color: rgba(255,255,255,0.70);
+    font-size: 15px;
+}
+
+/* ─── COMPARE ─────────────────────────────────────────────────── */
+.compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.compare-col {
+    border-radius: 22px;
+    padding: 32px;
+    border: 1px solid var(--line);
+}
+
+.compare-col.old {
+    background: #FFF8F8;
+    border-color: rgba(220,38,38,0.15);
+}
+.compare-col.new {
+    background: #F0FDF4;
+    border-color: rgba(21,128,61,0.18);
+}
+
+.compare-col-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.compare-icon {
+    width: 42px; height: 42px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+.old .compare-icon { background: #FEE2E2; }
+.new .compare-icon { background: var(--green-bg); }
+
+.compare-col-head h3 {
+    font-size: 16px;
+    font-weight: 700;
+}
+.old .compare-col-head h3 { color: var(--red); }
+.new .compare-col-head h3 { color: var(--green); }
+
+.compare-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.compare-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+}
+
+.compare-list li::before {
+    content: attr(data-icon);
+    font-size: 15px;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+/* ─── FAQ ─────────────────────────────────────────────────────── */
+.faq-list {
+    max-width: 760px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.faq-item {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.faq-q {
+    width: 100%;
+    text-align: left;
+    padding: 20px 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 15.5px;
+    font-weight: 700;
+    color: var(--ink);
+    transition: background 0.15s;
+}
+.faq-q:hover { background: var(--coffee-light); }
+
+.faq-chevron {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: var(--coffee-light);
+    border: 1px solid var(--coffee-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.25s, background 0.2s;
+    color: var(--coffee);
+    font-size: 14px;
+}
+
+.faq-item.open .faq-chevron {
+    transform: rotate(180deg);
+    background: var(--coffee);
+    color: #fff;
+    border-color: var(--coffee);
+}
+
+.faq-a {
+    display: none;
+    padding: 0 24px 20px;
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    border-top: 1px solid var(--line);
+    padding-top: 16px;
+}
+.faq-item.open .faq-a { display: block; }
+
+/* ─── CTA SECTION ─────────────────────────────────────────────── */
+.cta-section {
+    background: linear-gradient(135deg, #21160F 0%, #3D2410 60%, #5A3520 100%);
+    padding: 100px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: -100px; left: 50%;
+    transform: translateX(-50%);
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(135,96,57,0.25) 0%, transparent 65%);
+    pointer-events: none;
+}
+
+.cta-inner { position: relative; z-index: 1; }
+
+.cta-section h2 {
+    font-size: clamp(30px, 4.5vw, 50px);
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 18px;
+    letter-spacing: -0.03em;
+}
+
+.cta-section p {
+    font-size: 18px;
+    color: rgba(255,255,255,0.70);
+    margin-bottom: 36px;
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+}
+
+.cta-btns {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 36px;
+}
+
+.btn-white {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff;
+    color: var(--coffee-dark);
+    border: none;
+    border-radius: 9999px;
+    padding: 13px 30px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.20);
+}
+.btn-white:hover { background: var(--coffee-light); transform: translateY(-1px); }
+
+.btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: rgba(255,255,255,0.85);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 9999px;
+    padding: 12px 28px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s;
+}
+.btn-ghost:hover { border-color: rgba(255,255,255,0.55); background: rgba(255,255,255,0.06); }
+
+.cta-trust {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.cta-trust-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.60);
+    font-weight: 500;
+}
+.cta-trust-item svg { opacity: 0.7; }
+
+/* ─── CROSS LINKS ─────────────────────────────────────────────── */
+.cross-links { padding: 60px 0; }
+.cross-links-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+.cross-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 24px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+}
+.cross-card:hover {
+    box-shadow: 0 12px 32px rgba(33,22,15,0.08);
+    transform: translateY(-3px);
+    border-color: var(--coffee-border);
+}
+.cross-icon {
+    width: 46px; height: 46px;
+    border-radius: 12px;
+    background: var(--coffee-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+.cross-text h4 {
+    font-size: 14.5px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 3px;
+}
+.cross-text p {
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    line-height: 1.4;
+}
+
+/* ─── RESPONSIVE ──────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+    .hero-copy { text-align: center; }
+    .hero-copy p { max-width: 100%; margin-left: auto; margin-right: auto; }
+    .hero-ctas { justify-content: center; }
+    .hero-badges { justify-content: center; }
+    .showcase-wrapper { grid-template-columns: 1fr; gap: 40px; }
+    .value-strip-grid { grid-template-columns: repeat(2, 1fr); }
+    .value-item:nth-child(2) { border-right: none; }
+    .value-item:nth-child(3) { border-top: 1px solid var(--line); }
+    .how-steps { grid-template-columns: repeat(2, 1fr); }
+    .how-steps::before { display: none; }
+    .feature-grid { grid-template-columns: repeat(2, 1fr); }
+    .metrics-strip { grid-template-columns: repeat(2, 1fr); }
+    .metric-item:nth-child(2) { border-right: none; }
+    .kanban-board { grid-template-columns: 1fr; gap: 10px; }
+    .sk-board { grid-template-columns: 1fr; }
+    .cross-links-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+    .feature-grid { grid-template-columns: 1fr; }
+    .compare-grid { grid-template-columns: 1fr; }
+    .how-steps { grid-template-columns: 1fr; }
+    .value-strip-grid { grid-template-columns: 1fr; }
+    .value-item { border-right: none; border-bottom: 1px solid var(--line); }
+    .value-item:last-child { border-bottom: none; }
+    .metrics-strip { grid-template-columns: repeat(2, 1fr); }
+    .metric-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.10); }
 }
 </style>
 
-
-
-<!-- ================= BREADCRUMB ================= -->
-<div class="bc">
-  <div class="w">
-    <a href="{{ route('home') }}">Home</a>
-    <span>/</span>
-    <a href="{{ route('features') }}">Features</a>
-    <span>/</span>
-    <span class="cur">Order Management</span>
-  </div>
+{{-- ───────────────────────────────────────────────────────────────
+     BREADCRUMB
+─────────────────────────────────────────────────────────────── --}}
+<div class="container">
+    <div class="breadcrumb">
+        <a href="{{ route('features') }}">← All Features</a>
+        <span>/</span>
+        <span>Order Management</span>
+    </div>
 </div>
 
-<!-- ================= HERO SECTION ================= -->
-<section style="padding: 60px 0 80px; background: linear-gradient(180deg, #f9f6f0 0%, #ffffff 100%);">
-  <div class="w">
-    <div style="text-align: center; max-width: 820px; margin: 0 auto 48px;">
-      <div class="eb">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg>
-        ORDER MANAGEMENT
-      </div>
-      <h1 style="margin-bottom: 20px;">
-        Every Order. <br><span class="sf">Clear From Start to Finish.</span>
-      </h1>
-      <p style="font-size: 19px; max-width: 720px; margin: 0 auto 32px; color: var(--mute);">
-        Manage dine-in, takeaway, pickup and delivery orders from one connected workspace — from the moment an order is created until it is served or dispatched.
-      </p>
-      <div style="display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap;">
-        <a href="{{ route('restaurant_signup') }}" class="btn p" style="padding: 16px 36px; font-size: 16px;">Get Started →</a>
-        <a href="{{ route('contact.us') }}" class="btn o" style="padding: 16px 32px; font-size: 16px;">Book a Demo</a>
-      </div>
-    </div>
+{{-- ═══════════════════════════════════════════════════════════════
+     HERO SECTION
+═══════════════════════════════════════════════════════════════ --}}
+<section class="hero">
+    <div class="container">
+        <div class="hero-inner">
 
-    <!-- Hero Visual: Realistic Order Management Kanban Board -->
-    <div class="win" style="border: 1.5px solid var(--line); box-shadow: 0 26px 60px rgba(36,26,20,0.14);">
-      <div class="wb">
-        <div class="dots"><i></i><i></i><i></i></div>
-        <div class="ttl">GENI MENU — CENTRAL RESTAURANT ORDER BOARD</div>
-        <div style="display: flex; gap: 12px; align-items: center;">
-          <span style="font-size: 12px; font-weight: 700; color: var(--br);">LIVE ORDERS: 18</span>
-          <span style="width: 8px; height: 8px; border-radius: 50%; background: var(--green);"></span>
+            {{-- Copy --}}
+            <div class="hero-copy" data-aos="fade-right" data-aos-duration="700">
+                <div class="sec-eyebrow">Order Management</div>
+                <h1>Every Order, Every Channel —<br><span class="italic-serif">One Unified Board</span></h1>
+                <p>Dine-in tables, counter takeaways, Swiggy & Zomato deliveries — manage every single order on a live Kanban board so nothing slips through the cracks, ever.</p>
+                <div class="hero-ctas">
+                    <a href="{{ route('restaurant_signup') }}" class="btn-primary">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                        Get Started Free
+                    </a>
+                    <a href="{{ route('restaurant_signup') }}" class="btn-outline">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                        Book a Demo
+                    </a>
+                </div>
+                <div class="hero-badges">
+                    <div class="hero-badge">
+                        <div class="badge-dot"></div>
+                        Live Order Sync
+                    </div>
+                    <div class="hero-badge">
+                        <div class="badge-dot"></div>
+                        Zero Setup Required
+                    </div>
+                    <div class="hero-badge">
+                        <div class="badge-dot"></div>
+                        All Channels Unified
+                    </div>
+                    <div class="hero-badge">
+                        <div class="badge-dot"></div>
+                        Works on Any Device
+                    </div>
+                </div>
+            </div>
+
+            {{-- Hero Visual — Kanban Device Window --}}
+            <div data-aos="fade-left" data-aos-duration="800" data-aos-delay="100">
+                <div class="device-window">
+                    <div class="window-bar">
+                        <div class="win-dots">
+                            <div class="win-dot r"></div>
+                            <div class="win-dot y"></div>
+                            <div class="win-dot g"></div>
+                        </div>
+                        <div class="win-url">app.genimenu.com/orders/live</div>
+                        <div class="win-status">● LIVE</div>
+                    </div>
+
+                    <div class="kanban-board">
+                        {{-- Column: Incoming --}}
+                        <div class="kanban-col col-incoming">
+                            <div class="kanban-col-head">
+                                <span>⏳ Incoming</span>
+                                <span class="col-badge">2</span>
+                            </div>
+                            <div class="kanban-cards">
+                                <div class="k-card">
+                                    <div class="k-card-top">
+                                        <span class="k-order-id">#1248 · Table 07</span>
+                                        <span class="k-type-badge type-dinein">Dine-In</span>
+                                    </div>
+                                    <div class="k-items">Butter Chicken ×2<br>Garlic Naan ×4</div>
+                                    <div class="k-footer">
+                                        <span class="k-price">₹1,140</span>
+                                        <span class="k-time">Just now</span>
+                                    </div>
+                                </div>
+                                <div class="k-card">
+                                    <div class="k-card-top">
+                                        <span class="k-order-id">#1249 · Takeaway</span>
+                                        <span class="k-type-badge type-takeaway">Takeaway</span>
+                                    </div>
+                                    <div class="k-items">Paneer Tikka Roll ×1<br>Mint Lassi ×1</div>
+                                    <div class="k-footer">
+                                        <span class="k-price">₹340</span>
+                                        <span class="k-time">1 min ago</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {{-- Column: Preparing --}}
+                        <div class="kanban-col col-preparing">
+                            <div class="kanban-col-head">
+                                <span>🔥 Preparing</span>
+                                <span class="col-badge">2</span>
+                            </div>
+                            <div class="kanban-cards">
+                                <div class="k-card">
+                                    <div class="k-card-top">
+                                        <span class="k-order-id">#1246 · Table 03</span>
+                                        <span class="k-type-badge type-dinein">Dine-In</span>
+                                    </div>
+                                    <div class="k-items">Truffle Risotto ×1<br>Margherita Pizza ×1</div>
+                                    <div class="k-footer">
+                                        <span class="k-price">₹1,480</span>
+                                        <span class="k-timer timer-ok">08:24 / 15:00</span>
+                                    </div>
+                                </div>
+                                <div class="k-card">
+                                    <div class="k-card-top">
+                                        <span class="k-order-id">#1247 · Swiggy</span>
+                                        <span class="k-type-badge type-delivery">Delivery</span>
+                                    </div>
+                                    <div class="k-items">Veg Biryani ×2<br>Raita ×1</div>
+                                    <div class="k-footer">
+                                        <span class="k-price">₹780</span>
+                                        <span class="k-timer timer-warn">04:10 / 12:00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {{-- Column: Ready --}}
+                        <div class="kanban-col col-ready">
+                            <div class="kanban-col-head">
+                                <span>✅ Ready</span>
+                                <span class="col-badge">2</span>
+                            </div>
+                            <div class="kanban-cards">
+                                <div class="k-card">
+                                    <div class="k-card-top">
+                                        <span class="k-order-id">#1244 · Table 05</span>
+                                        <span class="k-type-badge type-dinein">Dine-In</span>
+                                    </div>
+                                    <div class="k-items">Chocolate Fondant ×2<br>Cold Coffee ×2</div>
+                                    <div class="k-footer">
+                                        <span class="k-price">₹620</span>
+                                        <span class="k-status-pill status-called">Steward Called</span>
+                                    </div>
+                                </div>
+                                <div class="k-card">
+                                    <div class="k-card-top">
+                                        <span class="k-order-id">#1245 · Token #42</span>
+                                        <span class="k-type-badge type-counter">Counter</span>
+                                    </div>
+                                    <div class="k-items">Masala Chai ×3<br>Samosa ×2</div>
+                                    <div class="k-footer">
+                                        <span class="k-price">₹230</span>
+                                        <span class="k-status-pill status-counter">Counter Ready</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="kanban-summary">
+                        <div class="summary-stat">
+                            <div class="dot"></div>
+                            <span>24 orders today</span>
+                        </div>
+                        <div class="summary-stat">
+                            Revenue today: <span class="rev">₹28,400</span>
+                        </div>
+                        <div class="summary-stat">
+                            <span style="color:var(--amber);font-weight:700;">● 6 active now</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
-      </div>
-
-      <div style="padding: 24px; background: #faf8f5;">
-        <div class="kb-grid">
-          <!-- Column 1: NEW -->
-          <div class="kb-col">
-            <div class="kb-head">
-              <span>NEW (05)</span>
-              <span class="badge new">New Order</span>
-            </div>
-
-            <div class="kb-card">
-              <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
-                <strong style="font-size: 14px;">#ORD-2084</strong>
-                <span class="badge dinein">Table T08</span>
-              </div>
-              <div style="font-size: 12.5px; color: var(--mute); margin-bottom: 10px;">3 Items · ₹1,050</div>
-              <div style="display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: var(--mute);">
-                <span>12:42 PM</span>
-                <span style="color: var(--br); font-weight: 700;">Confirm →</span>
-              </div>
-            </div>
-
-            <div class="kb-card">
-              <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
-                <strong style="font-size: 14px;">#ORD-2088</strong>
-                <span class="badge takeaway">Takeaway</span>
-              </div>
-              <div style="font-size: 12.5px; color: var(--mute); margin-bottom: 10px;">2 Items · ₹480</div>
-              <div style="display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: var(--mute);">
-                <span>12:51 PM</span>
-                <span style="color: var(--br); font-weight: 700;">Confirm →</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Column 2: PREPARING -->
-          <div class="kb-col">
-            <div class="kb-head">
-              <span>PREPARING (07)</span>
-              <span class="badge preparing">In Kitchen</span>
-            </div>
-
-            <div class="kb-card">
-              <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
-                <strong style="font-size: 14px;">#ORD-2085</strong>
-                <span class="badge takeaway">Takeaway</span>
-              </div>
-              <div style="font-size: 12.5px; color: var(--mute); margin-bottom: 10px;">5 Items · ₹820</div>
-              <div style="display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: var(--mute);">
-                <span>12:45 PM · 12 min</span>
-                <span style="color: var(--blue); font-weight: 700;">Cooking</span>
-              </div>
-            </div>
-
-            <div class="kb-card">
-              <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
-                <strong style="font-size: 14px;">#ORD-2087</strong>
-                <span class="badge delivery">Delivery</span>
-              </div>
-              <div style="font-size: 12.5px; color: var(--mute); margin-bottom: 10px;">6 Items · ₹1,680</div>
-              <div style="display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: var(--mute);">
-                <span>12:53 PM · 8 min</span>
-                <span style="color: var(--blue); font-weight: 700;">Cooking</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Column 3: READY -->
-          <div class="kb-col">
-            <div class="kb-head">
-              <span>READY (04)</span>
-              <span class="badge ready">Pass / Counter</span>
-            </div>
-
-            <div class="kb-card">
-              <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
-                <strong style="font-size: 14px;">#ORD-2086</strong>
-                <span class="badge dinein">Table T04</span>
-              </div>
-              <div style="font-size: 12.5px; color: var(--mute); margin-bottom: 10px;">4 Items · ₹1,240</div>
-              <div style="display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: var(--mute);">
-                <span>12:49 PM</span>
-                <span style="color: var(--green); font-weight: 500;">Serve Now ✓</span>
-              </div>
-            </div>
-
-            <div class="kb-card">
-              <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
-                <strong style="font-size: 14px;">#ORD-2083</strong>
-                <span class="badge pickup">Pickup</span>
-              </div>
-              <div style="font-size: 12.5px; color: var(--mute); margin-bottom: 10px;">3 Items · ₹640</div>
-              <div style="display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: var(--mute);">
-                <span>12:38 PM</span>
-                <span style="color: var(--green); font-weight: 500;">Handover ✓</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Column 4: COMPLETED -->
-          <div class="kb-col">
-            <div class="kb-head">
-              <span>COMPLETED (42)</span>
-              <span class="badge completed">Done</span>
-            </div>
-
-            <div class="kb-card" style="opacity: 0.8;">
-              <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
-                <strong style="font-size: 14px;">#ORD-2080</strong>
-                <span class="badge dinein">Table T02</span>
-              </div>
-              <div style="font-size: 12.5px; color: var(--mute); margin-bottom: 10px;">3 Items · ₹760</div>
-              <div style="display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: var(--mute);">
-                <span>12:22 PM</span>
-                <span style="color: #6b21a8; font-weight: 700;">Billed & Paid</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
 </section>
 
-<!-- ================= VALUE STRIP ================= -->
-<section style="padding: 40px 0; background: var(--bg2); border-y: 1px solid var(--line);">
-  <div class="w">
-    <div class="g4">
-      <div style="display: flex; gap: 16px; align-items: flex-start;">
-        <div style="font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 500; color: var(--br-gold); line-height: 1;">01</div>
-        <div>
-          <h4 style="font-size: 16px; margin-bottom: 4px;">One Order View</h4>
-          <p style="font-size: 13.5px; line-height: 1.5;">Keep restaurant orders visible in one central workspace.</p>
-        </div>
-      </div>
-
-      <div style="display: flex; gap: 16px; align-items: flex-start;">
-        <div style="font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 500; color: var(--br-gold); line-height: 1;">02</div>
-        <div>
-          <h4 style="font-size: 16px; margin-bottom: 4px;">Clear Order Status</h4>
-          <p style="font-size: 13.5px; line-height: 1.5;">Know what is new, preparing, ready or completed instantly.</p>
-        </div>
-      </div>
-
-      <div style="display: flex; gap: 16px; align-items: flex-start;">
-        <div style="font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 500; color: var(--br-gold); line-height: 1;">03</div>
-        <div>
-          <h4 style="font-size: 16px; margin-bottom: 4px;">Better Team Coordination</h4>
-          <p style="font-size: 13.5px; line-height: 1.5;">Connect front-of-house service staff with kitchen workflows.</p>
-        </div>
-      </div>
-
-      <div style="display: flex; gap: 16px; align-items: flex-start;">
-        <div style="font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 500; color: var(--br-gold); line-height: 1;">04</div>
-        <div>
-          <h4 style="font-size: 16px; margin-bottom: 4px;">Multiple Order Types</h4>
-          <p style="font-size: 13.5px; line-height: 1.5;">Manage dine-in, takeaway, pickup and delivery in one system.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= PROBLEM SECTION ================= -->
-<section>
-  <div class="w">
-    <div class="hd">
-      <div class="eb">OPERATIONAL COMPARISON</div>
-      <h2>Restaurant Orders Shouldn’t <span class="sf">Get Lost in the Rush.</span></h2>
-      <p>During peak meal hours, paper ticket slips get misplaced and verbal kitchen updates cause guest delays. Compare traditional handling with Geni Menu.</p>
-    </div>
-
-    <div class="g2">
-      <!-- Traditional Order Handling -->
-      <div class="card" style="padding: 32px; background: #fff5f5; border-color: rgba(239, 68, 68, 0.2);">
-        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
-          <div style="width: 40px; height: 40px; border-radius: 10px; background: #fee2e2; color: #dc2626; display: grid; place-items: center; font-weight: 500;">✕</div>
-          <div>
-            <h3 style="color: #991b1b;">Traditional Order Handling</h3>
-            <p style="font-size: 13px; color: #b91c1c;">Paper Slips & Fragmented Communication</p>
-          </div>
-        </div>
-
-        <ul style="display: flex; flex-direction: column; gap: 14px;">
-          <li style="display: flex; gap: 12px; font-size: 14px; color: #7f1d1d;">
-            <span style="color: #dc2626; font-weight: 500;">•</span> Orders spread across notepad slips, WhatsApp and separate channels
-          </li>
-          <li style="display: flex; gap: 12px; font-size: 14px; color: #7f1d1d;">
-            <span style="color: #dc2626; font-weight: 500;">•</span> Difficult status visibility—staff repeatedly running to kitchen to check
-          </li>
-          <li style="display: flex; gap: 12px; font-size: 14px; color: #7f1d1d;">
-            <span style="color: #dc2626; font-weight: 500;">•</span> Manual follow-ups leading to missed item modifiers and guest complaints
-          </li>
-          <li style="display: flex; gap: 12px; font-size: 14px; color: #7f1d1d;">
-            <span style="color: #dc2626; font-weight: 500;">•</span> Chaotic peak-hour coordination at the food pickup counter
-          </li>
-        </ul>
-      </div>
-
-      <!-- Geni Menu Order Management -->
-      <div class="card" style="padding: 32px; background: #f0fdf4; border-color: rgba(16, 185, 129, 0.3);">
-        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
-          <div style="width: 40px; height: 40px; border-radius: 10px; background: #d1fae5; color: #059669; display: grid; place-items: center; font-weight: 500;">✓</div>
-          <div>
-            <h3 style="color: #065f46;">Geni Menu Order Management</h3>
-            <p style="font-size: 13px; color: #047857;">Central Digital Order Workspace</p>
-          </div>
-        </div>
-
-        <ul style="display: flex; flex-direction: column; gap: 14px;">
-          <li style="display: flex; gap: 12px; font-size: 14px; color: #064e3b;">
-            <span style="color: #10b981; font-weight: 500;">✓</span> Single order board tracking dine-in, takeaway, pickup and delivery
-          </li>
-          <li style="display: flex; gap: 12px; font-size: 14px; color: #064e3b;">
-            <span style="color: #10b981; font-weight: 500;">✓</span> Real-time status stages (New → Preparing → Ready → Completed)
-          </li>
-          <li style="display: flex; gap: 12px; font-size: 14px; color: #064e3b;">
-            <span style="color: #10b981; font-weight: 500;">✓</span> Direct integration with Kitchen Display (KOT) & POS cashier
-          </li>
-          <li style="display: flex; gap: 12px; font-size: 14px; color: #064e3b;">
-            <span style="color: #10b981; font-weight: 500;">✓</span> Clear item notes, variations, and automatic bill calculation
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= ORDER DASHBOARD SHOWCASE ================= -->
-<section style="background: var(--bg2);">
-  <div class="w">
-    <div class="hd">
-      <div class="eb">DASHBOARD WORKSPACE</div>
-      <h2>See Every Order <span class="sf">at a Glance.</span></h2>
-      <p>Give your restaurant team one clear view of active orders, their status and where each order needs to go next.</p>
-    </div>
-
-    <!-- Filter & Search Control Bar -->
-    <div style="background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 16px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px;">
-      <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-        <button style="padding: 8px 18px; border-radius: 10px; border: 1.5px solid var(--br); background: var(--br); color: #fff; font-weight: 500; font-size: 13px; cursor: pointer;">All Orders (18)</button>
-        <button style="padding: 8px 18px; border-radius: 10px; border: 1px solid var(--line); background: #fff; color: var(--ink); font-weight: 600; font-size: 13px; cursor: pointer;">🍽️ Dine-in (11)</button>
-        <button style="padding: 8px 18px; border-radius: 10px; border: 1px solid var(--line); background: #fff; color: var(--ink); font-weight: 600; font-size: 13px; cursor: pointer;">🛍️ Takeaway (04)</button>
-        <button style="padding: 8px 18px; border-radius: 10px; border: 1px solid var(--line); background: #fff; color: var(--ink); font-weight: 600; font-size: 13px; cursor: pointer;">📦 Pickup (01)</button>
-        <button style="padding: 8px 18px; border-radius: 10px; border: 1px solid var(--line); background: #fff; color: var(--ink); font-weight: 600; font-size: 13px; cursor: pointer;">🛵 Delivery (02)</button>
-      </div>
-
-      <input type="text" placeholder="🔍 Search by Order # or Table..." value="" style="padding: 8px 16px; border-radius: 10px; border: 1px solid var(--line); font-size: 13px; width: 220px;">
-    </div>
-
-    <!-- Interactive-feel Order Board -->
-    <div class="card" style="padding: 24px; background: #fff;">
-      <div class="g4">
-        <!-- New -->
-        <div style="background: var(--bg2); padding: 14px; border-radius: 12px; border: 1px solid var(--line);">
-          <div style="font-weight: 500; font-size: 12px; color: #92400e; margin-bottom: 12px;">● NEW ORDERS (2)</div>
-          <div style="background: #fff; padding: 12px; border-radius: 10px; border: 1px solid var(--line); margin-bottom: 10px;">
-            <div style="font-weight: 500; font-size: 14px;">#ORD-2084</div>
-            <div style="font-size: 12px; color: var(--mute);">Table T08 · 3 Items</div>
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
-              <span style="font-weight: 500; color: var(--br);">₹1,050</span>
-              <span class="badge new">Confirm Order</span>
+{{-- ═══════════════════════════════════════════════════════════════
+     VALUE STRIP
+═══════════════════════════════════════════════════════════════ --}}
+<div class="value-strip">
+    <div class="container">
+        <div class="value-strip-grid">
+            <div class="value-item" data-aos="fade-up" data-aos-delay="0">
+                <div class="value-icon">📋</div>
+                <div class="value-text">
+                    <h4>Live Order Board</h4>
+                    <p>Every order visible in real time, across all channels</p>
+                </div>
             </div>
-          </div>
-        </div>
-
-        <!-- Preparing -->
-        <div style="background: var(--bg2); padding: 14px; border-radius: 12px; border: 1px solid var(--line);">
-          <div style="font-weight: 500; font-size: 12px; color: #1e40af; margin-bottom: 12px;">● PREPARING (3)</div>
-          <div style="background: #fff; padding: 12px; border-radius: 10px; border: 1px solid var(--line); margin-bottom: 10px;">
-            <div style="font-weight: 500; font-size: 14px;">#ORD-2082</div>
-            <div style="font-size: 12px; color: var(--mute);">Table T04 · 5 Items</div>
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
-              <span style="font-weight: 500; color: var(--br);">₹1,240</span>
-              <span class="badge preparing">Cooking</span>
+            <div class="value-item" data-aos="fade-up" data-aos-delay="80">
+                <div class="value-icon">🔗</div>
+                <div class="value-text">
+                    <h4>All Channels in One Queue</h4>
+                    <p>Dine-in, takeaway, Swiggy & Zomato — unified</p>
+                </div>
             </div>
-          </div>
-        </div>
-
-        <!-- Ready -->
-        <div style="background: var(--bg2); padding: 14px; border-radius: 12px; border: 1px solid var(--line);">
-          <div style="font-weight: 500; font-size: 12px; color: #065f46; margin-bottom: 12px;">● READY (2)</div>
-          <div style="background: #fff; padding: 12px; border-radius: 10px; border: 1px solid var(--line); margin-bottom: 10px;">
-            <div style="font-weight: 500; font-size: 14px;">#ORD-2081</div>
-            <div style="font-size: 12px; color: var(--mute);">Table T06 · 4 Items</div>
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
-              <span style="font-weight: 500; color: var(--br);">₹920</span>
-              <span class="badge ready">Serve Now ✓</span>
+            <div class="value-item" data-aos="fade-up" data-aos-delay="160">
+                <div class="value-icon">⏱️</div>
+                <div class="value-text">
+                    <h4>SLA Prep Timers</h4>
+                    <p>Colour-coded alerts before orders breach time limits</p>
+                </div>
             </div>
-          </div>
-        </div>
-
-        <!-- Completed -->
-        <div style="background: var(--bg2); padding: 14px; border-radius: 12px; border: 1px solid var(--line);">
-          <div style="font-weight: 500; font-size: 12px; color: #6b21a8; margin-bottom: 12px;">● COMPLETED</div>
-          <div style="background: #fff; padding: 12px; border-radius: 10px; border: 1px solid var(--line); opacity: 0.8;">
-            <div style="font-weight: 500; font-size: 14px;">#ORD-2079</div>
-            <div style="font-size: 12px; color: var(--mute);">Table T02 · 3 Items</div>
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
-              <span style="font-weight: 500; color: var(--br);">₹760</span>
-              <span class="badge completed">Billed & Paid</span>
+            <div class="value-item" data-aos="fade-up" data-aos-delay="240">
+                <div class="value-icon">📲</div>
+                <div class="value-text">
+                    <h4>Auto Customer Alerts</h4>
+                    <p>SMS customers the moment their order is ready</p>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
-</section>
+</div>
 
-<!-- ================= ORDER TYPES ================= -->
-<section>
-  <div class="w">
-    <div class="hd">
-      <div class="eb">MULTI-CHANNEL ORDERING</div>
-      <h2>One Workspace. <span class="sf">Different Order Types.</span></h2>
-      <p>Whether guests are eating in your dining hall, grabbing a quick takeaway, or receiving a delivery, keep every order organized.</p>
-    </div>
+{{-- ═══════════════════════════════════════════════════════════════
+     DEEP FEATURE SHOWCASE
+═══════════════════════════════════════════════════════════════ --}}
+<section class="section">
+    <div class="container">
+        <div class="showcase-wrapper">
 
-    <div class="g4">
-      <div class="card" style="padding: 24px; text-align: center;">
-        <div class="ic" style="margin: 0 auto 16px; width: 56px; height: 56px;"><svg viewBox="0 0 24 24"><path d="M4 19h16M4 15h16M4 11h16M8 7v4M16 7v4"/></svg></div>
-        <h3 style="font-size: 18px; margin-bottom: 8px;">Dine-in</h3>
-        <p style="font-size: 13.5px;">Linked directly to table numbers and waiter service zones.</p>
-      </div>
+            {{-- Copy Side --}}
+            <div data-aos="fade-right" data-aos-duration="700">
+                <div class="sec-eyebrow">Live Order Pipeline</div>
+                <h2>Your kitchen and front-of-house on the <span class="italic-serif">same page</span>, always</h2>
+                <p>The Geni Menu order board gives your team a single source of truth. From the moment a guest places an order — whether at the table, at the counter, or through Swiggy — it lands instantly in the board and flows through to completion.</p>
 
-      <div class="card" style="padding: 24px; text-align: center;">
-        <div class="ic" style="margin: 0 auto 16px; width: 56px; height: 56px;"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></div>
-        <h3 style="font-size: 18px; margin-bottom: 8px;">Takeaway</h3>
-        <p style="font-size: 13.5px;">Counter pickup orders prepared and packed for immediate customer handover.</p>
-      </div>
+                <div class="showcase-points">
+                    <div class="showcase-point">
+                        <div class="sp-icon">🎯</div>
+                        <div class="sp-text">
+                            <h4>Drag-and-Drop Status Updates</h4>
+                            <p>Move orders between Incoming → Preparing → Ready with a single tap — from tablet, phone or desktop.</p>
+                        </div>
+                    </div>
+                    <div class="showcase-point">
+                        <div class="sp-icon">🌐</div>
+                        <div class="sp-text">
+                            <h4>Online Aggregator Pull-In</h4>
+                            <p>Swiggy, Zomato and your own website orders appear automatically — no manual re-entry, ever.</p>
+                        </div>
+                    </div>
+                    <div class="showcase-point">
+                        <div class="sp-icon">✏️</div>
+                        <div class="sp-text">
+                            <h4>Mid-Flow Order Edits</h4>
+                            <p>Guest wants to swap Paneer for Chicken after the KOT fires? Update in the board, kitchen sees it instantly.</p>
+                        </div>
+                    </div>
+                    <div class="showcase-point">
+                        <div class="sp-icon">🔔</div>
+                        <div class="sp-text">
+                            <h4>Steward & Counter Alerts</h4>
+                            <p>When an order moves to Ready, the assigned steward gets a buzz and the customer gets an SMS.</p>
+                        </div>
+                    </div>
+                </div>
 
-      <div class="card" style="padding: 24px; text-align: center;">
-        <div class="ic" style="margin: 0 auto 16px; width: 56px; height: 56px;"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg></div>
-        <h3 style="font-size: 18px; margin-bottom: 8px;">Pickup</h3>
-        <p style="font-size: 13.5px;">Pre-placed collection orders scheduled for specific pickup times.</p>
-      </div>
-
-      <div class="card" style="padding: 24px; text-align: center;">
-        <div class="ic" style="margin: 0 auto 16px; width: 56px; height: 56px;"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
-        <h3 style="font-size: 18px; margin-bottom: 8px;">Delivery</h3>
-        <p style="font-size: 13.5px;">Home delivery orders tracked from kitchen dispatch to customer door.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= ORDER DETAIL PANEL & MODIFICATIONS ================= -->
-<section style="background: var(--bg2);">
-  <div class="w">
-    <div class="hd">
-      <div class="eb">INSPECTOR & CUSTOMIZATION</div>
-      <h2>Keep Order Details <span class="sf">Clear & Precise.</span></h2>
-      <p>View complete itemization, special dietary notes, prices, and status updates for any active order.</p>
-    </div>
-
-    <div class="g2">
-      <!-- Order Detail Card -->
-      <div class="card" style="padding: 28px;">
-        <div style="display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 16px; border-bottom: 1px solid var(--line); margin-bottom: 20px;">
-          <div>
-            <h3 style="font-size: 22px;">Order #ORD-2084</h3>
-            <div style="font-size: 13px; color: var(--mute); margin-top: 2px;">Dine-in · Table T08 · 3 Guests · Created 12:42 PM</div>
-          </div>
-          <span class="badge preparing">Preparing</span>
-        </div>
-
-        <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px;">
-          <div style="display: flex; justify-content: space-between; align-items: center; font-size: 14px;">
-            <div>
-              <strong style="color: var(--ink);">Chicken Biryani × 2</strong>
-              <div style="font-size: 12px; color: var(--br); font-weight: 700;">Note: "Extra Raita, Medium Spicy"</div>
+                <a href="{{ route('restaurant_signup') }}" class="btn-primary">
+                    See the Board in Action →
+                </a>
             </div>
-            <div style="font-weight: 500; color: var(--ink);">₹560.00</div>
-          </div>
 
-          <div style="display: flex; justify-content: space-between; align-items: center; font-size: 14px;">
-            <div>
-              <strong style="color: var(--ink);">Paneer Tikka × 1</strong>
-              <div style="font-size: 12px; color: var(--mute);">Starter · Mint Dip</div>
+            {{-- Large Kanban Visual --}}
+            <div data-aos="fade-left" data-aos-duration="800" data-aos-delay="100">
+                <div class="showcase-kanban">
+                    <div class="sk-topbar">
+                        <div class="sk-topbar-left">
+                            <div class="sk-title">🍽️ Geni Order Board</div>
+                            <div class="sk-live-dot">LIVE</div>
+                        </div>
+                        <div class="sk-stats">
+                            <div class="sk-stat">Active: <strong>6</strong></div>
+                            <div class="sk-stat">Today: <strong>24</strong></div>
+                            <div class="sk-stat">Rev: <strong style="color:var(--coffee)">₹28.4k</strong></div>
+                        </div>
+                    </div>
+
+                    <div class="sk-board">
+                        {{-- Incoming --}}
+                        <div class="sk-col sk-incoming">
+                            <div class="sk-col-head">
+                                <span>⏳ Incoming</span>
+                                <span class="sk-count">2</span>
+                            </div>
+                            <div class="sk-cards">
+                                <div class="sk-card">
+                                    <div class="sk-card-top">
+                                        <span class="sk-order-num">#1248 · Table 07</span>
+                                        <span class="k-type-badge type-dinein">Dine-In</span>
+                                    </div>
+                                    <div class="sk-items">Butter Chicken ×2 · Garlic Naan ×4<br>Dal Makhani ×1</div>
+                                    <div class="sk-footer">
+                                        <span class="sk-price">₹1,140</span>
+                                        <span style="font-size:10px;color:var(--ink-faint)">Just now</span>
+                                    </div>
+                                </div>
+                                <div class="sk-card">
+                                    <div class="sk-card-top">
+                                        <span class="sk-order-num">#1249 · Takeaway</span>
+                                        <span class="k-type-badge type-takeaway">Takeaway</span>
+                                    </div>
+                                    <div class="sk-items">Paneer Tikka Roll ×1 · Mint Lassi ×1</div>
+                                    <div class="sk-footer">
+                                        <span class="sk-price">₹340</span>
+                                        <span style="font-size:10px;color:var(--ink-faint)">1 min ago</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {{-- Preparing --}}
+                        <div class="sk-col sk-preparing">
+                            <div class="sk-col-head">
+                                <span>🔥 Preparing</span>
+                                <span class="sk-count">2</span>
+                            </div>
+                            <div class="sk-cards">
+                                <div class="sk-card">
+                                    <div class="sk-card-top">
+                                        <span class="sk-order-num">#1246 · Table 03</span>
+                                        <span class="k-type-badge type-dinein">Dine-In</span>
+                                    </div>
+                                    <div class="sk-items">Truffle Risotto ×1 · Margherita Pizza ×1</div>
+                                    <div class="sk-footer">
+                                        <span class="sk-price">₹1,480</span>
+                                        <span class="k-timer timer-ok">08:24 / 15:00</span>
+                                    </div>
+                                </div>
+                                <div class="sk-card">
+                                    <div class="sk-card-top">
+                                        <span class="sk-order-num">#1247 · Swiggy</span>
+                                        <span class="k-type-badge type-delivery">Delivery</span>
+                                    </div>
+                                    <div class="sk-items">Veg Biryani ×2 · Raita ×1</div>
+                                    <div class="sk-footer">
+                                        <span class="sk-price">₹780</span>
+                                        <span class="k-timer timer-warn">04:10 / 12:00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {{-- Ready --}}
+                        <div class="sk-col sk-ready">
+                            <div class="sk-col-head">
+                                <span>✅ Ready</span>
+                                <span class="sk-count">2</span>
+                            </div>
+                            <div class="sk-cards">
+                                <div class="sk-card">
+                                    <div class="sk-card-top">
+                                        <span class="sk-order-num">#1244 · Table 05</span>
+                                        <span class="k-type-badge type-dinein">Dine-In</span>
+                                    </div>
+                                    <div class="sk-items">Chocolate Fondant ×2 · Cold Coffee ×2</div>
+                                    <div class="sk-footer">
+                                        <span class="sk-price">₹620</span>
+                                        <span class="k-status-pill status-called">Steward Called</span>
+                                    </div>
+                                </div>
+                                <div class="sk-card">
+                                    <div class="sk-card-top">
+                                        <span class="sk-order-num">#1245 · Token #42</span>
+                                        <span class="k-type-badge type-counter">Counter</span>
+                                    </div>
+                                    <div class="sk-items">Masala Chai ×3 · Veg Samosa ×2</div>
+                                    <div class="sk-footer">
+                                        <span class="sk-price">₹230</span>
+                                        <span class="k-status-pill status-counter">Counter Ready</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sk-bot">
+                        <span>Last sync: <strong>2 seconds ago</strong></span>
+                        <span>Channels active: Dine-In · Takeaway · Swiggy · Counter</span>
+                    </div>
+                </div>
             </div>
-            <div style="font-weight: 500; color: var(--ink);">₹220.00</div>
-          </div>
 
-          <div style="display: flex; justify-content: space-between; align-items: center; font-size: 14px;">
-            <div>
-              <strong style="color: var(--ink);">Fresh Lime Soda × 2</strong>
-              <div style="font-size: 12px; color: var(--br); font-weight: 700;">Note: "No Ice, Less Sugar"</div>
+        </div>
+    </div>
+</section>
+
+{{-- ═══════════════════════════════════════════════════════════════
+     HOW IT WORKS
+═══════════════════════════════════════════════════════════════ --}}
+<section class="section-alt">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <div class="sec-eyebrow">How It Works</div>
+            <h2>From order placed to order <span class="italic-serif">delivered</span> — in four steps</h2>
+            <p>A simple, automated flow that keeps your kitchen and front-of-house perfectly synchronised without any extra effort from your team.</p>
+        </div>
+
+        <div class="how-steps">
+            <div class="how-step" data-aos="fade-up" data-aos-delay="0">
+                <div class="how-step-num">1</div>
+                <div class="how-step-icon">📥</div>
+                <h4>Order Arrives</h4>
+                <p>A new order — whether placed by a waiter, at the counter, or pulled in from Swiggy/Zomato — instantly appears in the <strong>Incoming</strong> column with full details.</p>
             </div>
-            <div style="font-weight: 500; color: var(--ink);">₹160.00</div>
-          </div>
+            <div class="how-step" data-aos="fade-up" data-aos-delay="100">
+                <div class="how-step-num">2</div>
+                <div class="how-step-icon">🖨️</div>
+                <h4>KOT Fires to Kitchen</h4>
+                <p>With one tap, the KOT is accepted and printed at the relevant kitchen station. A prep timer starts immediately so the team knows the SLA.</p>
+            </div>
+            <div class="how-step" data-aos="fade-up" data-aos-delay="200">
+                <div class="how-step-num">3</div>
+                <div class="how-step-icon">🔥</div>
+                <h4>Kitchen Prepares</h4>
+                <p>The order moves to <strong>Preparing</strong>. The timer counts up, turning amber at 70% of the SLA window — alerting the kitchen before it's too late.</p>
+            </div>
+            <div class="how-step" data-aos="fade-up" data-aos-delay="300">
+                <div class="how-step-num">4</div>
+                <div class="how-step-icon">✅</div>
+                <h4>Ready & Delivered</h4>
+                <p>Kitchen marks it Ready. The steward gets a buzz, the takeaway customer gets an SMS, and the order card moves to the <strong>Ready</strong> column for confirmation.</p>
+            </div>
         </div>
-
-        <div style="padding-top: 14px; border-top: 1px dashed var(--line); display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-          <span style="font-size: 15px; font-weight: 700; color: var(--mute);">Total Order Value</span>
-          <span style="font-size: 22px; font-weight: 500; color: var(--br);">₹940.00</span>
-        </div>
-
-        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px;">
-          <button class="btn p" style="padding: 10px; font-size: 12px;">Mark Ready</button>
-          <button class="btn o" style="padding: 10px; font-size: 12px;">View KOT</button>
-          <button class="btn o" style="padding: 10px; font-size: 12px;">Print Receipt</button>
-        </div>
-      </div>
-
-      <!-- Connected Workflow Card -->
-      <div class="card" style="padding: 28px; background: #fff;">
-        <h3 style="font-size: 20px; margin-bottom: 16px;">Order Connections</h3>
-        <p style="font-size: 14px; margin-bottom: 24px;">Order Management links every order directly to menu items, kitchen tickets, tables, and POS billing.</p>
-
-        <div style="display: flex; flex-direction: column; gap: 14px;">
-          <div style="display: flex; align-items: center; gap: 12px; background: var(--bg2); padding: 12px 16px; border-radius: 12px; border: 1px solid var(--line);">
-            <span style="font-weight: 500; color: var(--br);">MENU LINK</span>
-            <span style="font-size: 13px;">Items & modifier prices selected directly from menu</span>
-          </div>
-
-          <div style="display: flex; align-items: center; gap: 12px; background: var(--bg2); padding: 12px 16px; border-radius: 12px; border: 1px solid var(--line);">
-            <span style="font-weight: 500; color: var(--br);">TABLE LINK</span>
-            <span style="font-size: 13px;">Dine-in orders attached to Table T08 tab</span>
-          </div>
-
-          <div style="display: flex; align-items: center; gap: 12px; background: var(--bg2); padding: 12px 16px; border-radius: 12px; border: 1px solid var(--line);">
-            <span style="font-weight: 500; color: var(--br);">KOT LINK</span>
-            <span style="font-size: 13px;">Triggers KOT #KOT-1048 on Kitchen Display</span>
-          </div>
-
-          <div style="display: flex; align-items: center; gap: 12px; background: var(--bg2); padding: 12px 16px; border-radius: 12px; border: 1px solid var(--line);">
-            <span style="font-weight: 500; color: var(--br);">POS LINK</span>
-            <span style="font-size: 13px;">Bill INV-2048 ready for single-click payment</span>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
 </section>
 
-<!-- ================= ORDER STATUS WORKFLOW ================= -->
-<section>
-  <div class="w">
-    <div class="hd">
-      <div class="eb">6-STEP ORDER WORKFLOW</div>
-      <h2>Know Exactly Where <span class="sf">Every Order Stands.</span></h2>
-      <p>Follow every order through clear, transparent status updates from placement to payment completion.</p>
+{{-- ═══════════════════════════════════════════════════════════════
+     FEATURE GRID
+═══════════════════════════════════════════════════════════════ --}}
+<section class="section">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <div class="sec-eyebrow">Features</div>
+            <h2>Everything you need to <span class="italic-serif">never miss</span> an order</h2>
+            <p>Geni Menu's order management packs every tool your team needs into one clean, fast interface — no training manual required.</p>
+        </div>
+
+        <div class="feature-grid">
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="0">
+                <div class="fc-icon">📋</div>
+                <h3>Live Order Status Board</h3>
+                <p>Track every order from receipt to delivery on one live Kanban board. Incoming, Preparing, and Ready columns give your whole team instant clarity — no radio calls, no guesswork.</p>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="80">
+                <div class="fc-icon">🔗</div>
+                <h3>Multi-Channel Aggregation</h3>
+                <p>Dine-in tables, takeaway counter, and online delivery platforms (Swiggy, Zomato, your own site) all feed into one unified queue. Eliminate the chaos of juggling separate tablets.</p>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="160">
+                <div class="fc-icon">⏱️</div>
+                <h3>Prep Timer Alerts</h3>
+                <p>Every order gets a configurable SLA timer. Colour shifts from green to amber when 70% of prep time has elapsed — so the kitchen acts before a customer complaint happens.</p>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="240">
+                <div class="fc-icon">✏️</div>
+                <h3>Modify Orders Mid-Flow</h3>
+                <p>Guests change their minds. Add a dish, remove an ingredient, or substitute an item even after the KOT is dispatched. The kitchen sees the update immediately — no confusion.</p>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="320">
+                <div class="fc-icon">🎫</div>
+                <h3>Token & Queue Management</h3>
+                <p>Issue digital or printed counter tokens for takeaway customers. The board shows their token number, order status, and triggers a counter display announcement when ready.</p>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="fc-icon">📲</div>
+                <h3>Customer Notification</h3>
+                <p>When a takeaway or delivery order is marked Ready, an auto-SMS goes to the customer's phone instantly — reducing counter crowding and "is my order ready?" calls by over 60%.</p>
+            </div>
+        </div>
     </div>
-
-    <!-- 6 Step Horizontal Process -->
-    <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px;">
-      <div style="background: var(--bg2); border: 1px solid var(--line); border-radius: 14px; padding: 16px; text-align: center;">
-        <div style="font-weight: 500; font-size: 11px; color: var(--amber);">STEP 01</div>
-        <div style="font-weight: 500; font-size: 13.5px; margin-top: 4px;">New Order</div>
-      </div>
-
-      <div style="background: var(--bg2); border: 1px solid var(--line); border-radius: 14px; padding: 16px; text-align: center;">
-        <div style="font-weight: 500; font-size: 11px; color: var(--br);">STEP 02</div>
-        <div style="font-weight: 500; font-size: 13.5px; margin-top: 4px;">Confirmed</div>
-      </div>
-
-      <div style="background: var(--bg2); border: 1px solid var(--line); border-radius: 14px; padding: 16px; text-align: center;">
-        <div style="font-weight: 500; font-size: 11px; color: var(--blue);">STEP 03</div>
-        <div style="font-weight: 500; font-size: 13.5px; margin-top: 4px;">Preparing</div>
-      </div>
-
-      <div style="background: var(--bg2); border: 1px solid var(--line); border-radius: 14px; padding: 16px; text-align: center;">
-        <div style="font-weight: 500; font-size: 11px; color: var(--green);">STEP 04</div>
-        <div style="font-weight: 500; font-size: 13.5px; margin-top: 4px;">Order Ready</div>
-      </div>
-
-      <div style="background: var(--bg2); border: 1px solid var(--line); border-radius: 14px; padding: 16px; text-align: center;">
-        <div style="font-weight: 500; font-size: 11px; color: var(--br-gold);">STEP 05</div>
-        <div style="font-weight: 500; font-size: 13.5px; margin-top: 4px;">Served / Dispatched</div>
-      </div>
-
-      <div style="background: var(--br); color: #fff; border-radius: 14px; padding: 16px; text-align: center; box-shadow: 0 4px 14px rgba(135,96,57,0.3);">
-        <div style="font-weight: 500; font-size: 11px; color: var(--br-gold);">STEP 06</div>
-        <div style="font-weight: 500; font-size: 13.5px; margin-top: 4px; color: #fff;">Completed</div>
-      </div>
-    </div>
-  </div>
 </section>
 
-<!-- ================= KITCHEN COORDINATION & TIMELINE ================= -->
-<section style="background: var(--bg2);">
-  <div class="w">
-    <div class="hd">
-      <div class="eb">KITCHEN & SERVICE SYNC</div>
-      <h2>Keep Front of House and Kitchen <span class="sf">in Sync.</span></h2>
-      <p>Waiters and floor managers can monitor cooking progress without repeatedly walking into the kitchen.</p>
+{{-- ═══════════════════════════════════════════════════════════════
+     METRICS / RESULTS STRIP
+═══════════════════════════════════════════════════════════════ --}}
+<section class="metrics-section">
+    <div class="container">
+        <div class="metrics-header" data-aos="fade-up">
+            <div class="sec-eyebrow" style="background:rgba(255,255,255,0.12);border-color:rgba(255,255,255,0.2);color:#FDE68A;">Real Results</div>
+            <h2>Numbers restaurants <span class="italic-serif" style="color:#F4EFEA;">actually see</span></h2>
+            <p>Measured across Geni Menu restaurants within 60 days of going live.</p>
+        </div>
+        <div class="metrics-strip" style="position:relative;z-index:1;">
+            <div class="metric-item" data-aos="zoom-in" data-aos-delay="0">
+                <div class="metric-value">94%</div>
+                <div class="metric-label">Reduction in missed<br>or delayed orders</div>
+            </div>
+            <div class="metric-item" data-aos="zoom-in" data-aos-delay="100">
+                <div class="metric-value">3.2×</div>
+                <div class="metric-label">Faster order processing<br>vs paper-based systems</div>
+            </div>
+            <div class="metric-item" data-aos="zoom-in" data-aos-delay="200">
+                <div class="metric-value">₹14k</div>
+                <div class="metric-label">Saved monthly on<br>order errors & remakes</div>
+            </div>
+            <div class="metric-item" data-aos="zoom-in" data-aos-delay="300">
+                <div class="metric-value">62%</div>
+                <div class="metric-label">Drop in "order not ready"<br>customer complaints</div>
+            </div>
+        </div>
+        <div style="padding-bottom:60px;"></div>
     </div>
-
-    <div class="g2">
-      <!-- Order Timeline UI -->
-      <div class="card" style="padding: 28px;">
-        <h3 style="font-size: 18px; margin-bottom: 20px;">Order Activity Timeline (#ORD-2084)</h3>
-
-        <div style="display: flex; flex-direction: column; gap: 16px; position: relative; padding-left: 20px; border-left: 2px solid var(--line);">
-          <div>
-            <div style="font-size: 11px; font-weight: 500; color: var(--br);">12:42 PM</div>
-            <strong style="font-size: 14px;">Order Created</strong>
-            <p style="font-size: 12.5px;">Order placed by Waiter Ankit for Table T08</p>
-          </div>
-
-          <div>
-            <div style="font-size: 11px; font-weight: 500; color: var(--br);">12:43 PM</div>
-            <strong style="font-size: 14px;">Order Confirmed & KOT Generated</strong>
-            <p style="font-size: 12.5px;">Ticket #KOT-1048 sent to Main Kitchen Display</p>
-          </div>
-
-          <div>
-            <div style="font-size: 11px; font-weight: 500; color: var(--blue);">12:45 PM</div>
-            <strong style="font-size: 14px;">Kitchen Started Preparation</strong>
-            <p style="font-size: 12.5px;">Chef accepted ticket and began cooking</p>
-          </div>
-
-          <div>
-            <div style="font-size: 11px; font-weight: 500; color: var(--green);">12:58 PM</div>
-            <strong style="font-size: 14px;">Order Marked Ready</strong>
-            <p style="font-size: 12.5px;">Food placed at pickup counter pass</p>
-          </div>
-
-          <div>
-            <div style="font-size: 11px; font-weight: 500; color: #065f46;">01:01 PM</div>
-            <strong style="font-size: 14px;">Food Served to Table T08</strong>
-            <p style="font-size: 12.5px;">Waiter delivered dishes to guests</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Peak Hour Live Statistics -->
-      <div class="card" style="padding: 28px; background: #fff;">
-        <h3 style="font-size: 18px; margin-bottom: 20px;">Peak Rush Order Metrics</h3>
-        
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px;">
-          <div style="background: var(--bg2); padding: 16px; border-radius: 12px; border: 1px solid var(--line);">
-            <div style="font-size: 12px; color: var(--mute);">Orders Today</div>
-            <div style="font-size: 30px; font-weight: 500; color: var(--br); margin-top: 4px;">186</div>
-          </div>
-          <div style="background: var(--bg2); padding: 16px; border-radius: 12px; border: 1px solid var(--line);">
-            <div style="font-size: 12px; color: var(--mute);">Active Orders</div>
-            <div style="font-size: 30px; font-weight: 500; color: var(--ink); margin-top: 4px;">18</div>
-          </div>
-          <div style="background: var(--bg2); padding: 16px; border-radius: 12px; border: 1px solid var(--line);">
-            <div style="font-size: 12px; color: var(--mute);">Avg Prep Time</div>
-            <div style="font-size: 30px; font-weight: 500; color: var(--green); margin-top: 4px;">14 min</div>
-          </div>
-          <div style="background: var(--bg2); padding: 16px; border-radius: 12px; border: 1px solid var(--line);">
-            <div style="font-size: 12px; color: var(--mute);">Avg Order Value</div>
-            <div style="font-size: 30px; font-weight: 500; color: var(--ink); margin-top: 4px;">₹640</div>
-          </div>
-        </div>
-
-        <div style="font-size: 13px; color: var(--mute); text-align: center;">
-          ⚡ All order updates automatically sync across staff tablets and kitchen displays.
-        </div>
-      </div>
-    </div>
-  </div>
 </section>
 
-<!-- ================= RESTAURANT INDUSTRIES ================= -->
-<section>
-  <div class="w">
-    <div class="hd">
-      <div class="eb">MULTI-FORMAT COMPATIBILITY</div>
-      <h2>Built for Different <span class="sf">Restaurant Workflows.</span></h2>
-      <p>Whether you run a high-volume QSR counter, a fine dining room, a café, or a cloud kitchen, Geni Menu adapts to your kitchen and order flow.</p>
+{{-- ═══════════════════════════════════════════════════════════════
+     COMPARE — OLD WAY vs GENI WAY
+═══════════════════════════════════════════════════════════════ --}}
+<section class="section-alt">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <div class="sec-eyebrow">Before vs After</div>
+            <h2>Running orders <span class="italic-serif">the hard way</span> vs the Geni way</h2>
+            <p>Most restaurants are still managing multi-channel orders through shouting, paper slips, and separate third-party tablets. Here's what changes.</p>
+        </div>
+
+        <div class="compare-grid" data-aos="fade-up" data-aos-delay="100">
+            {{-- Old Way --}}
+            <div class="compare-col old">
+                <div class="compare-col-head">
+                    <div class="compare-icon">😓</div>
+                    <h3>Without Geni Menu</h3>
+                </div>
+                <ul class="compare-list">
+                    <li data-icon="❌">3 separate tablets for Swiggy, Zomato and your own site — all beeping at once</li>
+                    <li data-icon="❌">Handwritten KOTs lost between the waiter and the kitchen pass</li>
+                    <li data-icon="❌">No visibility on how long an order has been in the kitchen</li>
+                    <li data-icon="❌">Takeaway customers crowding the counter with no idea when their food is ready</li>
+                    <li data-icon="❌">Order edits cause confusion — kitchen may prepare the wrong version</li>
+                    <li data-icon="❌">Manager has to physically walk to kitchen to check on order status</li>
+                </ul>
+            </div>
+
+            {{-- Geni Way --}}
+            <div class="compare-col new">
+                <div class="compare-col-head">
+                    <div class="compare-icon">😊</div>
+                    <h3>With Geni Menu</h3>
+                </div>
+                <ul class="compare-list">
+                    <li data-icon="✅">All channels in one Kanban board — one screen, one team, one workflow</li>
+                    <li data-icon="✅">Digital KOTs dispatched instantly to kitchen printer or KDS screen</li>
+                    <li data-icon="✅">Live prep timers — amber alerts fire before SLA is breached</li>
+                    <li data-icon="✅">Auto-SMS to takeaway customers the moment their order is Ready</li>
+                    <li data-icon="✅">Mid-flow edits pushed to kitchen in real time with no confusion</li>
+                    <li data-icon="✅">Manager sees full order pipeline on phone from anywhere in the restaurant</li>
+                </ul>
+            </div>
+        </div>
     </div>
-
-    <div class="ind-grid">
-      <div class="ind-card">
-        <div class="ind-img" style="background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80');">
-          <div class="ind-overlay"></div>
-          <div class="ind-icon"><svg viewBox="0 0 24 24"><path d="M4 19h16M4 15h16M4 11h16M8 7v4M16 7v4"/></svg></div>
-        </div>
-        <div class="ind-content">
-          <h4>Fine Dining</h4>
-          <p>Keep table orders, course timing, and waiter requests organized.</p>
-        </div>
-      </div>
-
-      <div class="ind-card">
-        <div class="ind-img" style="background-image: url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=600&q=80');">
-          <div class="ind-overlay"></div>
-          <div class="ind-icon"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/></svg></div>
-        </div>
-        <div class="ind-content">
-          <h4>QSR & Fast Food</h4>
-          <p>Manage high-volume counter order tickets and fast turnarounds.</p>
-        </div>
-      </div>
-
-      <div class="ind-card">
-        <div class="ind-img" style="background-image: url('https://images.unsplash.com/photo-1526367790999-0150786686a2?auto=format&fit=crop&w=600&q=80');">
-          <div class="ind-overlay"></div>
-          <div class="ind-icon"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
-        </div>
-        <div class="ind-content">
-          <h4>Cloud Kitchens</h4>
-          <p>Keep incoming multi-channel delivery orders clear from preparation to dispatch.</p>
-        </div>
-      </div>
-    </div>
-  </div>
 </section>
 
-<!-- ================= CONNECTED RESTAURANT ECOSYSTEM ================= -->
-<section style="background: var(--bg2);">
-  <div class="w">
-    <div class="hd">
-      <div class="eb">CONNECTED PLATFORM</div>
-      <h2>Order Management Connects <span class="sf">the Entire Restaurant.</span></h2>
-      <p>Geni Menu Order Management acts as the operational bridge between customer menu choices, kitchen tickets, tables, and POS payments.</p>
+{{-- ═══════════════════════════════════════════════════════════════
+     FAQ ACCORDION
+═══════════════════════════════════════════════════════════════ --}}
+<section class="section">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <div class="sec-eyebrow">FAQ</div>
+            <h2>Questions about <span class="italic-serif">Order Management</span></h2>
+        </div>
+
+        <div class="faq-list">
+            <div class="faq-item" data-aos="fade-up" data-aos-delay="0">
+                <button class="faq-q" onclick="toggleFaq(this)">
+                    Does Geni Menu connect directly with Swiggy and Zomato?
+                    <div class="faq-chevron">▾</div>
+                </button>
+                <div class="faq-a">
+                    Yes. Geni Menu integrates with Swiggy and Zomato via their official merchant APIs. When a customer places an order on either platform, it appears in your Geni Order Board within seconds — no manual entry, no separate tablet to monitor. You manage acceptance, rejection, and prep status directly from the board.
+                </div>
+            </div>
+
+            <div class="faq-item" data-aos="fade-up" data-aos-delay="60">
+                <button class="faq-q" onclick="toggleFaq(this)">
+                    Can I edit an order after the KOT has been sent to the kitchen?
+                    <div class="faq-chevron">▾</div>
+                </button>
+                <div class="faq-a">
+                    Absolutely. You can add items, remove items, or substitute ingredients even after the KOT has been dispatched. The kitchen screen (KDS) or kitchen printer receives an instant update notification — clearly flagged as a modification so nothing gets confused with the original ticket.
+                </div>
+            </div>
+
+            <div class="faq-item" data-aos="fade-up" data-aos-delay="120">
+                <button class="faq-q" onclick="toggleFaq(this)">
+                    How do prep timers work, and can I set different SLAs per dish category?
+                    <div class="faq-chevron">▾</div>
+                </button>
+                <div class="faq-a">
+                    Each order type (dine-in, takeaway, delivery) can have its own SLA target — for example, 15 minutes for dine-in and 12 minutes for delivery. When an order is accepted, the timer starts. At 70% elapsed, the card turns amber. At 100%, it turns red and a sound alert fires. You can also set category-level timers — so a dessert order has a shorter SLA than a main course.
+                </div>
+            </div>
+
+            <div class="faq-item" data-aos="fade-up" data-aos-delay="180">
+                <button class="faq-q" onclick="toggleFaq(this)">
+                    What devices can staff use to manage the order board?
+                    <div class="faq-chevron">▾</div>
+                </button>
+                <div class="faq-a">
+                    The Geni Order Board runs in any modern browser — Chrome, Safari, Edge — on tablets, phones, and desktops. Most restaurants use a wall-mounted tablet in the kitchen and a phone for the floor manager. No dedicated hardware is required. The interface is fully touch-optimised for smooth drag-and-drop on tablets.
+                </div>
+            </div>
+
+            <div class="faq-item" data-aos="fade-up" data-aos-delay="240">
+                <button class="faq-q" onclick="toggleFaq(this)">
+                    What happens if the internet goes down mid-service?
+                    <div class="faq-chevron">▾</div>
+                </button>
+                <div class="faq-a">
+                    Geni Menu has an offline mode for core order functions. Orders already in the board remain visible and editable. New dine-in orders placed through the waiter app queue locally and sync the moment connectivity is restored. Online aggregator orders (Swiggy, Zomato) will auto-accept with a default message when offline, and sync to the board when connectivity returns.
+                </div>
+            </div>
+        </div>
     </div>
-
-    <div class="card" style="padding: 40px; text-align: center; background: linear-gradient(180deg, #ffffff 0%, #faf8f5 100%);">
-      <div style="display: inline-block; padding: 14px 28px; background: var(--br); color: #fff; border-radius: 16px; font-weight: 500; font-size: 20px; font-family: 'Outfit', sans-serif; box-shadow: 0 8px 24px rgba(135,96,57,0.3); margin-bottom: 32px;">
-        CENTRAL ORDER MANAGEMENT ENGINE
-      </div>
-
-      <div class="g4" style="text-align: left;">
-        <div style="background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 16px;">
-          <h4 style="font-size: 15px; margin-bottom: 4px; color: var(--br);">Menu Management</h4>
-          <p style="font-size: 12.5px;">Orders pull exact item prices, variations & modifier add-ons.</p>
-        </div>
-
-        <div style="background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 16px;">
-          <h4 style="font-size: 15px; margin-bottom: 4px; color: var(--br);">Table Management</h4>
-          <p style="font-size: 12.5px;">Dine-in orders attach directly to active table floor tabs.</p>
-        </div>
-
-        <div style="background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 16px;">
-          <h4 style="font-size: 15px; margin-bottom: 4px; color: var(--br);">KOT Management</h4>
-          <p style="font-size: 12.5px;">Order creation automatically prints or displays kitchen tickets.</p>
-        </div>
-
-        <div style="background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 16px;">
-          <h4 style="font-size: 15px; margin-bottom: 4px; color: var(--br);">POS & Billing</h4>
-          <p style="font-size: 12.5px;">Completed orders feed into final tax invoicing & payments.</p>
-        </div>
-      </div>
-    </div>
-  </div>
 </section>
 
-<!-- ================= FAQ SECTION ================= -->
-<section>
-  <div class="w">
-    <div class="hd">
-      <div class="eb">GOT QUESTIONS?</div>
-      <h2>Frequently Asked <span class="sf">Questions.</span></h2>
-      <p>Everything you need to know about Geni Menu Order Management.</p>
+{{-- ═══════════════════════════════════════════════════════════════
+     CROSS LINKS — RELATED FEATURES
+═══════════════════════════════════════════════════════════════ --}}
+<div class="cross-links" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+    <div class="container">
+        <div style="text-align:center;margin-bottom:36px;" data-aos="fade-up">
+            <p style="font-size:13px;font-weight:700;color:var(--ink-faint);text-transform:uppercase;letter-spacing:1.2px;">Related Features</p>
+            <h3 style="font-size:24px;font-weight:800;color:var(--ink);margin-top:8px;">Works best with these tools</h3>
+        </div>
+        <div class="cross-links-grid">
+            <a href="{{ route('features.kot-management') }}" class="cross-card" data-aos="fade-up" data-aos-delay="0">
+                <div class="cross-icon">🖨️</div>
+                <div class="cross-text">
+                    <h4>KOT Management</h4>
+                    <p>Auto-print or display kitchen tickets the moment an order is accepted on the board.</p>
+                </div>
+            </a>
+            <a href="{{ route('features.pos-management') }}" class="cross-card" data-aos="fade-up" data-aos-delay="80">
+                <div class="cross-icon">🧾</div>
+                <div class="cross-text">
+                    <h4>POS & Billing</h4>
+                    <p>When an order is marked complete, billing flows straight into the POS — no double entry.</p>
+                </div>
+            </a>
+            <a href="{{ route('features.table-management') }}" class="cross-card" data-aos="fade-up" data-aos-delay="160">
+                <div class="cross-icon">🗺️</div>
+                <div class="cross-text">
+                    <h4>Table Management</h4>
+                    <p>See which tables have active orders on the floor plan, and link order status to table state.</p>
+                </div>
+            </a>
+        </div>
     </div>
+</div>
 
-    <div class="faq-list">
-      <div class="faq-item open">
-        <div class="faq-q" onclick="faq(this)">
-          1. What is Order Management in Geni Menu?
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+{{-- ═══════════════════════════════════════════════════════════════
+     FINAL CTA SECTION
+═══════════════════════════════════════════════════════════════ --}}
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-inner" data-aos="fade-up">
+            <div class="sec-eyebrow" style="background:rgba(255,255,255,0.12);border-color:rgba(255,255,255,0.2);color:#FDE68A;margin-bottom:24px;">Get Started Today</div>
+            <h2>Stop losing orders to<br><span class="italic-serif" style="color:#F4EFEA;">scattered systems</span></h2>
+            <p>Join hundreds of restaurants that run their entire order pipeline — dine-in, takeaway and delivery — on one live board with Geni Menu.</p>
+            <div class="cta-btns">
+                <a href="{{ route('restaurant_signup') }}" class="btn-white">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                    Start Free — No Card Needed
+                </a>
+                <a href="{{ route('restaurant_signup') }}" class="btn-ghost">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                    Book a Live Demo
+                </a>
+            </div>
+            <div class="cta-trust">
+                <div class="cta-trust-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                    Free 14-day trial
+                </div>
+                <div class="cta-trust-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                    No credit card required
+                </div>
+                <div class="cta-trust-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                    Live onboarding support
+                </div>
+                <div class="cta-trust-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                    Cancel anytime
+                </div>
+            </div>
         </div>
-        <div class="faq-a">
-          Order Management in Geni Menu is a central digital workspace that tracks dine-in, takeaway, pickup, and delivery orders across clear workflow stages from order creation to final fulfillment.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q" onclick="faq(this)">
-          2. Can dine-in orders be linked directly to table numbers?
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-        </div>
-        <div class="faq-a">
-          Yes. Dine-in orders link directly to specific table numbers on your floor plan, allowing staff to add items to open table tabs.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q" onclick="faq(this)">
-          3. How does Order Management connect with the kitchen (KOT)?
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-        </div>
-        <div class="faq-a">
-          When an order is confirmed, it generates a Kitchen Order Ticket (KOT) on kitchen display screens or thermal printers.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q" onclick="faq(this)">
-          4. Can takeaway, pickup, and delivery orders be managed?
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-        </div>
-        <div class="faq-a">
-          Yes. You can manage all non-dine-in order types with clear badges, customer contact details, and fulfillment statuses.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q" onclick="faq(this)">
-          5. Can staff add custom order notes or item instructions?
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-        </div>
-        <div class="faq-a">
-          Yes. Staff can append special dietary preferences, spice levels, or modification notes (e.g. "Less spicy", "No ice") to individual items.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q" onclick="faq(this)">
-          6. Can staff manage orders from mobile devices or tablets?
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-        </div>
-        <div class="faq-a">
-          Yes. Geni Menu Order Management is accessible via mobile web browsers, handheld tablets, and desktop POS counters.
-        </div>
-      </div>
     </div>
-  </div>
 </section>
 
-<!-- ================= FINAL CTA ================= -->
-<section style="padding: 96px 0; background: linear-gradient(135deg, #FAF4ED 0%, #EFE4D6 50%, #FAF4ED 100%); color: #21160F; border-top: 1px solid rgba(135, 96, 57, 0.16);">
-  <div class="w" style="text-align: center; max-width: 800px;">
-    <div class="eb" style="background: rgba(135, 96, 57, 0.1); border-color: rgba(135, 96, 57, 0.2); color: #876039;">TRANSFORM YOUR ORDER FLOW</div>
-    <h2 style="color: #21160F; font-size: clamp(32px, 4vw, 48px); margin-bottom: 20px;">
-      Bring Every Restaurant Order Into <span style="color: #876039; font-family: 'Playfair Display', Georgia, serif; font-style: italic;">One Clear Workflow.</span>
-    </h2>
-    <p style="color: #6E6157; font-size: 18px; margin-bottom: 36px; line-height: 1.6;">
-      From the first order to the final handoff, keep your restaurant team connected with Geni Menu Order Management.
-    </p>
-    <div style="display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap;">
-      <a href="{{ route('restaurant_signup') }}" class="btn p" style="padding: 16px 36px; font-size: 16px; background: #876039; color: #fff;">Get Started →</a>
-      <a href="{{ route('contact.us') }}" class="btn o" style="padding: 16px 32px; font-size: 16px; background: #fff; color: #876039; border: 1.5px solid #876039;">Book a Demo</a>
-    </div>
-  </div>
-</section>
-
-
-
+{{-- ═══════════════════════════════════════════════════════════════
+     SCRIPTS — AOS + FAQ
+═══════════════════════════════════════════════════════════════ --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script>
-function faq(el) {
-  const p = el.parentElement, was = p.classList.contains('open');
-  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
-  if (!was) p.classList.add('open');
-}
+    // AOS Init
+    AOS.init({
+        once: true,
+        offset: 60,
+        duration: 650,
+        easing: 'ease-out-cubic',
+    });
 
-const nb = document.getElementById('nb');
-window.addEventListener('scroll', () => nb.classList.toggle('s', window.scrollY > 60), { passive: true });
+    // FAQ Accordion
+    function toggleFaq(btn) {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
 
-const hmb = document.getElementById('hmb'), mnv = document.getElementById('mnav');
-if (hmb && mnv) {
-  hmb.addEventListener('click', () => mnv.classList.add('open'));
-  mnv.addEventListener('click', e => { if (e.target === mnv) mnv.classList.remove('open'); });
-}
+        // Close all
+        document.querySelectorAll('.faq-item.open').forEach(function(el) {
+            el.classList.remove('open');
+        });
+
+        // Open clicked (if it wasn't already open)
+        if (!isOpen) {
+            item.classList.add('open');
+        }
+    }
 </script>
 
 @endsection

@@ -333,38 +333,99 @@
     background: rgba(250, 246, 239, 0.96);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--line);
-    padding: 12px 0;
+    padding: 14px 0;
     box-shadow: 0 4px 16px rgba(33, 22, 15, 0.03);
+  }
+
+  .ft-cat-nav-scroll-wrap {
+    position: relative;
+  }
+
+  /* Scroll fade hints — left */
+  .ft-cat-nav-scroll-wrap::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 32px;
+    background: linear-gradient(to right, rgba(250,246,239,0.96), transparent);
+    z-index: 2;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  /* Scroll fade hints — right */
+  .ft-cat-nav-scroll-wrap::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 32px;
+    background: linear-gradient(to left, rgba(250,246,239,0.96), transparent);
+    z-index: 2;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s;
   }
 
   .ft-cat-nav-row {
     display: flex;
     gap: 8px;
-    overflow-x: auto;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
-    padding: 2px 0;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 2px 4px;
   }
-  .ft-cat-nav-row::-webkit-scrollbar { display: none; }
 
   .ft-cat-link {
     white-space: nowrap;
-    padding: 8px 16px;
+    padding: 9px 20px;
     border-radius: 999px;
     font-size: 13.5px;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--ink-soft);
     background: #fff;
     border: 1px solid var(--line);
     text-decoration: none;
     transition: all 0.2s ease;
+    flex-shrink: 0;
   }
 
-  .ft-cat-link:hover, .ft-cat-link.active {
+  .ft-cat-link:hover {
+    background: var(--br-light);
+    color: var(--br);
+    border-color: var(--br);
+  }
+
+  .ft-cat-link.active {
     background: var(--br);
     color: #fff;
     border-color: var(--br);
     box-shadow: 0 2px 8px rgba(135,96,57,0.2);
+  }
+
+  /* Mobile: single-line horizontal scroll */
+  @media (max-width: 900px) {
+    .ft-cat-nav-row {
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      padding: 2px 16px;
+    }
+    .ft-cat-nav-row::-webkit-scrollbar { display: none; }
+
+    .ft-cat-nav-scroll-wrap::after {
+      opacity: 1;
+    }
+
+    .ft-cat-link {
+      padding: 8px 16px;
+      font-size: 13px;
+    }
   }
 
   /* ===================== ECOSYSTEM FLOW ===================== */
@@ -961,15 +1022,17 @@
   {{-- 2. STICKY CATEGORY NAVIGATION --}}
   <div class="ft-cat-nav-sticky">
     <div class="w">
-      <div class="ft-cat-nav-row">
-        <a href="#all-features" class="ft-cat-link active">All Features</a>
-        <a href="#sec-menu" class="ft-cat-link">Menu &amp; Customers</a>
-        <a href="#sec-orders" class="ft-cat-link">Orders &amp; Kitchen</a>
-        <a href="#sec-tables" class="ft-cat-link">Tables &amp; Reservations</a>
-        <a href="#sec-pos" class="ft-cat-link">POS &amp; Payments</a>
-        <a href="#sec-inventory" class="ft-cat-link">Inventory &amp; Operations</a>
-        <a href="#sec-staff" class="ft-cat-link">Customers &amp; Staff</a>
-        <a href="#sec-reports" class="ft-cat-link">Reports &amp; Business</a>
+      <div class="ft-cat-nav-scroll-wrap">
+        <div class="ft-cat-nav-row">
+          <a href="#all-features" class="ft-cat-link active">All Features</a>
+          <a href="#sec-menu" class="ft-cat-link">Menu &amp; Customers</a>
+          <a href="#sec-orders" class="ft-cat-link">Orders &amp; Kitchen</a>
+          <a href="#sec-tables" class="ft-cat-link">Tables &amp; Reservations</a>
+          <a href="#sec-pos" class="ft-cat-link">POS &amp; Payments</a>
+          <a href="#sec-inventory" class="ft-cat-link">Inventory &amp; Operations</a>
+          <a href="#sec-staff" class="ft-cat-link">Customers &amp; Staff</a>
+          <a href="#sec-reports" class="ft-cat-link">Reports &amp; Business</a>
+        </div>
       </div>
     </div>
   </div>

@@ -113,21 +113,8 @@ section { padding: clamp(64px, 9vw, 110px) 0; background: var(--bg); position: r
 
 /* --- Rich Floating Transparent Restaurant & Food Industry Icons --- */
 .food-bg-icon {
-  position: absolute;
-  pointer-events: none;
-  z-index: 0;
-  color: var(--br);
-  opacity: 0.09;
-  transition: opacity 0.4s ease, transform 0.4s ease;
+  display: none;
 }
-.food-bg-icon svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
-.food-bg-icon.float-1 { animation: bgFloat1 8s ease-in-out infinite; }
-.food-bg-icon.float-2 { animation: bgFloat2 10s ease-in-out infinite; }
-.food-bg-icon.float-3 { animation: bgFloat3 12s ease-in-out infinite; }
-
-@keyframes bgFloat1 { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-16px) rotate(8deg); } }
-@keyframes bgFloat2 { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(18px) rotate(-10deg); } }
-@keyframes bgFloat3 { 0%, 100% { transform: scale(1) rotate(0deg); } 50% { transform: scale(1.12) rotate(14deg); } }
 
 /* --- Card Background Translucent Watermark Overlay --- */
 .card { position: relative; overflow: hidden; background: var(--card); border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow-sm); transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease; }

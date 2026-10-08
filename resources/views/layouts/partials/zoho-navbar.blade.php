@@ -954,7 +954,6 @@
       </a>
 
       <a href="{{ route('restaurant_signup') }}"
-         onclick="if(typeof openPopup === 'function'){ openPopup(); return false; }"
          class="btn-signup-pill">
         Sign Up Now
       </a>
@@ -1050,7 +1049,7 @@
 
     <div class="mobile-actions">
       <a href="{{ route('restaurant_signup') }}"
-         onclick="closeGeniMobile(); if(typeof openPopup === 'function'){ openPopup(); return false; }"
+         onclick="closeGeniMobile();"
          class="btn-signup-pill" style="width:100%;text-align:center;padding:12px 20px;font-size:14px;">
         Sign Up Now
       </a>

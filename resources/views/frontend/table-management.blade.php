@@ -1,1142 +1,2142 @@
+<?php
+$meta = [
+    'title'       => 'Table Management — Interactive Floor Plan & Seating | Geni Menu',
+    'description' => 'Manage your restaurant floor plan in real-time. Track table status, monitor turn times, assign zones, and seat guests seamlessly with Geni Menu\'s live Table Management.',
+    'keywords'    => 'restaurant table management, floor plan software, live seating tracker, table turn time, zone management, restaurant POS table status, Geni Menu',
+];
+?>
 @extends('layouts.frontend-master')
 
 @section('content')
 
-{{-- Google Fonts --}}
+{{-- ============================================================
+     FONTS & AOS
+============================================================ --}}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,600;1,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,600&family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
 
 <style>
-/* Hide legacy default header/footer if present in master layout */
-/* Master header and footer active */
-
+/* ============================================================
+   CSS CUSTOM PROPERTIES
+============================================================ */
 :root {
-  --br: #876039;
-  --br-dark: #6f4e2d;
-  --br-light: #f4efe9;
-  --br-gold: #b88e56;
-  --bg: #ffffff;
-  --bg2: #f9f6f0;
-  --bg3: #f3ece1;
-  --ink: #241A14;
-  --mute: #6F665E;
-  --line: rgba(135, 96, 57, 0.14);
-  --card: #ffffff;
-  --shadow-sm: 0 4px 20px rgba(36, 26, 20, 0.04);
-  --shadow-md: 0 16px 40px rgba(36, 26, 20, 0.08);
-  --shadow-lg: 0 26px 50px rgba(36, 26, 20, 0.12);
-  --green: #10B981;
-  --blue: #3B82F6;
-  --yellow: #F59E0B;
-  --amber: #f59e0b;
-  --red: #EF4444;
+    --bg-page:        #FAF6EF;
+    --bg-card:        #FFFFFF;
+    --bg-surface:     #F5EFEB;
+    --ink:            #21160F;
+    --ink-soft:       #63584E;
+    --ink-faint:      #8E8277;
+    --coffee:         #876039;
+    --coffee-dark:    #6F4E2D;
+    --coffee-light:   #F4EFEA;
+    --coffee-border:  rgba(135,96,57,0.16);
+    --green:          #15803D;
+    --green-bg:       #DCFCE7;
+    --amber:          #B45309;
+    --amber-bg:       #FEF3C7;
+    --red:            #DC2626;
+    --red-bg:         #FEE2E2;
+    --gray:           #6B7280;
+    --gray-bg:        #F3F4F6;
+    --line:           rgba(135,96,57,0.12);
 }
 
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  margin: 0;
-  font: 400 16px/1.65 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  color: var(--ink);
-  background: var(--bg) !important;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
+/* ============================================================
+   GLOBAL RESETS & BASE
+============================================================ */
+.tm-page * { box-sizing: border-box; margin: 0; padding: 0; }
+.tm-page {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: var(--bg-page);
+    color: var(--ink-soft);
+    line-height: 1.65;
+}
+.tm-page h1, .tm-page h2, .tm-page h3, .tm-page h4, .tm-page h5 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.025em;
+    line-height: 1.18;
+}
+.tm-page .italic-serif {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-weight: 600;
+    color: var(--coffee);
+}
+.tm-container { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+
+/* ============================================================
+   BREADCRUMB
+============================================================ */
+.tm-breadcrumb {
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--line);
+    padding: 14px 0;
+}
+.tm-breadcrumb__inner {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--ink-faint);
+}
+.tm-breadcrumb__inner a {
+    color: var(--coffee);
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity .2s;
+}
+.tm-breadcrumb__inner a:hover { opacity: .75; }
+.tm-breadcrumb__sep { color: var(--line); font-size: 16px; }
+
+/* ============================================================
+   EYEBROW
+============================================================ */
+.sec-eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: var(--coffee);
+    background: var(--coffee-light);
+    border: 1px solid var(--coffee-border);
+    padding: 6px 16px;
+    border-radius: 9999px;
+    margin-bottom: 18px;
 }
 
-h1, h2, h3, h4, h5 {
-  margin: 0;
-  font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
-  font-weight: 500;
-  line-height: 1.14;
-  letter-spacing: -0.03em;
-  color: var(--ink);
+/* ============================================================
+   BUTTONS
+============================================================ */
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--coffee);
+    color: #fff;
+    border-radius: 9999px;
+    padding: 13px 28px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background .2s, transform .15s;
 }
-h1 { font-size: clamp(34px, 4.8vw, 58px); }
-h2 { font-size: clamp(28px, 3.6vw, 44px); }
-h3 { font-size: 20px; font-weight: 700; }
-p { margin: 0; color: var(--mute); font-size: 16px; line-height: 1.65; }
-a { color: inherit; text-decoration: none; }
-ul { list-style: none; margin: 0; padding: 0; }
+.btn-primary:hover { background: var(--coffee-dark); transform: translateY(-1px); color: #fff; }
+.btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff;
+    color: var(--coffee);
+    border: 1px solid rgba(135,96,57,0.25);
+    border-radius: 9999px;
+    padding: 12px 26px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background .2s, border-color .2s, transform .15s;
+}
+.btn-outline:hover { background: var(--coffee-light); border-color: var(--coffee); transform: translateY(-1px); color: var(--coffee); }
 
-.sf {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-style: italic;
-  font-weight: 700;
-  background: linear-gradient(135deg, #876039 0%, #a87646 50%, #c89659 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: inline-block;
-  padding-right: 4px;
+/* ============================================================
+   HERO
+============================================================ */
+.tm-hero {
+    background: var(--bg-page);
+    padding: 80px 0 0;
+    overflow: hidden;
+    position: relative;
+}
+.tm-hero::before {
+    content: '';
+    position: absolute;
+    top: -120px; left: -200px;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(135,96,57,0.07) 0%, transparent 70%);
+    pointer-events: none;
+}
+.tm-hero__inner {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+.tm-hero__h1 {
+    font-size: clamp(36px, 5vw, 60px);
+    margin-bottom: 22px;
+}
+.tm-hero__sub {
+    font-size: 18px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    margin-bottom: 36px;
+    max-width: 580px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.tm-hero__ctas {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 44px;
+}
+.tm-hero__badges {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 64px;
+}
+.tm-hero__badge {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink-soft);
+}
+.tm-hero__badge-icon {
+    width: 22px; height: 22px;
+    background: var(--green-bg);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px;
 }
 
-.eb {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 12px;
-  letter-spacing: .16em;
-  font-weight: 500;
-  text-transform: uppercase;
-  color: var(--br);
-  margin-bottom: 16px;
-  background: linear-gradient(135deg, #fbf7f2 0%, #f4efe9 100%);
-  padding: 7px 18px;
-  border-radius: 99px;
-  border: 1px solid rgba(135, 96, 57, 0.22);
-  box-shadow: 0 2px 10px rgba(135, 96, 57, 0.08);
-  font-family: 'Plus Jakarta Sans', sans-serif;
+/* ============================================================
+   DEVICE WINDOW (hero mockup)
+============================================================ */
+.device-window {
+    background: #fff;
+    border-radius: 20px;
+    border: 1px solid var(--line);
+    box-shadow: 0 32px 80px rgba(33,22,15,0.13), 0 4px 16px rgba(33,22,15,0.05);
+    overflow: hidden;
+    max-width: 1060px;
+    margin: 0 auto;
+    position: relative;
+}
+.device-window__bar {
+    background: #F7F3EF;
+    border-bottom: 1px solid var(--line);
+    padding: 12px 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.device-window__dots { display: flex; gap: 6px; }
+.device-window__dot {
+    width: 11px; height: 11px;
+    border-radius: 50%;
+}
+.device-window__dot--red   { background: #FC5F57; }
+.device-window__dot--amber { background: #FDBC2C; }
+.device-window__dot--green { background: #33C748; }
+.device-window__url {
+    flex: 1;
+    background: #EDEBE6;
+    border-radius: 6px;
+    padding: 5px 14px;
+    font-size: 12px;
+    color: var(--ink-faint);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.device-window__pill {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--green);
+    background: var(--green-bg);
+    border-radius: 9999px;
+    padding: 3px 10px;
+    display: flex; align-items: center; gap: 4px;
+}
+.device-window__pill::before { content: '●'; font-size: 8px; }
+
+/* ============================================================
+   FLOOR PLAN MOCKUP
+============================================================ */
+.floorplan-ui {
+    background: #1C1208;
+    min-height: 520px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+.floorplan-ui__topbar {
+    background: #261A0E;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    padding: 14px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+.floorplan-ui__title {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    color: #FAF6EF;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.floorplan-ui__title-icon {
+    width: 30px; height: 30px;
+    background: var(--coffee);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px;
+}
+.floorplan-ui__zone-tabs {
+    display: flex;
+    gap: 6px;
+}
+.floorplan-ui__zone-tab {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 5px 14px;
+    border-radius: 9999px;
+    cursor: pointer;
+    color: rgba(250,246,239,0.55);
+    border: 1px solid rgba(255,255,255,0.1);
+    background: transparent;
+    transition: all .2s;
+}
+.floorplan-ui__zone-tab--active {
+    background: var(--coffee);
+    color: #fff;
+    border-color: var(--coffee);
+}
+.floorplan-ui__legend {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+.floorplan-ui__legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    color: rgba(250,246,239,0.6);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.floorplan-ui__legend-dot {
+    width: 9px; height: 9px;
+    border-radius: 50%;
+}
+.floorplan-ui__legend-dot--green  { background: #22C55E; }
+.floorplan-ui__legend-dot--coffee { background: var(--coffee); }
+.floorplan-ui__legend-dot--amber  { background: #F59E0B; }
+.floorplan-ui__legend-dot--gray   { background: #6B7280; }
+
+/* Table grid */
+.floorplan-ui__body {
+    padding: 22px;
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+}
+@media (max-width: 640px) {
+    .floorplan-ui__body { grid-template-columns: repeat(2, 1fr); }
+}
+.table-card {
+    background: #2A1D10;
+    border-radius: 14px;
+    padding: 14px 14px 12px;
+    border: 1px solid rgba(255,255,255,0.07);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+    transition: transform .2s;
+}
+.table-card:hover { transform: translateY(-2px); }
+.table-card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.table-card__num {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: #FAF6EF;
+}
+.table-card__zone-badge {
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 9999px;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+}
+.table-card__status-bar {
+    height: 3px;
+    border-radius: 9999px;
+    margin: 2px 0;
+}
+.table-card__status-bar--available { background: #22C55E; }
+.table-card__status-bar--occupied  { background: var(--coffee); }
+.table-card__status-bar--reserved  { background: #F59E0B; }
+.table-card__status-bar--cleaning  { background: #6B7280; }
+
+.badge-available { background: rgba(34,197,94,0.15);  color: #22C55E; }
+.badge-occupied  { background: rgba(135,96,57,0.25);  color: #D4956A; }
+.badge-reserved  { background: rgba(245,158,11,0.15); color: #F59E0B; }
+.badge-cleaning  { background: rgba(107,114,128,0.2); color: #9CA3AF; }
+
+.table-card__meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+}
+.table-card__meta-item {
+    font-size: 10.5px;
+    color: rgba(250,246,239,0.5);
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+.table-card__meta-val {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    color: rgba(250,246,239,0.9);
+}
+.table-card__guests {
+    display: flex;
+    gap: 3px;
+    flex-wrap: wrap;
+}
+.table-card__guest-dot {
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    font-size: 9px;
+    font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff;
 }
 
-.w { max-width: 1240px; margin: auto; padding: 0 24px; position: relative; z-index: 1; }
-section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: relative; overflow: hidden; }
-.hd { max-width: 740px; margin: 0 auto 52px; text-align: center; }
-.hd p { margin-top: 14px; font-size: 17px; }
+/* Telemetry bar */
+.floorplan-ui__telemetry {
+    background: #261A0E;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding: 12px 22px;
+    display: flex;
+    gap: 28px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.floorplan-ui__tele-item {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+.floorplan-ui__tele-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(250,246,239,0.4);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 600;
+}
+.floorplan-ui__tele-val {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: #FAF6EF;
+}
+.floorplan-ui__tele-val--green  { color: #22C55E; }
+.floorplan-ui__tele-val--amber  { color: #F59E0B; }
+.floorplan-ui__tele-val--coffee { color: #D4956A; }
+.floorplan-ui__occupancy-bar {
+    flex: 1;
+    min-width: 120px;
+}
+.floorplan-ui__occ-bar-track {
+    height: 7px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 9999px;
+    overflow: hidden;
+    margin-top: 6px;
+}
+.floorplan-ui__occ-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--coffee), #D4956A);
+    border-radius: 9999px;
+}
 
-/* ===================== BUTTONS ===================== */
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 28px; border-radius: 12px; font: 700 15px 'Plus Jakarta Sans', sans-serif; border: 1.5px solid var(--br); transition: .25s ease; cursor: pointer; text-decoration: none; }
-.btn.p { background: linear-gradient(135deg, #876039 0%, #a87646 100%); color: #fff; box-shadow: 0 4px 16px rgba(135,96,57,0.28); }
-.btn.p:hover { transform: translateY(-2px); background: linear-gradient(135deg, #6f4e2d 0%, #876039 100%); box-shadow: 0 8px 24px rgba(135,96,57,0.38); }
-.btn.o { color: var(--br); background: #fff; }
-.btn.o:hover { background: var(--br); color: #fff; transform: translateY(-2px); }
-
-/* ===================== BREADCRUMB ===================== */
-.bc { padding: 18px 0 16px; background: var(--bg2); border-bottom: 1px solid var(--line); font-size: 14px; color: var(--mute); font-weight: 600; }
-.bc .w { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-.bc a { color: var(--mute); transition: color .2s; }
-.bc a:hover { color: var(--br); }
-.bc span.cur { color: var(--br); font-weight: 700; }
-
-/* ===================== CARDS & FLOOR MAP COMPONENTS ===================== */
-.card { position: relative; overflow: hidden; background: var(--card); border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow-sm); transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease; }
-.card:hover { border-color: rgba(135,96,57,0.3); box-shadow: var(--shadow-md); }
-
-.ic { width: 46px; height: 46px; border-radius: 13px; background: var(--bg2); color: var(--br); display: grid; place-items: center; flex: none; border: 1px solid var(--line); transition: .3s ease; }
-.ic svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-.card:hover .ic { background: var(--br); color: #fff; border-color: var(--br); }
-
-.win { background: #fff; color: var(--ink); border: 1px solid var(--line); border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-md); font-size: 13px; }
-.wb { display: flex; align-items: center; justify-content: space-between; padding: 12px 18px; background: var(--bg2); border-bottom: 1px solid var(--line); flex-wrap: wrap; gap: 8px; }
-.wb .dots { display: flex; gap: 6px; }
-.wb i { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
-.wb i:nth-child(1) { background: #ff5f56; }
-.wb i:nth-child(2) { background: #ffbd2e; }
-.wb i:nth-child(3) { background: #27c93f; }
-.wb .ttl { color: var(--br); font-weight: 500; font-family: 'Outfit', sans-serif; letter-spacing: 0.05em; font-size: 12px; text-transform: uppercase; }
-
-.badge { font-size: 11px; font-weight: 500; padding: 4px 10px; border-radius: 8px; text-transform: uppercase; display: inline-block; letter-spacing: .04em; }
-.badge.avail { background: #d1fae5; color: #065f46; }
-.badge.reserved { background: var(--br-light); color: var(--br); }
-.badge.occupied { background: #dbeafe; color: #1e40af; }
-.badge.cleaning { background: #fef3c7; color: #92400e; }
-
-/* Table Map Element Styles */
-.t-node { border-radius: 14px; border: 2px solid; padding: 14px; text-align: center; position: relative; transition: transform .2s, box-shadow .2s; cursor: pointer; }
-.t-node:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
-.t-node.avail { border-color: var(--green); background: #ecfdf5; }
-.t-node.reserved { border-color: var(--br); background: var(--br-light); }
-.t-node.occupied { border-color: var(--blue); background: #eff6ff; }
-.t-node.cleaning { border-color: var(--amber); background: #fffbeb; }
-
-.t-num { font-weight: 500; font-size: 16px; font-family: 'Outfit', sans-serif; color: var(--ink); }
-.t-sub { font-size: 11px; color: var(--mute); margin-top: 2px; }
-.t-tag { font-size: 10px; font-weight: 500; text-transform: uppercase; padding: 2px 8px; border-radius: 4px; margin-top: 6px; display: inline-block; }
-.t-node.avail .t-tag { background: #d1fae5; color: #065f46; }
-.t-node.reserved .t-tag { background: var(--br); color: #fff; }
-.t-node.occupied .t-tag { background: #dbeafe; color: #1e40af; }
-.t-node.cleaning .t-tag { background: #fef3c7; color: #92400e; }
-
-/* Chairs representation */
-.t-chairs { display: flex; justify-content: center; gap: 4px; margin-top: 8px; }
-.t-chair { width: 7px; height: 7px; border-radius: 50%; background: currentColor; opacity: 0.5; }
-
-/* Industry Grid */
-.ind-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.ind-card { border-radius: 18px; overflow: hidden; background: #fff; border: 1px solid var(--line); transition: transform .3s, box-shadow .3s; }
-.ind-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: rgba(135,96,57,0.3); }
-.ind-img { height: 180px; background-size: cover; background-position: center; position: relative; }
-.ind-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 30%, rgba(36,26,20,0.88) 100%); }
-.ind-icon { position: absolute; bottom: 14px; left: 16px; width: 36px; height: 36px; border-radius: 10px; background: rgba(255,255,255,0.18); backdrop-filter: blur(8px); display: grid; place-items: center; color: #fff; border: 1px solid rgba(255,255,255,0.25); }
-.ind-icon svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; }
-.ind-content { padding: 20px; }
-.ind-content h4 { font-size: 18px; margin-bottom: 6px; }
-.ind-content p { font-size: 14px; }
-
-/* FAQ */
-.faq-list { max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
-.faq-item { background: #fff; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; transition: border-color .2s, box-shadow .2s; }
-.faq-item.open { border-color: var(--br); box-shadow: 0 4px 20px rgba(135,96,57,0.1); }
-.faq-q { padding: 20px 24px; font-size: 17px; font-weight: 700; color: var(--ink); cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; gap: 12px; }
-.faq-q svg { width: 20px; height: 20px; transition: transform .3s; stroke: var(--br); flex: none; }
-.faq-item.open .faq-q svg { transform: rotate(180deg); }
-.faq-a { padding: 0 24px; max-height: 0; overflow: hidden; transition: max-height .4s ease, padding .3s; font-size: 15px; color: var(--mute); line-height: 1.65; }
-.faq-item.open .faq-a { max-height: 240px; padding: 16px 24px 20px; border-top: 1px solid rgba(135,96,57,0.08); }
-
-/* Bar Chart */
-.bar-chart { display: flex; flex-direction: column; gap: 14px; }
-.bar-row { display: flex; align-items: center; gap: 14px; font-size: 13px; font-weight: 700; }
-.bar-label { width: 70px; color: var(--mute); font-size: 12px; text-align: right; flex: none; }
-.bar-track { flex: 1; height: 12px; background: #e2d5c0; border-radius: 6px; overflow: hidden; }
-.bar-fill { height: 100%; background: linear-gradient(90deg, #876039 0%, #a87646 100%); border-radius: 6px; transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1); width: 0; }
-.bar-count { width: 80px; font-size: 12px; color: var(--ink); font-weight: 700; flex: none; }
-
-/* Responsive Grid helpers */
-.g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
-.g3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.g4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-
-@media (max-width: 992px) {
-  .g2, .g3, .g4, .ind-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+/* ============================================================
+   VALUE STRIP
+============================================================ */
+.tm-value {
+    padding: 0 0 0;
+    background: var(--bg-page);
+}
+.tm-value__strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(33,22,15,0.05);
+    margin-top: -2px;
 }
 @media (max-width: 768px) {
-  .bc { padding: 14px 0 14px; }
-  .w { padding: 0 16px; }
-  .win { min-width: 0 !important; width: 100%; overflow-x: auto; }
+    .tm-value__strip { grid-template-columns: repeat(2,1fr); }
 }
 @media (max-width: 480px) {
-  .btn { width: 100%; }
+    .tm-value__strip { grid-template-columns: 1fr; }
+}
+.tm-value__item {
+    padding: 32px 28px;
+    border-right: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.tm-value__item:last-child { border-right: none; }
+.tm-value__icon {
+    width: 44px; height: 44px;
+    background: var(--coffee-light);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+}
+.tm-value__title {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--ink);
+}
+.tm-value__desc {
+    font-size: 13.5px;
+    color: var(--ink-faint);
+    line-height: 1.55;
+}
+
+/* ============================================================
+   DEEP FEATURE SHOWCASE (Floor Plan Workflow)
+============================================================ */
+.tm-showcase {
+    padding: 100px 0;
+    background: var(--bg-surface);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+.tm-showcase__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+}
+@media (max-width: 900px) {
+    .tm-showcase__inner { grid-template-columns: 1fr; gap: 40px; }
+}
+.tm-showcase__copy h2 {
+    font-size: clamp(28px, 3.5vw, 42px);
+    margin-bottom: 18px;
+}
+.tm-showcase__copy p {
+    font-size: 16px;
+    color: var(--ink-soft);
+    line-height: 1.75;
+    margin-bottom: 16px;
+}
+.tm-showcase__copy ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 32px;
+}
+.tm-showcase__copy li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 15px;
+    color: var(--ink-soft);
+}
+.tm-showcase__copy li .check {
+    width: 22px; height: 22px;
+    background: var(--green-bg);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px;
+    color: var(--green);
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+.tm-showcase__visual {
+    background: #fff;
+    border-radius: 20px;
+    border: 1px solid var(--line);
+    box-shadow: 0 16px 48px rgba(33,22,15,0.08);
+    overflow: hidden;
+}
+.tm-showcase__visual-header {
+    background: var(--coffee-light);
+    border-bottom: 1px solid var(--line);
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.tm-showcase__visual-title {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.tm-showcase__visual-body {
+    padding: 18px;
+}
+.zone-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    background: var(--bg-surface);
+    border-radius: 12px;
+    margin-bottom: 10px;
+    border: 1px solid var(--line);
+}
+.zone-row__icon {
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+.zone-row__name {
+    flex: 1;
+}
+.zone-row__name-title {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--ink);
+}
+.zone-row__name-sub {
+    font-size: 11px;
+    color: var(--ink-faint);
+}
+.zone-row__pills {
+    display: flex;
+    gap: 5px;
+}
+.zone-pill {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 9999px;
+}
+.zone-pill--green  { background: var(--green-bg);  color: var(--green); }
+.zone-pill--coffee { background: rgba(135,96,57,0.12); color: var(--coffee); }
+.zone-pill--amber  { background: var(--amber-bg);  color: var(--amber); }
+.zone-pill--gray   { background: var(--gray-bg);   color: var(--gray); }
+
+/* ============================================================
+   HOW IT WORKS
+============================================================ */
+.tm-howitworks {
+    padding: 100px 0;
+    background: var(--bg-page);
+}
+.tm-howitworks__header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 60px;
+}
+.tm-howitworks__header h2 { font-size: clamp(28px, 3.5vw, 42px); margin-bottom: 14px; }
+.tm-howitworks__header p { font-size: 16px; color: var(--ink-soft); }
+.tm-howitworks__steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    position: relative;
+}
+@media (max-width: 900px) {
+    .tm-howitworks__steps { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 500px) {
+    .tm-howitworks__steps { grid-template-columns: 1fr; }
+}
+.tm-howitworks__step {
+    background: #fff;
+    border-radius: 20px;
+    border: 1px solid var(--line);
+    box-shadow: 0 8px 24px rgba(33,22,15,0.05);
+    padding: 32px 26px;
+    position: relative;
+}
+.tm-howitworks__step-num {
+    width: 44px; height: 44px;
+    background: var(--coffee);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 20px;
+}
+.tm-howitworks__step h3 {
+    font-size: 17px;
+    margin-bottom: 10px;
+    color: var(--ink);
+}
+.tm-howitworks__step p {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.65;
+}
+.tm-howitworks__step-icon {
+    position: absolute;
+    top: 26px; right: 22px;
+    font-size: 28px;
+    opacity: .18;
+}
+.tm-howitworks__connector {
+    display: none;
+}
+
+/* ============================================================
+   FEATURE GRID
+============================================================ */
+.tm-features {
+    padding: 100px 0;
+    background: var(--bg-surface);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+.tm-features__header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 60px;
+}
+.tm-features__header h2 { font-size: clamp(28px, 3.5vw, 42px); margin-bottom: 14px; }
+.tm-features__header p { font-size: 16px; color: var(--ink-soft); }
+.tm-features__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+@media (max-width: 900px) {
+    .tm-features__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 540px) {
+    .tm-features__grid { grid-template-columns: 1fr; }
+}
+.feat-card {
+    background: var(--bg-card);
+    border-radius: 20px;
+    border: 1px solid var(--line);
+    box-shadow: 0 8px 28px rgba(33,22,15,0.05);
+    padding: 32px 28px;
+    transition: transform .2s, box-shadow .2s;
+}
+.feat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 40px rgba(33,22,15,0.09);
+}
+.feat-card__icon {
+    width: 50px; height: 50px;
+    background: var(--coffee-light);
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px;
+    margin-bottom: 18px;
+}
+.feat-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: var(--ink);
+}
+.feat-card p {
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    line-height: 1.65;
+}
+
+/* ============================================================
+   METRICS STRIP
+============================================================ */
+.tm-metrics {
+    padding: 80px 0;
+    background: #21160F;
+}
+.tm-metrics__inner {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+@media (max-width: 768px) {
+    .tm-metrics__inner { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 420px) {
+    .tm-metrics__inner { grid-template-columns: 1fr; }
+}
+.tm-metric {
+    text-align: center;
+    padding: 32px 20px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.08);
+}
+.tm-metric__num {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    font-size: 46px;
+    letter-spacing: -0.03em;
+    color: #D4956A;
+    line-height: 1;
+    margin-bottom: 10px;
+}
+.tm-metric__label {
+    font-size: 14px;
+    color: rgba(250,246,239,0.6);
+    line-height: 1.5;
+}
+.tm-metric__sub {
+    font-size: 12px;
+    color: rgba(250,246,239,0.35);
+    margin-top: 4px;
+}
+
+/* ============================================================
+   COMPARE SECTION
+============================================================ */
+.tm-compare {
+    padding: 100px 0;
+    background: var(--bg-page);
+}
+.tm-compare__header {
+    text-align: center;
+    max-width: 580px;
+    margin: 0 auto 60px;
+}
+.tm-compare__header h2 { font-size: clamp(28px, 3.5vw, 42px); margin-bottom: 14px; }
+.tm-compare__header p { font-size: 16px; color: var(--ink-soft); }
+.tm-compare__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+@media (max-width: 720px) {
+    .tm-compare__grid { grid-template-columns: 1fr; }
+}
+.compare-card {
+    border-radius: 22px;
+    padding: 36px 32px;
+    border: 1px solid var(--line);
+}
+.compare-card--old {
+    background: #FEF2F2;
+    border-color: rgba(220,38,38,0.14);
+}
+.compare-card--new {
+    background: linear-gradient(135deg, var(--coffee-light) 0%, #fff 100%);
+    border-color: var(--coffee-border);
+    box-shadow: 0 16px 48px rgba(135,96,57,0.10);
+}
+.compare-card__label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.compare-card--old .compare-card__label { color: var(--red); }
+.compare-card--new .compare-card__label { color: var(--coffee); }
+.compare-card__label-icon {
+    width: 26px; height: 26px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+}
+.compare-card--old .compare-card__label-icon { background: var(--red-bg); }
+.compare-card--new .compare-card__label-icon { background: var(--coffee-light); }
+.compare-card h3 {
+    font-size: 20px;
+    margin-bottom: 22px;
+}
+.compare-card--old h3 { color: #991B1B; }
+.compare-card--new h3 { color: var(--ink); }
+.compare-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.compare-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14.5px;
+    line-height: 1.55;
+}
+.compare-card--old .compare-list li { color: #7F1D1D; }
+.compare-card--new .compare-list li { color: var(--ink-soft); }
+.compare-list__marker {
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+.compare-card--old .compare-list__marker { background: var(--red-bg); color: var(--red); }
+.compare-card--new .compare-list__marker { background: var(--green-bg); color: var(--green); }
+
+/* ============================================================
+   FAQ
+============================================================ */
+.tm-faq {
+    padding: 100px 0;
+    background: var(--bg-surface);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+.tm-faq__header {
+    text-align: center;
+    max-width: 560px;
+    margin: 0 auto 52px;
+}
+.tm-faq__header h2 { font-size: clamp(28px, 3.5vw, 38px); margin-bottom: 12px; }
+.tm-faq__header p { font-size: 16px; color: var(--ink-soft); }
+.faq-list {
+    max-width: 760px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+.faq-item {
+    background: var(--bg-card);
+    border-radius: 16px;
+    border: 1px solid var(--line);
+    overflow: hidden;
+    transition: box-shadow .2s;
+}
+.faq-item.open { box-shadow: 0 8px 28px rgba(135,96,57,0.09); }
+.faq-question {
+    padding: 22px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    cursor: pointer;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--ink);
+    user-select: none;
+    -webkit-user-select: none;
+}
+.faq-question:hover { color: var(--coffee); }
+.faq-chevron {
+    width: 28px; height: 28px;
+    background: var(--coffee-light);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    font-size: 13px;
+    color: var(--coffee);
+    transition: transform .3s;
+}
+.faq-item.open .faq-chevron { transform: rotate(180deg); }
+.faq-answer {
+    display: none;
+    padding: 0 24px 22px;
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.75;
+}
+.faq-item.open .faq-answer { display: block; }
+
+/* ============================================================
+   CROSS-LINKS
+============================================================ */
+.tm-crosslinks {
+    padding: 60px 0;
+    background: var(--bg-page);
+}
+.tm-crosslinks__header {
+    text-align: center;
+    margin-bottom: 36px;
+}
+.tm-crosslinks__header h3 {
+    font-size: 22px;
+    color: var(--ink);
+    margin-bottom: 8px;
+}
+.tm-crosslinks__header p { font-size: 15px; color: var(--ink-faint); }
+.tm-crosslinks__row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+@media (max-width: 700px) {
+    .tm-crosslinks__row { grid-template-columns: 1fr; }
+}
+.crosslink-card {
+    background: #fff;
+    border-radius: 18px;
+    border: 1px solid var(--line);
+    padding: 24px 22px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: transform .2s, box-shadow .2s;
+}
+.crosslink-card:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(33,22,15,0.07); }
+.crosslink-card__icon {
+    width: 44px; height: 44px;
+    background: var(--coffee-light);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+}
+.crosslink-card__text {}
+.crosslink-card__title {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--ink);
+    margin-bottom: 3px;
+}
+.crosslink-card__desc { font-size: 12.5px; color: var(--ink-faint); }
+.crosslink-card__arrow { margin-left: auto; color: var(--coffee); font-size: 18px; }
+
+/* ============================================================
+   FINAL CTA
+============================================================ */
+.tm-cta {
+    padding: 100px 0;
+    background: #21160F;
+    position: relative;
+    overflow: hidden;
+}
+.tm-cta::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(135,96,57,0.18) 0%, transparent 65%);
+    pointer-events: none;
+}
+.tm-cta::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -80px;
+    width: 380px; height: 380px;
+    background: radial-gradient(circle, rgba(135,96,57,0.12) 0%, transparent 65%);
+    pointer-events: none;
+}
+.tm-cta__inner {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+.tm-cta__eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: #D4956A;
+    background: rgba(135,96,57,0.15);
+    border: 1px solid rgba(135,96,57,0.3);
+    padding: 6px 16px;
+    border-radius: 9999px;
+    margin-bottom: 24px;
+}
+.tm-cta__h2 {
+    font-size: clamp(30px, 4vw, 52px);
+    color: #FAF6EF;
+    margin-bottom: 18px;
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.tm-cta__h2 .italic-serif { color: #D4956A; }
+.tm-cta__sub {
+    font-size: 17px;
+    color: rgba(250,246,239,0.6);
+    margin-bottom: 40px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.tm-cta__btns {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 36px;
+}
+.btn-primary--light {
+    background: var(--coffee);
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 9999px;
+    padding: 13px 28px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    transition: background .2s, transform .15s;
+}
+.btn-primary--light:hover { background: #9E6E3F; transform: translateY(-1px); color: #fff; }
+.btn-outline--light {
+    background: transparent;
+    border: 1px solid rgba(250,246,239,0.25);
+    color: rgba(250,246,239,0.85);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 9999px;
+    padding: 12px 26px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    transition: background .2s, border-color .2s, transform .15s;
+}
+.btn-outline--light:hover { background: rgba(255,255,255,0.08); border-color: rgba(250,246,239,0.5); transform: translateY(-1px); color: rgba(250,246,239,0.9); }
+.tm-cta__trust {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    flex-wrap: wrap;
+}
+.tm-cta__trust-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 13px;
+    color: rgba(250,246,239,0.45);
+}
+.tm-cta__trust-item svg { color: rgba(250,246,239,0.35); }
+
+/* ============================================================
+   RESPONSIVE TWEAKS
+============================================================ */
+@media (max-width: 640px) {
+    .tm-value__strip { border-radius: 16px; }
+    .tm-showcase__inner { gap: 30px; }
 }
 </style>
 
-
-
-<!-- ================= BREADCRUMB ================= -->
-<div class="bc">
-  <div class="w">
-    <a href="{{ route('home') }}">Home</a>
-    <span>/</span>
-    <a href="{{ route('features') }}">Features</a>
-    <span>/</span>
-    <span class="cur">Table Management</span>
-  </div>
-</div>
-
-<!-- ================= HERO SECTION ================= -->
-<section style="padding: 60px 0 80px; background: linear-gradient(180deg, #f9f6f0 0%, #ffffff 100%);">
-  <div class="w">
-    <div style="text-align: center; max-width: 820px; margin: 0 auto 48px;">
-      <div class="eb">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/></svg>
-        TABLE MANAGEMENT
-      </div>
-      <h1 style="margin-bottom: 20px;">
-        Know Every Table. <br><span class="sf">Manage Every Seat.</span>
-      </h1>
-      <p style="font-size: 19px; max-width: 720px; margin: 0 auto 32px; color: var(--mute);">
-        Visualize your restaurant floor, track table availability and manage seating with a clear, connected table management system built for modern restaurants.
-      </p>
-      <div style="display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap;">
-        <a href="{{ route('restaurant_signup') }}" class="btn p" style="padding: 16px 36px; font-size: 16px;">Get Started →</a>
-        <a href="{{ route('contact.us') }}" class="btn o" style="padding: 16px 32px; font-size: 16px;">Book a Demo</a>
-      </div>
+{{-- ========================================================
+     BREADCRUMB
+======================================================== --}}
+<div class="tm-page">
+<nav class="tm-breadcrumb">
+    <div class="tm-container">
+        <div class="tm-breadcrumb__inner">
+            <a href="{{ route('features') }}">← All Features</a>
+            <span class="tm-breadcrumb__sep">/</span>
+            <span>Table Management</span>
+        </div>
     </div>
+</nav>
 
-    <!-- Hero Visual: Realistic Digital Restaurant Floor Plan -->
-    <div class="win" style="border: 1.5px solid var(--line); box-shadow: 0 26px 60px rgba(36,26,20,0.14);">
-      <!-- App Header Bar -->
-      <div class="wb">
-        <div class="dots"><i></i><i></i><i></i></div>
-        <div class="ttl">GENI MENU — DINING ROOM FLOOR PLAN</div>
-        <div style="display: flex; gap: 12px; align-items: center;">
-          <span style="font-size: 12px; font-weight: 700; color: var(--br);">MAIN DINING HALL</span>
-          <span style="width: 8px; height: 8px; border-radius: 50%; background: var(--green);"></span>
-        </div>
-      </div>
-
-      <!-- Floor Plan Summary Header Bar -->
-      <div style="background: #1e140e; color: #fff; padding: 14px 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
-        <div style="display: flex; align-items: center; gap: 20px; font-size: 13.5px; font-weight: 700;">
-          <span>12 Tables Total</span>
-          <span style="color: #6ee7b7;">• 05 Available</span>
-          <span style="color: #93c5fd;">• 03 Occupied</span>
-          <span style="color: #fcd34d;">• 02 Reserved</span>
-          <span style="color: #fdba74;">• 02 Cleaning</span>
-        </div>
-        <div style="display: flex; gap: 8px;">
-          <button style="background: rgba(255,255,255,0.12); color: #fff; border: 1px solid rgba(255,255,255,0.2); padding: 5px 12px; border-radius: 6px; font-size: 12px; font-weight: 700; cursor: pointer;">+ Add Table</button>
-          <button style="background: var(--br); color: #fff; border: 0; padding: 5px 12px; border-radius: 6px; font-size: 12px; font-weight: 700; cursor: pointer;">Filter View ▾</button>
-        </div>
-      </div>
-
-      <!-- Live Floor Plan Grid View -->
-      <div style="padding: 32px; background: #faf8f5;">
-        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 24px;">
-          <!-- T01 -->
-          <div class="t-node avail">
-            <div class="t-num">T01</div>
-            <div class="t-sub">2 Seats · Window</div>
-            <span class="t-tag">Available</span>
-            <div class="t-chairs"><i class="t-chair"></i><i class="t-chair"></i></div>
-          </div>
-
-          <!-- T02 -->
-          <div class="t-node reserved">
-            <div class="t-num">T02</div>
-            <div class="t-sub">4 Seats · 7:30 PM</div>
-            <span class="t-tag">Reserved</span>
-            <div class="t-chairs"><i class="t-chair"></i><i class="t-chair"></i><i class="t-chair"></i><i class="t-chair"></i></div>
-          </div>
-
-          <!-- T03 -->
-          <div class="t-node occupied">
-            <div class="t-num">T03</div>
-            <div class="t-sub">4 Guests Seated</div>
-            <span class="t-tag">Occupied</span>
-            <div class="t-chairs"><i class="t-chair"></i><i class="t-chair"></i><i class="t-chair"></i><i class="t-chair"></i></div>
-          </div>
-
-          <!-- T04 -->
-          <div class="t-node cleaning">
-            <div class="t-num">T04</div>
-            <div class="t-sub">4 Seats · Busser</div>
-            <span class="t-tag">Cleaning</span>
-            <div class="t-chairs"><i class="t-chair"></i><i class="t-chair"></i><i class="t-chair"></i><i class="t-chair"></i></div>
-          </div>
-
-          <!-- T05 -->
-          <div class="t-node avail">
-            <div class="t-num">T05</div>
-            <div class="t-sub">6 Seats · Family</div>
-            <span class="t-tag">Available</span>
-            <div class="t-chairs"><i class="t-chair"></i><i class="t-chair"></i><i class="t-chair"></i><i class="t-chair"></i><i class="t-chair"></i><i class="t-chair"></i></div>
-          </div>
-
-          <!-- T06 -->
-          <div class="t-node occupied">
-            <div class="t-num">T06</div>
-            <div class="t-sub">2 Guests Seated</div>
-            <span class="t-tag">Occupied</span>
-            <div class="t-chairs"><i class="t-chair"></i><i class="t-chair"></i></div>
-          </div>
-
-          <!-- T07 -->
-          <div class="t-node avail">
-            <div class="t-num">T07</div>
-            <div class="t-sub">4 Seats · Center</div>
-            <span class="t-tag">Available</span>
-            <div class="t-chairs"><i class="t-chair"></i><i class="t-chair"></i><i class="t-chair"></i><i class="t-chair"></i></div>
-          </div>
-
-          <!-- T08 -->
-          <div class="t-node reserved">
-            <div class="t-num">T08</div>
-            <div class="t-sub">6 Seats · 8:15 PM</div>
-            <span class="t-tag">Reserved</span>
-            <div class="t-chairs"><i class="t-chair"></i><i class="t-chair"></i><i class="t-chair"></i><i class="t-chair"></i><i class="t-chair"></i><i class="t-chair"></i></div>
-          </div>
-
-          <!-- T09 -->
-          <div class="t-node occupied">
-            <div class="t-num">T09</div>
-            <div class="t-sub">3 Guests · Order #2048</div>
-            <span class="t-tag">Occupied</span>
-            <div class="t-chairs"><i class="t-chair"></i><i class="t-chair"></i><i class="t-chair"></i></div>
-          </div>
-
-          <!-- T10 -->
-          <div class="t-node avail">
-            <div class="t-num">T10</div>
-            <div class="t-sub">2 Seats · Booth</div>
-            <span class="t-tag">Available</span>
-            <div class="t-chairs"><i class="t-chair"></i><i class="t-chair"></i></div>
-          </div>
-
-          <!-- T11 -->
-          <div class="t-node cleaning">
-            <div class="t-num">T11</div>
-            <div class="t-sub">2 Seats · Resetting</div>
-            <span class="t-tag">Cleaning</span>
-            <div class="t-chairs"><i class="t-chair"></i><i class="t-chair"></i></div>
-          </div>
-
-          <!-- T12 -->
-          <div class="t-node avail">
-            <div class="t-num">T12</div>
-            <div class="t-sub">8 Seats · Large Oval</div>
-            <span class="t-tag">Available</span>
-            <div class="t-chairs"><i class="t-chair"></i><i class="t-chair"></i><i class="t-chair"></i><i class="t-chair"></i><i class="t-chair"></i><i class="t-chair"></i><i class="t-chair"></i><i class="t-chair"></i></div>
-          </div>
-        </div>
-
-        <!-- Legend Footer Bar -->
-        <div style="display: flex; justify-content: center; gap: 24px; font-size: 13px; font-weight: 700; color: var(--mute); border-top: 1px dashed var(--line); padding-top: 16px;">
-          <span style="display: flex; align-items: center; gap: 6px;"><i style="width: 10px; height: 10px; border-radius: 50%; background: var(--green); display: inline-block;"></i> Available</span>
-          <span style="display: flex; align-items: center; gap: 6px;"><i style="width: 10px; height: 10px; border-radius: 50%; background: var(--br); display: inline-block;"></i> Reserved</span>
-          <span style="display: flex; align-items: center; gap: 6px;"><i style="width: 10px; height: 10px; border-radius: 50%; background: var(--blue); display: inline-block;"></i> Occupied</span>
-          <span style="display: flex; align-items: center; gap: 6px;"><i style="width: 10px; height: 10px; border-radius: 50%; background: var(--amber); display: inline-block;"></i> Cleaning</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= VALUE STRIP ================= -->
-<section style="padding: 40px 0; background: var(--bg2); border-y: 1px solid var(--line);">
-  <div class="w">
-    <div class="g4">
-      <div style="display: flex; gap: 16px; align-items: flex-start;">
-        <div style="font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 500; color: var(--br-gold); line-height: 1;">01</div>
-        <div>
-          <h4 style="font-size: 16px; margin-bottom: 4px;">Live Table Visibility</h4>
-          <p style="font-size: 13.5px; line-height: 1.5;">See your restaurant tables and their current status at a glance.</p>
-        </div>
-      </div>
-
-      <div style="display: flex; gap: 16px; align-items: flex-start;">
-        <div style="font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 500; color: var(--br-gold); line-height: 1;">02</div>
-        <div>
-          <h4 style="font-size: 16px; margin-bottom: 4px;">Smarter Seating</h4>
-          <p style="font-size: 13.5px; line-height: 1.5;">Assign guests to suitable tables based on availability and seating.</p>
-        </div>
-      </div>
-
-      <div style="display: flex; gap: 16px; align-items: flex-start;">
-        <div style="font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 500; color: var(--br-gold); line-height: 1;">03</div>
-        <div>
-          <h4 style="font-size: 16px; margin-bottom: 4px;">Better Floor Control</h4>
-          <p style="font-size: 13.5px; line-height: 1.5;">Keep your dining areas organized throughout lunch and dinner service.</p>
-        </div>
-      </div>
-
-      <div style="display: flex; gap: 16px; align-items: flex-start;">
-        <div style="font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 500; color: var(--br-gold); line-height: 1;">04</div>
-        <div>
-          <h4 style="font-size: 16px; margin-bottom: 4px;">Connected Operations</h4>
-          <p style="font-size: 13.5px; line-height: 1.5;">Connect tables with reservations, orders, billing and restaurant operations.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= PROBLEM SECTION ================= -->
-<section>
-  <div class="w">
-    <div class="hd">
-      <div class="eb">OPERATIONAL COMPARISON</div>
-      <h2>Your Dining Room Should <span class="sf">Never Feel Unorganized.</span></h2>
-      <p>During peak evening hours, manual floor checks cause seating bottlenecks at your entrance. Compare traditional table management against Geni Menu.</p>
-    </div>
-
-    <div class="g2">
-      <!-- Traditional Table Management -->
-      <div class="card" style="padding: 32px; background: #fff5f5; border-color: rgba(239, 68, 68, 0.2);">
-        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
-          <div style="width: 40px; height: 40px; border-radius: 10px; background: #fee2e2; color: #dc2626; display: grid; place-items: center; font-weight: 500;">✕</div>
-          <div>
-            <h3 style="color: #991b1b;">Traditional Table Management</h3>
-            <p style="font-size: 13px; color: #b91c1c;">Manual & Paper-Based Floor Operations</p>
-          </div>
-        </div>
-
-        <ul style="display: flex; flex-direction: column; gap: 14px;">
-          <li style="display: flex; gap: 12px; font-size: 14px; color: #7f1d1d;">
-            <span style="color: #dc2626; font-weight: 500;">•</span> Staff physically walking across dining hall to check open tables
-          </li>
-          <li style="display: flex; gap: 12px; font-size: 14px; color: #7f1d1d;">
-            <span style="color: #dc2626; font-weight: 500;">•</span> Reservation confusion with double-booked or misplaced tables
-          </li>
-          <li style="display: flex; gap: 12px; font-size: 14px; color: #7f1d1d;">
-            <span style="color: #dc2626; font-weight: 500;">•</span> Limited visibility between host stand, waiters, and kitchen
-          </li>
-          <li style="display: flex; gap: 12px; font-size: 14px; color: #7f1d1d;">
-            <span style="color: #dc2626; font-weight: 500;">•</span> Difficult peak-hour seating coordination causing long guest wait times
-          </li>
-        </ul>
-      </div>
-
-      <!-- With Geni Menu -->
-      <div class="card" style="padding: 32px; background: #f0fdf4; border-color: rgba(16, 185, 129, 0.3);">
-        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
-          <div style="width: 40px; height: 40px; border-radius: 10px; background: #d1fae5; color: #059669; display: grid; place-items: center; font-weight: 500;">✓</div>
-          <div>
-            <h3 style="color: #065f46;">With Geni Menu</h3>
-            <p style="font-size: 13px; color: #047857;">Real-time Connected Floor Map</p>
-          </div>
-        </div>
-
-        <ul style="display: flex; flex-direction: column; gap: 14px;">
-          <li style="display: flex; gap: 12px; font-size: 14px; color: #064e3b;">
-            <span style="color: #10b981; font-weight: 500;">✓</span> Digital floor plan updated live across tablets and staff devices
-          </li>
-          <li style="display: flex; gap: 12px; font-size: 14px; color: #064e3b;">
-            <span style="color: #10b981; font-weight: 500;">✓</span> Clear table status badges (Available, Reserved, Occupied, Cleaning)
-          </li>
-          <li style="display: flex; gap: 12px; font-size: 14px; color: #064e3b;">
-            <span style="color: #10b981; font-weight: 500;">✓</span> Automatic reservation sync ensuring booked tables stay reserved
-          </li>
-          <li style="display: flex; gap: 12px; font-size: 14px; color: #064e3b;">
-            <span style="color: #10b981; font-weight: 500;">✓</span> Effortless guest seating coordination during peak dining rushes
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= RESTAURANT FLOOR PLAN SHOWCASE ================= -->
-<section style="background: var(--bg2);">
-  <div class="w">
-    <div class="hd">
-      <div class="eb">DIGITAL FLOOR MAP</div>
-      <h2>See Your Entire Dining Floor <span class="sf">at a Glance.</span></h2>
-      <p>Turn your restaurant layout into a clear digital floor plan so your team can understand table availability and occupancy without confusion.</p>
-    </div>
-
-    <!-- Area Filter Tabs -->
-    <div style="display: flex; justify-content: center; gap: 12px; margin-bottom: 32px; flex-wrap: wrap;">
-      <button style="padding: 10px 24px; border-radius: 12px; border: 1.5px solid var(--br); background: var(--br); color: #fff; font-weight: 500; font-size: 14px; cursor: pointer;">Main Dining (18 Tables)</button>
-      <button style="padding: 10px 24px; border-radius: 12px; border: 1px solid var(--line); background: #fff; color: var(--ink); font-weight: 600; font-size: 14px; cursor: pointer;">Outdoor Patio (08 Tables)</button>
-      <button style="padding: 10px 24px; border-radius: 12px; border: 1px solid var(--line); background: #fff; color: var(--ink); font-weight: 600; font-size: 14px; cursor: pointer;">Private Dining (04 Tables)</button>
-      <button style="padding: 10px 24px; border-radius: 12px; border: 1px solid var(--line); background: #fff; color: var(--ink); font-weight: 600; font-size: 14px; cursor: pointer;">Bar & Lounge (06 Tables)</button>
-    </div>
-
-    <!-- Layout Grid Showcase -->
-    <div class="card" style="padding: 32px;">
-      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
-        <div class="t-node avail">
-          <div class="t-num">T01</div>
-          <div class="t-sub">Square · 2 Seats</div>
-          <span class="t-tag">Available</span>
-        </div>
-
-        <div class="t-node occupied">
-          <div class="t-num">T02</div>
-          <div class="t-sub">Round · 4 Guests</div>
-          <span class="t-tag">Occupied</span>
-        </div>
-
-        <div class="t-node reserved">
-          <div class="t-num">T03</div>
-          <div class="t-sub">Booth · 6 Seats</div>
-          <span class="t-tag">Reserved</span>
-        </div>
-
-        <div class="t-node avail">
-          <div class="t-num">T04</div>
-          <div class="t-sub">Square · 4 Seats</div>
-          <span class="t-tag">Available</span>
-        </div>
-
-        <div class="t-node cleaning">
-          <div class="t-num">T05</div>
-          <div class="t-sub">Rectangular · 6 Seats</div>
-          <span class="t-tag">Cleaning</span>
-        </div>
-
-        <div class="t-node occupied">
-          <div class="t-num">T06</div>
-          <div class="t-sub">Window · 2 Guests</div>
-          <span class="t-tag">Occupied</span>
-        </div>
-
-        <div class="t-node avail">
-          <div class="t-num">T07</div>
-          <div class="t-sub">Center · 4 Seats</div>
-          <span class="t-tag">Available</span>
-        </div>
-
-        <div class="t-node reserved">
-          <div class="t-num">T08</div>
-          <div class="t-sub">Oval · 8 Seats</div>
-          <span class="t-tag">Reserved</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= TABLE STATUS & DETAILS PANEL ================= -->
-<section>
-  <div class="w">
-    <div class="hd">
-      <div class="eb">TABLE STATUS & INSPECTOR</div>
-      <h2>Know What’s Happening at <span class="sf">Every Table.</span></h2>
-      <p>Click on any table to view occupancy details, seated duration, active order number, and guest preferences.</p>
-    </div>
-
-    <!-- 4 Status Cards -->
-    <div class="g4" style="margin-bottom: 48px;">
-      <div class="card" style="padding: 24px; border-top: 4px solid var(--green);">
-        <span class="badge avail" style="margin-bottom: 12px;">AVAILABLE ●</span>
-        <h3 style="font-size: 18px; margin-bottom: 6px;">Ready for Guests</h3>
-        <p style="font-size: 13.5px;">Cleaned, reset, and immediately ready to seat arriving walk-in diners.</p>
-      </div>
-
-      <div class="card" style="padding: 24px; border-top: 4px solid var(--br);">
-        <span class="badge reserved" style="margin-bottom: 12px;">RESERVED ●</span>
-        <h3 style="font-size: 18px; margin-bottom: 6px;">Upcoming Booking</h3>
-        <p style="font-size: 13.5px;">Assigned to a confirmed guest reservation for a specific arrival time.</p>
-      </div>
-
-      <div class="card" style="padding: 24px; border-top: 4px solid var(--blue);">
-        <span class="badge occupied" style="margin-bottom: 12px;">OCCUPIED ●</span>
-        <h3 style="font-size: 18px; margin-bottom: 6px;">Currently Seated</h3>
-        <p style="font-size: 13.5px;">Guests are seated, dining, or reviewing the digital menu for their order.</p>
-      </div>
-
-      <div class="card" style="padding: 24px; border-top: 4px solid var(--amber);">
-        <span class="badge cleaning" style="margin-bottom: 12px;">CLEANING ●</span>
-        <h3 style="font-size: 18px; margin-bottom: 6px;">Turnaround Mode</h3>
-        <p style="font-size: 13.5px;">Busser staff are clearing dishes and sanitizing the table for the next seating.</p>
-      </div>
-    </div>
-
-    <!-- Table Details Panel Simulation -->
-    <div class="g2">
-      <!-- Left: Table Selection -->
-      <div class="card" style="padding: 28px;">
-        <div style="font-size: 12px; font-weight: 500; color: var(--br); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 8px;">Interactive Inspector</div>
-        <h3 style="font-size: 22px; margin-bottom: 20px;">Selected Table: T08</h3>
-
-        <div style="background: var(--bg2); border: 1px solid var(--line); border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px;">
-          <div style="display: flex; justify-content: space-between; font-size: 14px;">
-            <span style="color: var(--mute);">Current Status:</span>
-            <span class="badge occupied">Occupied</span>
-          </div>
-          <div style="display: flex; justify-content: space-between; font-size: 14px;">
-            <span style="color: var(--mute);">Seating Capacity:</span>
-            <strong style="color: var(--ink);">4 Guests</strong>
-          </div>
-          <div style="display: flex; justify-content: space-between; font-size: 14px;">
-            <span style="color: var(--mute);">Current Guests:</span>
-            <strong style="color: var(--ink);">3 Seated</strong>
-          </div>
-          <div style="display: flex; justify-content: space-between; font-size: 14px;">
-            <span style="color: var(--mute);">Dining Area:</span>
-            <strong style="color: var(--ink);">Main Dining</strong>
-          </div>
-          <div style="display: flex; justify-content: space-between; font-size: 14px;">
-            <span style="color: var(--mute);">Seated Time:</span>
-            <strong style="color: var(--ink);">7:42 PM (38 mins ago)</strong>
-          </div>
-          <div style="display: flex; justify-content: space-between; font-size: 14px;">
-            <span style="color: var(--mute);">Booking Type:</span>
-            <strong style="color: var(--ink);">Walk-in Guest</strong>
-          </div>
-          <div style="display: flex; justify-content: space-between; font-size: 14px;">
-            <span style="color: var(--mute);">Active Order:</span>
-            <strong style="color: var(--br);">#ORD-2084</strong>
-          </div>
-        </div>
-
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-          <button class="btn p" style="padding: 10px; font-size: 13px;">View Order Tab</button>
-          <button class="btn o" style="padding: 10px; font-size: 13px;">Change Status ▾</button>
-        </div>
-      </div>
-
-      <!-- Right: Connected Workflow Diagram -->
-      <div class="card" style="padding: 28px; background: #faf8f5;">
-        <h3 style="font-size: 20px; margin-bottom: 16px;">Connected Operational Chain</h3>
-        <p style="font-size: 14px; margin-bottom: 24px;">See how table occupancy links directly to orders, kitchen tickets and final POS billing.</p>
-
-        <div style="display: flex; flex-direction: column; gap: 14px;">
-          <div style="display: flex; align-items: center; gap: 14px; background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 14px;">
-            <div style="width: 32px; height: 32px; border-radius: 8px; background: var(--br-light); color: var(--br); display: grid; place-items: center; font-weight: 500;">1</div>
-            <div>
-              <div style="font-weight: 500; font-size: 14px;">TABLE T08 SEATED</div>
-              <div style="font-size: 12px; color: var(--mute);">Host assigns table to 3 guests</div>
+{{-- ========================================================
+     HERO
+======================================================== --}}
+<section class="tm-hero">
+    <div class="tm-container">
+        <div class="tm-hero__inner" data-aos="fade-up">
+            <div class="sec-eyebrow">Table Management</div>
+            <h1 class="tm-hero__h1">
+                Your Dining Floor,<br>
+                Fully Visible <span class="italic-serif">in Real-Time</span>
+            </h1>
+            <p class="tm-hero__sub">
+                Stop guessing which table is free. Geni Menu gives your front-of-house team a live, colour-coded floor map — every table status, turn time, and guest detail in one glance.
+            </p>
+            <div class="tm-hero__ctas">
+                <a href="{{ route('restaurant_signup') }}" class="btn-primary">
+                    Get Started Free &rarr;
+                </a>
+                <a href="#demo" class="btn-outline">
+                    📅 Book a Demo
+                </a>
             </div>
-          </div>
-
-          <div style="display: flex; align-items: center; gap: 14px; background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 14px;">
-            <div style="width: 32px; height: 32px; border-radius: 8px; background: var(--br-light); color: var(--br); display: grid; place-items: center; font-weight: 500;">2</div>
-            <div>
-              <div style="font-weight: 500; font-size: 14px;">ORDER #ORD-2084 PLACED</div>
-              <div style="font-weight: 700; font-size: 12px; color: var(--br);">2 Biryani · 1 Pasta · 2 Coffee</div>
+            <div class="tm-hero__badges">
+                <div class="tm-hero__badge">
+                    <div class="tm-hero__badge-icon">✓</div>
+                    No hardware required
+                </div>
+                <div class="tm-hero__badge">
+                    <div class="tm-hero__badge-icon">✓</div>
+                    Works on any tablet or display
+                </div>
+                <div class="tm-hero__badge">
+                    <div class="tm-hero__badge-icon">✓</div>
+                    Live sync across all devices
+                </div>
+                <div class="tm-hero__badge">
+                    <div class="tm-hero__badge-icon">✓</div>
+                    Setup in under 20 minutes
+                </div>
             </div>
-          </div>
-
-          <div style="display: flex; align-items: center; gap: 14px; background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 14px;">
-            <div style="width: 32px; height: 32px; border-radius: 8px; background: var(--br-light); color: var(--br); display: grid; place-items: center; font-weight: 500;">3</div>
-            <div>
-              <div style="font-weight: 500; font-size: 14px;">KOT SENT TO KITCHEN</div>
-              <div style="font-size: 12px; color: var(--mute);">Chef receives ticket for Table T08</div>
-            </div>
-          </div>
-
-          <div style="display: flex; align-items: center; gap: 14px; background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 14px;">
-            <div style="width: 32px; height: 32px; border-radius: 8px; background: var(--br-light); color: var(--br); display: grid; place-items: center; font-weight: 500;">4</div>
-            <div>
-              <div style="font-weight: 500; font-size: 14px;">POS BILL SETTLED</div>
-              <div style="font-size: 12px; color: var(--mute);">Cashier collects payment & frees table</div>
-            </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- ================= CREATE / EDIT TABLE ================= -->
-<section style="background: var(--bg2);">
-  <div class="w">
-    <div class="hd">
-      <div class="eb">FLOOR PLAN EDITOR</div>
-      <h2>Build Your Restaurant <span class="sf">Layout.</span></h2>
-      <p>Easily add new tables, set seating capacities, assign table shapes, and group tables into custom dining zones.</p>
-    </div>
-
-    <div class="g2">
-      <!-- Form UI -->
-      <div class="card" style="padding: 28px;">
-        <h3 style="font-size: 20px; margin-bottom: 20px;">Add / Edit Table Properties</h3>
-
-        <div style="display: flex; flex-direction: column; gap: 14px; margin-bottom: 20px;">
-          <div>
-            <label style="display: block; font-size: 12.5px; font-weight: 700; margin-bottom: 4px; color: var(--ink);">Table Number</label>
-            <input type="text" value="T12" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid var(--line); font-size: 14px;">
-          </div>
-
-          <div>
-            <label style="display: block; font-size: 12.5px; font-weight: 700; margin-bottom: 4px; color: var(--ink);">Table Name / Label</label>
-            <input type="text" value="Window Oval Table" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid var(--line); font-size: 14px;">
-          </div>
-
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
-            <div>
-              <label style="display: block; font-size: 12.5px; font-weight: 700; margin-bottom: 4px; color: var(--ink);">Seating Capacity</label>
-              <select style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid var(--line); font-size: 14px;">
-                <option>2 Guests</option>
-                <option>4 Guests</option>
-                <option>6 Guests</option>
-                <option selected>8 Guests</option>
-              </select>
+        {{-- DEVICE WINDOW --}}
+        <div class="device-window" data-aos="fade-up" data-aos-delay="100">
+            <div class="device-window__bar">
+                <div class="device-window__dots">
+                    <div class="device-window__dot device-window__dot--red"></div>
+                    <div class="device-window__dot device-window__dot--amber"></div>
+                    <div class="device-window__dot device-window__dot--green"></div>
+                </div>
+                <div class="device-window__url">app.genimenu.com / floor-plan / the-spice-route</div>
+                <div class="device-window__pill">Live</div>
             </div>
 
-            <div>
-              <label style="display: block; font-size: 12.5px; font-weight: 700; margin-bottom: 4px; color: var(--ink);">Dining Area</label>
-              <select style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid var(--line); font-size: 14px;">
-                <option selected>Main Dining</option>
-                <option>Outdoor Patio</option>
-                <option>Private Room</option>
-              </select>
+            {{-- FLOOR PLAN UI --}}
+            <div class="floorplan-ui">
+                {{-- Top Bar --}}
+                <div class="floorplan-ui__topbar">
+                    <div class="floorplan-ui__title">
+                        <div class="floorplan-ui__title-icon">🏢</div>
+                        The Spice Route — Floor Plan
+                    </div>
+                    <div class="floorplan-ui__zone-tabs">
+                        <div class="floorplan-ui__zone-tab floorplan-ui__zone-tab--active">All Zones</div>
+                        <div class="floorplan-ui__zone-tab">🪴 Indoor</div>
+                        <div class="floorplan-ui__zone-tab">☀️ Outdoor</div>
+                        <div class="floorplan-ui__zone-tab">👑 VIP</div>
+                        <div class="floorplan-ui__zone-tab">🍸 Bar</div>
+                    </div>
+                    <div class="floorplan-ui__legend">
+                        <div class="floorplan-ui__legend-item">
+                            <div class="floorplan-ui__legend-dot floorplan-ui__legend-dot--green"></div>
+                            Available
+                        </div>
+                        <div class="floorplan-ui__legend-item">
+                            <div class="floorplan-ui__legend-dot floorplan-ui__legend-dot--coffee"></div>
+                            Occupied
+                        </div>
+                        <div class="floorplan-ui__legend-item">
+                            <div class="floorplan-ui__legend-dot floorplan-ui__legend-dot--amber"></div>
+                            Reserved
+                        </div>
+                        <div class="floorplan-ui__legend-item">
+                            <div class="floorplan-ui__legend-dot floorplan-ui__legend-dot--gray"></div>
+                            Cleaning
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Table Grid --}}
+                <div class="floorplan-ui__body">
+                    {{-- T1 — Available --}}
+                    <div class="table-card">
+                        <div class="table-card__header">
+                            <div class="table-card__num">T-01</div>
+                            <div class="table-card__zone-badge badge-available">Available</div>
+                        </div>
+                        <div class="table-card__status-bar table-card__status-bar--available"></div>
+                        <div class="table-card__meta">
+                            <div class="table-card__meta-item">
+                                <span>Capacity</span>
+                                <span class="table-card__meta-val">4 seats</span>
+                            </div>
+                            <div class="table-card__meta-item">
+                                <span>Zone</span>
+                                <span class="table-card__meta-val">Indoor</span>
+                            </div>
+                        </div>
+                        <div class="table-card__guests">
+                            <span style="font-size:10px; color:rgba(250,246,239,0.4);">No guests seated</span>
+                        </div>
+                    </div>
+
+                    {{-- T2 — Occupied --}}
+                    <div class="table-card">
+                        <div class="table-card__header">
+                            <div class="table-card__num">T-02</div>
+                            <div class="table-card__zone-badge badge-occupied">Occupied</div>
+                        </div>
+                        <div class="table-card__status-bar table-card__status-bar--occupied"></div>
+                        <div class="table-card__meta">
+                            <div class="table-card__meta-item">
+                                <span>Guests</span>
+                                <span class="table-card__meta-val">3 / 4</span>
+                            </div>
+                            <div class="table-card__meta-item">
+                                <span>Dining</span>
+                                <span class="table-card__meta-val">42 min</span>
+                            </div>
+                            <div class="table-card__meta-item">
+                                <span>Bill</span>
+                                <span class="table-card__meta-val">₹1,840</span>
+                            </div>
+                            <div class="table-card__meta-item">
+                                <span>Steward</span>
+                                <span class="table-card__meta-val">Rajan</span>
+                            </div>
+                        </div>
+                        <div class="table-card__guests">
+                            <div class="table-card__guest-dot" style="background:#876039;">A</div>
+                            <div class="table-card__guest-dot" style="background:#15803D;">S</div>
+                            <div class="table-card__guest-dot" style="background:#B45309;">P</div>
+                        </div>
+                    </div>
+
+                    {{-- T3 — Reserved --}}
+                    <div class="table-card">
+                        <div class="table-card__header">
+                            <div class="table-card__num">T-03</div>
+                            <div class="table-card__zone-badge badge-reserved">Reserved</div>
+                        </div>
+                        <div class="table-card__status-bar table-card__status-bar--reserved"></div>
+                        <div class="table-card__meta">
+                            <div class="table-card__meta-item">
+                                <span>Capacity</span>
+                                <span class="table-card__meta-val">6 seats</span>
+                            </div>
+                            <div class="table-card__meta-item">
+                                <span>ETA</span>
+                                <span class="table-card__meta-val">8:30 PM</span>
+                            </div>
+                            <div class="table-card__meta-item">
+                                <span>Guest</span>
+                                <span class="table-card__meta-val">Mehra fam.</span>
+                            </div>
+                            <div class="table-card__meta-item">
+                                <span>Zone</span>
+                                <span class="table-card__meta-val">VIP</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    {{-- T4 — Occupied --}}
+                    <div class="table-card">
+                        <div class="table-card__header">
+                            <div class="table-card__num">T-04</div>
+                            <div class="table-card__zone-badge badge-occupied">Occupied</div>
+                        </div>
+                        <div class="table-card__status-bar table-card__status-bar--occupied"></div>
+                        <div class="table-card__meta">
+                            <div class="table-card__meta-item">
+                                <span>Guests</span>
+                                <span class="table-card__meta-val">2 / 2</span>
+                            </div>
+                            <div class="table-card__meta-item">
+                                <span>Dining</span>
+                                <span class="table-card__meta-val">1h 08m</span>
+                            </div>
+                            <div class="table-card__meta-item">
+                                <span>Bill</span>
+                                <span class="table-card__meta-val">₹3,220</span>
+                            </div>
+                            <div class="table-card__meta-item">
+                                <span>Steward</span>
+                                <span class="table-card__meta-val">Priya</span>
+                            </div>
+                        </div>
+                        <div class="table-card__guests">
+                            <div class="table-card__guest-dot" style="background:#6F4E2D;">N</div>
+                            <div class="table-card__guest-dot" style="background:#876039;">K</div>
+                        </div>
+                    </div>
+
+                    {{-- T5 — Cleaning --}}
+                    <div class="table-card">
+                        <div class="table-card__header">
+                            <div class="table-card__num">T-05</div>
+                            <div class="table-card__zone-badge badge-cleaning">Cleaning</div>
+                        </div>
+                        <div class="table-card__status-bar table-card__status-bar--cleaning"></div>
+                        <div class="table-card__meta">
+                            <div class="table-card__meta-item">
+                                <span>Capacity</span>
+                                <span class="table-card__meta-val">4 seats</span>
+                            </div>
+                            <div class="table-card__meta-item">
+                                <span>Last bill</span>
+                                <span class="table-card__meta-val">₹2,150</span>
+                            </div>
+                        </div>
+                        <div style="font-size:10px;color:rgba(250,246,239,0.4);">Est. ready in ~3 min</div>
+                    </div>
+
+                    {{-- T6 — Available --}}
+                    <div class="table-card">
+                        <div class="table-card__header">
+                            <div class="table-card__num">T-06</div>
+                            <div class="table-card__zone-badge badge-available">Available</div>
+                        </div>
+                        <div class="table-card__status-bar table-card__status-bar--available"></div>
+                        <div class="table-card__meta">
+                            <div class="table-card__meta-item">
+                                <span>Capacity</span>
+                                <span class="table-card__meta-val">6 seats</span>
+                            </div>
+                            <div class="table-card__meta-item">
+                                <span>Zone</span>
+                                <span class="table-card__meta-val">Outdoor</span>
+                            </div>
+                        </div>
+                        <div style="font-size:10px;color:rgba(34,197,94,0.7);">Ready to seat</div>
+                    </div>
+
+                    {{-- T7 — Occupied --}}
+                    <div class="table-card">
+                        <div class="table-card__header">
+                            <div class="table-card__num">T-07</div>
+                            <div class="table-card__zone-badge badge-occupied">Occupied</div>
+                        </div>
+                        <div class="table-card__status-bar table-card__status-bar--occupied"></div>
+                        <div class="table-card__meta">
+                            <div class="table-card__meta-item">
+                                <span>Guests</span>
+                                <span class="table-card__meta-val">5 / 6</span>
+                            </div>
+                            <div class="table-card__meta-item">
+                                <span>Dining</span>
+                                <span class="table-card__meta-val">28 min</span>
+                            </div>
+                            <div class="table-card__meta-item">
+                                <span>Bill</span>
+                                <span class="table-card__meta-val">₹4,670</span>
+                            </div>
+                            <div class="table-card__meta-item">
+                                <span>Steward</span>
+                                <span class="table-card__meta-val">Ankit</span>
+                            </div>
+                        </div>
+                        <div class="table-card__guests">
+                            <div class="table-card__guest-dot" style="background:#15803D;">D</div>
+                            <div class="table-card__guest-dot" style="background:#B45309;">R</div>
+                            <div class="table-card__guest-dot" style="background:#876039;">S</div>
+                            <div class="table-card__guest-dot" style="background:#6F4E2D;">V</div>
+                            <div class="table-card__guest-dot" style="background:#9E6E3F;">T</div>
+                        </div>
+                    </div>
+
+                    {{-- T8 — Reserved --}}
+                    <div class="table-card">
+                        <div class="table-card__header">
+                            <div class="table-card__num">T-08</div>
+                            <div class="table-card__zone-badge badge-reserved">Reserved</div>
+                        </div>
+                        <div class="table-card__status-bar table-card__status-bar--reserved"></div>
+                        <div class="table-card__meta">
+                            <div class="table-card__meta-item">
+                                <span>Capacity</span>
+                                <span class="table-card__meta-val">2 seats</span>
+                            </div>
+                            <div class="table-card__meta-item">
+                                <span>ETA</span>
+                                <span class="table-card__meta-val">9:00 PM</span>
+                            </div>
+                            <div class="table-card__meta-item">
+                                <span>Guest</span>
+                                <span class="table-card__meta-val">Priya S.</span>
+                            </div>
+                            <div class="table-card__meta-item">
+                                <span>Zone</span>
+                                <span class="table-card__meta-val">Bar</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    {{-- T9 — Occupied --}}
+                    <div class="table-card">
+                        <div class="table-card__header">
+                            <div class="table-card__num">T-09</div>
+                            <div class="table-card__zone-badge badge-occupied">Occupied</div>
+                        </div>
+                        <div class="table-card__status-bar table-card__status-bar--occupied"></div>
+                        <div class="table-card__meta">
+                            <div class="table-card__meta-item">
+                                <span>Guests</span>
+                                <span class="table-card__meta-val">4 / 4</span>
+                            </div>
+                            <div class="table-card__meta-item">
+                                <span>Dining</span>
+                                <span class="table-card__meta-val">54 min</span>
+                            </div>
+                            <div class="table-card__meta-item">
+                                <span>Bill</span>
+                                <span class="table-card__meta-val">₹2,980</span>
+                            </div>
+                            <div class="table-card__meta-item">
+                                <span>Steward</span>
+                                <span class="table-card__meta-val">Rajan</span>
+                            </div>
+                        </div>
+                        <div class="table-card__guests">
+                            <div class="table-card__guest-dot" style="background:#876039;">G</div>
+                            <div class="table-card__guest-dot" style="background:#B45309;">H</div>
+                            <div class="table-card__guest-dot" style="background:#15803D;">I</div>
+                            <div class="table-card__guest-dot" style="background:#6F4E2D;">J</div>
+                        </div>
+                    </div>
+
+                    {{-- T10 — Available --}}
+                    <div class="table-card">
+                        <div class="table-card__header">
+                            <div class="table-card__num">T-10</div>
+                            <div class="table-card__zone-badge badge-available">Available</div>
+                        </div>
+                        <div class="table-card__status-bar table-card__status-bar--available"></div>
+                        <div class="table-card__meta">
+                            <div class="table-card__meta-item">
+                                <span>Capacity</span>
+                                <span class="table-card__meta-val">8 seats</span>
+                            </div>
+                            <div class="table-card__meta-item">
+                                <span>Zone</span>
+                                <span class="table-card__meta-val">VIP</span>
+                            </div>
+                        </div>
+                        <div style="font-size:10px;color:rgba(34,197,94,0.7);">Ready to seat</div>
+                    </div>
+
+                    {{-- T11 — Cleaning --}}
+                    <div class="table-card">
+                        <div class="table-card__header">
+                            <div class="table-card__num">T-11</div>
+                            <div class="table-card__zone-badge badge-cleaning">Cleaning</div>
+                        </div>
+                        <div class="table-card__status-bar table-card__status-bar--cleaning"></div>
+                        <div class="table-card__meta">
+                            <div class="table-card__meta-item">
+                                <span>Capacity</span>
+                                <span class="table-card__meta-val">4 seats</span>
+                            </div>
+                            <div class="table-card__meta-item">
+                                <span>Last bill</span>
+                                <span class="table-card__meta-val">₹1,560</span>
+                            </div>
+                        </div>
+                        <div style="font-size:10px;color:rgba(250,246,239,0.4);">Est. ready in ~2 min</div>
+                    </div>
+
+                    {{-- T12 — Occupied --}}
+                    <div class="table-card">
+                        <div class="table-card__header">
+                            <div class="table-card__num">T-12</div>
+                            <div class="table-card__zone-badge badge-occupied">Occupied</div>
+                        </div>
+                        <div class="table-card__status-bar table-card__status-bar--occupied"></div>
+                        <div class="table-card__meta">
+                            <div class="table-card__meta-item">
+                                <span>Guests</span>
+                                <span class="table-card__meta-val">2 / 4</span>
+                            </div>
+                            <div class="table-card__meta-item">
+                                <span>Dining</span>
+                                <span class="table-card__meta-val">18 min</span>
+                            </div>
+                            <div class="table-card__meta-item">
+                                <span>Bill</span>
+                                <span class="table-card__meta-val">₹760</span>
+                            </div>
+                            <div class="table-card__meta-item">
+                                <span>Steward</span>
+                                <span class="table-card__meta-val">Priya</span>
+                            </div>
+                        </div>
+                        <div class="table-card__guests">
+                            <div class="table-card__guest-dot" style="background:#9E6E3F;">L</div>
+                            <div class="table-card__guest-dot" style="background:#6F4E2D;">M</div>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Telemetry Bar --}}
+                <div class="floorplan-ui__telemetry">
+                    <div class="floorplan-ui__tele-item">
+                        <div class="floorplan-ui__tele-label">Total Tables</div>
+                        <div class="floorplan-ui__tele-val">12</div>
+                    </div>
+                    <div class="floorplan-ui__tele-item">
+                        <div class="floorplan-ui__tele-label">Occupied</div>
+                        <div class="floorplan-ui__tele-val tm-tele-val--coffee" style="color:#D4956A;">6</div>
+                    </div>
+                    <div class="floorplan-ui__tele-item">
+                        <div class="floorplan-ui__tele-label">Available</div>
+                        <div class="floorplan-ui__tele-val floorplan-ui__tele-val--green">3</div>
+                    </div>
+                    <div class="floorplan-ui__tele-item">
+                        <div class="floorplan-ui__tele-label">Reserved</div>
+                        <div class="floorplan-ui__tele-val floorplan-ui__tele-val--amber">2</div>
+                    </div>
+                    <div class="floorplan-ui__tele-item">
+                        <div class="floorplan-ui__tele-label">Cleaning</div>
+                        <div class="floorplan-ui__tele-val" style="color:#9CA3AF;">1</div>
+                    </div>
+                    <div class="floorplan-ui__tele-item floorplan-ui__occupancy-bar" style="flex:1;">
+                        <div class="floorplan-ui__tele-label">Occupancy Rate</div>
+                        <div style="display:flex;align-items:center;gap:10px;margin-top:4px;">
+                            <div class="floorplan-ui__occ-bar-track" style="flex:1;">
+                                <div class="floorplan-ui__occ-bar-fill" style="width:75%;"></div>
+                            </div>
+                            <span style="font-family:'Outfit',sans-serif;font-weight:700;font-size:16px;color:#D4956A;white-space:nowrap;">75%</span>
+                        </div>
+                    </div>
+                    <div class="floorplan-ui__tele-item">
+                        <div class="floorplan-ui__tele-label">Avg Turn Time</div>
+                        <div class="floorplan-ui__tele-val">47 min</div>
+                    </div>
+                    <div class="floorplan-ui__tele-item">
+                        <div class="floorplan-ui__tele-label">Tonight Revenue</div>
+                        <div class="floorplan-ui__tele-val floorplan-ui__tele-val--green">₹16,230</div>
+                    </div>
+                </div>
             </div>
-          </div>
-
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
-            <div>
-              <label style="display: block; font-size: 12.5px; font-weight: 700; margin-bottom: 4px; color: var(--ink);">Table Shape</label>
-              <select style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid var(--line); font-size: 14px;">
-                <option>Square</option>
-                <option>Round</option>
-                <option selected>Oval / Rectangular</option>
-              </select>
-            </div>
-
-            <div>
-              <label style="display: block; font-size: 12.5px; font-weight: 700; margin-bottom: 4px; color: var(--ink);">Initial Status</label>
-              <select style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid var(--line); font-size: 14px;">
-                <option selected>Available</option>
-                <option>Reserved</option>
-              </select>
-            </div>
-          </div>
+            {{-- /floor plan --}}
         </div>
+        {{-- /device-window --}}
 
-        <div style="display: flex; gap: 10px;">
-          <button class="btn p" style="flex: 1; padding: 12px;">Save Table Configuration</button>
-          <button class="btn o" style="padding: 12px;">Cancel</button>
-        </div>
-      </div>
-
-      <!-- Drag & Move Visual -->
-      <div class="card" style="padding: 28px; text-align: center; background: #fff;">
-        <div style="font-size: 12px; font-weight: 500; color: var(--br); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 8px;">Visual Placement</div>
-        <h3 style="font-size: 20px; margin-bottom: 16px;">Drag, Arrange & Resize</h3>
-        <p style="font-size: 14px; margin-bottom: 24px;">Drag tables across your screen to mirror your physical dining room layout.</p>
-
-        <div style="border: 2px dashed var(--br); border-radius: 16px; padding: 40px 20px; background: var(--bg2); position: relative;">
-          <div style="display: inline-block; padding: 16px 24px; border-radius: 14px; background: #fff; border: 2px solid var(--br); box-shadow: var(--shadow-md);">
-            <div style="font-weight: 500; font-size: 18px; color: var(--br);">Table T12</div>
-            <div style="font-size: 12px; color: var(--mute);">8 Seats · Oval</div>
-            <div style="margin-top: 8px; font-size: 10px; font-weight: 500; color: var(--br); text-transform: uppercase;">⚡ Positioning Active</div>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
 </section>
 
-<!-- ================= TABLE ASSIGNMENT & RESERVATION CONNECTION ================= -->
-<section>
-  <div class="w">
-    <div class="hd">
-      <div class="eb">SMART SEATING & RESERVATIONS</div>
-      <h2>Reservations Meet the <span class="sf">Floor Plan.</span></h2>
-      <p>Connect reservation information with table availability so your team can see upcoming bookings alongside the dining floor.</p>
-    </div>
-
-    <div class="g2">
-      <!-- Reservations List -->
-      <div class="card" style="padding: 28px;">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-          <h3 style="font-size: 20px;">Upcoming Bookings</h3>
-          <span class="badge reserved">3 Confirmed</span>
-        </div>
-
-        <div style="display: flex; flex-direction: column; gap: 12px;">
-          <div style="background: var(--bg2); border: 1px solid var(--line); border-radius: 12px; padding: 14px; display: flex; justify-content: space-between; align-items: center;">
-            <div>
-              <strong style="font-size: 15px; color: var(--ink);">7:00 PM · Mr. Kumar</strong>
-              <div style="font-size: 12px; color: var(--mute);">4 Guests · Confirmed</div>
+{{-- ========================================================
+     VALUE STRIP
+======================================================== --}}
+<section class="tm-value">
+    <div class="tm-container">
+        <div class="tm-value__strip" data-aos="fade-up" data-aos-delay="50">
+            <div class="tm-value__item">
+                <div class="tm-value__icon">🗺️</div>
+                <div class="tm-value__title">Visual Floor Map</div>
+                <div class="tm-value__desc">See every table's state on a real floor plan, not a boring list.</div>
             </div>
-            <span class="badge reserved">Table T02</span>
-          </div>
-
-          <div style="background: var(--bg2); border: 1px solid var(--line); border-radius: 12px; padding: 14px; display: flex; justify-content: space-between; align-items: center;">
-            <div>
-              <strong style="font-size: 15px; color: var(--ink);">7:30 PM · Priya Sharma</strong>
-              <div style="font-size: 12px; color: var(--mute);">2 Guests · Confirmed</div>
+            <div class="tm-value__item">
+                <div class="tm-value__icon">🔴</div>
+                <div class="tm-value__title">Live Status Colours</div>
+                <div class="tm-value__desc">Green, amber, coffee and grey — status recognised in under a second.</div>
             </div>
-            <span class="badge avail">Assign Table →</span>
-          </div>
-
-          <div style="background: var(--bg2); border: 1px solid var(--line); border-radius: 12px; padding: 14px; display: flex; justify-content: space-between; align-items: center;">
-            <div>
-              <strong style="font-size: 15px; color: var(--ink);">8:00 PM · Arun V.</strong>
-              <div style="font-size: 12px; color: var(--mute);">6 Guests · Confirmed</div>
+            <div class="tm-value__item">
+                <div class="tm-value__icon">⏱️</div>
+                <div class="tm-value__title">Turn-Time Alerts</div>
+                <div class="tm-value__desc">Know which tables have been seated longest and are about to free up.</div>
             </div>
-            <span class="badge reserved">Table T08</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Matching Tables -->
-      <div class="card" style="padding: 28px; background: #faf8f5;">
-        <h3 style="font-size: 20px; margin-bottom: 12px;">Seating Matcher (Party of 4)</h3>
-        <p style="font-size: 13.5px; margin-bottom: 20px;">Instantly filter tables matching guest group size.</p>
-
-        <div style="display: flex; flex-direction: column; gap: 10px;">
-          <div style="background: #fff; border: 1.5px solid var(--green); border-radius: 12px; padding: 14px; display: flex; justify-content: space-between; align-items: center;">
-            <div>
-              <strong style="font-size: 15px;">T04 — 4 Seats (Center)</strong>
-              <div style="font-size: 11px; color: var(--green); font-weight: 700;">Available Now</div>
+            <div class="tm-value__item">
+                <div class="tm-value__icon">📲</div>
+                <div class="tm-value__title">One-Tap Updates</div>
+                <div class="tm-value__desc">Mark tables cleaning or available from POS, tablet, or floor display.</div>
             </div>
-            <button class="btn p" style="padding: 6px 14px; font-size: 12px;">Seat Party</button>
-          </div>
+        </div>
+    </div>
+</section>
 
-          <div style="background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 14px; display: flex; justify-content: space-between; align-items: center;">
-            <div>
-              <strong style="font-size: 15px;">T07 — 4 Seats (Window)</strong>
-              <div style="font-size: 11px; color: var(--green); font-weight: 700;">Available Now</div>
+{{-- ========================================================
+     DEEP FEATURE SHOWCASE
+======================================================== --}}
+<section class="tm-showcase">
+    <div class="tm-container">
+        <div class="tm-showcase__inner">
+            {{-- Copy --}}
+            <div class="tm-showcase__copy" data-aos="fade-right">
+                <div class="sec-eyebrow">Zone Management</div>
+                <h2>One Floor Plan, Four Zones — Perfectly Organised</h2>
+                <p>
+                    Segment your restaurant into Indoor, Outdoor, VIP, and Bar zones. Assign stewards to specific sections, track revenue per zone, and switch views with a single tap during service.
+                </p>
+                <ul>
+                    <li>
+                        <span class="check">✓</span>
+                        Steward Rajan automatically sees only his Indoor tables — no clutter.
+                    </li>
+                    <li>
+                        <span class="check">✓</span>
+                        VIP zone locks reserved tables until the guest's name is confirmed at the host stand.
+                    </li>
+                    <li>
+                        <span class="check">✓</span>
+                        Outdoor tables auto-disable during monsoon hours using shift scheduling.
+                    </li>
+                    <li>
+                        <span class="check">✓</span>
+                        Bar stools tracked separately with quick-turn billing for walk-ins.
+                    </li>
+                    <li>
+                        <span class="check">✓</span>
+                        Zone summary shows occupancy %, average bill, and active stewards at once.
+                    </li>
+                </ul>
+                <a href="{{ route('restaurant_signup') }}" class="btn-primary">Start Managing Your Floor &rarr;</a>
             </div>
-            <button class="btn o" style="padding: 6px 14px; font-size: 12px;">Select</button>
-          </div>
+
+            {{-- Visual --}}
+            <div class="tm-showcase__visual" data-aos="fade-left" data-aos-delay="100">
+                <div class="tm-showcase__visual-header">
+                    <div class="tm-showcase__visual-title">
+                        🏢 Zone Overview — The Spice Route
+                    </div>
+                    <span style="font-size:11px;font-weight:700;color:var(--green);background:var(--green-bg);padding:3px 10px;border-radius:9999px;">Live</span>
+                </div>
+                <div class="tm-showcase__visual-body">
+                    {{-- Indoor --}}
+                    <div class="zone-row">
+                        <div class="zone-row__icon" style="background:#EFF6FF;">🪴</div>
+                        <div class="zone-row__name">
+                            <div class="zone-row__name-title">Indoor — Main Hall</div>
+                            <div class="zone-row__name-sub">Steward: Rajan &amp; Priya · 6 tables</div>
+                        </div>
+                        <div class="zone-row__pills">
+                            <span class="zone-pill zone-pill--green">3 free</span>
+                            <span class="zone-pill zone-pill--coffee">3 occ</span>
+                        </div>
+                    </div>
+                    {{-- Outdoor --}}
+                    <div class="zone-row">
+                        <div class="zone-row__icon" style="background:#FEF9C3;">☀️</div>
+                        <div class="zone-row__name">
+                            <div class="zone-row__name-title">Outdoor — Garden</div>
+                            <div class="zone-row__name-sub">Steward: Ankit · 3 tables</div>
+                        </div>
+                        <div class="zone-row__pills">
+                            <span class="zone-pill zone-pill--green">1 free</span>
+                            <span class="zone-pill zone-pill--coffee">1 occ</span>
+                            <span class="zone-pill zone-pill--gray">1 clean</span>
+                        </div>
+                    </div>
+                    {{-- VIP --}}
+                    <div class="zone-row">
+                        <div class="zone-row__icon" style="background:#FAF6EF;">👑</div>
+                        <div class="zone-row__name">
+                            <div class="zone-row__name-title">VIP Lounge</div>
+                            <div class="zone-row__name-sub">Steward: Rajan · 2 tables</div>
+                        </div>
+                        <div class="zone-row__pills">
+                            <span class="zone-pill zone-pill--green">1 free</span>
+                            <span class="zone-pill zone-pill--amber">1 rsvd</span>
+                        </div>
+                    </div>
+                    {{-- Bar --}}
+                    <div class="zone-row">
+                        <div class="zone-row__icon" style="background:#FDF4FF;">🍸</div>
+                        <div class="zone-row__name">
+                            <div class="zone-row__name-title">Bar Counter</div>
+                            <div class="zone-row__name-sub">Steward: Priya · 1 table</div>
+                        </div>
+                        <div class="zone-row__pills">
+                            <span class="zone-pill zone-pill--amber">1 rsvd</span>
+                        </div>
+                    </div>
+
+                    {{-- Summary row --}}
+                    <div style="margin-top:16px;padding:14px 16px;background:var(--coffee-light);border-radius:12px;border:1px solid var(--coffee-border);display:flex;gap:28px;flex-wrap:wrap;">
+                        <div style="display:flex;flex-direction:column;gap:2px;">
+                            <span style="font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--ink-faint);font-weight:600;">Occupancy</span>
+                            <span style="font-family:'Outfit',sans-serif;font-weight:800;font-size:22px;color:var(--coffee);">75%</span>
+                        </div>
+                        <div style="display:flex;flex-direction:column;gap:2px;">
+                            <span style="font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--ink-faint);font-weight:600;">Avg. Bill</span>
+                            <span style="font-family:'Outfit',sans-serif;font-weight:800;font-size:22px;color:var(--ink);">₹2,712</span>
+                        </div>
+                        <div style="display:flex;flex-direction:column;gap:2px;">
+                            <span style="font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--ink-faint);font-weight:600;">Avg. Turn</span>
+                            <span style="font-family:'Outfit',sans-serif;font-weight:800;font-size:22px;color:var(--ink);">47 min</span>
+                        </div>
+                        <div style="display:flex;flex-direction:column;gap:2px;">
+                            <span style="font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--ink-faint);font-weight:600;">Active Staff</span>
+                            <span style="font-family:'Outfit',sans-serif;font-weight:800;font-size:22px;color:var(--ink);">3</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </section>
 
-<!-- ================= TABLE LIFECYCLE ================= -->
-<section style="background: var(--bg2);">
-  <div class="w">
-    <div class="hd">
-      <div class="eb">7-STAGE DINING CYCLE</div>
-      <h2>From Empty Table to <span class="sf">Ready Again.</span></h2>
-      <p>Follow the complete lifecycle of a restaurant table from arrival to turnaround.</p>
+{{-- ========================================================
+     HOW IT WORKS
+======================================================== --}}
+<section class="tm-howitworks">
+    <div class="tm-container">
+        <div class="tm-howitworks__header" data-aos="fade-up">
+            <div class="sec-eyebrow">How It Works</div>
+            <h2>From Empty Floor to Full House in 4 Steps</h2>
+            <p>Geni Menu's table management fits naturally into how your team already works — no new habits to force.</p>
+        </div>
+        <div class="tm-howitworks__steps">
+            <div class="tm-howitworks__step" data-aos="fade-up" data-aos-delay="0">
+                <div class="tm-howitworks__step-num">1</div>
+                <div class="tm-howitworks__step-icon">🗺️</div>
+                <h3>Set Up Your Floor Plan</h3>
+                <p>Use the drag-and-drop editor to map your restaurant exactly — place tables, label zones, set capacities, and assign stewards. Takes about 15 minutes once.</p>
+            </div>
+            <div class="tm-howitworks__step" data-aos="fade-up" data-aos-delay="80">
+                <div class="tm-howitworks__step-num">2</div>
+                <div class="tm-howitworks__step-icon">🤝</div>
+                <h3>Seat &amp; Link Guests</h3>
+                <p>When a guest arrives, tap the table, select their reservation (if any), and confirm seating. The timer starts, the POS opens to their order, and the steward gets notified.</p>
+            </div>
+            <div class="tm-howitworks__step" data-aos="fade-up" data-aos-delay="160">
+                <div class="tm-howitworks__step-num">3</div>
+                <div class="tm-howitworks__step-icon">📊</div>
+                <h3>Monitor in Real-Time</h3>
+                <p>Watch your floor plan update live — bill amounts grow, dining timers tick, and alerts fire when a table has been seated past your average turn time of 60 minutes.</p>
+            </div>
+            <div class="tm-howitworks__step" data-aos="fade-up" data-aos-delay="240">
+                <div class="tm-howitworks__step-num">4</div>
+                <div class="tm-howitworks__step-icon">✅</div>
+                <h3>Clear &amp; Turnaround</h3>
+                <p>After billing, mark the table Cleaning with one tap. It turns grey on the floor plan and alerts housekeeping. Once cleared, flip it to Available — the next guest is ready to be seated.</p>
+            </div>
+        </div>
     </div>
-
-    <!-- 7 Stage Horizontal Workflow -->
-    <div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px;">
-      <div style="background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 16px; text-align: center;">
-        <div style="font-weight: 500; font-size: 11px; color: var(--green);">STAGE 01</div>
-        <div style="font-weight: 500; font-size: 13px; margin-top: 4px;">Available</div>
-      </div>
-
-      <div style="background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 16px; text-align: center;">
-        <div style="font-weight: 500; font-size: 11px; color: var(--br);">STAGE 02</div>
-        <div style="font-weight: 500; font-size: 13px; margin-top: 4px;">Reserved</div>
-      </div>
-
-      <div style="background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 16px; text-align: center;">
-        <div style="font-weight: 500; font-size: 11px; color: var(--blue);">STAGE 03</div>
-        <div style="font-weight: 500; font-size: 13px; margin-top: 4px;">Occupied</div>
-      </div>
-
-      <div style="background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 16px; text-align: center;">
-        <div style="font-weight: 500; font-size: 11px; color: var(--ink);">STAGE 04</div>
-        <div style="font-weight: 500; font-size: 13px; margin-top: 4px;">Ordering</div>
-      </div>
-
-      <div style="background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 16px; text-align: center;">
-        <div style="font-weight: 500; font-size: 11px; color: var(--br-gold);">STAGE 05</div>
-        <div style="font-weight: 500; font-size: 13px; margin-top: 4px;">Billing</div>
-      </div>
-
-      <div style="background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 16px; text-align: center;">
-        <div style="font-weight: 500; font-size: 11px; color: var(--amber);">STAGE 06</div>
-        <div style="font-weight: 500; font-size: 13px; margin-top: 4px;">Cleaning</div>
-      </div>
-
-      <div style="background: var(--br); color: #fff; border-radius: 14px; padding: 16px; text-align: center; box-shadow: 0 4px 14px rgba(135,96,57,0.3);">
-        <div style="font-weight: 500; font-size: 11px; color: var(--br-gold);">STAGE 07</div>
-        <div style="font-weight: 500; font-size: 13px; margin-top: 4px; color: #fff;">Available</div>
-      </div>
-    </div>
-  </div>
 </section>
 
-<!-- ================= BUSY-HOUR MANAGEMENT & UTILIZATION ================= -->
-<section>
-  <div class="w">
-    <div class="hd">
-      <div class="eb">PEAK RUSH & ANALYTICS</div>
-      <h2>Stay In Control When <span class="sf">Every Table Matters.</span></h2>
-      <p>Keep your host stand informed during peak dinner rush with live alerts and table turnaround analytics.</p>
-    </div>
-
-    <div class="g2">
-      <!-- Live Notifications Panel -->
-      <div class="card" style="padding: 28px;">
-        <h3 style="font-size: 18px; margin-bottom: 20px;">Live Dining Floor Alerts</h3>
-        <div style="display: flex; flex-direction: column; gap: 12px;">
-          <div style="background: #ecfdf5; border: 1px solid var(--green); border-radius: 12px; padding: 14px; display: flex; align-items: center; gap: 12px;">
-            <div style="width: 10px; height: 10px; border-radius: 50%; background: var(--green);"></div>
-            <div style="font-size: 13.5px; font-weight: 700; color: #065f46;">Table T14 is ready for seating (Busser finished cleaning)</div>
-          </div>
-
-          <div style="background: #fffbeb; border: 1px solid var(--amber); border-radius: 12px; padding: 14px; display: flex; align-items: center; gap: 12px;">
-            <div style="width: 10px; height: 10px; border-radius: 50%; background: var(--amber);"></div>
-            <div style="font-size: 13.5px; font-weight: 700; color: #92400e;">Reservation arriving in 10 min — Table T08 (6 Guests)</div>
-          </div>
-
-          <div style="background: #eff6ff; border: 1px solid var(--blue); border-radius: 12px; padding: 14px; display: flex; align-items: center; gap: 12px;">
-            <div style="width: 10px; height: 10px; border-radius: 50%; background: var(--blue);"></div>
-            <div style="font-size: 13.5px; font-weight: 700; color: #1e40af;">Table T03 bill printed (Payment pending)</div>
-          </div>
+{{-- ========================================================
+     FEATURE GRID
+======================================================== --}}
+<section class="tm-features">
+    <div class="tm-container">
+        <div class="tm-features__header" data-aos="fade-up">
+            <div class="sec-eyebrow">All Capabilities</div>
+            <h2>Everything You Need to Run a Tight Floor</h2>
+            <p>Six features that combine into one seamless seating experience — for guests and staff alike.</p>
         </div>
-      </div>
-
-      <!-- Occupancy Chart -->
-      <div class="card" style="padding: 28px;">
-        <h3 style="font-size: 18px; margin-bottom: 20px;">Table Occupancy by Hour</h3>
-        <div class="bar-chart">
-          <div class="bar-row">
-            <div class="bar-label">12 PM</div>
-            <div class="bar-track"><div class="bar-fill" style="width: 50%;"></div></div>
-            <div class="bar-count">12 / 24 Tables</div>
-          </div>
-          <div class="bar-row">
-            <div class="bar-label">2 PM</div>
-            <div class="bar-track"><div class="bar-fill" style="width: 80%;"></div></div>
-            <div class="bar-count">19 / 24 Tables</div>
-          </div>
-          <div class="bar-row">
-            <div class="bar-label">4 PM</div>
-            <div class="bar-track"><div class="bar-fill" style="width: 35%;"></div></div>
-            <div class="bar-count">08 / 24 Tables</div>
-          </div>
-          <div class="bar-row">
-            <div class="bar-label">8 PM</div>
-            <div class="bar-track"><div class="bar-fill" style="width: 95%;"></div></div>
-            <div class="bar-count">23 / 24 Tables</div>
-          </div>
-          <div class="bar-row">
-            <div class="bar-label">10 PM</div>
-            <div class="bar-track"><div class="bar-fill" style="width: 65%;"></div></div>
-            <div class="bar-count">15 / 24 Tables</div>
-          </div>
+        <div class="tm-features__grid">
+            <div class="feat-card" data-aos="fade-up" data-aos-delay="0">
+                <div class="feat-card__icon">🖊️</div>
+                <h3>Visual Floor Plan Editor</h3>
+                <p>Drag, drop, and arrange tables on a canvas that mirrors your actual restaurant layout. Add walls, pillars, and section dividers to make it feel real. Supports multi-floor setups.</p>
+            </div>
+            <div class="feat-card" data-aos="fade-up" data-aos-delay="60">
+                <div class="feat-card__icon">🟢</div>
+                <h3>Live Table Status</h3>
+                <p>Four instant states — Available (green), Occupied (coffee), Reserved (amber), Cleaning (grey). Staff see the full picture at a glance without radio-calling the host stand.</p>
+            </div>
+            <div class="feat-card" data-aos="fade-up" data-aos-delay="120">
+                <div class="feat-card__icon">⏱️</div>
+                <h3>Turn-Time Tracking</h3>
+                <p>Each occupied table shows a live dining timer. When a table crosses your average turn time, it highlights in amber so hosts can proactively offer bills or check in with guests.</p>
+            </div>
+            <div class="feat-card" data-aos="fade-up" data-aos-delay="180">
+                <div class="feat-card__icon">🗂️</div>
+                <h3>Zone &amp; Section Management</h3>
+                <p>Organise tables into Indoor, Outdoor, VIP, and Bar zones. Assign stewards per zone, view zone-level occupancy stats, and generate per-zone revenue reports at end of shift.</p>
+            </div>
+            <div class="feat-card" data-aos="fade-up" data-aos-delay="240">
+                <div class="feat-card__icon">🔗</div>
+                <h3>Guest Linking on Seating</h3>
+                <p>When a reserved guest arrives, tap their name from the reservation list to link it to the table. Their preferences, allergies, and past visit notes appear instantly for the steward.</p>
+            </div>
+            <div class="feat-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="feat-card__icon">⚡</div>
+                <h3>Instant Status Updates</h3>
+                <p>Table states sync across POS, the host display, and waiter tablets in under one second. No refresh needed — when Priya marks T-05 clean at the POS, Rajan sees it update at the floor map.</p>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </section>
 
-<!-- ================= RESTAURANT INDUSTRIES ================= -->
-<section style="background: var(--bg2);">
-  <div class="w">
-    <div class="hd">
-      <div class="eb">MULTI-FORMAT FLEXIBILITY</div>
-      <h2>Built for Every <span class="sf">Dining Environment.</span></h2>
-      <p>Whether you run a high-end fine dining room, a busy family restaurant, a café or a resort dining hall.</p>
+{{-- ========================================================
+     RESULTS / METRICS
+======================================================== --}}
+<section class="tm-metrics">
+    <div class="tm-container">
+        <div style="text-align:center;margin-bottom:48px;" data-aos="fade-up">
+            <div style="display:inline-block;font-size:12px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:#D4956A;background:rgba(135,96,57,0.15);border:1px solid rgba(135,96,57,0.3);padding:6px 16px;border-radius:9999px;margin-bottom:18px;">Real Results</div>
+            <h2 style="font-family:'Outfit',sans-serif;font-weight:700;color:#FAF6EF;font-size:clamp(26px,3.5vw,40px);letter-spacing:-0.025em;margin-bottom:12px;">Numbers That Move the Needle</h2>
+            <p style="color:rgba(250,246,239,0.55);font-size:16px;max-width:500px;margin:0 auto;">Aggregated from Geni Menu restaurants that switched from manual floor sheets to live table management.</p>
+        </div>
+        <div class="tm-metrics__inner" data-aos="fade-up" data-aos-delay="80">
+            <div class="tm-metric">
+                <div class="tm-metric__num">+22%</div>
+                <div class="tm-metric__label">More table covers per evening shift</div>
+                <div class="tm-metric__sub">By reducing idle time between seatings</div>
+            </div>
+            <div class="tm-metric">
+                <div class="tm-metric__num">11 min</div>
+                <div class="tm-metric__label">Average reduction in table turnaround time</div>
+                <div class="tm-metric__sub">After switching from pen-and-paper</div>
+            </div>
+            <div class="tm-metric">
+                <div class="tm-metric__num">₹9,400</div>
+                <div class="tm-metric__label">Extra revenue per week on a 20-table restaurant</div>
+                <div class="tm-metric__sub">From faster turns &amp; better zone utilisation</div>
+            </div>
+            <div class="tm-metric">
+                <div class="tm-metric__num">Zero</div>
+                <div class="tm-metric__label">Double-seated table incidents since go-live</div>
+                <div class="tm-metric__sub">Real-time sync eliminates host miscommunication</div>
+            </div>
+        </div>
     </div>
-
-    <div class="ind-grid">
-      <div class="ind-card">
-        <div class="ind-img" style="background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80');">
-          <div class="ind-overlay"></div>
-          <div class="ind-icon"><svg viewBox="0 0 24 24"><path d="M4 19h16M4 15h16M4 11h16M8 7v4M16 7v4"/></svg></div>
-        </div>
-        <div class="ind-content">
-          <h4>Fine Dining</h4>
-          <p>Manage premium dining layouts, course timing, and VIP table assignments.</p>
-        </div>
-      </div>
-
-      <div class="ind-card">
-        <div class="ind-img" style="background-image: url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=600&q=80');">
-          <div class="ind-overlay"></div>
-          <div class="ind-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-        </div>
-        <div class="ind-content">
-          <h4>Family Restaurants</h4>
-          <p>Easily seat large family groups and merge adjoining table layouts.</p>
-        </div>
-      </div>
-
-      <div class="ind-card">
-        <div class="ind-img" style="background-image: url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=600&q=80');">
-          <div class="ind-overlay"></div>
-          <div class="ind-icon"><svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/></svg></div>
-        </div>
-        <div class="ind-content">
-          <h4>Cafés & Bistros</h4>
-          <p>Keep smaller seating spaces and patio layouts simple and organized.</p>
-        </div>
-      </div>
-    </div>
-  </div>
 </section>
 
-<!-- ================= CONNECTED ECOSYSTEM ================= -->
-<section>
-  <div class="w">
-    <div class="hd">
-      <div class="eb">CONNECTED PLATFORM</div>
-      <h2>Table Management Is Part of the <span class="sf">Bigger Picture.</span></h2>
-      <p>Tables are the operational connection point between guests, waiters, kitchen tickets and POS billing.</p>
+{{-- ========================================================
+     COMPARE SECTION
+======================================================== --}}
+<section class="tm-compare">
+    <div class="tm-container">
+        <div class="tm-compare__header" data-aos="fade-up">
+            <div class="sec-eyebrow">Old Way vs. Geni Menu</div>
+            <h2>The Host Stand Used to Run on Guesswork</h2>
+            <p>See exactly what changes when you give your front-of-house team a real-time floor plan.</p>
+        </div>
+        <div class="tm-compare__grid">
+            {{-- Old --}}
+            <div class="compare-card compare-card--old" data-aos="fade-right">
+                <div class="compare-card__label">
+                    <div class="compare-card__label-icon">😣</div>
+                    Without Geni Menu
+                </div>
+                <h3>Chaos at the Host Stand</h3>
+                <ul class="compare-list">
+                    <li>
+                        <span class="compare-list__marker">✕</span>
+                        Rajan shouts across the dining room to ask if T-07 is free yet.
+                    </li>
+                    <li>
+                        <span class="compare-list__marker">✕</span>
+                        Paper seating chart is scribbled over — impossible to read during rush hour.
+                    </li>
+                    <li>
+                        <span class="compare-list__marker">✕</span>
+                        A couple is double-seated at T-03 because the host and a waiter both claimed it.
+                    </li>
+                    <li>
+                        <span class="compare-list__marker">✕</span>
+                        No idea how long T-09 has been occupied — did they even get a bill?
+                    </li>
+                    <li>
+                        <span class="compare-list__marker">✕</span>
+                        VIP guest "Mehra family" walks in but the reserved table is still being cleaned — nobody knew.
+                    </li>
+                    <li>
+                        <span class="compare-list__marker">✕</span>
+                        Manager walks the floor every 15 minutes just to count available tables.
+                    </li>
+                </ul>
+            </div>
+
+            {{-- New --}}
+            <div class="compare-card compare-card--new" data-aos="fade-left" data-aos-delay="80">
+                <div class="compare-card__label">
+                    <div class="compare-card__label-icon">✨</div>
+                    With Geni Menu
+                </div>
+                <h3>Total Floor Visibility, Always</h3>
+                <ul class="compare-list">
+                    <li>
+                        <span class="compare-list__marker">✓</span>
+                        Floor plan updates in real-time — Rajan sees T-07 turn green the moment the bill is settled.
+                    </li>
+                    <li>
+                        <span class="compare-list__marker">✓</span>
+                        Digital colour-coded floor map: Available, Occupied, Reserved, Cleaning — crystal clear.
+                    </li>
+                    <li>
+                        <span class="compare-list__marker">✓</span>
+                        One tap locks a table to a guest — no double-seating possible.
+                    </li>
+                    <li>
+                        <span class="compare-list__marker">✓</span>
+                        Live dining timer on every occupied table; amber alert at 60-minute mark.
+                    </li>
+                    <li>
+                        <span class="compare-list__marker">✓</span>
+                        Mehra family reservation linked — host sees cleaning ETA and can hold them at the lounge with a message.
+                    </li>
+                    <li>
+                        <span class="compare-list__marker">✓</span>
+                        Manager's dashboard shows occupancy %, avg turn, revenue — no floor walks needed.
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
-
-    <div class="card" style="padding: 40px; text-align: center; background: linear-gradient(180deg, #ffffff 0%, #faf8f5 100%);">
-      <div style="display: inline-block; padding: 14px 28px; background: var(--br); color: #fff; border-radius: 16px; font-weight: 500; font-size: 20px; font-family: 'Outfit', sans-serif; box-shadow: 0 8px 24px rgba(135,96,57,0.3); margin-bottom: 32px;">
-        CENTRAL TABLE ENGINE
-      </div>
-
-      <div class="g4" style="text-align: left;">
-        <div style="background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 16px;">
-          <h4 style="font-size: 15px; margin-bottom: 4px; color: var(--br);">Reservation Management</h4>
-          <p style="font-size: 12.5px;">Bookings reserve tables automatically on the floor map.</p>
-        </div>
-
-        <div style="background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 16px;">
-          <h4 style="font-size: 15px; margin-bottom: 4px; color: var(--br);">Waiter Requests</h4>
-          <p style="font-size: 12.5px;">Table-side calls display table numbers on staff devices.</p>
-        </div>
-
-        <div style="background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 16px;">
-          <h4 style="font-size: 15px; margin-bottom: 4px; color: var(--br);">POS Management</h4>
-          <p style="font-size: 12.5px;">Bills link directly to table numbers for easy checkout.</p>
-        </div>
-
-        <div style="background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 16px;">
-          <h4 style="font-size: 15px; margin-bottom: 4px; color: var(--br);">KOT Management</h4>
-          <p style="font-size: 12.5px;">Orders created at tables send instant kitchen tickets.</p>
-        </div>
-      </div>
-    </div>
-  </div>
 </section>
 
-<!-- ================= FAQ SECTION ================= -->
-<section style="background: var(--bg2);">
-  <div class="w">
-    <div class="hd">
-      <div class="eb">GOT QUESTIONS?</div>
-      <h2>Frequently Asked <span class="sf">Questions.</span></h2>
-      <p>Everything you need to know about Geni Menu Table Management.</p>
+{{-- ========================================================
+     FAQ
+======================================================== --}}
+<section class="tm-faq">
+    <div class="tm-container">
+        <div class="tm-faq__header" data-aos="fade-up">
+            <div class="sec-eyebrow">FAQ</div>
+            <h2>Common Questions Answered</h2>
+            <p>Everything you need to know before setting up your digital floor plan.</p>
+        </div>
+        <div class="faq-list" data-aos="fade-up" data-aos-delay="60">
+            <div class="faq-item open">
+                <div class="faq-question">
+                    How long does it take to draw my floor plan in Geni Menu?
+                    <div class="faq-chevron">▾</div>
+                </div>
+                <div class="faq-answer">
+                    Most restaurants complete their initial floor plan setup in under 20 minutes using our drag-and-drop editor. You can place tables, label zones, set seating capacities, and assign stewards all in one session. We also offer a guided onboarding call where a Geni Menu specialist sets it up with you.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    Does the floor plan update in real-time across all devices?
+                    <div class="faq-chevron">▾</div>
+                </div>
+                <div class="faq-answer">
+                    Yes. Geni Menu uses WebSocket connections to sync table status changes across all logged-in devices — POS terminals, host tablets, waiter handhelds, and the manager dashboard — in under one second. When Priya marks T-05 as Cleaning at her POS, Rajan sees the grey state appear on the floor map immediately.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    Can I manage multiple floors or buildings in one account?
+                    <div class="faq-chevron">▾</div>
+                </div>
+                <div class="faq-answer">
+                    Absolutely. Geni Menu supports multi-floor setups within a single location (Ground Floor, Rooftop, Basement Bar) as well as multiple outlets under one account (e.g. The Spice Route — Bandra and The Spice Route — Powai). Each outlet has its own independent floor plan and team, but management gets a consolidated view from the head office dashboard.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    How does guest linking work when a walk-in arrives without a reservation?
+                    <div class="faq-chevron">▾</div>
+                </div>
+                <div class="faq-answer">
+                    For walk-ins, you simply tap the table on the floor map, enter the guest count, and optionally add a guest name or phone number. If the guest has visited before, their profile auto-populates from your CRM with past orders and preferences. The seating record is created instantly and tied to the POS session for that table.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    Is there a limit on the number of tables I can add?
+                    <div class="faq-chevron">▾</div>
+                </div>
+                <div class="faq-answer">
+                    No hard limits. Geni Menu scales from a 5-table café to a 200-seat banquet hall. Larger properties typically split into multiple zones or floors for easier navigation. Our pricing is flat per outlet, not per table, so you never get penalised for growing.
+                </div>
+            </div>
+        </div>
     </div>
-
-    <div class="faq-list">
-      <div class="faq-item open">
-        <div class="faq-q" onclick="faq(this)">
-          1. What is Table Management in Geni Menu?
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-        </div>
-        <div class="faq-a">
-          Table Management in Geni Menu is a digital floor plan system that helps restaurant teams view live table status (Available, Reserved, Occupied, Cleaning), manage seating, and connect dining tables to orders and billing.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q" onclick="faq(this)">
-          2. Can I design my own restaurant floor plan layout?
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-        </div>
-        <div class="faq-a">
-          Yes. You can add tables, configure table capacities, select table shapes, and arrange tables visually to match your real dining floor layout.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q" onclick="faq(this)">
-          3. Can tables be organized by different dining areas?
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-        </div>
-        <div class="faq-a">
-          Yes. You can organize tables into custom dining sections such as Main Dining, Outdoor Patio, Private Dining Rooms, or Rooftop Lounges.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q" onclick="faq(this)">
-          4. Does Table Management connect with Reservation Management?
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-        </div>
-        <div class="faq-a">
-          Yes. Confirmed guest reservations automatically show on the floor plan, reserving designated tables prior to guest arrival.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q" onclick="faq(this)">
-          5. Does Table Management connect with POS and Billing?
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-        </div>
-        <div class="faq-a">
-          Yes. Selecting an occupied table on the POS screen pulls up its active order tab for quick item additions or payment settlement.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q" onclick="faq(this)">
-          6. Can staff manage table status from tablets or mobile phones?
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-        </div>
-        <div class="faq-a">
-          Yes. Host stand staff and waiters can view and update table status in real time from mobile devices or handheld tablets.
-        </div>
-      </div>
-    </div>
-  </div>
 </section>
 
-<!-- ================= FINAL CTA ================= -->
-<section style="padding: 96px 0; background: linear-gradient(135deg, #FAF4ED 0%, #EFE4D6 50%, #FAF4ED 100%); color: #21160F; border-top: 1px solid rgba(135, 96, 57, 0.16);">
-  <div class="w" style="text-align: center; max-width: 800px;">
-    <div class="eb" style="background: rgba(135, 96, 57, 0.1); border-color: rgba(135, 96, 57, 0.2); color: #876039;">TRANSFORM YOUR DINING FLOOR</div>
-    <h2 style="color: #21160F; font-size: clamp(32px, 4vw, 48px); margin-bottom: 20px;">
-      Bring Your Restaurant Floor <span style="color: #876039; font-family: 'Playfair Display', Georgia, serif; font-style: italic;">Under Control.</span>
-    </h2>
-    <p style="color: #6E6157; font-size: 18px; margin-bottom: 36px; line-height: 1.6;">
-      Manage tables, seating and dining areas with a connected table management experience built for modern restaurants.
-    </p>
-    <div style="display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap;">
-      <a href="{{ route('restaurant_signup') }}" class="btn p" style="padding: 16px 36px; font-size: 16px; background: #876039; color: #fff;">Get Started →</a>
-      <a href="{{ route('contact.us') }}" class="btn o" style="padding: 16px 32px; font-size: 16px; background: #fff; color: #876039; border: 1.5px solid #876039;">Book a Demo</a>
+{{-- ========================================================
+     CROSS-LINKS
+======================================================== --}}
+<section class="tm-crosslinks">
+    <div class="tm-container">
+        <div class="tm-crosslinks__header" data-aos="fade-up">
+            <h3>Works Seamlessly With</h3>
+            <p>Table Management connects directly to these Geni Menu features.</p>
+        </div>
+        <div class="tm-crosslinks__row" data-aos="fade-up" data-aos-delay="60">
+            <a href="{{ route('features.reservation-management') }}" class="crosslink-card">
+                <div class="crosslink-card__icon">📅</div>
+                <div class="crosslink-card__text">
+                    <div class="crosslink-card__title">Reservation Management</div>
+                    <div class="crosslink-card__desc">Link arriving guests to their booked table with one tap.</div>
+                </div>
+                <span class="crosslink-card__arrow">→</span>
+            </a>
+            <a href="{{ route('features.waiter-request') }}" class="crosslink-card">
+                <div class="crosslink-card__icon">🔔</div>
+                <div class="crosslink-card__text">
+                    <div class="crosslink-card__title">Waiter Request</div>
+                    <div class="crosslink-card__desc">Guest buzzer requests show table number from the floor plan.</div>
+                </div>
+                <span class="crosslink-card__arrow">→</span>
+            </a>
+            <a href="{{ route('features.pos-management') }}" class="crosslink-card">
+                <div class="crosslink-card__icon">💳</div>
+                <div class="crosslink-card__text">
+                    <div class="crosslink-card__title">POS &amp; Billing</div>
+                    <div class="crosslink-card__desc">Tap a table on the floor plan to open its live bill instantly.</div>
+                </div>
+                <span class="crosslink-card__arrow">→</span>
+            </a>
+        </div>
     </div>
-  </div>
 </section>
 
+{{-- ========================================================
+     FINAL CTA
+======================================================== --}}
+<section class="tm-cta" id="demo">
+    <div class="tm-container">
+        <div class="tm-cta__inner" data-aos="fade-up">
+            <div class="tm-cta__eyebrow">Get Started Today</div>
+            <h2 class="tm-cta__h2">
+                Give Your Team a Floor Plan<br>They Can Actually <span class="italic-serif">Trust</span>
+            </h2>
+            <p class="tm-cta__sub">
+                Join restaurants across India that have replaced guesswork with real-time floor intelligence. Setup takes 20 minutes.
+            </p>
+            <div class="tm-cta__btns">
+                <a href="{{ route('restaurant_signup') }}" class="btn-primary--light">
+                    Start Free Trial &rarr;
+                </a>
+                <a href="#demo" class="btn-outline--light">
+                    📅 Book a 15-min Demo
+                </a>
+            </div>
+            <div class="tm-cta__trust">
+                <span class="tm-cta__trust-item">✓ No credit card required</span>
+                <span class="tm-cta__trust-item">✓ Free onboarding call</span>
+                <span class="tm-cta__trust-item">✓ Live in one service shift</span>
+            </div>
+        </div>
+    </div>
+</section>
 
+</div>{{-- /tm-page --}}
 
+{{-- ========================================================
+     AOS INIT + FAQ ACCORDION JS
+======================================================== --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script>
-function faq(el) {
-  const p = el.parentElement, was = p.classList.contains('open');
-  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
-  if (!was) p.classList.add('open');
-}
+document.addEventListener('DOMContentLoaded', function () {
 
-const nb = document.getElementById('nb');
-window.addEventListener('scroll', () => nb.classList.toggle('s', window.scrollY > 60), { passive: true });
+    // AOS
+    AOS.init({
+        duration: 600,
+        once: true,
+        offset: 60,
+        easing: 'ease-out-cubic'
+    });
 
-const hmb = document.getElementById('hmb'), mnv = document.getElementById('mnav');
-if (hmb && mnv) {
-  hmb.addEventListener('click', () => mnv.classList.add('open'));
-  mnv.addEventListener('click', e => { if (e.target === mnv) mnv.classList.remove('open'); });
-}
+    // FAQ Accordion
+    document.querySelectorAll('.faq-question').forEach(function (question) {
+        question.addEventListener('click', function () {
+            var item = this.closest('.faq-item');
+            var isOpen = item.classList.contains('open');
+
+            // Close all
+            document.querySelectorAll('.faq-item').forEach(function (el) {
+                el.classList.remove('open');
+            });
+
+            // If it wasn't open, open it
+            if (!isOpen) {
+                item.classList.add('open');
+            }
+        });
+    });
+});
 </script>
 
 @endsection
