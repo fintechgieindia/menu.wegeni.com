@@ -552,14 +552,73 @@
                             <span class="text-lg font-bold text-gray-900 dark:text-white">
                                 {{ currency_format($order->total, $restaurant->currency_id) }}
                             </span>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
+        @if ($order->order_type === 'delivery')
+            <!-- Delivery Information Section -->
+            <div class="p-3 my-3 shadow-sm bg-gray-50 dark:bg-gray-800 rounded-xl space-y-3">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-2 font-bold text-gray-900 dark:text-white text-base">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                        <span>@lang('modules.delivery.deliveryDetails')</span>
+                    </div>
+
+                    @if(($order->customer_lat && $order->customer_lng && $order->branch?->lat && $order->branch?->lng) || $order->delivery_location)
+                        @php
+                            $mapUrl = ($order->customer_lat && $order->customer_lng && $order->branch?->lat && $order->branch?->lng)
+                                ? "https://www.google.com/maps/dir/?api=1&travelmode=two-wheeler&origin=" . $order->branch->lat . "," . $order->branch->lng . "&destination=" . $order->customer_lat . "," . $order->customer_lng
+                                : "https://www.google.com/maps/search/?api=1&query=" . urlencode($order->delivery_location);
+                        @endphp
+                        <a href="{{ $mapUrl }}" target="_blank" class="text-xs text-skin-base font-medium hover:underline inline-flex items-center gap-1">
+                            <span>@lang('modules.order.viewOnMap')</span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                        </a>
+                    @endif
+                </div>
+
+                <div class="grid grid-cols-2 gap-2 text-xs">
+                    @if($order->delivery_distance_km)
+                        <div class="p-2.5 bg-white dark:bg-gray-750 rounded-lg border border-gray-200 dark:border-gray-700">
+                            <span class="text-gray-400 block font-medium">@lang('modules.delivery.distance')</span>
+                            <span class="font-bold text-emerald-600 dark:text-emerald-400 text-sm">{{ $order->delivery_distance_km }} km ({{ round($order->delivery_distance_km * 1000) }} @lang('modules.delivery.meters'))</span>
+                        </div>
+                    @endif
+
+                    @if(!is_null($order->delivery_fee))
+                        <div class="p-2.5 bg-white dark:bg-gray-750 rounded-lg border border-gray-200 dark:border-gray-700">
+                            <span class="text-gray-400 block font-medium">@lang('modules.delivery.deliveryFee')</span>
+                            <span class="font-bold text-blue-600 dark:text-blue-400 text-sm">
+                                {{ $order->delivery_fee > 0 ? currency_format($order->delivery_fee, $restaurant->currency_id) : __('modules.delivery.freeDelivery') }}
+                            </span>
+                        </div>
+                    @endif
+                </div>
+
+                @if($order->delivery_location)
+                    <div class="p-2.5 bg-white dark:bg-gray-750 rounded-lg border border-gray-200 dark:border-gray-700 text-xs">
+                        <span class="text-gray-400 font-medium block mb-1">@lang('modules.customer.customerAddress'):</span>
+                        <span class="text-gray-700 dark:text-gray-300 font-medium">{!! nl2br(e($order->delivery_location)) !!}</span>
+                    </div>
+                @endif
+
+                @if($order->deliveryExecutive)
+                    <div class="p-2.5 bg-white dark:bg-gray-750 rounded-lg border border-gray-200 dark:border-gray-700 text-xs flex items-center justify-between">
+                        <span class="text-gray-500 dark:text-gray-400">@lang('modules.order.deliveryExecutive'):</span>
+                        <span class="font-bold text-gray-900 dark:text-white">🚴 {{ $order->deliveryExecutive->name }} {{ $order->deliveryExecutive->phone ? '('.$order->deliveryExecutive->phone.')' : '' }}</span>
+                    </div>
+                @endif
+            </div>
+        @endif
+
         <!-- Payment Information Section -->
         <div class="p-3 my-3 shadow-sm bg-gray-50 dark:bg-gray-800 rounded-xl">
+
             <!-- Section Header -->
             <div class="flex items-center gap-2 mb-3">
                 <svg class="w-5 h-5 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2m2 4h10a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2m7-5a2 2 0 1 1-4 0 2 2 0 0 1 4 0"/></svg>

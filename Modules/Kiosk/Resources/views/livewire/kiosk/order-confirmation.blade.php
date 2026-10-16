@@ -102,12 +102,25 @@
 
             <!-- Additional Information -->
 
-            <!-- Action Button -->
-            <a href="{{ route('kiosk.restaurant', $restaurant->hash).'?branch=' . $shopBranch->unique_hash }}"
-                class="w-full bg-skin-base text-white py-6 px-8 rounded-lg font-bold text-2xl transition-all duration-200 hover:bg-skin-base flex items-center justify-center">
-                {{ __('kiosk::modules.confirmation.start_new_order') }}
-            </a>
+            <!-- Action Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 mb-4">
+                <button type="button" onclick="window.print()"
+                    class="flex-1 bg-white border-2 border-gray-300 text-gray-800 py-4 px-6 rounded-xl font-bold text-lg transition-all hover:bg-gray-50 flex items-center justify-center gap-2 shadow-sm">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/>
+                    </svg>
+                    <span>Print Receipt</span>
+                </button>
+                <a href="{{ route('kiosk.restaurant', $restaurant->hash).'?branch=' . $shopBranch->unique_hash }}"
+                    class="flex-[2] bg-skin-base text-white py-4 px-8 rounded-xl font-bold text-xl transition-all hover:opacity-95 shadow-lg shadow-skin-base/25 flex items-center justify-center gap-2">
+                    <span>{{ __('kiosk::modules.confirmation.start_new_order') }}</span>
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                    </svg>
+                </a>
+            </div>
         </div>
     </div>
+
 
 </div>

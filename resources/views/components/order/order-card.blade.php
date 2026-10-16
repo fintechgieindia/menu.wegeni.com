@@ -107,6 +107,39 @@
             </div>
         </div>
 
+        @if ($order->order_type == 'delivery')
+            <div class="w-full p-2 rounded bg-gray-50 dark:bg-gray-800/60 border border-gray-100 dark:border-gray-700 text-xs space-y-1">
+                @if ($order->delivery_location)
+                    <div class="flex items-center gap-1 text-gray-700 dark:text-gray-300 truncate" title="{{ $order->delivery_location }}">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 text-red-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                        <span class="truncate">{{ $order->delivery_location }}</span>
+                    </div>
+                @endif
+                <div class="flex items-center justify-between text-[11px] text-gray-500 dark:text-gray-400">
+                    <div class="flex items-center gap-2">
+                        @if ($order->delivery_distance_formatted)
+                            <span class="font-medium text-emerald-600 dark:text-emerald-400">
+                                📍 {{ $order->delivery_distance_formatted }}
+                            </span>
+                        @endif
+                        @if ($order->delivery_fee > 0)
+                            <span class="text-gray-600 dark:text-gray-400">
+                                Fee: {{ currency_format($order->delivery_fee, restaurant()->currency_id) }}
+                            </span>
+                        @endif
+                    </div>
+                    @if ($order->deliveryExecutive)
+                        <span class="text-indigo-600 dark:text-indigo-400 font-medium">
+                            🚴 {{ $order->deliveryExecutive->name }}
+                        </span>
+                    @endif
+                </div>
+            </div>
+        @endif
+
         <div class="flex w-full justify-between items-center">
             @if ($order->order_type == 'pickup')
                 <div class="flex flex-col gap-1 text-xs text-gray-600 dark:text-gray-400">
@@ -133,6 +166,7 @@
                 @endif
             </div>
         </div>
+
 
         <div class="flex w-full justify-between items-center border-t dark:border-gray-500 pt-3">
             <div class="inline-flex gap-1 items-center">

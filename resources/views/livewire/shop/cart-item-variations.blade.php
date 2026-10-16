@@ -30,14 +30,14 @@
                             </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700"
-                            wire:key='menu-item-list-{{ microtime() }}'>
+                            wire:key='menu-item-list'>
 
                             @foreach ($menuItem->variations as $item)
                             
                             @continue(!isset($orderItemQty[$item->menu_item_id . '_' . $item->id]) || (isset($orderItemQty[$item->menu_item_id . '_' . $item->id]) && $orderItemQty[$item->menu_item_id . '_' . $item->id] == 0))
 
                             <tr class="hover:bg-gray-100 dark:hover:bg-gray-700"
-                                wire:key='menu-item-{{ $item->menu_item_id . '_' . $item->id . microtime() }}'>
+                                wire:key='cart-variation-{{ $item->menu_item_id . "_" . $item->id }}'>
                                 <td class="flex items-center p-4 mr-12 space-x-6 whitespace-nowrap">
                                     <div class="text-sm font-normal text-gray-500 dark:text-gray-400">
                                         <div class="text-base text-gray-900 dark:text-white inline-flex items-center">

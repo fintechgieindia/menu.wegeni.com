@@ -198,7 +198,7 @@
                     'group flex items-center border shadow-sm rounded-lg hover:shadow-md transition dark:bg-gray-700 dark:border-gray-600',
                     'bg-skin-base dark:bg-skin-base' => is_null($menuId),
                     'bg-white' => !is_null($menuId),
-                ]) wire:key='menu-{{ 'all-' . microtime() }}'
+                ]) wire:key='menu-all'
                     wire:click='filterMenuItems(null)' href="javascript:;">
                     <div class="p-2 sm:p-3">
                         <div class="flex items-center gap-3">
@@ -229,7 +229,7 @@
                             'group flex flex-col border shadow-sm rounded-lg hover:shadow-md transition dark:bg-gray-700 dark:border-gray-600 dark:hover:bg-gray-600',
                             'bg-skin-base dark:bg-skin-base' => $menuId == $item->id,
                             'bg-white' => $menuId != $item->id,
-                        ]) wire:key='menu-{{ $item->id . microtime() }}'
+                        ]) wire:key='menu-{{ $item->id }}'
                             wire:click='filterMenuItems({{ $item->id }})' href="javascript:;">
                             <div class="p-2 sm:p-3">
                                 <div class="flex items-center gap-3">
@@ -424,15 +424,12 @@
                     }
                 }
             }"
-            x-init="
-                window.addEventListener('scroll', () => scrollHandler());
-                // Update totalCount when component updates
-                $watch('loadedCount', () => {
-                    totalCount = {{ $this->totalMenuItemsCount }};
-                });
-            "
             @scroll.window.throttle.200ms="scrollHandler()">
 
+            @php
+                $orderStats = getRestaurantOrderStats($shopBranch->id);
+                $canAddToCart = $orderStats && ($orderStats['unlimited'] || $orderStats['current_count'] < $orderStats['order_limit']);
+            @endphp
             @forelse ($this->menuItems as $key => $itemCat)
                 <h3 class="my-4 text-base font-semibold text-gray-900 lg:text-xl dark:text-white">{{ $key }}
                 </h3>
@@ -442,7 +439,7 @@
                             'flex items-center justify-between gap-6 border shadow-sm rounded-lg hover:shadow-md transition dark:border-gray-600 dark:lg:bg-gray-900 dark:shadow-sm lg:rounded-md',
                             'bg-gray-100 dark:bg-gray-800' => !$item->in_stock,
                             'bg-white dark:bg-gray-900' => $item->in_stock,
-                        ]) wire:key='menu-item-{{ $item->id . microtime() }}'>
+                        ]) wire:key='menu-item-{{ $item->id }}'>
                             <div class="flex w-full p-3 space-x-4">
                                 @if ($restaurant && !$restaurant->hide_menu_item_image_on_customer_site)
                                     <img class="object-cover w-16 h-16 rounded-md cursor-pointer lg:w-24 lg:h-24"
@@ -487,11 +484,14 @@
                                                         wire:key='orderItemQty-{{ $item->id }}-counter'>
                                                         <button type="button"
                                                             @if ($item->variations_count > 0) wire:click="subCartItems({{ $item->id }})"
+                                                            wire:loading.attr="disabled" wire:target="subCartItems({{ $item->id }})"
                                                     @elseif($item->modifier_groups_count > 0)
                                                         wire:click="subModifiers({{ $item->id }})"
+                                                        wire:loading.attr="disabled" wire:target="subModifiers({{ $item->id }})"
                                                     @else
-                                                        wire:click="subQty('{{ $item->id }}')" @endif
-                                                            class="h-8 p-3 border border-gray-300 bg-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 rounded-s-md">
+                                                        wire:click="subQty('{{ $item->id }}')"
+                                                        wire:loading.attr="disabled" wire:target="subQty('{{ $item->id }}')" @endif
+                                                            class="h-8 p-3 border border-gray-300 bg-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 active:scale-95 transition-transform duration-75 disabled:opacity-50 rounded-s-md">
                                                             <svg class="w-2 h-2 text-gray-900 dark:text-white"
                                                                 aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                                                 fill="none" viewBox="0 0 18 2">
@@ -502,16 +502,20 @@
                                                         </button>
 
                                                         <input type="text"
-                                                            wire:model='cartItemQty.{{ $item->id }}'
-                                                            class="min-w-10 bg-white border-x-0 border-gray-300 h-8 text-center text-gray-900 text-sm  block w-full py-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white "
-                                                            value="1" readonly />
+                                                            class="min-w-10 bg-white border-x-0 border-gray-300 h-8 text-center text-gray-900 text-sm block w-full py-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+                                                            value="{{ $cartItemQty[$item->id] ?? 0 }}" readonly />
                                                         <button type="button"
                                                             wire:click="
                                                         @if ($item->variations_count > 0 || $item->modifier_groups_count > 0) addCartItems({{ $item->id }}, {{ $item->variations_count }}, {{ $item->modifier_groups_count }})
                                                         @else
                                                             addQty('{{ $item->id }}') @endif
                                                     "
-                                                            class="h-8 p-3 border border-gray-300 bg-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 rounded-e-md">
+                                                            @if ($item->variations_count > 0 || $item->modifier_groups_count > 0)
+                                                                wire:loading.attr="disabled" wire:target="addCartItems({{ $item->id }}, {{ $item->variations_count }}, {{ $item->modifier_groups_count }})"
+                                                            @else
+                                                                wire:loading.attr="disabled" wire:target="addQty('{{ $item->id }}')"
+                                                            @endif
+                                                            class="h-8 p-3 border border-gray-300 bg-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 active:scale-95 transition-transform duration-75 disabled:opacity-50 rounded-e-md">
                                                             <svg class="w-2 h-2 text-gray-900 dark:text-white"
                                                                 aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                                                 fill="none" viewBox="0 0 18 18">
@@ -522,13 +526,12 @@
                                                         </button>
                                                     </div>
                                                 @else
-                                                    @php
-                                                        $orderStats = getRestaurantOrderStats($shopBranch->id);
-                                                    @endphp
-                                                    @if(($orderStats['unlimited'] || $orderStats['current_count'] < $orderStats['order_limit']))
+                                                    @if($canAddToCart)
                                                         <x-cart-button
                                                                 wire:click='addCartItems({{ $item->id }}, {{ $item->variations_count }} , {{ $item->modifier_groups_count }})'
-                                                                wire:key='item-input-{{ $item->id . microtime() }}'>@lang('app.add')</x-cart-button>
+                                                                wire:loading.attr="disabled"
+                                                                wire:target='addCartItems({{ $item->id }}, {{ $item->variations_count }} , {{ $item->modifier_groups_count }})'
+                                                                wire:key='item-input-{{ $item->id }}'>@lang('app.add')</x-cart-button>
                                                     @endif
                                                 @endif
                                             @elseif ($item->variations_count > 0 && $restaurant->allow_customer_orders)
@@ -551,6 +554,7 @@
                         </div>
                     @endforeach
                 </div>
+
             @empty
                 <div
                     class="flex flex-col items-center justify-center p-6 text-center text-gray-500 dark:text-gray-400">
@@ -590,7 +594,7 @@
 
             <div class="fixed flex justify-center w-full max-w-lg gap-6 -ml-4 bottom-24 lg:hidden">
                 @if ($this->shouldShowWaiterButtonMobile)
-                    @livewire('forms.callWaiterButton', ['tableNumber' => $table->id ?? null, 'shopBranch' => $shopBranch])
+                    @livewire('forms.callWaiterButton', ['tableNumber' => $table->id ?? null, 'shopBranch' => $shopBranch], key('mobile-call-waiter-' . ($table->id ?? 'branch-' . $shopBranch->id)))
                 @endif
                 @if (is_null(customer()) && $restaurant->customer_login_required)
                     <x-button type="button" wire:click="$dispatch('showSignup')">@lang('app.login')</x-button>
@@ -603,7 +607,7 @@
                     <div>@lang('modules.order.totalItem'): {{ $cartQty }} &nbsp;|&nbsp;
                         {{ currency_format($subTotal, $restaurant->currency_id) }} + @lang('modules.order.taxes')</div>
 
-                    <x-secondary-button wire:click="showCartItems">@lang('modules.order.viewCart')</x-secondary-button>
+                    <x-secondary-button wire:click="showCartItems" wire:loading.attr="disabled" wire:target="showCartItems">@lang('modules.order.viewCart')</x-secondary-button>
 
                 </div>
             @endif
@@ -617,7 +621,7 @@
         <div class="px-4 mt-4 space-y-4">
             @foreach ($orderItemList as $key => $item)
                 <div class="flex items-center justify-between gap-6 transition bg-white border rounded-lg shadow-sm hover:shadow-md dark:border-gray-600 dark:lg:bg-gray-900 dark:shadow-sm"
-                    wire:key='menu-item-{{ $item->id . microtime() }}'>
+                    wire:key='cart-item-{{ $key }}'>
                     <div class="flex w-full p-4 space-x-4 dark:bg-gray-800 dark:text-gray-200">
                         <!-- Item Image -->
                         @if ($restaurant && !$restaurant->hide_menu_item_image_on_customer_site)
@@ -659,7 +663,8 @@
                                     <!-- Quantity Controls -->
                                     <div class="flex items-center">
                                         <button type="button" wire:click="subQty('{{ $key }}')"
-                                            class="h-8 p-2 border border-gray-300 bg-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 rounded-s-md">
+                                            wire:loading.attr="disabled" wire:target="subQty('{{ $key }}')"
+                                            class="h-8 p-2 border border-gray-300 bg-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 active:scale-95 transition-transform duration-75 disabled:opacity-50 rounded-s-md">
                                             <svg class="w-2 h-2 text-gray-900 dark:text-white" aria-hidden="true"
                                                 viewBox="0 0 18 2">
                                                 <path stroke="currentColor" stroke-linecap="round"
@@ -672,7 +677,8 @@
                                             readonly />
 
                                         <button type="button" wire:click="addQty('{{ $key }}')"
-                                            class="h-8 p-2 border border-gray-300 bg-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 rounded-e-md">
+                                            wire:loading.attr="disabled" wire:target="addQty('{{ $key }}')"
+                                            class="h-8 p-2 border border-gray-300 bg-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 active:scale-95 transition-transform duration-75 disabled:opacity-50 rounded-e-md">
                                             <svg class="w-2 h-2 text-gray-900 dark:text-white" aria-hidden="true"
                                                 viewBox="0 0 18 18">
                                                 <path stroke="currentColor" stroke-linecap="round"
@@ -1034,7 +1040,7 @@
                     @endif
 
                     <div class="w-full h-auto pt-3 pb-4 text-center select-none"
-                        wire:key='order-{{ microtime() }}'>
+                        wire:key='order-actions'>
                         <div class="flex gap-2">
 
                             @if (is_null($customer) && ($restaurant->customer_login_required || $orderTypeSlug == 'delivery'))
@@ -1338,12 +1344,12 @@
         </x-slot>
 
         <x-slot name="content">
-            @if ($menuItem)
+            @if ($showVariationModal && $menuItem)
                 @livewire('pos.itemVariations', [
                     'menuItemId' => $menuItem->id,
                     'orderTypeId' => $orderTypeId,
                     'deliveryAppId' => null
-                ], key(str()->random(50)))
+                ], key('pos-item-variations-' . $menuItem->id . '-' . ($orderTypeId ?? 0)))
             @endif
         </x-slot>
 
@@ -1358,8 +1364,8 @@
         </x-slot>
 
         <x-slot name="content">
-            @if ($menuItem)
-                @livewire('shop.cartItemVariations', ['menuItem' => $menuItem, 'orderItemQty' => $orderItemQty], key(str()->random(50)))
+            @if ($showCartVariationModal && $menuItem)
+                @livewire('shop.cartItemVariations', ['menuItem' => $menuItem, 'orderItemQty' => $orderItemQty], key('cart-item-variations-' . $menuItem->id . '-' . array_sum($orderItemQty ?? [])))
             @endif
         </x-slot>
 
@@ -1709,12 +1715,12 @@
         </x-slot>
 
         <x-slot name="content">
-            @if ($selectedModifierItem)
+            @if ($showModifiersModal && $selectedModifierItem)
                 @livewire('pos.itemModifiers', [
                     'menuItemId' => $selectedModifierItem,
                     'orderTypeId' => $orderTypeId,
                     'deliveryAppId' => null
-                ], key(str()->random(50)))
+                ], key('pos-item-modifiers-' . $selectedModifierItem . '-' . ($orderTypeId ?? 0)))
             @endif
         </x-slot>
     </x-dialog-modal>
@@ -1725,7 +1731,7 @@
         </x-slot>
 
         <x-slot name="content">
-            @if ($menuItem)
+            @if ($showItemVariationsModal && $menuItem)
                 <div>
                     <div class="flex flex-col">
                         <div class="flex gap-4 mb-4">
@@ -1766,11 +1772,11 @@
                                         </thead>
                                         <tbody
                                             class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700"
-                                            wire:key='menu-item-list-{{ microtime() }}'>
+                                            wire:key='menu-item-list'>
 
                                             @foreach ($menuItem->variations as $item)
                                                 <tr class="hover:bg-gray-100 dark:hover:bg-gray-700"
-                                                    wire:key='menu-item-{{ $item->id . microtime() }}'>
+                                                    wire:key='variation-{{ $item->id }}'>
                                                     <td
                                                         class="flex items-center p-4 mr-12 space-x-6 whitespace-nowrap">
                                                         <div
@@ -1809,8 +1815,8 @@
         <x-slot name="title"></x-slot>
 
         <x-slot name="content">
-            @if ($shopBranch?->deliverySetting)
-                @livewire('customer.location-selector', ['shopBranch' => $shopBranch, 'customer' => $customer, 'orderGrandTotal' => $total, 'maxPreparationTime' => $maxPreparationTime, 'currencyId' => $restaurant->currency_id], key(str()->random(50)))
+            @if ($showDeliveryAddressModal && $shopBranch?->deliverySetting)
+                @livewire('customer.location-selector', ['shopBranch' => $shopBranch, 'customer' => $customer, 'orderGrandTotal' => $total, 'maxPreparationTime' => $maxPreparationTime, 'currencyId' => $restaurant->currency_id], key('customer-location-selector-' . $shopBranch->id))
             @endif
         </x-slot>
     </x-dialog-modal>

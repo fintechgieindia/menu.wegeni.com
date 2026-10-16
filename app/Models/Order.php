@@ -245,6 +245,63 @@ class Order extends BaseModel
         return __('modules.order.orderNumber') . ' #' . $this->order_number;
     }
 
+    public function calculateDistance($lat1, $lng1, $lat2, $lng2)
+    {
+        if (!$lat1 || !$lng1 || !$lat2 || !$lng2) {
+            return null;
+        }
+
+        $earthRadius = 6371; // kilometers
+        $dLat = deg2rad($lat2 - $lat1);
+        $dLng = deg2rad($lng2 - $lng1);
+
+        $a = sin($dLat / 2) * sin($dLat / 2) +
+            cos(deg2rad($lat1)) * cos(deg2rad($lat2)) *
+            sin($dLng / 2) * sin($dLng / 2);
+
+        $c = 2 * atan2(sqrt($a), sqrt(1 - $a));
+        $distance = $earthRadius * $c;
+
+        return round($distance, 2);
+    }
+
+    public function getDeliveryDistanceKmAttribute()
+    {
+        $branch = $this->branch;
+        if ($branch && $branch->lat && $branch->lng && $this->customer_lat && $this->customer_lng) {
+            return $this->calculateDistance($branch->lat, $branch->lng, $this->customer_lat, $this->customer_lng);
+        }
+
+        return null;
+    }
+
+    public function getDeliveryDistanceFormattedAttribute()
+    {
+        $dist = $this->delivery_distance_km;
+        if (is_null($dist)) {
+            return null;
+        }
+
+        if ($dist < 1) {
+            return round($dist * 1000) . ' m';
+        }
+
+        return round($dist, 1) . ' km';
+    }
+
+    public function getDeliveryLocationAttribute()
+    {
+        if (!empty($this->delivery_address)) {
+            return $this->delivery_address;
+        }
+
+        if ($this->customer && !empty($this->customer->delivery_address)) {
+            return $this->customer->delivery_address;
+        }
+
+        return $this->customer?->address ?? null;
+    }
+
     public function kiosk(): ?BelongsTo
     {
         if (
@@ -269,3 +326,4 @@ class Order extends BaseModel
         return null;
     }
 }
+

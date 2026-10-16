@@ -20,6 +20,18 @@
                                 </th>
                                 <th scope="col"
                                     class="py-2.5 px-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
+                                    @lang('modules.delivery.location') / @lang('modules.order.latest')
+                                </th>
+                                <th scope="col"
+                                    class="py-2.5 px-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
+                                    @lang('modules.delivery.distance')
+                                </th>
+                                <th scope="col"
+                                    class="py-2.5 px-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
+                                    @lang('modules.delivery.deliveryFee') / @lang('modules.order.amount')
+                                </th>
+                                <th scope="col"
+                                    class="py-2.5 px-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
                                     @lang('app.status')
                                 </th>
                                 <th scope="col"
@@ -31,22 +43,62 @@
                         <tbody class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700" wire:key='customer-list-{{ microtime() }}'>
 
                             @forelse ($members as $item)
+                            @php
+                                $latestOrder = $item->orders->first();
+                            @endphp
                             <tr class="hover:bg-gray-100 dark:hover:bg-gray-700" wire:key='customer-{{ $item->id . rand(1111, 9999) . microtime() }}' wire:loading.class.delay='opacity-10'>
-                                <td class="py-2.5 px-4 text-base text-gray-900 whitespace-nowrap dark:text-white">
-                                    {{ $item->name }}
+                                <td class="py-2.5 px-4 text-base text-gray-900 whitespace-nowrap dark:text-white font-medium">
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-8 h-8 rounded-full bg-skin-base/10 text-skin-base flex items-center justify-center font-bold text-xs uppercase">
+                                            {{ substr($item->name, 0, 2) }}
+                                        </div>
+                                        <span>{{ $item->name }}</span>
+                                    </div>
                                 </td>
-                                <td class="py-2.5 px-4 text-base text-gray-900 whitespace-nowrap dark:text-white">
+                                <td class="py-2.5 px-4 text-sm text-gray-700 whitespace-nowrap dark:text-gray-300">
                                     {{ $item->phone ?? '--' }}
                                 </td>
-                                <td class="py-2.5 px-4 text-base text-gray-900 whitespace-nowrap dark:text-white">
+                                <td class="py-2.5 px-4 text-sm text-gray-900 whitespace-nowrap dark:text-white">
                                     <span
                                     @if(user_can('Show Order'))
                                      wire:click='showCustomerOrders({{ $item->id }})'
                                     @endif
 
-                                     @class(['text-xs font-medium px-2 py-1 rounded uppercase tracking-wide whitespace-nowrap bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-400 border border-gray-400 cursor-pointer'])>
+                                     @class(['text-xs font-medium px-2 py-1 rounded uppercase tracking-wide whitespace-nowrap bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-400 border border-gray-400 cursor-pointer hover:bg-gray-200'])>
                                         {{ $item->orders_count }} @lang('menu.orders')
                                     </span>
+                                </td>
+                                <td class="py-2.5 px-4 text-sm text-gray-700 dark:text-gray-300 max-w-xs truncate" title="{{ $latestOrder?->delivery_location }}">
+                                    @if($latestOrder && $latestOrder->delivery_location)
+                                        <div class="flex items-center gap-1.5">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-red-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                            </svg>
+                                            <span class="truncate text-xs">{{ Str::limit($latestOrder->delivery_location, 30) }}</span>
+                                        </div>
+                                    @else
+                                        <span class="text-xs text-gray-400">--</span>
+                                    @endif
+                                </td>
+                                <td class="py-2.5 px-4 text-sm whitespace-nowrap">
+                                    @if($latestOrder && $latestOrder->delivery_distance_formatted)
+                                        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">
+                                            📍 {{ $latestOrder->delivery_distance_formatted }}
+                                        </span>
+                                    @else
+                                        <span class="text-xs text-gray-400">--</span>
+                                    @endif
+                                </td>
+                                <td class="py-2.5 px-4 text-sm text-gray-900 whitespace-nowrap dark:text-white">
+                                    <div class="flex flex-col">
+                                        <span class="text-xs font-semibold text-emerald-600 dark:text-emerald-400">
+                                            Fee: {{ currency_format($item->total_delivery_fees ?? 0, restaurant()->currency_id) }}
+                                        </span>
+                                        <span class="text-[11px] text-gray-500 dark:text-gray-400">
+                                            Total: {{ currency_format($item->total_amount ?? 0, restaurant()->currency_id) }}
+                                        </span>
+                                    </div>
                                 </td>
                                 <td class="py-2.5 px-4 text-base text-gray-900 whitespace-nowrap dark:text-white">
                                     <span @class(['text-xs font-medium px-2 py-1 rounded uppercase tracking-wide whitespace-nowrap ',
@@ -57,6 +109,7 @@
                                         @lang('modules.staff.' . $item->status)
                                     </span>
                                 </td>
+
 
                                 <td class="py-2.5 px-4 space-x-2 whitespace-nowrap text-right rtl:space-x-reverse">
                                     @if(user_can('Update Delivery Executive'))
@@ -90,10 +143,11 @@
                             </tr>
                             @empty
                             <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
-                                <td class="py-2.5 px-4 space-x-6 text-center dark:text-gray-200" colspan="5">
+                                <td class="py-2.5 px-4 space-x-6 text-center dark:text-gray-200" colspan="8">
                                     @lang('messages.noMemberFound')
                                 </td>
                             </tr>
+
                             @endforelse
 
                         </tbody>

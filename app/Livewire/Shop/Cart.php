@@ -523,30 +523,35 @@ class Cart extends Component
     {
         $this->menuId = $id;
         $this->resetMenuItemsLoaded();
+        unset($this->menuItems, $this->categoryList, $this->menuList);
     }
 
     public function filterMenu($id = null)
     {
         $this->filterCategories = $id;
         $this->resetMenuItemsLoaded();
+        unset($this->menuItems, $this->categoryList);
     }
 
     // Reset loaded items when search changes
     public function updatedSearch()
     {
         $this->resetMenuItemsLoaded();
+        unset($this->menuItems);
     }
 
     // Reset loaded items when veg filter changes
     public function updatedShowVeg()
     {
         $this->resetMenuItemsLoaded();
+        unset($this->menuItems, $this->categoryList);
     }
 
     // Reset loaded items when halal filter changes
     public function updatedShowHalal()
     {
         $this->resetMenuItemsLoaded();
+        unset($this->menuItems, $this->categoryList);
     }
 
     // Helper method to reset menu items loaded
@@ -599,7 +604,15 @@ class Cart extends Component
             return;
         }
 
-        $this->menuItem = MenuItem::where('show_on_customer_site', true)->find($id);
+        $this->menuItem = MenuItem::with([
+            'prices' => function ($q) {
+                $q->where('status', true)->whereNull('delivery_app_id');
+                if ($this->orderTypeId) {
+                    $q->where('order_type_id', $this->orderTypeId);
+                }
+            },
+            'taxes',
+        ])->where('show_on_customer_site', true)->find($id);
 
 
         if ($variationCount > 0) {
@@ -609,6 +622,7 @@ class Cart extends Component
             $this->showModifiersModal = true;
         } else {
             $this->syncCart($id);
+            $this->menuItem = null;
         }
 
         // Ensure itemNotes key is initialized
@@ -619,7 +633,7 @@ class Cart extends Component
 
     public function subCartItems($id)
     {
-        $this->menuItem = MenuItem::find($id);
+        $this->menuItem = MenuItem::with('variations')->find($id);
         $this->showCartVariationModal = true;
     }
 
@@ -761,6 +775,7 @@ class Cart extends Component
 
     public function calculateTotal()
     {
+        $previousCartQty = $this->cartQty;
         $this->cartQty = 0;
 
         foreach ($this->orderItemQty ?? [] as $qty) {
@@ -769,7 +784,9 @@ class Cart extends Component
             }
         }
 
-        $this->dispatch('updateCartCount', count: $this->cartQty);
+        if ($previousCartQty !== $this->cartQty) {
+            $this->dispatch('updateCartCount', count: $this->cartQty);
+        }
 
         $this->total = 0;
         $this->subTotal = 0;
@@ -985,21 +1002,13 @@ class Cart extends Component
 
     public function getShouldShowWaiterButtonMobileProperty()
     {
-
-        $this->dispatch('refreshComponent');
-
-        if (!$this->restaurant->is_waiter_request_enabled || !$this->restaurant->is_waiter_request_enabled_on_mobile) {
-            return false;
-        }
-
-        $cameFromQR = request()->query('hash') === $this->restaurant->hash || request()->boolean('from_qr');
-
-        if ($this->restaurant->is_waiter_request_enabled_open_by_qr && !$cameFromQR) {
+        if (isset($this->restaurant->is_waiter_request_enabled) && !$this->restaurant->is_waiter_request_enabled) {
             return false;
         }
 
         return true;
     }
+
 
     /**
      * Check if customer can create order based on radius restrictions
@@ -1955,9 +1964,14 @@ class Cart extends Component
         $this->syncCart($keyId);
     }
 
+    #[Computed]
     public function getModifierOptionsProperty()
     {
-        return ModifierOption::whereIn('id', collect($this->itemModifiersSelected)->flatten()->all())->get()->keyBy('id');
+        $ids = collect($this->itemModifiersSelected)->flatten()->all();
+        if (empty($ids)) {
+            return collect();
+        }
+        return ModifierOption::with('modifierGroup.branch.restaurant')->whereIn('id', $ids)->get()->keyBy('id');
     }
 
     public function showItemDetail($id)
@@ -2092,6 +2106,7 @@ class Cart extends Component
     public function getMenuItemsProperty()
     {
         $locale = session('locale', app()->getLocale());
+        $orderTypeId = $this->orderTypeId;
 
         $query = MenuItem::select('menu_items.*', 'item_categories.category_name')
             ->join('item_categories', 'menu_items.item_category_id', '=', 'item_categories.id')
@@ -2130,8 +2145,16 @@ class Cart extends Component
             ->limit($this->menuItemsLoaded)
             ->get();
 
-        // Load relationships and counts only on the limited items
-        $items->load('category');
+        // Load relationships and counts only on the limited items in bulk (zero N+1)
+        $items->load([
+            'category',
+            'prices' => function ($q) use ($orderTypeId) {
+                $q->where('status', true)->whereNull('delivery_app_id');
+                if ($orderTypeId) {
+                    $q->where('order_type_id', $orderTypeId);
+                }
+            },
+        ]);
         $items->loadCount(['variations', 'modifierGroups']);
 
         // Group by category
@@ -2140,16 +2163,10 @@ class Cart extends Component
         });
 
         // Set price context on menu items in the query results
-        if ($this->orderTypeId) {
+        if ($orderTypeId) {
             foreach ($groupedItems as $categoryItems) {
                 foreach ($categoryItems as $item) {
-                    $item->setPriceContext($this->orderTypeId, null);
-                    // Set price context on variations
-                    if ($item->relationLoaded('variations')) {
-                        foreach ($item->variations as $variation) {
-                            $variation->setPriceContext($this->orderTypeId, null);
-                        }
-                    }
+                    $item->setPriceContext($orderTypeId, null);
                 }
             }
         }
@@ -2204,6 +2221,7 @@ class Cart extends Component
         }
 
         $this->menuItemsLoaded += $this->menuItemsPerLoad;
+        unset($this->menuItems);
     }
 
     #[Computed]

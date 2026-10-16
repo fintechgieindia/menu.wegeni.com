@@ -794,16 +794,21 @@
                     </div>
                 @endif
 
-                @if ($order->order_type == 'delivery' && $order->delivery_address)
+                @if ($order->order_type == 'delivery')
                     <div class="p-3 mt-3 rounded-lg bg-gray-50 dark:bg-gray-700">
                         <div class="flex items-center justify-between mb-2">
                             <div class="flex gap-1.5 items-center font-semibold text-gray-800 dark:text-gray-200">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16"><path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/></svg>
-                                @lang('modules.customer.address')
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill text-red-500" viewBox="0 0 16 16"><path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/></svg>
+                                @lang('modules.delivery.deliveryDetails')
                             </div>
 
-                            @if($order->customer_lat && $order->customer_lng && branch()->lat && branch()->lng)
-                                <a href="https://www.google.com/maps/dir/?api=1&travelmode=two-wheeler&origin={{ branch()->lat }},{{ branch()->lng }}&destination={{ $order->customer_lat }},{{ $order->customer_lng }}"
+                            @if(($order->customer_lat && $order->customer_lng && branch()->lat && branch()->lng) || $order->delivery_location)
+                                @php
+                                    $mapUrl = ($order->customer_lat && $order->customer_lng && branch()->lat && branch()->lng)
+                                        ? "https://www.google.com/maps/dir/?api=1&travelmode=two-wheeler&origin=" . branch()->lat . "," . branch()->lng . "&destination=" . $order->customer_lat . "," . $order->customer_lng
+                                        : "https://www.google.com/maps/search/?api=1&query=" . urlencode($order->delivery_location);
+                                @endphp
+                                <a href="{{ $mapUrl }}"
                                     target="_blank"
                                     class="flex items-center gap-1 text-sm text-blue-500 transition-colors hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300">
                                     <span>@lang('modules.order.viewOnMap')</span>
@@ -812,9 +817,42 @@
                             @endif
                         </div>
 
-                        <div class="p-2 text-sm text-gray-600 bg-white border border-gray-200 rounded dark:text-gray-300 dark:bg-gray-800 dark:border-gray-600">
-                            {!! nl2br(e($order->delivery_address)) !!}
+                        <!-- Distance, Fee, ETA badges -->
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 mb-2 text-xs">
+                            @if ($order->delivery_distance_km)
+                                <div class="p-2 bg-emerald-50 dark:bg-emerald-900/30 rounded border border-emerald-200 dark:border-emerald-800">
+                                    <span class="text-gray-500 dark:text-gray-400 block font-medium">@lang('modules.delivery.distance')</span>
+                                    <span class="font-bold text-emerald-700 dark:text-emerald-300">
+                                        {{ $order->delivery_distance_km }} km ({{ round($order->delivery_distance_km * 1000) }} @lang('modules.delivery.meters'))
+                                    </span>
+                                </div>
+                            @endif
+
+                            @if (!is_null($order->delivery_fee))
+                                <div class="p-2 bg-blue-50 dark:bg-blue-900/30 rounded border border-blue-200 dark:border-blue-800">
+                                    <span class="text-gray-500 dark:text-gray-400 block font-medium">@lang('modules.delivery.deliveryFee')</span>
+                                    <span class="font-bold text-blue-700 dark:text-blue-300">
+                                        {{ $order->delivery_fee > 0 ? currency_format($order->delivery_fee, $currencyId) : __('modules.delivery.freeDelivery') }}
+                                    </span>
+                                </div>
+                            @endif
+
+                            @if ($order->estimated_eta_max)
+                                <div class="p-2 bg-purple-50 dark:bg-purple-900/30 rounded border border-purple-200 dark:border-purple-800">
+                                    <span class="text-gray-500 dark:text-gray-400 block font-medium">@lang('modules.order.estimatedDeliveryTime')</span>
+                                    <span class="font-bold text-purple-700 dark:text-purple-300">
+                                        {{ $order->estimated_eta_max }} @lang('modules.menu.minutes')
+                                    </span>
+                                </div>
+                            @endif
                         </div>
+
+                        @if ($order->delivery_location)
+                            <div class="p-2 text-sm text-gray-600 bg-white border border-gray-200 rounded dark:text-gray-300 dark:bg-gray-800 dark:border-gray-600">
+                                <span class="text-xs font-semibold text-gray-500 dark:text-gray-400 block mb-1">@lang('modules.customer.address'):</span>
+                                {!! nl2br(e($order->delivery_location)) !!}
+                            </div>
+                        @endif
                     </div>
                 @endif
 

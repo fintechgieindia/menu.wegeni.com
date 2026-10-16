@@ -44,20 +44,13 @@ class ShopDesktopNavigation extends Component
 
     public function checkWaiterButtonStatus()
     {
-        $this->dispatch('refreshComponent');
-
-        if (!$this->restaurant->is_waiter_request_enabled || !$this->restaurant->is_waiter_request_enabled_on_desktop) {
-            return false;
-        }
-
-        $cameFromQR = request()->query('hash') === $this->restaurant->hash || request()->boolean('from_qr');
-
-        if ($this->restaurant->is_waiter_request_enabled_open_by_qr && !$cameFromQR) {
+        if (isset($this->restaurant->is_waiter_request_enabled) && !$this->restaurant->is_waiter_request_enabled) {
             return false;
         }
 
         return true;
     }
+
 
     private function getPackageModules($restaurant)
     {

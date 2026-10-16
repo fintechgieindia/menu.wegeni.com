@@ -553,16 +553,24 @@ if (!function_exists('currency_format_setting')) {
     // @codingStandardsIgnoreLine
     function currency_format_setting($currencyId = null)
     {
+        static $memoized = [];
+        $cacheKey = 'curr_' . ($currencyId ?? 'default');
+
+        if (isset($memoized[$cacheKey])) {
+            return $memoized[$cacheKey];
+        }
+
         if (!session()->has('currency_format_setting' . $currencyId) || (is_null($currencyId) && restaurant())) {
             if ($currencyId == null && restaurant()) {
                 $setting = restaurant()->load('currency')->currency;
             } else {
-                $setting = Currency::where('id', $currencyId)->first();
+                $setting = Currency::with('restaurant.currency')->where('id', $currencyId)->first();
             }
             session(['currency_format_setting' . $currencyId => $setting]);
         }
 
-        return session('currency_format_setting' . $currencyId);
+        $memoized[$cacheKey] = session('currency_format_setting' . $currencyId);
+        return $memoized[$cacheKey];
     }
 }
 
@@ -573,7 +581,9 @@ if (!function_exists('currency_format')) {
     {
         $formats = currency_format_setting($currencyId);
 
-        $settings = $formats->restaurant ?? Restaurant::find($formats->restaurant_id);
+        if (!$formats) {
+            return number_format(floatval($amount), 2);
+        }
 
         if ($showCode) {
             $currency_symbol = $formats->currency_code ?? '';
@@ -581,11 +591,14 @@ if (!function_exists('currency_format')) {
             if (!$showSymbol) {
                 $currency_symbol = '';
             } else {
-                $settings = $formats->restaurant ?? Restaurant::find($formats->restaurant_id);
-                $currency_symbol = $currencyId == null ? $settings->currency->currency_symbol : $formats->currency_symbol;
+                if ($currencyId !== null && isset($formats->currency_symbol)) {
+                    $currency_symbol = $formats->currency_symbol;
+                } else {
+                    $settings = $formats->restaurant ?? Restaurant::find($formats->restaurant_id);
+                    $currency_symbol = $settings?->currency?->currency_symbol ?? $formats->currency_symbol ?? '';
+                }
             }
         }
-
 
         $currency_position = $formats->currency_position ?? 'left';
         $no_of_decimal = !is_null($formats->no_of_decimal) ? $formats->no_of_decimal : '0';

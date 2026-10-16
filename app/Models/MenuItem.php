@@ -116,6 +116,12 @@ class MenuItem extends BaseModel
     public function getTranslatedValue(string $attribute, ?string $locale = null): string
     {
         $locale = $locale ?? app()->getLocale();
+
+        if ($this->relationLoaded('translations')) {
+            $translation = $this->translations->firstWhere('locale', $locale);
+            return $translation?->{$attribute} ?? $this->attributes[$attribute] ?? '';
+        }
+
         $cacheKey = "menu_item_{$this->id}_{$attribute}_{$locale}";
 
         return Cache::remember($cacheKey, 3600, function () use ($locale, $attribute) {
@@ -359,6 +365,92 @@ class MenuItem extends BaseModel
      */
     public function resolvePrice(?int $orderTypeId, ?int $deliveryAppId = null, ?int $variationId = null)
     {
+        // Fast path: if prices are already eager-loaded in memory, resolve directly without Cache I/O
+        if ($this->relationLoaded('prices')) {
+            $priceRow = $this->prices
+                ->where('status', true)
+                ->when($orderTypeId, fn($collection) => $collection->where('order_type_id', $orderTypeId))
+                ->when($variationId,
+                    fn($collection) => $collection->where('menu_item_variation_id', $variationId),
+                    fn($collection) => $collection->whereNull('menu_item_variation_id')
+                )
+                ->when($deliveryAppId,
+                    fn($collection) => $collection->where('delivery_app_id', $deliveryAppId),
+                    fn($collection) => $collection->whereNull('delivery_app_id')
+                )
+                ->first();
+
+            if ($priceRow) {
+                return (float)$priceRow->final_price;
+            }
+
+            if ($deliveryAppId) {
+                $relaxed = $this->prices
+                    ->where('status', true)
+                    ->when($orderTypeId, fn($collection) => $collection->where('order_type_id', $orderTypeId))
+                    ->when($variationId,
+                        fn($collection) => $collection->where('menu_item_variation_id', $variationId),
+                        fn($collection) => $collection->whereNull('menu_item_variation_id')
+                    )
+                    ->whereNull('delivery_app_id')
+                    ->first();
+
+                if ($relaxed) {
+                    $basePrice = (float)$relaxed->final_price;
+                    $deliveryPlatform = $this->relationLoaded('deliveryPlatform')
+                        ? $this->deliveryPlatform
+                        : DeliveryPlatform::find($deliveryAppId);
+                    if ($deliveryPlatform && $deliveryPlatform->commission_value > 0) {
+                        return $deliveryPlatform->getPriceWithCommission($basePrice);
+                    }
+                    return $basePrice;
+                }
+            }
+
+            if ($variationId) {
+                $relaxedVar = $this->prices
+                    ->where('status', true)
+                    ->when($orderTypeId, fn($collection) => $collection->where('order_type_id', $orderTypeId))
+                    ->whereNull('menu_item_variation_id')
+                    ->when($deliveryAppId,
+                        fn($collection) => $collection->where('delivery_app_id', $deliveryAppId),
+                        fn($collection) => $collection->whereNull('delivery_app_id')
+                    )
+                    ->first();
+
+                if ($relaxedVar) {
+                    return (float)$relaxedVar->final_price;
+                }
+            }
+
+            if ($orderTypeId) {
+                $orderTypeOnly = $this->prices
+                    ->where('status', true)
+                    ->where('order_type_id', $orderTypeId)
+                    ->whereNull('menu_item_variation_id')
+                    ->whereNull('delivery_app_id')
+                    ->first();
+
+                if ($orderTypeOnly) {
+                    return (float)$orderTypeOnly->final_price;
+                }
+            }
+
+            $basePrice = null;
+            if ($variationId && $this->relationLoaded('variations')) {
+                $variation = $this->variations->find($variationId);
+                if ($variation && isset($variation->attributes['price'])) {
+                    $basePrice = (float)$variation->attributes['price'];
+                }
+            }
+            if ($basePrice === null && !$variationId) {
+                $basePrice = (float)($this->attributes['price'] ?? 0);
+            }
+            if ($basePrice !== null && !$deliveryAppId) {
+                return $basePrice;
+            }
+        }
+
         $cacheKey = $this->priceCacheKey($orderTypeId, $deliveryAppId, $variationId);
 
         return Cache::remember(

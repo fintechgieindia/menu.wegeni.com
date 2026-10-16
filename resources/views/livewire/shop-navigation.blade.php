@@ -11,9 +11,14 @@
 
 
             <div class="flex items-center gap-2">
+                @if ($showWaiterButtonCheck)
+                    @livewire('forms.callWaiterButton', ['tableNumber' => $table->id ?? null, 'shopBranch' => $shopBranch], key('mobile-call-waiter-'.($table->id ?? 'global')))
+                @endif
+
                 @if (languages()->count() > 1)
                     @livewire('shop.languageSwitcher')
                 @endif
+
 
                 <button id="theme-toggle-mobile" data-tooltip-target="tooltip-toggle-mobile" type="button"
                     class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">

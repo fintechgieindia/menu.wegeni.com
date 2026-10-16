@@ -13,7 +13,7 @@ class CallWaiterButton extends Component
     public $showConfirmation = false;
     public $notificationSent = false;
     public $tableNumber;
-    public $tables;
+    public $tables = [];
     public $shopBranch;
     public $showTableSelection = false;
     public $table;
@@ -26,12 +26,14 @@ class CallWaiterButton extends Component
         if ($this->tableNumber) {
             $this->table = Table::where('id', $this->tableNumber)->first();
         }
-        $this->tables = Table::where('branch_id', $this->shopBranch->id)->get();
     }
 
     public function callWaiter()
     {
         if (!$this->tableNumber) {
+            if (empty($this->tables)) {
+                $this->tables = Table::where('branch_id', $this->shopBranch->id)->get();
+            }
             $this->showTableSelection = true;
         } else {
             $this->showConfirmation = true;

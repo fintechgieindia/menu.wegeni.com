@@ -17,4 +17,20 @@ class DeliveryExecutive extends BaseModel
     {
         return $this->hasMany(Order::class)->orderBy('id', 'desc');
     }
+
+    public function deliveryOrders(): HasMany
+    {
+        return $this->hasMany(Order::class)->where('order_type', 'delivery')->orderBy('id', 'desc');
+    }
+
+    public function getTotalDeliveryFeesAttribute()
+    {
+        return $this->orders()->sum('delivery_fee');
+    }
+
+    public function getTotalOrdersAmountAttribute()
+    {
+        return $this->orders()->sum('total');
+    }
 }
+

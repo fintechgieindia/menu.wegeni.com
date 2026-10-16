@@ -20,10 +20,16 @@
             .menu-page ::-webkit-scrollbar-track { background: transparent; }
             .menu-page ::-webkit-scrollbar-thumb { background: #d0ccc5; border-radius: 99px; }
 
+            :root {
+                --kiosk-primary: rgb(var(--color-base, 79 70 229));
+                --kiosk-primary-hover: rgb(var(--color-base, 79 70 229) / 0.88);
+                --kiosk-primary-light: rgb(var(--color-base, 79 70 229) / 0.1);
+            }
+
             .cat-btn {
-                background: #f8f6f2;
-                color: #5a5650;
-                border: 1px solid #e5e0d8;
+                background: #f8fafc;
+                color: #475569;
+                border: 1px solid #e2e8f0;
                 padding: 10px 22px;
                 border-radius: 99px;
                 font-size: 13px;
@@ -35,21 +41,22 @@
                 transition: all 0.2s ease;
                 cursor: pointer;
             }
-            .cat-btn:hover { border-color: #876039; color: #876039; }
-            .cat-btn.active { background: #876039; color: #ffffff; border-color: #876039; }
+            .cat-btn:hover { border-color: var(--kiosk-primary); color: var(--kiosk-primary); background: var(--kiosk-primary-light); }
+            .cat-btn.active { background: var(--kiosk-primary); color: #ffffff; border-color: var(--kiosk-primary); box-shadow: 0 4px 14px rgba(0,0,0,0.12); }
 
             .menu-card {
                 background: #ffffff;
-                border: 1px solid #e5e0d8;
-                border-radius: 16px;
+                border: 1px solid #e2e8f0;
+                border-radius: 18px;
                 overflow: hidden;
                 transition: all 0.25s ease;
                 cursor: pointer;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.04);
             }
             .menu-card:hover {
-                border-color: #876039;
+                border-color: var(--kiosk-primary);
                 transform: translateY(-4px);
-                box-shadow: 0 12px 30px rgba(135, 96, 57, 0.12);
+                box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
             }
             .menu-card img {
                 width: 100%;
@@ -62,78 +69,79 @@
 
             .select-btn {
                 width: 100%;
-                background: #876039;
+                background: var(--kiosk-primary);
                 color: #ffffff;
                 border: none;
                 padding: 12px;
-                border-radius: 10px;
+                border-radius: 12px;
                 font-size: 13px;
-                font-weight: 600;
+                font-weight: 700;
                 font-family: 'Plus Jakarta Sans', sans-serif;
                 letter-spacing: 0.02em;
                 text-transform: uppercase;
                 cursor: pointer;
                 transition: all 0.2s ease;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.08);
             }
-            .select-btn:hover { background: #6e4e2d; }
+            .select-btn:hover { background: var(--kiosk-primary-hover); transform: translateY(-1px); }
 
             .search-input {
                 width: 100%;
-                background: #f8f6f2;
-                border: 1px solid #e5e0d8;
-                border-radius: 12px;
+                background: #f8fafc;
+                border: 1px solid #e2e8f0;
+                border-radius: 14px;
                 padding: 14px 16px 14px 46px;
-                color: #1a1915;
+                color: #0f172a;
                 font-size: 15px;
                 font-family: 'Plus Jakarta Sans', sans-serif;
                 outline: none;
                 box-sizing: border-box;
                 transition: all 0.2s;
             }
-            .search-input::placeholder { color: #a09a90; }
+            .search-input::placeholder { color: #94a3b8; }
             .search-input:focus {
                 background: #ffffff;
-                border-color: #876039;
-                box-shadow: 0 0 0 4px rgba(135, 96, 57, 0.08);
+                border-color: var(--kiosk-primary);
+                box-shadow: 0 0 0 4px var(--kiosk-primary-light);
             }
 
             .cart-sidebar {
                 background: #ffffff;
-                border-left: 1px solid #e5e0d8;
-                box-shadow: -10px 0 30px rgba(0,0,0,0.03);
+                border-left: 1px solid #e2e8f0;
+                box-shadow: -10px 0 30px rgba(0,0,0,0.05);
             }
 
             .cart-item {
-                background: #fdfcfb;
-                border: 1px solid #e5e0d8;
-                border-radius: 12px;
+                background: #f8fafc;
+                border: 1px solid #e2e8f0;
+                border-radius: 14px;
                 padding: 14px;
                 transition: all 0.2s;
             }
-            .cart-item:hover { border-color: #876039; background: #ffffff; }
+            .cart-item:hover { border-color: var(--kiosk-primary); background: #ffffff; }
 
             .qty-btn {
-                width: 28px;
-                height: 28px;
+                width: 30px;
+                height: 30px;
                 border-radius: 50%;
-                border: 1px solid #e5e0d8;
+                border: 1px solid #e2e8f0;
                 background: #ffffff;
-                color: #5a5650;
+                color: #475569;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 cursor: pointer;
                 transition: all 0.15s;
             }
-            .qty-btn:hover { border-color: #876039; color: #876039; background: #fdf6f0; }
+            .qty-btn:hover { border-color: var(--kiosk-primary); color: var(--kiosk-primary); background: var(--kiosk-primary-light); }
 
             .checkout-btn {
                 width: 100%;
-                background: #876039;
+                background: var(--kiosk-primary);
                 color: #ffffff;
                 border: none;
-                padding: 15px;
-                border-radius: 12px;
+                padding: 16px;
+                border-radius: 14px;
                 font-size: 14px;
                 font-weight: 700;
                 font-family: 'Plus Jakarta Sans', sans-serif;
@@ -141,11 +149,12 @@
                 text-transform: uppercase;
                 cursor: pointer;
                 transition: all 0.2s;
+                box-shadow: 0 6px 18px rgba(0,0,0,0.12);
             }
-            .checkout-btn:hover { background: #6e4e2d; transform: translateY(-1px); }
+            .checkout-btn:hover { background: var(--kiosk-primary-hover); transform: translateY(-1px); }
             .checkout-btn:disabled { opacity: 0.35; cursor: not-allowed; }
 
-            .ad-slide { border-radius: 16px; overflow: hidden; position: relative; }
+            .ad-slide { border-radius: 18px; overflow: hidden; position: relative; }
             .ad-dot { width: 6px; height: 6px; border-radius: 99px; transition: all 0.2s; border: none; cursor: pointer; }
 
             .scrollbar-hide::-webkit-scrollbar { display: none; }
@@ -153,14 +162,14 @@
 
             .price-tag {
                 font-family: 'Plus Jakarta Sans', sans-serif;
-                font-weight: 700;
-                color: #876039;
-                font-size: 17px;
+                font-weight: 800;
+                color: var(--kiosk-primary);
+                font-size: 18px;
             }
             .price-from-label {
                 font-size: 10px;
-                font-weight: 500;
-                color: #a09a90;
+                font-weight: 600;
+                color: #94a3b8;
                 font-family: 'Plus Jakarta Sans', sans-serif;
                 display: block;
                 margin-bottom: 1px;
@@ -169,17 +178,18 @@
             }
             .item-name {
                 font-family: 'Plus Jakarta Sans', sans-serif;
-                color: #1a1915;
+                color: #0f172a;
                 font-weight: 700;
                 font-size: 16px;
                 line-height: 1.3;
             }
             .item-desc {
                 font-family: 'Plus Jakarta Sans', sans-serif;
-                color: #6a6660;
+                color: #64748b;
                 font-size: 12px;
                 line-height: 1.5;
             }
+
         </style>
 
         <!-- Main Content -->

@@ -72,15 +72,22 @@ class DeliveryExecutiveTable extends Component
 
     public function render()
     {
-        $query = DeliveryExecutive::withCount('orders')->where(function($q) {
-            return $q->where('name', 'like', '%'.$this->search.'%')
-                ->orWhere('phone', 'like', '%'.$this->search.'%');
-        })
-        ->paginate(10);
+        $query = DeliveryExecutive::withCount('orders')
+            ->with(['orders' => function($q) {
+                $q->with(['branch', 'customer'])->latest();
+            }])
+            ->withSum('orders as total_delivery_fees', 'delivery_fee')
+            ->withSum('orders as total_amount', 'total')
+            ->where(function($q) {
+                return $q->where('name', 'like', '%'.$this->search.'%')
+                    ->orWhere('phone', 'like', '%'.$this->search.'%');
+            })
+            ->paginate(10);
 
         return view('livewire.delivery-executive.delivery-executive-table', [
             'members' => $query
         ]);
+
     }
 
 }

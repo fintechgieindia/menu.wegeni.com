@@ -344,10 +344,24 @@
                 @endif
 
 
-                @if ($receiptSettings->show_customer_address && $order->customer && $order->customer->delivery_address)
+                @if (($receiptSettings->show_customer_address && $order->customer && $order->customer->delivery_address) || ($order->order_type === 'delivery' && $order->delivery_location))
                     <div class="summary-row">
-                        <span>@lang('modules.customer.customerAddress'): <span class="">{{ $order->customer->delivery_address }}</span></span>
+                        <span>@lang('modules.customer.customerAddress'): <span class="">{{ $order->delivery_location ?? $order->customer->delivery_address }}</span></span>
                     </div>
+                @endif
+
+                @if ($order->order_type === 'delivery')
+                    @if ($order->delivery_distance_formatted)
+                        <div class="summary-row">
+                            <span>@lang('modules.delivery.distance'): <span class="">{{ $order->delivery_distance_formatted }} ({{ round($order->delivery_distance_km * 1000) }} @lang('modules.delivery.meters'))</span></span>
+                        </div>
+                    @endif
+
+                    @if ($order->deliveryExecutive)
+                        <div class="summary-row">
+                            <span>@lang('modules.order.deliveryExecutive'): <span class="">{{ $order->deliveryExecutive->name }} {{ $order->deliveryExecutive->phone ? '('.$order->deliveryExecutive->phone.')' : '' }}</span></span>
+                        </div>
+                    @endif
                 @endif
 
                 @if ($receiptSettings->show_customer_phone && $order->customer && $order->customer->phone)
@@ -356,6 +370,7 @@
                     </div>
                 @endif
             </div>
+
 
         </div>
 

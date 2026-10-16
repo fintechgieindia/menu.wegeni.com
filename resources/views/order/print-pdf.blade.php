@@ -282,11 +282,25 @@
                         <span>{{ $order->customer->name }}</span>
                     </div>
                 @endif
-                @if ($receiptSettings->show_customer_address && $order->customer && $order->customer->delivery_address)
+                @if (($receiptSettings->show_customer_address && $order->customer && $order->customer->delivery_address) || ($order->order_type === 'delivery' && $order->delivery_location))
                     <div class="info-item" style="grid-column: 1 / -1;">
                         <span class="info-label">@lang('modules.customer.customerAddress'):</span>
-                        <span>{{ $order->customer->delivery_address }}</span>
+                        <span>{{ $order->delivery_location ?? $order->customer->delivery_address }}</span>
                     </div>
+                @endif
+                @if ($order->order_type === 'delivery')
+                    @if ($order->delivery_distance_formatted)
+                        <div class="info-item">
+                            <span class="info-label">@lang('modules.delivery.distance'):</span>
+                            <span>{{ $order->delivery_distance_formatted }} ({{ round($order->delivery_distance_km * 1000) }} @lang('modules.delivery.meters'))</span>
+                        </div>
+                    @endif
+                    @if ($order->deliveryExecutive)
+                        <div class="info-item">
+                            <span class="info-label">@lang('modules.order.deliveryExecutive'):</span>
+                            <span>{{ $order->deliveryExecutive->name }} {{ $order->deliveryExecutive->phone ? '('.$order->deliveryExecutive->phone.')' : '' }}</span>
+                        </div>
+                    @endif
                 @endif
                 @if ($receiptSettings->show_customer_phone && $order->customer && $order->customer->phone)
                     <div class="info-item">
