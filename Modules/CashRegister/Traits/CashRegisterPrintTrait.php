@@ -42,22 +42,24 @@ trait CashRegisterPrintTrait
      */
     public function printXReport($sessionId, $reportData)
     {
-
         $this->printerSetting = $this->getActivePrinter();
-
         $width = $this->getPrintWidth($this->printerSetting);
         $thermal = true;
         $content = view('cashregister::print.x-report', compact('reportData', 'width', 'thermal'))->render();
 
-        if ($this->checkGeneratePdf()) {
-            $this->generateXReportPdf($sessionId, $content);
-        } else {
-            // Always generate image first (same-as main project's flow)
-            $this->generateXReportImage($sessionId, $content);
-        }
+        // Open browser popup for printing (works without physical printer)
+        $url = route('cash-register.print', [$sessionId, 'x-report']);
+        $this->dispatch('print_location', $url);
 
-        // Then create the print job record
-        $this->executeXReportPrint($sessionId, $reportData);
+        // Only create print job if a printer is configured
+        if ($this->printerSetting) {
+            if ($this->checkGeneratePdf()) {
+                $this->generateXReportPdf($sessionId, $content);
+            } else {
+                $this->generateXReportImage($sessionId, $content);
+            }
+            $this->executeXReportPrint($sessionId, $reportData);
+        }
     }
 
     private function generateXReportImage($sessionId, $content)
@@ -94,7 +96,8 @@ trait CashRegisterPrintTrait
     public function printZReport($sessionId, $reportData)
     {
         $this->printerSetting = $this->getActivePrinter();
-
+        // Fix: $width was undefined — define it here
+        $width = $this->getPrintWidth($this->printerSetting);
         $thermal = true;
 
         // Get denominations for this session
@@ -105,15 +108,19 @@ trait CashRegisterPrintTrait
 
         $content = view('cashregister::print.z-report', compact('reportData', 'width', 'thermal', 'denominations'))->render();
 
-        if ($this->checkGeneratePdf()) {
-            $this->generateZReportPdf($sessionId, $content);
-        } else {
-            $this->generateZReportImage($sessionId, $content);
+        // Open browser popup for printing (works without physical printer)
+        $url = route('cash-register.print', [$sessionId, 'z-report']);
+        $this->dispatch('print_location', $url);
+
+        // Only create print job if a printer is configured
+        if ($this->printerSetting) {
+            if ($this->checkGeneratePdf()) {
+                $this->generateZReportPdf($sessionId, $content);
+            } else {
+                $this->generateZReportImage($sessionId, $content);
+            }
+            $this->executeZReportPrint($sessionId, $reportData);
         }
-
-
-        // Then create the print job record
-        $this->executeZReportPrint($sessionId, $reportData);
     }
 
     private function generateZReportImage($sessionId, $content)
@@ -205,6 +212,7 @@ trait CashRegisterPrintTrait
 
     private function checkGeneratePdf()
     {
-        return ($this->printerSetting->print_type == 'pdf' || $this->ifMobileDevice());
+        // Fix: printerSetting can be null when no printer is configured
+        return ($this->printerSetting?->print_type == 'pdf' || $this->ifMobileDevice());
     }
 }

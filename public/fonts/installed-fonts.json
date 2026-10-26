@@ -2,5 +2,14 @@
     "notosans": {
         "normal": "\/Users\/abhinav\/htdocs\/tabletrack\/public\/fonts\/notosans_normal_3a78612ccee527414d2c92dcba5096ce",
         "bold": "notosans_bold_4ff173a9add1504992e56e789e7439da"
+    },
+    "thsarabunnew": {
+        "bold": "D:\\Code\\menu.wegeni.com\\public\\fonts\/thsarabunnew_bold_858abb0c5e5a875b671df7862dc543d4",
+        "bold_italic": "thsarabunnew_bold_italic_4e078ff3c039dca4cea649f1adda78c7"
+    },
+    "bevietnampro": {
+        "normal": "D:\\Code\\menu.wegeni.com\\public\\fonts\/bevietnampro_normal_be36aa01d10e3206b2c86cb826faf09d",
+        "italic": "D:\\Code\\menu.wegeni.com\\public\\fonts\/bevietnampro_italic_f64f57e0cb8c9723194a4f845517f2d8",
+        "bold_italic": "bevietnampro_bold_italic_87806098981ea78d1dcd2c34f5ceaf10"
     }
 }

@@ -260,6 +260,10 @@ class User extends Authenticatable
      */
     public function sendPasswordResetNotification($token)
     {
-        $this->notify(new ResetPasswordNotification($token));
+        try {
+            $this->notify(new ResetPasswordNotification($token));
+        } catch (\Exception $e) {
+            \Illuminate\Support\Facades\Log::error('Password reset mail failed: ' . $e->getMessage());
+        }
     }
 }

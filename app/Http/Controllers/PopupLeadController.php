@@ -20,18 +20,22 @@ class PopupLeadController extends Controller
 
         DB::table('popup_leads')->insert($data);
 
-        // Admin Mail
-        Mail::send('emails.popup-admin', $data, function ($m) {
-            $m->to('business@wegeni.com')
-                ->subject('New Popup Submission From Geni Fast');
-        });
+        try {
+            // Admin Mail
+            Mail::send('emails.popup-admin', $data, function ($m) {
+                $m->to('business@wegeni.com')
+                    ->subject('New Popup Submission From Geni Fast');
+            });
 
-        // User Mail
-        Mail::to($data['email'])->send(new \App\Mail\PopupLeadUserMail($data));
+            // User Mail
+            Mail::to($data['email'])->send(new \App\Mail\PopupLeadUserMail($data));
 
-        // Notify SuperAdmins
-        $superAdmins = \App\Models\User::whereNull('restaurant_id')->get();
-        \Illuminate\Support\Facades\Notification::send($superAdmins, new \App\Notifications\NewPopupLeadNotification($data));
+            // Notify SuperAdmins
+            $superAdmins = \App\Models\User::whereNull('restaurant_id')->get();
+            \Illuminate\Support\Facades\Notification::send($superAdmins, new \App\Notifications\NewPopupLeadNotification($data));
+        } catch (\Exception $e) {
+            \Illuminate\Support\Facades\Log::error('Popup lead mail failed: ' . $e->getMessage());
+        }
 
         return back()->with('success', 'Thank you! We will contact you soon.');
     }

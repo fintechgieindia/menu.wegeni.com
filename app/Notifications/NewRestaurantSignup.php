@@ -26,7 +26,7 @@ class NewRestaurantSignup extends BaseNotification
      */
     public function via(object $notifiable): array
     {
-        return ['mail'];
+        return ['mail', 'database'];
     }
 
     /**
@@ -45,14 +45,20 @@ class NewRestaurantSignup extends BaseNotification
     }
 
     /**
-     * Get the array representation of the notification.
+     * Get the array representation of the notification (for database channel).
      *
      * @return array<string, mixed>
      */
     public function toArray(object $notifiable): array
     {
         return [
-            //
+            'type'            => 'new_restaurant_signup',
+            'restaurant_id'   => $this->forRestaurant->id,
+            'restaurant_name' => $this->forRestaurant->name,
+            'restaurant_email'=> $this->forRestaurant->email,
+            'message'         => 'New restaurant signed up: ' . $this->forRestaurant->name,
+            'url'             => route('restaurants.index'),
+            'created_at'      => now()->toDateTimeString(),
         ];
     }
 }
