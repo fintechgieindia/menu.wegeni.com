@@ -118,6 +118,7 @@ if (!function_exists('module_enabled') || !module_enabled('Subdomain')) {
     Route::get('/solutions/juice-and-snacks', [HomeController::class, 'juiceAndSnacksSolution'])->name('solutions.juice-and-snacks');
     Route::get('/solutions/bars-and-breweries', [HomeController::class, 'barsAndBreweriesSolution'])->name('solutions.bars-and-breweries');
     Route::get('/solutions/pizzerias', [HomeController::class, 'pizzeriasSolution'])->name('solutions.pizzerias');
+    Route::get('/solutions/cloud-kitchen', [HomeController::class, 'cloudKitchenSolution'])->name('solutions.cloud-kitchen');
     Route::get('/about', [HomeController::class, 'aboutUs'])->name('about.us');
     Route::get('/pricing', [HomeController::class, 'pricing'])->name('pricing');
     Route::get('/contact-us', [HomeController::class, 'contact'])->name('contact.us');

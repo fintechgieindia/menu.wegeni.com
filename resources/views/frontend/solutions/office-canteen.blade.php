@@ -1,4 +1,4 @@
-﻿@extends('layouts.frontend-master')
+@extends('layouts.frontend-master')
 
 @section('content')
 
@@ -321,11 +321,11 @@ section { padding: clamp(60px, 7vw, 96px) 0; background: var(--bg); position: re
     <div class="hero-ui-wrap">
       {{-- Floating Workplace Badges --}}
       <div class="food-float-tag fft-1">
-        <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=80&q=80" alt="Burger">
+        <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=80&q=80" alt="Burger" referrerpolicy="no-referrer">
         <span>Club Sandwich • Counter 01</span>
       </div>
       <div class="food-float-tag fft-2">
-        <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?w=80&q=80" alt="Coffee">
+        <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?w=80&q=80" alt="Coffee" referrerpolicy="no-referrer">
         <span>Espresso • Cafe Counter</span>
       </div>
 
@@ -501,7 +501,7 @@ section { padding: clamp(60px, 7vw, 96px) 0; background: var(--bg); position: re
 
       <div class="menu-items-grid">
         <div class="campus-food-card">
-          <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=200&q=80" alt="Executive Meal">
+          <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=200&q=80" alt="Executive Meal" referrerpolicy="no-referrer">
           <div class="cfc-ctx">
             <div class="cfc-hdr">Executive Thali</div>
             <div class="cfc-price">₹120</div>
@@ -510,7 +510,7 @@ section { padding: clamp(60px, 7vw, 96px) 0; background: var(--bg); position: re
         </div>
 
         <div class="campus-food-card">
-          <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=200&q=80" alt="Club Sandwich">
+          <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=200&q=80" alt="Club Sandwich" referrerpolicy="no-referrer">
           <div class="cfc-ctx">
             <div class="cfc-hdr">Club Sandwich</div>
             <div class="cfc-price">₹80</div>
@@ -519,7 +519,7 @@ section { padding: clamp(60px, 7vw, 96px) 0; background: var(--bg); position: re
         </div>
 
         <div class="campus-food-card">
-          <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=200&q=80" alt="Salad">
+          <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=200&q=80" alt="Salad" referrerpolicy="no-referrer">
           <div class="cfc-ctx">
             <div class="cfc-hdr">Caesar Salad</div>
             <div class="cfc-price">₹150</div>
@@ -688,7 +688,7 @@ section { padding: clamp(60px, 7vw, 96px) 0; background: var(--bg); position: re
 
     <div class="counters-grid">
       <div class="counter-card">
-        <div class="counter-ic"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+        <div class="counter-ic"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
         <h4 style="font-size:15px; margin-bottom:4px;">Main Cafeteria</h4>
         <p style="font-size:12px; color:var(--mute);">Thalis, Meals & Buffet</p>
       </div>
@@ -946,7 +946,7 @@ section { padding: clamp(60px, 7vw, 96px) 0; background: var(--bg); position: re
         <span style="font-weight:700;">Corporate Offices</span>
       </div>
       <div class="ind-card">
-        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="var(--br)" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="var(--br)" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
         <span style="font-weight:700;">Co-working Spaces</span>
       </div>
       <div class="ind-card">

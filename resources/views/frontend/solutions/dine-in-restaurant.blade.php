@@ -206,7 +206,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
       <!-- Hero Right Visual Overlay -->
       <div style="position: relative;">
         <div style="border-radius: 24px; overflow: hidden; box-shadow: var(--shadow-lg); border: 1px solid var(--line); position: relative; background: #241a14;">
-          <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80" alt="Dine-in Restaurant Interior" style="width: 100%; height: 440px; object-fit: cover; opacity: 0.88; display: block;">
+          <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80" alt="Dine-in Restaurant Interior" referrerpolicy="no-referrer" style="width: 100%; height: 440px; object-fit: cover; opacity: 0.88; display: block;">
           
           <!-- Live Operational Overlay -->
           <div style="position: absolute; bottom: 20px; left: 20px; right: 20px; background: rgba(255, 255, 255, 0.96); backdrop-filter: blur(12px); border-radius: 16px; padding: 18px; border: 1px solid var(--line); box-shadow: var(--shadow-md);">
@@ -386,7 +386,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
       </div>
 
       <div style="border-radius: 24px; overflow: hidden; box-shadow: var(--shadow-lg); border: 1px solid var(--line);">
-        <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1000&q=80" alt="Restaurant Floor Activity" style="width: 100%; height: 420px; object-fit: cover; display: block;">
+        <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1000&q=80" alt="Restaurant Floor Activity" referrerpolicy="no-referrer" style="width: 100%; height: 420px; object-fit: cover; display: block;">
       </div>
     </div>
   </div>
@@ -734,7 +734,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
       </div>
 
       <div style="border-radius: 20px; overflow: hidden; border: 1px solid var(--line); box-shadow: var(--shadow-md);">
-        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1000&q=80" alt="Busy Dining Hour" style="width: 100%; height: 360px; object-fit: cover; display: block;">
+        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1000&q=80" alt="Busy Dining Hour" referrerpolicy="no-referrer" style="width: 100%; height: 360px; object-fit: cover; display: block;">
       </div>
     </div>
   </div>

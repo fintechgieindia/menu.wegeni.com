@@ -1,4 +1,4 @@
-﻿@extends('layouts.frontend-master')
+@extends('layouts.frontend-master')
 
 @section('content')
 
@@ -313,7 +313,7 @@ section.alt { background: var(--bg2); }
   <div class="w hero-grid">
     <div class="hero-ctx">
       <div class="eb">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M12 6v6l4 2"/></svg>
         JUICE & SNACK SHOP SOLUTION
       </div>
       <h1>Serve Faster. Sell More. <span class="sf">Keep Every Order Moving.</span></h1>
@@ -439,7 +439,7 @@ section.alt { background: var(--bg2); }
 
     <div class="menu-grid">
       <div class="pc-card">
-        <img class="pc-img" src="https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?w=200&q=80" alt="Mango Juice">
+        <img class="pc-img" src="https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?w=200&q=80" alt="Mango Juice" referrerpolicy="no-referrer">
         <div class="pc-ctx">
           <h4>Fresh Mango Juice</h4>
           <p>Freshly blended seasonal mangoes without added sugar.</p>
@@ -450,7 +450,7 @@ section.alt { background: var(--bg2); }
         </div>
       </div>
       <div class="pc-card">
-        <img class="pc-img" src="https://images.unsplash.com/photo-1558138838-86aaa0bc8b60?w=200&q=80" alt="Watermelon Juice">
+        <img class="pc-img" src="https://images.unsplash.com/photo-1558138838-86aaa0bc8b60?w=200&q=80" alt="Watermelon Juice" referrerpolicy="no-referrer">
         <div class="pc-ctx">
           <h4>Watermelon Splash</h4>
           <p>Refreshing watermelon juice with a hint of mint.</p>
@@ -461,7 +461,7 @@ section.alt { background: var(--bg2); }
         </div>
       </div>
       <div class="pc-card">
-        <img class="pc-img" src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=200&q=80" alt="Chocolate Milkshake">
+        <img class="pc-img" src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=200&q=80" alt="Chocolate Milkshake" referrerpolicy="no-referrer">
         <div class="pc-ctx">
           <h4>Thick Chocolate Shake</h4>
           <p>Rich chocolate ice cream blended with premium cocoa.</p>
@@ -472,7 +472,7 @@ section.alt { background: var(--bg2); }
         </div>
       </div>
       <div class="pc-card">
-        <img class="pc-img" src="https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?w=200&q=80" alt="Fruit Bowl">
+        <img class="pc-img" src="https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?w=200&q=80" alt="Fruit Bowl" referrerpolicy="no-referrer">
         <div class="pc-ctx">
           <h4>Seasonal Fruit Bowl</h4>
           <p>A healthy mix of fresh cut seasonal fruits.</p>
@@ -581,9 +581,9 @@ section.alt { background: var(--bg2); }
         </div>
         
         <div class="ot-flow">
-          <div class="ot-step done"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg> Order</div>
-          <div class="ot-step done"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Prepare</div>
-          <div class="ot-step"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> Ready</div>
+          <div class="ot-step done"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg> Order</div>
+          <div class="ot-step done"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M12 6v6l4 2"/></svg> Prepare</div>
+          <div class="ot-step"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5l10-10"/></svg> Ready</div>
           <div class="ot-step"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5l10 -10"/></svg> Serve</div>
         </div>
       </div>
@@ -782,13 +782,13 @@ section.alt { background: var(--bg2); }
 
     <div class="workflow-scroll">
       <div class="connected-flow">
-        <div class="cf-node"><div class="cf-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg></div><div style="font-size:11px; font-weight:700;">Product<br>Catalogue</div></div>
+        <div class="cf-node"><div class="cf-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/></svg></div><div style="font-size:11px; font-weight:700;">Product<br>Catalogue</div></div>
         <div class="cf-arrow">→</div>
         <div class="cf-node"><div class="cf-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div style="font-size:11px; font-weight:700;">Customer<br>Order</div></div>
         <div class="cf-arrow">→</div>
-        <div class="cf-node"><div class="cf-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><div style="font-size:11px; font-weight:700;">Preparation</div></div>
+        <div class="cf-node"><div class="cf-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M12 6v6l4 2"/></svg></div><div style="font-size:11px; font-weight:700;">Preparation</div></div>
         <div class="cf-arrow">→</div>
-        <div class="cf-node"><div class="cf-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/></svg></div><div style="font-size:11px; font-weight:700;">Billing</div></div>
+        <div class="cf-node"><div class="cf-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><div style="font-size:11px; font-weight:700;">Billing</div></div>
         <div class="cf-arrow">→</div>
         <div class="cf-node"><div class="cf-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div><div style="font-size:11px; font-weight:700;">Payment</div></div>
         <div class="cf-arrow">→</div>
@@ -807,7 +807,7 @@ section.alt { background: var(--bg2); }
 
     <div class="four-biz-grid">
       <div class="biz-card">
-        <img src="https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?w=400&q=80" alt="Juice Shop" class="biz-img">
+        <img src="https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?w=400&q=80" alt="Juice Shop" class="biz-img" referrerpolicy="no-referrer">
         <div class="biz-ctx">
           <h3>🥤 Juice Shops</h3>
           <ul>
@@ -816,7 +816,7 @@ section.alt { background: var(--bg2); }
         </div>
       </div>
       <div class="biz-card">
-        <img src="https://images.unsplash.com/photo-1557142046-c704a3adf364?w=400&q=80" alt="Ice Cream Parlour" class="biz-img">
+        <img src="https://images.unsplash.com/photo-1557142046-c704a3adf364?w=400&q=80" alt="Ice Cream Parlour" class="biz-img" referrerpolicy="no-referrer">
         <div class="biz-ctx">
           <h3>🍦 Ice Cream Parlours</h3>
           <ul>
@@ -825,7 +825,7 @@ section.alt { background: var(--bg2); }
         </div>
       </div>
       <div class="biz-card">
-        <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&q=80" alt="Chaat Shop" class="biz-img">
+        <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&q=80" alt="Chaat Shop" class="biz-img" referrerpolicy="no-referrer">
         <div class="biz-ctx">
           <h3>🌶️ Chaat Shops</h3>
           <ul>
@@ -834,7 +834,7 @@ section.alt { background: var(--bg2); }
         </div>
       </div>
       <div class="biz-card">
-        <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&q=80" alt="Tea Shop" class="biz-img">
+        <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&q=80" alt="Tea Shop" class="biz-img" referrerpolicy="no-referrer">
         <div class="biz-ctx">
           <h3>☕ Tea Shops</h3>
           <ul>
@@ -891,7 +891,7 @@ section.alt { background: var(--bg2); }
       <p style="margin-bottom:24px;">Let customers view categories, product images, prices, sizes and availability on a digital menu.</p>
       <div class="mob-preview">
         <div class="mob-inner" style="background:#fdfaf6; padding:0;">
-          <img src="https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?w=400&q=80" alt="Juice" style="width:100%; height:200px; object-fit:cover;">
+          <img src="https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?w=400&q=80" alt="Juice" referrerpolicy="no-referrer" style="width:100%; height:200px; object-fit:cover;">
           <div style="padding:16px;">
             <div style="font-size:11px; font-weight: 500; color:var(--br); text-transform:uppercase; margin-bottom:4px;">Fresh Juices</div>
             <h4 style="font-size:18px;">Mango Juice</h4>

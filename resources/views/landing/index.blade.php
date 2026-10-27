@@ -894,7 +894,7 @@
                 <!-- Copyright - Left Side -->
                 <div class="text-center md:text-left">
                     <p class="text-sm text-gray-600 dark:text-gray-400">
-                        © {{ date('Y') }} {{ config('app.name', 'Geni Restaurant') }}. All rights reserved.
+                        © {{ date('Y') }} {{ config('app.name', 'Geni Menu') }}. All rights reserved.
                     </p>
                 </div>
 

@@ -1,4 +1,4 @@
-﻿@extends('layouts.frontend-master')
+@extends('layouts.frontend-master')
 
 @section('content')
 
@@ -321,11 +321,11 @@ section { padding: clamp(60px, 7vw, 96px) 0; background: var(--bg); position: re
     <div class="hero-ui-wrap">
       {{-- Floating Campus Badges --}}
       <div class="food-float-tag fft-1">
-        <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=80&q=80" alt="Dosa">
+        <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=80&q=80" alt="Dosa" referrerpolicy="no-referrer">
         <span>Masala Dosa • Counter 01</span>
       </div>
       <div class="food-float-tag fft-2">
-        <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=80&q=80" alt="Samosa">
+        <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=80&q=80" alt="Samosa" referrerpolicy="no-referrer">
         <span>Hot Samosa • Snack Counter</span>
       </div>
 
@@ -501,7 +501,7 @@ section { padding: clamp(60px, 7vw, 96px) 0; background: var(--bg); position: re
 
       <div class="menu-items-grid">
         <div class="campus-food-card">
-          <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=200&q=80" alt="Idli & Dosa">
+          <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=200&q=80" alt="Idli & Dosa" referrerpolicy="no-referrer">
           <div class="cfc-ctx">
             <div class="cfc-hdr">Masala Dosa</div>
             <div class="cfc-price">₹60</div>
@@ -510,7 +510,7 @@ section { padding: clamp(60px, 7vw, 96px) 0; background: var(--bg); position: re
         </div>
 
         <div class="campus-food-card">
-          <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=200&q=80" alt="Samosa">
+          <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=200&q=80" alt="Samosa" referrerpolicy="no-referrer">
           <div class="cfc-ctx">
             <div class="cfc-hdr">Hot Samosa</div>
             <div class="cfc-price">₹20</div>
@@ -519,7 +519,7 @@ section { padding: clamp(60px, 7vw, 96px) 0; background: var(--bg); position: re
         </div>
 
         <div class="campus-food-card">
-          <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=200&q=80" alt="Veg Meals">
+          <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=200&q=80" alt="Veg Meals" referrerpolicy="no-referrer">
           <div class="cfc-ctx">
             <div class="cfc-hdr">South Veg Meal</div>
             <div class="cfc-price">₹90</div>
@@ -1074,19 +1074,19 @@ section { padding: clamp(60px, 7vw, 96px) 0; background: var(--bg); position: re
 
     <div class="biz-types-grid">
       <div class="biz-card">
-        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=400&q=80" alt="College Campus">
+        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=400&q=80" alt="College Campus" referrerpolicy="no-referrer">
         <div class="biz-ctx">Engineering Canteens</div>
       </div>
       <div class="biz-card">
-        <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=400&q=80" alt="University Cafeteria">
+        <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=400&q=80" alt="University Cafeteria" referrerpolicy="no-referrer">
         <div class="biz-ctx">University Food Courts</div>
       </div>
       <div class="biz-card">
-        <img src="https://images.unsplash.com/photo-1567521464027-f127ff144326?w=400&q=80" alt="Campus Cafeteria">
+        <img src="https://images.unsplash.com/photo-1567521464027-f127ff144326?w=400&q=80" alt="Campus Cafeteria" referrerpolicy="no-referrer">
         <div class="biz-ctx">Hostel Messes</div>
       </div>
       <div class="biz-card">
-        <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=400&q=80" alt="South Indian Meal">
+        <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=400&q=80" alt="South Indian Meal" referrerpolicy="no-referrer">
         <div class="biz-ctx">Faculty Cafeterias</div>
       </div>
     </div>

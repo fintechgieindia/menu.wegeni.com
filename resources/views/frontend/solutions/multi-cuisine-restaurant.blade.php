@@ -199,7 +199,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
       <!-- Hero Right Visual Overlay -->
       <div style="position: relative;">
         <div style="border-radius: 24px; overflow: hidden; box-shadow: var(--shadow-lg); border: 1px solid var(--line); position: relative; background: #241a14;">
-          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80" alt="Multi Cuisine Restaurant Operations" style="width: 100%; height: 450px; object-fit: cover; opacity: 0.88; display: block;">
+          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80" alt="Multi Cuisine Restaurant Operations" referrerpolicy="no-referrer" style="width: 100%; height: 450px; object-fit: cover; opacity: 0.88; display: block;">
           
           <!-- Multi-Cuisine Live Dashboard Overlay -->
           <div style="position: absolute; bottom: 20px; left: 20px; right: 20px; background: rgba(255, 255, 255, 0.96); backdrop-filter: blur(12px); border-radius: 16px; padding: 18px; border: 1px solid var(--line); box-shadow: var(--shadow-md);">

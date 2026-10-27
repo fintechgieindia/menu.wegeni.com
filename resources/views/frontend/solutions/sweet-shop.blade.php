@@ -1,4 +1,4 @@
-﻿@extends('layouts.frontend-master')
+@extends('layouts.frontend-master')
 
 @section('content')
 
@@ -328,28 +328,28 @@ section.alt { background: var(--bg2); }
           </div>
           <div class="hu-prod-grid">
             <div class="hu-prod">
-              <img class="hu-prod-img" src="https://images.unsplash.com/photo-1625902127814-ff476e33db0c?w=200&q=80" alt="Kaju Katli">
+              <img class="hu-prod-img" src="https://images.unsplash.com/photo-1625902127814-ff476e33db0c?w=200&q=80" alt="Kaju Katli" referrerpolicy="no-referrer">
               <div class="hu-prod-ctx">
                 <strong>Kaju Katli</strong>
                 <span>₹560 / 500g</span>
               </div>
             </div>
             <div class="hu-prod">
-              <img class="hu-prod-img" src="https://images.unsplash.com/photo-1605197136015-776263f350da?w=200&q=80" alt="Gulab Jamun">
+              <img class="hu-prod-img" src="https://images.unsplash.com/photo-1605197136015-776263f350da?w=200&q=80" alt="Gulab Jamun" referrerpolicy="no-referrer">
               <div class="hu-prod-ctx">
                 <strong>Gulab Jamun</strong>
                 <span>₹240 / 500g</span>
               </div>
             </div>
             <div class="hu-prod">
-              <img class="hu-prod-img" src="https://images.unsplash.com/photo-1595209386221-5079a40dd798?w=200&q=80" alt="Mysore Pak">
+              <img class="hu-prod-img" src="https://images.unsplash.com/photo-1595209386221-5079a40dd798?w=200&q=80" alt="Mysore Pak" referrerpolicy="no-referrer">
               <div class="hu-prod-ctx">
                 <strong>Mysore Pak</strong>
                 <span>₹320 / 500g</span>
               </div>
             </div>
             <div class="hu-prod">
-              <img class="hu-prod-img" src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=200&q=80" alt="Mixture">
+              <img class="hu-prod-img" src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=200&q=80" alt="Mixture" referrerpolicy="no-referrer">
               <div class="hu-prod-ctx">
                 <strong>Special Mixture</strong>
                 <span>₹180 / 500g</span>
@@ -462,7 +462,7 @@ section.alt { background: var(--bg2); }
     <div class="win" style="padding:24px;">
       <div class="prod-list">
         <div class="pc-card">
-          <img class="pc-img" src="https://images.unsplash.com/photo-1625902127814-ff476e33db0c?w=150&q=80" alt="Kaju Katli">
+          <img class="pc-img" src="https://images.unsplash.com/photo-1625902127814-ff476e33db0c?w=150&q=80" alt="Kaju Katli" referrerpolicy="no-referrer">
           <div class="pc-ctx">
             <h4>Kaju Katli</h4>
             <span style="font-weight: 500; color:var(--br);">₹1,120</span>
@@ -470,7 +470,7 @@ section.alt { background: var(--bg2); }
           </div>
         </div>
         <div class="pc-card">
-          <img class="pc-img" src="https://images.unsplash.com/photo-1595209386221-5079a40dd798?w=150&q=80" alt="Mysore Pak">
+          <img class="pc-img" src="https://images.unsplash.com/photo-1595209386221-5079a40dd798?w=150&q=80" alt="Mysore Pak" referrerpolicy="no-referrer">
           <div class="pc-ctx">
             <h4>Mysore Pak</h4>
             <span style="font-weight: 500; color:var(--br);">₹880</span>
@@ -478,7 +478,7 @@ section.alt { background: var(--bg2); }
           </div>
         </div>
         <div class="pc-card">
-          <img class="pc-img" src="https://images.unsplash.com/photo-1605197136015-776263f350da?w=150&q=80" alt="Gulab Jamun">
+          <img class="pc-img" src="https://images.unsplash.com/photo-1605197136015-776263f350da?w=150&q=80" alt="Gulab Jamun" referrerpolicy="no-referrer">
           <div class="pc-ctx">
             <h4>Gulab Jamun</h4>
             <span style="font-weight: 500; color:var(--br);">₹250</span>
@@ -486,7 +486,7 @@ section.alt { background: var(--bg2); }
           </div>
         </div>
         <div class="pc-card">
-          <img class="pc-img" src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=150&q=80" alt="Mixture">
+          <img class="pc-img" src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=150&q=80" alt="Mixture" referrerpolicy="no-referrer">
           <div class="pc-ctx">
             <h4>Madras Mixture</h4>
             <span style="font-weight: 500; color:var(--br);">₹360</span>
@@ -891,7 +891,7 @@ section.alt { background: var(--bg2); }
       <p style="margin-bottom:24px;">Browse Categories → View Sweet → Select Quantity / Weight → Review Order → Payment → Handover.</p>
       <div class="mob-preview">
         <div class="mob-inner" style="background:#fdfaf6; padding:0;">
-          <img src="https://images.unsplash.com/photo-1625902127814-ff476e33db0c?w=400&q=80" alt="Kaju Katli" style="width:100%; height:200px; object-fit:cover;">
+          <img src="https://images.unsplash.com/photo-1625902127814-ff476e33db0c?w=400&q=80" alt="Kaju Katli" referrerpolicy="no-referrer" style="width:100%; height:200px; object-fit:cover;">
           <div style="padding:16px;">
             <h4 style="font-size:18px;">Premium Kaju Katli</h4>
             <p style="font-size:13px; margin:4px 0 16px;">Rich cashew sweet made with pure ghee.</p>
@@ -936,10 +936,10 @@ section.alt { background: var(--bg2); }
       <h2>Built for Sweet Businesses of Every Size.</h2>
     </div>
     <div class="showcase-grid">
-      <div class="showcase-card"><img src="https://images.unsplash.com/photo-1579541591782-b062973752e5?w=400&q=80" alt="Traditional"><div>Traditional Mithai</div></div>
-      <div class="showcase-card"><img src="https://images.unsplash.com/photo-1627914856403-d64e9a667104?w=400&q=80" alt="Modern"><div>Modern Sweet Brand</div></div>
-      <div class="showcase-card"><img src="https://images.unsplash.com/photo-1528659135069-b3a1a4597bd3?w=400&q=80" alt="Dry Fruits"><div>Premium Dry Fruits</div></div>
-      <div class="showcase-card"><img src="https://images.unsplash.com/photo-1509365465994-3e54bc853ebc?w=400&q=80" alt="Bakery"><div>Bakery & Desserts</div></div>
+      <div class="showcase-card"><img src="https://images.unsplash.com/photo-1579541591782-b062973752e5?w=400&q=80" alt="Traditional" referrerpolicy="no-referrer"><div>Traditional Mithai</div></div>
+      <div class="showcase-card"><img src="https://images.unsplash.com/photo-1627914856403-d64e9a667104?w=400&q=80" alt="Modern" referrerpolicy="no-referrer"><div>Modern Sweet Brand</div></div>
+      <div class="showcase-card"><img src="https://images.unsplash.com/photo-1528659135069-b3a1a4597bd3?w=400&q=80" alt="Dry Fruits" referrerpolicy="no-referrer"><div>Premium Dry Fruits</div></div>
+      <div class="showcase-card"><img src="https://images.unsplash.com/photo-1509365465994-3e54bc853ebc?w=400&q=80" alt="Bakery" referrerpolicy="no-referrer"><div>Bakery & Desserts</div></div>
     </div>
   </div>
 </section>

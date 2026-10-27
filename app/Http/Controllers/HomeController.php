@@ -410,6 +410,16 @@ class HomeController extends Controller
         return view('frontend.solutions.pizzerias', compact('meta'));
     }
 
+    public function cloudKitchenSolution()
+    {
+        $meta = [
+            'title' => 'Cloud Kitchen Management Software | Geni Menu',
+            'description' => 'Manage your cloud kitchen orders, multi-brand menus, kitchen workflows, delivery operations, billing, inventory and daily business insights from one connected platform built for cloud kitchens.',
+            'keywords' => 'Cloud Kitchen Management Software, Ghost Kitchen Software, Virtual Kitchen POS, Cloud Kitchen Billing, Multi-Brand Kitchen Management, Online Food Delivery Kitchen, Cloud Kitchen KOT System, Geni Menu, WeGeni'
+        ];
+        return view('frontend.solutions.cloud-kitchen', compact('meta'));
+    }
+
     public function aboutUs()
     {
         $meta = [

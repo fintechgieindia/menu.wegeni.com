@@ -225,7 +225,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
       <div style="position: relative;">
         <!-- Warm Image Card -->
         <div style="border-radius: 24px; overflow: hidden; border: 1px solid var(--line); box-shadow: var(--shadow-lg); position: relative;">
-          <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80" alt="Indian Family Restaurant Dining" style="width: 100%; height: 440px; object-fit: cover; display: block;">
+          <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80" alt="Indian Family Restaurant Dining" referrerpolicy="no-referrer" style="width: 100%; height: 440px; object-fit: cover; display: block;">
           <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(36,26,20,0.2) 0%, rgba(36,26,20,0.65) 100%);"></div>
           
           <div style="position: absolute; bottom: 20px; left: 20px; right: 20px; color: #fff;">
@@ -339,7 +339,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
     <!-- Family Dining Lifestyle Showcase -->
     <div class="g2" style="gap: 36px; align-items: center;">
       <div style="border-radius: 20px; overflow: hidden; border: 1px solid var(--line); box-shadow: var(--shadow-md);">
-        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80" alt="Family Dining Table Experience" style="width: 100%; height: 360px; object-fit: cover; display: block;">
+        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80" alt="Family Dining Table Experience" referrerpolicy="no-referrer" style="width: 100%; height: 360px; object-fit: cover; display: block;">
       </div>
 
       <!-- Flow Banner -->
@@ -759,7 +759,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
     <!-- Busy Atmosphere Showcase -->
     <div style="position: relative; max-width: 1000px; margin: 0 auto;">
       <div style="border-radius: 24px; overflow: hidden; border: 1px solid var(--line); box-shadow: var(--shadow-md);">
-        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1000&q=80" alt="Busy Indian Family Restaurant Dinner Hour" style="width: 100%; height: 400px; object-fit: cover; display: block;">
+        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1000&q=80" alt="Busy Indian Family Restaurant Dinner Hour" referrerpolicy="no-referrer" style="width: 100%; height: 400px; object-fit: cover; display: block;">
       </div>
 
       <!-- Overlay Operational Dashboard -->

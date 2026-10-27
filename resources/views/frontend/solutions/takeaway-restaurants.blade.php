@@ -1,4 +1,4 @@
-﻿@extends('layouts.frontend-master')
+@extends('layouts.frontend-master')
 
 @section('content')
 
@@ -327,11 +327,11 @@ section { padding: clamp(60px, 7vw, 96px) 0; background: var(--bg); position: re
     <div class="hero-ui-wrap">
       {{-- Floating Food Overlay Badges --}}
       <div class="food-float-tag fft-1">
-        <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=80&q=80" alt="Biryani">
+        <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=80&q=80" alt="Biryani" referrerpolicy="no-referrer">
         <span>Hyderabadi Biryani</span>
       </div>
       <div class="food-float-tag fft-2">
-        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=80&q=80" alt="Burger">
+        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=80&q=80" alt="Burger" referrerpolicy="no-referrer">
         <span>Crispy Burger</span>
       </div>
 
@@ -509,7 +509,7 @@ section { padding: clamp(60px, 7vw, 96px) 0; background: var(--bg); position: re
 
       <div class="menu-items-list">
         <div class="menu-item-row">
-          <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=120&q=80" alt="Biryani">
+          <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=120&q=80" alt="Biryani" referrerpolicy="no-referrer">
           <div class="mi-details">
             <h4>Hyderabadi Chicken Biryani</h4>
             <span>₹320</span>
@@ -518,7 +518,7 @@ section { padding: clamp(60px, 7vw, 96px) 0; background: var(--bg); position: re
         </div>
 
         <div class="menu-item-row">
-          <img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=120&q=80" alt="Paneer 65">
+          <img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=120&q=80" alt="Paneer 65" referrerpolicy="no-referrer">
           <div class="mi-details">
             <h4>Paneer 65 Starter</h4>
             <span>₹220</span>
@@ -527,7 +527,7 @@ section { padding: clamp(60px, 7vw, 96px) 0; background: var(--bg); position: re
         </div>
 
         <div class="menu-item-row">
-          <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=120&q=80" alt="Pizza">
+          <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=120&q=80" alt="Pizza" referrerpolicy="no-referrer">
           <div class="mi-details">
             <h4>Paneer Tikka Pizza (8")</h4>
             <span>₹290</span>
@@ -1060,7 +1060,7 @@ section { padding: clamp(60px, 7vw, 96px) 0; background: var(--bg); position: re
       </div>
 
       <div class="ind-card">
-        <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M12 6v6l4 2"/></svg></div>
         <span style="font-weight:700;">Pizza Outlets</span>
       </div>
 
@@ -1144,19 +1144,19 @@ section { padding: clamp(60px, 7vw, 96px) 0; background: var(--bg); position: re
 
     <div class="biz-types-grid">
       <div class="biz-card">
-        <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=400&q=80" alt="Biryani Outlet">
+        <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=400&q=80" alt="Biryani Outlet" referrerpolicy="no-referrer">
         <div class="biz-ctx">Biryani Shops</div>
       </div>
       <div class="biz-card">
-        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&q=80" alt="Burger Shop">
+        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&q=80" alt="Burger Shop" referrerpolicy="no-referrer">
         <div class="biz-ctx">Burger Outlets</div>
       </div>
       <div class="biz-card">
-        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400&q=80" alt="Pizza Shop">
+        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400&q=80" alt="Pizza Shop" referrerpolicy="no-referrer">
         <div class="biz-ctx">Pizza Outlets</div>
       </div>
       <div class="biz-card">
-        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&q=80" alt="Bakery">
+        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&q=80" alt="Bakery" referrerpolicy="no-referrer">
         <div class="biz-ctx">Bakeries & Cafés</div>
       </div>
     </div>
