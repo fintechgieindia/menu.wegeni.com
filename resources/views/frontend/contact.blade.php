@@ -509,19 +509,19 @@ section.alt { background: var(--bg2); }
         <div class="info-grid">
             <div class="info-card">
                 <div class="info-lbl">SALES</div>
-                <div class="info-val">business@wegeni.com</div>
+                <div class="info-val"><a href="mailto:business@wegeni.com" style="color:inherit;">business@wegeni.com</a></div>
             </div>
             <div class="info-card">
                 <div class="info-lbl">SALES & ENQUIRIES</div>
-                <div class="info-val">+91 97880 73000</div>
+                <div class="info-val"><a href="tel:+919047555066" style="color:inherit;">+91 90475 55066</a></div>
             </div>
             <div class="info-card">
                 <div class="info-lbl">BUSINESS ENQUIRIES</div>
-                <div class="info-val">business@wegeni.com</div>
+                <div class="info-val"><a href="mailto:business@wegeni.com" style="color:inherit;">business@wegeni.com</a></div>
             </div>
             <div class="info-card">
                 <div class="info-lbl">CUSTOMER SUPPORT</div>
-                <div class="info-val">support@wegeni.com</div>
+                <div class="info-val"><a href="mailto:we@wegeni.com" style="color:inherit;">we@wegeni.com</a></div>
             </div>
         </div>
     </div>
@@ -535,17 +535,17 @@ section.alt { background: var(--bg2); }
             <p style="margin-bottom:32px;">Connect with the WeGeni team for business discussions, product conversations and other enquiries.</p>
             
             <div style="font-size:16px; color:var(--ink); font-weight:600; line-height:1.6; margin-bottom:32px; padding-left:16px; border-left:4px solid var(--br);">
-                WeGeni<br>
-                166/1, Thiru Nagar Colony,<br>
-                Karur Bypass Road,<br>
-                Erode - 638002, Tamil Nadu, India.
+                WeGeni - IT Services & Consulting Pvt. Ltd<br>
+                13/9, 2nd Floor, HDFC Bank Upstairs,<br>
+                West Car Street, Tiruchengode,<br>
+                Namakkal, Tamil Nadu - 637211, India.
             </div>
 
-            <a href="https://maps.google.com/?q=WeGeni+Erode" target="_blank" class="btn p">Get Directions →</a>
+            <a href="https://www.google.com/maps?cid=9156733708918541403" target="_blank" class="btn p">Get Directions →</a>
         </div>
         
         <div class="map-box">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3911.7589578112117!2d77.7214488!3d11.3283296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba96f001f35ab81%3A0xe54bb3dff4b130a0!2sWeGeni!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15654.123456789!2d77.8938!3d11.3805!3m2!1i1024!2i768!4f13.1!4m3!3e6!4m0!4m0!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin&cid=9156733708918541403" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
 </section>
