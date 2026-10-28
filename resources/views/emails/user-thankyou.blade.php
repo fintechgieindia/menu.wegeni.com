@@ -1,8 +1,8 @@
 <p>Hi {{ $name }},</p>
 
 <p>
-    Thank you for contacting <strong>Geni Fast</strong>.
-    We’ve received your enquiry and our team will review it and get back to you shortly.
+    Thank you for contacting <strong>Geni Menu</strong>.
+    We've received your enquiry and our team will review it and get back to you shortly.
 </p>
 
 <p><strong>Here are the details you submitted:</strong></p>
@@ -24,8 +24,17 @@
     Message: {{ $user_message }}
 </p>
 
+@if(!empty($requirements) && is_array($requirements) && count($requirements) > 0)
 <p>
-    Thank you once again for choosing <strong>Geni Fast</strong>.
+    <strong>Requirements:</strong><br>
+    @foreach($requirements as $req)
+        • {{ $req }}<br>
+    @endforeach
+</p>
+@endif
+
+<p>
+    Thank you once again for choosing <strong>Geni Menu</strong>.
     We look forward to serving you!
 </p>
 
@@ -40,5 +49,5 @@
 
 <p>
     Best regards, <br>
-    <strong>Geni Fast Support Team</strong>
+    <strong>Geni Menu Support Team</strong>
 </p>

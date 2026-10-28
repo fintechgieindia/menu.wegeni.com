@@ -15,7 +15,7 @@
     <div style="padding-top: 104px; padding-bottom: 60px;" class="px-4 sm:px-6">
         <div class="mx-auto max-w-4xl bg-white rounded-2xl p-6 sm:p-10 shadow-sm border border-gray-100">
             <header class="mb-8">
-                <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 text-center">Compliance - Geni Fast</h1>
+                <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 text-center">Compliance - Geni Menu</h1>
                 <p class="text-xl text-gray-600"></p>
                 <p class="text-sm text-gray-500 mt-2 text-center">Last updated: {{ date('F j, Y') }}</p>
             </header>
@@ -25,9 +25,9 @@
                     <h3 class="text-lg font-semibold text-blue-900 mb-3">Entity Information</h3>
                     <div class="space-y-2 text-blue-800">
                         <p><strong>Entity:</strong> WeGeni IT Services and Consulting (OPC) Private Limited</p>
-                        <p><strong>Product:</strong> Geni Fast – Restaurant ERP, Billing & Management Software</p>
-                        <p><strong>Website:</strong> <a href="https://restaurant.wegeni.com" style="color: #b39271;"
-                                class="underline" target="_blank" rel="noopener">https://restaurant.wegeni.com</a></p>
+                        <p><strong>Product:</strong> Geni Menu – Restaurant ERP, Billing & Management Software</p>
+                        <p><strong>Website:</strong> <a href="https://menu.wegeni.com" style="color: #b39271;"
+                                class="underline" target="_blank" rel="noopener">https://menu.wegeni.com</a></p>
                     </div>
                 </div>
             </section>
@@ -36,7 +36,7 @@
                 <h2 class="text-2xl font-semibold text-gray-900 mb-4">Our Commitment to Compliance</h2>
                 <p class="mb-4">
                     At WeGeni IT Services and Consulting (OPC) Private Limited, we understand that restaurants rely on
-                    technology partners who respect data, security, and privacy. Our product, Geni Fast, is built with these
+                    technology partners who respect data, security, and privacy. Our product, Geni Menu, is built with these
                     principles at its core. While we are not currently certified under international compliance frameworks
                     such as SOC 2 or ISO/IEC 27001, we implement strong internal practices that reflect key pillars of these
                     standards.
@@ -49,7 +49,7 @@
 
             <section class="mb-8">
                 <h2 class="text-2xl font-semibold text-gray-900 mb-4">Applicable Indian Regulations</h2>
-                <p class="mb-4">Geni Fast operates in full compliance with the following Indian legal standards:</p>
+                <p class="mb-4">Geni Menu operates in full compliance with the following Indian legal standards:</p>
 
                 <div class="space-y-4">
                     <div class="bg-green-50 border-l-4 border-green-400 p-4">
@@ -74,7 +74,7 @@
             <section class="mb-8">
                 <h2 class="text-2xl font-semibold text-gray-900 mb-4">Security & Data Protection</h2>
                 <p class="mb-4">
-                    We have taken proactive steps to safeguard both business and customer data shared on the Geni Fast
+                    We have taken proactive steps to safeguard both business and customer data shared on the Geni Menu
                     platform:
                 </p>
 
@@ -125,7 +125,7 @@
 
             <section class="mb-8">
                 <h2 class="text-2xl font-semibold text-gray-900 mb-4">Customer Data Privacy</h2>
-                <p class="mb-4">Geni Fast may collect limited business and operational data such as:</p>
+                <p class="mb-4">Geni Menu may collect limited business and operational data such as:</p>
 
                 <ul class="list-disc list-inside mb-4 space-y-2">
                     <li>Restaurant profile (name, contact info)</li>
@@ -149,7 +149,7 @@
 
             <section class="mb-8">
                 <h2 class="text-2xl font-semibold text-gray-900 mb-4">Third-Party Compliance</h2>
-                <p class="mb-4">Geni Fast integrates with trusted third-party tools for:</p>
+                <p class="mb-4">Geni Menu integrates with trusted third-party tools for:</p>
 
                 <ul class="list-disc list-inside mb-4 space-y-2">
                     <li>Payment gateways (Razorpay)</li>
@@ -177,7 +177,7 @@
 
             <section class="mb-8">
                 <h2 class="text-2xl font-semibold text-gray-900 mb-4">Limitations of Liability</h2>
-                <p class="mb-4">Geni Fast is not currently certified under:</p>
+                <p class="mb-4">Geni Menu is not currently certified under:</p>
 
                 <ul class="list-disc list-inside mb-4 space-y-2">
                     <li>SOC 2 (Service Organization Controls)</li>
@@ -211,7 +211,7 @@
 
             <section class="mb-8">
                 <h2 class="text-2xl font-semibold text-gray-900 mb-4">Your Responsibilities</h2>
-                <p class="mb-4">As a restaurant/business owner using Geni Fast, you are responsible for:</p>
+                <p class="mb-4">As a restaurant/business owner using Geni Menu, you are responsible for:</p>
 
                 <ul class="list-disc list-inside mb-4 space-y-2">
                     <li>Ensuring that customer and staff data entered into the system complies with Indian privacy laws</li>
@@ -244,7 +244,7 @@
             <footer class="border-t pt-6 mt-8 mb-3">
                 <div class="bg-indigo-50 border border-indigo-200 rounded-lg p-6">
                     <p class="text-indigo-800 font-medium mb-2">
-                        By continuing to use Geni Fast, you confirm your understanding of and agreement to our compliance
+                        By continuing to use Geni Menu, you confirm your understanding of and agreement to our compliance
                         approach and security practices.
                     </p>
                     <p class="text-indigo-600 text-sm">

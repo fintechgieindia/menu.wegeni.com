@@ -3,7 +3,7 @@
 </h2>
 
 <p style="margin-bottom:15px;">
-    A new enquiry has been submitted through the Geni Fast website popup form. Below are the details:
+    A new enquiry has been submitted through the Geni Menu website popup form. Below are the details:
 </p>
 
 <p><strong>Name:</strong> {{ $full_name }}</p>
@@ -17,5 +17,5 @@
 <br>
 <p>
     Regards,<br>
-    <strong>Geni Fast Team</strong>
+    <strong>Geni Menu Team</strong>
 </p>

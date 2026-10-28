@@ -940,7 +940,7 @@
             <div class="window-dots">
               <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
             </div>
-            <div style="font-size:11px; font-family:monospace; opacity:0.8;">Live Restaurant Manager &bull; Geni Fast ERP</div>
+            <div style="font-size:11px; font-family:monospace; opacity:0.8;">Live Restaurant Manager &bull; Geni Menu ERP</div>
           </div>
 
           <div class="dash-body">

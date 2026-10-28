@@ -24,7 +24,7 @@ class PopupLeadController extends Controller
             // Admin Mail
             Mail::send('emails.popup-admin', $data, function ($m) {
                 $m->to('business@wegeni.com')
-                    ->subject('New Popup Submission From Geni Fast');
+                    ->subject('New Popup Submission From Geni Menu');
             });
 
             // User Mail

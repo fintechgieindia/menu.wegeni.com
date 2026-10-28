@@ -2921,7 +2921,7 @@ footer li a:hover { color: var(--br); }
       </p>
 
       <div class="hero-cta-group">
-        <a href="{{ route('restaurant_signup') }}" class="hero-btn-primary-demo">
+        <a href="{{ route('contact.us') }}" class="hero-btn-primary-demo">
           Book a Demo &rarr;
         </a>
         <a href="#features" class="hero-btn-secondary-features">
@@ -3893,7 +3893,7 @@ footer li a:hover { color: var(--br); }
     <h2>Ready to Make Restaurant Management Easier?</h2>
     <p>Manage your daily restaurant work with one simple system.</p>
     <div class="bts">
-      <a href="{{ route('restaurant_signup') }}" class="btn p">Book a Demo</a>
+      <a href="{{ route('contact.us') }}" class="btn p">Book a Demo</a>
       <a href="{{ route('contact.us') }}" class="btn ow">Contact Us</a>
     </div>
     <small>Geni Menu — Simple tools for better restaurant management.</small>

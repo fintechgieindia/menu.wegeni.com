@@ -29,26 +29,41 @@ class ContactController extends Controller
             'phone' => 'required|string|max:20',
             'address' => 'nullable|string|max:500',
             'subject' => 'required|string|max:255',
-            'message' => 'required|string|max:2000',
+            'message' => 'nullable|string|max:2000',
+            'requirements' => 'nullable|array',
+            'requirements.*' => 'string',
         ]);
 
         try {
 
+            // Combine requirements into message if present
+            $requirementsText = '';
+            if (!empty($validated['requirements'])) {
+                $requirementsText = 'Requirements: ' . implode(', ', $validated['requirements']);
+            }
+
+            $messageText = trim(($validated['message'] ?? '') . ($requirementsText ? "\n\n" . $requirementsText : ''));
+            $validated['message'] = $messageText ?: '-';
+
+            // Remove requirements before saving (not a DB column)
+            $dbData = collect($validated)->except('requirements')->toArray();
+
             // Save to database
-            Csubmissions::create($validated);
+            Csubmissions::create($dbData);
             \Log::info('Mail sending started');
 
-            $data = $validated;
-            $data['user_message'] = $validated['message'];
+            $data = $dbData;
+            $data['user_message'] = $dbData['message'];
+            $data['requirements'] = $validated['requirements'] ?? [];
 
             Mail::send('emails.admin-contact', $data, function ($message) {
                 $message->to('business@wegeni.com')
-                    ->subject('New Contact Submission - Geni Fast');
+                    ->subject('New Contact Submission - Geni Menu');
             });
 
-            Mail::send('emails.user-thankyou', $data, function ($message) use ($validated) {
-                $message->to($validated['email'])
-                    ->subject('Thank You for Contacting Geni Fast');
+            Mail::send('emails.user-thankyou', $data, function ($message) use ($dbData) {
+                $message->to($dbData['email'])
+                    ->subject('Thank You for Contacting Geni Menu');
             });
 
             return back()->with(

@@ -15,7 +15,7 @@
     <div style="padding-top: 104px; padding-bottom: 60px;" class="px-4 sm:px-6">
         <div class="mx-auto max-w-4xl bg-white rounded-2xl p-6 sm:p-10 shadow-sm border border-gray-100">
             <header class="mb-8">
-                <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 text-center">Cancellation and Refund Policy - Geni Fast</h1>
+                <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 text-center">Cancellation and Refund Policy - Geni Menu</h1>
                 <p class="text-xl text-gray-600"></p>
                 <p class="text-sm text-gray-500 mt-2 text-center">Last updated: {{ date('F j, Y') }}</p>
             </header>
@@ -23,7 +23,7 @@
             <section class="mb-8">
                 <div class="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-6">
                     <p class="text-blue-800">
-                        At Geni Fast, a product of WeGeni IT Services and Consulting (OPC) Private Limited, we offer
+                        At Geni Menu, a product of WeGeni IT Services and Consulting (OPC) Private Limited, we offer
                         subscription-based access to our restaurant ERP and billing platform. Once a subscription is
                         activated or a payment is processed, it is considered final.
                     </p>
@@ -95,8 +95,8 @@
                         <div class="flex items-center">
                             <i class="bi bi-telephone-fill text-success me-3"></i>
                             <span class="font-medium text-green-800">Phone:</span>
-                            <a href="tel:+919047755506" style="color: #b39271;" class="ml-2 text-blue-600 underline">+91
-                                90477555066</a>
+                            <a href="tel:+919047555066" style="color: #b39271;" class="ml-2 text-blue-600 underline">+91
+                                9047555066</a>
                         </div>
                     </div>
                 </div>
@@ -160,7 +160,7 @@
                         Important Legal Disclaimer
                     </p>
                     <p class="text-red-700 text-sm">
-                        By purchasing or subscribing to Geni Fast, users explicitly acknowledge and accept that
+                        By purchasing or subscribing to Geni Menu, users explicitly acknowledge and accept that
                         cancellations and refunds are not permitted, and no disputes will be entertained for completed
                         transactions unless legally required under applicable Indian laws.
                     </p>
@@ -200,7 +200,7 @@
             <footer class="border-t pt-6 mt-8 mb-3">
                 <div class="bg-orange-50 border border-orange-200 rounded-lg p-6">
                     <p class="text-orange-800 font-medium mb-2">
-                        By using Geni Fast services, you acknowledge that you have read, understood, and agreed to this
+                        By using Geni Menu services, you acknowledge that you have read, understood, and agreed to this
                         Cancellation and Refund Policy.
                     </p>
                     <p class="text-orange-600 text-sm">

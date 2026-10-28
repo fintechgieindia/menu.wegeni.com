@@ -219,8 +219,7 @@ section.alt { background: var(--bg2); }
         </div>
         
         <div class="hero-dash">
-            <!-- Using a generic placeholder image to simulate the premium dashboard UI -->
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" alt="Geni Menu Dashboard Overview">
+            <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1200&q=80" alt="Contact Geni Menu Team">
         </div>
     </div>
 </section>
@@ -246,7 +245,7 @@ section.alt { background: var(--bg2); }
                 <div>
                     <h3>Product Support</h3>
                     <p>Already using Geni Menu and need assistance?</p>
-                    <a href="mailto:support@wegeni.com">Contact Support →</a>
+                    <a href="mailto:we@wegeni.com">Contact Support →</a>
                 </div>
             </div>
 
@@ -567,7 +566,7 @@ section.alt { background: var(--bg2); }
             <div class="q-card">
                 <h2>Get Support</h2>
                 <p>Need help with your existing Geni Menu setup?</p>
-                <a href="mailto:support@wegeni.com" class="btn o">Get Support →</a>
+                <a href="mailto:we@wegeni.com" class="btn o">Get Support →</a>
             </div>
         </div>
     </div>
