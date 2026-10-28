@@ -168,8 +168,8 @@
                                 <div class="text-sm text-gray-900 dark:text-white">{{ $item->category->name ?? '-'}}</div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-sm text-gray-900 dark:text-white">{{ number_format($item->current_stock, 2) }} {{ $item->unit->symbol }}</div>
-                                <div class="text-xs text-gray-500 dark:text-gray-400">@lang("inventory::modules.stock.minStock"): {{ number_format($item->threshold_quantity, 2) }} {{ $item->unit->symbol }}</div>
+                                <div class="text-sm text-gray-900 dark:text-white">{{ number_format($item->current_stock, 2) }} {{ $item->unit->symbol ?? '-' }}</div>
+                                <div class="text-xs text-gray-500 dark:text-gray-400">@lang("inventory::modules.stock.minStock"): {{ number_format($item->threshold_quantity, 2) }} {{ $item->unit->symbol ?? '-' }}</div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full {{ $stockStatus['class'] }}">
