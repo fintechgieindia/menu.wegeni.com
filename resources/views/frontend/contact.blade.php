@@ -541,11 +541,11 @@ section.alt { background: var(--bg2); }
                 Namakkal, Tamil Nadu - 637211, India.
             </div>
 
-            <a href="https://www.google.com/maps?cid=9156733708918541403" target="_blank" class="btn p">Get Directions →</a>
+            <a href="https://maps.app.goo.gl/n4vo5sQQGKr5a3tj8" target="_blank" class="btn p">Get Directions →</a>
         </div>
         
         <div class="map-box">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15654.123456789!2d77.8938!3d11.3805!3m2!1i1024!2i768!4f13.1!4m3!3e6!4m0!4m0!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin&cid=9156733708918541403" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3914.5!2d77.9029516!3d11.3917385!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba961e00ee90727%3A0x7f1340cb36ef4c5b!2sWeGeni%20-%20IT%20Services%20%26%20Consulting%20(OPC)%20Private%20Limited!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
 </section>
