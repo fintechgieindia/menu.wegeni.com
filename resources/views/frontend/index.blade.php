@@ -1,8 +1,8 @@
 @php
     $meta = [
-        'title' => 'Geni Menu — Restaurant Management, Made Simple',
-        'description' => 'Geni Menu helps you manage your menu, tables, orders, billing, kitchen, staff, inventory and more — simply.',
-        'keywords' => 'restaurant billing software, restaurant POS software, restaurant management software, POS for restaurants, QR code menu, digital menu, KOT management, inventory management, restaurant ERP, Geni Menu',
+        'title' => 'Geni Menu — Smart Management for Food Businesses',
+        'description' => 'From menus and orders to billing, kitchen operations, inventory, and team coordination, manage your food business with one powerful platform.',
+        'keywords' => 'food business management software, food service POS software, café and bakery POS, QSR management software, cloud kitchen software, digital menu, KOT management, inventory management, Geni Menu',
     ];
 @endphp
 
@@ -2918,30 +2918,30 @@ footer li a:hover { color: var(--br); }
     <div class="hero-left-col">
       <div class="hero-eyebrow-pill">
         <svg viewBox="0 0 24 24"><path d="M12 2l8 4v4c0 6-4 10-8 12-4-2-8-6-8-12V6l8-4z"/></svg>
-        RESTAURANT OPERATIONS, SIMPLIFIED
+        SMART MANAGEMENT FOR FOOD BUSINESSES
       </div>
 
       <h1 class="hero-main-title">
-        Every Part of<br>Your Restaurant.
-        <span class="hero-serif-highlight">One Smart System.</span>
+        Everything Your<br>Food Business Needs.
+        <span class="hero-serif-highlight">One Connected Platform.</span>
       </h1>
 
       <p class="hero-lead-text">
-        Manage your menu, tables, orders, billing, kitchen, staff, inventory and more &mdash; all in one simple platform built for restaurants.
+        From menus and orders to billing, kitchen operations, inventory, and team coordination, manage your food business with one powerful platform designed to simplify everyday operations.
       </p>
 
       <div class="hero-cta-group">
-        <a href="{{ route('contact.us') }}" class="hero-btn-primary-demo">
-          Book a Demo &rarr;
+        <a href="#features" class="hero-btn-primary-demo">
+          Explore Geni Menu &rarr;
         </a>
-        <a href="#features" class="hero-btn-secondary-features">
-          Explore Features
+        <a href="{{ route('contact.us') }}" class="hero-btn-secondary-features">
+          Send an Enquiry
         </a>
       </div>
 
       <!-- Industry Compatibility Row -->
       <div class="industry-compat-wrap">
-        <div class="industry-compat-label">Built for All Types of Food Businesses</div>
+        <div class="industry-compat-label">Built for Every Kind of Food Business</div>
         <div class="industry-compat-icons">
           <div class="industry-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5.5 16h13M2 16h20M12 4v4M12 8a8 8 0 0 0-8 8h16a8 8 0 0 0-8-8z"/></svg>
@@ -2957,11 +2957,11 @@ footer li a:hover { color: var(--br); }
           </div>
           <div class="industry-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M7 20h10M12 16v4M7 8h4M7 11h2"/></svg>
-            QSRs
+            QSRs &amp; Takeaway
           </div>
           <div class="industry-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 21h18M3 7v14M21 7v14M6 7l6-4 6 4M9 11h2M13 11h2M9 15h2M13 15h2"/></svg>
-            Canteens &amp; More
+            Cloud Kitchens &amp; More
           </div>
         </div>
       </div>
@@ -2971,7 +2971,7 @@ footer li a:hover { color: var(--br); }
     <div class="hero-showcase-container">
       <!-- Blended Restaurant Interior Photography Backdrop -->
       <div class="hero-photo-backdrop">
-        <div class="photo-backdrop-badge">DINING ROOM &amp; POS OPERATIONS</div>
+        <div class="photo-backdrop-badge">COUNTER, KITCHEN &amp; POS OPERATIONS</div>
       </div>
 
       <!-- Main Desktop Dashboard Mockup (in Laptop/Monitor Bezel) -->
@@ -2990,7 +2990,7 @@ footer li a:hover { color: var(--br); }
 
           <!-- Real Original Dashboard Image -->
           <div class="dashboard-img-wrap" style="position: relative; width: 100%; overflow: hidden; background: #FAF7F2; border-radius: 0 0 10px 10px;">
-            <img src="{{ asset('assets/images/dash.png') }}" alt="Geni Menu Restaurant Management & POS Dashboard" style="width: 100%; height: auto; display: block; object-fit: contain;">
+            <img src="{{ asset('assets/images/dash.png') }}" alt="Geni Menu Food Business Management & POS Dashboard" style="width: 100%; height: auto; display: block; object-fit: contain;">
           </div>
         </div>
       </div>
@@ -2998,14 +2998,14 @@ footer li a:hover { color: var(--br); }
       <!-- Overlapping Smartphone Mobile App Mockup (Bottom Left) -->
       <div class="hero-phone-mockup">
         <div class="phone-inner-screen" style="background: transparent; overflow: hidden; position: relative;">
-          <img src="{{ asset('assets/images/geni-mobile-hero.png') }}" alt="Geni Menu Mobile POS Table Ordering" style="width: 100%; height: auto; display: block;">
+          <img src="{{ asset('assets/images/geni-mobile-hero.png') }}" alt="Geni Menu Mobile Digital Ordering" style="width: 100%; height: auto; display: block;">
         </div>
       </div>
     </div>
   </div>
 </header>
 
-<!-- Section: Everything You Need -->
+<!-- Section: Platform Introduction -->
 <section class="alt">
   <div class="food-bg-icon float-2" style="top: 8%; right: 2%; width: 130px; height: 130px;" title="Gourmet Burger">
     <svg viewBox="0 0 24 24"><path d="M4 11a8 8 0 0 1 16 0H4zm-1 3h18M3 17h18a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
@@ -3016,12 +3016,12 @@ footer li a:hover { color: var(--br); }
 
   <div class="w ig">
     <div class="ph r">
-      <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1000&auto=format&fit=crop" alt="Warm restaurant dining room ambiance" loading="lazy">
-      <span>🍷 Warm Dining Room Ambiance &amp; POS Station</span>
+      <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1000&auto=format&fit=crop" alt="Modern food business operations and POS station" loading="lazy">
+      <span>✨ Connected Service, Counter &amp; POS Operations</span>
     </div>
     <div class="r">
-      <h2><span class="title-grad">Everything You Need to</span> <span class="sf">Run Your Restaurant.</span></h2>
-      <p style="margin-top:16px">From taking an order to managing your kitchen, Geni Menu keeps your daily work simple and organised.</p>
+      <h2><span class="title-grad">One Platform.</span> <span class="sf">Every Food Business Operation.</span></h2>
+      <p style="margin-top:16px">Whether you run a restaurant, caf&eacute;, bakery, takeaway outlet, or cloud kitchen, Geni Menu brings your essential business operations together in one place.</p>
       <div class="b4" id="b4"></div>
     </div>
   </div>
@@ -3039,8 +3039,8 @@ footer li a:hover { color: var(--br); }
   <div class="w">
     <div class="hd r">
       <span class="eb"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> FEATURES</span>
-      <h2><span class="title-grad">One System for</span> <span class="sf">Your Daily Work.</span></h2>
-      <p>Bring your restaurant's everyday operations together in one simple system.</p>
+      <h2><span class="title-grad">Everything You Need to</span> <span class="sf">Run Your Food Business.</span></h2>
+      <p>Purpose-built tools to manage menus, orders, billing, kitchen workflows, stock, and daily performance across any food outlet.</p>
     </div>
     <div class="fg" id="fg"></div>
   </div>
@@ -3056,8 +3056,8 @@ footer li a:hover { color: var(--br); }
         HOW IT WORKS
       </span>
       <h2 class="hiw-title">
-        From Customer to Kitchen,<br>
-        <span class="hiw-serif">Made Simple.</span>
+        From Order to Fulfilment,<br>
+        <span class="hiw-serif">Connected &amp; Seamless.</span>
       </h2>
     </div>
 
@@ -3072,36 +3072,36 @@ footer li a:hover { color: var(--br); }
             <div class="mock-phone-body">
               <div class="mock-phone-top">
                 <span>The Grand Bistro</span>
-                <span class="mock-phone-table-pill">Table 12</span>
+                <span class="mock-phone-table-pill">Order #12</span>
               </div>
               <div class="mock-phone-items">
                 <div class="mock-phone-row">
                   <span class="mock-phone-item-name">
-                    <img src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=100&auto=format&fit=crop&q=80" alt="Paneer Tikka">
-                    Paneer Tikka
+                    <img src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=100&auto=format&fit=crop&q=80" alt="Grilled Skewers">
+                    Grilled Skewers
                   </span>
                   <div class="mock-phone-right">
-                    <span class="mock-phone-price">&#8377;280</span>
+                    <span class="mock-phone-price">$12</span>
                     <span class="mock-phone-plus-btn">+</span>
                   </div>
                 </div>
                 <div class="mock-phone-row">
                   <span class="mock-phone-item-name">
-                    <img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=100&auto=format&fit=crop&q=80" alt="Veg Fried Rice">
-                    Fried Rice
+                    <img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=100&auto=format&fit=crop&q=80" alt="Signature Rice Bowl">
+                    Rice Bowl
                   </span>
                   <div class="mock-phone-right">
-                    <span class="mock-phone-price">&#8377;220</span>
+                    <span class="mock-phone-price">$10</span>
                     <span class="mock-phone-plus-btn">+</span>
                   </div>
                 </div>
                 <div class="mock-phone-row">
                   <span class="mock-phone-item-name">
-                    <img src="https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=100&auto=format&fit=crop&q=80" alt="Masala Dosa">
-                    Masala Dosa
+                    <img src="https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=100&auto=format&fit=crop&q=80" alt="Artisan Flatbread">
+                    Artisan Crepe
                   </span>
                   <div class="mock-phone-right">
-                    <span class="mock-phone-price">&#8377;140</span>
+                    <span class="mock-phone-price">$8</span>
                     <span class="mock-phone-plus-btn">+</span>
                   </div>
                 </div>
@@ -3109,12 +3109,12 @@ footer li a:hover { color: var(--br); }
             </div>
             <div class="mock-qr-badge">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 14h3v3h-3zM17 17h4v4h-4zM14 20h3v1h-3z"/></svg>
-              <span>Scan QR Table 12</span>
+              <span>Scan QR Menu</span>
             </div>
           </div>
         </div>
-        <h3 class="hiw-step-title">TAKE THE ORDER</h3>
-        <p class="hiw-step-desc">Take orders from table QR, counter or kiosk.</p>
+        <h3 class="hiw-step-title">RECEIVE THE ORDER</h3>
+        <p class="hiw-step-desc">Accept orders via QR menu, POS counter, takeaway, or kiosk.</p>
         <div class="hiw-connector-arrow">&rarr;</div>
       </div>
 
@@ -3130,7 +3130,7 @@ footer li a:hover { color: var(--br); }
             <div class="mock-kds-order-item">
               <div class="mock-kds-order-info">
                 <b>#1024 &bull; Table 4</b>
-                <span>1x Paneer Tikka, 2x Naan, 1x Dal Makhani</span>
+                <span>1x Grilled Skewers, 2x Flatbread, 1x Dip</span>
               </div>
               <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=100&auto=format&fit=crop&q=80" alt="Food Prep" class="mock-kds-thumb">
               <span class="mock-status-pill prep">IN PREP</span>
@@ -3138,23 +3138,23 @@ footer li a:hover { color: var(--br); }
             <div class="mock-kds-order-item new-order">
               <div class="mock-kds-order-info">
                 <b>#1025 &bull; Takeaway #12</b>
-                <span>1x Chicken Biryani, 1x Raita</span>
+                <span>1x Spiced Rice Bowl, 1x Side Salad</span>
               </div>
-              <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=100&auto=format&fit=crop&q=80" alt="Biryani" class="mock-kds-thumb">
+              <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=100&auto=format&fit=crop&q=80" alt="Rice Bowl" class="mock-kds-thumb">
               <span class="mock-status-pill new">NEW</span>
             </div>
             <div class="mock-kds-order-item ready-order">
               <div class="mock-kds-order-info">
-                <b>#1026 &bull; Table 9</b>
-                <span>1x Fried Rice, 1x Cold Coffee</span>
+                <b>#1026 &bull; Counter #9</b>
+                <span>1x Rice Bowl, 1x Iced Latte</span>
               </div>
-              <img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=100&auto=format&fit=crop&q=80" alt="Fried Rice" class="mock-kds-thumb">
+              <img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=100&auto=format&fit=crop&q=80" alt="Rice Bowl" class="mock-kds-thumb">
               <span class="mock-status-pill ready">READY</span>
             </div>
           </div>
         </div>
-        <h3 class="hiw-step-title">SEND TO KITCHEN</h3>
-        <p class="hiw-step-desc">Orders reach the right kitchen station instantly.</p>
+        <h3 class="hiw-step-title">ROUTE TO KITCHEN</h3>
+        <p class="hiw-step-desc">Orders reach the right kitchen or prep station immediately.</p>
         <div class="hiw-connector-arrow">&rarr;</div>
       </div>
 
@@ -3168,11 +3168,11 @@ footer li a:hover { color: var(--br); }
                 <span>KOT #142</span>
                 <span style="color:#D97706;">⏱ 03m</span>
               </div>
-              <div class="mock-kot-dish">&bull; 2x Paneer Butter</div>
-              <div class="mock-kot-dish">&bull; 3x Butter Naan</div>
-              <div class="mock-kot-dish">&bull; 1x Dal Makhani</div>
-              <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=240&auto=format&fit=crop&q=80" alt="Paneer Butter" class="mock-kot-img">
-              <div class="mock-kot-note">Note: Less Spicy</div>
+              <div class="mock-kot-dish">&bull; 2x Grilled Skewers</div>
+              <div class="mock-kot-dish">&bull; 3x Artisan Bread</div>
+              <div class="mock-kot-dish">&bull; 1x House Dip</div>
+              <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=240&auto=format&fit=crop&q=80" alt="Kitchen Ticket" class="mock-kot-img">
+              <div class="mock-kot-note">Note: Mild Spice</div>
               <div class="mock-kot-pill-btn prep">PREPARING</div>
             </div>
             <div class="mock-kot-ticket">
@@ -3180,17 +3180,17 @@ footer li a:hover { color: var(--br); }
                 <span>KOT #143</span>
                 <span style="color:#16A34A;">Ready</span>
               </div>
-              <div class="mock-kot-dish">&bull; 1x Biryani</div>
-              <div class="mock-kot-dish">&bull; 1x Raita</div>
-              <div class="mock-kot-dish">&bull; 1x Salad</div>
-              <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=240&auto=format&fit=crop&q=80" alt="Biryani" class="mock-kot-img">
-              <div class="mock-kot-note">Table 2 (Dine-in)</div>
+              <div class="mock-kot-dish">&bull; 1x Rice Bowl</div>
+              <div class="mock-kot-dish">&bull; 1x Yogurt Dip</div>
+              <div class="mock-kot-dish">&bull; 1x Fresh Salad</div>
+              <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=240&auto=format&fit=crop&q=80" alt="Ready Order" class="mock-kot-img">
+              <div class="mock-kot-note">Takeaway #12</div>
               <div class="mock-kot-pill-btn ready">READY</div>
             </div>
           </div>
         </div>
-        <h3 class="hiw-step-title">PREPARE THE ORDER</h3>
-        <p class="hiw-step-desc">Your kitchen team sees live order tickets.</p>
+        <h3 class="hiw-step-title">PREPARE &amp; FULFIL</h3>
+        <p class="hiw-step-desc">Kitchen and prep teams track live tickets and item notes.</p>
         <div class="hiw-connector-arrow">&rarr;</div>
       </div>
 
@@ -3200,42 +3200,42 @@ footer li a:hover { color: var(--br); }
         <div class="hiw-preview-box">
           <div class="mock-bill-card">
             <div class="mock-bill-head">
-              <span>Table 4 Bill</span>
+              <span>Order #1024 Bill</span>
               <span>#INV-4821</span>
             </div>
             <div class="mock-bill-line">
-              <span>Paneer Tikka</span>
-              <b>&#8377;280</b>
+              <span>Grilled Skewers</span>
+              <b>$12.00</b>
             </div>
             <div class="mock-bill-line">
-              <span>Butter Naan (2)</span>
-              <b>&#8377;90</b>
+              <span>Artisan Bread (2)</span>
+              <b>$6.00</b>
             </div>
             <div class="mock-bill-line">
-              <span>Dal Makhani</span>
-              <b>&#8377;160</b>
+              <span>House Dip</span>
+              <b>$5.00</b>
             </div>
             <div class="mock-bill-line" style="border-top:1px dashed #EAE4DA;padding-top:2px;margin-top:2px;">
               <span>Subtotal (3 items)</span>
-              <b>&#8377;530</b>
+              <b>$23.00</b>
             </div>
             <div class="mock-bill-line">
-              <span>GST &amp; Taxes (5%)</span>
-              <b>&#8377;27</b>
+              <span>Tax (5%)</span>
+              <b>$1.15</b>
             </div>
             <div class="mock-bill-line total">
               <span>Total Amount</span>
-              <span style="color:#876039;font-weight: 500;">&#8377;557</span>
+              <span style="color:#876039;font-weight: 500;">$24.15</span>
             </div>
             <div class="mock-pay-tags">
-              <div class="mock-pay-pill active">UPI Pay &check;</div>
+              <div class="mock-pay-pill active">Digital &check;</div>
               <div class="mock-pay-pill">💳 Card</div>
               <div class="mock-pay-pill">💵 Cash</div>
             </div>
           </div>
         </div>
         <h3 class="hiw-step-title">BILL &amp; COLLECT</h3>
-        <p class="hiw-step-desc">Generate crisp GST bills and collect payment.</p>
+        <p class="hiw-step-desc">Generate accurate receipts and process fast payments.</p>
         <div class="hiw-connector-arrow">&rarr;</div>
       </div>
 
@@ -3247,7 +3247,7 @@ footer li a:hover { color: var(--br); }
             <div class="mock-analytics-top">
               <div class="mock-analytics-metric">
                 <small>TODAY'S SALES</small>
-                <b>&#8377;48,200</b>
+                <b>$2,480</b>
               </div>
               <span class="mock-analytics-growth">&uarr; +18%</span>
             </div>
@@ -3269,15 +3269,15 @@ footer li a:hover { color: var(--br); }
             </div>
             <div class="mock-top-dish-card">
               <div class="mock-top-dish-info">
-                <small>👑 Top Dish</small>
-                <b>Paneer Tikka <span style="color:#76675D;font-weight:500;">(38 sold)</span></b>
+                <small>👑 Top Item</small>
+                <b>Grilled Skewers <span style="color:#76675D;font-weight:500;">(38 sold)</span></b>
               </div>
-              <img src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=100&auto=format&fit=crop&q=80" alt="Paneer Tikka" class="mock-top-dish-img">
+              <img src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=100&auto=format&fit=crop&q=80" alt="Top Item" class="mock-top-dish-img">
             </div>
           </div>
         </div>
-        <h3 class="hiw-step-title">TRACK YOUR BUSINESS</h3>
-        <p class="hiw-step-desc">See sales, popular dishes and performance.</p>
+        <h3 class="hiw-step-title">TRACK PERFORMANCE</h3>
+        <p class="hiw-step-desc">Monitor daily sales, best-selling items, and outlet trends.</p>
       </div>
 
     </div>
@@ -3289,7 +3289,7 @@ footer li a:hover { color: var(--br); }
         <div class="hiw-stage-icon-circle">
           <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 14h3v3h-3zM17 17h4v4h-4zM14 20h3v1h-3z"/></svg>
         </div>
-        <span class="hiw-stage-label">Customer Scan</span>
+        <span class="hiw-stage-label">QR / Online</span>
       </div>
 
       <span class="hiw-timeline-arrow">&rarr;</span>
@@ -3299,7 +3299,7 @@ footer li a:hover { color: var(--br); }
         <div class="hiw-stage-icon-circle">
           <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M12 18h.01M9 6h6M9 10h6"/></svg>
         </div>
-        <span class="hiw-stage-label">Waiter / Kiosk</span>
+        <span class="hiw-stage-label">Counter / Staff</span>
       </div>
 
       <span class="hiw-timeline-arrow">&rarr;</span>
@@ -3367,28 +3367,28 @@ footer li a:hover { color: var(--br); }
   <div class="w cx">
     <div class="cxv r" id="cxv">
       <div class="ph">
-        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1000&auto=format&fit=crop" alt="Customer dining experience at restaurant" loading="lazy">
-        <span>🍷 Seamless Dine-in &amp; Digital Ordering</span>
+        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1000&auto=format&fit=crop" alt="Customer ordering and food service experience" loading="lazy">
+        <span>✨ Smooth Ordering Across Dine-In, Counter &amp; Takeaway</span>
       </div>
       <div class="cx-phone-mockup">
-        <img src="{{ asset('assets/images/geni-cx-mobile.png') }}" alt="Geni Menu Live Smartphone Customer QR Table Ordering" loading="lazy">
+        <img src="{{ asset('assets/images/geni-cx-mobile.png') }}" alt="Geni Menu Live Smartphone Customer QR Ordering" loading="lazy">
       </div>
     </div>
     <div class="r">
       <span class="eb"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> CUSTOMER EXPERIENCE</span>
       <h2><span class="title-grad">Make Every Order</span> <span class="sf">Easier &amp; Faster.</span></h2>
-      <p style="margin-top:16px">Give your customers a smooth experience from menu to payment.</p>
+      <p style="margin-top:16px">Deliver a frictionless experience from browsing your menu to quick checkout, whether customers dine in, pick up at the counter, or order ahead.</p>
       <ul class="bl" id="cx_list">
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg> Interactive Digital Menu with Photos</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg> Instant QR Table Ordering &amp; Reordering</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg> One-Tap Waiter Calling &amp; Water Requests</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg> Custom Cooking Notes &amp; Add-ons</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg> Instant Split Billing &amp; GST Invoicing</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg> UPI, Card &amp; Contactless Payments</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg> Live Food Prep Status on Guest Phones</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg> Multi-Language &amp; Dietary Filter Support</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg> Instant QR &amp; Counter Ordering</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg> One-Tap Service &amp; Staff Requests</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg> Custom Prep Notes &amp; Item Modifiers</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg> Flexible Split Billing &amp; Tax Invoicing</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg> Card, Cash &amp; Contactless Payments</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg> Live Order Prep Status Updates</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg> Multi-Language &amp; Dietary Filters</li>
       </ul>
-      <a href="{{ route('restaurant_signup') }}" class="btn p">Make Dining Simple →</a>
+      <a href="{{ route('restaurant_signup') }}" class="btn p">Get Started with Geni Menu &rarr;</a>
     </div>
   </div>
 </section>
@@ -3411,11 +3411,11 @@ footer li a:hover { color: var(--br); }
         YOUR TEAM
       </span>
       <h2 class="team-title">
-        Make Daily Work Easier for<br>
-        <span class="team-serif">Everyone.</span>
+        Keep Your Entire Team<br>
+        <span class="team-serif">Working in Sync.</span>
       </h2>
       <p class="team-subtitle">
-        A simple system that helps every member of your restaurant team work better, faster and together.
+        One connected platform that helps service staff, cashiers, kitchen crews, and managers coordinate smoothly every day.
       </p>
     </div>
 
@@ -3425,24 +3425,24 @@ footer li a:hover { color: var(--br); }
         <path d="M 120 28 Q 235 6, 360 28 T 600 28 T 840 28 T 1080 28" fill="none" stroke="#D4A574" stroke-width="1.8" stroke-dasharray="5 5" opacity="0.75" />
       </svg>
       <div class="team-flow-steps-grid">
-        <!-- Step 01: Table Booking -->
+        <!-- Step 01: Bookings & Queue -->
         <div class="team-step-col">
-          <div class="team-floating-icon" title="Table Booking">
+          <div class="team-floating-icon" title="Bookings & Queue">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4M8 2v4M3 10h18"/><circle cx="8" cy="14" r="1"/><circle cx="12" cy="14" r="1"/><circle cx="16" cy="14" r="1"/><circle cx="8" cy="18" r="1"/><circle cx="12" cy="18" r="1"/></svg>
           </div>
           <span class="team-step-pill">STEP 01</span>
-          <h4 class="team-step-name">Table Booking</h4>
-          <p class="team-step-desc">Customer's book a table in seconds.</p>
+          <h4 class="team-step-name">Bookings &amp; Access</h4>
+          <p class="team-step-desc">Customers browse menus or reserve in seconds.</p>
         </div>
 
-        <!-- Step 02: Take Order -->
+        <!-- Step 02: Order Capture -->
         <div class="team-step-col">
-          <div class="team-floating-icon" title="Take Order">
+          <div class="team-floating-icon" title="Order Capture">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 8A6 6 0 0 0 6 8v4h12V8zM3 16h18v2H3zM12 4v2"/></svg>
           </div>
           <span class="team-step-pill">STEP 02</span>
-          <h4 class="team-step-name">Take Order</h4>
-          <p class="team-step-desc">Select menu items with images.</p>
+          <h4 class="team-step-name">Order Capture</h4>
+          <p class="team-step-desc">Staff capture dine-in, counter, or takeaway orders.</p>
         </div>
 
         <!-- Step 03: Kitchen KOT -->
@@ -3452,7 +3452,7 @@ footer li a:hover { color: var(--br); }
           </div>
           <span class="team-step-pill">STEP 03</span>
           <h4 class="team-step-name">Kitchen KOT</h4>
-          <p class="team-step-desc">Orders appear in kitchen instantly.</p>
+          <p class="team-step-desc">Orders route to the right prep station immediately.</p>
         </div>
 
         <!-- Step 04: Billing & Payment -->
@@ -3461,8 +3461,8 @@ footer li a:hover { color: var(--br); }
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M7 20h10M12 16v4M7 8h4M7 11h2"/></svg>
           </div>
           <span class="team-step-pill">STEP 04</span>
-          <h4 class="team-step-name">Billing &amp; Payment</h4>
-          <p class="team-step-desc">Generate bill and collect payment.</p>
+          <h4 class="team-step-name">POS &amp; Checkout</h4>
+          <p class="team-step-desc">Generate bills and accept payments effortlessly.</p>
         </div>
 
         <!-- Step 05: Reports -->
@@ -3471,8 +3471,8 @@ footer li a:hover { color: var(--br); }
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 20V10M12 20V4M6 20v-6M3 20h18"/></svg>
           </div>
           <span class="team-step-pill">STEP 05</span>
-          <h4 class="team-step-name">Reports</h4>
-          <p class="team-step-desc">Track sales and business performance.</p>
+          <h4 class="team-step-name">Insights</h4>
+          <p class="team-step-desc">Track sales, stock, and daily outlet performance.</p>
         </div>
       </div>
     </div>
@@ -3484,7 +3484,7 @@ footer li a:hover { color: var(--br); }
       <div class="team-card-col">
         <div class="team-card">
           <div class="team-card-visual">
-            <img src="{{ asset('assets/images/team-visual-customer.png') }}" alt="Geni Menu Customer Booking Experience" class="team-card-mockup-img" loading="lazy">
+            <img src="{{ asset('assets/images/team-visual-customer.png') }}" alt="Geni Menu Customer Ordering & Booking Experience" class="team-card-mockup-img" loading="lazy">
           </div>
           <div class="team-card-footer">
             <div class="team-role-icon-box">
@@ -3492,26 +3492,26 @@ footer li a:hover { color: var(--br); }
             </div>
             <div class="team-role-content">
               <h3 class="team-role-title">CUSTOMERS</h3>
-              <p class="team-role-desc">Book a table with date, people and time slot.</p>
+              <p class="team-role-desc">Browse digital menus, place orders, or book tables easily.</p>
             </div>
             <div class="team-role-arrow">&rarr;</div>
           </div>
         </div>
       </div>
 
-      <!-- Card 02: Waiters -->
+      <!-- Card 02: Service Staff -->
       <div class="team-card-col">
         <div class="team-card">
           <div class="team-card-visual">
-            <img src="{{ asset('assets/images/team-visual-waiter.png') }}" alt="Geni Menu Waiter Mobile Digital Menu" class="team-card-mockup-img" loading="lazy">
+            <img src="{{ asset('assets/images/team-visual-waiter.png') }}" alt="Geni Menu Service Staff Mobile Ordering" class="team-card-mockup-img" loading="lazy">
           </div>
           <div class="team-card-footer">
             <div class="team-role-icon-box">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 8A6 6 0 0 0 6 8v4h12V8zM3 16h18v2H3zM12 4v2"/></svg>
             </div>
             <div class="team-role-content">
-              <h3 class="team-role-title">WAITERS</h3>
-              <p class="team-role-desc">Take orders and manage customer calls on mobile.</p>
+              <h3 class="team-role-title">SERVICE STAFF</h3>
+              <p class="team-role-desc">Take orders and respond to customer requests on mobile.</p>
             </div>
             <div class="team-role-arrow">&rarr;</div>
           </div>
@@ -3529,8 +3529,8 @@ footer li a:hover { color: var(--br); }
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 13.8A6 6 0 0 1 12 4a6 6 0 0 1 6 9.8V17H6v-3.2zM4 17h16v3H4zM12 4V2"/></svg>
             </div>
             <div class="team-role-content">
-              <h3 class="team-role-title">KITCHEN TEAM</h3>
-              <p class="team-role-desc">Orders reach the right kitchen station instantly.</p>
+              <h3 class="team-role-title">KITCHEN &amp; PREP TEAM</h3>
+              <p class="team-role-desc">Receive structured KOT tickets at the right prep station.</p>
             </div>
             <div class="team-role-arrow">&rarr;</div>
           </div>
@@ -3548,8 +3548,8 @@ footer li a:hover { color: var(--br); }
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M7 20h10M12 16v4M7 8h4M7 11h2"/></svg>
             </div>
             <div class="team-role-content">
-              <h3 class="team-role-title">CASHIER</h3>
-              <p class="team-role-desc">Handle counter billing, receipts and payment.</p>
+              <h3 class="team-role-title">CASHIERS</h3>
+              <p class="team-role-desc">Process fast counter checkout, receipts, and payments.</p>
             </div>
             <div class="team-role-arrow">&rarr;</div>
           </div>
@@ -3567,8 +3567,8 @@ footer li a:hover { color: var(--br); }
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 20V10M12 20V4M6 20v-6M3 20h18"/></svg>
             </div>
             <div class="team-role-content">
-              <h3 class="team-role-title">MANAGERS / OWNERS</h3>
-              <p class="team-role-desc">Get real-time sales reports and business insights.</p>
+              <h3 class="team-role-title">MANAGERS &amp; OWNERS</h3>
+              <p class="team-role-desc">Monitor live sales, inventory, and outlet performance.</p>
             </div>
             <div class="team-role-arrow">&rarr;</div>
           </div>
@@ -3590,9 +3590,9 @@ footer li a:hover { color: var(--br); }
 
   <div class="w">
     <div class="hd r">
-      <span class="eb"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> SOLUTIONS</span>
-      <h2><span class="title-grad">Works for Different</span> <span class="sf">Food Businesses.</span></h2>
-      <p>Whether you run a restaurant, bakery, canteen or QSR, Geni Menu adapts to the way your business works.</p>
+      <span class="eb"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> INDUSTRIES</span>
+      <h2><span class="title-grad">Built for Every Kind of</span> <span class="sf">Food Business.</span></h2>
+      <p>From independent food outlets to growing multi-location businesses, Geni Menu adapts to the way different food businesses operate.</p>
     </div>
   </div>
 
@@ -3612,15 +3612,15 @@ footer li a:hover { color: var(--br); }
       </svg>
       <div class="growth-floating-icons-row">
         <!-- 1. Store/Branch -->
-        <div class="growth-floating-icon" title="One Restaurant">
+        <div class="growth-floating-icon" title="Single Food Outlet">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
         </div>
         <!-- 2. Kitchen -->
-        <div class="growth-floating-icon" title="Multiple Kitchens">
+        <div class="growth-floating-icon" title="Multiple Prep Stations">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 13.8A6 6 0 0 1 12 4a6 6 0 0 1 6 9.8V17H6v-3.2zM4 17h16v3H4zM12 4V2"/></svg>
         </div>
         <!-- 3. Multi-branch -->
-        <div class="growth-floating-icon" title="Multiple Branches">
+        <div class="growth-floating-icon" title="Multi-Outlet Operations">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 21h18M3 7v14M21 7v14M6 7l6-4 6 4M9 11h2M13 11h2M9 15h2M13 15h2"/></svg>
         </div>
       </div>
@@ -3629,46 +3629,46 @@ footer li a:hover { color: var(--br); }
     <!-- Section Header -->
     <div class="growth-header r">
       <h2 class="growth-title">
-        Start Small.<br>
-        <span class="growth-serif"><span class="growth-sparkle">✦</span> Grow Easily. <span class="growth-sparkle">✦</span></span>
+        Start with One Outlet.<br>
+        <span class="growth-serif"><span class="growth-sparkle">✦</span> Scale with Confidence. <span class="growth-sparkle">✦</span></span>
       </h2>
       <p class="growth-subtitle">
-        Whether you have one outlet or multiple branches, Geni Menu helps you manage your business as you grow.
+        Whether you operate an independent food outlet or manage multiple locations, Geni Menu scales alongside your business.
       </p>
 
       <!-- Connected Stage Pills -->
       <div class="growth-pills-row">
         <span class="growth-pill">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8zM6 1v3M10 1v3M14 1v3"/></svg>
-          One restaurant
+          Single food outlet
         </span>
         <span class="growth-pill-arrow">&rarr;</span>
         <span class="growth-pill">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 13.8A6 6 0 0 1 12 4a6 6 0 0 1 6 9.8V17H6v-3.2zM4 17h16v3H4zM12 4V2"/></svg>
-          Multiple kitchens
+          Multiple prep stations
         </span>
         <span class="growth-pill-arrow">&rarr;</span>
         <span class="growth-pill">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M3 7v14M21 7v14M6 7l6-4 6 4M9 11h2M13 11h2M9 15h2M13 15h2"/></svg>
-          Multiple branches
+          Multi-outlet locations
         </span>
       </div>
     </div>
 
     <!-- 3 Growth Cards Grid -->
     <div class="growth-cards-grid r">
-      <!-- Card 01: One Branch -->
+      <!-- Card 01: Single Outlet -->
       <div class="growth-card">
         <div class="growth-card-info">
           <div class="growth-card-icon-box">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
           </div>
-          <h3 class="growth-card-title">ONE BRANCH</h3>
-          <p class="growth-card-desc">Manage your complete daily dining and counter operations.</p>
+          <h3 class="growth-card-title">SINGLE OUTLET</h3>
+          <p class="growth-card-desc">Run your daily counter, takeaway, and dine-in operations smoothly from one system.</p>
           <div class="growth-card-arrow">&rarr;</div>
         </div>
         <div class="growth-card-visual-wrap">
-          <img src="{{ asset('assets/images/growth-clean-photo-1.png') }}" alt="Single Restaurant Branch Operations" class="growth-card-visual-img" loading="lazy">
+          <img src="{{ asset('assets/images/growth-clean-photo-1.png') }}" alt="Single Food Outlet Operations" class="growth-card-visual-img" loading="lazy">
         </div>
       </div>
 
@@ -3678,8 +3678,8 @@ footer li a:hover { color: var(--br); }
           <div class="growth-card-icon-box">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 13.8A6 6 0 0 1 12 4a6 6 0 0 1 6 9.8V17H6v-3.2zM4 17h16v3H4zM12 4V2"/></svg>
           </div>
-          <h3 class="growth-card-title">MULTIPLE KITCHENS</h3>
-          <p class="growth-card-desc">Keep main kitchen, pantry and bar orders organized.</p>
+          <h3 class="growth-card-title">MULTIPLE PREP STATIONS</h3>
+          <p class="growth-card-desc">Route orders automatically across main kitchens, bakery ovens, beverage bars, and prep counters.</p>
           <div class="growth-card-arrow">&rarr;</div>
         </div>
         <div class="growth-card-visual-wrap">
@@ -3693,12 +3693,12 @@ footer li a:hover { color: var(--br); }
           <div class="growth-card-icon-box">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 21h18M3 7v14M21 7v14M6 7l6-4 6 4M9 11h2M13 11h2M9 15h2M13 15h2"/></svg>
           </div>
-          <h3 class="growth-card-title">MULTIPLE BRANCHES</h3>
-          <p class="growth-card-desc">Manage all your restaurant outlets from one central dashboard.</p>
+          <h3 class="growth-card-title">MULTI-OUTLET BUSINESSES</h3>
+          <p class="growth-card-desc">Oversee menus, pricing, inventory, and sales across all your food outlets from one dashboard.</p>
           <div class="growth-card-arrow">&rarr;</div>
         </div>
         <div class="growth-card-visual-wrap">
-          <img src="{{ asset('assets/images/growth-clean-photo-3.png') }}" alt="Multi-outlet Restaurant Chain Management" class="growth-card-visual-img" loading="lazy">
+          <img src="{{ asset('assets/images/growth-clean-photo-3.png') }}" alt="Multi-outlet Food Business Management" class="growth-card-visual-img" loading="lazy">
         </div>
       </div>
     </div>
@@ -3710,40 +3710,40 @@ footer li a:hover { color: var(--br); }
   <div class="food-bg-icon float-3" style="top: 12%; right: 3%; width: 140px; height: 140px;" title="Sales Growth Chart">
     <svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6M3 20h18"/></svg>
   </div>
-  <div class="food-bg-icon float-1" style="bottom: 10%; left: 3%; width: 125px; height: 125px;" title="Revenue Rupee/Currency Tag">
+  <div class="food-bg-icon float-1" style="bottom: 10%; left: 3%; width: 125px; height: 125px;" title="Revenue Currency Tag">
     <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/><path d="M7 15h2M13 15h4"/></svg>
   </div>
 
   <div class="w">
     <div class="hd r">
       <span class="eb"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg> REPORTS &amp; ANALYTICS</span>
-      <h2><span class="title-grad">Know How Your</span> <span class="sf">Business Is Doing.</span></h2>
-      <p>See the information that matters to you.</p>
+      <h2><span class="title-grad">Clear Insights Into Your</span> <span class="sf">Food Business.</span></h2>
+      <p>Track daily sales, top-selling items, payment methods, and stock movement with clear, actionable reports.</p>
     </div>
     <div class="tags">
       <span>
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-        Sales
+        Daily Sales
       </span>
       <span>
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-        Orders
+        Order Volume
       </span>
       <span>
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-        Payments
+        Payment Breakdown
       </span>
       <span>
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
-        Inventory
+        Inventory Usage
       </span>
       <span>
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        Customers
+        Customer Trends
       </span>
       <span>
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M3 7v14M21 7v14M6 7l6-4 6 4M9 11h2M13 11h2M9 15h2M13 15h2"/></svg>
-        Branch Performance
+        Outlet Performance
       </span>
     </div>
     
@@ -3754,16 +3754,16 @@ footer li a:hover { color: var(--br); }
           <i></i><i></i><i></i>
           <b>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-            RESTAURANT SALES &amp; PERFORMANCE DASHBOARD
+            FOOD BUSINESS SALES &amp; PERFORMANCE DASHBOARD
           </b>
         </div>
         <div class="rp-img-wrap">
-          <img src="{{ asset('assets/images/reports-sales-dashboard.png') }}" alt="Geni Menu Sales Report and Restaurant Performance Analytics Dashboard" class="rp-dashboard-img" loading="lazy">
+          <img src="{{ asset('assets/images/reports-sales-dashboard.png') }}" alt="Geni Menu Sales Report and Food Business Performance Analytics Dashboard" class="rp-dashboard-img" loading="lazy">
         </div>
       </div>
     </div>
     <p style="text-align:center;margin-top:36px">
-      <a href="{{ route('features.reports') }}" class="btn p">Explore Reports &rarr;</a>
+      <a href="{{ route('features.reports') }}" class="btn p">Explore Reports &amp; Analytics &rarr;</a>
     </p>
   </div>
 </section>
@@ -3775,21 +3775,22 @@ footer li a:hover { color: var(--br); }
   </div>
   <div class="w">
     <div class="hd r">
-      <h2><span class="title-grad">Everything You Need.</span><br><span class="sf">Right in Front of You.</span></h2>
-      <p>One simple system to manage your restaurant from the counter to the kitchen and beyond.</p>
+      <h2><span class="title-grad">Every Food Operation.</span><br><span class="sf">Connected in One Workspace.</span></h2>
+      <p>Manage counter billing, kitchen tickets, table service, self-ordering kiosks, and stock from one unified platform.</p>
     </div>
     <div class="sh r" id="sh"></div>
   </div>
 </section>
 
-<!-- Section: Operational Highlights -->
+<!-- Section: Benefits / Operational Highlights -->
 <section>
   <div class="food-bg-icon float-1" style="bottom: 10%; right: 3%; width: 120px; height: 120px;" title="Speed Timer">
     <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
   </div>
   <div class="w">
     <div class="hd r">
-      <h2><span class="title-grad">Less Work.</span><br><span class="sf">More Control.</span></h2>
+      <h2><span class="title-grad">Simplify Operations.</span><br><span class="sf">Focus on Your Food Business.</span></h2>
+      <p>Designed to remove everyday operational friction so you can focus on food quality, customer service, and growth.</p>
     </div>
     <div class="wg" id="wg"></div>
   </div>
@@ -3802,28 +3803,28 @@ footer li a:hover { color: var(--br); }
   </div>
   <div class="w">
     <div class="hd r">
-      <span class="eb"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg> PRICING</span>
-      <h2><span class="title-grad">A Plan for</span> <span class="sf">Every Business.</span></h2>
-      <p>Choose what fits your business today and upgrade as you grow.</p>
+      <span class="eb"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg> PLANS &amp; OPTIONS</span>
+      <h2><span class="title-grad">Flexible Plans for</span> <span class="sf">Every Food Business.</span></h2>
+      <p>Choose the setup that fits your food outlet today and expand capabilities as your operations grow.</p>
     </div>
     <div class="pricing-grid r">
       <!-- STANDARD -->
       <div class="pr-card">
         <div class="pr-label">STANDARD</div>
-        <div class="pr-sub">Essential Operations</div>
-        <div class="pr-desc">For small restaurants and food businesses that need the essentials to manage daily sales and operations.</div>
+        <div class="pr-sub">Essential Outlet Operations</div>
+        <div class="pr-desc">Ideal for independent caf&eacute;s, bakeries, takeaway counters, and small food outlets managing daily menus, orders, and billing.</div>
         <div class="pr-price-box">
-          <div class="pr-price">₹799 <span>/ mo</span></div>
-          <div class="pr-freq">Starting price • Yearly plans available</div>
+          <div class="pr-custom-price">Essential Plan</div>
+          <div class="pr-freq">Flexible monthly &amp; annual options</div>
         </div>
         <a href="{{ route('restaurant_signup', ['plan' => 'standard']) }}" class="btn o" style="width:100%;">Get Started &rarr;</a>
         <div class="pr-features">
           <div class="pr-feat-title">INCLUDED</div>
-          <div class="pr-feat-item"><svg class="pr-feat-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Menu &amp; Product Management</div>
-          <div class="pr-feat-item"><svg class="pr-feat-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Order Management</div>
+          <div class="pr-feat-item"><svg class="pr-feat-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Menu &amp; Item Management</div>
+          <div class="pr-feat-item"><svg class="pr-feat-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Dine-In, Counter &amp; Takeaway Orders</div>
           <div class="pr-feat-item"><svg class="pr-feat-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>POS &amp; Fast Counter Billing</div>
-          <div class="pr-feat-item"><svg class="pr-feat-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Payment &amp; GST Invoicing</div>
-          <div class="pr-feat-item"><svg class="pr-feat-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Basic Customer Management</div>
+          <div class="pr-feat-item"><svg class="pr-feat-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Tax Invoicing &amp; Receipts</div>
+          <div class="pr-feat-item"><svg class="pr-feat-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Customer Directory</div>
           <div class="pr-feat-item"><svg class="pr-feat-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Daily Sales &amp; Order Reports</div>
         </div>
       </div>
@@ -3835,47 +3836,47 @@ footer li a:hover { color: var(--br); }
           <span>MOST POPULAR</span>
         </div>
         <div class="pr-label">PREMIUM</div>
-        <div class="pr-sub">Complete Business Management</div>
-        <div class="pr-desc">For growing restaurants and food businesses that need connected kitchen, inventory, customer and operational management.</div>
+        <div class="pr-sub">Complete Food Business Management</div>
+        <div class="pr-desc">For busy restaurants, QSRs, cloud kitchens, and growing food businesses needing connected kitchen, stock, and team workflows.</div>
         <div class="pr-price-box">
-          <div class="pr-price">₹1,999 <span>/ mo</span></div>
-          <div class="pr-freq">Starting price • Yearly plans available</div>
+          <div class="pr-custom-price">Growth Plan</div>
+          <div class="pr-freq">Flexible monthly &amp; annual options</div>
         </div>
         <a href="{{ route('restaurant_signup', ['plan' => 'premium']) }}" class="btn p" style="width:100%;">Start Premium &rarr;</a>
         <div class="pr-features">
           <div class="pr-feat-title">EVERYTHING IN STANDARD, PLUS:</div>
           <div class="pr-feat-item"><svg class="pr-feat-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Kitchen &amp; KOT Management</div>
-          <div class="pr-feat-item"><svg class="pr-feat-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Table Layout &amp; Reservations</div>
-          <div class="pr-feat-item"><svg class="pr-feat-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Inventory &amp; Stock Control</div>
-          <div class="pr-feat-item"><svg class="pr-feat-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Customer Loyalty &amp; Staff Management</div>
-          <div class="pr-feat-item"><svg class="pr-feat-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Online Payment Gateways &amp; Waiter Calls</div>
-          <div class="pr-feat-item"><svg class="pr-feat-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Advanced Analytics &amp; Export Reports</div>
+          <div class="pr-feat-item"><svg class="pr-feat-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Table Layout &amp; Reservation Management</div>
+          <div class="pr-feat-item"><svg class="pr-feat-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Inventory &amp; Ingredient Stock Control</div>
+          <div class="pr-feat-item"><svg class="pr-feat-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Staff Roles &amp; Team Coordination</div>
+          <div class="pr-feat-item"><svg class="pr-feat-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>QR Ordering &amp; Waiter Requests</div>
+          <div class="pr-feat-item"><svg class="pr-feat-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Detailed Analytics &amp; Exportable Reports</div>
         </div>
       </div>
 
       <!-- ENTERPRISE -->
       <div class="pr-card">
         <div class="pr-label">ENTERPRISE</div>
-        <div class="pr-sub">Advanced &amp; Multi-Branch Operations</div>
-        <div class="pr-desc">For established businesses, restaurant chains and growing businesses managing multiple locations.</div>
+        <div class="pr-sub">Multi-Outlet &amp; Custom Operations</div>
+        <div class="pr-desc">For multi-outlet food brands, franchises, food courts, and large-scale food service operations managing multiple locations.</div>
         <div class="pr-price-box">
-          <div class="pr-custom-price">Custom Pricing</div>
-          <div class="pr-freq">Built around your business requirements</div>
+          <div class="pr-custom-price">Custom Solution</div>
+          <div class="pr-freq">Tailored to your operational requirements</div>
         </div>
-        <a href="{{ route('contact.us') }}" class="btn o" style="width:100%;">Talk to Sales →</a>
+        <a href="{{ route('contact.us') }}" class="btn o" style="width:100%;">Send an Enquiry &rarr;</a>
         <div class="pr-features">
           <div class="pr-feat-title">EVERYTHING IN PREMIUM, PLUS:</div>
-          <div class="pr-feat-item"><svg class="pr-feat-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Multi-Branch &amp; Multi-Outlet Management</div>
-          <div class="pr-feat-item"><svg class="pr-feat-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Centralized Menu &amp; Price Controls</div>
+          <div class="pr-feat-item"><svg class="pr-feat-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Multi-Outlet &amp; Branch Management</div>
+          <div class="pr-feat-item"><svg class="pr-feat-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Centralised Menu &amp; Pricing Controls</div>
           <div class="pr-feat-item"><svg class="pr-feat-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Self-Ordering Kiosk Mode</div>
           <div class="pr-feat-item"><svg class="pr-feat-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Multi-Location Inventory Tracking</div>
-          <div class="pr-feat-item"><svg class="pr-feat-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Consolidated Chain Reporting &amp; Analytics</div>
-          <div class="pr-feat-item"><svg class="pr-feat-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Dedicated Account Setup &amp; Priority Support</div>
+          <div class="pr-feat-item"><svg class="pr-feat-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Consolidated Multi-Outlet Analytics</div>
+          <div class="pr-feat-item"><svg class="pr-feat-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Dedicated Onboarding &amp; Priority Support</div>
         </div>
       </div>
     </div>
     <p style="text-align:center;margin-top:36px">
-      <a href="{{ route('pricing') }}" style="color:var(--br);font-weight:700">View Detailed Pricing &amp; Comparison →</a>
+      <a href="{{ route('pricing') }}" style="color:var(--br);font-weight:700">View Detailed Plan Comparison &rarr;</a>
     </p>
   </div>
 </section>
@@ -3884,7 +3885,7 @@ footer li a:hover { color: var(--br); }
 <section>
   <div class="w">
     <div class="hd r">
-      <h2><span class="title-grad">Got Questions?</span> <span class="sf">We Have Answers.</span></h2>
+      <h2><span class="title-grad">Frequently Asked</span> <span class="sf">Questions.</span></h2>
     </div>
     <div class="faq r" id="fq"></div>
   </div>
@@ -3900,16 +3901,17 @@ footer li a:hover { color: var(--br); }
   </div>
 
   <div class="ph">
-    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop" alt="Restaurant Interior background" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop" alt="Food Business Interior background" loading="lazy">
   </div>
   <div class="w r">
-    <h2>Ready to Make Restaurant Management Easier?</h2>
-    <p>Manage your daily restaurant work with one simple system.</p>
+    <span class="eb"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> LET'S TALK ABOUT YOUR FOOD BUSINESS</span>
+    <h2>Find the Right Solution for Your Food Business.</h2>
+    <p style="max-width:680px;margin-left:auto;margin-right:auto;">Tell us about your business and what you need. Our team will help you explore how Geni Menu can support your operations and business goals.</p>
     <div class="bts">
-      <a href="{{ route('contact.us') }}" class="btn p">Book a Demo</a>
-      <a href="{{ route('contact.us') }}" class="btn ow">Contact Us</a>
+      <a href="{{ route('contact.us') }}" class="btn p">Send an Enquiry &rarr;</a>
+      <a href="#features" class="btn ow">Explore Geni Menu</a>
     </div>
-    <small>Geni Menu — Simple tools for better restaurant management.</small>
+    <small>Geni Menu — Connected management for modern food &amp; beverage businesses.</small>
   </div>
 </section>
 
@@ -3970,18 +3972,52 @@ const win = (t, b, st = '') => `<div class="win" style="${st}"><div class="wb"><
 const bars = (a) => a.map(([n, v]) => `<div><div class="row" style="border:0;padding:2px 0"><span>${n}</span><b>${v}%</b></div><div class="bar"><i style="width:${v}%"></i></div></div>`).join('');
 
 // UI Mockups
-const POS = win('POS &amp; BILLING', `<div class="g g3">${tl('Paneer Tikka','₹280') + tl('Butter Naan','₹60') + tl('Filter Coffee','₹90','a') + tl('Biryani','₹320') + tl('Gulab Jamun','₹110') + tl('Masala Dosa','₹140')}</div><div><div class="row"><span>Table 4 · 3 items</span><b>₹430</b></div><div class="row"><span>GST (5%)</span><b>₹22</b></div><div class="row"><b>Total Bill</b><b style="color:var(--br);font-size:13px">₹452</b></div></div>`);
+const POS = win('POS &amp; BILLING', `<div class="g g3">${tl('Grilled Skewers','$12') + tl('Artisan Bread','$6') + tl('Iced Latte','$5','a') + tl('Rice Bowl','$10') + tl('Choco Lava Cake','$7') + tl('Classic Pizza','$14')}</div><div><div class="row"><span>Order #104 · 3 items</span><b>$23.00</b></div><div class="row"><span>Tax (5%)</span><b>$1.15</b></div><div class="row"><b>Total Bill</b><b style="color:var(--br);font-size:13px">$24.15</b></div></div>`);
 const TAB = win('TABLE MANAGEMENT', `<div style="padding:0;overflow:hidden;background:#FAF8F5;"><img src="{{ asset('assets/images/showcase-table-management-crop.png') }}" style="width:100%;height:150px;object-fit:cover;object-position:top left;display:block;" alt="Table Management View"></div>`);
 const KOT = win('KOT KITCHEN TRACKER', `<div style="padding:0;overflow:hidden;background:#FAF8F5;"><img src="{{ asset('assets/images/showcase-kitchen-kot.png') }}" style="width:100%;height:150px;object-fit:cover;object-position:top left;display:block;" alt="Kitchen KOT Tracker"></div>`);
-const INV = win('INVENTORY STOCK', bars([['Paneer (kg)', 82], ['Basmati Rice (kg)', 55], ['Fresh Milk (L)', 25], ['Tea leaves (kg)', 68]]));
+const INV = win('INVENTORY STOCK', bars([['Fresh Produce (kg)', 82], ['Grains &amp; Flour (kg)', 55], ['Dairy &amp; Milk (L)', 25], ['Coffee Beans (kg)', 68]]));
 const REP = win('COMPREHENSIVE ANALYTICS &amp; REPORTS', `<div style="padding:0;overflow:hidden;background:#FFFFFF;"><img src="{{ asset('assets/images/reports-sales-dashboard.png') }}" style="width:100%;height:220px;object-fit:cover;object-position:top;display:block;" alt="Geni Menu Sales & Analytics Dashboard"></div>`);
 const KIO = win('ORDERING KIOSK', `<div style="padding:0;overflow:hidden;background:#FFFFFF;"><img src="{{ asset('assets/images/showcase-ordering-kiosk.png') }}" style="width:100%;height:150px;object-fit:cover;object-position:center;display:block;" alt="Ordering Kiosk Item Customization"></div>`);
 
-const phone = `<div class="ph1"><div><div style="display:flex;justify-space-between;align-items:center"><b style="font-size:13px;color:var(--ink)">Your Restaurant</b><small style="color:var(--br);font-weight:700">Table 12</small></div><small style="color:var(--mute);margin-bottom:4px">Scan QR &amp; Place Order</small>${[['Paneer Tikka','₹280','https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?q=80&w=150&auto=format&fit=crop'],['Wood-fired Pizza','₹360','https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=150&auto=format&fit=crop'],['Cold Coffee','₹190','https://images.unsplash.com/photo-1517701604599-bb29b565090c?q=80&w=150&auto=format&fit=crop']].map(([a,b,c]) => `<div class="it"><u style="background-image:url('${c}')"></u><span>${a}</span><em>${b}</em></div>`).join('')}<div class="ct"><span>2 items · ₹640</span><b>Pay Now →</b></div></div></div>`;
+const phone = `<div class="ph1"><div><div style="display:flex;justify-space-between;align-items:center"><b style="font-size:13px;color:var(--ink)">Your Food Outlet</b><small style="color:var(--br);font-weight:700">Order #12</small></div><small style="color:var(--mute);margin-bottom:4px">Scan QR &amp; Place Order</small>${[['Grilled Skewers','$12','https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?q=80&w=150&auto=format&fit=crop'],['Wood-fired Pizza','$14','https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=150&auto=format&fit=crop'],['Iced Coffee','$5','https://images.unsplash.com/photo-1517701604599-bb29b565090c?q=80&w=150&auto=format&fit=crop']].map(([a,b,c]) => `<div class="it"><u style="background-image:url('${c}')"></u><span>${a}</span><em>${b}</em></div>`).join('')}<div class="ct"><span>2 items · $26</span><b>Pay Now →</b></div></div></div>`;
 
-const FL = ['Menu Management','Reservation Management','Waiter Requests','Table Management','POS Management','Order Management','KOT Management','Inventory','Reports'];
-const SO = ['Family Restaurant','Dine-in Restaurant','Multi-Cuisine Restaurant','QSR','Takeaway Restaurant','College Canteen','Office Canteen','Sweet Shop','Bakery','Cake Shop','Juice Shop','Ice Cream Shop','Chaat Shop','Tea Shop','Bar &amp; Brewery','Pizzeria'];
-const BEN = ['Manage tables, orders and billing easily.','Run dine-in service smoothly.','Handle many cuisines, one kitchen flow.','Keep ordering and billing fast.','Manage takeaway orders with ease.','Serve big crowds quickly.','Simple ordering for busy offices.','Manage products, orders and payments.','Manage bakery products &amp; fresh stock.','Track custom cake orders &amp; delivery.','Fast counter billing for drinks.','Quick billing at the ice cream counter.','Keep fast-moving queues moving.','Serve more cups, faster.','Manage bar orders, KOT and stock.','Manage custom pizza orders &amp; delivery.'];
+const FL = ['Menu Management','Order Management','Kitchen & KOT Management','POS & Billing','Table Management','Reservation Management','Waiter Requests','Inventory Management','Reports & Analytics'];
+const SO = [
+  'Restaurants &amp; Dining',
+  'Caf&eacute;s &amp; Coffee Shops',
+  'Bakeries &amp; Patisseries',
+  'Quick-Service &amp; Fast Food',
+  'Takeaway &amp; Delivery',
+  'Cloud Kitchens',
+  'Juice &amp; Dessert Shops',
+  'Pizzerias &amp; Casual Dining',
+  'Cake &amp; Sweet Shops',
+  'Food Courts &amp; Stalls',
+  'Catering &amp; Canteens',
+  'Corporate Cafeterias',
+  'Ice Cream Parlours',
+  'Tea &amp; Beverage Bars',
+  'Bars &amp; Lounges',
+  'Multi-Cuisine Outlets'
+];
+const BEN = [
+  'Coordinate table service, kitchen tickets, and billing seamlessly.',
+  'Speed up counter orders, custom beverage notes, and repeat visits.',
+  'Manage fresh daily batches, display items, and custom pre-orders.',
+  'Keep high-volume counter queues and self-ordering kiosks moving fast.',
+  'Streamline pickup and delivery orders from preparation to handover.',
+  'Run delivery-first kitchens and multiple virtual brands from one screen.',
+  'Process quick counter orders, custom add-ons, and instant payments.',
+  'Handle custom toppings, modifiers, dine-in tables, and delivery orders.',
+  'Track specialty boxes, weight-based items, and festive pre-orders.',
+  'Manage fast-moving stall orders and centralised food court billing.',
+  'Serve high-volume meal times with rapid digital ordering and billing.',
+  'Simplify daily workplace dining and express counter checkouts.',
+  'Handle scoops, flavours, toppings, and peak-hour counter sales.',
+  'Serve custom beverage orders and quick snacks without counter delays.',
+  'Keep beverage stations, tabs, and kitchen orders synchronised.',
+  'Route diverse menu categories to dedicated kitchen prep stations.'
+];
 
 const dd = (l, h, c) => `<div class="dm ${c||''}">${l.map(x => `<a href="${h}">${ic('m')}${x}</a>`).join('')}</div>`;
 
@@ -3990,66 +4026,83 @@ const dd = (l, h, c) => `<div class="dm ${c||''}">${l.map(x => `<a href="${h}">$
 
 // Quick 4 features
 const B4_DATA = [
-  ['m','MENU MANAGEMENT','Manage your items, prices and availability instantly.','{{ route("features.menu-management") }}'],
-  ['o','LIVE ORDERS','Take and track dine-in, takeaway &amp; online orders.','{{ route("features.order-management") }}'],
-  ['t','TABLE LAYOUT','Know which tables are free, occupied or serving.','{{ route("features.table-management") }}'],
-  ['b','POS &amp; BILLING','Create bills and process cash/UPI payments in seconds.','{{ route("features.pos-management") }}']
+  ['m','MENUS &amp; CATALOGUES','Update items, categories, modifiers, and pricing across your outlets in real time.','{{ route("features.menu-management") }}'],
+  ['o','ORDER FLOW','Handle dine-in, counter, takeaway, QR, and delivery orders from one screen.','{{ route("features.order-management") }}'],
+  ['k','KITCHEN &amp; PREP','Route orders straight to the right kitchen or preparation station with live KOTs.','{{ route("features.kot-management") }}'],
+  ['b','POS &amp; BILLING','Generate accurate bills, split payments, and complete counter checkouts in seconds.','{{ route("features.pos-management") }}']
 ];
 $('b4').innerHTML = B4_DATA.map(([i,t,d,u]) => `<a href="${u}" class="card" style="text-decoration:none;color:inherit;cursor:pointer;">${ic(i)}<h3>${t}</h3><p>${d}</p>${wm(i)}</a>`).join('');
 
 // Core Feature Cards
 const F = [
-  ['m','Menu Management','Add, edit and manage your digital menu anytime.','{{ route("features.menu-management") }}'],
-  ['r','Reservation Management','Manage table bookings without confusion or double booking.','{{ route("features.reservation-management") }}'],
-  ['w','Waiter Requests','Help your waiters handle customer calls and service faster.','{{ route("features.waiter-request") }}'],
-  ['t','Table Management','Manage tables and live order status from one screen.','{{ route("features.table-management") }}'],
-  ['b','POS &amp; Billing','Make counter and table billing quick, accurate and easy.','{{ route("features.pos-management") }}'],
-  ['o','Order Management','Keep dine-in, takeaway and online orders organized.','{{ route("features.order-management") }}'],
-  ['k','KOT Management','Send orders directly to the kitchen without manual slips.','{{ route("features.kot-management") }}'],
-  ['i','Inventory Management','Know what raw materials are available and what needs restocking.','{{ route("features.inventory-management") }}']
+  ['m','Menu Management','Build and update digital menus, item variations, modifiers, and availability in real time.','{{ route("features.menu-management") }}'],
+  ['o','Order Management','Centralise dine-in, takeaway, counter, QR, and delivery orders in one organised workflow.','{{ route("features.order-management") }}'],
+  ['k','Kitchen &amp; KOT Management','Route digital tickets directly to prep stations and track real-time preparation status.','{{ route("features.kot-management") }}'],
+  ['b','POS &amp; Billing','Process fast counter and table checkouts with split billing, tax invoicing, and multiple payment modes.','{{ route("features.pos-management") }}'],
+  ['t','Table Management','Track seating layouts, occupancy, and active table orders at a glance for dine-in spaces.','{{ route("features.table-management") }}'],
+  ['r','Reservation Management','Organise advance bookings, guest schedules, and seating availability without double bookings.','{{ route("features.reservation-management") }}'],
+  ['w','Waiter Requests','Receive instant guest service calls and table requests directly on staff devices.','{{ route("features.waiter-request") }}'],
+  ['i','Inventory Management','Monitor ingredient stock levels, recipe consumption, and low-stock alerts to reduce waste.','{{ route("features.inventory-management") }}'],
+  ['g','Reports &amp; Analytics','Track daily revenue, best-selling items, payment trends, and outlet performance clearly.','{{ route("features.reports") }}']
 ];
-$('fg').innerHTML = `<a href="{{ route('features.pos-management') }}" class="card fc big r">${ic('b')}<h3>POS &amp; Billing</h3><p>Make billing quick and easy with built-in GST and payment options.</p>${POS}${TAB}<span class="ar">Explore POS Features →</span>${wm('b')}</a>` + F.filter(f => f[1] !== 'POS &amp; Billing').map(([i,t,d,u]) => `<a href="${u}" class="card fc r">${ic(i)}<h3>${t}</h3><p>${d}</p><span class="ar">Learn more →</span>${wm(i)}</a>`).join('');
+$('fg').innerHTML = `<a href="{{ route('features.pos-management') }}" class="card fc big r">${ic('b')}<h3>POS &amp; Billing</h3><p>Speed up counter and table checkouts with accurate billing, tax calculation, and flexible payment options.</p>${POS}${TAB}<span class="ar">Explore POS &amp; Billing →</span>${wm('b')}</a>` + F.filter(f => f[1] !== 'POS &amp; Billing').map(([i,t,d,u]) => `<a href="${u}" class="card fc r">${ic(i)}<h3>${t}</h3><p>${d}</p><span class="ar">Learn more →</span>${wm(i)}</a>`).join('');
 
 // Populate Solutions in a SINGLE CONTINUOUS ROW (Loop Mode duplicated for seamless infinite scroll)
 const SOL_ROUTES = [
-  '{{ route("solutions.family-restaurant") }}',
   '{{ route("solutions.dine-in-restaurant") }}',
-  '{{ route("solutions.multi-cuisine-restaurant") }}',
+  '{{ route("solutions.juice-and-snacks") }}',
+  '{{ route("solutions.bakery") }}',
   '{{ route("solutions.qsr-restaurant") }}',
   '{{ route("solutions.takeaway-restaurant") }}',
+  '{{ route("solutions.cloud-kitchen") }}',
+  '{{ route("solutions.juice-and-snacks") }}',
+  '{{ route("solutions.pizzerias") }}',
+  '{{ route("solutions.sweet-shop") }}',
+  '{{ route("solutions.qsr-restaurant") }}',
   '{{ route("solutions.college-canteen") }}',
   '{{ route("solutions.office-canteen") }}',
   '{{ route("solutions.sweet-shop") }}',
-  '{{ route("solutions.bakery") }}',
-  '{{ route("solutions.bakery") }}',
-  '{{ route("solutions.juice-and-snacks") }}',
-  '{{ route("solutions.sweet-shop") }}',
-  '{{ route("solutions.juice-and-snacks") }}',
   '{{ route("solutions.juice-and-snacks") }}',
   '{{ route("solutions.bars-and-breweries") }}',
-  '{{ route("solutions.pizzerias") }}'
+  '{{ route("solutions.multi-cuisine-restaurant") }}'
 ];
 
 const solHtml = SO.map((t, i) => {
   const k = ['m','t','o','b','k','i','r','w'][i%8];
   const url = SOL_ROUTES[i] || '{{ route("features") }}';
-  return `<a href="${url}" class="so-card" style="text-decoration:none;color:inherit;cursor:pointer;"><div class="im" style="background-image:url('${SOL_IMGS[i]}')"></div><div class="so-icon-badge">${ic(k)}</div><div class="so-body"><h3>${t}</h3><p>${BEN[i]}</p><span class="ar">View Solution →</span></div>${wm(k)}</a>`;
+  return `<a href="${url}" class="so-card" style="text-decoration:none;color:inherit;cursor:pointer;"><div class="im" style="background-image:url('${SOL_IMGS[i]}')"></div><div class="so-icon-badge">${ic(k)}</div><div class="so-body"><h3>${t}</h3><p>${BEN[i]}</p><span class="ar">Explore Solution →</span></div>${wm(k)}</a>`;
 }).join('');
 
 // Duplicate 2x for seamless continuous infinite marquee loop
 $('ind').innerHTML = solHtml + solHtml;
 
 // Growth Cards
-$('gr').innerHTML = [['t','ONE BRANCH','Manage your complete daily dining and counter operations.'],['k','MULTIPLE KITCHENS','Keep main kitchen, pantry and bar orders organized.'],['l','MULTIPLE BRANCHES','Manage all your restaurant outlets from one central dashboard.']].map(([i,t,d]) => `<div class="card r">${ic(i)}<h3>${t}</h3><p>${d}</p>${wm(i)}</div>`).join('');
+$('gr').innerHTML = [['t','SINGLE OUTLET','Run your daily counter, takeaway, and dine-in operations smoothly.'],['k','MULTIPLE PREP STATIONS','Route orders across main kitchens, bakeries, and beverage bars.'],['l','MULTI-OUTLET BUSINESSES','Manage all your food outlets from one central dashboard.']].map(([i,t,d]) => `<div class="card r">${ic(i)}<h3>${t}</h3><p>${d}</p>${wm(i)}</div>`).join('');
 
 // Showcase Section
-$('sh').innerHTML = [['POS BILLING SYSTEM', POS],['TABLE MANAGEMENT', TAB],['KITCHEN KOT TRACKER', KOT],['INVENTORY CONTROL', INV],['ORDERING KIOSK', KIO],['GUEST MANAGEMENT', win('CUSTOMER LOYALTY', `<div class="row"><span>Regular Dining Guests</span><b>84</b></div><div class="row"><span>Repeat Visit Rate</span><b>42%</b></div>`)]].map(([n,v]) => `<div>${v}<small>${n}</small></div>`).join('') + `<div class="c2">${REP}<small style="display:block;text-align:center;margin-top:12px;font-weight: 500;color:var(--br)">COMPREHENSIVE ANALYTICS &amp; REPORTS</small></div>`;
+$('sh').innerHTML = [['POS BILLING SYSTEM', POS],['TABLE &amp; FLOOR VIEW', TAB],['KITCHEN KOT TRACKER', KOT],['INVENTORY CONTROL', INV],['SELF-ORDERING KIOSK', KIO],['CUSTOMER INSIGHTS', win('CUSTOMER ENGAGEMENT', `<div class="row"><span>Repeat Customers</span><b>84</b></div><div class="row"><span>Return Order Rate</span><b>42%</b></div>`)]].map(([n,v]) => `<div>${v}<small>${n}</small></div>`).join('') + `<div class="c2">${REP}<small style="display:block;text-align:center;margin-top:12px;font-weight: 500;color:var(--br)">COMPREHENSIVE ANALYTICS &amp; REPORTS</small></div>`;
 
-// Highlights Grid
-$('wg').innerHTML = [['EASY TO USE','Simple screens your staff can understand in 5 minutes without technical training.'],['EVERYTHING IN ONE PLACE','No need to manage separate apps for billing, inventory, QR menu and KOT.'],['FASTER SERVICE','Help your team take orders 2x faster and clear tables quickly.'],['BETTER CONTROL','Real-time visibility into stock usage, sales and staff activity.'],['READY TO GROW','Easily add more kitchen display stations and multi-location outlets.'],['ONE PLATFORM FOR EVERYONE','Connect owners, managers, waiters, kitchen chefs and cashiers smoothly.']].map(([t,d]) => `<div class="r"><h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>${t}</h3><p>${d}</p></div>`).join('');
+// Benefits / Highlights Grid
+$('wg').innerHTML = [
+  ['ORGANISED DAILY OPERATIONS','Keep menus, orders, billing, and stock structured from opening to closing across your food business.'],
+  ['SMOOTHER ORDER HANDLING','Capture and fulfil dine-in, counter, takeaway, and QR orders accurately without bottlenecks.'],
+  ['BETTER TEAM COORDINATION','Connect counter staff, service teams, kitchen crews, and managers on one real-time platform.'],
+  ['CLEAR BUSINESS INSIGHTS','Understand daily sales, popular items, stock usage, and peak hours with actionable reports.'],
+  ['CONNECTED WORKFLOWS','Eliminate disconnected tools by linking your digital menu, POS, kitchen display, and inventory.'],
+  ['BUILT TO SCALE WITH YOU','Start with a single outlet and effortlessly expand to multiple prep stations or new locations.']
+].map(([t,d]) => `<div class="r"><h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>${t}</h3><p>${d}</p></div>`).join('');
 
 // FAQ Accordion
-$('fq').innerHTML = [['What can I manage with Geni Menu?','Your menu, tables, reservations, orders, KOT, billing, inventory, staff, customer loyalty and multi-branch reports.'],['Who can use Geni Menu?','Restaurants, cafés, bakeries, QSRs, canteens, sweet shops, bars, food courts and cloud kitchens.'],['Can I manage multiple branches?','Yes. You can manage all your outlets, prices, and consolidated sales reports from one central dashboard.'],['Can I manage multiple kitchen stations?','Yes. Orders automatically route to specific kitchens (e.g. Pantry, Main Kitchen, Bar) instantly.'],['Can my customers order through a self-ordering kiosk?','Yes. Kiosk ordering is fully supported alongside mobile table QR code and counter POS ordering.'],['Can I manage inventory & stock?','Yes. Track raw ingredients, low-stock alerts, and recipe consumption in real-time.'],['Does Geni Menu support GST billing and POS?','Yes. Generate compliant GST bills, split bills, and accept UPI, Cards, Cash, and Online payments.'],['Can I manage table reservations?','Yes. See real-time free, occupied, and reserved table layouts and take bookings online or at counter.']].map(([q,a]) => `<div class="q"><button>${q}<i>+</i></button><div class="a"><div><p>${a}</p></div></div></div>`).join('');
+$('fq').innerHTML = [
+  ['What types of food businesses can use Geni Menu?','Geni Menu is built for restaurants, cafés, coffee shops, bakeries, cake shops, quick-service restaurants (QSRs), takeaway outlets, cloud kitchens, juice bars, dessert shops, pizzerias, food courts, catering businesses, and multi-outlet food brands.'],
+  ['What daily operations can I manage with Geni Menu?','You can manage digital menus, counter and table orders, POS billing, kitchen order tickets (KOT), table layouts, reservations, waiter requests, ingredient inventory, staff access, and business analytics from one platform.'],
+  ['Does Geni Menu work for takeaway, counter-service, and cloud kitchens?','Yes. You can configure Geni Menu for counter billing, takeaway pickups, self-ordering kiosks, and delivery-first cloud kitchens without needing dine-in table setups.'],
+  ['Can I manage multiple outlets or locations?','Yes. You can oversee menus, pricing, inventory, and consolidated sales reports across multiple food outlets from a single central dashboard.'],
+  ['Can orders be routed to different kitchen or prep stations?','Yes. Orders automatically route to designated preparation areas—such as the hot kitchen, bakery oven, beverage bar, or dessert counter—instantly.'],
+  ['Can customers place orders via QR codes or self-ordering kiosks?','Yes. Customers can scan QR codes to browse and order from their phones or use self-ordering kiosks alongside standard counter and staff POS ordering.'],
+  ['How does inventory management work?','Track raw ingredients, packaging, and prepared items in real time with automated stock deductions and low-stock alerts.'],
+  ['How can I find the right setup for my food business?','Simply send us an enquiry through our contact page. Our team will walk you through the platform and help configure Geni Menu for your specific workflow.']
+].map(([q,a]) => `<div class="q"><button>${q}<i>+</i></button><div class="a"><div><p>${a}</p></div></div></div>`).join('');
 
 document.querySelectorAll('.q button').forEach(b => b.onclick = () => b.parentNode.classList.toggle('o'));
 
