@@ -78,50 +78,97 @@ ul { list-style: none; margin: 0; padding: 0; }
 .w { max-width: 1240px; margin: auto; padding: 0 24px; position: relative; z-index: 1; }
 section { padding: clamp(48px, 6vw, 84px) 0; background: var(--bg); position: relative; overflow: hidden; }
 section.alt { background: var(--bg2); }
+section.hero { overflow: visible; padding-top: 130px !important; }
+
+@media (max-width: 768px) {
+  section.hero { padding-top: 110px !important; }
+}
 
 .hd { max-width: 760px; margin: 0 auto 40px; text-align: center; }
 .hd p { margin-top: 14px; font-size: 17px; }
 
 /* Buttons */
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 28px; border-radius: 12px; font: 700 15px 'Plus Jakarta Sans', sans-serif; border: 1px solid var(--br); transition: .25s ease; cursor: pointer; text-decoration: none; }
-.btn.p { background: linear-gradient(135deg, #876039 0%, #a87646 100%); color: #fff; box-shadow: 0 4px 16px rgba(135,96,57,0.28); }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 13px 26px; border-radius: 12px; font: 700 15px 'Plus Jakarta Sans', sans-serif; border: 1.5px solid var(--br); transition: all .25s ease; cursor: pointer; text-decoration: none; box-sizing: border-box; }
+.btn.p { background: linear-gradient(135deg, #876039 0%, #a87646 100%); color: #fff; box-shadow: 0 4px 16px rgba(135,96,57,0.28); border-color: transparent; }
 .btn.p:hover { transform: translateY(-2px); background: linear-gradient(135deg, #6f4e2d 0%, #876039 100%); box-shadow: 0 8px 24px rgba(135,96,57,0.38); }
-.btn.o { color: var(--br); background: transparent; }
-.btn.o:hover { background: var(--bg2); transform: translateY(-2px); }
+.btn.o { color: var(--br); background: #ffffff; border-color: rgba(135, 96, 57, 0.35); }
+.btn.o:hover { background: #FAF5EF; border-color: var(--br); transform: translateY(-2px); color: var(--br-dark); }
 
-/* Billing Toggle */
-.billing-toggle { display: inline-flex; align-items: center; justify-content: center; background: #fff; border: 1px solid var(--line); border-radius: 99px; padding: 6px; box-shadow: var(--shadow-sm); margin: 0 auto; gap: 4px; }
-.bt-btn { padding: 10px 24px; border-radius: 99px; font-size: 14px; font-weight: 700; color: var(--mute); cursor: pointer; transition: .2s; user-select: none; border: none; background: transparent; }
-.bt-btn.act { background: var(--br); color: #fff; box-shadow: 0 4px 12px rgba(135,96,57,0.2); }
-.bt-save { font-size: 13px; font-weight: 500; color: var(--green); margin-left: 12px; padding: 4px 12px; background: #d1fae5; border-radius: 99px; display: inline-block; vertical-align: middle; }
+[x-cloak] { display: none !important; }
+
+/* Billing Toggle (Tab Bar) */
+.billing-toggle-wrap { display: flex; justify-content: center; align-items: center; margin-top: 32px; }
+.billing-toggle { display: inline-flex; align-items: center; background: #f4efe9; border: 1px solid rgba(135, 96, 57, 0.2); border-radius: 999px; padding: 5px; box-shadow: inset 0 2px 4px rgba(36, 26, 20, 0.05); gap: 4px; }
+.bt-btn { padding: 9px 24px; border-radius: 999px; font-size: 14px; font-weight: 700; color: var(--mute); cursor: pointer; transition: all 0.25s ease; user-select: none; border: none; background: transparent; display: inline-flex; align-items: center; gap: 8px; font-family: 'Plus Jakarta Sans', sans-serif; }
+.bt-btn:hover:not(.act) { color: var(--ink); }
+.bt-btn.act { background: var(--br); color: #fff; box-shadow: 0 4px 14px rgba(135, 96, 57, 0.28); }
+.bt-badge { font-size: 11px; font-weight: 800; letter-spacing: .02em; padding: 3px 9px; border-radius: 999px; transition: all 0.25s ease; display: inline-flex; align-items: center; }
+.bt-btn.act .bt-badge { background: rgba(255, 255, 255, 0.22); color: #ffffff; }
+.bt-btn:not(.act) .bt-badge { background: #d1fae5; color: #065f46; }
+
+/* Billing Trust Strip */
+.billing-trust-strip { display: flex; align-items: center; justify-content: center; gap: 24px; margin-top: 18px; font-size: 13px; color: var(--mute); font-weight: 600; flex-wrap: wrap; }
+.billing-trust-item { display: inline-flex; align-items: center; gap: 6px; }
+.billing-trust-item svg { color: var(--br); flex-shrink: 0; }
 
 /* Main Pricing Cards */
-.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1100px; margin: 0 auto; align-items: start; }
-.pr-card { background: #fff; border: 1px solid var(--line); border-radius: 24px; padding: 32px; display: flex; flex-direction: column; transition: .3s; position: relative; box-shadow: var(--shadow-sm); }
-.pr-card:hover { border-color: var(--br); box-shadow: var(--shadow-md); transform: translateY(-4px); }
-.pr-card.popular { border: 2px solid var(--br); box-shadow: var(--shadow-lg); transform: scale(1.02); }
-.pr-card.popular:hover { transform: scale(1.02) translateY(-4px); }
-.pr-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--br); color: #fff; font-size: 11px; font-weight: 500; padding: 6px 16px; border-radius: 99px; letter-spacing: .05em; box-shadow: 0 4px 10px rgba(135,96,57,0.3); }
-.pr-label { font-size: 13px; font-weight: 500; color: var(--mute); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 8px; }
-.pr-sub { font-size: 18px; font-weight: 500; color: var(--ink); margin-bottom: 12px; }
-.pr-desc { font-size: 14px; color: var(--mute); margin-bottom: 24px; line-height: 1.5; min-height: 42px; }
-.pr-price { font-size: 36px; font-weight: 500; color: var(--ink); margin-bottom: 8px; }
-.pr-price span { font-size: 14px; font-weight: 600; color: var(--mute); }
-.pr-freq { font-size: 13px; color: var(--mute); margin-bottom: 32px; font-weight: 600; }
-.pr-custom-price { font-size: 32px; font-weight: 500; color: var(--ink); margin-bottom: 8px; line-height: 1.2; padding-bottom: 18px; }
-.pr-features { margin-top: 32px; margin-bottom: 32px; flex: 1; }
-.pr-feat-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 14px; font-size: 14px; color: var(--ink); }
-.pr-feat-icon { flex-shrink: 0; color: var(--br); }
+.pricing-sec { padding-top: 20px !important; padding-bottom: 50px !important; overflow: visible !important; }
+.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; max-width: 1160px; margin: 24px auto 0; align-items: stretch; position: relative; }
+.pr-card { background: #ffffff; border: 1.5px solid rgba(135, 96, 57, 0.16); border-radius: 24px; padding: 36px 30px; display: flex; flex-direction: column; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); position: relative; box-shadow: 0 4px 20px rgba(36, 26, 20, 0.04); height: 100%; box-sizing: border-box; }
+.pr-card:hover { border-color: var(--br); box-shadow: 0 16px 36px rgba(135, 96, 57, 0.12); transform: translateY(-5px); }
+.pr-card.popular { border: 2px solid var(--br); background: linear-gradient(180deg, #FDFBF8 0%, #FFFFFF 220px); box-shadow: 0 16px 42px rgba(135, 96, 57, 0.15); }
+.pr-card.popular:hover { box-shadow: 0 24px 52px rgba(135, 96, 57, 0.22); transform: translateY(-6px); }
+
+/* Most Popular Top Bar / Badge */
+.pr-badge { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #876039 0%, #aa7746 100%); color: #ffffff; font-size: 11.5px; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; padding: 6px 20px; border-radius: 999px; box-shadow: 0 6px 18px rgba(135, 96, 57, 0.35); border: 2.5px solid #ffffff; display: inline-flex; align-items: center; gap: 7px; white-space: nowrap; z-index: 20; }
+.pr-badge svg { color: #FDE047; }
+
+.pr-header { margin-bottom: 18px; }
+.pr-tier-pill { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 999px; font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; background: rgba(135, 96, 57, 0.08); color: var(--br); margin-bottom: 12px; font-family: 'Outfit', sans-serif; }
+.pr-tier-pill.popular-tier-pill { background: rgba(135, 96, 57, 0.15); color: #6f4e2d; }
+.pr-sub { font-size: 20px; font-weight: 700; color: var(--ink); margin-bottom: 8px; line-height: 1.25; }
+.pr-desc { font-size: 13.5px; color: var(--mute); line-height: 1.55; min-height: 42px; margin-bottom: 0; }
+
+/* Target / Best for Box */
+.pr-target-box { display: flex; align-items: flex-start; gap: 8px; background: #fbf9f6; border: 1px solid rgba(135, 96, 57, 0.12); border-radius: 12px; padding: 9px 12px; font-size: 12.5px; line-height: 1.45; color: #4A3E36; margin-top: 14px; margin-bottom: 12px; }
+.pr-target-box svg { flex-shrink: 0; color: var(--br); margin-top: 2px; }
+.pr-card.popular .pr-target-box { background: #fdf5ec; border-color: rgba(135, 96, 57, 0.22); color: #372b22; }
+
+/* Spec Line */
+.pr-spec-line { display: flex; align-items: center; gap: 6px; font-size: 11.5px; font-weight: 700; color: var(--mute); margin-bottom: 16px; flex-wrap: wrap; }
+.pr-spec-line span { display: inline-flex; align-items: center; gap: 4px; background: #f5f2ed; padding: 3px 8px; border-radius: 6px; color: #5a4b41; }
+.pr-card.popular .pr-spec-line span { background: #f8ecdd; color: #6f4e2d; }
+
+/* Feature Chips */
+.pr-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; margin-bottom: 20px; }
+.pr-chip { font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: #f4efe9; color: #5c4e43; }
+.pr-chip.p-chip { background: #f5e7d8; color: #6f4e2d; }
+
+.pr-price-box { margin-bottom: 20px; padding-top: 14px; border-top: 1px solid rgba(135, 96, 57, 0.08); }
+.pr-price { font-size: 38px; font-weight: 700; color: var(--ink); line-height: 1.1; margin-bottom: 6px; font-family: 'Outfit', sans-serif; }
+.pr-price span { font-size: 15px; font-weight: 600; color: var(--mute); }
+.pr-custom-price { font-size: 32px; font-weight: 700; color: var(--ink); margin-bottom: 6px; line-height: 1.2; font-family: 'Outfit', sans-serif; }
+.pr-freq { font-size: 13px; color: var(--mute); font-weight: 600; min-height: 22px; display: flex; align-items: center; gap: 6px; }
+.pr-save-tag { background: #d1fae5; color: #065f46; font-weight: 700; padding: 2px 7px; border-radius: 6px; font-size: 12px; }
+
+.pr-features { margin-top: 24px; padding-top: 22px; border-top: 1px dashed rgba(135, 96, 57, 0.16); flex: 1; }
+.pr-feat-title { font-size: 12px; font-weight: 700; color: var(--ink); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 16px; font-family: 'Outfit', sans-serif; }
+.pr-feat-item { display: flex; align-items: flex-start; gap: 11px; margin-bottom: 13px; font-size: 13.5px; color: #372b22; line-height: 1.45; }
+.pr-feat-icon { flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%; background: rgba(135, 96, 57, 0.1); color: var(--br); display: inline-flex; align-items: center; justify-content: center; margin-top: 1px; }
+.pr-card.popular .pr-feat-icon { background: rgba(135, 96, 57, 0.15); color: #6f4e2d; }
+.pr-feat-icon svg { width: 12px; height: 12px; }
 
 /* Positioning Strip */
-.pos-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 60px; max-width: 1100px; margin-left: auto; margin-right: auto; text-align: center; }
-.pos-item h4 { font-size: 18px; margin-bottom: 8px; color: var(--ink); }
-.pos-item p { font-size: 14px; }
+.pos-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-top: 50px; max-width: 1140px; margin-left: auto; margin-right: auto; text-align: center; }
+.pos-item { padding: 18px 20px; background: rgba(135, 96, 57, 0.03); border: 1px dashed rgba(135, 96, 57, 0.14); border-radius: 16px; }
+.pos-item h4 { font-size: 16px; font-weight: 700; margin-bottom: 6px; color: var(--ink); }
+.pos-item p { font-size: 13.5px; color: var(--mute); margin: 0; }
 
 /* Industry Selector */
 .ind-tabs { display: flex; gap: 10px; margin-bottom: 36px; flex-wrap: wrap; justify-content: center; }
-.ind-tab { padding: 10px 20px; border-radius: 99px; font-weight: 700; font-size: 13.5px; cursor: pointer; border: 1px solid var(--line); background: #fff; color: var(--mute); transition: .2s; }
-.ind-tab.act { background: var(--br); color: #fff; border-color: var(--br); box-shadow: 0 4px 12px rgba(135,96,57,0.2); }
+.ind-tab { padding: 10px 22px; border-radius: 999px; font-weight: 700; font-size: 13.5px; cursor: pointer; border: 1px solid var(--line); background: #fff; color: var(--mute); transition: all .2s; }
+.ind-tab:hover:not(.act) { border-color: var(--br); color: var(--ink); background: #FAF5EF; }
+.ind-tab.act { background: var(--br); color: #fff; border-color: var(--br); box-shadow: 0 4px 14px rgba(135,96,57,0.25); }
 
 /* Compact Cards */
 .c-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
@@ -178,11 +225,11 @@ section.alt { background: var(--bg2); }
 
 @media (max-width: 640px) {
   .w { padding: 0 16px; }
-  .pr-card { padding: 24px 18px; border-radius: 18px; }
-  .pr-price { font-size: 30px; }
-  .billing-toggle { width: 100%; max-width: 320px; }
-  .bt-btn { flex: 1; padding: 8px 16px; font-size: 13px; }
-  .bt-save { display: block; margin: 8px auto 0; text-align: center; }
+  .pr-card { padding: 28px 20px; border-radius: 20px; }
+  .pr-price { font-size: 32px; }
+  .billing-toggle { width: 100%; max-width: 340px; }
+  .bt-btn { flex: 1; padding: 8px 14px; font-size: 13px; justify-content: center; gap: 6px; }
+  .bt-badge { font-size: 10px; padding: 2px 6px; }
   .ind-tabs { gap: 8px; }
   .ind-tab { padding: 8px 14px; font-size: 12.5px; }
   .faq-item { padding: 16px 18px; }
@@ -193,112 +240,187 @@ section.alt { background: var(--bg2); }
 <div x-data="pricing()">
     
     {{-- 3. HERO SECTION --}}
-    <section class="hero" style="padding-top:40px; padding-bottom:30px;">
+    <section class="hero" style="padding-top:130px; padding-bottom:10px; overflow:visible;">
         <div class="w hd">
             <div class="eb">Geni Menu Pricing</div>
             <h1>Plans That Grow With Your Business</h1>
             <p>Choose the right Geni Menu plan for your business — from essential daily operations to advanced multi-branch management.</p>
             
-            <div style="margin-top:30px;">
+            <div class="billing-toggle-wrap">
                 <div class="billing-toggle">
-                    <button class="bt-btn" :class="billing === 'monthly' ? 'act' : ''" @click="billing = 'monthly'">Monthly</button>
-                    <button class="bt-btn" :class="billing === 'yearly' ? 'act' : ''" @click="billing = 'yearly'">Yearly</button>
+                    <button type="button" class="bt-btn" :class="billing === 'monthly' ? 'act' : ''" @click="billing = 'monthly'">
+                        <span>Monthly</span>
+                    </button>
+                    <button type="button" class="bt-btn" :class="billing === 'yearly' ? 'act' : ''" @click="billing = 'yearly'">
+                        <span>Yearly</span>
+                        <span class="bt-badge">Save 20%</span>
+                    </button>
                 </div>
-                <div x-show="billing === 'yearly'" class="bt-save" x-transition>Save with yearly billing</div>
+            </div>
+
+            <div class="billing-trust-strip">
+                <span class="billing-trust-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> 14-Day Free Trial</span>
+                <span class="billing-trust-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></polyline></svg> No Setup Fees</span>
+                <span class="billing-trust-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></polyline></svg> Cancel Anytime</span>
             </div>
         </div>
     </section>
 
     {{-- 4. MAIN PRICING CARDS & 5. POSITIONING STRIP --}}
-    <section style="padding-top:0;">
+    <section class="pricing-sec">
         <div class="w">
             <div class="pricing-grid">
                 
                 {{-- STANDARD --}}
                 <div class="pr-card">
-                    <div class="pr-label">STANDARD</div>
-                    <div class="pr-sub">Essential Operations</div>
-                    <div class="pr-desc">For small restaurants and food businesses that need the essentials to manage daily sales and operations.</div>
-                    
-                    <div>
-                        <div class="pr-price">₹799 <span>/ mo</span></div>
-                        <div class="pr-freq">Starting price • Yearly plans available</div>
+                    <div class="pr-header">
+                        <span class="pr-tier-pill">Starter Tier</span>
+                        <div class="pr-sub">Essential Operations</div>
+                        <div class="pr-desc">Core setup to run fast POS counter billing, QR menu, and everyday sales operations smoothly.</div>
+                        
+                        <div class="pr-target-box">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                            <div><strong>Best for:</strong> Cafes, QSR, Takeaway & Small Outlets</div>
+                        </div>
+
+                        <div class="pr-spec-line">
+                            <span>⚡ 1 Counter POS</span>
+                            <span>👥 Up to 5 Staff</span>
+                            <span>🧾 Unlimited Orders</span>
+                        </div>
+
+                        <div class="pr-chips">
+                            <span class="pr-chip">POS Billing</span>
+                            <span class="pr-chip">Digital Menu QR</span>
+                            <span class="pr-chip">Sales Reports</span>
+                        </div>
                     </div>
                     
-                    <a href="{{ route('restaurant_signup', ['plan' => 'standard']) }}" class="btn o" style="width:100%;">Get Started &rarr;</a>
+                    <div class="pr-price-box">
+                        <div class="pr-price" x-show="billing === 'monthly'">₹799 <span>/ mo</span></div>
+                        <div class="pr-price" x-show="billing === 'yearly'" x-cloak>₹639 <span>/ mo</span></div>
+                        <div class="pr-freq" x-show="billing === 'monthly'">Billed monthly • Cancel anytime</div>
+                        <div class="pr-freq" x-show="billing === 'yearly'" x-cloak><span class="pr-save-tag">₹7,668 / yr</span> • Save ₹1,920</div>
+                    </div>
+                    
+                    <a href="{{ route('restaurant_signup', ['plan' => 'standard']) }}" class="btn o" style="width:100%;">Get Started Free &rarr;</a>
                     
                     <div class="pr-features">
-                        <div style="font-size:13px; font-weight: 500; color:var(--ink); margin-bottom:16px;">INCLUDED</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Menu Management</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Menu Categories</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Product Management</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Order Management</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>POS / Billing</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Payment Management</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Basic Customer Management</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Basic Reports</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Product Availability</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Basic Settings</div>
+                        <div class="pr-feat-title">WHAT'S INCLUDED</div>
+                        <div class="pr-feat-item"><span class="pr-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span>Menu Management</div>
+                        <div class="pr-feat-item"><span class="pr-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span>Menu Categories</div>
+                        <div class="pr-feat-item"><span class="pr-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span>Product Management</div>
+                        <div class="pr-feat-item"><span class="pr-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span>Order Management</div>
+                        <div class="pr-feat-item"><span class="pr-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span>POS / Billing</div>
+                        <div class="pr-feat-item"><span class="pr-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span>Payment Management</div>
+                        <div class="pr-feat-item"><span class="pr-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span>Basic Customer Management</div>
+                        <div class="pr-feat-item"><span class="pr-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span>Basic Reports</div>
+                        <div class="pr-feat-item"><span class="pr-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span>Product Availability</div>
+                        <div class="pr-feat-item"><span class="pr-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span>Basic Settings</div>
                     </div>
                 </div>
 
                 {{-- PREMIUM --}}
                 <div class="pr-card popular">
-                    <div class="pr-badge">MOST POPULAR</div>
-                    <div class="pr-label">PREMIUM</div>
-                    <div class="pr-sub">Complete Business Management</div>
-                    <div class="pr-desc">For growing restaurants and food businesses that need connected kitchen, inventory, customer and operational management.</div>
-                    
-                    <div>
-                        <div class="pr-price">₹1,999 <span>/ mo</span></div>
-                        <div class="pr-freq">Starting price • Yearly plans available</div>
+                    <div class="pr-badge">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7-6.3-4.6-6.3 4.6 2.3-7-6-4.6h7.6z"/></svg>
+                        <span>MOST POPULAR CHOICE</span>
+                    </div>
+                    <div class="pr-header">
+                        <span class="pr-tier-pill popular-tier-pill">Growth & Kitchen Operations</span>
+                        <div class="pr-sub">Complete Business Management</div>
+                        <div class="pr-desc">End-to-end automation connecting kitchen displays, table layout, live stock inventory, and customer orders.</div>
+                        
+                        <div class="pr-target-box">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                            <div><strong>Best for:</strong> Dine-in Restaurants, Bars & Busy Cloud Kitchens</div>
+                        </div>
+
+                        <div class="pr-spec-line">
+                            <span>🍳 Kitchen + Tables</span>
+                            <span>👥 Unlimited Staff</span>
+                            <span>📦 Live Stock Alerts</span>
+                        </div>
+
+                        <div class="pr-chips">
+                            <span class="pr-chip p-chip">Live KOT Screen</span>
+                            <span class="pr-chip p-chip">Table Layout</span>
+                            <span class="pr-chip p-chip">Inventory</span>
+                            <span class="pr-chip p-chip">Online Gateway</span>
+                        </div>
                     </div>
                     
-                    <a href="{{ route('restaurant_signup', ['plan' => 'premium']) }}" class="btn p" style="width:100%;">Start Premium &rarr;</a>
+                    <div class="pr-price-box">
+                        <div class="pr-price" x-show="billing === 'monthly'">₹1,999 <span>/ mo</span></div>
+                        <div class="pr-price" x-show="billing === 'yearly'" x-cloak>₹1,599 <span>/ mo</span></div>
+                        <div class="pr-freq" x-show="billing === 'monthly'">Billed monthly • Cancel anytime</div>
+                        <div class="pr-freq" x-show="billing === 'yearly'" x-cloak><span class="pr-save-tag">₹19,188 / yr</span> • Save ₹4,800</div>
+                    </div>
+                    
+                    <a href="{{ route('restaurant_signup', ['plan' => 'premium']) }}" class="btn p" style="width:100%;">Start Premium Free &rarr;</a>
                     
                     <div class="pr-features">
-                        <div style="font-size:13px; font-weight: 500; color:var(--ink); margin-bottom:16px;">EVERYTHING IN STANDARD, PLUS:</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Kitchen Management</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>KOT Management</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Table Management</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Reservation Management</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Customer & Staff Management</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Inventory & Stock Management</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Expense Management</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Advanced & Export Reports</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Payment Gateway Integration</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Waiter Requests</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Delivery Executive Management</div>
+                        <div class="pr-feat-title">EVERYTHING IN STANDARD, PLUS:</div>
+                        <div class="pr-feat-item"><span class="pr-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span>Kitchen Management</div>
+                        <div class="pr-feat-item"><span class="pr-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span>KOT Management</div>
+                        <div class="pr-feat-item"><span class="pr-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span>Table Management</div>
+                        <div class="pr-feat-item"><span class="pr-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span>Reservation Management</div>
+                        <div class="pr-feat-item"><span class="pr-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span>Customer & Staff Management</div>
+                        <div class="pr-feat-item"><span class="pr-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span>Inventory & Stock Management</div>
+                        <div class="pr-feat-item"><span class="pr-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span>Expense Management</div>
+                        <div class="pr-feat-item"><span class="pr-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span>Advanced & Export Reports</div>
+                        <div class="pr-feat-item"><span class="pr-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span>Payment Gateway Integration</div>
+                        <div class="pr-feat-item"><span class="pr-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span>Waiter Requests</div>
+                        <div class="pr-feat-item"><span class="pr-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span>Delivery Executive Management</div>
                     </div>
                 </div>
 
                 {{-- ENTERPRISE --}}
                 <div class="pr-card">
-                    <div class="pr-label">ENTERPRISE</div>
-                    <div class="pr-sub">Advanced & Multi-Branch Operations</div>
-                    <div class="pr-desc">For established businesses, restaurant chains and growing businesses managing multiple locations.</div>
-                    
-                    <div>
-                        <div class="pr-custom-price">Custom Pricing</div>
-                        <div class="pr-freq" style="margin-bottom:12px;">Built around your business requirements</div>
+                    <div class="pr-header">
+                        <span class="pr-tier-pill">Enterprise Tier</span>
+                        <div class="pr-sub">Advanced & Multi-Branch Operations</div>
+                        <div class="pr-desc">Centralized multi-location control, unified brand reporting, franchise rights, and custom POS workflows.</div>
+                        
+                        <div class="pr-target-box">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                            <div><strong>Best for:</strong> Restaurant Chains, Franchises & Multi-Outlets</div>
+                        </div>
+
+                        <div class="pr-spec-line">
+                            <span>🌐 Multi-Branch Sync</span>
+                            <span>📱 Self-Order Kiosks</span>
+                            <span>🔒 Custom Roles</span>
+                        </div>
+
+                        <div class="pr-chips">
+                            <span class="pr-chip">Central Menu</span>
+                            <span class="pr-chip">Chain Analytics</span>
+                            <span class="pr-chip">Dedicated Manager</span>
+                        </div>
                     </div>
                     
-                    <a href="{{ route('contact.us') }}" class="btn o" style="width:100%;">Talk to Sales →</a>
+                    <div class="pr-price-box">
+                        <div class="pr-custom-price">Custom Pricing</div>
+                        <div class="pr-freq">Tailored to your branch network & hardware</div>
+                    </div>
+                    
+                    <a href="{{ route('contact.us') }}" class="btn o" style="width:100%;">Talk to Sales &rarr;</a>
                     
                     <div class="pr-features">
-                        <div style="font-size:13px; font-weight: 500; color:var(--ink); margin-bottom:16px;">EVERYTHING IN PREMIUM, PLUS:</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Multi-Branch Management</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Branch-Wise Operations</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Centralized Management</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Advanced Analytics</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Branch-Wise Reports</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Kiosk Management</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Advanced User & Staff Controls</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Theme Customization</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Enterprise Reporting</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Extended Payment Integrations</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Multi-Location Inventory</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Dedicated Business Setup / Support where applicable</div>
+                        <div class="pr-feat-title">EVERYTHING IN PREMIUM, PLUS:</div>
+                        <div class="pr-feat-item"><span class="pr-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span>Multi-Branch Management</div>
+                        <div class="pr-feat-item"><span class="pr-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span>Branch-Wise Operations</div>
+                        <div class="pr-feat-item"><span class="pr-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span>Centralized Management</div>
+                        <div class="pr-feat-item"><span class="pr-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span>Advanced Analytics</div>
+                        <div class="pr-feat-item"><span class="pr-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span>Branch-Wise Reports</div>
+                        <div class="pr-feat-item"><span class="pr-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span>Kiosk Management</div>
+                        <div class="pr-feat-item"><span class="pr-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span>Advanced User & Staff Controls</div>
+                        <div class="pr-feat-item"><span class="pr-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span>Theme Customization</div>
+                        <div class="pr-feat-item"><span class="pr-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span>Enterprise Reporting</div>
+                        <div class="pr-feat-item"><span class="pr-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span>Extended Payment Integrations</div>
+                        <div class="pr-feat-item"><span class="pr-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span>Multi-Location Inventory</div>
+                        <div class="pr-feat-item"><span class="pr-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span>Dedicated Account Setup & Support</div>
                     </div>
                 </div>
 

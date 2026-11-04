@@ -1,4 +1,4 @@
-@extends('layouts.frontend-master')
+﻿@extends('layouts.frontend-master')
 
 @section('content')
 
@@ -6,6 +6,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,600;1,700&display=swap" rel="stylesheet">
+{{-- Bootstrap Icons --}}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
 <style>
 :root {
@@ -108,6 +110,14 @@ section.alt { background: var(--bg2); }
 .badge.occupied { background: #fee2e2; color: #b91c1c; }
 .badge.reserved { background: #ffedd5; color: #c2410c; }
 .badge.available { background: #d1fae5; color: #047857; }
+
+/* Bootstrap Icons sizing */
+.bi { font-size: inherit; line-height: 1; vertical-align: middle; }
+.ic .bi { font-size: 26px; color: var(--br); }
+.sm-icon .bi { font-size: 32px; color: var(--br); }
+.wf-node .bi { font-size: 22px; display: block; margin-bottom: 4px; }
+.ot-step .bi { font-size: 16px; }
+.eb .bi { font-size: 14px; }
 
 /* ---------------- BREADCRUMB ---------------- */
 .bc { padding: 18px 0 16px; background: var(--bg); border-bottom: 1px solid var(--line); font-size: 14px; color: var(--mute); font-weight: 600; }
@@ -316,7 +326,7 @@ section.alt { background: var(--bg2); }
   <div class="w hero-grid">
     <div class="hero-ctx">
       <div class="eb">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M12 2v20"/><path d="M2 12h20"/><path d="M4.93 4.93l14.14 14.14"/><path d="M19.07 4.93L4.93 19.07"/></svg>
+        <i class="bi bi-shop"></i>
         PIZZERIA & SPECIALTY FOOD SOLUTION
       </div>
       <h1>Your Specialty Menu. <span class="sf">Your Orders.</span> Your Business.</h1>
@@ -330,7 +340,7 @@ section.alt { background: var(--bg2); }
     <div class="hero-ui">
       <div class="hero-ui-hdr">
         <div class="hero-ui-hdr-title">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--br)" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+          <i class="bi bi-display" style="font-size:16px; color:var(--br);"></i>
           Geni Menu — Shop Dashboard
         </div>
         <span class="badge ready">Live</span>
@@ -376,47 +386,47 @@ section.alt { background: var(--bg2); }
 
     <div class="eco-grid">
       <div class="eco-card">
-        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+        <div class="ic"><i class="bi bi-grid-3x3-gap-fill"></i></div>
         <h3>Product & Menu</h3>
         <p>Organize your signature products, categories, prices and availability.</p>
       </div>
       <div class="eco-card">
-        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/></svg></div>
+        <div class="ic"><i class="bi bi-menu-button-wide-fill"></i></div>
         <h3>Digital Menu</h3>
         <p>Present products with images, descriptions, pricing and options.</p>
       </div>
       <div class="eco-card">
-        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+        <div class="ic"><i class="bi bi-receipt-cutoff"></i></div>
         <h3>Order Management</h3>
         <p>Track orders from creation to preparation, pickup or service.</p>
       </div>
       <div class="eco-card">
-        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <div class="ic"><i class="bi bi-cash-coin"></i></div>
         <h3>POS & Billing</h3>
         <p>Process counter, dine-in and supported takeaway transactions.</p>
       </div>
       <div class="eco-card">
-        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+        <div class="ic"><i class="bi bi-list-check"></i></div>
         <h3>KOT Management</h3>
         <p>Connect orders with kitchen preparation where supported.</p>
       </div>
       <div class="eco-card">
-        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+        <div class="ic"><i class="bi bi-table"></i></div>
         <h3>Table Management</h3>
         <p>Manage table availability and dining service where applicable.</p>
       </div>
       <div class="eco-card">
-        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+        <div class="ic"><i class="bi bi-people-fill"></i></div>
         <h3>Customers</h3>
         <p>Maintain customer details and order history.</p>
       </div>
       <div class="eco-card">
-        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
+        <div class="ic"><i class="bi bi-box-seam-fill"></i></div>
         <h3>Inventory</h3>
         <p>Track ingredients, supplies and stock movement.</p>
       </div>
       <div class="eco-card">
-        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+        <div class="ic"><i class="bi bi-bar-chart-fill"></i></div>
         <h3>Reports</h3>
         <p>Understand sales, orders, product performance and business activity.</p>
       </div>
@@ -603,9 +613,9 @@ section.alt { background: var(--bg2); }
           </ul>
           
           <div class="ot-flow">
-            <div class="ot-step done"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg> New</div>
-            <div class="ot-step done"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg> KOT</div>
-            <div class="ot-step"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> Ready</div>
+            <div class="ot-step done"><i class="bi bi-file-text-fill"></i> New</div>
+            <div class="ot-step done"><i class="bi bi-check-square-fill"></i> KOT</div>
+            <div class="ot-step"><i class="bi bi-check-circle-fill"></i> Ready</div>
           </div>
         </div>
       </div>
@@ -670,17 +680,17 @@ section.alt { background: var(--bg2); }
 
     <div class="sm-grid">
       <div class="sm-card">
-        <div class="sm-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <div class="sm-icon"><i class="bi bi-cup-hot-fill"></i></div>
         <h3 style="margin-bottom:8px;">Dine-In</h3>
         <p style="font-size:14px;">Connect tables, orders and billing for seated guests.</p>
       </div>
       <div class="sm-card">
-        <div class="sm-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
+        <div class="sm-icon"><i class="bi bi-bag-fill"></i></div>
         <h3 style="margin-bottom:8px;">Takeaway</h3>
         <p style="font-size:14px;">Keep takeaway orders organized from creation to pickup.</p>
       </div>
       <div class="sm-card">
-        <div class="sm-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div class="sm-icon"><i class="bi bi-bicycle"></i></div>
         <h3 style="margin-bottom:8px;">Pickup</h3>
         <p style="font-size:14px;">Track orders until they are ready for customer collection.</p>
       </div>
@@ -836,23 +846,23 @@ section.alt { background: var(--bg2); }
     </div>
 
     <div class="workflow-grid">
-      <div class="wf-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg> Menu</div>
+      <div class="wf-node"><i class="bi bi-menu-button-wide-fill"></i> Menu</div>
       <div class="wf-arrow">→</div>
-      <div class="wf-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Customer</div>
+      <div class="wf-node"><i class="bi bi-person-fill"></i> Customer</div>
       <div class="wf-arrow">→</div>
-      <div class="wf-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg> Order</div>
+      <div class="wf-node"><i class="bi bi-receipt-cutoff"></i> Order</div>
       <div class="wf-arrow">→</div>
-      <div class="wf-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg> KOT</div>
+      <div class="wf-node"><i class="bi bi-list-check"></i> KOT</div>
       <div class="wf-arrow">→</div>
-      <div class="wf-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M12 6v6l4 2"/></svg> Kitchen</div>
+      <div class="wf-node"><i class="bi bi-fire"></i> Kitchen</div>
       <div class="wf-arrow">→</div>
-      <div class="wf-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> Ready</div>
+      <div class="wf-node"><i class="bi bi-check-circle-fill"></i> Ready</div>
       <div class="wf-arrow">→</div>
-      <div class="wf-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> Billing</div>
+      <div class="wf-node"><i class="bi bi-cash-coin"></i> Billing</div>
       <div class="wf-arrow">→</div>
-      <div class="wf-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg> Payment</div>
+      <div class="wf-node"><i class="bi bi-credit-card-2-front-fill"></i> Payment</div>
       <div class="wf-arrow">→</div>
-      <div class="wf-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5l10 -10"/></svg> Pickup / Serve</div>
+      <div class="wf-node"><i class="bi bi-bag-check-fill"></i> Pickup / Serve</div>
     </div>
   </div>
 </section>

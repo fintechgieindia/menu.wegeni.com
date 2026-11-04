@@ -777,44 +777,9 @@
           <a href="{{ route('pricing') }}" class="nav-menu-link">Pricing</a>
         </li>
 
-        <!-- 4. Resources ⌵ -->
+        <!-- 4. Contact -->
         <li class="nav-menu-item">
-          <button type="button" class="nav-menu-btn" aria-haspopup="true">
-            <span>Resources</span>
-            <svg class="chevron-icon" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M1 1L5 5L9 1"/>
-            </svg>
-          </button>
-          <div class="nav-dropdown dropdown-simple">
-            <a href="{{ route('how-it-works') }}" class="dropdown-link-item">
-              <span class="item-icon"><svg viewBox="0 0 24 24"><circle cx="6" cy="12" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="M9 10.5l6-3M9 13.5l6 3"/></svg></span>
-              <div>
-                <span class="item-title">How It Works</span>
-                <span class="item-sub">Complete 7-step operational loop</span>
-              </div>
-            </a>
-            <a href="{{ route('faq-help') }}" class="dropdown-link-item">
-              <span class="item-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
-              <div>
-                <span class="item-title">FAQ & Help</span>
-                <span class="item-sub">Setup, printers & hardware guides</span>
-              </div>
-            </a>
-            <a href="{{ route('contact.us') }}" class="dropdown-link-item">
-              <span class="item-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
-              <div>
-                <span class="item-title">Contact Support</span>
-                <span class="item-sub">Get help from restaurant specialists</span>
-              </div>
-            </a>
-            <a href="{{ route('terms-and-conditions') }}" class="dropdown-link-item">
-              <span class="item-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></span>
-              <div>
-                <span class="item-title">Terms & Privacy</span>
-                <span class="item-sub">Cloud security & SLA policies</span>
-              </div>
-            </a>
-          </div>
+          <a href="{{ route('contact.us') }}" class="nav-menu-link {{ request()->routeIs('contact.us') ? 'nav-active' : '' }}">Contact</a>
         </li>
 
         <!-- 5. Solutions ⌵ -->
@@ -839,13 +804,6 @@
                 <div>
                   <div class="card-title">Dine-in Restaurant</div>
                   <div class="card-desc">Table service, digital menu, KOT & billing</div>
-                </div>
-              </a>
-              <a href="{{ route('solutions.dine-in-restaurant') }}" class="dropdown-card">
-                <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 002-2V2M7 2v20M21 15V2s-5 2-5 7 5 7 5 7v-1z"/></svg></div>
-                <div>
-                  <div class="card-title">Fine Dining</div>
-                  <div class="card-desc">Table ordering & steward mobility</div>
                 </div>
               </a>
               <a href="{{ route('solutions.multi-cuisine-restaurant') }}" class="dropdown-card">
@@ -916,20 +874,6 @@
                 <div>
                   <div class="card-title">Pizzerias & Specialty Food</div>
                   <div class="card-desc">Focused menus & fast service</div>
-                </div>
-              </a>
-              <a href="{{ url('/#multibranch') }}" class="dropdown-card">
-                <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
-                <div>
-                  <div class="card-title">Multi-Branch Chains</div>
-                  <div class="card-desc">Central recipe, stock & HQ reports</div>
-                </div>
-              </a>
-              <a href="{{ url('/#audience') }}" class="dropdown-card">
-                <div class="card-icon"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
-                <div>
-                  <div class="card-title">Cloud Kitchens</div>
-                  <div class="card-desc">Multi-brand aggregation & dispatch</div>
                 </div>
               </a>
             </div>
@@ -1013,17 +957,11 @@
         </a>
       </li>
 
-      <li class="mobile-list-item" id="mobItemResources">
-        <button type="button" class="mobile-accordion-btn" onclick="toggleMobSubmenu('mobItemResources')">
-          <span>Resources</span>
-          <svg class="mobile-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-        </button>
-        <div class="mobile-sub-menu">
-          <a href="{{ route('how-it-works') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><circle cx="6" cy="12" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="M9 10.5l6-3M9 13.5l6 3"/></svg> How It Works</a>
-          <a href="{{ route('faq-help') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg> FAQ & Help</a>
-          <a href="{{ route('contact.us') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Contact Support</a>
-          <a href="{{ route('terms-and-conditions') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg> Terms & Policies</a>
-        </div>
+      <li class="mobile-list-item">
+        <a href="{{ route('contact.us') }}" class="mobile-direct-link {{ request()->routeIs('contact.us') ? 'nav-active' : '' }}" onclick="closeGeniMobile()">
+          <span>Contact</span>
+          <span style="font-size: 13px; color: #9C6F3E;">&rarr;</span>
+        </a>
       </li>
 
       <li class="mobile-list-item" id="mobItemSolutions">

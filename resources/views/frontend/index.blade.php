@@ -2689,7 +2689,8 @@ section.alt .faq .q {
 
 .pr-card.popular {
   border: 2px solid #876039;
-  box-shadow: 0 16px 40px rgba(135, 96, 57, 0.14);
+  background: linear-gradient(180deg, #FDFBF8 0%, #FFFFFF 220px);
+  box-shadow: 0 16px 42px rgba(135, 96, 57, 0.16);
 }
 
 .pr-badge {
@@ -2697,15 +2698,24 @@ section.alt .faq .q {
   top: -14px;
   left: 50%;
   transform: translateX(-50%);
-  background: #876039;
+  background: linear-gradient(135deg, #876039 0%, #aa7746 100%);
   color: #FFFFFF;
-  font-size: 11px;
-  font-weight: 500;
-  padding: 6px 16px;
+  font-size: 11.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 6px 18px;
   border-radius: 99px;
   letter-spacing: .08em;
-  box-shadow: 0 4px 12px rgba(135, 96, 57, 0.35);
+  box-shadow: 0 4px 14px rgba(135, 96, 57, 0.35);
+  border: 2px solid #ffffff;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   white-space: nowrap;
+  z-index: 10;
+}
+.pr-badge svg {
+  color: #FDE047;
 }
 
 .pr-label {
@@ -3820,7 +3830,10 @@ footer li a:hover { color: var(--br); }
 
       <!-- PREMIUM (MOST POPULAR) -->
       <div class="pr-card popular">
-        <div class="pr-badge">MOST POPULAR</div>
+        <div class="pr-badge">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7-6.3-4.6-6.3 4.6 2.3-7-6-4.6h7.6z"/></svg>
+          <span>MOST POPULAR</span>
+        </div>
         <div class="pr-label">PREMIUM</div>
         <div class="pr-sub">Complete Business Management</div>
         <div class="pr-desc">For growing restaurants and food businesses that need connected kitchen, inventory, customer and operational management.</div>

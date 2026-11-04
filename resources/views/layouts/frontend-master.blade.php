@@ -497,14 +497,86 @@
                         <input type="text" name="restaurant_name" required placeholder="Geni's Cafe">
                     </div>
                     <div class="form-group">
+                        <label>State *</label>
+                        <select name="state" required onchange="updateCities(this.value)" style="width:100%; padding:10px 14px; border:1.5px solid #e0d6cc; border-radius:8px; font-size:15px; color:#333; background:#fff; appearance:auto;">
+                            <option value="">-- Select State --</option>
+                            <option value="Tamil Nadu">Tamil Nadu</option>
+                            <option value="Karnataka">Karnataka</option>
+                            <option value="Kerala">Kerala</option>
+                            <option value="Andhra Pradesh">Andhra Pradesh</option>
+                            <option value="Telangana">Telangana</option>
+                            <option value="Maharashtra">Maharashtra</option>
+                            <option value="Delhi">Delhi</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label>City *</label>
-                        <input type="text" name="city" required placeholder="New York">
+                        <select name="city" id="cityDropdown" required style="width:100%; padding:10px 14px; border:1.5px solid #e0d6cc; border-radius:8px; font-size:15px; color:#333; background:#fff; appearance:auto;">
+                            <option value="">-- Select City --</option>
+                        </select>
                     </div>
                     <button type="submit" class="submit-btn">Submit Request</button>
                 </form>
             </div>
         </div>
     </div>
+
+    <script>
+        const cityData = {
+            "Tamil Nadu": [
+                "Chennai", "Coimbatore", "Madurai", "Tiruchirappalli", "Salem",
+                "Tirunelveli", "Vellore", "Erode", "Thoothukudi", "Tiruppur",
+                "Dindigul", "Thanjavur", "Ranipet", "Sivakasi", "Karur",
+                "Udhagamandalam (Ooty)", "Hosur", "Nagercoil", "Kanchipuram",
+                "Kumarapalayam", "Karaikkudi", "Neyveli", "Cuddalore",
+                "Kumbakonam", "Tiruvannamalai", "Pollachi", "Rajapalayam",
+                "Gudiyatham", "Pudukkottai", "Vaniyambadi", "Ambur",
+                "Nagapattinam", "Villupuram", "Virudhunagar", "Namakkal",
+                "Tirupur", "Krishnagiri", "Dharmapuri", "Perambalur",
+                "Ariyalur", "Kallakurichi", "Chengalpattu", "Tenkasi",
+                "Mayiladuthurai", "Ranipet"
+            ],
+            "Karnataka": [
+                "Bengaluru", "Mysuru", "Mangaluru", "Hubballi", "Belagavi",
+                "Kalaburagi", "Ballari", "Vijayapura", "Shivamogga", "Tumakuru"
+            ],
+            "Kerala": [
+                "Thiruvananthapuram", "Kochi", "Kozhikode", "Thrissur", "Kollam",
+                "Palakkad", "Alappuzha", "Malappuram", "Kannur", "Kottayam"
+            ],
+            "Andhra Pradesh": [
+                "Visakhapatnam", "Vijayawada", "Guntur", "Nellore", "Kurnool",
+                "Tirupati", "Rajahmundry", "Kakinada", "Kadapa", "Anantapur"
+            ],
+            "Telangana": [
+                "Hyderabad", "Warangal", "Nizamabad", "Khammam", "Karimnagar",
+                "Ramagundam", "Mahabubnagar", "Nalgonda", "Adilabad", "Suryapet"
+            ],
+            "Maharashtra": [
+                "Mumbai", "Pune", "Nagpur", "Nashik", "Aurangabad",
+                "Solapur", "Amravati", "Kolhapur", "Thane", "Navi Mumbai"
+            ],
+            "Delhi": [
+                "New Delhi", "Dwarka", "Rohini", "Janakpuri", "Laxmi Nagar",
+                "Saket", "Karol Bagh", "Connaught Place", "Pitampura", "Shahdara"
+            ],
+            "Other": ["Other City"]
+        };
+
+        function updateCities(state) {
+            const cityDropdown = document.getElementById('cityDropdown');
+            cityDropdown.innerHTML = '<option value="">-- Select City --</option>';
+            if (state && cityData[state]) {
+                cityData[state].forEach(function(city) {
+                    const option = document.createElement('option');
+                    option.value = city;
+                    option.textContent = city;
+                    cityDropdown.appendChild(option);
+                });
+            }
+        }
+    </script>
 
     <style>
         /* Floating Button */
@@ -517,7 +589,7 @@
             border: none;
             padding: 14px 24px;
             border-radius: 50px;
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: var(--font-body);
             font-weight: 600;
             font-size: 15px;
             box-shadow: 0 4px 15px rgba(135, 96, 57, 0.4);
@@ -582,7 +654,7 @@
             transform: scale(0.95);
             transition: transform 0.3s ease;
             box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-            font-family: 'Inter', sans-serif;
+            font-family: var(--font-body);
             overflow: hidden;
         }
         .popup-modal-content.popup-with-image {
@@ -619,7 +691,7 @@
                 margin-bottom: 20px;
             }
             .popup-brand h4 {
-                font-family: 'Plus Jakarta Sans', sans-serif;
+                font-family: var(--font-body);
                 font-size: 22px;
                 font-weight: 700;
                 margin: 0 0 20px;
@@ -704,7 +776,7 @@
             text-align: left;
         }
         .popup-header h3 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: var(--font-body);
             font-size: 22px;
             font-weight: 700;
             color: #1a1a1a;
@@ -735,7 +807,7 @@
             border-radius: 8px;
             font-size: 14px;
             transition: border-color 0.2s, box-shadow 0.2s;
-            font-family: 'Inter', sans-serif;
+            font-family: var(--font-body);
             background: #fdfdfd;
         }
         .popup-form input:focus {
@@ -755,7 +827,7 @@
             border-radius: 8px;
             font-size: 16px;
             font-weight: 600;
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: var(--font-body);
             cursor: pointer;
             margin-top: 10px;
             transition: background 0.2s, transform 0.1s;

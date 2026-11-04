@@ -12,7 +12,7 @@
 {{-- Google Fonts --}}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
 <style>
@@ -35,7 +35,9 @@
 html { scroll-behavior: smooth; }
 body {
   margin: 0;
-  font: 400 16px/1.65 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
   color: var(--ink);
   background: var(--bg) !important;
   overflow-x: hidden;
@@ -44,7 +46,7 @@ body {
 
 h1, h2, h3, h4, h5 {
   margin: 0;
-  font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+  font-family: var(--font-heading);
   font-weight: 500;
   line-height: 1.15;
   letter-spacing: -0.02em;
@@ -83,7 +85,7 @@ section.alt { background: var(--bg2); }
 .hd.left { text-align: left; margin-left: 0; max-width: 600px; }
 
 /* Buttons */
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 28px; border-radius: 12px; font: 700 15px 'Plus Jakarta Sans', sans-serif; border: 1px solid var(--br); transition: .25s ease; cursor: pointer; text-decoration: none; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 28px; border-radius: 12px; font-family: var(--font-body); font-weight: 700; font-size: 15px; border: 1px solid var(--br); transition: .25s ease; cursor: pointer; text-decoration: none; }
 .btn.p { background: linear-gradient(135deg, #876039 0%, #a87646 100%); color: #fff; box-shadow: 0 4px 16px rgba(135,96,57,0.28); }
 .btn.p:hover { transform: translateY(-2px); background: linear-gradient(135deg, #6f4e2d 0%, #876039 100%); box-shadow: 0 8px 24px rgba(135,96,57,0.38); }
 .btn.o { color: var(--br); background: transparent; }
@@ -115,7 +117,7 @@ section.alt { background: var(--bg2); }
 .fm-grp { margin-bottom: 20px; }
 .fm-grp label { display: block; font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
 .fm-grp label span { color: #EF4444; }
-.fm-grp input, .fm-grp select, .fm-grp textarea { width: 100%; padding: 14px 16px; border: 1px solid var(--line); border-radius: 12px; font: 400 15px 'Plus Jakarta Sans', sans-serif; color: var(--ink); background: var(--bg); transition: .2s; }
+.fm-grp input, .fm-grp select, .fm-grp textarea { width: 100%; padding: 14px 16px; border: 1px solid var(--line); border-radius: 12px; font-family: var(--font-body); font-size: 15px; color: var(--ink); background: var(--bg); transition: .2s; }
 .fm-grp input:focus, .fm-grp select:focus, .fm-grp textarea:focus { outline: none; border-color: var(--br); box-shadow: 0 0 0 4px rgba(135,96,57,0.1); }
 .fm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 
@@ -151,7 +153,8 @@ section.alt { background: var(--bg2); }
 .ind-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .ind-card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 24px; transition: .2s; }
 .ind-card:hover { border-color: var(--br); box-shadow: var(--shadow-md); transform: translateY(-2px); }
-.ind-ic { font-size: 32px; margin-bottom: 12px; }
+.ind-card .ind-ic { width: 48px; height: 48px; border-radius: 12px; background: var(--bg2); color: var(--br); display: grid; place-items: center; margin-bottom: 16px; }
+.ind-card .ind-ic svg { width: 24px; height: 24px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .ind-card h4 { font-size: 18px; margin-bottom: 8px; }
 .ind-card p { font-size: 14px; margin-bottom: 16px; min-height: 44px; }
 .ind-link { font-size: 13px; font-weight: 500; color: var(--br); }
@@ -165,13 +168,6 @@ section.alt { background: var(--bg2); }
 /* 10. OFFICE LOCATION */
 .office-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
 .map-box { height: 400px; border-radius: 24px; overflow: hidden; border: 1px solid var(--line); background: var(--bg2); }
-
-/* 11. QUICK CONTACT OPTIONS */
-.quick-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.q-card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 32px; text-align: center; transition: .2s; }
-.q-card:hover { border-color: var(--br); box-shadow: var(--shadow-md); transform: translateY(-4px); }
-.q-card h2 { font-size: 24px; margin-bottom: 12px; }
-.q-card p { font-size: 15px; margin-bottom: 24px; }
 
 /* 12. FAQ */
 .faq-list { max-width: 840px; margin: auto; display: flex; flex-direction: column; gap: 16px; }
@@ -190,7 +186,6 @@ section.alt { background: var(--bg2); }
 @media (max-width: 1024px) {
   .contact-wrap, .demo-wrap, .office-wrap { grid-template-columns: 1fr; gap: 36px; }
   .why-grid, .ind-grid, .info-grid { grid-template-columns: repeat(2, 1fr); }
-  .quick-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 640px) {
@@ -214,7 +209,7 @@ section.alt { background: var(--bg2); }
         <h1>Let’s Build a Smarter Restaurant Business.</h1>
         <p style="max-width:640px; margin:16px auto 0;">Have questions about Geni Menu, pricing, features or the right solution for your business? Talk to our team and discover how Geni Menu can help you manage your restaurant operations more efficiently.</p>
         <div class="hero-btns">
-            <a href="#demo" class="btn p">Book a Demo →</a>
+            <a href="https://wa.me/919047555066?text=Hi%2C%20I%20would%20like%20to%20book%20a%20demo%20for%20Geni%20Menu." target="_blank" rel="noopener" class="btn p">Book a Demo →</a>
             <a href="#form" class="btn o" style="background:#fff;">Talk to Sales →</a>
         </div>
         
@@ -236,7 +231,7 @@ section.alt { background: var(--bg2); }
                 <div>
                     <h3>Sales & Demo</h3>
                     <p>Want to see Geni Menu in action?</p>
-                    <a href="#demo">Book a Demo →</a>
+                    <a href="https://wa.me/919047555066?text=Hi%2C%20I%20would%20like%20to%20book%20a%20demo%20for%20Geni%20Menu." target="_blank" rel="noopener">Book a Demo →</a>
                 </div>
             </div>
             
@@ -406,12 +401,12 @@ section.alt { background: var(--bg2); }
             </div>
             
             <div style="margin-top:40px;">
-                <a href="#form" class="btn p">Book a Demo →</a>
+                <a href="https://wa.me/919047555066?text=Hi%2C%20I%20would%20like%20to%20book%20a%20demo%20for%20Geni%20Menu." target="_blank" rel="noopener" class="btn p">Book a Demo →</a>
             </div>
         </div>
 
         <div class="demo-img-box">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Geni Menu Walkthrough Demo">
+            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=800&q=80" alt="Geni Menu Walkthrough Demo">
         </div>
     </div>
 </section>
@@ -459,37 +454,49 @@ section.alt { background: var(--bg2); }
 
         <div class="ind-grid">
             <div class="ind-card">
-                <div class="ind-ic">🍽️</div>
+                <div class="ind-ic">
+                    <svg viewBox="0 0 24 24"><path d="M4 9h16M5 9v10M19 9v10M9 9V5h6v4M7 15h10"/></svg>
+                </div>
                 <h4>Dine-in Restaurants</h4>
                 <p>Manage tables, menus, dine-in orders, KOT and billing.</p>
                 <a href="{{ route('solutions.dine-in-restaurant') }}" class="ind-link">Explore Solutions →</a>
             </div>
             <div class="ind-card">
-                <div class="ind-ic">🍕</div>
+                <div class="ind-ic">
+                    <svg viewBox="0 0 24 24"><path d="M21.21 15.89A10 10 0 1 1 8 2.83M22 12A10 10 0 0 0 12 2v10z"/></svg>
+                </div>
                 <h4>Pizzerias</h4>
                 <p>Manage specialty menus, orders, kitchen workflows and billing.</p>
                 <a href="{{ route('solutions.pizzerias') }}" class="ind-link">Explore Solutions →</a>
             </div>
             <div class="ind-card">
-                <div class="ind-ic">🍔</div>
+                <div class="ind-ic">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
                 <h4>QSRs</h4>
                 <p>Manage fast-moving orders, POS, kitchen and daily operations.</p>
                 <a href="{{ route('solutions.qsr-restaurant') }}" class="ind-link">Explore Solutions →</a>
             </div>
             <div class="ind-card">
-                <div class="ind-ic">🍰</div>
+                <div class="ind-ic">
+                    <svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+                </div>
                 <h4>Bakeries</h4>
                 <p>Manage products, cake orders, customers, billing and inventory.</p>
                 <a href="{{ route('solutions.bakery') }}" class="ind-link">Explore Solutions →</a>
             </div>
             <div class="ind-card">
-                <div class="ind-ic">🍹</div>
+                <div class="ind-ic">
+                    <svg viewBox="0 0 24 24"><path d="M17 3v3H7V3M9 6v15M15 6v15"/><path d="M6 3h12l-2 18H8z"/><path d="M11 0L10 6"/></svg>
+                </div>
                 <h4>Juice & Snack Shops</h4>
                 <p>Manage beverages, quick snacks, POS billing and daily stock.</p>
                 <a href="{{ route('solutions.juice-and-snacks') }}" class="ind-link">Explore Solutions →</a>
             </div>
             <div class="ind-card">
-                <div class="ind-ic">🏢</div>
+                <div class="ind-ic">
+                    <svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><path d="M9 22v-4h6v4M8 6h.01M16 6h.01M12 6h.01M12 10h.01M16 10h.01M8 10h.01M12 14h.01M16 14h.01M8 14h.01"/></svg>
+                </div>
                 <h4>Office Canteens</h4>
                 <p>Manage employee food orders, corporate counters and billing.</p>
                 <a href="{{ route('solutions.office-canteen') }}" class="ind-link">Explore Solutions →</a>
@@ -549,29 +556,6 @@ section.alt { background: var(--bg2); }
     </div>
 </section>
 
-{{-- 11. QUICK CONTACT OPTIONS --}}
-<section>
-    <div class="w">
-        <div class="quick-grid">
-            <div class="q-card">
-                <h2>Book a Demo</h2>
-                <p>See how Geni Menu works for your business.</p>
-                <a href="#form" class="btn o">Book a Demo →</a>
-            </div>
-            <div class="q-card">
-                <h2>Talk to Sales</h2>
-                <p>Discuss pricing, plans and business requirements.</p>
-                <a href="#form" class="btn o">Talk to Sales →</a>
-            </div>
-            <div class="q-card">
-                <h2>Get Support</h2>
-                <p>Need help with your existing Geni Menu setup?</p>
-                <a href="mailto:we@wegeni.com" class="btn o">Get Support →</a>
-            </div>
-        </div>
-    </div>
-</section>
-
 {{-- 12. FAQ --}}
 <section class="alt">
     <div class="w">
@@ -618,7 +602,7 @@ section.alt { background: var(--bg2); }
         <h2>Your Restaurant. Smarter by Design.</h2>
         <p>Ready to simplify your restaurant operations? Talk to the Geni Menu team and find the right solution for your business.</p>
         <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:32px;">
-            <a href="#form" class="btn p">Book a Demo →</a>
+            <a href="https://wa.me/919047555066?text=Hi%2C%20I%20would%20like%20to%20book%20a%20demo%20for%20Geni%20Menu." target="_blank" rel="noopener" class="btn p">Book a Demo →</a>
             <a href="#form" class="btn o" style="background:transparent; border:1.5px solid #876039; color:#876039;">Get Started →</a>
         </div>
     </div>
