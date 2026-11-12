@@ -402,7 +402,7 @@
                 <!-- Copyright - Left Side -->
                 <div class="text-center md:text-left">
                     <p class="text-sm text-gray-600 dark:text-gray-400">
-                        © {{ date('Y') }} {{ config('app.name', 'Geni Fast') }}. All rights reserved.
+                        © {{ date('Y') }} {{ config('app.name', 'Geni Menu Food and Beverages software') }}. All rights reserved.
                     </p>
                 </div>
 

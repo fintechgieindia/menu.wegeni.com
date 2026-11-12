@@ -170,9 +170,9 @@ class HomeController extends Controller
     public function privacyPolicy()
     {
         $meta = [
-            'title' => 'Privacy Policy | Geni Fast',
-            'description' => 'Learn how Geni Fast collects, uses, and protects your personal and business information.',
-            'keywords' => 'restaurant software privacy policy, data protection, Geni Fast privacy'
+            'title' => 'Privacy Policy | Geni Menu Food and Beverages software',
+            'description' => 'Learn how Geni Menu Food and Beverages software collects, uses, and protects your personal and business information.',
+            'keywords' => 'restaurant software privacy policy, data protection, Geni Menu privacy'
         ];
         return view('frontend.privacy-policy', compact('meta'));
     }
@@ -206,9 +206,9 @@ class HomeController extends Controller
     public function features()
     {
         $meta = [
-            'title' => 'Features | Geni Fast',
-            'description' => 'Discover powerful features of Geni Fast ERP including POS billing, inventory control, staff management, reports, kitchen display, CRM, and delivery integrations.',
-            'keywords' => 'restaurant ERP features, POS billing features, inventory management software, restaurant CRM, kitchen display system, multi-branch ERP, GST compliant restaurant software, restaurant analytics features, mobile POS features, online ordering integration'
+            'title' => 'Features | Geni Menu Food and Beverages software',
+            'description' => 'Discover powerful features of Geni Menu Food and Beverages software including POS billing, inventory control, staff management, reports, kitchen display, CRM, and delivery integrations.',
+            'keywords' => 'restaurant ERP features, POS billing features, inventory management software, restaurant CRM, kitchen display system, multi-branch ERP, GST compliant restaurant software, restaurant analytics features, mobile POS features, online ordering integration, Geni Menu'
         ];
         return view('frontend.features', compact('meta'));
     }
@@ -423,9 +423,9 @@ class HomeController extends Controller
     public function aboutUs()
     {
         $meta = [
-            'title' => 'About Us | Geni Fast',
-            'description' => 'Learn more about Geni Fast ERP, our mission, and how we help restaurants in India simplify operations, boost sales, and deliver exceptional customer experiences.',
-            'keywords' => 'about Geni Fast ERP, restaurant software company India, restaurant technology provider, restaurant management software, Geni ERP mission, restaurant POS solutions, restaurant ERP provider, India food industry software, restaurant automation solutions'
+            'title' => 'About Us | Geni Menu Food and Beverages software',
+            'description' => 'Learn more about Geni Menu Food and Beverages software, our mission, and how we help restaurants in India simplify operations, boost sales, and deliver exceptional customer experiences.',
+            'keywords' => 'about Geni Menu, restaurant software company India, restaurant technology provider, restaurant management software, Geni Menu mission, restaurant POS solutions, restaurant ERP provider, India food industry software, restaurant automation solutions'
         ];
         return view('frontend.about', compact('meta'));
     }
@@ -618,9 +618,9 @@ class HomeController extends Controller
     public function contact()
     {
         $meta = [
-            'title' => 'Contact Us | Geni Fast',
-            'description' => 'Get in touch with Geni Fast ERP team for sales, support, or partnership inquiries. We help restaurants in India manage their business efficiently.',
-            'keywords' => 'contact Geni Fast ERP, restaurant software support India, ERP sales inquiry, POS software India contact, restaurant ERP helpline, restaurant technology support, Geni ERP email, Geni ERP phone number, India restaurant software company contact'
+            'title' => 'Contact Us | Geni Menu Food and Beverages software',
+            'description' => 'Get in touch with Geni Menu Food and Beverages software team for sales, support, or partnership inquiries. We help restaurants in India manage their business efficiently.',
+            'keywords' => 'contact Geni Menu, restaurant software support India, ERP sales inquiry, POS software India contact, restaurant ERP helpline, restaurant technology support, Geni Menu email, Geni Menu phone number, India restaurant software company contact'
         ];
         return view('frontend.contact', compact('meta'));
     }
@@ -628,9 +628,9 @@ class HomeController extends Controller
     public function termsConditions()
     {
         $meta = [
-            'title' => 'Terms & Conditions | Geni Fast',
-            'description' => 'Read the terms and conditions for using Geni Fast’s billing and management software.',
-            'keywords' => 'Geni Fast terms and conditions, software usage terms'
+            'title' => 'Terms & Conditions | Geni Menu Food and Beverages software',
+            'description' => 'Read the terms and conditions for using Geni Menu Food and Beverages software billing and management platform.',
+            'keywords' => 'Geni Menu terms and conditions, software usage terms'
         ];
         return view('frontend.terms-conditions', compact('meta'));
     }
@@ -638,9 +638,9 @@ class HomeController extends Controller
     public function termsOfUse()
     {
         $meta = [
-            'title' => 'Terms of Use | Geni Fast',
-            'description' => 'Understand the terms of use for Geni Fast’s software and services.',
-            'keywords' => 'restaurant software terms of use, Geni Fast policy'
+            'title' => 'Terms of Use | Geni Menu Food and Beverages software',
+            'description' => 'Understand the terms of use for Geni Menu Food and Beverages software and services.',
+            'keywords' => 'restaurant software terms of use, Geni Menu policy'
         ];
         return view('frontend.terms-of-use', compact('meta'));
     }
@@ -648,8 +648,8 @@ class HomeController extends Controller
     public function compliance()
     {
         $meta = [
-            'title' => 'Compliance Statement | Geni Fast',
-            'description' => 'Geni Fast complies with industry standards and regulations to ensure data security and privacy.',
+            'title' => 'Compliance Statement | Geni Menu Food and Beverages software',
+            'description' => 'Geni Menu complies with industry standards and regulations to ensure data security and privacy.',
             'keywords' => 'restaurant software compliance, data protection policy'
         ];
         return view('frontend.compliance', compact('meta'));
@@ -658,9 +658,9 @@ class HomeController extends Controller
     public function cancellationRefundPolicy()
     {
         $meta = [
-            'title' => 'Cancellation & Refund Policy | Geni Fast',
-            'description' => 'Review Geni Fast’s policy for cancellations, refunds, and subscription changes.',
-            'keywords' => 'restaurant software refund policy, Geni Fast cancellations'
+            'title' => 'Cancellation & Refund Policy | Geni Menu Food and Beverages software',
+            'description' => 'Review Geni Menu Food and Beverages software policy for cancellations, refunds, and subscription changes.',
+            'keywords' => 'restaurant software refund policy, Geni Menu cancellations'
         ];
         return view('frontend.cancellation-refund-policy', compact('meta'));
     }

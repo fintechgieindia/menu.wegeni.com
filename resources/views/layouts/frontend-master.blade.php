@@ -69,7 +69,7 @@
     <meta name="description"
         content="{{ $meta['description'] ?? 'Best Restaurant Billing Software for smooth operations, fast service, and exceptional dining experiences.' }}">
     <meta name="keywords"
-        content="{{ $meta['keywords'] ?? 'restaurant ERP software, restaurant billing software, POS for restaurants, inventory management for restaurants, staff scheduling software, restaurant accounting software, Geni Fast ERP, India restaurant ERP, cloud restaurant software, table reservation system, kitchen display system, multi-branch restaurant ERP, GST billing software, digital menu software, restaurant analytics, restaurant CRM, food delivery integration, mobile POS for restaurants, online ordering system, restaurant operations management' }}">
+        content="{{ $meta['keywords'] ?? 'restaurant ERP software, restaurant billing software, POS for restaurants, inventory management for restaurants, staff scheduling software, restaurant accounting software, Geni Menu ERP, India restaurant ERP, cloud restaurant software, table reservation system, kitchen display system, multi-branch restaurant ERP, GST billing software, digital menu software, restaurant analytics, restaurant CRM, food delivery integration, mobile POS for restaurants, online ordering system, restaurant operations management' }}">
     <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large">
     <link rel="canonical" href="{{ url()->current() }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -80,7 +80,7 @@
     <meta property="og:description"
         content="{{ $meta['description'] ?? 'Best Restaurant Billing Software for smooth operations, fast service, and exceptional dining experiences.' }}">
     <meta property="og:url" content="{{ url('/') }}">
-    <meta property="og:site_name" content="Geni Fast">
+    <meta property="og:site_name" content="Geni Menu Food and Beverages software">
     <meta property="og:updated_time" content="2025-01-25T12:00:00+05:30">
     <meta property="og:image" content="{{ asset('landing/geni-restaurant-logo.jpg') }}">
     <meta property="og:image:secure_url" content="{{ asset('landing/geni-restaurant-logo.jpg') }}">
@@ -101,7 +101,7 @@
     <meta name="twitter:title"
         content="{{ $meta['title'] ?? 'Geni Menu | All-in-one Restaurant Billing and Management Software' }}">
     <meta name="twitter:description"
-        content="{{ $meta['keywords'] ?? 'restaurant ERP software, restaurant billing software, POS for restaurants, inventory management for restaurants, staff scheduling software, restaurant accounting software, Geni Fast ERP, India restaurant ERP, cloud restaurant software, table reservation system, kitchen display system, multi-branch restaurant ERP, GST billing software, digital menu software, restaurant analytics, restaurant CRM, food delivery integration, mobile POS for restaurants, online ordering system, restaurant operations management' }}">
+        content="{{ $meta['keywords'] ?? 'restaurant ERP software, restaurant billing software, POS for restaurants, inventory management for restaurants, staff scheduling software, restaurant accounting software, Geni Menu ERP, India restaurant ERP, cloud restaurant software, table reservation system, kitchen display system, multi-branch restaurant ERP, GST billing software, digital menu software, restaurant analytics, restaurant CRM, food delivery integration, mobile POS for restaurants, online ordering system, restaurant operations management' }}">
     <meta name="twitter:image" content="{{ asset('landing/geni-restaurant-logo') }}">
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 
@@ -480,6 +480,11 @@
                 </div>
                 <form action="{{ route('popup.lead.store') }}" method="POST" class="popup-form">
                     @csrf
+                    {{-- Anti-Spam Honeypots --}}
+                    <div style="display:none !important; visibility:hidden !important; position:absolute; left:-9999px;">
+                        <input type="text" name="last_name_check" value="" autocomplete="off" tabindex="-1">
+                        <input type="text" name="website_hp" value="" autocomplete="off" tabindex="-1">
+                    </div>
                     <div class="form-group">
                         <label>Full Name *</label>
                         <input type="text" name="full_name" required placeholder="John Doe">

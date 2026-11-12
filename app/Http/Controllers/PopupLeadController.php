@@ -5,11 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
+use App\Services\AntiSpamService;
 
 class PopupLeadController extends Controller
 {
-    public function store(Request $request)
+    public function store(Request $request, AntiSpamService $antiSpam)
     {
+        // Anti-spam check
+        if ($antiSpam->isSpam($request, false)) {
+            return back()->with('success', 'Thank you! We will contact you soon.');
+        }
         $data = $request->validate([
             'full_name' => 'required',
             'email' => 'required|email',

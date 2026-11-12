@@ -123,8 +123,11 @@ if (!function_exists('module_enabled') || !module_enabled('Subdomain')) {
     Route::get('/pricing', [HomeController::class, 'pricing'])->name('pricing');
     Route::get('/contact-us', [HomeController::class, 'contact'])->name('contact.us');
 	Route::post('/popup-lead', [App\Http\Controllers\PopupLeadController::class, 'store'])
-    ->name('popup.lead.store');
-  	Route::post('/contact-us', [ContactController::class, 'submit'])->name('contact.submit');
+        ->name('popup.lead.store')
+        ->middleware('throttle:6,1');
+  	Route::post('/contact-us', [ContactController::class, 'submit'])
+        ->name('contact.submit')
+        ->middleware('throttle:6,1');
     Route::get('/terms-and-conditions', [HomeController::class, 'termsConditions'])->name('terms-and-conditions');
     Route::get('/terms-of-use-policy', [HomeController::class, 'termsOfUse'])->name('terms-of-use');
     Route::get('/compliance', [HomeController::class, 'compliance'])->name('compliance');

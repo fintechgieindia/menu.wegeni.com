@@ -280,6 +280,13 @@ section.alt { background: var(--bg2); }
             <form action="{{ route('contact.submit') }}" method="POST">
                 @csrf
                 
+                {{-- Anti-Spam Honeypots & Time-trap --}}
+                <div style="display:none !important; visibility:hidden !important; position:absolute; left:-9999px;">
+                    <input type="text" name="last_name_check" value="" autocomplete="off" tabindex="-1">
+                    <input type="text" name="website_hp" value="" autocomplete="off" tabindex="-1">
+                    <input type="hidden" name="_form_time" value="{{ \App\Services\AntiSpamService::generateTimeToken() }}">
+                </div>
+                
                 <div class="fm-grp">
                     <label>Full Name <span>*</span></label>
                     <input type="text" name="name" value="{{ old('name') }}" required placeholder="Enter your name">
