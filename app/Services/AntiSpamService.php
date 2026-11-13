@@ -28,7 +28,12 @@ class AntiSpamService
     protected array $spamKeywords = [
         'viagra', 'cialis', 'casino', 'poker', 'crypto trading', 'bitcoin investment',
         'seo ranking service', 'backlink blast', 'guest post outreach',
-        'porn', 'adult webcam', 'escort service', 'payday loan', 'fast money'
+        'porn', 'adult webcam', 'escort service', 'payday loan', 'fast money',
+        'gambling', 'free spins', 'slot machine', 'jackpot', 'betting site',
+        'make money online', 'earn $', 'earn money fast', 'click here to win',
+        'congratulations you won', 'viking luck', 'lucky casino', 'online casino',
+        'sports betting', 'live casino', 'roulette', 'blackjack online',
+        'weight loss', 'diet pill', 'male enhancement',
     ];
 
     /**
@@ -76,6 +81,7 @@ class AntiSpamService
     {
         $honeypotFields = [
             'last_name_check',
+            'middle_name_check',
             'website_hp',
             'hp_email',
             'address_check',
@@ -143,13 +149,13 @@ class AntiSpamService
     }
 
     /**
-     * Check message content for spam signatures (Cyrillic bot spam, spam keywords, excessive URLs).
+     * Check message content for spam signatures (Cyrillic bot spam, spam keywords, excessive URLs, HTML injection).
      */
     protected function checkSpamContent(Request $request): bool
     {
         $fieldsToCheck = [
             'message', 'business_requirements', 'details', 'requirements',
-            'company', 'name'
+            'company', 'name', 'subject', 'address',
         ];
 
         $combinedText = '';
@@ -166,21 +172,27 @@ class AntiSpamService
             return false;
         }
 
-        // A. Cyrillic / Russian script check
+        // A. HTML tags in fields that should never contain HTML (spam bots inject <a href=...> etc.)
+        if (preg_match('/<\s*(a|img|script|iframe|form|link|object|embed)\b/i', $combinedText)) {
+            $this->lastSpamReason = "HTML injection detected in form fields";
+            return true;
+        }
+
+        // B. Cyrillic / Russian script check
         if (preg_match('/[\x{0400}-\x{04FF}]/u', $combinedText)) {
             $this->lastSpamReason = "Cyrillic/Russian script detected in content";
             return true;
         }
 
-        // B. Excessive links (> 2 URLs in inquiry message)
+        // C. Excessive links (> 1 URL — legitimate contact inquiries never contain URLs)
         $linkCount = preg_match_all('/https?:\/\//i', $combinedText);
-        if ($linkCount > 2) {
+        if ($linkCount > 1) {
             $this->lastSpamReason = "Excessive URLs found ({$linkCount} links)";
             return true;
         }
 
-        // C. Spam keyword match
-        $lowerText = strtolower($combinedText);
+        // D. Spam keyword match
+        $lowerText = strtolower(strip_tags($combinedText));
         foreach ($this->spamKeywords as $keyword) {
             if (str_contains($lowerText, $keyword)) {
                 $this->lastSpamReason = "Spam keyword detected: '{$keyword}'";
