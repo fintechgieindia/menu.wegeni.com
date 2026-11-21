@@ -607,10 +607,10 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
         <div style="font-size: 12px; font-weight: 500; color: var(--br); margin-bottom: 10px; text-transform: uppercase;">TABLE T08 • NEED ASSISTANCE?</div>
         
         <div style="display: flex; flex-direction: column; gap: 8px;">
-          <button style="padding: 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--bg2); font-weight: 700; font-size: 12px; text-align: left; cursor: pointer;">🔔 Call Waiter</button>
-          <button style="padding: 10px; border-radius: 8px; border: 1.5px solid var(--br); background: var(--br-light); color: var(--br); font-weight: 500; font-size: 12px; text-align: left; cursor: pointer;">💧 Request Water</button>
-          <button style="padding: 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--bg2); font-weight: 700; font-size: 12px; text-align: left; cursor: pointer;">🧾 Request Bill</button>
-          <button style="padding: 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--bg2); font-weight: 700; font-size: 12px; text-align: left; cursor: pointer;">💬 Custom Request</button>
+          <button style="padding: 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--bg2); font-weight: 700; font-size: 12px; text-align: left; cursor: pointer;"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg> Call Waiter</button>
+          <button style="padding: 10px; border-radius: 8px; border: 1.5px solid var(--br); background: var(--br-light); color: var(--br); font-weight: 500; font-size: 12px; text-align: left; cursor: pointer;"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg> Request Water</button>
+          <button style="padding: 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--bg2); font-weight: 700; font-size: 12px; text-align: left; cursor: pointer;"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"/><path d="M16 8h-6"/><path d="M16 12h-6"/><path d="M12 16h-2"/></svg> Request Bill</button>
+          <button style="padding: 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--bg2); font-weight: 700; font-size: 12px; text-align: left; cursor: pointer;"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Custom Request</button>
         </div>
       </div>
 

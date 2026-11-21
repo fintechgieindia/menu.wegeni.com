@@ -391,63 +391,535 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
       <p>During peak lunch and dinner rush hours, manual billing calculations create bottleneck queues at your counter. Compare traditional billing against Geni Menu POS.</p>
     </div>
 
-    <div class="g2">
-      <!-- Traditional Billing -->
-      <div class="card" style="padding: 32px; background: #fff5f5; border-color: rgba(239, 68, 68, 0.2);">
-        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
-          <div style="width: 40px; height: 40px; border-radius: 10px; background: #fee2e2; color: #dc2626; display: grid; place-items: center; font-weight: 500;">✕</div>
-          <div>
-            <h3 style="color: #991b1b;">Traditional Billing</h3>
-            <p style="font-size: 13px; color: #b91c1c;">Manual & Fragmented Cash Counter Workflow</p>
-          </div>
-        </div>
+    <style>
+      /* --- Comparison Section: Traditional Billing vs Geni Menu POS (matching Menu/Reservation/Waiter/Table UI) --- */
+      .pos-cmp-wrap {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+        align-items: stretch;
+      }
 
-        <ul style="display: flex; flex-direction: column; gap: 14px;">
-          <li style="display: flex; gap: 12px; font-size: 14px; color: #7f1d1d;">
-            <span style="color: #dc2626; font-weight: 500;">•</span> Manual price calculations and paper notepad item counting
-          </li>
-          <li style="display: flex; gap: 12px; font-size: 14px; color: #7f1d1d;">
-            <span style="color: #dc2626; font-weight: 500;">•</span> Separate order slips that disconnect kitchen from cash desk
-          </li>
-          <li style="display: flex; gap: 12px; font-size: 14px; color: #7f1d1d;">
-            <span style="color: #dc2626; font-weight: 500;">•</span> Slow bill preparation causing guest frustration at exit
-          </li>
-          <li style="display: flex; gap: 12px; font-size: 14px; color: #7f1d1d;">
-            <span style="color: #dc2626; font-weight: 500;">•</span> Payment confusion during split bills or multiple payment types
-          </li>
-          <li style="display: flex; gap: 12px; font-size: 14px; color: #7f1d1d;">
-            <span style="color: #dc2626; font-weight: 500;">•</span> Zero real-time visibility into daily sales and pending table tabs
-          </li>
-        </ul>
+      .pos-cmp-center-arrow {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 20;
+        pointer-events: none;
+      }
+
+      .pos-center-arrow-circle {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: var(--br, #876039);
+        color: #FFFFFF;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 18px rgba(135, 96, 57, 0.4);
+        border: 3px solid #FFFFFF;
+      }
+      .pos-center-arrow-circle svg { width: 20px; height: 20px; }
+
+      .pos-cmp-card {
+        border-radius: 24px;
+        padding: 26px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+      }
+      .pos-cmp-traditional {
+        background: #FFFDFC;
+        border: 1.5px solid #FECDD3;
+        box-shadow: 0 10px 30px rgba(220, 38, 38, 0.04);
+      }
+      .pos-cmp-digital {
+        background: #FFFFFF;
+        border: 1.5px solid rgba(135, 96, 57, 0.28);
+        box-shadow: 0 14px 40px rgba(135, 96, 57, 0.08);
+      }
+
+      .pos-cmp-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 22px;
+      }
+      .pos-badge-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .pos-badge-icon svg { width: 18px; height: 18px; }
+      .pos-badge-red { background: #FEE2E2; color: #DC2626; }
+      .pos-badge-brown { background: #6F4522; color: #FFFFFF; }
+
+      .pos-cmp-title {
+        font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+        font-size: 19px;
+        font-weight: 700;
+        margin: 0 0 2px;
+        line-height: 1.2;
+      }
+      .pos-cmp-title.text-red { color: #991B1B; }
+      .pos-cmp-title.text-brown { color: #21160F; }
+      .pos-cmp-subtitle { font-size: 12.5px; color: #76675D; margin: 0; }
+
+      .pos-split-body {
+        display: grid;
+        grid-template-columns: 1fr 1.3fr;
+        gap: 16px;
+        align-items: stretch;
+        flex: 1;
+      }
+      .pos-cmp-digital .pos-split-body {
+        grid-template-columns: 1fr 1.05fr;
+        gap: 14px;
+      }
+
+      /* Left: Handwritten Bill Pad Clipboard */
+      .pos-paper-visual {
+        background: #F8F4EE;
+        border-radius: 16px;
+        border: 1px solid #EADBCE;
+        padding: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+      .pos-paper-board {
+        width: 100%;
+        background: #845A3C;
+        border-radius: 12px;
+        padding: 10px 8px 8px;
+        box-shadow: 0 6px 16px rgba(42, 24, 13, 0.2);
+      }
+      .pos-paper-clip {
+        width: 32px;
+        height: 8px;
+        background: #C4B5A5;
+        border-radius: 3px;
+        margin: 0 auto 6px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+      }
+      .pos-paper-sheet {
+        background: #FFFDF9;
+        border-radius: 6px;
+        padding: 10px 8px;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        border: 1px solid #EBE1D3;
+      }
+      .pos-paper-header {
+        font-family: 'Outfit', serif;
+        font-weight: 600;
+        font-size: 10.5px;
+        letter-spacing: 1.5px;
+        text-align: center;
+        color: #2A1C14;
+        border-bottom: 1.5px solid #2A1C14;
+        padding-bottom: 4px;
+        margin-bottom: 7px;
+      }
+      .pos-paper-slot-title {
+        font-size: 7.5px;
+        font-weight: 700;
+        color: #876039;
+        letter-spacing: 0.6px;
+        text-transform: uppercase;
+        margin: 6px 0 3px;
+      }
+      .pos-paper-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 7.5px;
+        color: #4A3E38;
+        padding: 2.5px 0;
+        border-bottom: 1px dashed #EDE4D8;
+      }
+      .pos-paper-row:last-child { border-bottom: none; }
+      .pos-paper-row.struck span { text-decoration: line-through; color: #A89A90; }
+      .pos-paper-row .err-tag { color: #DC2626; font-weight: 700; }
+
+      /* 5 Pain Point Cards */
+      .pos-points-list {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        justify-content: space-between;
+      }
+      .pos-point-card {
+        background: #FFFFFF;
+        border: 1px solid #FEE2E2;
+        border-radius: 12px;
+        padding: 9px 12px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      .pos-point-card:hover {
+        transform: translateX(2px);
+        box-shadow: 0 4px 12px rgba(220, 38, 38, 0.08);
+      }
+      .pos-point-ico {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: #FEE2E2;
+        color: #DC2626;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .pos-point-ico svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+      .pos-point-txt { display: flex; flex-direction: column; min-width: 0; }
+      .pos-point-txt b { font-size: 13px; font-weight: 700; color: #21160F; line-height: 1.25; }
+      .pos-point-txt span { font-size: 11px; color: #76675D; line-height: 1.3; }
+
+      /* Right Card: 3 Workflow Steps */
+      .pos-wf-steps {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 6px;
+      }
+      .pos-wf-card {
+        background: #FFFFFF;
+        border: 1px solid rgba(135, 96, 57, 0.2);
+        border-radius: 14px;
+        padding: 12px 14px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        box-shadow: 0 2px 8px rgba(135, 96, 57, 0.04);
+        transition: transform 0.2s ease, border-color 0.2s ease;
+      }
+      .pos-wf-card:hover { transform: translateY(-2px); border-color: #876039; }
+      .pos-wf-ico {
+        width: 38px;
+        height: 38px;
+        border-radius: 10px;
+        background: #FBF6EE;
+        color: #876039;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        border: 1px solid rgba(135, 96, 57, 0.18);
+      }
+      .pos-wf-ico svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+      .pos-wf-txt { display: flex; flex-direction: column; min-width: 0; }
+      .pos-wf-txt b { font-size: 13px; font-weight: 600; color: #21160F; line-height: 1.25; }
+      .pos-wf-txt span { font-size: 11.5px; color: #76675D; line-height: 1.3; }
+      .pos-wf-arrow { text-align: center; font-size: 15px; font-weight: 500; color: #876039; line-height: 1; }
+
+      /* Right Card: Smartphone POS Checkout Mockup */
+      .pos-phone-visual {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .pos-phone-mockup {
+        width: 100%;
+        max-width: 224px;
+        background: #1C1510;
+        border-radius: 28px;
+        padding: 7px;
+        box-shadow: 0 16px 36px rgba(28, 20, 15, 0.28);
+        border: 2px solid #362920;
+      }
+      .pos-phone-screen {
+        background: #FFFFFF;
+        border-radius: 22px;
+        padding: 10px 9px 12px;
+        overflow: hidden;
+      }
+      .pos-phone-island {
+        width: 38px;
+        height: 4px;
+        background: #1C1510;
+        border-radius: 4px;
+        margin: 0 auto 6px;
+      }
+      .pos-phone-header { text-align: center; margin-bottom: 7px; }
+      .pos-phone-title { font-family: 'Outfit', sans-serif; font-size: 13.5px; font-weight: 600; color: #21160F; line-height: 1.2; }
+      .pos-phone-sub { font-size: 8px; color: #76675D; }
+      .pos-phone-tabs {
+        display: flex;
+        gap: 3.5px;
+        margin-bottom: 8px;
+        justify-content: center;
+      }
+      .pos-tab-pill {
+        font-size: 7.5px;
+        font-weight: 700;
+        padding: 2.5px 7px;
+        border-radius: 12px;
+        background: #FAF7F2;
+        color: #6E6157;
+        white-space: nowrap;
+      }
+      .pos-tab-active { background: #875A38; color: #FFFFFF; }
+
+      .pos-bill-card {
+        background: #FAF8F5;
+        border: 1px solid #EFE8DE;
+        border-radius: 10px;
+        padding: 8px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        margin-bottom: 7px;
+      }
+      .pos-bill-row {
+        display: flex;
+        justify-content: space-between;
+        font-size: 8.5px;
+        color: #4A3E38;
+      }
+      .pos-bill-row.total {
+        margin-top: 3px;
+        padding-top: 5px;
+        border-top: 1px dashed #D8C9B8;
+        font-weight: 700;
+        font-size: 10px;
+        color: #21160F;
+      }
+      .pos-paid-pill {
+        background: #DCFCE7;
+        color: #16A34A;
+        font-size: 8.5px;
+        font-weight: 700;
+        text-align: center;
+        padding: 5px;
+        border-radius: 8px;
+      }
+
+      .pos-bottom-cta {
+        margin-top: 16px;
+        display: flex;
+        justify-content: center;
+      }
+      .pos-bottom-cta-badge {
+        background: linear-gradient(135deg, #6f4e2d 0%, #876039 100%);
+        color: #FFFFFF;
+        font-size: 11.5px;
+        font-weight: 600;
+        padding: 7px 20px;
+        border-radius: 99px;
+        box-shadow: 0 4px 14px rgba(135, 96, 57, 0.3);
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .pos-bottom-cta-badge svg { width: 14px; height: 14px; stroke: #FFFFFF; fill: none; stroke-width: 2; }
+
+      @media (max-width: 1080px) {
+        .pos-cmp-wrap { grid-template-columns: 1fr; gap: 36px; }
+        .pos-cmp-center-arrow { display: none; }
+      }
+      @media (max-width: 640px) {
+        .pos-split-body, .pos-cmp-digital .pos-split-body { grid-template-columns: 1fr; gap: 16px; }
+        .pos-paper-visual { max-width: 260px; margin: 0 auto; }
+      }
+    </style>
+
+    <div class="pos-cmp-wrap">
+      <!-- Center Transition Arrow -->
+      <div class="pos-cmp-center-arrow">
+        <div class="pos-center-arrow-circle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
       </div>
 
-      <!-- Geni Menu POS -->
-      <div class="card" style="padding: 32px; background: #f0fdf4; border-color: rgba(16, 185, 129, 0.3);">
-        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
-          <div style="width: 40px; height: 40px; border-radius: 10px; background: #d1fae5; color: #059669; display: grid; place-items: center; font-weight: 500;">✓</div>
+      <!-- LEFT CARD: Traditional Billing -->
+      <div class="pos-cmp-card pos-cmp-traditional">
+        <div class="pos-cmp-header">
+          <div class="pos-badge-icon pos-badge-red">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </div>
           <div>
-            <h3 style="color: #065f46;">Geni Menu POS</h3>
-            <p style="font-size: 13px; color: #047857;">Connected & Instant Billing Workspace</p>
+            <h3 class="pos-cmp-title text-red">Traditional Billing</h3>
+            <p class="pos-cmp-subtitle">Manual &amp; fragmented cash counter workflow</p>
           </div>
         </div>
 
-        <ul style="display: flex; flex-direction: column; gap: 14px;">
-          <li style="display: flex; gap: 12px; font-size: 14px; color: #064e3b;">
-            <span style="color: #10b981; font-weight: 500;">✓</span> Digital menu items automatically connected to POS cashier touch-grid
-          </li>
-          <li style="display: flex; gap: 12px; font-size: 14px; color: #064e3b;">
-            <span style="color: #10b981; font-weight: 500;">✓</span> Orders, tables, and item modifiers unified in one workspace
-          </li>
-          <li style="display: flex; gap: 12px; font-size: 14px; color: #064e3b;">
-            <span style="color: #10b981; font-weight: 500;">✓</span> Instant automatic subtotal, discount, and tax calculation
-          </li>
-          <li style="display: flex; gap: 12px; font-size: 14px; color: #064e3b;">
-            <span style="color: #10b981; font-weight: 500;">✓</span> Clear multi-payment method collection (Cash, Card, UPI)
-          </li>
-          <li style="display: flex; gap: 12px; font-size: 14px; color: #064e3b;">
-            <span style="color: #10b981; font-weight: 500;">✓</span> Live sales reports and instant transaction reconciliation
-          </li>
-        </ul>
+        <div class="pos-split-body">
+          <!-- Left: Paper Bill Pad Visual -->
+          <div class="pos-paper-visual">
+            <div class="pos-paper-board">
+              <div class="pos-paper-clip"></div>
+              <div class="pos-paper-sheet">
+                <div class="pos-paper-header">BILL PAD</div>
+
+                <div class="pos-paper-slot-title">Table 06 Slip</div>
+                <div class="pos-paper-row"><span>Biryani x2</span><b>₹560?</b></div>
+                <div class="pos-paper-row struck"><span>Naan x3</span><b>₹120</b></div>
+                <div class="pos-paper-row"><span>Naan x4</span><b>₹160</b></div>
+
+                <div class="pos-paper-slot-title">Manual Tax</div>
+                <div class="pos-paper-row"><span>GST 5%</span><span class="err-tag">Calc?</span></div>
+                <div class="pos-paper-row"><span>Split Bill</span><span class="err-tag">Error!</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: 5 Pain Points -->
+          <div class="pos-points-list">
+            <div class="pos-point-card">
+              <div class="pos-point-ico">
+                <svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></svg>
+              </div>
+              <div class="pos-point-txt">
+                <b>Manual Price Calculations</b>
+                <span>Paper notepad item counting &amp; tax errors</span>
+              </div>
+            </div>
+
+            <div class="pos-point-card">
+              <div class="pos-point-ico">
+                <svg viewBox="0 0 24 24"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"/></svg>
+              </div>
+              <div class="pos-point-txt">
+                <b>Disconnected Order Slips</b>
+                <span>Kitchen tickets detached from cash counter</span>
+              </div>
+            </div>
+
+            <div class="pos-point-card">
+              <div class="pos-point-ico">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div class="pos-point-txt">
+                <b>Slow Bill Preparation</b>
+                <span>Long queues frustrate guests at exit</span>
+              </div>
+            </div>
+
+            <div class="pos-point-card">
+              <div class="pos-point-ico">
+                <svg viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
+              </div>
+              <div class="pos-point-txt">
+                <b>Split Payment Confusion</b>
+                <span>Errors mixing Cash, Card &amp; UPI totals</span>
+              </div>
+            </div>
+
+            <div class="pos-point-card">
+              <div class="pos-point-ico">
+                <svg viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+              </div>
+              <div class="pos-point-txt">
+                <b>Zero Live Sales Visibility</b>
+                <span>No real-time view of daily tabs or revenue</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT CARD: Geni Menu POS -->
+      <div class="pos-cmp-card pos-cmp-digital">
+        <div class="pos-cmp-header">
+          <div class="pos-badge-icon pos-badge-brown">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          <div>
+            <h3 class="pos-cmp-title text-brown">Geni Menu POS</h3>
+            <p class="pos-cmp-subtitle">Connected &amp; instant billing workspace</p>
+          </div>
+        </div>
+
+        <div class="pos-split-body">
+          <!-- Left: 3 Connected Workflow Steps -->
+          <div class="pos-wf-steps">
+            <div class="pos-wf-card">
+              <div class="pos-wf-ico">
+                <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+              </div>
+              <div class="pos-wf-txt">
+                <b>Unified Touch POS Grid</b>
+                <span>Menus, tables &amp; modifiers synced live</span>
+              </div>
+            </div>
+
+            <div class="pos-wf-arrow">&darr;</div>
+
+            <div class="pos-wf-card">
+              <div class="pos-wf-ico">
+                <svg viewBox="0 0 24 24"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"/><path d="M16 8h-6"/><path d="M16 12h-6"/></svg>
+              </div>
+              <div class="pos-wf-txt">
+                <b>Auto Tax, Discount &amp; Split</b>
+                <span>Instant GST &amp; split-bill calculation</span>
+              </div>
+            </div>
+
+            <div class="pos-wf-arrow">&darr;</div>
+
+            <div class="pos-wf-card">
+              <div class="pos-wf-ico">
+                <svg viewBox="0 0 24 24"><line x1="18" x2="18" y1="20" y2="10"/><line x1="12" x2="12" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="14"/></svg>
+              </div>
+              <div class="pos-wf-txt">
+                <b>Multi-Pay &amp; Live Reports</b>
+                <span>Cash, Card, UPI QR &amp; auto reconciliation</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Smartphone Live POS Checkout Mockup -->
+          <div class="pos-phone-visual">
+            <div class="pos-phone-mockup">
+              <div class="pos-phone-screen">
+                <div class="pos-phone-island"></div>
+                <div class="pos-phone-header">
+                  <div class="pos-phone-title">POS Checkout</div>
+                  <div class="pos-phone-sub">Table 06 &bull; Invoice #4082</div>
+                </div>
+                <div class="pos-phone-tabs">
+                  <span class="pos-tab-pill pos-tab-active">UPI QR</span>
+                  <span class="pos-tab-pill">Card</span>
+                  <span class="pos-tab-pill">Cash</span>
+                </div>
+                <div class="pos-bill-card">
+                  <div class="pos-bill-row"><span>Butter Chicken</span><b>₹380</b></div>
+                  <div class="pos-bill-row"><span>Garlic Naan x2</span><b>₹120</b></div>
+                  <div class="pos-bill-row"><span>GST (5%)</span><b>₹25</b></div>
+                  <div class="pos-bill-row total"><span>Grand Total</span><span>₹525</span></div>
+                </div>
+                <div class="pos-paid-pill">✓ Paid via UPI &bull; Receipt Sent</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pos-bottom-cta">
+          <div class="pos-bottom-cta-badge">
+            <svg viewBox="0 0 24 24"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3Z"/></svg>
+            <span>3-Click Checkout &amp; Live Sales Sync!</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -472,7 +944,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
         </div>
 
         <div style="display: flex; align-items: center; gap: 12px;">
-          <input type="text" placeholder="🔍 Search menu items..." value="" style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; padding: 6px 14px; color: #fff; font-size: 13px; width: 220px;">
+          <input type="text" placeholder="Search menu items..." value="" style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; padding: 6px 14px; color: #fff; font-size: 13px; width: 220px;">
           <span style="font-size: 13px; font-weight: 600; color: #d5c8bb;">Cashier: Rahul M.</span>
         </div>
       </div>
@@ -482,10 +954,10 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
         <div style="padding: 24px; display: flex; flex-direction: column; gap: 20px;">
           <!-- Order Type Selectors -->
           <div style="display: flex; gap: 12px; border-bottom: 1px solid var(--line); padding-bottom: 16px;">
-            <button style="padding: 10px 20px; border-radius: 10px; background: var(--br-light); border: 1.5px solid var(--br); color: var(--br); font-weight: 500; font-size: 13px; cursor: pointer;">🍽️ Dine-in (T08)</button>
-            <button style="padding: 10px 20px; border-radius: 10px; background: #fff; border: 1px solid var(--line); color: var(--ink); font-weight: 600; font-size: 13px; cursor: pointer;">🛍️ Takeaway</button>
-            <button style="padding: 10px 20px; border-radius: 10px; background: #fff; border: 1px solid var(--line); color: var(--ink); font-weight: 600; font-size: 13px; cursor: pointer;">🛵 Delivery</button>
-            <button style="padding: 10px 20px; border-radius: 10px; background: #fff; border: 1px solid var(--line); color: var(--ink); font-weight: 600; font-size: 13px; cursor: pointer;">📦 Pickup</button>
+            <button style="padding: 10px 20px; border-radius: 10px; background: var(--br-light); border: 1.5px solid var(--br); color: var(--br); font-weight: 500; font-size: 13px; cursor: pointer;"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>️ Dine-in (T08)</button>
+            <button style="padding: 10px 20px; border-radius: 10px; background: #fff; border: 1px solid var(--line); color: var(--ink); font-weight: 600; font-size: 13px; cursor: pointer;"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>️ Takeaway</button>
+            <button style="padding: 10px 20px; border-radius: 10px; background: #fff; border: 1px solid var(--line); color: var(--ink); font-weight: 600; font-size: 13px; cursor: pointer;"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="6.5" cy="17.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/><path d="M9 17.5h6"/><path d="M14 17.5V9h3l2 4"/><path d="M6.5 15V9h4"/></svg> Delivery</button>
+            <button style="padding: 10px 20px; border-radius: 10px; background: #fff; border: 1px solid var(--line); color: var(--ink); font-weight: 600; font-size: 13px; cursor: pointer;"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" x2="12" y1="22.08" y2="12"/></svg> Pickup</button>
           </div>
 
           <!-- Product Grid Items -->
@@ -951,11 +1423,11 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 
         <div style="background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 16px; margin-bottom: 20px;">
           <div style="display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 13.5px;">
-            <span>💵 Cash Received</span>
+            <span><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="20" height="12" x="2" y="6" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/></svg> Cash Received</span>
             <span style="font-weight: 500;">₹500.00</span>
           </div>
           <div style="display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 13.5px;">
-            <span>📱 UPI / QR Transfer</span>
+            <span><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg> UPI / QR Transfer</span>
             <span style="font-weight: 500;">₹655.00</span>
           </div>
           <div style="display: flex; justify-content: space-between; padding-top: 10px; border-top: 1px dashed var(--line); font-size: 14px; font-weight: 500;">

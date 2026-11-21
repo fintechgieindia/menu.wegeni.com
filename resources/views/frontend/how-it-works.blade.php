@@ -1,4 +1,4 @@
-﻿@extends('layouts.frontend-master')
+@extends('layouts.frontend-master')
 
 @section('content')
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -622,7 +622,7 @@
             </ul>
           </div>
           <div class="hiw-step-visual">
-            <div style="font-size:64px; opacity:0.8;">📱</div>
+            <div style="font-size:64px; opacity:0.8;"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg></div>
           </div>
         </div>
 
@@ -630,7 +630,7 @@
         <div class="hiw-step" data-aos="fade-up">
           <div class="hiw-step-marker">02</div>
           <div class="hiw-step-visual" style="order: -1;">
-            <div style="font-size:64px; opacity:0.8;">🛎️</div>
+            <div style="font-size:64px; opacity:0.8;"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 18h20"/><path d="M4 18a8 8 0 0 1 16 0"/><path d="M12 10V6"/><path d="M10 6h4"/></svg>️</div>
           </div>
           <div class="hiw-step-content">
             <h3 class="hiw-title">Every Order, Clearly Organized.</h3>
@@ -658,7 +658,7 @@
             </ul>
           </div>
           <div class="hiw-step-visual">
-            <div style="font-size:64px; opacity:0.8;">🍳</div>
+            <div style="font-size:64px; opacity:0.8;"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6Z"/><line x1="6" x2="18" y1="17" y2="17"/></svg></div>
           </div>
         </div>
 
@@ -666,7 +666,7 @@
         <div class="hiw-step" data-aos="fade-up">
           <div class="hiw-step-marker">04</div>
           <div class="hiw-step-visual" style="order: -1;">
-            <div style="font-size:64px; opacity:0.8;">💳</div>
+            <div style="font-size:64px; opacity:0.8;"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg></div>
           </div>
           <div class="hiw-step-content">
             <h3 class="hiw-title">Billing That Fits Your Workflow.</h3>
@@ -694,7 +694,7 @@
             </ul>
           </div>
           <div class="hiw-step-visual">
-            <div style="font-size:64px; opacity:0.8;">🪑</div>
+            <div style="font-size:64px; opacity:0.8;"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="M6 12v8"/><path d="M18 12v8"/><path d="M7 12V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v6"/></svg></div>
           </div>
         </div>
 
@@ -702,7 +702,7 @@
         <div class="hiw-step" data-aos="fade-up">
           <div class="hiw-step-marker">06</div>
           <div class="hiw-step-visual" style="order: -1;">
-            <div style="font-size:64px; opacity:0.8;">📦</div>
+            <div style="font-size:64px; opacity:0.8;"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" x2="12" y1="22.08" y2="12"/></svg></div>
           </div>
           <div class="hiw-step-content">
             <h3 class="hiw-title">Stay Prepared for Daily Service.</h3>
@@ -730,7 +730,7 @@
             </ul>
           </div>
           <div class="hiw-step-visual">
-            <div style="font-size:64px; opacity:0.8;">📊</div>
+            <div style="font-size:64px; opacity:0.8;"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><line x1="18" x2="18" y1="20" y2="10"/><line x1="12" x2="12" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="14"/></svg></div>
           </div>
         </div>
       </div>

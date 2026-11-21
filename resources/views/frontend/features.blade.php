@@ -223,6 +223,66 @@
     position: relative;
   }
 
+  /* ===================== HERO IMAGE SLIDER ===================== */
+  .hero-slider-wrap {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 24px 60px rgba(33, 22, 15, 0.18);
+  }
+
+  .hero-slider {
+    position: relative;
+    width: 100%;
+    height: 420px;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  .hero-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+    pointer-events: none;
+  }
+  .hero-slide.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .hero-slide-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Dot indicators */
+  .hero-slider-dots {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 7px;
+    z-index: 6;
+  }
+  .hsd {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+  .hsd.active {
+    background: #fff;
+    width: 22px;
+    border-radius: 4px;
+  }
+
   .hero-dash-topbar {
     background: #231B15;
     padding: 10px 16px;
@@ -303,9 +363,14 @@
     z-index: 5;
     animation: heroFloat 4s ease-in-out infinite alternate;
   }
-  .hero-float-badge.f-1 { top: -14px; left: -14px; }
-  .hero-float-badge.f-2 { bottom: -14px; right: -14px; animation-delay: 1.5s; }
-  .hero-float-badge.f-3 { bottom: 30px; left: -22px; animation-delay: 2.5s; }
+  /* Badges inside slider wrap — position inside the image */
+  .hero-slider-wrap .hero-float-badge.f-1 { top: 20px; left: 20px; }
+  .hero-slider-wrap .hero-float-badge.f-2 { bottom: 50px; right: 20px; animation-delay: 1.5s; }
+  .hero-slider-wrap .hero-float-badge.f-3 { bottom: 110px; left: 20px; animation-delay: 2.5s; }
+  /* Legacy dash-container badges (unchanged) */
+  .hero-dash-container .hero-float-badge.f-1 { top: -14px; left: -14px; }
+  .hero-dash-container .hero-float-badge.f-2 { bottom: -14px; right: -14px; animation-delay: 1.5s; }
+  .hero-dash-container .hero-float-badge.f-3 { bottom: 30px; left: -22px; animation-delay: 2.5s; }
 
   @keyframes heroFloat {
     0% { transform: translateY(0); }
@@ -432,7 +497,7 @@
   .eco-flow-card {
     background: #fff;
     border-radius: 20px;
-    padding: 36px 28px;
+    padding: 32px 24px;
     border: 1px solid var(--line);
     box-shadow: var(--shadow-sm);
     margin-bottom: 40px;
@@ -442,44 +507,85 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-bottom: 28px;
+    gap: 8px;
+    margin-bottom: 24px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
   }
 
   .eco-flow-node {
     flex: 1;
-    min-width: 140px;
+    min-width: 125px;
     background: #FAF7F2;
     border: 1.5px solid var(--line);
-    border-radius: 12px;
-    padding: 16px 12px;
+    border-radius: 14px;
+    padding: 16px 10px 14px;
     text-align: center;
     transition: all 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
+
   .eco-flow-node:hover {
     background: var(--br-light);
     border-color: var(--br);
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(135, 96, 57, 0.12);
   }
-  .eco-flow-icon {
-    width: 36px;
-    height: 36px;
-    border-radius: 8px;
-    background: #fff;
-    color: var(--br);
-    display: grid;
-    place-items: center;
-    margin: 0 auto 8px;
-    box-shadow: var(--shadow-sm);
+
+  .eco-flow-img-box {
+    width: 68px;
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    transition: transform 0.25s ease;
   }
-  .eco-flow-icon svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; }
-  .eco-flow-name { font-weight: 600; font-size: 14px; color: var(--ink); }
+
+  .eco-flow-node:hover .eco-flow-img-box {
+    transform: scale(1.08);
+  }
+
+  .eco-step-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.06));
+  }
+
+  .eco-flow-name {
+    font-weight: 700;
+    font-size: 13.5px;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
 
   .eco-flow-arr {
     color: var(--gold-deep);
     font-size: 18px;
     font-weight: 700;
+    flex-shrink: 0;
+    opacity: 0.6;
+  }
+
+  @media (max-width: 900px) {
+    .eco-flow-spine {
+      justify-content: flex-start;
+      gap: 12px;
+      padding: 4px 8px 14px;
+    }
+    .eco-flow-node {
+      min-width: 110px;
+      flex-shrink: 0;
+    }
+    .eco-flow-arr {
+      display: none;
+    }
   }
 
   .eco-satellites-row {
@@ -502,6 +608,13 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
+    transition: all 0.2s ease;
+  }
+
+  .eco-pill:hover {
+    background: var(--br-light);
+    color: var(--br);
+    border-color: var(--br);
   }
 
   /* ===================== FEATURE SHOWCASE CARDS ===================== */
@@ -575,7 +688,7 @@
   }
 
   .ft-card-body {
-    padding: 24px;
+    padding: 26px 24px 22px;
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -583,39 +696,44 @@
 
   .ft-card-title {
     font-size: 21px;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
+    line-height: 1.35;
+    font-weight: 700;
   }
 
   .ft-card-desc {
-    font-size: 14px;
+    font-size: 14.5px;
     color: var(--ink-soft);
-    line-height: 1.55;
-    margin-bottom: 18px;
+    line-height: 1.68;
+    margin-bottom: 22px;
+    min-height: 48px;
   }
 
   .ft-features-list {
     list-style: none;
     padding: 0;
-    margin: 0 0 20px;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 8px;
+    margin: 0 0 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
   }
 
   .ft-feature-item {
-    font-size: 13px;
+    font-size: 13.5px;
     color: var(--ink);
     display: flex;
-    align-items: center;
-    gap: 8px;
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.55;
   }
   .ft-feature-item svg {
-    width: 14px;
-    height: 14px;
+    width: 15px;
+    height: 15px;
     stroke: var(--br);
     stroke-width: 2.5;
     fill: none;
     flex-shrink: 0;
+    margin-top: 3px;
   }
 
   .ft-workflow-strip {
@@ -655,153 +773,989 @@
 
   /* ===================== FEATURE SEARCH & FILTER ===================== */
   .ft-search-box {
-    background: #fff;
-    border-radius: 18px;
-    padding: 24px;
-    box-shadow: var(--shadow-sm);
-    border: 1px solid var(--line);
-    margin-bottom: 48px;
+    background: linear-gradient(180deg, #FFFFFF 0%, #FCF9F4 100%);
+    border-radius: 24px;
+    padding: 28px 30px;
+    box-shadow: 0 14px 40px rgba(33, 22, 15, 0.06);
+    border: 1px solid rgba(135, 96, 57, 0.16);
+    margin-bottom: 44px;
+  }
+
+  .ft-search-top-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
   }
 
   .ft-search-field-wrap {
     position: relative;
-    margin-bottom: 18px;
+    flex: 1;
+    margin-bottom: 0;
   }
 
-  .ft-search-field-wrap svg {
+  .ft-search-field-wrap svg.ft-search-icon {
     position: absolute;
-    left: 16px;
+    left: 18px;
     top: 50%;
     transform: translateY(-50%);
     width: 20px;
     height: 20px;
-    stroke: var(--ink-faint);
+    stroke: var(--br);
     fill: none;
-    stroke-width: 2;
+    stroke-width: 2.2;
     pointer-events: none;
   }
 
   .ft-search-input {
     width: 100%;
-    padding: 14px 16px 14px 48px;
-    border-radius: 10px;
-    border: 1px solid var(--line);
-    background: #FAF8F5;
+    padding: 16px 46px 16px 52px;
+    border-radius: 14px;
+    border: 1.5px solid var(--line);
+    background: #FFFFFF;
     font-size: 15px;
     font-family: inherit;
     color: var(--ink);
-    transition: all 0.2s ease;
+    box-shadow: inset 0 1px 3px rgba(33, 22, 15, 0.03);
+    transition: all 0.25s ease;
+  }
+  .ft-search-input::placeholder {
+    color: var(--ink-faint);
   }
   .ft-search-input:focus {
     outline: none;
     border-color: var(--br);
     background: #fff;
-    box-shadow: 0 0 0 3px rgba(135,96,57,0.12);
+    box-shadow: 0 0 0 4px rgba(135, 96, 57, 0.12);
+  }
+
+  .ft-search-clear {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: none;
+    background: var(--br-light);
+    color: var(--br);
+    font-size: 16px;
+    line-height: 1;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, color 0.2s;
+  }
+  .ft-search-clear.visible {
+    display: flex;
+  }
+  .ft-search-clear:hover {
+    background: var(--br);
+    color: #fff;
+  }
+
+  .ft-search-meta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 16px;
+    border-radius: 12px;
+    background: var(--br-light);
+    color: var(--br-dark);
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    border: 1px solid rgba(135, 96, 57, 0.14);
   }
 
   .ft-filter-chips {
     display: flex;
     gap: 8px;
     flex-wrap: wrap;
+    padding-top: 16px;
+    border-top: 1px solid rgba(135, 96, 57, 0.1);
   }
 
   .ft-chip-btn {
-    padding: 7px 16px;
+    padding: 8px 16px;
     border-radius: 999px;
     border: 1px solid var(--line);
-    background: #FAF7F2;
+    background: #FFFFFF;
     color: var(--ink-soft);
     font-size: 13px;
-    font-weight: 500;
+    font-weight: 600;
+    font-family: inherit;
     cursor: pointer;
     transition: all 0.2s ease;
   }
   .ft-chip-btn:hover {
     border-color: var(--br);
     color: var(--br);
+    background: var(--br-faint);
+    transform: translateY(-1px);
   }
   .ft-chip-btn.active {
     background: var(--br);
     color: #fff;
     border-color: var(--br);
+    box-shadow: 0 6px 16px rgba(135, 96, 57, 0.26);
   }
 
   /* ===================== DIRECTORY SECTION ===================== */
   .ft-dir-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
+    gap: 24px;
   }
 
   .ft-dir-group {
     background: #fff;
-    border-radius: 16px;
+    border-radius: 20px;
     padding: 24px;
     border: 1px solid var(--line);
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 6px 24px rgba(33, 22, 15, 0.04);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+
+  .ft-dir-group::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--br) 0%, var(--gold) 100%);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
+
+  .ft-dir-group:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px rgba(33, 22, 15, 0.09);
+    border-color: rgba(135, 96, 57, 0.3);
+  }
+
+  .ft-dir-group:hover::before {
+    opacity: 1;
+  }
+
+  .ft-dir-group-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding-bottom: 16px;
+    margin-bottom: 14px;
+    border-bottom: 1px solid #F1E9DF;
+  }
+
+  .ft-dir-group-title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+  }
+
+  .ft-dir-icon-badge {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: var(--br-light);
+    color: var(--br);
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    border: 1px solid rgba(135, 96, 57, 0.14);
+    transition: background 0.25s ease, color 0.25s ease;
+  }
+
+  .ft-dir-group:hover .ft-dir-icon-badge {
+    background: var(--br);
+    color: #fff;
+  }
+
+  .ft-dir-icon-badge svg {
+    width: 19px;
+    height: 19px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
   }
 
   .ft-dir-group-title {
-    font-size: 16px;
+    font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+    font-size: 16.5px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.25;
+  }
+
+  .ft-dir-count {
+    font-size: 11.5px;
     font-weight: 600;
     color: var(--br);
-    border-bottom: 1.5px solid var(--br-light);
-    padding-bottom: 10px;
-    margin-bottom: 14px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    background: var(--br-faint);
+    border: 1px solid rgba(135, 96, 57, 0.16);
+    padding: 3px 9px;
+    border-radius: 999px;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 
   .ft-dir-list {
     list-style: none;
     padding: 0;
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
   }
 
   .ft-dir-list li {
-    margin-bottom: 10px;
+    margin: 0;
   }
 
   .ft-dir-list a {
     font-size: 14px;
+    font-weight: 500;
     color: var(--ink-soft);
     text-decoration: none;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    transition: color 0.2s ease;
+    padding: 10px 12px;
+    border-radius: 11px;
+    background: transparent;
+    transition: all 0.2s ease;
+  }
+
+  .ft-dir-list a .ft-dir-arrow {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #FAF6EF;
+    color: var(--br);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+    flex-shrink: 0;
   }
 
   .ft-dir-list a:hover {
-    color: var(--br);
+    color: var(--ink);
+    background: #FAF6EF;
   }
 
-  /* ===================== MOBILE DASHBOARD MOCKUP ===================== */
+  .ft-dir-list a:hover .ft-dir-arrow {
+    background: var(--br);
+    color: #fff;
+    transform: translateX(3px);
+  }
+
+  .ft-dir-empty {
+    display: none;
+    text-align: center;
+    padding: 48px 24px;
+    background: #fff;
+    border-radius: 20px;
+    border: 1px dashed rgba(135, 96, 57, 0.35);
+    margin-top: 8px;
+  }
+  .ft-dir-empty.visible {
+    display: block;
+  }
+  .ft-dir-empty h4 {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+  .ft-dir-empty p {
+    font-size: 14px;
+    margin-bottom: 18px;
+  }
+
+  @media (max-width: 768px) {
+    .ft-search-box {
+      padding: 20px 18px;
+      border-radius: 18px;
+    }
+    .ft-search-top-row {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .ft-search-meta {
+      justify-content: center;
+    }
+    .ft-filter-chips {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+    .ft-filter-chips::-webkit-scrollbar {
+      display: none;
+    }
+    .ft-chip-btn {
+      flex-shrink: 0;
+    }
+  }
+
+  /* ===================== OPERATIONAL DIFFERENCE CARDS ===================== */
+  .ft-benefit-card {
+    background: #FFFFFF;
+    border-radius: 20px;
+    padding: 30px 24px 28px;
+    border: 1px solid var(--line);
+    box-shadow: 0 6px 24px rgba(33, 22, 15, 0.04);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+  }
+
+  .ft-benefit-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 24px;
+    right: 24px;
+    height: 3px;
+    border-radius: 3px 3px 0 0;
+    background: linear-gradient(90deg, var(--br) 0%, var(--gold) 100%);
+    opacity: 0;
+    transition: opacity 0.28s ease;
+  }
+
+  .ft-benefit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 44px rgba(33, 22, 15, 0.09);
+    border-color: rgba(135, 96, 57, 0.3);
+  }
+
+  .ft-benefit-card:hover::after {
+    opacity: 1;
+  }
+
+  .ft-benefit-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  .ft-benefit-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 14px;
+    display: grid;
+    place-items: center;
+    transition: transform 0.28s ease;
+  }
+  .ft-benefit-icon svg {
+    width: 22px;
+    height: 22px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2.1;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .ft-benefit-icon.br { background: var(--br-light); color: var(--br); border: 1px solid rgba(135,96,57,0.16); }
+  .ft-benefit-icon.gr { background: var(--green-light); color: var(--green); border: 1px solid rgba(21,128,61,0.16); }
+  .ft-benefit-icon.am { background: var(--amber-light); color: var(--amber); border: 1px solid rgba(180,83,9,0.16); }
+  .ft-benefit-icon.bl { background: var(--blue-light); color: var(--blue); border: 1px solid rgba(29,78,216,0.16); }
+
+  .ft-benefit-card:hover .ft-benefit-icon {
+    transform: scale(1.06);
+  }
+
+  .ft-benefit-num {
+    font-family: 'Outfit', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gold-deep);
+    background: #FAF6EF;
+    border: 1px solid rgba(135, 96, 57, 0.14);
+    padding: 4px 10px;
+    border-radius: 999px;
+    letter-spacing: 0.04em;
+  }
+
+  .ft-benefit-card h4 {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .ft-benefit-card p {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ===================== MOBILE MANAGEMENT SHOWCASE ===================== */
+  .ft-mobile-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 56px;
+    align-items: center;
+  }
+
+  .ft-mobile-copy h2 {
+    font-size: 38px;
+    line-height: 1.18;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+  }
+
+  .ft-mobile-copy .ft-mobile-lead {
+    font-size: 16.5px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    margin-bottom: 26px;
+    max-width: 520px;
+  }
+
+  .ft-mobile-perks {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
+  .ft-mobile-perk {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: #FFFFFF;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 13px 16px;
+    box-shadow: 0 3px 12px rgba(33, 22, 15, 0.03);
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .ft-mobile-perk:hover {
+    border-color: rgba(135, 96, 57, 0.35);
+    transform: translateX(4px);
+  }
+
+  .ft-mobile-perk-ico {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    background: var(--br-light);
+    color: var(--br);
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+  }
+  .ft-mobile-perk-ico svg {
+    width: 17px;
+    height: 17px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2.3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .ft-mobile-perk span {
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  /* Sleek Smartphone Stage */
+  .ft-phone-stage {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+  }
+
+  .ft-phone-stage::before {
+    content: '';
+    position: absolute;
+    width: 340px;
+    height: 340px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(199, 154, 97, 0.22) 0%, rgba(250, 246, 239, 0) 72%);
+    z-index: 0;
+    pointer-events: none;
+  }
+
   .mobile-mock-card {
-    background: #231B15;
-    border-radius: 36px;
-    padding: 28px 20px;
-    max-width: 320px;
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(145deg, #2B221B 0%, #17110D 100%);
+    border-radius: 42px;
+    padding: 12px;
+    width: 100%;
+    max-width: 304px;
     margin: 0 auto;
     color: #fff;
-    box-shadow: var(--shadow-lg);
-    border: 4px solid #3F332A;
-  }
-
-  .mobile-mock-notch {
-    width: 100px;
-    height: 18px;
-    background: #17110D;
-    border-radius: 0 0 12px 12px;
-    margin: -28px auto 20px;
+    box-shadow: 0 28px 65px rgba(33, 22, 15, 0.24), 0 0 0 1px rgba(255,255,255,0.08) inset;
+    border: 3px solid #3C3027;
   }
 
   .mobile-mock-screen {
     background: #FAF7F2;
-    border-radius: 20px;
-    padding: 16px;
+    border-radius: 31px;
+    padding: 14px 16px 12px;
     color: var(--ink);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .mobile-status-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+    padding: 0 4px;
+  }
+
+  .mobile-time {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .mobile-island {
+    width: 76px;
+    height: 18px;
+    background: #17110D;
+    border-radius: 999px;
+  }
+
+  .mobile-signals {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 10px;
+    color: var(--ink);
+    font-weight: 700;
+  }
+
+  .mobile-app-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+  }
+
+  .mobile-app-brand {
+    font-family: 'Outfit', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .mobile-live-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 10.5px;
+    font-weight: 700;
+    color: var(--green);
+    background: var(--green-light);
+    padding: 3px 9px;
+    border-radius: 999px;
+  }
+  .mobile-live-pill::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--green);
+  }
+
+  .mobile-sales-hero {
+    background: linear-gradient(135deg, #876039 0%, #6B4A2A 100%);
+    border-radius: 16px;
+    padding: 16px;
+    color: #fff;
+    margin-bottom: 12px;
+    box-shadow: 0 8px 20px rgba(135, 96, 57, 0.25);
+  }
+
+  .mobile-sales-lbl {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    opacity: 0.82;
+    margin-bottom: 4px;
+  }
+
+  .mobile-sales-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .mobile-sales-val {
+    font-family: 'Outfit', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.1;
+  }
+
+  .mobile-sales-delta {
+    font-size: 10.5px;
+    font-weight: 700;
+    background: rgba(255,255,255,0.18);
+    color: #fff;
+    padding: 3px 8px;
+    border-radius: 999px;
+  }
+
+  .mobile-spark-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 5px;
+    height: 28px;
+    margin-top: 12px;
+  }
+
+  .mobile-spark-bars span {
+    flex: 1;
+    border-radius: 4px 4px 2px 2px;
+    background: rgba(255, 255, 255, 0.28);
+  }
+  .mobile-spark-bars span.peak {
+    background: #FFFFFF;
+  }
+
+  .mobile-stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .mobile-stat-box {
+    background: #FFFFFF;
+    border: 1px solid var(--line);
+    border-radius: 13px;
+    padding: 11px 12px;
+  }
+
+  .mobile-stat-lbl {
+    font-size: 10.5px;
+    color: var(--ink-faint);
+    font-weight: 600;
+    margin-bottom: 3px;
+  }
+
+  .mobile-stat-num {
+    font-family: 'Outfit', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .mobile-info-list {
+    background: #FFFFFF;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    margin-bottom: 12px;
+  }
+
+  .mobile-info-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+  }
+
+  .mobile-info-row + .mobile-info-row {
+    padding-top: 9px;
+    border-top: 1px solid #F3ECE3;
+  }
+
+  .mobile-home-bar {
+    width: 96px;
+    height: 4px;
+    background: rgba(33, 22, 15, 0.2);
+    border-radius: 999px;
+    margin: 4px auto 0;
+  }
+
+  .ft-phone-float {
+    position: absolute;
+    z-index: 2;
+    background: #FFFFFF;
+    border: 1px solid rgba(135, 96, 57, 0.16);
+    box-shadow: 0 12px 30px rgba(33, 22, 15, 0.12);
+    border-radius: 14px;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .ft-phone-float.pf-1 {
+    top: 44px;
+    right: -6px;
+  }
+
+  .ft-phone-float.pf-2 {
+    bottom: 52px;
+    left: -6px;
+  }
+
+  @media (max-width: 1024px) {
+    .ft-mobile-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .ft-mobile-copy {
+      text-align: left;
+    }
+    .ft-phone-float {
+      display: none;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .ft-mobile-copy h2 {
+      font-size: 28px;
+    }
+    .ft-benefit-card {
+      padding: 24px 20px;
+    }
+  }
+
+  /* ===================== INDUSTRY SUITES CARDS ===================== */
+  .ft-industry-card {
+    background: #FFFFFF;
+    border-radius: 18px;
+    padding: 24px 22px;
+    border: 1px solid var(--line);
+    box-shadow: 0 5px 20px rgba(33, 22, 15, 0.035);
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+
+  .ft-industry-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 36px rgba(33, 22, 15, 0.08);
+    border-color: rgba(135, 96, 57, 0.35);
+  }
+
+  .ft-ind-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+
+  .ft-ind-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: var(--br-light);
+    color: var(--br);
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(135, 96, 57, 0.14);
+    transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+  }
+
+  .ft-ind-icon svg {
+    width: 20px;
+    height: 20px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .ft-industry-card:hover .ft-ind-icon {
+    background: var(--br);
+    color: #fff;
+    transform: scale(1.05);
+  }
+
+  .ft-ind-arrow {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #FAF6EF;
+    color: var(--br);
+    display: grid;
+    place-items: center;
+    font-size: 13px;
+    font-weight: 700;
+    transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+  }
+
+  .ft-industry-card:hover .ft-ind-arrow {
+    background: var(--br);
+    color: #fff;
+    transform: translateX(3px);
+  }
+
+  .ft-industry-card h4 {
+    font-size: 17.5px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+
+  .ft-industry-card p {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ===================== FLEXIBLE PLANS SECTION ===================== */
+  .ft-plans-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    align-items: stretch;
+    margin-bottom: 40px;
+  }
+
+  .ft-plan-card {
+    background: #FFFFFF;
+    border-radius: 22px;
+    padding: 30px 26px;
+    border: 1px solid var(--line);
+    box-shadow: 0 6px 24px rgba(33, 22, 15, 0.04);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+  }
+
+  .ft-plan-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 44px rgba(33, 22, 15, 0.09);
+    border-color: rgba(135, 96, 57, 0.3);
+  }
+
+  .ft-plan-card.featured {
+    background: linear-gradient(180deg, #FFFDF9 0%, #FAF4EA 100%);
+    border: 2px solid var(--br);
+    box-shadow: 0 18px 44px rgba(135, 96, 57, 0.14);
+  }
+
+  .ft-plan-badge-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .ft-plan-tier {
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--br);
+    background: var(--br-light);
+    padding: 5px 11px;
+    border-radius: 999px;
+    border: 1px solid rgba(135, 96, 57, 0.16);
+  }
+
+  .ft-plan-popular {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #fff;
+    background: var(--br);
+    padding: 5px 11px;
+    border-radius: 999px;
+  }
+
+  .ft-plan-card h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+
+  .ft-plan-sub {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    margin-bottom: 22px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid rgba(135, 96, 57, 0.12);
+  }
+
+  .ft-plan-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+  }
+
+  .ft-plan-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  .ft-plan-list svg {
+    width: 16px;
+    height: 16px;
+    stroke: var(--br);
+    stroke-width: 2.5;
+    fill: none;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 960px) {
+    .ft-plans-grid {
+      grid-template-columns: 1fr;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 
   /* ===================== FAQ ACCORDION ===================== */
@@ -863,30 +1817,90 @@
     max-height: 220px;
   }
 
-  /* ===================== FINAL CTA ===================== */
-  .final-cta-box {
-    background: linear-gradient(135deg, #FAF4ED 0%, #EFE4D6 50%, #FAF4ED 100%);
-    border-radius: 28px;
-    padding: 72px 48px;
+  /* ===================== FINAL CTA (MATCHING HOME PAGE) ===================== */
+  .ft-home-cta {
+    position: relative;
     color: #21160F;
     text-align: center;
-    box-shadow: 0 16px 40px rgba(135, 96, 57, 0.08);
-    border: 1.5px solid rgba(135, 96, 57, 0.22);
-    position: relative;
     overflow: hidden;
+    padding: 100px 0;
+    background: linear-gradient(135deg, #FAF4ED 0%, #EFE4D6 50%, #FAF4ED 100%);
+    border-top: 1px solid rgba(135, 96, 57, 0.16);
   }
 
-  .final-cta-box h2 {
-    color: #21160F;
-    font-size: 42px;
+  .ft-home-cta .w {
+    position: relative;
+    z-index: 2;
+  }
+
+  .ft-home-cta-eb {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: var(--br);
     margin-bottom: 16px;
+    background: linear-gradient(135deg, #FBF6EE 0%, #FAF7F2 100%);
+    padding: 7px 18px;
+    border-radius: 99px;
+    border: 1px solid rgba(135, 96, 57, 0.22);
+    box-shadow: 0 2px 10px rgba(135, 96, 57, 0.08);
+    font-family: 'Plus Jakarta Sans', sans-serif;
   }
 
-  .final-cta-box p {
+  .ft-home-cta h2 {
+    color: #21160F;
+    font-size: clamp(30px, 4vw, 44px);
+    line-height: 1.18;
+    max-width: 760px;
+    margin: 0 auto 18px;
+    letter-spacing: -0.02em;
+  }
+
+  .ft-home-cta p {
     color: #6E6157;
-    font-size: 17px;
-    max-width: 640px;
+    max-width: 680px;
     margin: 0 auto 36px;
+    font-size: 19px;
+    line-height: 1.65;
+  }
+
+  .ft-home-cta .bts {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .ft-home-cta .bts .btn.ow {
+    background: transparent;
+    border: 1.5px solid #876039;
+    color: #876039;
+  }
+  .ft-home-cta .bts .btn.ow:hover {
+    background: rgba(135, 96, 57, 0.08);
+    color: #6f4e2d;
+    border-color: #6f4e2d;
+    transform: translateY(-2px);
+  }
+
+  .ft-home-cta small {
+    display: block;
+    margin-top: 32px;
+    color: #8C7C71;
+    font-size: 14px;
+  }
+
+  @media (max-width: 768px) {
+    .ft-home-cta {
+      padding: 70px 0;
+    }
+    .ft-home-cta p {
+      font-size: 16px;
+    }
   }
 
   .final-cta-buttons {
@@ -901,6 +1915,7 @@
     .ft-hero-grid { grid-template-columns: 1fr; gap: 40px; }
     .ft-grid-3, .ft-grid-4 { grid-template-columns: repeat(2, 1fr); }
     .ft-dir-grid { grid-template-columns: repeat(2, 1fr); }
+    .hero-slider { height: 340px; }
   }
 
   @media (max-width: 768px) {
@@ -911,6 +1926,16 @@
     .ft-dir-grid { grid-template-columns: 1fr; }
     .final-cta-box { padding: 48px 24px; }
     .final-cta-box h2 { font-size: 28px; }
+    .hero-slider { height: 260px; }
+    .hero-slider-wrap .hero-float-badge { font-size: 11px; padding: 8px 10px; gap: 7px; }
+    .hero-slider-wrap .hero-float-badge.f-1 { top: 12px; left: 12px; }
+    .hero-slider-wrap .hero-float-badge.f-2 { bottom: 46px; right: 12px; }
+    .hero-slider-wrap .hero-float-badge.f-3 { bottom: 100px; left: 12px; }
+  }
+
+  @media (max-width: 480px) {
+    .hero-slider { height: 220px; }
+    .hero-slider-wrap .hero-float-badge.f-3 { display: none; }
   }
 </style>
 
@@ -934,60 +1959,29 @@
           </div>
         </div>
 
-        {{-- Realistic Hero Dashboard Visual --}}
-        <div class="hero-dash-container" data-aos="fade-left">
-          <div class="hero-dash-topbar">
-            <div class="window-dots">
-              <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+        {{-- Hero Image Slider --}}
+        <div class="hero-slider-wrap" data-aos="fade-left">
+          <div class="hero-slider" id="heroSlider">
+            <div class="hero-slide active">
+              <img src="{{ asset('landing/popup-side-image.jpg') }}"       alt="Restaurant Ambience" class="hero-slide-img">
             </div>
-            <div style="font-size:11px; font-family:monospace; opacity:0.8;">Live Restaurant Manager &bull; Geni Menu ERP</div>
+            <div class="hero-slide">
+              <img src="{{ asset('landing/hero-restaurant-photo.png') }}"  alt="Restaurant Operations" class="hero-slide-img">
+            </div>
+            <div class="hero-slide">
+              <img src="{{ asset('landing/about.jpg') }}"                  alt="Restaurant Team" class="hero-slide-img">
+            </div>
+            <div class="hero-slide">
+              <img src="{{ asset('landing/techbenifits1.jpg') }}"          alt="Restaurant Technology" class="hero-slide-img">
+            </div>
           </div>
 
-          <div class="dash-body">
-            <div class="dash-metrics-row">
-              <div class="dash-metric-card">
-                <div class="dash-metric-lbl">Today's Sales</div>
-                <div class="dash-metric-val">&#8377;86,450</div>
-                <div class="dash-metric-sub">&uarr; +18% vs yesterday</div>
-              </div>
-              <div class="dash-metric-card">
-                <div class="dash-metric-lbl">Active Orders</div>
-                <div class="dash-metric-val">18 Orders</div>
-                <div class="dash-metric-sub" style="color:var(--amber);">12 Preparing</div>
-              </div>
-              <div class="dash-metric-card">
-                <div class="dash-metric-lbl">Tables Seated</div>
-                <div class="dash-metric-val">88% Capacity</div>
-                <div class="dash-metric-sub" style="color:var(--blue);">14 / 16 Seated</div>
-              </div>
-            </div>
-
-            <div class="dash-main-split">
-              <div class="dash-sub-panel">
-                <div class="dash-panel-title">Active Kitchen &amp; Counter Orders</div>
-                <div class="dash-table-row">
-                  <div><strong>#1240 &bull; Table 4</strong><br><span style="font-size:11px; color:var(--ink-soft);">Butter Chicken, Garlic Naan (x2)</span></div>
-                  <div style="text-align:right;"><span style="color:var(--amber); font-weight:600;">KOT Dispatched</span><br>&#8377;740</div>
-                </div>
-                <div class="dash-table-row">
-                  <div><strong>#1241 &bull; Takeaway</strong><br><span style="font-size:11px; color:var(--ink-soft);">Paneer Tikka Roll, Masala Chai</span></div>
-                  <div style="text-align:right;"><span style="color:var(--green); font-weight:600;">Ready for Pickup</span><br>&#8377;310</div>
-                </div>
-              </div>
-
-              <div class="dash-sub-panel">
-                <div class="dash-panel-title">Inventory Alerts</div>
-                <div style="margin-bottom:8px;">
-                  <span style="color:var(--amber); font-weight:600;">&bull; Paneer:</span> 3.5 kg remaining
-                </div>
-                <div style="margin-bottom:8px;">
-                  <span style="color:var(--green); font-weight:600;">&bull; Basmati Rice:</span> 48 kg in stock
-                </div>
-                <div style="font-size:11px; color:var(--ink-soft); margin-top:10px;">
-                  Auto stock tracking active
-                </div>
-              </div>
-            </div>
+          {{-- Dot indicators --}}
+          <div class="hero-slider-dots" id="heroSliderDots">
+            <span class="hsd active" data-idx="0"></span>
+            <span class="hsd" data-idx="1"></span>
+            <span class="hsd" data-idx="2"></span>
+            <span class="hsd" data-idx="3"></span>
           </div>
 
           {{-- Floating UI Badges --}}
@@ -1049,37 +2043,57 @@
       <div class="eco-flow-card" data-aos="fade-up">
         <div class="eco-flow-spine">
           <div class="eco-flow-node">
-            <div class="eco-flow-icon"><svg viewBox="0 0 24 24"><line x1="18" y1="2" x2="18" y2="22"/><path d="M14 2v7a3 3 0 0 0 6 0V2"/><path d="M6 2v4a2 2 0 0 0 4 0V2"/><line x1="8" y1="8" x2="8" y2="22"/></svg></div>
+            <div class="eco-flow-img-box">
+              <img src="{{ asset('assets/images/workflow/step-1-menu.png') }}" alt="Menu" class="eco-step-img">
+            </div>
             <div class="eco-flow-name">Menu</div>
             <div style="font-size:11px; color:var(--ink-soft);">Categories &amp; Items</div>
           </div>
           <span class="eco-flow-arr">&rarr;</span>
           <div class="eco-flow-node">
-            <div class="eco-flow-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/></svg></div>
+            <div class="eco-flow-img-box">
+              <img src="{{ asset('assets/images/workflow/step-2-order.png') }}" alt="Orders" class="eco-step-img">
+            </div>
             <div class="eco-flow-name">Orders</div>
             <div style="font-size:11px; color:var(--ink-soft);">Table &amp; Counter</div>
           </div>
           <span class="eco-flow-arr">&rarr;</span>
           <div class="eco-flow-node">
-            <div class="eco-flow-icon"><svg viewBox="0 0 24 24"><path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6Z"/></svg></div>
+            <div class="eco-flow-img-box">
+              <img src="{{ asset('assets/images/workflow/step-3-kitchen.png') }}" alt="Kitchen KOT" class="eco-step-img">
+            </div>
             <div class="eco-flow-name">Kitchen KOT</div>
             <div style="font-size:11px; color:var(--ink-soft);">Live Prep Routing</div>
           </div>
           <span class="eco-flow-arr">&rarr;</span>
           <div class="eco-flow-node">
-            <div class="eco-flow-icon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="7" y1="15" x2="11" y2="15"/></svg></div>
+            <div class="eco-flow-img-box">
+              <img src="{{ asset('assets/images/workflow/step-4-table.png') }}" alt="Table Floor" class="eco-step-img">
+            </div>
+            <div class="eco-flow-name">Tables</div>
+            <div style="font-size:11px; color:var(--ink-soft);">Floor &amp; Seating</div>
+          </div>
+          <span class="eco-flow-arr">&rarr;</span>
+          <div class="eco-flow-node">
+            <div class="eco-flow-img-box">
+              <img src="{{ asset('assets/images/workflow/step-5-billing.png') }}" alt="Billing POS" class="eco-step-img">
+            </div>
             <div class="eco-flow-name">Billing POS</div>
             <div style="font-size:11px; color:var(--ink-soft);">3-Click Checkout</div>
           </div>
           <span class="eco-flow-arr">&rarr;</span>
           <div class="eco-flow-node">
-            <div class="eco-flow-icon"><svg viewBox="0 0 24 24"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg></div>
-            <div class="eco-flow-name">Inventory</div>
-            <div style="font-size:11px; color:var(--ink-soft);">Recipe Stock Sync</div>
+            <div class="eco-flow-img-box">
+              <img src="{{ asset('assets/images/workflow/step-6-payment.png') }}" alt="Payments" class="eco-step-img">
+            </div>
+            <div class="eco-flow-name">Payments</div>
+            <div style="font-size:11px; color:var(--ink-soft);">UPI, Cards, Cash</div>
           </div>
           <span class="eco-flow-arr">&rarr;</span>
           <div class="eco-flow-node">
-            <div class="eco-flow-icon"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+            <div class="eco-flow-img-box">
+              <img src="{{ asset('assets/images/workflow/step-7-reports.png') }}" alt="Reports" class="eco-step-img">
+            </div>
             <div class="eco-flow-name">Reports</div>
             <div style="font-size:11px; color:var(--ink-soft);">Sales &amp; Margins</div>
           </div>
@@ -1152,7 +2166,7 @@
         {{-- Card: Kiosk Ordering --}}
         <div class="ft-card" data-aos="fade-up" data-aos-delay="100">
           <div class="ft-card-media">
-            <img src="https://images.unsplash.com/photo-1556742049-0a67e5572293?q=80&w=900&auto=format&fit=crop" alt="Kiosk Ordering" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1556740758-90de374c12ad?q=80&w=900&auto=format&fit=crop" alt="Kiosk Ordering" loading="lazy">
             <span class="ft-card-tag">Self-Service</span>
           </div>
           <div class="ft-card-body">
@@ -1574,8 +2588,11 @@
       <div class="ft-grid-3">
         {{-- Card: Reports & Analytics --}}
         <div class="ft-card" data-aos="fade-up">
+          <div class="ft-card-media">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=900&auto=format&fit=crop" alt="Reports & Analytics" loading="lazy">
+            <span class="ft-card-tag">Analytics Engine</span>
+          </div>
           <div class="ft-card-body">
-            <span class="sec-eyebrow" style="margin-bottom:8px;">ANALYTICS ENGINE</span>
             <h3 class="ft-card-title">Reports &amp; Analytics</h3>
             <p class="ft-card-desc">Real-time revenue, item popularity, and peak sales hour intelligence.</p>
             
@@ -1595,8 +2612,11 @@
 
         {{-- Card: Export Reports --}}
         <div class="ft-card" data-aos="fade-up" data-aos-delay="50">
+          <div class="ft-card-media">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=900&auto=format&fit=crop" alt="Export Reports" loading="lazy">
+            <span class="ft-card-tag">Data Export</span>
+          </div>
           <div class="ft-card-body">
-            <span class="sec-eyebrow" style="margin-bottom:8px;">DATA EXPORT</span>
             <h3 class="ft-card-title">Export Reports</h3>
             <p class="ft-card-desc">Take your business data with you for tax filing, audits, or external spreadsheets.</p>
             <ul class="ft-features-list">
@@ -1613,8 +2633,11 @@
 
         {{-- Card: Customized Settings --}}
         <div class="ft-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="ft-card-media">
+            <img src="https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?q=80&w=900&auto=format&fit=crop" alt="Customized Settings" loading="lazy">
+            <span class="ft-card-tag">Configuration</span>
+          </div>
           <div class="ft-card-body">
-            <span class="sec-eyebrow" style="margin-bottom:8px;">CONFIGURATION</span>
             <h3 class="ft-card-title">Customized Settings</h3>
             <p class="ft-card-desc">Configure taxes, receipts, currencies, and dining operational preferences to match your brand.</p>
             <ul class="ft-features-list">
@@ -1642,9 +2665,16 @@
       </div>
 
       <div class="ft-search-box" data-aos="fade-up">
-        <div class="ft-search-field-wrap">
-          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-          <input type="text" id="featureSearchInput" class="ft-search-input" placeholder="Search features (e.g., KOT, split bill, reservations, inventory, multi-branch, kiosk)...">
+        <div class="ft-search-top-row">
+          <div class="ft-search-field-wrap">
+            <svg class="ft-search-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" id="featureSearchInput" class="ft-search-input" placeholder="Search features (e.g., KOT, split bill, reservations, inventory, multi-branch, kiosk)...">
+            <button type="button" id="featureSearchClear" class="ft-search-clear" aria-label="Clear search">&times;</button>
+          </div>
+          <div class="ft-search-meta" id="featureSearchMeta">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+            <span id="featureMatchCount">6 Categories &bull; 20 Modules</span>
+          </div>
         </div>
 
         <div class="ft-filter-chips">
@@ -1664,62 +2694,116 @@
       </div>
 
       {{-- 12. COMPACT FEATURE DIRECTORY --}}
-      <div class="ft-dir-grid" data-aos="fade-up">
+      <div class="ft-dir-grid" id="featureDirGrid" data-aos="fade-up">
         <div class="ft-dir-group searchable-feature-group" data-tags="menu customers kiosk">
-          <div class="ft-dir-group-title">&#128214; Menu &amp; Customer Experience</div>
+          <div class="ft-dir-group-header">
+            <div class="ft-dir-group-title-wrap">
+              <div class="ft-dir-icon-badge">
+                <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+              </div>
+              <div class="ft-dir-group-title">Menu &amp; Customer Experience</div>
+            </div>
+            <span class="ft-dir-count">3</span>
+          </div>
           <ul class="ft-dir-list">
-            <li><a href="{{ route('features.menu-management') }}">Menu Management <span>&rarr;</span></a></li>
-            <li><a href="{{ route('restaurant_signup') }}">Customer CRM <span>&rarr;</span></a></li>
-            <li><a href="{{ route('features.order-management') }}">Kiosk Ordering <span>&rarr;</span></a></li>
+            <li><a href="{{ route('features.menu-management') }}"><span>Menu Management</span> <span class="ft-dir-arrow">&rarr;</span></a></li>
+            <li><a href="{{ route('restaurant_signup') }}"><span>Customer CRM</span> <span class="ft-dir-arrow">&rarr;</span></a></li>
+            <li><a href="{{ route('features.order-management') }}"><span>Kiosk Ordering</span> <span class="ft-dir-arrow">&rarr;</span></a></li>
           </ul>
         </div>
 
         <div class="ft-dir-group searchable-feature-group" data-tags="orders kitchen kot waiter">
-          <div class="ft-dir-group-title">&#128104;&#8205;&#127859; Orders &amp; Kitchen</div>
+          <div class="ft-dir-group-header">
+            <div class="ft-dir-group-title-wrap">
+              <div class="ft-dir-icon-badge">
+                <svg viewBox="0 0 24 24"><path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6Z"/><line x1="6" y1="17" x2="18" y2="17"/></svg>
+              </div>
+              <div class="ft-dir-group-title">Orders &amp; Kitchen</div>
+            </div>
+            <span class="ft-dir-count">4</span>
+          </div>
           <ul class="ft-dir-list">
-            <li><a href="{{ route('features.order-management') }}">Order Management <span>&rarr;</span></a></li>
-            <li><a href="{{ route('features.kot-management') }}">KOT Management <span>&rarr;</span></a></li>
-            <li><a href="{{ route('features.kot-management') }}">Kitchen Operations <span>&rarr;</span></a></li>
-            <li><a href="{{ route('features.waiter-request') }}">Waiter Requests <span>&rarr;</span></a></li>
+            <li><a href="{{ route('features.order-management') }}"><span>Order Management</span> <span class="ft-dir-arrow">&rarr;</span></a></li>
+            <li><a href="{{ route('features.kot-management') }}"><span>KOT Management</span> <span class="ft-dir-arrow">&rarr;</span></a></li>
+            <li><a href="{{ route('features.kot-management') }}"><span>Kitchen Operations</span> <span class="ft-dir-arrow">&rarr;</span></a></li>
+            <li><a href="{{ route('features.waiter-request') }}"><span>Waiter Requests</span> <span class="ft-dir-arrow">&rarr;</span></a></li>
           </ul>
         </div>
 
         <div class="ft-dir-group searchable-feature-group" data-tags="tables reservations floor">
-          <div class="ft-dir-group-title">&#129681; Tables &amp; Reservations</div>
+          <div class="ft-dir-group-header">
+            <div class="ft-dir-group-title-wrap">
+              <div class="ft-dir-icon-badge">
+                <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              </div>
+              <div class="ft-dir-group-title">Tables &amp; Reservations</div>
+            </div>
+            <span class="ft-dir-count">2</span>
+          </div>
           <ul class="ft-dir-list">
-            <li><a href="{{ route('features.table-management') }}">Table Management <span>&rarr;</span></a></li>
-            <li><a href="{{ route('features.reservation-management') }}">Reservation Calendar <span>&rarr;</span></a></li>
+            <li><a href="{{ route('features.table-management') }}"><span>Table Management</span> <span class="ft-dir-arrow">&rarr;</span></a></li>
+            <li><a href="{{ route('features.reservation-management') }}"><span>Reservation Calendar</span> <span class="ft-dir-arrow">&rarr;</span></a></li>
           </ul>
         </div>
 
-        <div class="ft-dir-group searchable-feature-group" data-tags="pos payments billing gateway">
-          <div class="ft-dir-group-title">&#128179; POS &amp; Payments</div>
+        <div class="ft-dir-group searchable-feature-group" data-tags="pos payments billing gateway split bill">
+          <div class="ft-dir-group-header">
+            <div class="ft-dir-group-title-wrap">
+              <div class="ft-dir-icon-badge">
+                <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+              </div>
+              <div class="ft-dir-group-title">POS &amp; Payments</div>
+            </div>
+            <span class="ft-dir-count">3</span>
+          </div>
           <ul class="ft-dir-list">
-            <li><a href="{{ route('features.pos-management') }}">POS &amp; Fast Billing <span>&rarr;</span></a></li>
-            <li><a href="{{ route('features.pos-management') }}">Payments Management <span>&rarr;</span></a></li>
-            <li><a href="{{ route('features.pos-management') }}">Online Gateway Integration <span>&rarr;</span></a></li>
+            <li><a href="{{ route('features.pos-management') }}"><span>POS &amp; Fast Billing</span> <span class="ft-dir-arrow">&rarr;</span></a></li>
+            <li><a href="{{ route('features.pos-management') }}"><span>Payments Management</span> <span class="ft-dir-arrow">&rarr;</span></a></li>
+            <li><a href="{{ route('features.pos-management') }}"><span>Online Gateway Integration</span> <span class="ft-dir-arrow">&rarr;</span></a></li>
           </ul>
         </div>
 
-        <div class="ft-dir-group searchable-feature-group" data-tags="inventory operations stock expenses branches">
-          <div class="ft-dir-group-title">&#128230; Inventory &amp; Operations</div>
+        <div class="ft-dir-group searchable-feature-group" data-tags="inventory operations stock expenses branches multi-branch">
+          <div class="ft-dir-group-header">
+            <div class="ft-dir-group-title-wrap">
+              <div class="ft-dir-icon-badge">
+                <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+              </div>
+              <div class="ft-dir-group-title">Inventory &amp; Operations</div>
+            </div>
+            <span class="ft-dir-count">4</span>
+          </div>
           <ul class="ft-dir-list">
-            <li><a href="{{ route('features.inventory-management') }}">Inventory &amp; Stock <span>&rarr;</span></a></li>
-            <li><a href="{{ route('features.inventory-management') }}">Expense Management <span>&rarr;</span></a></li>
-            <li><a href="{{ route('features.kot-management') }}">Multiple Kitchen Stations <span>&rarr;</span></a></li>
-            <li><a href="{{ route('features') }}">Multiple Branch HQ <span>&rarr;</span></a></li>
+            <li><a href="{{ route('features.inventory-management') }}"><span>Inventory &amp; Stock</span> <span class="ft-dir-arrow">&rarr;</span></a></li>
+            <li><a href="{{ route('features.inventory-management') }}"><span>Expense Management</span> <span class="ft-dir-arrow">&rarr;</span></a></li>
+            <li><a href="{{ route('features.kot-management') }}"><span>Multiple Kitchen Stations</span> <span class="ft-dir-arrow">&rarr;</span></a></li>
+            <li><a href="{{ route('features') }}"><span>Multiple Branch HQ</span> <span class="ft-dir-arrow">&rarr;</span></a></li>
           </ul>
         </div>
 
         <div class="ft-dir-group searchable-feature-group" data-tags="reports analytics exports settings staff">
-          <div class="ft-dir-group-title">&#128202; Business &amp; Staff</div>
+          <div class="ft-dir-group-header">
+            <div class="ft-dir-group-title-wrap">
+              <div class="ft-dir-icon-badge">
+                <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+              </div>
+              <div class="ft-dir-group-title">Business &amp; Staff</div>
+            </div>
+            <span class="ft-dir-count">4</span>
+          </div>
           <ul class="ft-dir-list">
-            <li><a href="{{ route('features.reports') }}">Reports &amp; Analytics <span>&rarr;</span></a></li>
-            <li><a href="{{ route('features.reports') }}">Export Reports <span>&rarr;</span></a></li>
-            <li><a href="{{ route('restaurant_signup') }}">Staff Roles &amp; Permissions <span>&rarr;</span></a></li>
-            <li><a href="{{ route('restaurant_signup') }}">Customized Settings <span>&rarr;</span></a></li>
+            <li><a href="{{ route('features.reports') }}"><span>Reports &amp; Analytics</span> <span class="ft-dir-arrow">&rarr;</span></a></li>
+            <li><a href="{{ route('features.reports') }}"><span>Export Reports</span> <span class="ft-dir-arrow">&rarr;</span></a></li>
+            <li><a href="{{ route('restaurant_signup') }}"><span>Staff Roles &amp; Permissions</span> <span class="ft-dir-arrow">&rarr;</span></a></li>
+            <li><a href="{{ route('restaurant_signup') }}"><span>Customized Settings</span> <span class="ft-dir-arrow">&rarr;</span></a></li>
           </ul>
         </div>
+      </div>
+
+      <div class="ft-dir-empty" id="featureDirEmpty">
+        <h4>No matching modules found</h4>
+        <p>Try searching with another keyword like "KOT", "Billing", "Inventory", or reset your filters.</p>
+        <button type="button" class="btn p" id="featureResetBtn">Reset Search &amp; Filters</button>
       </div>
     </div>
   </section>
@@ -1734,28 +2818,40 @@
       </div>
 
       <div class="ft-grid-4" data-aos="fade-up">
-        <div style="background:#fff; border-radius:16px; padding:26px 20px; border:1px solid var(--line);">
-          <div class="f-icon-box br" style="margin-bottom:16px;"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
-          <h4 style="font-size:18px; margin-bottom:8px;">Connected Operations</h4>
-          <p style="font-size:13.5px;">Your menu, orders, kitchen, billing, inventory and reports work within one connected ecosystem.</p>
+        <div class="ft-benefit-card">
+          <div class="ft-benefit-top">
+            <div class="ft-benefit-icon br"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+            <span class="ft-benefit-num">01</span>
+          </div>
+          <h4>Connected Operations</h4>
+          <p>Your menu, orders, kitchen, billing, inventory and reports work within one connected ecosystem.</p>
         </div>
 
-        <div style="background:#fff; border-radius:16px; padding:26px 20px; border:1px solid var(--line);">
-          <div class="f-icon-box gr" style="margin-bottom:16px;"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg></div>
-          <h4 style="font-size:18px; margin-bottom:8px;">Faster Service</h4>
-          <p style="font-size:13.5px;">Give restaurant teams the tools they need to punch orders, clear tables, and process bills in seconds.</p>
+        <div class="ft-benefit-card">
+          <div class="ft-benefit-top">
+            <div class="ft-benefit-icon gr"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg></div>
+            <span class="ft-benefit-num">02</span>
+          </div>
+          <h4>Faster Service</h4>
+          <p>Give restaurant teams the tools they need to punch orders, clear tables, and process bills in seconds.</p>
         </div>
 
-        <div style="background:#fff; border-radius:16px; padding:26px 20px; border:1px solid var(--line);">
-          <div class="f-icon-box am" style="margin-bottom:16px;"><svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
-          <h4 style="font-size:18px; margin-bottom:8px;">Better Visibility</h4>
-          <p style="font-size:13.5px;">Get a clearer view of sales, orders, ingredient inventory and business activity from anywhere.</p>
+        <div class="ft-benefit-card">
+          <div class="ft-benefit-top">
+            <div class="ft-benefit-icon am"><svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+            <span class="ft-benefit-num">03</span>
+          </div>
+          <h4>Better Visibility</h4>
+          <p>Get a clearer view of sales, orders, ingredient inventory and business activity from anywhere.</p>
         </div>
 
-        <div style="background:#fff; border-radius:16px; padding:26px 20px; border:1px solid var(--line);">
-          <div class="f-icon-box br" style="margin-bottom:16px;"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
-          <h4 style="font-size:18px; margin-bottom:8px;">Built to Grow</h4>
-          <p style="font-size:13.5px;">Start with essential features and expand into advanced and multi-branch capabilities as your business grows.</p>
+        <div class="ft-benefit-card">
+          <div class="ft-benefit-top">
+            <div class="ft-benefit-icon bl"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+            <span class="ft-benefit-num">04</span>
+          </div>
+          <h4>Built to Grow</h4>
+          <p>Start with essential features and expand into advanced and multi-branch capabilities as your business grows.</p>
         </div>
       </div>
     </div>
@@ -1764,35 +2860,106 @@
   {{-- 14. MOBILE MANAGEMENT SHOWCASE --}}
   <section class="section">
     <div class="w">
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center;">
-        <div data-aos="fade-right">
+      <div class="ft-mobile-grid">
+        <div class="ft-mobile-copy" data-aos="fade-right">
           <div class="sec-eyebrow">MOBILE MANAGEMENT</div>
-          <h2 style="font-size:36px; margin-bottom:16px;">Your Restaurant. At a Glance.</h2>
-          <p style="font-size:16.5px; line-height:1.65; margin-bottom:24px;">Keep an eye on important restaurant activity through a mobile-friendly management experience where supported.</p>
-          <ul class="ft-features-list" style="margin-bottom:32px;">
-            <li class="ft-feature-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Live revenue updates from anywhere</li>
-            <li class="ft-feature-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Active kitchen order monitoring</li>
-            <li class="ft-feature-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Low-stock alerts right in your hand</li>
-          </ul>
+          <h2>Your Restaurant. At a Glance.</h2>
+          <p class="ft-mobile-lead">Keep an eye on important restaurant activity through a mobile-friendly management experience where supported.</p>
+
+          <div class="ft-mobile-perks">
+            <div class="ft-mobile-perk">
+              <div class="ft-mobile-perk-ico">
+                <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              </div>
+              <span>Live revenue updates from anywhere</span>
+            </div>
+            <div class="ft-mobile-perk">
+              <div class="ft-mobile-perk-ico">
+                <svg viewBox="0 0 24 24"><path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6Z"/></svg>
+              </div>
+              <span>Active kitchen order monitoring</span>
+            </div>
+            <div class="ft-mobile-perk">
+              <div class="ft-mobile-perk-ico">
+                <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              </div>
+              <span>Low-stock alerts right in your hand</span>
+            </div>
+          </div>
+
           <a href="{{ route('restaurant_signup') }}" class="btn p">Get Started on Mobile &rarr;</a>
         </div>
 
-        <div data-aos="fade-left">
+        <div class="ft-phone-stage" data-aos="fade-left">
+          <div class="ft-phone-float pf-1">
+            <div class="f-icon-box gr"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div>
+              <div style="font-size:10px; color:var(--ink-faint);">LIVE SYNC</div>
+              <div>Real-time Cloud Sync</div>
+            </div>
+          </div>
+
+          <div class="ft-phone-float pf-2">
+            <div class="f-icon-box am"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
+            <div>
+              <div style="font-size:10px; color:var(--ink-faint);">KITCHEN ALERT</div>
+              <div>Order #1242 Ready</div>
+            </div>
+          </div>
+
           <div class="mobile-mock-card">
-            <div class="mobile-mock-notch"></div>
             <div class="mobile-mock-screen">
-              <div style="font-size:11px; text-transform:uppercase; color:var(--ink-faint); margin-bottom:4px;">Today's Sales</div>
-              <div style="font-size:22px; font-weight:700; color:var(--ink); margin-bottom:14px;">&#8377;86,450</div>
-              
-              <div style="background:#fff; border-radius:10px; padding:12px; margin-bottom:10px; border:1px solid var(--line); font-size:12px;">
-                <div style="display:flex; justify-content:space-between;"><span>Active Orders:</span> <strong>18</strong></div>
-                <div style="display:flex; justify-content:space-between; margin-top:4px;"><span>Preparing:</span> <strong style="color:var(--amber);">9</strong></div>
+              <div class="mobile-status-bar">
+                <span class="mobile-time">9:41</span>
+                <span class="mobile-island"></span>
+                <span class="mobile-signals">5G</span>
               </div>
 
-              <div style="background:#fff; border-radius:10px; padding:12px; border:1px solid var(--line); font-size:12px;">
-                <div style="display:flex; justify-content:space-between;"><span>Low Stock:</span> <strong style="color:var(--amber);">4 Items</strong></div>
-                <div style="display:flex; justify-content:space-between; margin-top:4px;"><span>Best Seller:</span> <strong>Margherita Pizza</strong></div>
+              <div class="mobile-app-header">
+                <span class="mobile-app-brand">Geni Menu</span>
+                <span class="mobile-live-pill">Live</span>
               </div>
+
+              <div class="mobile-sales-hero">
+                <div class="mobile-sales-lbl">Today's Sales</div>
+                <div class="mobile-sales-row">
+                  <div class="mobile-sales-val">&#8377;86,450</div>
+                  <span class="mobile-sales-delta">&uarr; +18%</span>
+                </div>
+                <div class="mobile-spark-bars">
+                  <span style="height:40%;"></span>
+                  <span style="height:62%;"></span>
+                  <span style="height:50%;"></span>
+                  <span style="height:78%;"></span>
+                  <span style="height:68%;"></span>
+                  <span style="height:92%;" class="peak"></span>
+                  <span style="height:82%;"></span>
+                </div>
+              </div>
+
+              <div class="mobile-stat-grid">
+                <div class="mobile-stat-box">
+                  <div class="mobile-stat-lbl">Active Orders</div>
+                  <div class="mobile-stat-num">18</div>
+                </div>
+                <div class="mobile-stat-box">
+                  <div class="mobile-stat-lbl">Preparing</div>
+                  <div class="mobile-stat-num" style="color:var(--amber);">9</div>
+                </div>
+              </div>
+
+              <div class="mobile-info-list">
+                <div class="mobile-info-row">
+                  <span style="color:var(--ink-soft);">Low Stock</span>
+                  <strong style="color:var(--amber);">4 Items</strong>
+                </div>
+                <div class="mobile-info-row">
+                  <span style="color:var(--ink-soft);">Best Seller</span>
+                  <strong style="color:var(--ink);">Margherita Pizza</strong>
+                </div>
+              </div>
+
+              <div class="mobile-home-bar"></div>
             </div>
           </div>
         </div>
@@ -1810,48 +2977,96 @@
       </div>
 
       <div class="ft-grid-4" data-aos="fade-up">
-        <div style="background:#fff; border-radius:14px; padding:20px; border:1px solid var(--line);">
-          <h4 style="font-size:17px; margin-bottom:6px; color:var(--br);">Restaurants</h4>
-          <p style="font-size:13px;">Menu, orders, POS, tables, kitchen and reports.</p>
-        </div>
+        <a href="{{ route('solutions') }}" class="ft-industry-card">
+          <div class="ft-ind-head">
+            <div class="ft-ind-icon">
+              <svg viewBox="0 0 24 24"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>
+            </div>
+            <span class="ft-ind-arrow">&rarr;</span>
+          </div>
+          <h4>Restaurants</h4>
+          <p>Menu, orders, POS, tables, kitchen and reports.</p>
+        </a>
 
-        <div style="background:#fff; border-radius:14px; padding:20px; border:1px solid var(--line);">
-          <h4 style="font-size:17px; margin-bottom:6px; color:var(--br);">QSRs</h4>
-          <p style="font-size:13px;">Fast ordering, POS, KOT and high-volume operations.</p>
-        </div>
+        <a href="{{ route('solutions') }}" class="ft-industry-card">
+          <div class="ft-ind-head">
+            <div class="ft-ind-icon">
+              <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+            <span class="ft-ind-arrow">&rarr;</span>
+          </div>
+          <h4>QSRs</h4>
+          <p>Fast ordering, POS, KOT and high-volume operations.</p>
+        </a>
 
-        <div style="background:#fff; border-radius:14px; padding:20px; border:1px solid var(--line);">
-          <h4 style="font-size:17px; margin-bottom:6px; color:var(--br);">Bakeries &amp; Cakes</h4>
-          <p style="font-size:13px;">Products, orders, customers, inventory and billing.</p>
-        </div>
+        <a href="{{ route('solutions') }}" class="ft-industry-card">
+          <div class="ft-ind-head">
+            <div class="ft-ind-icon">
+              <svg viewBox="0 0 24 24"><path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8"/><path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1"/><path d="M2 21h20"/><path d="M7 8v3"/><path d="M12 8v3"/><path d="M17 8v3"/><path d="M7 4h.01"/><path d="M12 4h.01"/><path d="M17 4h.01"/></svg>
+            </div>
+            <span class="ft-ind-arrow">&rarr;</span>
+          </div>
+          <h4>Bakeries &amp; Cakes</h4>
+          <p>Products, orders, customers, inventory and billing.</p>
+        </a>
 
-        <div style="background:#fff; border-radius:14px; padding:20px; border:1px solid var(--line);">
-          <h4 style="font-size:17px; margin-bottom:6px; color:var(--br);">Sweet Shops</h4>
-          <p style="font-size:13px;">Product catalogue, orders, POS and inventory.</p>
-        </div>
+        <a href="{{ route('solutions') }}" class="ft-industry-card">
+          <div class="ft-ind-head">
+            <div class="ft-ind-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <span class="ft-ind-arrow">&rarr;</span>
+          </div>
+          <h4>Sweet Shops</h4>
+          <p>Product catalogue, orders, POS and inventory.</p>
+        </a>
 
-        <div style="background:#fff; border-radius:14px; padding:20px; border:1px solid var(--line);">
-          <h4 style="font-size:17px; margin-bottom:6px; color:var(--br);">Juice &amp; Beverage</h4>
-          <p style="font-size:13px;">Fast counter orders, products, payments and inventory.</p>
-        </div>
+        <a href="{{ route('solutions') }}" class="ft-industry-card">
+          <div class="ft-ind-head">
+            <div class="ft-ind-icon">
+              <svg viewBox="0 0 24 24"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="14" y1="2" x2="14" y2="4"/></svg>
+            </div>
+            <span class="ft-ind-arrow">&rarr;</span>
+          </div>
+          <h4>Juice &amp; Beverage</h4>
+          <p>Fast counter orders, products, payments and inventory.</p>
+        </a>
 
-        <div style="background:#fff; border-radius:14px; padding:20px; border:1px solid var(--line);">
-          <h4 style="font-size:17px; margin-bottom:6px; color:var(--br);">Pizzerias</h4>
-          <p style="font-size:13px;">Product variations, orders, KOT, kitchen and billing.</p>
-        </div>
+        <a href="{{ route('solutions') }}" class="ft-industry-card">
+          <div class="ft-ind-head">
+            <div class="ft-ind-icon">
+              <svg viewBox="0 0 24 24"><path d="M15 11h.01"/><path d="M11 15h.01"/><path d="M16 16h.01"/><path d="m2 16 20 6-6-20A20 20 0 0 0 2 16"/></svg>
+            </div>
+            <span class="ft-ind-arrow">&rarr;</span>
+          </div>
+          <h4>Pizzerias</h4>
+          <p>Product variations, orders, KOT, kitchen and billing.</p>
+        </a>
 
-        <div style="background:#fff; border-radius:14px; padding:20px; border:1px solid var(--line);">
-          <h4 style="font-size:17px; margin-bottom:6px; color:var(--br);">Caf&eacute;s</h4>
-          <p style="font-size:13px;">Menu, table service, orders, POS and payments.</p>
-        </div>
+        <a href="{{ route('solutions') }}" class="ft-industry-card">
+          <div class="ft-ind-head">
+            <div class="ft-ind-icon">
+              <svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+            </div>
+            <span class="ft-ind-arrow">&rarr;</span>
+          </div>
+          <h4>Caf&eacute;s</h4>
+          <p>Menu, table service, orders, POS and payments.</p>
+        </a>
 
-        <div style="background:#fff; border-radius:14px; padding:20px; border:1px solid var(--line);">
-          <h4 style="font-size:17px; margin-bottom:6px; color:var(--br);">Canteens</h4>
-          <p style="font-size:13px;">Counter orders, kitchen, inventory and reports.</p>
-        </div>
+        <a href="{{ route('solutions') }}" class="ft-industry-card">
+          <div class="ft-ind-head">
+            <div class="ft-ind-icon">
+              <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <span class="ft-ind-arrow">&rarr;</span>
+          </div>
+          <h4>Canteens</h4>
+          <p>Counter orders, kitchen, inventory and reports.</p>
+        </a>
       </div>
 
-      <div style="text-align:center; margin-top:32px;">
+      <div style="text-align:center; margin-top:36px;">
         <a href="{{ route('solutions') }}" class="btn p">Explore Industries &rarr;</a>
       </div>
     </div>
@@ -1866,20 +3081,45 @@
         <p>Start with essential operations and unlock more capabilities as your restaurant grows.</p>
       </div>
 
-      <div style="display:flex; justify-content:center; align-items:center; gap:20px; flex-wrap:wrap; margin-bottom:36px;" data-aos="fade-up">
-        <div style="background:#fff; padding:18px 24px; border-radius:12px; border:1px solid var(--line); text-align:center; min-width:200px;">
-          <strong style="color:var(--br);">STANDARD</strong>
-          <div style="font-size:13px; color:var(--ink-soft); margin-top:4px;">Essential Operations</div>
+      <div class="ft-plans-grid" data-aos="fade-up">
+        <div class="ft-plan-card">
+          <div class="ft-plan-badge-row">
+            <span class="ft-plan-tier">Tier 01</span>
+          </div>
+          <h3>Standard</h3>
+          <p class="ft-plan-sub">Essential Operations — ideal for single-outlet cafes, QSRs &amp; growing kitchens.</p>
+          <ul class="ft-plan-list">
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Digital QR Menu &amp; Fast POS Billing</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Live Order &amp; Kitchen KOT Routing</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Daily Sales &amp; Payment Summaries</li>
+          </ul>
         </div>
-        <span style="font-size:22px; color:var(--gold);">&rarr;</span>
-        <div style="background:#fff; padding:18px 24px; border-radius:12px; border:1.5px solid var(--br); text-align:center; min-width:200px; box-shadow:var(--shadow-sm);">
-          <strong style="color:var(--br);">PREMIUM</strong>
-          <div style="font-size:13px; color:var(--ink-soft); margin-top:4px;">Complete Business Suite</div>
+
+        <div class="ft-plan-card featured">
+          <div class="ft-plan-badge-row">
+            <span class="ft-plan-tier">Tier 02</span>
+            <span class="ft-plan-popular">Most Popular</span>
+          </div>
+          <h3>Premium</h3>
+          <p class="ft-plan-sub">Complete Business Suite — built for full-service restaurants &amp; busy dining floors.</p>
+          <ul class="ft-plan-list">
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Everything in Standard + Inventory &amp; Recipes</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Floor Tables, Reservations &amp; Guest CRM</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Staff Roles, Expenses &amp; Deep Analytics</li>
+          </ul>
         </div>
-        <span style="font-size:22px; color:var(--gold);">&rarr;</span>
-        <div style="background:#fff; padding:18px 24px; border-radius:12px; border:1px solid var(--line); text-align:center; min-width:200px;">
-          <strong style="color:var(--br);">ENTERPRISE</strong>
-          <div style="font-size:13px; color:var(--ink-soft); margin-top:4px;">Advanced &amp; Multi-Branch</div>
+
+        <div class="ft-plan-card">
+          <div class="ft-plan-badge-row">
+            <span class="ft-plan-tier">Tier 03</span>
+          </div>
+          <h3>Enterprise</h3>
+          <p class="ft-plan-sub">Advanced &amp; Multi-Branch — tailored for restaurant chains &amp; franchise groups.</p>
+          <ul class="ft-plan-list">
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Multi-Branch Central HQ Dashboard</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Multiple Kitchen Stations &amp; Kiosk Mode</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Priority Onboarding &amp; Dedicated Support</li>
+          </ul>
         </div>
       </div>
 
@@ -1972,18 +3212,22 @@
     </div>
   </section>
 
-  {{-- 18. FINAL CTA --}}
-  <section class="section" style="padding-top:0;">
-    <div class="w">
-      <div class="final-cta-box" data-aos="fade-up">
-        <h2>Everything Your Restaurant Needs. One Connected Platform.</h2>
-        <p>From your first menu item to your latest business report, Geni Menu brings your restaurant operations together.</p>
-        
-        <div class="final-cta-buttons">
-          <a href="{{ route('restaurant_signup') }}" class="btn p" style="background:#876039; color:#fff; border-radius:9999px; padding:12px 28px; font-weight:600; text-decoration:none; display:inline-flex; align-items:center; gap:6px;">Get Started &rarr;</a>
-          <button type="button" onclick="openPopup('Book a Demo - Geni Menu Features')" class="btn o" style="background:transparent; border:1.5px solid #876039; color:#876039; border-radius:9999px; padding:12px 28px; font-weight:600; cursor:pointer; display:inline-flex; align-items:center; gap:6px;">Book a Demo &rarr;</button>
-        </div>
+  {{-- 18. FINAL CTA (MATCHING HOME PAGE) --}}
+  <section class="ft-home-cta">
+    <div class="w" data-aos="fade-up">
+      <span class="ft-home-cta-eb">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        LET'S TALK ABOUT YOUR FOOD BUSINESS
+      </span>
+      <h2>Everything Your Restaurant Needs. One Connected Platform.</h2>
+      <p>From your first menu item to your latest business report, Geni Menu brings your restaurant operations together.</p>
+
+      <div class="bts">
+        <a href="{{ route('restaurant_signup') }}" class="btn p">Get Started &rarr;</a>
+        <button type="button" onclick="openPopup('Book a Demo - Geni Menu Features')" class="btn ow">Book a Demo &rarr;</button>
       </div>
+
+      <small>Geni Menu — Connected management for modern food &amp; beverage businesses.</small>
     </div>
   </section>
 
@@ -1998,8 +3242,68 @@ document.addEventListener('DOMContentLoaded', function() {
     AOS.init({ duration: 600, once: true, offset: 40 });
   }
 
+  // ===================== HERO SLIDER =====================
+  (function() {
+    var slides = document.querySelectorAll('#heroSlider .hero-slide');
+    var dots   = document.querySelectorAll('#heroSliderDots .hsd');
+    if (!slides.length) return;
+
+    var current = 0;
+    var total   = slides.length;
+    var timer   = null;
+
+    function goTo(idx) {
+      slides[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = (idx + total) % total;
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
+    }
+
+    function next() { goTo(current + 1); }
+
+    function startAuto() {
+      timer = setInterval(next, 3500);
+    }
+
+    function resetAuto() {
+      clearInterval(timer);
+      startAuto();
+    }
+
+    // Dot click
+    dots.forEach(function(dot) {
+      dot.addEventListener('click', function() {
+        goTo(parseInt(this.getAttribute('data-idx')));
+        resetAuto();
+      });
+    });
+
+    // Touch swipe support
+    var touchStartX = 0;
+    var sliderEl = document.getElementById('heroSlider');
+    if (sliderEl) {
+      sliderEl.addEventListener('touchstart', function(e) {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+      sliderEl.addEventListener('touchend', function(e) {
+        var diff = touchStartX - e.changedTouches[0].screenX;
+        if (Math.abs(diff) > 40) {
+          goTo(diff > 0 ? current + 1 : current - 1);
+          resetAuto();
+        }
+      }, { passive: true });
+    }
+
+    startAuto();
+  })();
+
   // 2. Feature Search & Filter Chips
   var searchInput = document.getElementById('featureSearchInput');
+  var searchClear = document.getElementById('featureSearchClear');
+  var matchCountEl = document.getElementById('featureMatchCount');
+  var emptyStateEl = document.getElementById('featureDirEmpty');
+  var resetBtn = document.getElementById('featureResetBtn');
   var chipButtons = document.querySelectorAll('.ft-chip-btn');
   var dirGroups = document.querySelectorAll('.searchable-feature-group');
 
@@ -2008,6 +3312,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function filterFeatures() {
     var query = currentSearch.trim().toLowerCase();
+    var visibleGroups = 0;
+    var visibleModules = 0;
+
+    if (searchClear) {
+      searchClear.classList.toggle('visible', query.length > 0);
+    }
 
     dirGroups.forEach(function(group) {
       var tags = (group.getAttribute('data-tags') || '').toLowerCase();
@@ -2018,10 +3328,30 @@ document.addEventListener('DOMContentLoaded', function() {
 
       if (matchesSearch && matchesFilter) {
         group.style.display = '';
+        visibleGroups++;
+        visibleModules += group.querySelectorAll('.ft-dir-list li').length;
       } else {
         group.style.display = 'none';
       }
     });
+
+    if (matchCountEl) {
+      matchCountEl.textContent = visibleGroups + (visibleGroups === 1 ? ' Category' : ' Categories') + ' • ' + visibleModules + (visibleModules === 1 ? ' Module' : ' Modules');
+    }
+
+    if (emptyStateEl) {
+      emptyStateEl.classList.toggle('visible', visibleGroups === 0);
+    }
+  }
+
+  function resetFeatureSearch() {
+    currentSearch = '';
+    currentFilter = 'all';
+    if (searchInput) searchInput.value = '';
+    chipButtons.forEach(function(b) {
+      b.classList.toggle('active', b.getAttribute('data-filter') === 'all');
+    });
+    filterFeatures();
   }
 
   chipButtons.forEach(function(btn) {
@@ -2038,6 +3368,21 @@ document.addEventListener('DOMContentLoaded', function() {
       currentSearch = this.value;
       filterFeatures();
     });
+  }
+
+  if (searchClear) {
+    searchClear.addEventListener('click', function() {
+      currentSearch = '';
+      if (searchInput) {
+        searchInput.value = '';
+        searchInput.focus();
+      }
+      filterFeatures();
+    });
+  }
+
+  if (resetBtn) {
+    resetBtn.addEventListener('click', resetFeatureSearch);
   }
 
   // 3. FAQ Accordion Toggle

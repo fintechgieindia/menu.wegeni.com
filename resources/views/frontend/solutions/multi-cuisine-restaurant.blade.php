@@ -190,9 +190,9 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
         <!-- Multi-cuisine pill badges -->
         <div style="margin-top: 32px; display: flex; gap: 10px; flex-wrap: wrap;">
           <span style="background: var(--bg3); border: 1px solid var(--line); color: var(--br-dark); font-size: 12px; font-weight: 500; padding: 6px 14px; border-radius: 99px;">🇮🇳 Indian & Tandoor</span>
-          <span style="background: var(--bg3); border: 1px solid var(--line); color: var(--br-dark); font-size: 12px; font-weight: 500; padding: 6px 14px; border-radius: 99px;">🥢 Chinese & Asian</span>
-          <span style="background: var(--bg3); border: 1px solid var(--line); color: var(--br-dark); font-size: 12px; font-weight: 500; padding: 6px 14px; border-radius: 99px;">🍕 Italian & Continental</span>
-          <span style="background: var(--bg3); border: 1px solid var(--line); color: var(--br-dark); font-size: 12px; font-weight: 500; padding: 6px 14px; border-radius: 99px;">🍹 Mocktails & Desserts</span>
+          <span style="background: var(--bg3); border: 1px solid var(--line); color: var(--br-dark); font-size: 12px; font-weight: 500; padding: 6px 14px; border-radius: 99px;"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg> Chinese & Asian</span>
+          <span style="background: var(--bg3); border: 1px solid var(--line); color: var(--br-dark); font-size: 12px; font-weight: 500; padding: 6px 14px; border-radius: 99px;"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 11h.01"/><path d="M11 15h.01"/><path d="M16 16h.01"/><path d="m2 16 20 6-6-20A20 20 0 0 0 2 16"/></svg> Italian & Continental</span>
+          <span style="background: var(--bg3); border: 1px solid var(--line); color: var(--br-dark); font-size: 12px; font-weight: 500; padding: 6px 14px; border-radius: 99px;"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 22h8"/><path d="M12 11v11"/><path d="m19 3-7 8-7-8Z"/></svg> Mocktails & Desserts</span>
         </div>
       </div>
 
@@ -326,11 +326,11 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
     <div class="win" style="padding: 28px; max-width: 1060px; margin: 0 auto;">
       <div style="display: flex; gap: 12px; border-bottom: 1px solid var(--line); padding-bottom: 16px; margin-bottom: 24px; overflow-x: auto;">
         <span style="background: var(--br); color: #fff; font-size: 13px; font-weight: 500; padding: 8px 18px; border-radius: 99px;">🇮🇳 Indian</span>
-        <span style="background: var(--bg2); color: var(--ink); font-size: 13px; font-weight: 700; padding: 8px 18px; border-radius: 99px; border: 1px solid var(--line);">🥢 Chinese</span>
-        <span style="background: var(--bg2); color: var(--ink); font-size: 13px; font-weight: 700; padding: 8px 18px; border-radius: 99px; border: 1px solid var(--line);">🍕 Italian</span>
-        <span style="background: var(--bg2); color: var(--ink); font-size: 13px; font-weight: 700; padding: 8px 18px; border-radius: 99px; border: 1px solid var(--line);">🥗 Continental</span>
-        <span style="background: var(--bg2); color: var(--ink); font-size: 13px; font-weight: 700; padding: 8px 18px; border-radius: 99px; border: 1px solid var(--line);">🍹 Beverages</span>
-        <span style="background: var(--bg2); color: var(--ink); font-size: 13px; font-weight: 700; padding: 8px 18px; border-radius: 99px; border: 1px solid var(--line);">🍰 Desserts</span>
+        <span style="background: var(--bg2); color: var(--ink); font-size: 13px; font-weight: 700; padding: 8px 18px; border-radius: 99px; border: 1px solid var(--line);"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg> Chinese</span>
+        <span style="background: var(--bg2); color: var(--ink); font-size: 13px; font-weight: 700; padding: 8px 18px; border-radius: 99px; border: 1px solid var(--line);"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 11h.01"/><path d="M11 15h.01"/><path d="M16 16h.01"/><path d="m2 16 20 6-6-20A20 20 0 0 0 2 16"/></svg> Italian</span>
+        <span style="background: var(--bg2); color: var(--ink); font-size: 13px; font-weight: 700; padding: 8px 18px; border-radius: 99px; border: 1px solid var(--line);"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11h16a1 1 0 0 1 1 1v.5c0 4.5-4 8.5-9 8.5s-9-4-9-8.5V12a1 1 0 0 1 1-1Z"/><path d="M12 3v4"/><path d="M8 5v2"/><path d="M16 5v2"/></svg> Continental</span>
+        <span style="background: var(--bg2); color: var(--ink); font-size: 13px; font-weight: 700; padding: 8px 18px; border-radius: 99px; border: 1px solid var(--line);"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 22h8"/><path d="M12 11v11"/><path d="m19 3-7 8-7-8Z"/></svg> Beverages</span>
+        <span style="background: var(--bg2); color: var(--ink); font-size: 13px; font-weight: 700; padding: 8px 18px; border-radius: 99px; border: 1px solid var(--line);"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8"/><path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1"/><path d="M2 21h20"/><path d="M7 8v3"/><path d="M12 8v3"/><path d="M17 8v3"/></svg> Desserts</span>
       </div>
 
       <div class="g3">
@@ -413,11 +413,11 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
             <strong style="color: var(--green-text);">18 Dishes Active</strong>
           </div>
           <div style="display: flex; justify-content: space-between; align-items: center; background: var(--bg2); padding: 10px 14px; border-radius: 8px;">
-            <span>🥢 Chinese · Wok & Starters</span>
+            <span><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg> Chinese · Wok & Starters</span>
             <strong style="color: var(--green-text);">14 Dishes Active</strong>
           </div>
           <div style="display: flex; justify-content: space-between; align-items: center; background: var(--bg2); padding: 10px 14px; border-radius: 8px;">
-            <span>🍕 Italian · Wood-fired Pizza</span>
+            <span><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 11h.01"/><path d="M11 15h.01"/><path d="M16 16h.01"/><path d="m2 16 20 6-6-20A20 20 0 0 0 2 16"/></svg> Italian · Wood-fired Pizza</span>
             <strong style="color: var(--green-text);">10 Dishes Active</strong>
           </div>
         </div>
@@ -690,7 +690,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 
         <div>
           <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; margin-bottom: 4px;">
-            <span>🥢 Chinese & Asian (28%)</span>
+            <span><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg> Chinese & Asian (28%)</span>
             <span>₹13,610</span>
           </div>
           <div style="height: 10px; background: var(--bg2); border-radius: 5px; overflow: hidden;">
@@ -700,7 +700,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 
         <div>
           <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; margin-bottom: 4px;">
-            <span>🍕 Italian & Grills (18%)</span>
+            <span><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 11h.01"/><path d="M11 15h.01"/><path d="M16 16h.01"/><path d="m2 16 20 6-6-20A20 20 0 0 0 2 16"/></svg> Italian & Grills (18%)</span>
             <span>₹8,750</span>
           </div>
           <div style="height: 10px; background: var(--bg2); border-radius: 5px; overflow: hidden;">
@@ -710,7 +710,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 
         <div>
           <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; margin-bottom: 4px;">
-            <span>🍹 Beverages & Desserts (12%)</span>
+            <span><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 22h8"/><path d="M12 11v11"/><path d="m19 3-7 8-7-8Z"/></svg> Beverages & Desserts (12%)</span>
             <span>₹5,840</span>
           </div>
           <div style="height: 10px; background: var(--bg2); border-radius: 5px; overflow: hidden;">

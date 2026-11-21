@@ -809,7 +809,7 @@ section.alt { background: var(--bg2); }
       <div class="biz-card">
         <img src="https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?w=400&q=80" alt="Juice Shop" class="biz-img" referrerpolicy="no-referrer">
         <div class="biz-ctx">
-          <h3>🥤 Juice Shops</h3>
+          <h3><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 22h8"/><path d="M12 11v11"/><path d="m19 3-7 8-7-8Z"/></svg> Juice Shops</h3>
           <ul>
             <li>Fresh juices</li><li>Shakes</li><li>Smoothies</li><li>Mocktails</li><li>Fruit bowls</li><li>Quick counter orders</li>
           </ul>
@@ -818,7 +818,7 @@ section.alt { background: var(--bg2); }
       <div class="biz-card">
         <img src="https://images.unsplash.com/photo-1557142046-c704a3adf364?w=400&q=80" alt="Ice Cream Parlour" class="biz-img" referrerpolicy="no-referrer">
         <div class="biz-ctx">
-          <h3>🍦 Ice Cream Parlours</h3>
+          <h3><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8"/><path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1"/><path d="M2 21h20"/><path d="M7 8v3"/><path d="M12 8v3"/><path d="M17 8v3"/></svg> Ice Cream Parlours</h3>
           <ul>
             <li>Scoops</li><li>Cups</li><li>Cones</li><li>Sundaes</li><li>Desserts</li><li>Flavours</li><li>Add-ons</li>
           </ul>
@@ -827,7 +827,7 @@ section.alt { background: var(--bg2); }
       <div class="biz-card">
         <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&q=80" alt="Chaat Shop" class="biz-img" referrerpolicy="no-referrer">
         <div class="biz-ctx">
-          <h3>🌶️ Chaat Shops</h3>
+          <h3><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>️ Chaat Shops</h3>
           <ul>
             <li>Pani puri</li><li>Bhel puri</li><li>Sev puri</li><li>Dahi puri</li><li>Samosa chaat</li><li>Aloo tikki</li>
           </ul>
@@ -836,7 +836,7 @@ section.alt { background: var(--bg2); }
       <div class="biz-card">
         <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&q=80" alt="Tea Shop" class="biz-img" referrerpolicy="no-referrer">
         <div class="biz-ctx">
-          <h3>☕ Tea Shops</h3>
+          <h3><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" x2="6" y1="2" y2="4"/><line x1="10" x2="10" y1="2" y2="4"/><line x1="14" x2="14" y1="2" y2="4"/></svg> Tea Shops</h3>
           <ul>
             <li>Tea</li><li>Masala tea</li><li>Coffee</li><li>Cold coffee</li><li>Snacks</li><li>Beverages</li><li>Takeaway</li>
           </ul>

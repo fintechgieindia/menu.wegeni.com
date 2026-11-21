@@ -3017,7 +3017,7 @@ footer li a:hover { color: var(--br); }
   <div class="w ig">
     <div class="ph r">
       <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1000&auto=format&fit=crop" alt="Modern food business operations and POS station" loading="lazy">
-      <span>✨ Connected Service, Counter &amp; POS Operations</span>
+      <span><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3Z"/></svg> Connected Service, Counter &amp; POS Operations</span>
     </div>
     <div class="r">
       <h2><span class="title-grad">One Platform.</span> <span class="sf">Every Food Business Operation.</span></h2>
@@ -3166,7 +3166,7 @@ footer li a:hover { color: var(--br); }
             <div class="mock-kot-ticket">
               <div class="mock-kot-top">
                 <span>KOT #142</span>
-                <span style="color:#D97706;">⏱ 03m</span>
+                <span style="color:#D97706;"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/><path d="M10 2h4"/></svg> 03m</span>
               </div>
               <div class="mock-kot-dish">&bull; 2x Grilled Skewers</div>
               <div class="mock-kot-dish">&bull; 3x Artisan Bread</div>
@@ -3229,8 +3229,8 @@ footer li a:hover { color: var(--br); }
             </div>
             <div class="mock-pay-tags">
               <div class="mock-pay-pill active">Digital &check;</div>
-              <div class="mock-pay-pill">💳 Card</div>
-              <div class="mock-pay-pill">💵 Cash</div>
+              <div class="mock-pay-pill"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg> Card</div>
+              <div class="mock-pay-pill"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="20" height="12" x="2" y="6" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/></svg> Cash</div>
             </div>
           </div>
         </div>
@@ -3269,7 +3269,7 @@ footer li a:hover { color: var(--br); }
             </div>
             <div class="mock-top-dish-card">
               <div class="mock-top-dish-info">
-                <small>👑 Top Item</small>
+                <small><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m2 4 3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14"/></svg> Top Item</small>
                 <b>Grilled Skewers <span style="color:#76675D;font-weight:500;">(38 sold)</span></b>
               </div>
               <img src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=100&auto=format&fit=crop&q=80" alt="Top Item" class="mock-top-dish-img">
@@ -3368,7 +3368,7 @@ footer li a:hover { color: var(--br); }
     <div class="cxv r" id="cxv">
       <div class="ph">
         <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1000&auto=format&fit=crop" alt="Customer ordering and food service experience" loading="lazy">
-        <span>✨ Smooth Ordering Across Dine-In, Counter &amp; Takeaway</span>
+        <span><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3Z"/></svg> Smooth Ordering Across Dine-In, Counter &amp; Takeaway</span>
       </div>
       <div class="cx-phone-mockup">
         <img src="{{ asset('assets/images/geni-cx-mobile.png') }}" alt="Geni Menu Live Smartphone Customer QR Ordering" loading="lazy">

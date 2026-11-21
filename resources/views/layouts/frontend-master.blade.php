@@ -166,6 +166,28 @@
             font-weight: 500;
         }
 
+        /* Unified Geni Menu Theme SVG Icons (replaces raw emojis site-wide) */
+        .gm-theme-icon {
+            display: inline-block;
+            width: 1.15em;
+            height: 1.15em;
+            vertical-align: -0.18em;
+            color: var(--br, #876039);
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            flex-shrink: 0;
+        }
+        .gm-theme-icon.gm-ok { color: #15803d; }
+        .gm-theme-icon.gm-warn { color: #b45309; }
+        .gm-theme-icon.gm-err { color: #dc2626; }
+        .btn.p .gm-theme-icon,
+        .btn-primary .gm-theme-icon {
+            color: currentColor;
+        }
+
         /* Footer styles */
         .footer {
             background-color: var(--bg2, #FAF7F2);
@@ -503,7 +525,7 @@
                     </div>
                     <div class="form-group">
                         <label>State *</label>
-                        <select name="state" required onchange="updateCities(this.value)" style="width:100%; padding:10px 14px; border:1.5px solid #e0d6cc; border-radius:8px; font-size:15px; color:#333; background:#fff; appearance:auto;">
+                        <select name="state" required onchange="updateCities(this.value)">
                             <option value="">-- Select State --</option>
                             <option value="Tamil Nadu">Tamil Nadu</option>
                             <option value="Karnataka">Karnataka</option>
@@ -517,7 +539,7 @@
                     </div>
                     <div class="form-group">
                         <label>City *</label>
-                        <select name="city" id="cityDropdown" required style="width:100%; padding:10px 14px; border:1.5px solid #e0d6cc; border-radius:8px; font-size:15px; color:#333; background:#fff; appearance:auto;">
+                        <select name="city" id="cityDropdown" required>
                             <option value="">-- Select City --</option>
                         </select>
                     </div>
@@ -627,11 +649,15 @@
             }
         }
 
-        /* Modal Overlay */
+        /* =============================================
+           POPUP MODAL — FULLY RESPONSIVE
+           Works on: Mobile, Tablet, Desktop, App/PWA
+           ============================================= */
+
+        /* Overlay — covers full viewport on all devices */
         .popup-modal-overlay {
             position: fixed;
-            top: 0;
-            left: 0;
+            inset: 0;
             width: 100%;
             height: 100%;
             background: rgba(0, 0, 0, 0.6);
@@ -639,17 +665,22 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            padding: 16px;
+            box-sizing: border-box;
             opacity: 0;
             visibility: hidden;
             transition: opacity 0.3s ease, visibility 0.3s ease;
             backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            /* Prevent background scroll on iOS */
+            overflow: hidden;
         }
         .popup-modal-overlay.active {
             opacity: 1;
             visibility: visible;
         }
 
-        /* Modal Content */
+        /* Modal box */
         .popup-modal-content {
             background: #fff;
             width: 100%;
@@ -658,32 +689,62 @@
             position: relative;
             transform: scale(0.95);
             transition: transform 0.3s ease;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
             font-family: var(--font-body);
             overflow: hidden;
+            /* Scroll within modal if content is tall */
+            max-height: calc(100dvh - 32px);
+            display: flex;
+            flex-direction: column;
         }
+        .popup-modal-overlay.active .popup-modal-content {
+            transform: scale(1);
+        }
+
+        /* Two-panel layout (image left + form right) */
         .popup-modal-content.popup-with-image {
             max-width: 800px;
-            display: flex;
+            flex-direction: row;
             padding: 0;
         }
+
+        /* Left image panel — hidden on small screens */
         .popup-left-side {
             display: none;
+            flex-shrink: 0;
         }
+
+        /* Right form panel — always scrollable */
         .popup-right-side {
-            padding: 40px 30px;
+            padding: 40px 32px;
             flex: 1;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            /* Needed so the panel scrolls inside the modal */
+            max-height: calc(100dvh - 32px);
+            box-sizing: border-box;
         }
+
+        /* ---- Desktop & large tablet (≥ 768px) ---- */
         @media (min-width: 768px) {
             .popup-left-side {
                 display: flex;
-                flex: 1.1;
+                flex: 0 0 340px;
+                max-width: 340px;
                 background: linear-gradient(135deg, #876039 0%, #a67c52 100%);
                 padding: 40px;
                 flex-direction: column;
                 justify-content: space-between;
                 position: relative;
                 color: #fff;
+                overflow: hidden;
+            }
+            /* When left side is an image */
+            .popup-left-side img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
             }
             .popup-brand {
                 position: relative;
@@ -719,44 +780,134 @@
             .popup-features li svg {
                 width: 20px;
                 height: 20px;
-                color: #fff;
+                flex-shrink: 0;
             }
         }
-        
-        .popup-modal-overlay.active .popup-modal-content {
-            transform: scale(1);
+
+        /* ---- Tablet portrait (768px – 1024px) ---- */
+        @media (min-width: 768px) and (max-width: 1024px) {
+            .popup-modal-content.popup-with-image {
+                max-width: 680px;
+            }
+            .popup-left-side {
+                flex: 0 0 260px;
+                max-width: 260px;
+                padding: 30px;
+            }
+            .popup-right-side {
+                padding: 30px 24px;
+            }
         }
 
+        /* ---- Mobile (< 768px) ---- */
         @media (max-width: 767px) {
-            .popup-modal-content {
-                width: calc(100% - 32px);
-                margin: 16px;
-                max-height: 90vh;
+            /* Overlay fills the whole screen with safe padding */
+            .popup-modal-overlay {
+                padding: 12px;
+                align-items: flex-end; /* sheet slides up from bottom */
+            }
+
+            /* Modal takes full width, sheet style from bottom */
+            .popup-modal-content,
+            .popup-modal-content.popup-with-image {
+                width: 100%;
+                max-width: 100%;
+                max-height: 92dvh;
+                border-radius: 20px 20px 12px 12px;
+                flex-direction: column;
+                transform: translateY(30px) scale(0.98);
+            }
+            .popup-modal-overlay.active .popup-modal-content {
+                transform: translateY(0) scale(1);
+            }
+
+            /* Hide image panel on mobile */
+            .popup-left-side {
+                display: none !important;
+            }
+
+            /* Form panel scrollable */
+            .popup-right-side {
+                padding: 24px 20px 32px;
+                max-height: 92dvh;
                 overflow-y: auto;
                 -webkit-overflow-scrolling: touch;
             }
-            .popup-right-side {
-                padding: 24px 18px;
+
+            .popup-header {
+                margin-bottom: 20px;
             }
             .popup-header h3 {
                 font-size: 19px;
             }
-            .popup-form input {
-                padding: 10px 14px;
-                font-size: 14px;
+            .popup-header p {
+                font-size: 13px;
+            }
+            .popup-form .form-group {
+                margin-bottom: 14px;
+            }
+            .popup-form input,
+            .popup-form select {
+                padding: 11px 13px;
+                font-size: 15px; /* ≥16px avoids iOS auto-zoom; keep at 15 with meta viewport */
             }
             .popup-form .submit-btn {
-                padding: 12px;
+                padding: 13px;
                 font-size: 15px;
+            }
+            /* Close button larger tap target on mobile */
+            .popup-close-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 22px;
+            }
+        }
+
+        /* ---- Very small phones (< 380px) ---- */
+        @media (max-width: 380px) {
+            .popup-right-side {
+                padding: 20px 16px 28px;
+            }
+            .popup-header h3 {
+                font-size: 17px;
+            }
+            .popup-form input,
+            .popup-form select {
+                font-size: 14px;
+                padding: 10px 12px;
+            }
+        }
+
+        /* ---- Landscape phone ---- */
+        @media (max-width: 767px) and (orientation: landscape) {
+            .popup-modal-overlay {
+                align-items: center;
+                padding: 8px 16px;
+            }
+            .popup-modal-content,
+            .popup-modal-content.popup-with-image {
+                max-height: 95dvh;
+                border-radius: 16px;
+            }
+            .popup-right-side {
+                padding: 16px 20px 20px;
+                max-height: 95dvh;
+            }
+            .popup-header {
+                margin-bottom: 12px;
+            }
+            .popup-form .form-group {
+                margin-bottom: 10px;
             }
         }
 
         /* Close Button */
         .popup-close-btn {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            float: right;
+            margin: 12px 12px -48px auto;
+            background: rgba(0, 0, 0, 0.07);
             border: none;
             font-size: 20px;
             color: #555;
@@ -769,10 +920,20 @@
             justify-content: center;
             transition: background 0.2s, color 0.2s;
             z-index: 10;
+            flex-shrink: 0;
+        }
+        /* For non-scrollable layouts keep it absolute */
+        .popup-modal-content:not(.popup-with-image) .popup-close-btn,
+        .popup-modal-content.popup-with-image .popup-close-btn {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            margin: 0;
+            float: none;
         }
         .popup-close-btn:hover {
             color: #111;
-            background: rgba(0,0,0,0.1);
+            background: rgba(0, 0, 0, 0.12);
         }
 
         /* Header */
@@ -805,23 +966,35 @@
             color: #444;
             margin-bottom: 6px;
         }
-        .popup-form input {
+        .popup-form input,
+        .popup-form select {
             width: 100%;
             padding: 12px 16px;
-            border: 1px solid #ddd;
+            border: 1.5px solid #e0d6cc;
             border-radius: 8px;
-            font-size: 14px;
+            font-size: 15px;
             transition: border-color 0.2s, box-shadow 0.2s;
             font-family: var(--font-body);
             background: #fdfdfd;
+            box-sizing: border-box;
+            color: #333;
+            -webkit-appearance: none;
+            appearance: none;
         }
-        .popup-form input:focus {
+        .popup-form select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23666' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            padding-right: 36px;
+        }
+        .popup-form input:focus,
+        .popup-form select:focus {
             outline: none;
             border-color: #876039;
-            box-shadow: 0 0 0 3px rgba(135, 96, 57, 0.1);
+            box-shadow: 0 0 0 3px rgba(135, 96, 57, 0.12);
             background: #fff;
         }
-        
+
         /* Submit Button */
         .popup-form .submit-btn {
             width: 100%;
@@ -836,6 +1009,8 @@
             cursor: pointer;
             margin-top: 10px;
             transition: background 0.2s, transform 0.1s;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
         }
         .popup-form .submit-btn:hover {
             background: #72502f;
@@ -850,6 +1025,9 @@
             const modal = document.getElementById("popupLeadModal") || document.getElementById("leadPopup");
             if (modal) {
                 modal.classList.add("active");
+                // Lock body scroll (preserves scroll position)
+                document.body.style.overflow = "hidden";
+                document.body.style.touchAction = "none";
                 if (modal.id === "leadPopup") {
                     modal.style.display = "flex";
                 }
@@ -865,6 +1043,9 @@
             const modal = document.getElementById("popupLeadModal") || document.getElementById("leadPopup");
             if (modal) {
                 modal.classList.remove("active");
+                // Restore body scroll
+                document.body.style.overflow = "";
+                document.body.style.touchAction = "";
                 if (modal.id === "leadPopup") {
                     modal.style.display = "none";
                 }
@@ -881,7 +1062,7 @@
             // Auto show on load (once per session)
             if(modal && !sessionStorage.getItem('geniPopupShown')) {
                 setTimeout(() => {
-                    modal.classList.add("active");
+                    openPopup();
                     sessionStorage.setItem('geniPopupShown', 'true');
                 }, 1500); // 1.5 second delay
             }
@@ -900,14 +1081,21 @@
                 });
             }
 
-            // Close modal on outside click
+            // Close modal on overlay (outside) click
             if(modal) {
-                window.addEventListener("click", (e) => {
+                modal.addEventListener("click", (e) => {
                     if(e.target === modal) {
                         closePopup();
                     }
                 });
             }
+
+            // Close modal on Escape key
+            document.addEventListener("keydown", (e) => {
+                if(e.key === "Escape") {
+                    closePopup();
+                }
+            });
 
             // Success alert if session has success message
             @if(session('success'))

@@ -53,7 +53,7 @@
 
                 <div class="space-y-4">
                     <div class="bg-green-50 border-l-4 border-green-400 p-4">
-                        <h3 class="font-semibold text-green-900 mb-2">✅ Information Technology Act, 2000</h3>
+                        <h3 class="font-semibold text-green-900 mb-2"><svg class="gm-theme-icon gm-ok" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Information Technology Act, 2000</h3>
                         <p class="text-green-700 text-sm">
                             We ensure our digital services align with India's IT Act, including requirements around
                             electronic records, authentication, and digital communication safety.
@@ -61,7 +61,7 @@
                     </div>
 
                     <div class="bg-green-50 border-l-4 border-green-400 p-4">
-                        <h3 class="font-semibold text-green-900 mb-2">✅ IT Rules, 2011 – Reasonable Security Practices and
+                        <h3 class="font-semibold text-green-900 mb-2"><svg class="gm-theme-icon gm-ok" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> IT Rules, 2011 – Reasonable Security Practices and
                             Sensitive Personal Data</h3>
                         <p class="text-green-700 text-sm">
                             WeGeni adheres to the principles of safe collection, secure storage, and limited disclosure of

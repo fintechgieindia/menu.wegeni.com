@@ -1,4 +1,4 @@
-﻿@extends('layouts.frontend-master')
+@extends('layouts.frontend-master')
 
 @section('content')
 
@@ -444,12 +444,12 @@ section.alt { background: var(--bg2); }
     </div>
 
     <div class="menu-tabs">
-      <div class="menu-tab act">🍕 Pizza</div>
-      <div class="menu-tab">🍔 Burgers</div>
-      <div class="menu-tab">🍝 Pasta</div>
-      <div class="menu-tab">🥪 Sandwiches & Wraps</div>
-      <div class="menu-tab">🍟 Sides & Snacks</div>
-      <div class="menu-tab">🍰 Desserts</div>
+      <div class="menu-tab act"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 11h.01"/><path d="M11 15h.01"/><path d="M16 16h.01"/><path d="m2 16 20 6-6-20A20 20 0 0 0 2 16"/></svg> Pizza</div>
+      <div class="menu-tab"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11h16a1 1 0 0 1 1 1v.5c0 4.5-4 8.5-9 8.5s-9-4-9-8.5V12a1 1 0 0 1 1-1Z"/><path d="M12 3v4"/><path d="M8 5v2"/><path d="M16 5v2"/></svg> Burgers</div>
+      <div class="menu-tab"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11h16a1 1 0 0 1 1 1v.5c0 4.5-4 8.5-9 8.5s-9-4-9-8.5V12a1 1 0 0 1 1-1Z"/><path d="M12 3v4"/><path d="M8 5v2"/><path d="M16 5v2"/></svg> Pasta</div>
+      <div class="menu-tab"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11h16a1 1 0 0 1 1 1v.5c0 4.5-4 8.5-9 8.5s-9-4-9-8.5V12a1 1 0 0 1 1-1Z"/><path d="M12 3v4"/><path d="M8 5v2"/><path d="M16 5v2"/></svg> Sandwiches & Wraps</div>
+      <div class="menu-tab"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11h16a1 1 0 0 1 1 1v.5c0 4.5-4 8.5-9 8.5s-9-4-9-8.5V12a1 1 0 0 1 1-1Z"/><path d="M12 3v4"/><path d="M8 5v2"/><path d="M16 5v2"/></svg> Sides & Snacks</div>
+      <div class="menu-tab"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8"/><path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1"/><path d="M2 21h20"/><path d="M7 8v3"/><path d="M12 8v3"/><path d="M17 8v3"/></svg> Desserts</div>
     </div>
 
     <div class="menu-grid">
@@ -876,32 +876,32 @@ section.alt { background: var(--bg2); }
 
     <div class="concept-grid">
       <div class="concept-card">
-        <div class="concept-icon">🍕</div>
+        <div class="concept-icon"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 11h.01"/><path d="M11 15h.01"/><path d="M16 16h.01"/><path d="m2 16 20 6-6-20A20 20 0 0 0 2 16"/></svg></div>
         <h3>Pizzerias</h3>
         <p>Manage pizzas, toppings, crusts, sides, combos, orders and billing.</p>
       </div>
       <div class="concept-card">
-        <div class="concept-icon">🍔</div>
+        <div class="concept-icon"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11h16a1 1 0 0 1 1 1v.5c0 4.5-4 8.5-9 8.5s-9-4-9-8.5V12a1 1 0 0 1 1-1Z"/><path d="M12 3v4"/><path d="M8 5v2"/><path d="M16 5v2"/></svg></div>
         <h3>Burger & Fast Food</h3>
         <p>Manage burgers, sides, combos, takeaway orders and counter billing.</p>
       </div>
       <div class="concept-card">
-        <div class="concept-icon">🍝</div>
+        <div class="concept-icon"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11h16a1 1 0 0 1 1 1v.5c0 4.5-4 8.5-9 8.5s-9-4-9-8.5V12a1 1 0 0 1 1-1Z"/><path d="M12 3v4"/><path d="M8 5v2"/><path d="M16 5v2"/></svg></div>
         <h3>Pasta & Italian</h3>
         <p>Organize pasta, starters, mains, desserts and dine-in orders.</p>
       </div>
       <div class="concept-card">
-        <div class="concept-icon">🥪</div>
+        <div class="concept-icon"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11h16a1 1 0 0 1 1 1v.5c0 4.5-4 8.5-9 8.5s-9-4-9-8.5V12a1 1 0 0 1 1-1Z"/><path d="M12 3v4"/><path d="M8 5v2"/><path d="M16 5v2"/></svg></div>
         <h3>Sandwich & Wraps</h3>
         <p>Manage quick-service products, variations and takeaway orders.</p>
       </div>
       <div class="concept-card">
-        <div class="concept-icon">🍟</div>
+        <div class="concept-icon"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11h16a1 1 0 0 1 1 1v.5c0 4.5-4 8.5-9 8.5s-9-4-9-8.5V12a1 1 0 0 1 1-1Z"/><path d="M12 3v4"/><path d="M8 5v2"/><path d="M16 5v2"/></svg></div>
         <h3>Snack Shops</h3>
         <p>Manage snacks, sides, beverages and high-volume counter orders.</p>
       </div>
       <div class="concept-card">
-        <div class="concept-icon">🍰</div>
+        <div class="concept-icon"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8"/><path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1"/><path d="M2 21h20"/><path d="M7 8v3"/><path d="M12 8v3"/><path d="M17 8v3"/></svg></div>
         <h3>Dessert Cafés</h3>
         <p>Manage desserts, beverages, customer orders and billing.</p>
       </div>

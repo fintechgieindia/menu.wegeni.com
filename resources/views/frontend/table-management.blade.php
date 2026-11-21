@@ -1182,7 +1182,7 @@ $meta = [
                     Get Started Free &rarr;
                 </a>
                 <a href="#demo" class="btn-outline">
-                    📅 Book a Demo
+                    <svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg> Book a Demo
                 </a>
             </div>
             <div class="tm-hero__badges">
@@ -1222,15 +1222,15 @@ $meta = [
                 {{-- Top Bar --}}
                 <div class="floorplan-ui__topbar">
                     <div class="floorplan-ui__title">
-                        <div class="floorplan-ui__title-icon">🏢</div>
+                        <div class="floorplan-ui__title-icon"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="16" height="20" x="4" y="2" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M12 14h.01"/><path d="M16 10h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M8 14h.01"/></svg></div>
                         The Spice Route — Floor Plan
                     </div>
                     <div class="floorplan-ui__zone-tabs">
                         <div class="floorplan-ui__zone-tab floorplan-ui__zone-tab--active">All Zones</div>
-                        <div class="floorplan-ui__zone-tab">🪴 Indoor</div>
-                        <div class="floorplan-ui__zone-tab">☀️ Outdoor</div>
-                        <div class="floorplan-ui__zone-tab">👑 VIP</div>
-                        <div class="floorplan-ui__zone-tab">🍸 Bar</div>
+                        <div class="floorplan-ui__zone-tab"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg> Indoor</div>
+                        <div class="floorplan-ui__zone-tab"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>️ Outdoor</div>
+                        <div class="floorplan-ui__zone-tab"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m2 4 3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14"/></svg> VIP</div>
+                        <div class="floorplan-ui__zone-tab"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 22h8"/><path d="M12 11v11"/><path d="m19 3-7 8-7-8Z"/></svg> Bar</div>
                     </div>
                     <div class="floorplan-ui__legend">
                         <div class="floorplan-ui__legend-item">
@@ -1627,22 +1627,22 @@ $meta = [
     <div class="tm-container">
         <div class="tm-value__strip" data-aos="fade-up" data-aos-delay="50">
             <div class="tm-value__item">
-                <div class="tm-value__icon">🗺️</div>
+                <div class="tm-value__icon"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/><line x1="9" x2="9" y1="3" y2="18"/><line x1="15" x2="15" y1="6" y2="21"/></svg>️</div>
                 <div class="tm-value__title">Visual Floor Map</div>
                 <div class="tm-value__desc">See every table's state on a real floor plan, not a boring list.</div>
             </div>
             <div class="tm-value__item">
-                <div class="tm-value__icon">🔴</div>
+                <div class="tm-value__icon"><svg class="gm-theme-icon gm-err" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="6" fill="currentColor" stroke="none"/></svg></div>
                 <div class="tm-value__title">Live Status Colours</div>
                 <div class="tm-value__desc">Green, amber, coffee and grey — status recognised in under a second.</div>
             </div>
             <div class="tm-value__item">
-                <div class="tm-value__icon">⏱️</div>
+                <div class="tm-value__icon"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/><path d="M10 2h4"/></svg>️</div>
                 <div class="tm-value__title">Turn-Time Alerts</div>
                 <div class="tm-value__desc">Know which tables have been seated longest and are about to free up.</div>
             </div>
             <div class="tm-value__item">
-                <div class="tm-value__icon">📲</div>
+                <div class="tm-value__icon"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg></div>
                 <div class="tm-value__title">One-Tap Updates</div>
                 <div class="tm-value__desc">Mark tables cleaning or available from POS, tablet, or floor display.</div>
             </div>
@@ -1692,14 +1692,14 @@ $meta = [
             <div class="tm-showcase__visual" data-aos="fade-left" data-aos-delay="100">
                 <div class="tm-showcase__visual-header">
                     <div class="tm-showcase__visual-title">
-                        🏢 Zone Overview — The Spice Route
+                        <svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="16" height="20" x="4" y="2" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M12 14h.01"/><path d="M16 10h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M8 14h.01"/></svg> Zone Overview — The Spice Route
                     </div>
                     <span style="font-size:11px;font-weight:700;color:var(--green);background:var(--green-bg);padding:3px 10px;border-radius:9999px;">Live</span>
                 </div>
                 <div class="tm-showcase__visual-body">
                     {{-- Indoor --}}
                     <div class="zone-row">
-                        <div class="zone-row__icon" style="background:#EFF6FF;">🪴</div>
+                        <div class="zone-row__icon" style="background:#EFF6FF;"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></div>
                         <div class="zone-row__name">
                             <div class="zone-row__name-title">Indoor — Main Hall</div>
                             <div class="zone-row__name-sub">Steward: Rajan &amp; Priya · 6 tables</div>
@@ -1711,7 +1711,7 @@ $meta = [
                     </div>
                     {{-- Outdoor --}}
                     <div class="zone-row">
-                        <div class="zone-row__icon" style="background:#FEF9C3;">☀️</div>
+                        <div class="zone-row__icon" style="background:#FEF9C3;"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>️</div>
                         <div class="zone-row__name">
                             <div class="zone-row__name-title">Outdoor — Garden</div>
                             <div class="zone-row__name-sub">Steward: Ankit · 3 tables</div>
@@ -1724,7 +1724,7 @@ $meta = [
                     </div>
                     {{-- VIP --}}
                     <div class="zone-row">
-                        <div class="zone-row__icon" style="background:#FAF6EF;">👑</div>
+                        <div class="zone-row__icon" style="background:#FAF6EF;"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m2 4 3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14"/></svg></div>
                         <div class="zone-row__name">
                             <div class="zone-row__name-title">VIP Lounge</div>
                             <div class="zone-row__name-sub">Steward: Rajan · 2 tables</div>
@@ -1736,7 +1736,7 @@ $meta = [
                     </div>
                     {{-- Bar --}}
                     <div class="zone-row">
-                        <div class="zone-row__icon" style="background:#FDF4FF;">🍸</div>
+                        <div class="zone-row__icon" style="background:#FDF4FF;"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 22h8"/><path d="M12 11v11"/><path d="m19 3-7 8-7-8Z"/></svg></div>
                         <div class="zone-row__name">
                             <div class="zone-row__name-title">Bar Counter</div>
                             <div class="zone-row__name-sub">Steward: Priya · 1 table</div>
@@ -1784,25 +1784,25 @@ $meta = [
         <div class="tm-howitworks__steps">
             <div class="tm-howitworks__step" data-aos="fade-up" data-aos-delay="0">
                 <div class="tm-howitworks__step-num">1</div>
-                <div class="tm-howitworks__step-icon">🗺️</div>
+                <div class="tm-howitworks__step-icon"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/><line x1="9" x2="9" y1="3" y2="18"/><line x1="15" x2="15" y1="6" y2="21"/></svg>️</div>
                 <h3>Set Up Your Floor Plan</h3>
                 <p>Use the drag-and-drop editor to map your restaurant exactly — place tables, label zones, set capacities, and assign stewards. Takes about 15 minutes once.</p>
             </div>
             <div class="tm-howitworks__step" data-aos="fade-up" data-aos-delay="80">
                 <div class="tm-howitworks__step-num">2</div>
-                <div class="tm-howitworks__step-icon">🤝</div>
+                <div class="tm-howitworks__step-icon"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></svg></div>
                 <h3>Seat &amp; Link Guests</h3>
                 <p>When a guest arrives, tap the table, select their reservation (if any), and confirm seating. The timer starts, the POS opens to their order, and the steward gets notified.</p>
             </div>
             <div class="tm-howitworks__step" data-aos="fade-up" data-aos-delay="160">
                 <div class="tm-howitworks__step-num">3</div>
-                <div class="tm-howitworks__step-icon">📊</div>
+                <div class="tm-howitworks__step-icon"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><line x1="18" x2="18" y1="20" y2="10"/><line x1="12" x2="12" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="14"/></svg></div>
                 <h3>Monitor in Real-Time</h3>
                 <p>Watch your floor plan update live — bill amounts grow, dining timers tick, and alerts fire when a table has been seated past your average turn time of 60 minutes.</p>
             </div>
             <div class="tm-howitworks__step" data-aos="fade-up" data-aos-delay="240">
                 <div class="tm-howitworks__step-num">4</div>
-                <div class="tm-howitworks__step-icon">✅</div>
+                <div class="tm-howitworks__step-icon"><svg class="gm-theme-icon gm-ok" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg></div>
                 <h3>Clear &amp; Turnaround</h3>
                 <p>After billing, mark the table Cleaning with one tap. It turns grey on the floor plan and alerts housekeeping. Once cleared, flip it to Available — the next guest is ready to be seated.</p>
             </div>
@@ -1822,32 +1822,32 @@ $meta = [
         </div>
         <div class="tm-features__grid">
             <div class="feat-card" data-aos="fade-up" data-aos-delay="0">
-                <div class="feat-card__icon">🖊️</div>
+                <div class="feat-card__icon"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg>️</div>
                 <h3>Visual Floor Plan Editor</h3>
                 <p>Drag, drop, and arrange tables on a canvas that mirrors your actual restaurant layout. Add walls, pillars, and section dividers to make it feel real. Supports multi-floor setups.</p>
             </div>
             <div class="feat-card" data-aos="fade-up" data-aos-delay="60">
-                <div class="feat-card__icon">🟢</div>
+                <div class="feat-card__icon"><svg class="gm-theme-icon gm-ok" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="6" fill="currentColor" stroke="none"/></svg></div>
                 <h3>Live Table Status</h3>
                 <p>Four instant states — Available (green), Occupied (coffee), Reserved (amber), Cleaning (grey). Staff see the full picture at a glance without radio-calling the host stand.</p>
             </div>
             <div class="feat-card" data-aos="fade-up" data-aos-delay="120">
-                <div class="feat-card__icon">⏱️</div>
+                <div class="feat-card__icon"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/><path d="M10 2h4"/></svg>️</div>
                 <h3>Turn-Time Tracking</h3>
                 <p>Each occupied table shows a live dining timer. When a table crosses your average turn time, it highlights in amber so hosts can proactively offer bills or check in with guests.</p>
             </div>
             <div class="feat-card" data-aos="fade-up" data-aos-delay="180">
-                <div class="feat-card__icon">🗂️</div>
+                <div class="feat-card__icon"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"/></svg>️</div>
                 <h3>Zone &amp; Section Management</h3>
                 <p>Organise tables into Indoor, Outdoor, VIP, and Bar zones. Assign stewards per zone, view zone-level occupancy stats, and generate per-zone revenue reports at end of shift.</p>
             </div>
             <div class="feat-card" data-aos="fade-up" data-aos-delay="240">
-                <div class="feat-card__icon">🔗</div>
+                <div class="feat-card__icon"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
                 <h3>Guest Linking on Seating</h3>
                 <p>When a reserved guest arrives, tap their name from the reservation list to link it to the table. Their preferences, allergies, and past visit notes appear instantly for the steward.</p>
             </div>
             <div class="feat-card" data-aos="fade-up" data-aos-delay="300">
-                <div class="feat-card__icon">⚡</div>
+                <div class="feat-card__icon"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
                 <h3>Instant Status Updates</h3>
                 <p>Table states sync across POS, the host display, and waiter tablets in under one second. No refresh needed — when Priya marks T-05 clean at the POS, Rajan sees it update at the floor map.</p>
             </div>
@@ -1900,75 +1900,547 @@ $meta = [
             <h2>The Host Stand Used to Run on Guesswork</h2>
             <p>See exactly what changes when you give your front-of-house team a real-time floor plan.</p>
         </div>
-        <div class="tm-compare__grid">
-            {{-- Old --}}
-            <div class="compare-card compare-card--old" data-aos="fade-right">
-                <div class="compare-card__label">
-                    <div class="compare-card__label-icon">😣</div>
-                    Without Geni Menu
+        <style>
+          /* --- Comparison Section: Chaos at Host Stand vs Total Floor Visibility (matching Menu/Reservation/Waiter UI) --- */
+          .tm-cmp-wrap {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            align-items: stretch;
+          }
+
+          .tm-cmp-center-arrow {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 20;
+            pointer-events: none;
+          }
+
+          .tm-center-arrow-circle {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #876039;
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 18px rgba(135, 96, 57, 0.4);
+            border: 3px solid #FFFFFF;
+          }
+          .tm-center-arrow-circle svg { width: 20px; height: 20px; }
+
+          .tm-cmp-card {
+            border-radius: 24px;
+            padding: 26px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+          }
+          .tm-cmp-traditional {
+            background: #FFFDFC;
+            border: 1.5px solid #FECDD3;
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.04);
+          }
+          .tm-cmp-digital {
+            background: #FFFFFF;
+            border: 1.5px solid rgba(135, 96, 57, 0.28);
+            box-shadow: 0 14px 40px rgba(135, 96, 57, 0.08);
+          }
+
+          .tm-cmp-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 22px;
+          }
+          .tm-badge-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+          }
+          .tm-badge-icon svg { width: 18px; height: 18px; }
+          .tm-badge-red { background: #FEE2E2; color: #DC2626; }
+          .tm-badge-brown { background: #6F4522; color: #FFFFFF; }
+
+          .tm-cmp-title {
+            font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+            font-size: 19px;
+            font-weight: 700;
+            margin: 0 0 2px;
+            line-height: 1.2;
+          }
+          .tm-cmp-title.text-red { color: #991B1B; }
+          .tm-cmp-title.text-brown { color: #21160F; }
+          .tm-cmp-subtitle { font-size: 12.5px; color: #76675D; margin: 0; }
+
+          .tm-split-body {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 16px;
+            align-items: stretch;
+            flex: 1;
+          }
+          .tm-cmp-digital .tm-split-body {
+            grid-template-columns: 1fr 1.05fr;
+            gap: 14px;
+          }
+
+          /* Left: Scribbled Paper Seating Chart Clipboard */
+          .tm-paper-visual {
+            background: #F8F4EE;
+            border-radius: 16px;
+            border: 1px solid #EADBCE;
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+          }
+          .tm-paper-board {
+            width: 100%;
+            background: #845A3C;
+            border-radius: 12px;
+            padding: 10px 8px 8px;
+            box-shadow: 0 6px 16px rgba(42, 24, 13, 0.2);
+          }
+          .tm-paper-clip {
+            width: 32px;
+            height: 8px;
+            background: #C4B5A5;
+            border-radius: 3px;
+            margin: 0 auto 6px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+          }
+          .tm-paper-sheet {
+            background: #FFFDF9;
+            border-radius: 6px;
+            padding: 10px 8px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            border: 1px solid #EBE1D3;
+          }
+          .tm-paper-header {
+            font-family: 'Outfit', serif;
+            font-weight: 600;
+            font-size: 10.5px;
+            letter-spacing: 1.4px;
+            text-align: center;
+            color: #2A1C14;
+            border-bottom: 1.5px solid #2A1C14;
+            padding-bottom: 4px;
+            margin-bottom: 7px;
+          }
+          .tm-paper-slot-title {
+            font-size: 7.5px;
+            font-weight: 700;
+            color: #876039;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            margin: 6px 0 3px;
+          }
+          .tm-paper-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 7.5px;
+            color: #4A3E38;
+            padding: 2.5px 0;
+            border-bottom: 1px dashed #EDE4D8;
+          }
+          .tm-paper-row:last-child { border-bottom: none; }
+          .tm-paper-row.struck span { text-decoration: line-through; color: #A89A90; }
+          .tm-paper-row .err-tag { color: #DC2626; font-weight: 700; }
+
+          /* 5 Pain Point Cards */
+          .tm-points-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            justify-content: space-between;
+          }
+          .tm-point-card {
+            background: #FFFFFF;
+            border: 1px solid #FEE2E2;
+            border-radius: 12px;
+            padding: 9px 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+          }
+          .tm-point-card:hover {
+            transform: translateX(2px);
+            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.08);
+          }
+          .tm-point-ico {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #FEE2E2;
+            color: #DC2626;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+          }
+          .tm-point-ico svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+          .tm-point-txt { display: flex; flex-direction: column; min-width: 0; }
+          .tm-point-txt b { font-size: 13px; font-weight: 700; color: #21160F; line-height: 1.25; }
+          .tm-point-txt span { font-size: 11px; color: #76675D; line-height: 1.3; }
+
+          /* Right Card: 3 Workflow Steps */
+          .tm-wf-steps {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 6px;
+          }
+          .tm-wf-card {
+            background: #FFFFFF;
+            border: 1px solid rgba(135, 96, 57, 0.2);
+            border-radius: 14px;
+            padding: 12px 14px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 2px 8px rgba(135, 96, 57, 0.04);
+            transition: transform 0.2s ease, border-color 0.2s ease;
+          }
+          .tm-wf-card:hover { transform: translateY(-2px); border-color: #876039; }
+          .tm-wf-ico {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background: #FBF6EE;
+            color: #876039;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            border: 1px solid rgba(135, 96, 57, 0.18);
+          }
+          .tm-wf-ico svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+          .tm-wf-txt { display: flex; flex-direction: column; min-width: 0; }
+          .tm-wf-txt b { font-size: 13px; font-weight: 600; color: #21160F; line-height: 1.25; }
+          .tm-wf-txt span { font-size: 11.5px; color: #76675D; line-height: 1.3; }
+          .tm-wf-arrow { text-align: center; font-size: 15px; font-weight: 500; color: #876039; line-height: 1; }
+
+          /* Right Card: Smartphone Live Floor Map Mockup */
+          .tm-phone-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          .tm-phone-mockup {
+            width: 100%;
+            max-width: 224px;
+            background: #1C1510;
+            border-radius: 28px;
+            padding: 7px;
+            box-shadow: 0 16px 36px rgba(28, 20, 15, 0.28);
+            border: 2px solid #362920;
+          }
+          .tm-phone-screen {
+            background: #FFFFFF;
+            border-radius: 22px;
+            padding: 10px 9px 12px;
+            overflow: hidden;
+          }
+          .tm-phone-island {
+            width: 38px;
+            height: 4px;
+            background: #1C1510;
+            border-radius: 4px;
+            margin: 0 auto 6px;
+          }
+          .tm-phone-header { text-align: center; margin-bottom: 7px; }
+          .tm-phone-title { font-family: 'Outfit', sans-serif; font-size: 13.5px; font-weight: 600; color: #21160F; line-height: 1.2; }
+          .tm-phone-sub { font-size: 8px; color: #76675D; }
+          .tm-phone-tabs {
+            display: flex;
+            gap: 3.5px;
+            margin-bottom: 8px;
+            justify-content: center;
+          }
+          .tm-tab-pill {
+            font-size: 7.5px;
+            font-weight: 700;
+            padding: 2.5px 7px;
+            border-radius: 12px;
+            background: #FAF7F2;
+            color: #6E6157;
+            white-space: nowrap;
+          }
+          .tm-tab-active { background: #875A38; color: #FFFFFF; }
+
+          .tm-mini-floor {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+          }
+          .tm-mini-tbl {
+            padding: 7px 6px;
+            border-radius: 9px;
+            border: 1px solid #EFE8DE;
+            background: #FAF8F5;
+            text-align: center;
+          }
+          .tm-mini-tbl b { display: block; font-size: 10px; color: #21160F; margin-bottom: 2px; }
+          .tm-mini-tbl span {
+            display: inline-block;
+            font-size: 6.8px;
+            font-weight: 700;
+            padding: 1.5px 5px;
+            border-radius: 4px;
+          }
+          .tm-mini-tbl.free span { background: #DCFCE7; color: #16A34A; }
+          .tm-mini-tbl.occ span { background: #FEE2E2; color: #DC2626; }
+          .tm-mini-tbl.res span { background: #DBEAFE; color: #1D4ED8; }
+          .tm-mini-tbl.bill span { background: #FEF3C7; color: #B45309; }
+
+          .tm-bottom-cta {
+            margin-top: 16px;
+            display: flex;
+            justify-content: center;
+          }
+          .tm-bottom-cta-badge {
+            background: linear-gradient(135deg, #6f4e2d 0%, #876039 100%);
+            color: #FFFFFF;
+            font-size: 11.5px;
+            font-weight: 600;
+            padding: 7px 20px;
+            border-radius: 99px;
+            box-shadow: 0 4px 14px rgba(135, 96, 57, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+          }
+          .tm-bottom-cta-badge svg { width: 14px; height: 14px; stroke: #FFFFFF; fill: none; stroke-width: 2; }
+
+          @media (max-width: 1080px) {
+            .tm-cmp-wrap { grid-template-columns: 1fr; gap: 36px; }
+            .tm-cmp-center-arrow { display: none; }
+          }
+          @media (max-width: 640px) {
+            .tm-split-body, .tm-cmp-digital .tm-split-body { grid-template-columns: 1fr; gap: 16px; }
+            .tm-paper-visual { max-width: 260px; margin: 0 auto; }
+          }
+        </style>
+
+        <div class="tm-cmp-wrap">
+            <!-- Center Transition Arrow -->
+            <div class="tm-cmp-center-arrow">
+                <div class="tm-center-arrow-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
                 </div>
-                <h3>Chaos at the Host Stand</h3>
-                <ul class="compare-list">
-                    <li>
-                        <span class="compare-list__marker">✕</span>
-                        Rajan shouts across the dining room to ask if T-07 is free yet.
-                    </li>
-                    <li>
-                        <span class="compare-list__marker">✕</span>
-                        Paper seating chart is scribbled over — impossible to read during rush hour.
-                    </li>
-                    <li>
-                        <span class="compare-list__marker">✕</span>
-                        A couple is double-seated at T-03 because the host and a waiter both claimed it.
-                    </li>
-                    <li>
-                        <span class="compare-list__marker">✕</span>
-                        No idea how long T-09 has been occupied — did they even get a bill?
-                    </li>
-                    <li>
-                        <span class="compare-list__marker">✕</span>
-                        VIP guest "Mehra family" walks in but the reserved table is still being cleaned — nobody knew.
-                    </li>
-                    <li>
-                        <span class="compare-list__marker">✕</span>
-                        Manager walks the floor every 15 minutes just to count available tables.
-                    </li>
-                </ul>
             </div>
 
-            {{-- New --}}
-            <div class="compare-card compare-card--new" data-aos="fade-left" data-aos-delay="80">
-                <div class="compare-card__label">
-                    <div class="compare-card__label-icon">✨</div>
-                    With Geni Menu
+            {{-- LEFT CARD: Chaos at the Host Stand --}}
+            <div class="tm-cmp-card tm-cmp-traditional" data-aos="fade-right">
+                <div class="tm-cmp-header">
+                    <div class="tm-badge-icon tm-badge-red">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="tm-cmp-title text-red">Chaos at the Host Stand</h3>
+                        <p class="tm-cmp-subtitle">Without Geni Menu — manual guesswork and floor confusion</p>
+                    </div>
                 </div>
-                <h3>Total Floor Visibility, Always</h3>
-                <ul class="compare-list">
-                    <li>
-                        <span class="compare-list__marker">✓</span>
-                        Floor plan updates in real-time — Rajan sees T-07 turn green the moment the bill is settled.
-                    </li>
-                    <li>
-                        <span class="compare-list__marker">✓</span>
-                        Digital colour-coded floor map: Available, Occupied, Reserved, Cleaning — crystal clear.
-                    </li>
-                    <li>
-                        <span class="compare-list__marker">✓</span>
-                        One tap locks a table to a guest — no double-seating possible.
-                    </li>
-                    <li>
-                        <span class="compare-list__marker">✓</span>
-                        Live dining timer on every occupied table; amber alert at 60-minute mark.
-                    </li>
-                    <li>
-                        <span class="compare-list__marker">✓</span>
-                        Mehra family reservation linked — host sees cleaning ETA and can hold them at the lounge with a message.
-                    </li>
-                    <li>
-                        <span class="compare-list__marker">✓</span>
-                        Manager's dashboard shows occupancy %, avg turn, revenue — no floor walks needed.
-                    </li>
-                </ul>
+
+                <div class="tm-split-body">
+                    <!-- Left: Scribbled Paper Seating Chart -->
+                    <div class="tm-paper-visual">
+                        <div class="tm-paper-board">
+                            <div class="tm-paper-clip"></div>
+                            <div class="tm-paper-sheet">
+                                <div class="tm-paper-header">SEATING CHART</div>
+
+                                <div class="tm-paper-slot-title">Main AC Hall</div>
+                                <div class="tm-paper-row"><span>T-03 (Couple)</span><span class="err-tag">Double!</span></div>
+                                <div class="tm-paper-row struck"><span>T-07 (Free?)</span><b>Check</b></div>
+
+                                <div class="tm-paper-slot-title">Family Zone</div>
+                                <div class="tm-paper-row"><span>T-09 (Timer?)</span><span class="err-tag">65m?!</span></div>
+                                <div class="tm-paper-row"><span>T-11 (Mehra)</span><span class="err-tag">Dirty!</span></div>
+
+                                <div class="tm-paper-slot-title">Waitlist</div>
+                                <div class="tm-paper-row"><span>4 Groups</span><b>No ETA</b></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: 5 Pain Points -->
+                    <div class="tm-points-list">
+                        <div class="tm-point-card">
+                            <div class="tm-point-ico">
+                                <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                            </div>
+                            <div class="tm-point-txt">
+                                <b>Shouting Across the Floor</b>
+                                <span>Host asks waiters if T-07 is free yet</span>
+                            </div>
+                        </div>
+
+                        <div class="tm-point-card">
+                            <div class="tm-point-ico">
+                                <svg viewBox="0 0 24 24"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg>
+                            </div>
+                            <div class="tm-point-txt">
+                                <b>Scribbled Paper Charts</b>
+                                <span>Impossible to read during peak rush hour</span>
+                            </div>
+                        </div>
+
+                        <div class="tm-point-card">
+                            <div class="tm-point-ico">
+                                <svg viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+                            </div>
+                            <div class="tm-point-txt">
+                                <b>Double-Seated Tables</b>
+                                <span>Host and waiter both claim T-03 at once</span>
+                            </div>
+                        </div>
+
+                        <div class="tm-point-card">
+                            <div class="tm-point-ico">
+                                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            </div>
+                            <div class="tm-point-txt">
+                                <b>No Dining Timer Tracking</b>
+                                <span>No clue how long T-09 has been seated</span>
+                            </div>
+                        </div>
+
+                        <div class="tm-point-card">
+                            <div class="tm-point-ico">
+                                <svg viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                            </div>
+                            <div class="tm-point-txt">
+                                <b>Constant Floor Walks</b>
+                                <span>Manager walks every 15 mins to count seats</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {{-- RIGHT CARD: Total Floor Visibility, Always --}}
+            <div class="tm-cmp-card tm-cmp-digital" data-aos="fade-left" data-aos-delay="80">
+                <div class="tm-cmp-header">
+                    <div class="tm-badge-icon tm-badge-brown">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="tm-cmp-title text-brown">Total Floor Visibility, Always</h3>
+                        <p class="tm-cmp-subtitle">With Geni Menu — real-time color-coded floor control</p>
+                    </div>
+                </div>
+
+                <div class="tm-split-body">
+                    <!-- Left: 3 Connected Workflow Steps -->
+                    <div class="tm-wf-steps">
+                        <div class="tm-wf-card">
+                            <div class="tm-wf-ico">
+                                <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                            </div>
+                            <div class="tm-wf-txt">
+                                <b>Live Color-Coded Floor Map</b>
+                                <span>Available, Occupied, Reserved &amp; Cleaning</span>
+                            </div>
+                        </div>
+
+                        <div class="tm-wf-arrow">&darr;</div>
+
+                        <div class="tm-wf-card">
+                            <div class="tm-wf-ico">
+                                <svg viewBox="0 0 24 24"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                            </div>
+                            <div class="tm-wf-txt">
+                                <b>1-Tap Lock &amp; Dining Timer</b>
+                                <span>Zero double-seating + 60m amber alerts</span>
+                            </div>
+                        </div>
+
+                        <div class="tm-wf-arrow">&darr;</div>
+
+                        <div class="tm-wf-card">
+                            <div class="tm-wf-ico">
+                                <svg viewBox="0 0 24 24"><line x1="18" x2="18" y1="20" y2="10"/><line x1="12" x2="12" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="14"/></svg>
+                            </div>
+                            <div class="tm-wf-txt">
+                                <b>Live Occupancy Dashboard</b>
+                                <span>Turn time, revenue &amp; VIP ETA — no walks</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Smartphone Live Floor Map Mockup -->
+                    <div class="tm-phone-visual">
+                        <div class="tm-phone-mockup">
+                            <div class="tm-phone-screen">
+                                <div class="tm-phone-island"></div>
+                                <div class="tm-phone-header">
+                                    <div class="tm-phone-title">Live Floor Plan</div>
+                                    <div class="tm-phone-sub">Real-time table status</div>
+                                </div>
+                                <div class="tm-phone-tabs">
+                                    <span class="tm-tab-pill tm-tab-active">Main AC</span>
+                                    <span class="tm-tab-pill">Patio</span>
+                                    <span class="tm-tab-pill">VIP</span>
+                                </div>
+                                <div class="tm-mini-floor">
+                                    <div class="tm-mini-tbl free">
+                                        <b>T-01</b>
+                                        <span>Available</span>
+                                    </div>
+                                    <div class="tm-mini-tbl occ">
+                                        <b>T-02 &bull; 24m</b>
+                                        <span>Occupied</span>
+                                    </div>
+                                    <div class="tm-mini-tbl res">
+                                        <b>T-03 &bull; 8 PM</b>
+                                        <span>Reserved</span>
+                                    </div>
+                                    <div class="tm-mini-tbl free">
+                                        <b>T-04</b>
+                                        <span>Available</span>
+                                    </div>
+                                    <div class="tm-mini-tbl bill">
+                                        <b>T-05 &bull; ₹980</b>
+                                        <span>Billed</span>
+                                    </div>
+                                    <div class="tm-mini-tbl free">
+                                        <b>T-07</b>
+                                        <span>Ready</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tm-bottom-cta">
+                    <div class="tm-bottom-cta-badge">
+                        <svg viewBox="0 0 24 24"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3Z"/></svg>
+                        <span>Total Floor Visibility, Always!</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -2045,7 +2517,7 @@ $meta = [
         </div>
         <div class="tm-crosslinks__row" data-aos="fade-up" data-aos-delay="60">
             <a href="{{ route('features.reservation-management') }}" class="crosslink-card">
-                <div class="crosslink-card__icon">📅</div>
+                <div class="crosslink-card__icon"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg></div>
                 <div class="crosslink-card__text">
                     <div class="crosslink-card__title">Reservation Management</div>
                     <div class="crosslink-card__desc">Link arriving guests to their booked table with one tap.</div>
@@ -2053,7 +2525,7 @@ $meta = [
                 <span class="crosslink-card__arrow">→</span>
             </a>
             <a href="{{ route('features.waiter-request') }}" class="crosslink-card">
-                <div class="crosslink-card__icon">🔔</div>
+                <div class="crosslink-card__icon"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></div>
                 <div class="crosslink-card__text">
                     <div class="crosslink-card__title">Waiter Request</div>
                     <div class="crosslink-card__desc">Guest buzzer requests show table number from the floor plan.</div>
@@ -2061,7 +2533,7 @@ $meta = [
                 <span class="crosslink-card__arrow">→</span>
             </a>
             <a href="{{ route('features.pos-management') }}" class="crosslink-card">
-                <div class="crosslink-card__icon">💳</div>
+                <div class="crosslink-card__icon"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg></div>
                 <div class="crosslink-card__text">
                     <div class="crosslink-card__title">POS &amp; Billing</div>
                     <div class="crosslink-card__desc">Tap a table on the floor plan to open its live bill instantly.</div>
@@ -2090,7 +2562,7 @@ $meta = [
                     Start Free Trial &rarr;
                 </a>
                 <a href="#demo" class="btn-outline--light">
-                    📅 Book a 15-min Demo
+                    <svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg> Book a 15-min Demo
                 </a>
             </div>
             <div class="tm-cta__trust">

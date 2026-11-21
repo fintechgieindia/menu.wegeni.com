@@ -401,51 +401,637 @@ section{padding:clamp(56px,7vw,96px) 0;background:var(--bg);position:relative;ov
 </section>
 
 <!-- ===== PROBLEM SECTION ===== -->
+<style>
+  /* --- Comparison Section: Traditional Service vs Geni Menu Waiter Requests (matching Menu & Reservation UI) --- */
+  .wr-compare-container {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: stretch;
+  }
+
+  .wr-compare-center-arrow {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+    pointer-events: none;
+  }
+
+  .wr-center-arrow-circle {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--br);
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 18px rgba(135, 96, 57, 0.4);
+    border: 3px solid #FFFFFF;
+  }
+
+  .wr-center-arrow-circle svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .wr-compare-card {
+    border-radius: 24px;
+    padding: 26px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+  }
+
+  .wr-compare-traditional {
+    background: #FFFDFC;
+    border: 1.5px solid #FECDD3;
+    box-shadow: 0 10px 30px rgba(220, 38, 38, 0.04);
+  }
+
+  .wr-compare-digital {
+    background: #FFFFFF;
+    border: 1.5px solid rgba(135, 96, 57, 0.28);
+    box-shadow: 0 14px 40px rgba(135, 96, 57, 0.08);
+  }
+
+  .wr-compare-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 22px;
+  }
+
+  .wr-badge-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .wr-badge-icon svg { width: 18px; height: 18px; }
+  .wr-badge-red { background: #FEE2E2; color: #DC2626; }
+  .wr-badge-brown { background: #6F4522; color: #FFFFFF; }
+
+  .wr-compare-title {
+    font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+    font-size: 19px;
+    font-weight: 700;
+    margin: 0 0 2px;
+    line-height: 1.2;
+  }
+  .wr-compare-title.text-red { color: #991B1B; }
+  .wr-compare-title.text-brown { color: #21160F; }
+
+  .wr-compare-subtitle {
+    font-size: 12.5px;
+    color: #76675D;
+    margin: 0;
+  }
+
+  .wr-split-body {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 16px;
+    align-items: stretch;
+    flex: 1;
+  }
+
+  .wr-compare-digital .wr-split-body {
+    grid-template-columns: 1fr 1.05fr;
+    gap: 14px;
+  }
+
+  /* Left: Busy Floor Missed Calls Clipboard */
+  .wr-paper-visual {
+    background: #F8F4EE;
+    border-radius: 16px;
+    border: 1px solid #EADBCE;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .wr-paper-board {
+    width: 100%;
+    background: #845A3C;
+    border-radius: 12px;
+    padding: 10px 8px 8px;
+    box-shadow: 0 6px 16px rgba(42, 24, 13, 0.2);
+  }
+
+  .wr-paper-clip {
+    width: 32px;
+    height: 8px;
+    background: #C4B5A5;
+    border-radius: 3px;
+    margin: 0 auto 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  }
+
+  .wr-paper-sheet {
+    background: #FFFDF9;
+    border-radius: 6px;
+    padding: 10px 8px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    border: 1px solid #EBE1D3;
+  }
+
+  .wr-paper-header {
+    font-family: 'Outfit', serif;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-align: center;
+    color: #2A1C14;
+    border-bottom: 1.5px solid #2A1C14;
+    padding-bottom: 4px;
+    margin-bottom: 7px;
+  }
+
+  .wr-paper-slot-title {
+    font-size: 7.5px;
+    font-weight: 700;
+    color: #876039;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    margin: 6px 0 3px;
+  }
+
+  .wr-paper-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 7.5px;
+    color: #4A3E38;
+    padding: 2.5px 0;
+    border-bottom: 1px dashed #EDE4D8;
+  }
+  .wr-paper-row:last-child { border-bottom: none; }
+  .wr-paper-row .err-tag { color: #DC2626; font-weight: 700; }
+
+  /* 5 Pain Point Cards */
+  .wr-points-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: space-between;
+  }
+
+  .wr-point-card {
+    background: #FFFFFF;
+    border: 1px solid #FEE2E2;
+    border-radius: 12px;
+    padding: 9px 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .wr-point-card:hover {
+    transform: translateX(2px);
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.08);
+  }
+
+  .wr-point-ico {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #FEE2E2;
+    color: #DC2626;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .wr-point-ico svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+  .wr-point-txt { display: flex; flex-direction: column; min-width: 0; }
+  .wr-point-txt b { font-size: 13px; font-weight: 700; color: #21160F; line-height: 1.25; }
+  .wr-point-txt span { font-size: 11px; color: #76675D; line-height: 1.3; }
+
+  /* Right Card: 3 Digital Workflow Steps */
+  .wr-wf-steps {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  .wr-wf-card {
+    background: #FFFFFF;
+    border: 1px solid rgba(135, 96, 57, 0.2);
+    border-radius: 14px;
+    padding: 12px 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 2px 8px rgba(135, 96, 57, 0.04);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  .wr-wf-card:hover { transform: translateY(-2px); border-color: #876039; }
+
+  .wr-wf-ico {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: #FBF6EE;
+    color: #876039;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: 1px solid rgba(135, 96, 57, 0.18);
+  }
+  .wr-wf-ico svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+  .wr-wf-txt { display: flex; flex-direction: column; min-width: 0; }
+  .wr-wf-txt b { font-size: 13px; font-weight: 600; color: #21160F; line-height: 1.25; }
+  .wr-wf-txt span { font-size: 11.5px; color: #76675D; line-height: 1.3; }
+
+  .wr-wf-arrow {
+    text-align: center;
+    font-size: 15px;
+    font-weight: 500;
+    color: #876039;
+    line-height: 1;
+  }
+
+  /* Right Card: Smartphone Live Waiter Queue Mockup */
+  .wr-phone-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .wr-phone-mockup {
+    width: 100%;
+    max-width: 224px;
+    background: #1C1510;
+    border-radius: 28px;
+    padding: 7px;
+    box-shadow: 0 16px 36px rgba(28, 20, 15, 0.28);
+    border: 2px solid #362920;
+  }
+
+  .wr-phone-screen {
+    background: #FFFFFF;
+    border-radius: 22px;
+    padding: 10px 9px 12px;
+    overflow: hidden;
+  }
+
+  .wr-phone-island {
+    width: 38px;
+    height: 4px;
+    background: #1C1510;
+    border-radius: 4px;
+    margin: 0 auto 6px;
+  }
+
+  .wr-phone-header { text-align: center; margin-bottom: 7px; }
+  .wr-phone-title { font-family: 'Outfit', sans-serif; font-size: 13.5px; font-weight: 600; color: #21160F; line-height: 1.2; }
+  .wr-phone-sub { font-size: 8px; color: #76675D; }
+
+  .wr-phone-tabs {
+    display: flex;
+    gap: 3.5px;
+    margin-bottom: 8px;
+    justify-content: center;
+  }
+  .wr-tab-pill {
+    font-size: 7.5px;
+    font-weight: 700;
+    padding: 2.5px 7px;
+    border-radius: 12px;
+    background: #FAF7F2;
+    color: #6E6157;
+    white-space: nowrap;
+  }
+  .wr-tab-active { background: #875A38; color: #FFFFFF; }
+
+  .wr-req-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .wr-req-row {
+    padding: 6px 7px;
+    background: #FAF8F5;
+    border: 1px solid #EFE8DE;
+    border-radius: 9px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .wr-rq-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4px;
+  }
+  .wr-rq-name { font-size: 9.5px; font-weight: 700; color: #21160F; }
+  .wr-rq-badge {
+    font-size: 6.5px;
+    font-weight: 700;
+    padding: 1.5px 5px;
+    border-radius: 4px;
+  }
+  .wr-rq-badge.new { background: #FEF3C7; color: #B45309; }
+  .wr-rq-badge.ip { background: #DBEAFE; color: #1D4ED8; }
+  .wr-rq-badge.done { background: #DCFCE7; color: #16A34A; }
+
+  .wr-rq-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 7.5px;
+    color: #76675D;
+  }
+  .wr-rq-tbl { font-weight: 700; color: #876039; }
+
+  /* Bottom Pill CTA */
+  .wr-bottom-cta {
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .wr-bottom-cta-badge {
+    background: linear-gradient(135deg, #6f4e2d 0%, #876039 100%);
+    color: #FFFFFF;
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 7px 20px;
+    border-radius: 99px;
+    box-shadow: 0 4px 14px rgba(135, 96, 57, 0.3);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .wr-bottom-cta-badge svg {
+    width: 14px;
+    height: 14px;
+    stroke: #FFFFFF;
+    fill: none;
+    stroke-width: 2;
+  }
+
+  @media (max-width: 1080px) {
+    .wr-compare-container {
+      grid-template-columns: 1fr;
+      gap: 36px;
+    }
+    .wr-compare-center-arrow {
+      display: none;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .wr-split-body,
+    .wr-compare-digital .wr-split-body {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .wr-paper-visual {
+      max-width: 260px;
+      margin: 0 auto;
+    }
+  }
+</style>
+
 <section>
 <div class="w">
   <div class="hd r">
     <h2>Stop Making Guests Wait<br>for <span class="sf">Attention.</span></h2>
     <p>In a busy restaurant, guests may need a waiter, water, extra cutlery, the bill or assistance — but staff may not immediately notice. Geni Menu makes it easier to connect table-side needs with the team.</p>
   </div>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px;align-items:stretch">
-    <!-- Without -->
-    <div class="r d1" style="border-radius:20px;padding:28px;background:#fff5f5;border:1.5px solid #fecdd3">
-      <div style="display:flex;align-items:center;gap:11px;margin-bottom:22px">
-        <div style="width:36px;height:36px;border-radius:11px;background:#fee2e2;color:#dc2626;display:grid;place-items:center">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-        </div>
-        <h3 style="color:#991b1b;font-size:17px">Traditional Service</h3>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:7px">
-        <div style="padding:10px 14px;background:#fff;border-radius:11px;border:1px solid #fca5a5;font-weight:700;color:#7f1d1d;font-size:13px">Guest looks around for help</div>
-        <div style="text-align:center;color:#ef4444;font-weight: 500;font-size:16px">↓</div>
-        <div style="padding:10px 14px;background:#fff;border-radius:11px;border:1px solid #fca5a5;font-weight:700;color:#7f1d1d;font-size:13px">Tries to get waiter's attention</div>
-        <div style="text-align:center;color:#ef4444;font-weight: 500;font-size:16px">↓</div>
-        <div style="padding:10px 14px;background:#fff;border-radius:11px;border:1px solid #fca5a5;font-weight:700;color:#7f1d1d;font-size:13px">Waits... waiter is busy</div>
-        <div style="text-align:center;color:#ef4444;font-weight: 500;font-size:16px">↓</div>
-        <div style="padding:10px 14px;background:#fff;border-radius:11px;border:1px solid #fca5a5;font-weight:700;color:#7f1d1d;font-size:13px">Waiter notices (eventually)</div>
-        <div style="text-align:center;color:#ef4444;font-weight: 500;font-size:16px">↓</div>
-        <div style="padding:12px 14px;background:#fee2e2;border-radius:11px;border:1.5px solid #dc2626;font-weight: 500;color:#dc2626;font-size:13px;text-align:center">Request handled — after a delay</div>
+
+  <!-- Visual Comparison (Matching Menu & Reservation UI) -->
+  <div class="wr-compare-container r">
+    <!-- Center Transition Arrow -->
+    <div class="wr-compare-center-arrow">
+      <div class="wr-center-arrow-circle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
       </div>
     </div>
-    <!-- With Geni Menu -->
-    <div class="r d2" style="border-radius:20px;padding:28px;background:#fbf7f2;border:2px solid var(--br);box-shadow:var(--s2)">
-      <div style="display:flex;align-items:center;gap:11px;margin-bottom:22px">
-        <div style="width:36px;height:36px;border-radius:11px;background:var(--br);color:#fff;display:grid;place-items:center">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+
+    <!-- LEFT CARD: Traditional Service -->
+    <div class="wr-compare-card wr-compare-traditional">
+      <div class="wr-compare-header">
+        <div class="wr-badge-icon wr-badge-red">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
         </div>
-        <h3 style="color:var(--br);font-size:17px">With Geni Menu</h3>
+        <div>
+          <h3 class="wr-compare-title text-red">Traditional Service</h3>
+          <p class="wr-compare-subtitle">Waving hands, missed signals and slow table response</p>
+        </div>
       </div>
-      <div style="display:flex;flex-direction:column;gap:7px">
-        <div style="padding:10px 14px;background:#fff;border-radius:11px;border:1px solid var(--line);font-weight:700;color:var(--ink);font-size:13px">Guest sends a request from the table</div>
-        <div style="text-align:center;color:var(--br);font-weight: 500;font-size:16px">↓</div>
-        <div style="padding:10px 14px;background:#fff;border-radius:11px;border:1px solid var(--line);font-weight:700;color:var(--ink);font-size:13px">Restaurant team receives notification</div>
-        <div style="text-align:center;color:var(--br);font-weight: 500;font-size:16px">↓</div>
-        <div style="padding:10px 14px;background:#fff;border-radius:11px;border:1px solid var(--line);font-weight:700;color:var(--ink);font-size:13px">Staff member responds</div>
-        <div style="text-align:center;color:var(--br);font-weight: 500;font-size:16px">↓</div>
-        <div style="padding:10px 14px;background:#fff;border-radius:11px;border:1px solid var(--line);font-weight:700;color:var(--ink);font-size:13px">Request marked as complete</div>
-        <div style="text-align:center;color:var(--br);font-weight: 500;font-size:16px">↓</div>
-        <div style="padding:12px 14px;background:linear-gradient(135deg,#876039,#a07040);border-radius:11px;color:#fff;font-weight: 500;font-size:13px;text-align:center">Smooth, organized table-side service</div>
+
+      <div class="wr-split-body">
+        <!-- Left: Unnoticed Floor Calls Visual -->
+        <div class="wr-paper-visual">
+          <div class="wr-paper-board">
+            <div class="wr-paper-clip"></div>
+            <div class="wr-paper-sheet">
+              <div class="wr-paper-header">FLOOR CALLS</div>
+
+              <div class="wr-paper-slot-title">Dining Hall</div>
+              <div class="wr-paper-row"><span>Table 03 — Water</span><span class="err-tag">8m wait</span></div>
+              <div class="wr-paper-row"><span>Table 07 — Bill</span><span class="err-tag">Missed!</span></div>
+
+              <div class="wr-paper-slot-title">Family Section</div>
+              <div class="wr-paper-row"><span>Table 11 — Help</span><b>No staff</b></div>
+              <div class="wr-paper-row"><span>Table 14 — Cutlery</span><span class="err-tag">Delayed</span></div>
+
+              <div class="wr-paper-slot-title">Outdoor</div>
+              <div class="wr-paper-row"><span>Table 18 — Order</span><span class="err-tag">Ignored!</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: 5 Pain Points -->
+        <div class="wr-points-list">
+          <div class="wr-point-card">
+            <div class="wr-point-ico">
+              <svg viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+            <div class="wr-point-txt">
+              <b>Guest Looks Around</b>
+              <span>Trying to spot a free waiter across the room</span>
+            </div>
+          </div>
+
+          <div class="wr-point-card">
+            <div class="wr-point-ico">
+              <svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg>
+            </div>
+            <div class="wr-point-txt">
+              <b>Tries to Get Attention</b>
+              <span>Awkward hand waving during busy dinner rush</span>
+            </div>
+          </div>
+
+          <div class="wr-point-card">
+            <div class="wr-point-ico">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div class="wr-point-txt">
+              <b>Waits While Staff Are Busy</b>
+              <span>Team is occupied at other tables or counter</span>
+            </div>
+          </div>
+
+          <div class="wr-point-card">
+            <div class="wr-point-ico">
+              <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <div class="wr-point-txt">
+              <b>Verbal Follow-ups Missed</b>
+              <span>Requests forgotten between kitchen &amp; floor</span>
+            </div>
+          </div>
+
+          <div class="wr-point-card">
+            <div class="wr-point-ico">
+              <svg viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+            </div>
+            <div class="wr-point-txt">
+              <b>Handled After a Delay</b>
+              <span>Slow response lowers guest satisfaction</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT CARD: With Geni Menu -->
+    <div class="wr-compare-card wr-compare-digital">
+      <div class="wr-compare-header">
+        <div class="wr-badge-icon wr-badge-brown">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+        <div>
+          <h3 class="wr-compare-title text-brown">With Geni Menu</h3>
+          <p class="wr-compare-subtitle">Instant table alerts, faster response and happier guests</p>
+        </div>
+      </div>
+
+      <div class="wr-split-body">
+        <!-- Left: 3 Connected Workflow Steps -->
+        <div class="wr-wf-steps">
+          <div class="wr-wf-card">
+            <div class="wr-wf-ico">
+              <svg viewBox="0 0 24 24"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
+            </div>
+            <div class="wr-wf-txt">
+              <b>Guest Sends Table Request</b>
+              <span>1-tap call for water, bill or waiter</span>
+            </div>
+          </div>
+
+          <div class="wr-wf-arrow">&darr;</div>
+
+          <div class="wr-wf-card">
+            <div class="wr-wf-ico">
+              <svg viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+            </div>
+            <div class="wr-wf-txt">
+              <b>Team Receives Live Alert</b>
+              <span>Exact table number pops up instantly</span>
+            </div>
+          </div>
+
+          <div class="wr-wf-arrow">&darr;</div>
+
+          <div class="wr-wf-card">
+            <div class="wr-wf-ico">
+              <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <div class="wr-wf-txt">
+              <b>Staff Responds &amp; Completes</b>
+              <span>Tracked until marked done in real time</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Smartphone Live Waiter Queue Mockup -->
+        <div class="wr-phone-visual">
+          <div class="wr-phone-mockup">
+            <div class="wr-phone-screen">
+              <div class="wr-phone-island"></div>
+              <div class="wr-phone-header">
+                <div class="wr-phone-title">Waiter Requests</div>
+                <div class="wr-phone-sub">Live table-side alerts</div>
+              </div>
+              <div class="wr-phone-tabs">
+                <span class="wr-tab-pill wr-tab-active">All</span>
+                <span class="wr-tab-pill">New</span>
+                <span class="wr-tab-pill">Done</span>
+              </div>
+              <div class="wr-req-list">
+                <div class="wr-req-row">
+                  <div class="wr-rq-top">
+                    <span class="wr-rq-name">Need Water Bottle</span>
+                    <span class="wr-rq-badge new">New</span>
+                  </div>
+                  <div class="wr-rq-meta">
+                    <span>Just now &bull; Floor 1</span>
+                    <span class="wr-rq-tbl">Table 04</span>
+                  </div>
+                </div>
+
+                <div class="wr-req-row">
+                  <div class="wr-rq-top">
+                    <span class="wr-rq-name">Request Final Bill</span>
+                    <span class="wr-rq-badge ip">On Way</span>
+                  </div>
+                  <div class="wr-rq-meta">
+                    <span>1m ago &bull; AC Hall</span>
+                    <span class="wr-rq-tbl">Table 08</span>
+                  </div>
+                </div>
+
+                <div class="wr-req-row">
+                  <div class="wr-rq-top">
+                    <span class="wr-rq-name">Extra Cutlery Set</span>
+                    <span class="wr-rq-badge done">Done</span>
+                  </div>
+                  <div class="wr-rq-meta">
+                    <span>3m ago &bull; Patio</span>
+                    <span class="wr-rq-tbl">Table 12</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="wr-bottom-cta">
+        <div class="wr-bottom-cta-badge">
+          <svg viewBox="0 0 24 24"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3Z"/></svg>
+          <span>Smooth, Organized Table-Side Service!</span>
+        </div>
       </div>
     </div>
   </div>
@@ -1069,60 +1655,9 @@ section{padding:clamp(56px,7vw,96px) 0;background:var(--bg);position:relative;ov
   </div>
 </section>
 
-<!-- ===== FOOTER ===== -->
-<footer style="background:#19120e;color:#9a8a7e;padding:56px 0 28px;font-size:14px;border-top:1px solid #2c2118">
-<div class="w">
-  <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:36px">
-    <div>
-      <div style="font-family:'Outfit',sans-serif;font-weight: 500;font-size:21px;color:#fff;margin-bottom:12px">Geni <span style="color:var(--br-g)">Menu</span></div>
-      <p style="color:#7a6c64;font-size:13px;max-width:260px;line-height:1.7">Smart restaurant management for modern food businesses. Built by WeGeni.</p>
-    </div>
-    <div>
-      <h5 style="color:#fff;font-size:14px;margin-bottom:12px">Product</h5>
-      <ul style="display:flex;flex-direction:column;gap:9px">
-        <li><a href="{{ route('features') }}" style="color:#9a8a7e;font-size:13px">Digital Menu</a></li>
-        <li><a href="{{ route('features') }}" style="color:#9a8a7e;font-size:13px">QR Menu</a></li>
-        <li><a href="{{ route('features') }}" style="color:#9a8a7e;font-size:13px">Restaurant POS</a></li>
-        <li><a href="{{ route('features') }}" style="color:#9a8a7e;font-size:13px">Order Management</a></li>
-        <li><a href="{{ route('features.reservation-management') }}" style="color:#9a8a7e;font-size:13px">Reservations</a></li>
-      </ul>
-    </div>
-    <div>
-      <h5 style="color:#fff;font-size:14px;margin-bottom:12px">Features</h5>
-      <ul style="display:flex;flex-direction:column;gap:9px">
-        <li><a href="{{ route('features.menu-management') }}" style="color:#9a8a7e;font-size:13px">Menu Management</a></li>
-        <li><a href="{{ route('features.waiter-request') }}" style="color:#c7b8a8;font-size:13px">Waiter Requests</a></li>
-        <li><a href="{{ route('features') }}" style="color:#9a8a7e;font-size:13px">KOT Management</a></li>
-        <li><a href="{{ route('features') }}" style="color:#9a8a7e;font-size:13px">Inventory Management</a></li>
-        <li><a href="{{ route('features') }}" style="color:#9a8a7e;font-size:13px">Staff Management</a></li>
-      </ul>
-    </div>
-    <div>
-      <h5 style="color:#fff;font-size:14px;margin-bottom:12px">Company</h5>
-      <ul style="display:flex;flex-direction:column;gap:9px">
-        <li><a href="{{ route('about.us') }}" style="color:#9a8a7e;font-size:13px">About WeGeni</a></li>
-        <li><a href="{{ route('pricing') }}" style="color:#9a8a7e;font-size:13px">Pricing</a></li>
-        <li><a href="{{ route('contact.us') }}" style="color:#9a8a7e;font-size:13px">Contact Support</a></li>
-        <li><a href="{{ route('privacy-and-policy') }}" style="color:#9a8a7e;font-size:13px">Privacy Policy</a></li>
-        <li><a href="{{ route('terms-and-conditions') }}" style="color:#9a8a7e;font-size:13px">Terms & Conditions</a></li>
-      </ul>
-    </div>
-  </div>
-  <div style="padding-top:22px;border-top:1px solid #2c2118;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
-    <div style="color:#5e5248;font-size:12px">© {{ date('Y') }} WeGeni IT Services & Consulting Pvt. Ltd. · Geni Menu™</div>
-    <div style="display:flex;gap:18px;flex-wrap:wrap">
-      <a href="{{ route('terms-and-conditions') }}" style="color:#5e5248;font-size:12px">Terms</a>
-      <a href="{{ route('privacy-and-policy') }}" style="color:#5e5248;font-size:12px">Privacy</a>
-      <a href="{{ route('compliance') }}" style="color:#5e5248;font-size:12px">Compliance</a>
-    </div>
-  </div>
-</div>
-</footer>
-
 <style>
 @keyframes floatUp{from{opacity:0;transform:translateY(10px) scale(.96)}to{opacity:1;transform:none}}
 @media(max-width:640px){
-  footer>.w>div:first-child{grid-template-columns:1fr!important}
   .ind-grid{grid-template-columns:1fr 1fr!important}
 }
 </style>
@@ -1135,15 +1670,19 @@ function faq(el){
 }
 
 const nb=document.getElementById('nb');
-window.addEventListener('scroll',()=>nb.classList.toggle('s',scrollY>60),{passive:true});
+if(nb){
+  window.addEventListener('scroll',()=>nb.classList.toggle('s',scrollY>60),{passive:true});
+}
 
 const hmb=document.getElementById('hmb'),mnv=document.getElementById('mnav');
-hmb.addEventListener('click',()=>mnv.classList.add('open'));
-mnv.addEventListener('click',e=>{if(e.target===mnv)mnv.classList.remove('open')});
+if(hmb && mnv){
+  hmb.addEventListener('click',()=>mnv.classList.add('open'));
+  mnv.addEventListener('click',e=>{if(e.target===mnv)mnv.classList.remove('open')});
+}
 
 const io=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
-},{threshold:.07,rootMargin:'0px 0px -36px 0px'});
+},{threshold:.05,rootMargin:'0px 0px -20px 0px'});
 document.querySelectorAll('.r').forEach(el=>io.observe(el));
 
 const bio=new IntersectionObserver(entries=>{

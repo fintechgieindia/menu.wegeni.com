@@ -334,7 +334,7 @@ section.alt { background: var(--bg2); }
       </div>
       <div class="order-queue">
         <div class="oq-item">
-          <div class="oq-platform sw">🌟</div>
+          <div class="oq-platform sw"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3Z"/></svg></div>
           <div class="oq-info">
             <div class="oq-name">#CK-4081 · Biryani Palace</div>
             <div class="oq-detail">Chicken Biryani × 2, Raita × 2</div>
@@ -343,7 +343,7 @@ section.alt { background: var(--bg2); }
           <div class="oq-time">2 min</div>
         </div>
         <div class="oq-item">
-          <div class="oq-platform zo">🍕</div>
+          <div class="oq-platform zo"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 11h.01"/><path d="M11 15h.01"/><path d="M16 16h.01"/><path d="m2 16 20 6-6-20A20 20 0 0 0 2 16"/></svg></div>
           <div class="oq-info">
             <div class="oq-name">#CK-4082 · Pizza Hub</div>
             <div class="oq-detail">Margherita × 1, Garlic Bread × 2</div>
@@ -352,7 +352,7 @@ section.alt { background: var(--bg2); }
           <div class="oq-time">8 min</div>
         </div>
         <div class="oq-item">
-          <div class="oq-platform di">🥗</div>
+          <div class="oq-platform di"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11h16a1 1 0 0 1 1 1v.5c0 4.5-4 8.5-9 8.5s-9-4-9-8.5V12a1 1 0 0 1 1-1Z"/><path d="M12 3v4"/><path d="M8 5v2"/><path d="M16 5v2"/></svg></div>
           <div class="oq-info">
             <div class="oq-name">#CK-4080 · Healthy Bites</div>
             <div class="oq-detail">Quinoa Bowl × 1, Green Smoothie × 1</div>
@@ -361,7 +361,7 @@ section.alt { background: var(--bg2); }
           <div class="oq-time">12 min</div>
         </div>
         <div class="oq-item">
-          <div class="oq-platform wh">🍔</div>
+          <div class="oq-platform wh"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11h16a1 1 0 0 1 1 1v.5c0 4.5-4 8.5-9 8.5s-9-4-9-8.5V12a1 1 0 0 1 1-1Z"/><path d="M12 3v4"/><path d="M8 5v2"/><path d="M16 5v2"/></svg></div>
           <div class="oq-info">
             <div class="oq-name">#CK-4079 · Burger Station</div>
             <div class="oq-detail">Smash Burger × 2, Fries × 2</div>
@@ -486,22 +486,22 @@ section.alt { background: var(--bg2); }
     </div>
     <div class="platform-grid">
       <div class="plat-card">
-        <div class="plat-icon" style="background:#fef3c7; font-size:24px;">📱</div>
+        <div class="plat-icon" style="background:#fef3c7; font-size:24px;"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg></div>
         <div class="plat-name">Online Aggregators</div>
         <div class="plat-note">Swiggy, Zomato & others</div>
       </div>
       <div class="plat-card">
-        <div class="plat-icon" style="background:#eff6ff; font-size:24px;">🌐</div>
+        <div class="plat-icon" style="background:#eff6ff; font-size:24px;"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></div>
         <div class="plat-name">Direct Website</div>
         <div class="plat-note">Your own ordering page</div>
       </div>
       <div class="plat-card">
-        <div class="plat-icon" style="background:#d1fae5; font-size:24px;">📞</div>
+        <div class="plat-icon" style="background:#d1fae5; font-size:24px;"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
         <div class="plat-name">Phone Orders</div>
         <div class="plat-note">Counter-keyed orders</div>
       </div>
       <div class="plat-card">
-        <div class="plat-icon" style="background:#ede9fe; font-size:24px;">🚶</div>
+        <div class="plat-icon" style="background:#ede9fe; font-size:24px;"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
         <div class="plat-name">Walk-In Orders</div>
         <div class="plat-note">Direct counter pickup</div>
       </div>
@@ -543,7 +543,7 @@ section.alt { background: var(--bg2); }
           <li><span>Raita</span><span>×2</span></li>
           <li><span>Shorba</span><span>×1</span></li>
         </ul>
-        <div class="kot-timer" style="margin-top:12px;">⏱ 6 min remaining</div>
+        <div class="kot-timer" style="margin-top:12px;"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/><path d="M10 2h4"/></svg> 6 min remaining</div>
       </div>
       <div class="kot-card ready-ord">
         <div class="kot-hdr">
@@ -607,7 +607,7 @@ section.alt { background: var(--bg2); }
     <div>
       <div class="menu-grid">
         <div class="mc-card">
-          <div style="width:56px; height:56px; border-radius:10px; background:#fef3c7; display:grid; place-items:center; font-size:24px; flex-shrink:0;">🍗</div>
+          <div style="width:56px; height:56px; border-radius:10px; background:#fef3c7; display:grid; place-items:center; font-size:24px; flex-shrink:0;"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11h16a1 1 0 0 1 1 1v.5c0 4.5-4 8.5-9 8.5s-9-4-9-8.5V12a1 1 0 0 1 1-1Z"/><path d="M12 3v4"/><path d="M8 5v2"/><path d="M16 5v2"/></svg></div>
           <div class="mc-ctx">
             <h4>Chicken Biryani</h4>
             <div class="pr">₹280</div>
@@ -615,7 +615,7 @@ section.alt { background: var(--bg2); }
           </div>
         </div>
         <div class="mc-card">
-          <div style="width:56px; height:56px; border-radius:10px; background:#eff6ff; display:grid; place-items:center; font-size:24px; flex-shrink:0;">🍕</div>
+          <div style="width:56px; height:56px; border-radius:10px; background:#eff6ff; display:grid; place-items:center; font-size:24px; flex-shrink:0;"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 11h.01"/><path d="M11 15h.01"/><path d="M16 16h.01"/><path d="m2 16 20 6-6-20A20 20 0 0 0 2 16"/></svg></div>
           <div class="mc-ctx">
             <h4>Margherita Pizza</h4>
             <div class="pr">₹320</div>
@@ -623,7 +623,7 @@ section.alt { background: var(--bg2); }
           </div>
         </div>
         <div class="mc-card">
-          <div style="width:56px; height:56px; border-radius:10px; background:#d1fae5; display:grid; place-items:center; font-size:24px; flex-shrink:0;">🥗</div>
+          <div style="width:56px; height:56px; border-radius:10px; background:#d1fae5; display:grid; place-items:center; font-size:24px; flex-shrink:0;"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11h16a1 1 0 0 1 1 1v.5c0 4.5-4 8.5-9 8.5s-9-4-9-8.5V12a1 1 0 0 1 1-1Z"/><path d="M12 3v4"/><path d="M8 5v2"/><path d="M16 5v2"/></svg></div>
           <div class="mc-ctx">
             <h4>Quinoa Bowl</h4>
             <div class="pr">₹240</div>
@@ -631,7 +631,7 @@ section.alt { background: var(--bg2); }
           </div>
         </div>
         <div class="mc-card">
-          <div style="width:56px; height:56px; border-radius:10px; background:#ede9fe; display:grid; place-items:center; font-size:24px; flex-shrink:0;">🍔</div>
+          <div style="width:56px; height:56px; border-radius:10px; background:#ede9fe; display:grid; place-items:center; font-size:24px; flex-shrink:0;"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11h16a1 1 0 0 1 1 1v.5c0 4.5-4 8.5-9 8.5s-9-4-9-8.5V12a1 1 0 0 1 1-1Z"/><path d="M12 3v4"/><path d="M8 5v2"/><path d="M16 5v2"/></svg></div>
           <div class="mc-ctx">
             <h4>Smash Burger</h4>
             <div class="pr">₹260</div>

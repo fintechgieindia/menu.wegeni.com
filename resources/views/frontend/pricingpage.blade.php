@@ -284,9 +284,9 @@ section.hero { overflow: visible; padding-top: 130px !important; }
                         </div>
 
                         <div class="pr-spec-line">
-                            <span>⚡ 1 Counter POS</span>
-                            <span>👥 Up to 5 Staff</span>
-                            <span>🧾 Unlimited Orders</span>
+                            <span><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> 1 Counter POS</span>
+                            <span><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> Up to 5 Staff</span>
+                            <span><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"/><path d="M16 8h-6"/><path d="M16 12h-6"/><path d="M12 16h-2"/></svg> Unlimited Orders</span>
                         </div>
 
                         <div class="pr-chips">
@@ -337,9 +337,9 @@ section.hero { overflow: visible; padding-top: 130px !important; }
                         </div>
 
                         <div class="pr-spec-line">
-                            <span>🍳 Kitchen + Tables</span>
-                            <span>👥 Unlimited Staff</span>
-                            <span>📦 Live Stock Alerts</span>
+                            <span><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6Z"/><line x1="6" x2="18" y1="17" y2="17"/></svg> Kitchen + Tables</span>
+                            <span><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> Unlimited Staff</span>
+                            <span><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" x2="12" y1="22.08" y2="12"/></svg> Live Stock Alerts</span>
                         </div>
 
                         <div class="pr-chips">
@@ -388,9 +388,9 @@ section.hero { overflow: visible; padding-top: 130px !important; }
                         </div>
 
                         <div class="pr-spec-line">
-                            <span>🌐 Multi-Branch Sync</span>
-                            <span>📱 Self-Order Kiosks</span>
-                            <span>🔒 Custom Roles</span>
+                            <span><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg> Multi-Branch Sync</span>
+                            <span><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg> Self-Order Kiosks</span>
+                            <span><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Custom Roles</span>
                         </div>
 
                         <div class="pr-chips">

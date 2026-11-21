@@ -437,8 +437,8 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
     </div>
 
     <!-- Traditional Workflow Diagram -->
-    <div style="max-width: 900px; margin: 0 auto 48px; background: #fff; padding: 24px; border-radius: 18px; border: 1px solid var(--line);">
-      <div style="font-size: 12px; font-weight: 500; color: var(--mute); text-align: center; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px;">THE TRADITIONAL REPORTING FRICKTION</div>
+    <div style="max-width: 900px; margin: 0 auto 40px; background: #fff; padding: 22px 24px; border-radius: 18px; border: 1px solid var(--line);">
+      <div style="font-size: 12px; font-weight: 500; color: var(--mute); text-align: center; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px;">THE TRADITIONAL REPORTING FRICTION</div>
       <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-size: 12px; font-weight: 700; color: var(--ink);">
         <span>Collect information</span> <span>→</span>
         <span>Check records</span> <span>→</span>
@@ -449,66 +449,690 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
       </div>
     </div>
 
-    <!-- Side by Side Comparison Grid -->
-    <div class="g2" style="gap: 28px;">
-      <!-- Left: Scattered Information -->
-      <div style="background: #fff; padding: 32px; border-radius: 20px; border: 1px solid #fee2e2;">
-        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
-          <div style="width: 38px; height: 38px; border-radius: 10px; background: #fee2e2; color: #dc2626; display: grid; place-items: center; font-weight: 500;">✕</div>
-          <h3 style="font-size: 20px; color: #991b1b;">Scattered Information</h3>
+    <style>
+      .rpt-cmp-wrap {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+        max-width: 1180px;
+        margin: 0 auto;
+        align-items: stretch;
+      }
+
+      .rpt-center-arrow {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: #876039;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        font-weight: 700;
+        box-shadow: 0 8px 24px rgba(135, 96, 57, 0.35);
+        z-index: 10;
+        border: 3px solid #fff;
+      }
+
+      .rpt-card {
+        border-radius: 20px;
+        padding: 32px;
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+      }
+
+      .rpt-card-bad {
+        background: #FFFDFC;
+        border: 1.5px solid #FECDD3;
+        box-shadow: 0 12px 32px rgba(225, 29, 72, 0.04);
+      }
+
+      .rpt-card-good {
+        background: #FFFFFF;
+        border: 1.5px solid rgba(135, 96, 57, 0.28);
+        box-shadow: 0 12px 32px rgba(135, 96, 57, 0.07);
+      }
+
+      .rpt-card-head {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 24px;
+      }
+
+      .rpt-head-icon {
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: 800;
+        flex-shrink: 0;
+      }
+
+      .rpt-card-bad .rpt-head-icon {
+        background: #FFE4E6;
+        color: #E11D48;
+      }
+
+      .rpt-card-good .rpt-head-icon {
+        background: #876039;
+        color: #FFFFFF;
+      }
+
+      .rpt-head-title {
+        font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 1.2;
+        margin: 0;
+      }
+
+      .rpt-card-bad .rpt-head-title {
+        color: #881337;
+      }
+
+      .rpt-card-good .rpt-head-title {
+        color: #1F1813;
+      }
+
+      .rpt-head-sub {
+        font-size: 13px;
+        color: #76675D;
+        margin-top: 3px;
+      }
+
+      /* Left Inner Split */
+      .rpt-bad-split {
+        display: grid;
+        grid-template-columns: 1fr 1.3fr;
+        gap: 20px;
+        align-items: center;
+        flex: 1;
+      }
+
+      .rpt-paper-visual {
+        background: #FAF6F0;
+        border-radius: 16px;
+        padding: 18px 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(135, 96, 57, 0.12);
+        height: 100%;
+      }
+
+      .rpt-clipboard {
+        width: 100%;
+        background: #FFFDF9;
+        border: 7px solid #876039;
+        border-radius: 12px;
+        padding: 14px 12px 12px;
+        position: relative;
+        box-shadow: 0 8px 20px rgba(33, 22, 15, 0.10);
+      }
+
+      .rpt-clipboard-clip {
+        width: 52px;
+        height: 12px;
+        background: #6E4E2E;
+        border-radius: 4px;
+        margin: -22px auto 10px;
+        border: 2px solid #FFFDF9;
+      }
+
+      .rpt-clip-title {
+        text-align: center;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        color: #21160F;
+        padding-bottom: 6px;
+        margin-bottom: 8px;
+        border-bottom: 1.5px solid #21160F;
+      }
+
+      .rpt-clip-cat {
+        font-size: 8.5px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        color: #876039;
+        margin: 8px 0 4px;
+      }
+
+      .rpt-clip-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 9.5px;
+        color: #4A3D34;
+        padding: 2.5px 0;
+        border-bottom: 1px dotted #E6DDD3;
+      }
+
+      .rpt-clip-row span:last-child {
+        font-weight: 700;
+        color: #E11D48;
+      }
+
+      .rpt-clip-row.struck span:first-child {
+        text-decoration: line-through;
+        color: #A09388;
+      }
+
+      .rpt-pain-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .rpt-pain-item {
+        background: #FFFFFF;
+        border: 1px solid #FFE4E6;
+        border-radius: 12px;
+        padding: 10px 12px;
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        box-shadow: 0 2px 6px rgba(225, 29, 72, 0.03);
+      }
+
+      .rpt-pain-icon {
+        width: 30px;
+        height: 30px;
+        border-radius: 8px;
+        background: #FFF1F2;
+        color: #E11D48;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .rpt-pain-title {
+        font-size: 13px;
+        font-weight: 700;
+        color: #21160F;
+        line-height: 1.25;
+      }
+
+      .rpt-pain-desc {
+        font-size: 11.5px;
+        color: #76675D;
+        margin-top: 2px;
+        line-height: 1.3;
+      }
+
+      /* Right Inner Split */
+      .rpt-good-split {
+        display: grid;
+        grid-template-columns: 1fr 1.05fr;
+        gap: 18px;
+        align-items: center;
+        flex: 1;
+      }
+
+      .rpt-steps {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .rpt-step-card {
+        width: 100%;
+        background: #FFFFFF;
+        border: 1px solid #EAE0D5;
+        border-radius: 12px;
+        padding: 12px 13px;
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        box-shadow: 0 3px 10px rgba(33, 22, 15, 0.03);
+      }
+
+      .rpt-step-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 9px;
+        background: #F6EFE7;
+        color: #876039;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .rpt-step-title {
+        font-size: 13px;
+        font-weight: 700;
+        color: #21160F;
+        line-height: 1.25;
+      }
+
+      .rpt-step-desc {
+        font-size: 11.5px;
+        color: #76675D;
+        margin-top: 2px;
+        line-height: 1.3;
+      }
+
+      .rpt-step-arrow {
+        color: #A08B76;
+        font-size: 13px;
+        line-height: 1;
+        font-weight: 700;
+      }
+
+      /* Phone Mockup */
+      .rpt-phone-wrap {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .rpt-phone {
+        width: 100%;
+        max-width: 230px;
+        background: #1C1917;
+        border-radius: 28px;
+        padding: 8px;
+        box-shadow: 0 18px 36px rgba(28, 25, 23, 0.22);
+      }
+
+      .rpt-phone-screen {
+        background: #FFFFFF;
+        border-radius: 21px;
+        padding: 12px 10px 14px;
+        overflow: hidden;
+      }
+
+      .rpt-phone-notch {
+        width: 54px;
+        height: 5px;
+        background: #E7E0D8;
+        border-radius: 99px;
+        margin: 0 auto 10px;
+      }
+
+      .rpt-phone-head {
+        text-align: center;
+        margin-bottom: 8px;
+      }
+
+      .rpt-phone-title {
+        font-family: 'Outfit', sans-serif;
+        font-size: 13px;
+        font-weight: 700;
+        color: #21160F;
+      }
+
+      .rpt-phone-sub {
+        font-size: 9.5px;
+        color: #76675D;
+        margin-top: 1px;
+      }
+
+      .rpt-phone-tabs {
+        display: flex;
+        gap: 4px;
+        justify-content: center;
+        margin-bottom: 10px;
+      }
+
+      .rpt-phone-tab {
+        font-size: 8.5px;
+        font-weight: 700;
+        padding: 3px 8px;
+        border-radius: 99px;
+        background: #F4EFEA;
+        color: #6E6157;
+      }
+
+      .rpt-phone-tab.active {
+        background: #876039;
+        color: #FFFFFF;
+      }
+
+      .rpt-phone-list {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+      }
+
+      .rpt-phone-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 7px 8px;
+        background: #FAF7F3;
+        border: 1px solid #EFE7DE;
+        border-radius: 10px;
+      }
+
+      .rpt-phone-badge {
+        width: 28px;
+        height: 28px;
+        border-radius: 8px;
+        background: #F3E8DC;
+        color: #876039;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .rpt-phone-meta {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .rpt-phone-name {
+        font-size: 10.5px;
+        font-weight: 700;
+        color: #21160F;
+        line-height: 1.2;
+      }
+
+      .rpt-phone-detail {
+        font-size: 8.5px;
+        color: #76675D;
+        margin-top: 1px;
+      }
+
+      .rpt-phone-foot {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 4px;
+      }
+
+      .rpt-phone-val {
+        font-size: 10px;
+        font-weight: 800;
+        color: #21160F;
+      }
+
+      .rpt-status-pill {
+        font-size: 8px;
+        font-weight: 700;
+        padding: 2px 6px;
+        border-radius: 99px;
+      }
+
+      .rpt-status-ok {
+        background: #DCFCE7;
+        color: #15803D;
+      }
+
+      .rpt-status-live {
+        background: #FEF3C7;
+        color: #B45309;
+      }
+
+      .rpt-bottom-cta {
+        margin-top: 22px;
+        display: flex;
+        justify-content: center;
+      }
+
+      .rpt-cta-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: #876039;
+        color: #FFFFFF;
+        font-size: 13px;
+        font-weight: 700;
+        padding: 10px 22px;
+        border-radius: 999px;
+        box-shadow: 0 8px 20px rgba(135, 96, 57, 0.28);
+      }
+
+      @media (max-width: 1080px) {
+        .rpt-cmp-wrap {
+          grid-template-columns: 1fr;
+          gap: 24px;
+        }
+        .rpt-center-arrow {
+          display: none;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .rpt-card {
+          padding: 22px 18px;
+        }
+        .rpt-bad-split,
+        .rpt-good-split {
+          grid-template-columns: 1fr;
+        }
+        .rpt-paper-visual {
+          max-width: 260px;
+          margin: 0 auto;
+        }
+      }
+    </style>
+
+    <!-- Visual Comparison Container -->
+    <div class="rpt-cmp-wrap">
+      <!-- Center Floating Arrow -->
+      <div class="rpt-center-arrow" aria-hidden="true">→</div>
+
+      <!-- Left Card: Scattered Information -->
+      <div class="rpt-card rpt-card-bad">
+        <div class="rpt-card-head">
+          <div class="rpt-head-icon">✕</div>
+          <div>
+            <h3 class="rpt-head-title">Scattered Information</h3>
+            <div class="rpt-head-sub">Manual tallies, paper slips and delayed closing</div>
+          </div>
         </div>
-        <ul style="display: flex; flex-direction: column; gap: 14px; font-size: 15px; color: var(--mute);">
-          <li style="display: flex; align-items: center; gap: 10px;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-            Paper sales records requiring manual tallies
-          </li>
-          <li style="display: flex; align-items: center; gap: 10px;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-            Unconnected dine-in and online order totals
-          </li>
-          <li style="display: flex; align-items: center; gap: 10px;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-            Separate payment machine slips & cash reconciliation
-          </li>
-          <li style="display: flex; align-items: center; gap: 10px;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-            Untracked ingredient stock consumption
-          </li>
-          <li style="display: flex; align-items: center; gap: 10px;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-            Time-consuming end-of-day calculations
-          </li>
-        </ul>
+
+        <div class="rpt-bad-split">
+          <!-- Left Visual: Paper Tally Clipboard -->
+          <div class="rpt-paper-visual">
+            <div class="rpt-clipboard">
+              <div class="rpt-clipboard-clip"></div>
+              <div class="rpt-clip-title">DAILY TALLY</div>
+
+              <div class="rpt-clip-cat">SALES SLIPS</div>
+              <div class="rpt-clip-row"><span>Dine-in Bills</span><span>₹28,400?</span></div>
+              <div class="rpt-clip-row struck"><span>Online Orders</span><span>Not synced</span></div>
+              <div class="rpt-clip-row"><span>Cash Drawer</span><span>-₹640 short</span></div>
+
+              <div class="rpt-clip-cat">PAYMENTS</div>
+              <div class="rpt-clip-row"><span>Card Slips</span><span>Pending</span></div>
+              <div class="rpt-clip-row struck"><span>UPI Log</span><span>Manual</span></div>
+
+              <div class="rpt-clip-cat">CLOSING</div>
+              <div class="rpt-clip-row"><span>Tax &amp; Net</span><span>Calc late</span></div>
+            </div>
+          </div>
+
+          <!-- Right List: 5 Pain Points -->
+          <div class="rpt-pain-list">
+            <div class="rpt-pain-item">
+              <div class="rpt-pain-icon">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="13" y2="17"/></svg>
+              </div>
+              <div>
+                <div class="rpt-pain-title">Paper Sales Tallies</div>
+                <div class="rpt-pain-desc">Paper sales records requiring manual tallies</div>
+              </div>
+            </div>
+
+            <div class="rpt-pain-item">
+              <div class="rpt-pain-icon">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+              </div>
+              <div>
+                <div class="rpt-pain-title">Unconnected Order Totals</div>
+                <div class="rpt-pain-desc">Dine-in and online order totals tracked separately</div>
+              </div>
+            </div>
+
+            <div class="rpt-pain-item">
+              <div class="rpt-pain-icon">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+              </div>
+              <div>
+                <div class="rpt-pain-title">Split Payment Reconciliation</div>
+                <div class="rpt-pain-desc">Separate payment machine slips &amp; cash counts</div>
+              </div>
+            </div>
+
+            <div class="rpt-pain-item">
+              <div class="rpt-pain-icon">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+              </div>
+              <div>
+                <div class="rpt-pain-title">Untracked Stock Consumption</div>
+                <div class="rpt-pain-desc">No link between dish sales and ingredient usage</div>
+              </div>
+            </div>
+
+            <div class="rpt-pain-item">
+              <div class="rpt-pain-icon">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div>
+                <div class="rpt-pain-title">Slow End-of-Day Closing</div>
+                <div class="rpt-pain-desc">Time-consuming manual calculations every night</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <!-- Right: Geni Menu Reports -->
-      <div style="background: #fff; padding: 32px; border-radius: 20px; border: 1.5px solid var(--br); box-shadow: var(--shadow-sm);">
-        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
-          <div style="width: 38px; height: 38px; border-radius: 10px; background: var(--br-light); color: var(--br); display: grid; place-items: center; font-weight: 500;">✓</div>
-          <h3 style="font-size: 20px; color: var(--br);">Geni Menu Reports</h3>
+      <!-- Right Card: Geni Menu Reports -->
+      <div class="rpt-card rpt-card-good">
+        <div class="rpt-card-head">
+          <div class="rpt-head-icon">✓</div>
+          <div>
+            <h3 class="rpt-head-title">Geni Menu Reports</h3>
+            <div class="rpt-head-sub">Live sales, payment &amp; branch insights in one view</div>
+          </div>
         </div>
-        <ul style="display: flex; flex-direction: column; gap: 14px; font-size: 15px; color: var(--ink); font-weight: 600;">
-          <li style="display: flex; align-items: center; gap: 10px;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            One centralized reporting workspace
-          </li>
-          <li style="display: flex; align-items: center; gap: 10px;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Connected data from POS, orders & tables
-          </li>
-          <li style="display: flex; align-items: center; gap: 10px;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Clear gross, net sales, and tax breakdowns
-          </li>
-          <li style="display: flex; align-items: center; gap: 10px;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Visual hourly trends and peak service hours
-          </li>
-          <li style="display: flex; align-items: center; gap: 10px;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Filterable metrics by date range & branch
-          </li>
-        </ul>
+
+        <div class="rpt-good-split">
+          <!-- Left Steps: 3 Connected Workflow Steps -->
+          <div class="rpt-steps">
+            <div class="rpt-step-card">
+              <div class="rpt-step-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+              </div>
+              <div>
+                <div class="rpt-step-title">Centralized Workspace</div>
+                <div class="rpt-step-desc">Connected data from POS, orders &amp; tables</div>
+              </div>
+            </div>
+
+            <div class="rpt-step-arrow">↓</div>
+
+            <div class="rpt-step-card">
+              <div class="rpt-step-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+              </div>
+              <div>
+                <div class="rpt-step-title">Gross, Net &amp; Tax Clarity</div>
+                <div class="rpt-step-desc">Instant sales, discount &amp; payment breakdowns</div>
+              </div>
+            </div>
+
+            <div class="rpt-step-arrow">↓</div>
+
+            <div class="rpt-step-card">
+              <div class="rpt-step-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+              </div>
+              <div>
+                <div class="rpt-step-title">Hourly &amp; Branch Filters</div>
+                <div class="rpt-step-desc">Visual peak trends filtered by date &amp; outlet</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Visual: Live Smartphone Mockup -->
+          <div class="rpt-phone-wrap">
+            <div class="rpt-phone">
+              <div class="rpt-phone-screen">
+                <div class="rpt-phone-notch"></div>
+                <div class="rpt-phone-head">
+                  <div class="rpt-phone-title">Daily Reports</div>
+                  <div class="rpt-phone-sub">Live sales &amp; payment summary</div>
+                </div>
+
+                <div class="rpt-phone-tabs">
+                  <span class="rpt-phone-tab active">Today</span>
+                  <span class="rpt-phone-tab">Week</span>
+                  <span class="rpt-phone-tab">Month</span>
+                </div>
+
+                <div class="rpt-phone-list">
+                  <div class="rpt-phone-item">
+                    <div class="rpt-phone-badge">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    </div>
+                    <div class="rpt-phone-meta">
+                      <div class="rpt-phone-name">Net Sales Today</div>
+                      <div class="rpt-phone-detail">186 orders • All channels</div>
+                      <div class="rpt-phone-foot">
+                        <span class="rpt-phone-val">₹48,620</span>
+                        <span class="rpt-status-pill rpt-status-ok">+14%</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="rpt-phone-item">
+                    <div class="rpt-phone-badge">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+                    </div>
+                    <div class="rpt-phone-meta">
+                      <div class="rpt-phone-name">Payments Synced</div>
+                      <div class="rpt-phone-detail">Cash • Card • UPI</div>
+                      <div class="rpt-phone-foot">
+                        <span class="rpt-phone-val">₹45,280</span>
+                        <span class="rpt-status-pill rpt-status-ok">Matched</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="rpt-phone-item">
+                    <div class="rpt-phone-badge">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg>
+                    </div>
+                    <div class="rpt-phone-meta">
+                      <div class="rpt-phone-name">Peak Hour (8 PM)</div>
+                      <div class="rpt-phone-detail">44 orders • Top: Biryani</div>
+                      <div class="rpt-phone-foot">
+                        <span class="rpt-phone-val">₹10,600</span>
+                        <span class="rpt-status-pill rpt-status-live">Live</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom CTA Pill -->
+        <div class="rpt-bottom-cta">
+          <div class="rpt-cta-pill">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Every Number Clear at a Glance!
+          </div>
+        </div>
       </div>
     </div>
   </div>

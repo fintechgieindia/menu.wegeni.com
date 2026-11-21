@@ -754,114 +754,35 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
         </div>
       </div>
 
-      <!-- Hero Visual: Dashboard + Phone Combo -->
-      <div class="hero-combo r in" style="transition-delay: 0.15s;">
-        <!-- Restaurant Management Dashboard -->
-        <div class="win" style="flex: 1; min-width: 320px;">
-          <div class="wb">
-            <div class="dots"><i></i><i></i><i></i></div>
-            <div class="ttl">MENU MANAGEMENT</div>
-            <div style="font-size: 11px; background: #e2d5c0; color: var(--ink); padding: 3px 8px; border-radius: 6px; font-weight: 700;">LIVE DEMO</div>
+      <!-- Hero Visual: Editorial Restaurant Lifestyle Photo with Floating Live Badges -->
+      <div class="r in" style="transition-delay: 0.15s; position: relative; display: flex; justify-content: center; align-items: center;">
+        <div style="position: relative; width: 100%; max-width: 610px; border-radius: 26px; overflow: hidden; box-shadow: 0 28px 64px rgba(33, 22, 15, 0.16), 0 6px 20px rgba(135, 96, 57, 0.10); border: 1px solid rgba(135, 96, 57, 0.16);">
+          <img
+            src="{{ asset('assets/images/menu-management-hero.jpg') }}?v=2"
+            alt="Guest browsing Geni Menu digital QR menu at a restaurant table"
+            style="width: 100%; height: auto; display: block; object-fit: cover;"
+            loading="eager"
+          />
+          <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(33,22,15,0.06) 0%, rgba(33,22,15,0) 45%, rgba(33,22,15,0.42) 100%); pointer-events: none;"></div>
+
+          <!-- Top-Left Live Sync Glass Pill -->
+          <div style="position: absolute; top: 18px; left: 18px; display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(10px); box-shadow: 0 8px 20px rgba(0,0,0,0.14); font-size: 12px; font-weight: 700; color: #21160F;">
+            <span style="width: 8px; height: 8px; border-radius: 50%; background: #16A34A; box-shadow: 0 0 0 3px rgba(22,163,74,0.22);"></span>
+            Live QR Menu Sync
           </div>
-          <div style="padding: 16px; background: #fff;">
-            <!-- Top Action Bar -->
-            <div style="display: flex; justify-content: space-between; gap: 10px; margin-bottom: 14px;">
-              <input type="text" placeholder="Search menu items..." style="padding: 7px 12px; border: 1px solid var(--line); border-radius: 8px; font-size: 12px; width: 65%;">
-              <button style="background: var(--br); color: #fff; border: 0; padding: 7px 12px; border-radius: 8px; font-weight: 700; font-size: 12px; cursor: pointer;">+ Add Item</button>
-            </div>
 
-            <div style="display: grid; grid-template-columns: 110px 1fr; gap: 12px;">
-              <!-- Sidebar Categories -->
-              <div style="background: var(--bg2); border-radius: 10px; padding: 8px; border: 1px solid var(--line); font-size: 11px; font-weight: 700;">
-                <div style="color: var(--mute); font-size: 9px; text-transform: uppercase; margin-bottom: 6px;">Categories</div>
-                <div style="padding: 5px 8px; border-radius: 6px; background: var(--br); color: #fff; margin-bottom: 4px;">All Items</div>
-                <div style="padding: 5px 8px; color: var(--ink);">Starters</div>
-                <div style="padding: 5px 8px; color: var(--ink);">Main Course</div>
-                <div style="padding: 5px 8px; color: var(--ink);">Biryani</div>
-                <div style="padding: 5px 8px; color: var(--ink);">Beverages</div>
-                <div style="padding: 5px 8px; color: var(--ink);">Desserts</div>
+          <!-- Bottom-Left Menu Stats Floating Card -->
+          <div style="position: absolute; bottom: 18px; left: 18px; right: 18px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px; border-radius: 16px; background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(12px); box-shadow: 0 12px 28px rgba(0,0,0,0.16); flex-wrap: wrap;">
+            <div style="display: flex; align-items: center; gap: 11px;">
+              <div style="width: 36px; height: 36px; border-radius: 10px; background: #876039; color: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/><path d="M9 8h6"/><path d="M9 12h4"/></svg>
               </div>
-
-              <!-- Menu Items List -->
-              <div style="display: flex; flex-direction: column; gap: 8px;">
-                <div style="font-size: 10px; font-weight: 500; color: var(--mute); letter-spacing: 0.05em;">MENU ITEMS</div>
-                
-                <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px; background: #fff;">
-                  <div>
-                    <div style="font-weight: 700; color: var(--ink);">Chicken Biryani</div>
-                    <div style="color: var(--br); font-weight: 500;">₹240</div>
-                  </div>
-                  <div style="color: var(--green); font-size: 11px; font-weight: 700;">● Available</div>
-                </div>
-
-                <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px; background: #fff;">
-                  <div>
-                    <div style="font-weight: 700; color: var(--ink);">Paneer Butter Masala</div>
-                    <div style="color: var(--br); font-weight: 500;">₹220</div>
-                  </div>
-                  <div style="color: var(--green); font-size: 11px; font-weight: 700;">● Available</div>
-                </div>
-
-                <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px; background: #fff;">
-                  <div>
-                    <div style="font-weight: 700; color: var(--ink);">Chicken 65</div>
-                    <div style="color: var(--br); font-weight: 500;">₹180</div>
-                  </div>
-                  <div style="color: var(--green); font-size: 11px; font-weight: 700;">● Available</div>
-                </div>
-
-                <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px; background: #fff; opacity: 0.7;">
-                  <div>
-                    <div style="font-weight: 700; color: var(--ink);">Fresh Lime Soda</div>
-                    <div style="color: var(--br); font-weight: 500;">₹80</div>
-                  </div>
-                  <div style="color: var(--red); font-size: 11px; font-weight: 700;">○ Unavailable</div>
-                </div>
+              <div>
+                <div style="font-size: 13px; font-weight: 700; color: #21160F; line-height: 1.2;">Digital Menu Active</div>
+                <div style="font-size: 11.5px; color: #6E6157; margin-top: 2px;">64 Dishes • 6 Categories • Instant Updates</div>
               </div>
             </div>
-          </div>
-        </div>
-
-        <!-- Phone Customer Preview -->
-        <div class="ph-frame">
-          <div class="ph-inner">
-            <div class="ph-header">
-              <h6>Geni Bistro Menu</h6>
-              <p>Scan & Order Online</p>
-            </div>
-            <div class="ph-cats">
-              <div class="ph-cat act">All</div>
-              <div class="ph-cat">Biryani</div>
-              <div class="ph-cat">Main</div>
-              <div class="ph-cat">Drinks</div>
-            </div>
-
-            <div class="ph-item">
-              <div class="ph-img" style="background-image: url('https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=300&auto=format&fit=crop&q=80');"></div>
-              <div class="ph-info">
-                <h5>Chicken Biryani</h5>
-                <p>₹240</p>
-              </div>
-              <span class="ph-badge avail">● Available</span>
-            </div>
-
-            <div class="ph-item">
-              <div class="ph-img" style="background-image: url('https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=300&auto=format&fit=crop&q=80');"></div>
-              <div class="ph-info">
-                <h5>Paneer Masala</h5>
-                <p>₹220</p>
-              </div>
-              <span class="ph-badge avail">● Available</span>
-            </div>
-
-            <div class="ph-item" style="opacity: 0.6;">
-              <div class="ph-img" style="background-image: url('https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300&auto=format&fit=crop&q=80');"></div>
-              <div class="ph-info">
-                <h5>Fresh Lime Soda</h5>
-                <p>₹80</p>
-              </div>
-              <span class="ph-badge unavail">Sold Out</span>
-            </div>
+            <span style="font-size: 11.5px; font-weight: 700; color: #15803D; background: #DCFCE7; padding: 5px 11px; border-radius: 999px;">Updated Now</span>
           </div>
         </div>
       </div>
@@ -869,43 +790,819 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
   </div>
 </section>
 
+<!-- ================= MM REDESIGNED SECTIONS STYLES ================= -->
+<style>
+  /* 1. Quick Value Strip */
+  .mm-val-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  .mm-val-card {
+    background: #FFFFFF;
+    border: 1px solid rgba(135, 96, 57, 0.14);
+    border-radius: 18px;
+    padding: 24px 22px;
+    position: relative;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    box-shadow: 0 4px 16px rgba(33, 22, 15, 0.03);
+  }
+  .mm-val-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(135, 96, 57, 0.35);
+    box-shadow: 0 14px 32px rgba(135, 96, 57, 0.10);
+  }
+  .mm-val-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+  .mm-val-ic {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: #F6EFE7;
+    color: #876039;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .mm-val-ic svg {
+    width: 20px;
+    height: 20px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .mm-val-num {
+    font-family: 'Outfit', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: #B49A80;
+    letter-spacing: 0.06em;
+  }
+  .mm-val-card h4 {
+    font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: #21160F;
+    margin: 0 0 6px;
+  }
+  .mm-val-card p {
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: #6E6157;
+    margin: 0;
+  }
+
+  /* Shared 2-Column Split */
+  .mm-split {
+    display: grid;
+    grid-template-columns: 1fr 1.05fr;
+    gap: 52px;
+    align-items: center;
+  }
+  .mm-check-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .mm-check-chip {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    background: #FFFFFF;
+    border: 1px solid rgba(135, 96, 57, 0.14);
+    border-radius: 11px;
+    padding: 10px 13px;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #21160F;
+    box-shadow: 0 2px 6px rgba(33, 22, 15, 0.02);
+  }
+  .mm-check-dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #F6EFE7;
+    color: #876039;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+  .mm-feat-list {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .mm-feat-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 14px;
+    background: #FAF7F3;
+    border: 1px solid rgba(135, 96, 57, 0.12);
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #21160F;
+  }
+  .mm-feat-ic {
+    width: 32px;
+    height: 32px;
+    border-radius: 9px;
+    background: #FFFFFF;
+    border: 1px solid rgba(135, 96, 57, 0.16);
+    color: #876039;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  /* Polished Mockup Windows */
+  .mm-win {
+    background: #FFFFFF;
+    border: 1px solid rgba(135, 96, 57, 0.18);
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 20px 48px rgba(33, 22, 15, 0.08), 0 2px 8px rgba(135, 96, 57, 0.05);
+  }
+  .mm-win-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 13px 18px;
+    background: #FAF6F0;
+    border-bottom: 1px solid rgba(135, 96, 57, 0.12);
+  }
+  .mm-win-bar.dark {
+    background: #21160F;
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+  }
+  .mm-win-dots {
+    display: flex;
+    gap: 6px;
+  }
+  .mm-win-dots i {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: block;
+  }
+  .mm-win-dots i:nth-child(1) { background: #F87171; }
+  .mm-win-dots i:nth-child(2) { background: #FBBF24; }
+  .mm-win-dots i:nth-child(3) { background: #34D399; }
+  .mm-win-ttl {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #76675D;
+    text-transform: uppercase;
+  }
+  .mm-win-bar.dark .mm-win-ttl { color: #F5EFE8; }
+  .mm-win-pill {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: #F3E8DC;
+    color: #876039;
+  }
+  .mm-win-pill.green {
+    background: #DCFCE7;
+    color: #15803D;
+  }
+  .mm-win-body {
+    padding: 24px;
+    background: #FFFFFF;
+  }
+
+  /* Category Rows */
+  .mm-cat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    border: 1px solid rgba(135, 96, 57, 0.14);
+    border-radius: 13px;
+    background: #FAF7F3;
+    transition: all 0.2s ease;
+  }
+  .mm-cat-row.active {
+    background: #FFFFFF;
+    border: 1.5px solid #876039;
+    box-shadow: 0 8px 20px rgba(135, 96, 57, 0.14);
+    transform: translateX(4px);
+  }
+  .mm-cat-count {
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: #FFFFFF;
+    color: #6E6157;
+    border: 1px solid rgba(135, 96, 57, 0.14);
+  }
+  .mm-cat-row.active .mm-cat-count {
+    background: #876039;
+    color: #FFFFFF;
+    border-color: #876039;
+  }
+
+  /* Price Simulator Channels */
+  .mm-sync-channels {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .mm-chan-box {
+    background: #FAF7F3;
+    border: 1px solid rgba(135, 96, 57, 0.14);
+    border-radius: 12px;
+    padding: 11px 12px;
+    text-align: center;
+  }
+  .mm-chan-lbl {
+    font-size: 10.5px;
+    font-weight: 700;
+    color: #76675D;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .mm-chan-price {
+    font-family: 'Outfit', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: #21160F;
+    margin-top: 3px;
+  }
+
+  /* Availability Rows */
+  .mm-avail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 13px 16px;
+    border: 1px solid rgba(135, 96, 57, 0.14);
+    border-radius: 14px;
+    background: #FFFFFF;
+    transition: all 0.2s ease;
+  }
+  .mm-avail-row.is-off {
+    background: #FFF7F7;
+    border-color: #FECDD3;
+  }
+  .mm-avail-dish {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .mm-avail-thumb {
+    width: 44px;
+    height: 44px;
+    border-radius: 11px;
+    object-fit: cover;
+    border: 1px solid rgba(135, 96, 57, 0.12);
+    flex-shrink: 0;
+  }
+  .mm-avail-badge {
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 999px;
+  }
+  .mm-avail-badge.on {
+    background: #DCFCE7;
+    color: #15803D;
+  }
+  .mm-avail-badge.off {
+    background: #FFE4E6;
+    color: #BE123C;
+  }
+
+  /* Spotlight Cards */
+  .mm-spot-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+  }
+  .mm-spot-card {
+    background: #FFFFFF;
+    border: 1px solid rgba(135, 96, 57, 0.14);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(33, 22, 15, 0.04);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .mm-spot-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 18px 38px rgba(135, 96, 57, 0.12);
+  }
+  .mm-spot-media {
+    height: 158px;
+    position: relative;
+    overflow: hidden;
+    background: #F4EFE8;
+  }
+  .mm-spot-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+  }
+  .mm-spot-card:hover .mm-spot-media img {
+    transform: scale(1.06);
+  }
+  .mm-spot-tag {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    font-size: 10.5px;
+    font-weight: 700;
+    padding: 5px 10px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    letter-spacing: 0.04em;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
+  }
+  .mm-spot-body {
+    padding: 18px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .mm-spot-body h4 {
+    font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: #21160F;
+    margin: 0 0 5px;
+  }
+  .mm-spot-desc {
+    font-size: 12.5px;
+    color: #6E6157;
+    line-height: 1.5;
+    margin: 0 0 14px;
+    flex: 1;
+  }
+  .mm-spot-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 12px;
+    border-top: 1px solid rgba(135, 96, 57, 0.10);
+  }
+  .mm-spot-price {
+    font-family: 'Outfit', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #876039;
+  }
+  .mm-spot-stat {
+    font-size: 11px;
+    font-weight: 600;
+    color: #76675D;
+    background: #FAF6F0;
+    padding: 3px 9px;
+    border-radius: 999px;
+  }
+
+  /* Split Sync Section */
+  .mm-sync-grid {
+    display: grid;
+    grid-template-columns: 1.15fr auto 0.95fr;
+    gap: 24px;
+    align-items: center;
+    max-width: 1060px;
+    margin: 0 auto;
+  }
+  .mm-sync-bridge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  .mm-sync-circle {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #876039 0%, #6f4e2d 100%);
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 26px rgba(135, 96, 57, 0.30);
+    border: 4px solid #FFFFFF;
+  }
+  .mm-sync-caption {
+    font-size: 11px;
+    font-weight: 700;
+    color: #876039;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+  }
+  .mm-live-phone {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    background: #1C1917;
+    border-radius: 34px;
+    padding: 10px;
+    box-shadow: 0 24px 52px rgba(28, 25, 23, 0.22);
+  }
+  .mm-live-phone-inner {
+    background: #FFFFFF;
+    border-radius: 25px;
+    padding: 16px 14px 18px;
+  }
+
+  /* Multi-Menu Tabs */
+  .mm-tab-bar {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+    background: #FAF6F0;
+    border: 1px solid rgba(135, 96, 57, 0.16);
+    padding: 6px;
+    border-radius: 999px;
+    margin: 0 auto 30px;
+  }
+  .mm-tab-btn {
+    border: 0;
+    background: transparent;
+    color: #6E6157;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 9px 20px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    letter-spacing: 0.03em;
+  }
+  .mm-tab-btn:hover {
+    color: #21160F;
+  }
+  .mm-tab-btn.active {
+    background: #876039;
+    color: #FFFFFF;
+    box-shadow: 0 6px 16px rgba(135, 96, 57, 0.28);
+  }
+  .mm-menu-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 22px;
+  }
+  .mm-menu-dish {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 13px 16px;
+    border: 1px solid rgba(135, 96, 57, 0.14);
+    border-radius: 13px;
+    background: #FAF8F5;
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+  .mm-menu-dish:hover {
+    border-color: rgba(135, 96, 57, 0.35);
+    background: #FFFFFF;
+  }
+
+  /* Business Benefits */
+  .mm-ben-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+  }
+  .mm-ben-card {
+    background: #FFFFFF;
+    border: 1px solid rgba(135, 96, 57, 0.14);
+    border-radius: 20px;
+    padding: 26px 22px;
+    box-shadow: 0 8px 24px rgba(33, 22, 15, 0.04);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+  .mm-ben-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(135, 96, 57, 0.35);
+    box-shadow: 0 18px 36px rgba(135, 96, 57, 0.10);
+  }
+  .mm-ben-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+  }
+  .mm-ben-tag {
+    font-size: 11px;
+    font-weight: 700;
+    color: #876039;
+    background: #F6EFE7;
+    padding: 4px 10px;
+    border-radius: 999px;
+  }
+  .mm-ben-card h3 {
+    font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: #21160F;
+    margin: 0 0 8px;
+  }
+  .mm-ben-card p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #6E6157;
+    margin: 0;
+  }
+
+  /* Industry Cards Upgrade */
+  .mm-ind-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+  }
+  .mm-ind-card {
+    background: #FFFFFF;
+    border: 1px solid rgba(135, 96, 57, 0.14);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(33, 22, 15, 0.04);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+  .mm-ind-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(135, 96, 57, 0.35);
+    box-shadow: 0 18px 38px rgba(135, 96, 57, 0.12);
+  }
+  .mm-ind-media {
+    height: 162px;
+    position: relative;
+    overflow: hidden;
+  }
+  .mm-ind-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+  .mm-ind-card:hover .mm-ind-media img {
+    transform: scale(1.07);
+  }
+  .mm-ind-scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(33, 22, 15, 0) 40%, rgba(33, 22, 15, 0.55) 100%);
+  }
+  .mm-ind-pill {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    background: rgba(255, 255, 255, 0.92);
+    color: #21160F;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 999px;
+    backdrop-filter: blur(6px);
+  }
+  .mm-ind-body {
+    padding: 18px;
+  }
+  .mm-ind-body h4 {
+    font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: #21160F;
+    margin: 0 0 6px;
+  }
+  .mm-ind-body p {
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: #6E6157;
+    margin: 0;
+  }
+
+  /* Ecosystem Connected 7-Step Flow */
+  .mm-eco-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 14px;
+    align-items: stretch;
+  }
+  .mm-eco-step {
+    background: #FFFFFF;
+    border: 1px solid rgba(135, 96, 57, 0.14);
+    border-radius: 18px;
+    padding: 16px 10px 18px;
+    text-align: center;
+    position: relative;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    box-shadow: 0 4px 14px rgba(33, 22, 15, 0.03);
+  }
+  .mm-eco-step:hover {
+    transform: translateY(-4px);
+    border-color: rgba(135, 96, 57, 0.4);
+    box-shadow: 0 12px 28px rgba(135, 96, 57, 0.10);
+  }
+  .mm-eco-step.active {
+    background: linear-gradient(180deg, #FFFDF9 0%, #F7EFE5 100%);
+    border: 1.5px solid #876039;
+    box-shadow: 0 12px 28px rgba(135, 96, 57, 0.14);
+  }
+  .mm-eco-num {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 800;
+    color: #876039;
+    background: #F6EFE7;
+    padding: 2px 8px;
+    border-radius: 999px;
+    margin-bottom: 10px;
+  }
+  .mm-eco-step.active .mm-eco-num {
+    background: #876039;
+    color: #FFFFFF;
+  }
+  .mm-eco-img {
+    width: 68px;
+    height: 68px;
+    object-fit: contain;
+    margin: 0 auto 10px;
+    display: block;
+  }
+  .mm-eco-title {
+    font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #21160F;
+    letter-spacing: 0.02em;
+  }
+
+  /* Connected Features 3x2 Grid */
+  .mm-conn-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+  .mm-conn-card {
+    background: #FFFFFF;
+    border: 1px solid rgba(135, 96, 57, 0.14);
+    border-radius: 20px;
+    padding: 26px 24px;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    box-shadow: 0 6px 20px rgba(33, 22, 15, 0.03);
+  }
+  .mm-conn-card:hover {
+    transform: translateY(-5px);
+    border-color: #876039;
+    box-shadow: 0 18px 36px rgba(135, 96, 57, 0.12);
+  }
+  .mm-conn-card.featured {
+    border-color: rgba(135, 96, 57, 0.45);
+    background: linear-gradient(180deg, #FFFFFF 0%, #FAF6F0 100%);
+  }
+  .mm-conn-card h4 {
+    font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #21160F;
+    margin: 0 0 8px;
+  }
+  .mm-conn-card p {
+    font-size: 14px;
+    line-height: 1.55;
+    color: #6E6157;
+    margin: 0 0 18px;
+    flex: 1;
+  }
+  .mm-conn-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #876039;
+    transition: gap 0.2s ease;
+  }
+  .mm-conn-card:hover .mm-conn-link {
+    gap: 10px;
+  }
+
+  /* Responsive Breakpoints */
+  @media (max-width: 1100px) {
+    .mm-val-grid,
+    .mm-spot-grid,
+    .mm-ben-grid,
+    .mm-ind-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .mm-eco-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .mm-conn-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 900px) {
+    .mm-split,
+    .mm-sync-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    .mm-sync-bridge {
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+  @media (max-width: 600px) {
+    .mm-val-grid,
+    .mm-spot-grid,
+    .mm-ben-grid,
+    .mm-ind-grid,
+    .mm-conn-grid,
+    .mm-check-grid,
+    .mm-menu-grid,
+    .mm-sync-channels {
+      grid-template-columns: 1fr;
+    }
+    .mm-eco-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>
+
 <!-- ================= SECTION 4: QUICK VALUE STRIP ================= -->
-<section style="padding: 40px 0; background: var(--bg2); border-y: 1px solid var(--line);">
+<section style="padding: 46px 0; background: var(--bg2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
   <div class="w">
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;">
-      
-      <div class="card" style="padding: 24px;">
-        <div class="ic" style="margin-bottom: 14px;">
-          <svg viewBox="0 0 24 24"><path d="M21.5 2v6h-6"/><path d="M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+    <div class="mm-val-grid r in">
+      <div class="mm-val-card">
+        <div class="mm-val-top">
+          <div class="mm-val-ic">
+            <svg viewBox="0 0 24 24"><path d="M21.5 2v6h-6"/><path d="M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+          </div>
+          <span class="mm-val-num">01</span>
         </div>
-        <h4 style="font-size: 17px; margin-bottom: 6px;">Instant Updates</h4>
-        <p style="font-size: 14px;">Change menu information whenever you need.</p>
+        <h4>Instant Updates</h4>
+        <p>Change dishes, prices, and descriptions live in seconds.</p>
       </div>
 
-      <div class="card" style="padding: 24px;">
-        <div class="ic" style="margin-bottom: 14px;">
-          <svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/><path d="M8 6v12M16 6v12"/></svg>
+      <div class="mm-val-card">
+        <div class="mm-val-top">
+          <div class="mm-val-ic">
+            <svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/><path d="M8 6v12M16 6v12"/></svg>
+          </div>
+          <span class="mm-val-num">02</span>
         </div>
-        <h4 style="font-size: 17px; margin-bottom: 6px;">Easy Organization</h4>
-        <p style="font-size: 14px;">Keep dishes and categories structured.</p>
+        <h4>Easy Organization</h4>
+        <p>Keep dishes, categories, and modifiers cleanly structured.</p>
       </div>
 
-      <div class="card" style="padding: 24px;">
-        <div class="ic" style="margin-bottom: 14px;">
-          <svg viewBox="0 0 24 24"><path d="M18.36 6.64a9 9 0 1 1-12.73 0"/><line x1="12" y1="2" x2="12" y2="12"/></svg>
+      <div class="mm-val-card">
+        <div class="mm-val-top">
+          <div class="mm-val-ic">
+            <svg viewBox="0 0 24 24"><path d="M18.36 6.64a9 9 0 1 1-12.73 0"/><line x1="12" y1="2" x2="12" y2="12"/></svg>
+          </div>
+          <span class="mm-val-num">03</span>
         </div>
-        <h4 style="font-size: 17px; margin-bottom: 6px;">Availability Control</h4>
-        <p style="font-size: 14px;">Show customers what's currently available.</p>
+        <h4>Availability Control</h4>
+        <p>Toggle sold-out items off instantly during peak rush.</p>
       </div>
 
-      <div class="card" style="padding: 24px;">
-        <div class="ic" style="margin-bottom: 14px;">
-          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      <div class="mm-val-card">
+        <div class="mm-val-top">
+          <div class="mm-val-ic">
+            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <span class="mm-val-num">04</span>
         </div>
-        <h4 style="font-size: 17px; margin-bottom: 6px;">One Central Menu</h4>
-        <p style="font-size: 14px;">Manage your entire menu from one place.</p>
+        <h4>One Central Menu</h4>
+        <p>Control dine-in, takeaway, and delivery from one hub.</p>
       </div>
-
     </div>
   </div>
 </section>
@@ -1172,7 +1869,7 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
         <!-- Bottom CTA Pill -->
         <div class="compare-bottom-cta">
           <div class="bottom-cta-badge">
-            <span class="cta-sparkle">✨</span> Customers See It Instantly on Mobile!
+            <span class="cta-sparkle"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3Z"/></svg></span> Customers See It Instantly on Mobile!
           </div>
         </div>
       </div>
@@ -1190,58 +1887,63 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
     </div>
 
     <!-- ITEM MANAGEMENT SHOWCASE -->
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;" class="r">
+    <div class="mm-split r">
       <div>
         <div class="eb">MENU ITEM MANAGEMENT</div>
         <h2>Add. Edit. Organize.</h2>
-        <p style="margin: 16px 0 24px;">Create and manage every dish from a single interface effortlessly.</p>
+        <p style="margin: 14px 0 26px;">Create and manage every dish from a single interface effortlessly.</p>
 
-        <ul style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; font-weight: 600; color: var(--ink);">
-          <li style="display: flex; align-items: center; gap: 8px;"><span style="color: var(--br); font-weight: 500;">✓</span> Add new menu items</li>
-          <li style="display: flex; align-items: center; gap: 8px;"><span style="color: var(--br); font-weight: 500;">✓</span> Edit item names</li>
-          <li style="display: flex; align-items: center; gap: 8px;"><span style="color: var(--br); font-weight: 500;">✓</span> Update descriptions</li>
-          <li style="display: flex; align-items: center; gap: 8px;"><span style="color: var(--br); font-weight: 500;">✓</span> Change prices</li>
-          <li style="display: flex; align-items: center; gap: 8px;"><span style="color: var(--br); font-weight: 500;">✓</span> Add food images</li>
-          <li style="display: flex; align-items: center; gap: 8px;"><span style="color: var(--br); font-weight: 500;">✓</span> Manage item details</li>
-          <li style="display: flex; align-items: center; gap: 8px;"><span style="color: var(--br); font-weight: 500;">✓</span> Assign categories</li>
-          <li style="display: flex; align-items: center; gap: 8px;"><span style="color: var(--br); font-weight: 500;">✓</span> Control availability</li>
+        <ul class="mm-check-grid">
+          <li class="mm-check-chip"><span class="mm-check-dot">✓</span> Add new menu items</li>
+          <li class="mm-check-chip"><span class="mm-check-dot">✓</span> Edit item names</li>
+          <li class="mm-check-chip"><span class="mm-check-dot">✓</span> Update descriptions</li>
+          <li class="mm-check-chip"><span class="mm-check-dot">✓</span> Change prices</li>
+          <li class="mm-check-chip"><span class="mm-check-dot">✓</span> Add food images</li>
+          <li class="mm-check-chip"><span class="mm-check-dot">✓</span> Manage item details</li>
+          <li class="mm-check-chip"><span class="mm-check-dot">✓</span> Assign categories</li>
+          <li class="mm-check-chip"><span class="mm-check-dot">✓</span> Control availability</li>
         </ul>
       </div>
 
       <!-- Realistic EDIT MENU ITEM Visual Modal -->
-      <div class="win" style="padding: 0; box-shadow: var(--shadow-lg);">
-        <div class="wb">
-          <div class="dots"><i></i><i></i><i></i></div>
-          <div class="ttl">EDIT MENU ITEM</div>
-          <div></div>
+      <div class="mm-win">
+        <div class="mm-win-bar">
+          <div class="mm-win-dots"><i></i><i></i><i></i></div>
+          <div class="mm-win-ttl">EDIT MENU ITEM</div>
+          <span class="mm-win-pill green">● Live on QR</span>
         </div>
-        <div style="padding: 24px; display: flex; flex-direction: column; gap: 14px; background: #fff;">
-          <div style="display: flex; gap: 16px; align-items: center;">
-            <div style="width: 80px; height: 80px; border-radius: 14px; background-image: url('https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=300&auto=format&fit=crop&q=80'); background-size: cover; border: 1px solid var(--line); flex: none;"></div>
-            <div>
-              <button style="background: var(--bg2); border: 1px solid var(--line); padding: 6px 12px; border-radius: 8px; font-weight: 700; color: var(--br); cursor: pointer;">📷 Change Food Image</button>
-              <div style="font-size: 11px; color: var(--mute); margin-top: 4px;">PNG, JPG up to 5MB</div>
+        <div class="mm-win-body" style="display: flex; flex-direction: column; gap: 15px;">
+          <div style="display: flex; gap: 16px; align-items: center; padding: 12px; background: #FAF7F3; border-radius: 14px; border: 1px solid rgba(135,96,57,0.12);">
+            <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=300&auto=format&fit=crop&q=80" alt="Chicken Biryani" style="width: 72px; height: 72px; border-radius: 12px; object-fit: cover; border: 1px solid var(--line); flex: none;">
+            <div style="flex: 1;">
+              <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+                <button type="button" style="background: #FFFFFF; border: 1px solid rgba(135,96,57,0.22); padding: 7px 13px; border-radius: 9px; font-weight: 700; font-size: 12.5px; color: #876039; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">
+                  <svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+                  Change Food Image
+                </button>
+              </div>
+              <div style="font-size: 11px; color: #76675D; margin-top: 6px;">High-res PNG or JPG up to 5MB • Auto-optimized for mobile</div>
             </div>
           </div>
 
           <div>
-            <label style="font-weight: 700; font-size: 12px; color: var(--ink); display: block; margin-bottom: 4px;">Item Name</label>
-            <input type="text" value="Chicken Biryani" style="width: 100%; padding: 8px 12px; border: 1px solid var(--line); border-radius: 8px; font-weight: 600; color: var(--ink);">
+            <label style="font-weight: 700; font-size: 11.5px; color: #6E6157; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 5px;">Item Name</label>
+            <input type="text" value="Chicken Biryani" style="width: 100%; padding: 10px 13px; border: 1px solid rgba(135,96,57,0.2); border-radius: 10px; font-weight: 700; color: #21160F; font-size: 14px; background: #FFFDFB;">
           </div>
 
           <div>
-            <label style="font-weight: 700; font-size: 12px; color: var(--ink); display: block; margin-bottom: 4px;">Description</label>
-            <textarea style="width: 100%; padding: 8px 12px; border: 1px solid var(--line); border-radius: 8px; font-size: 12px; font-weight: 500; height: 50px; resize: none;">Aromatic basmati rice with tender chicken and traditional spices.</textarea>
+            <label style="font-weight: 700; font-size: 11.5px; color: #6E6157; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 5px;">Description</label>
+            <textarea style="width: 100%; padding: 10px 13px; border: 1px solid rgba(135,96,57,0.2); border-radius: 10px; font-size: 13px; font-weight: 500; color: #4A3D34; height: 58px; resize: none; background: #FFFDFB;">Aromatic basmati rice slow-cooked with tender chicken and traditional Hyderabadi spices.</textarea>
           </div>
 
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
             <div>
-              <label style="font-weight: 700; font-size: 12px; color: var(--ink); display: block; margin-bottom: 4px;">Price (₹)</label>
-              <input type="text" value="₹240" style="width: 100%; padding: 8px 12px; border: 1px solid var(--line); border-radius: 8px; font-weight: 500; color: var(--br);">
+              <label style="font-weight: 700; font-size: 11.5px; color: #6E6157; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 5px;">Price (₹)</label>
+              <input type="text" value="₹240" style="width: 100%; padding: 10px 13px; border: 1px solid rgba(135,96,57,0.2); border-radius: 10px; font-weight: 700; color: #876039; font-size: 14px; background: #FFFDFB;">
             </div>
             <div>
-              <label style="font-weight: 700; font-size: 12px; color: var(--ink); display: block; margin-bottom: 4px;">Category</label>
-              <select style="width: 100%; padding: 8px 12px; border: 1px solid var(--line); border-radius: 8px; font-weight: 600;">
+              <label style="font-weight: 700; font-size: 11.5px; color: #6E6157; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 5px;">Category</label>
+              <select style="width: 100%; padding: 10px 13px; border: 1px solid rgba(135,96,57,0.2); border-radius: 10px; font-weight: 600; color: #21160F; font-size: 14px; background: #FFFDFB;">
                 <option selected>Biryani</option>
                 <option>Starters</option>
                 <option>Main Course</option>
@@ -1249,9 +1951,11 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
             </div>
           </div>
 
-          <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 8px; border-top: 1px solid var(--line);">
-            <div style="font-weight: 700;">Availability: <span style="color: var(--green);">● Available</span></div>
-            <button class="btn p" style="padding: 8px 18px; font-size: 13px;">Save Changes</button>
+          <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 12px; border-top: 1px solid rgba(135,96,57,0.12); flex-wrap: wrap; gap: 10px;">
+            <div style="display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; color: #21160F;">
+              Status: <span class="mm-avail-badge on">● Available</span>
+            </div>
+            <button type="button" class="btn p" style="padding: 10px 22px; font-size: 13px; border-radius: 10px;">Save Changes</button>
           </div>
         </div>
       </div>
@@ -1262,74 +1966,102 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
 <!-- ================= SECTION 8: CATEGORY MANAGEMENT ================= -->
 <section>
   <div class="w">
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;" class="r">
-      <!-- Category UI Mockup -->
-      <div class="win" style="order: 2; box-shadow: var(--shadow-lg);">
-        <div class="wb">
-          <div class="dots"><i></i><i></i><i></i></div>
-          <div class="ttl">MENU CATEGORIES & REORDERING</div>
-          <div style="color: var(--br); font-weight: 700; font-size: 11px;">+ New Category</div>
-        </div>
-        <div style="padding: 20px; background: #fff; display: flex; flex-direction: column; gap: 10px;">
-          <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--bg2);">
-            <div style="display: flex; align-items: center; gap: 10px; font-weight: 700;">
-              <span style="cursor: grab; color: var(--mute);">:::</span> 🥗 Starters
-            </div>
-            <span style="font-size: 11px; background: #fff; padding: 3px 8px; border-radius: 6px; border: 1px solid var(--line);">12 Items</span>
-          </div>
-
-          <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; border: 1px solid var(--br); border-radius: 12px; background: #fff; box-shadow: 0 4px 12px rgba(135,96,57,0.15);">
-            <div style="display: flex; align-items: center; gap: 10px; font-weight: 500; color: var(--br);">
-              <span style="cursor: grab;">:::</span> 🍛 Main Course
-            </div>
-            <span style="font-size: 11px; background: var(--br); color: #fff; padding: 3px 8px; border-radius: 6px;">18 Items</span>
-          </div>
-
-          <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--bg2);">
-            <div style="display: flex; align-items: center; gap: 10px; font-weight: 700;">
-              <span style="cursor: grab; color: var(--mute);">:::</span> 🍚 Biryani
-            </div>
-            <span style="font-size: 11px; background: #fff; padding: 3px 8px; border-radius: 6px; border: 1px solid var(--line);">8 Items</span>
-          </div>
-
-          <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--bg2);">
-            <div style="display: flex; align-items: center; gap: 10px; font-weight: 700;">
-              <span style="cursor: grab; color: var(--mute);">:::</span> 🍜 Noodles & Rice
-            </div>
-            <span style="font-size: 11px; background: #fff; padding: 3px 8px; border-radius: 6px; border: 1px solid var(--line);">10 Items</span>
-          </div>
-
-          <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--bg2);">
-            <div style="display: flex; align-items: center; gap: 10px; font-weight: 700;">
-              <span style="cursor: grab; color: var(--mute);">:::</span> 🥤 Beverages
-            </div>
-            <span style="font-size: 11px; background: #fff; padding: 3px 8px; border-radius: 6px; border: 1px solid var(--line);">15 Items</span>
-          </div>
-
-          <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--bg2);">
-            <div style="display: flex; align-items: center; gap: 10px; font-weight: 700;">
-              <span style="cursor: grab; color: var(--mute);">:::</span> 🍨 Desserts
-            </div>
-            <span style="font-size: 11px; background: #fff; padding: 3px 8px; border-radius: 6px; border: 1px solid var(--line);">9 Items</span>
-          </div>
-        </div>
-      </div>
-
+    <div class="mm-split r">
       <!-- Copy -->
-      <div style="order: 1;">
+      <div>
         <div class="eb">CATEGORY MANAGEMENT</div>
         <h2>Keep Every Dish in <span class="sf">the Right Place.</span></h2>
-        <p style="margin: 16px 0 24px;">
+        <p style="margin: 14px 0 24px;">
           Organize your menu into clear categories so customers can discover what they want faster.
         </p>
 
-        <ul style="display: flex; flex-direction: column; gap: 12px; font-weight: 600; color: var(--ink);">
-          <li style="display: flex; align-items: center; gap: 10px;"><span style="color: var(--br); font-size: 18px;">📁</span> Create custom categories</li>
-          <li style="display: flex; align-items: center; gap: 10px;"><span style="color: var(--br); font-size: 18px;">✏️</span> Rename categories on demand</li>
-          <li style="display: flex; align-items: center; gap: 10px;"><span style="color: var(--br); font-size: 18px;">↕️</span> Reorder categories with simple drag & drop</li>
-          <li style="display: flex; align-items: center; gap: 10px;"><span style="color: var(--br); font-size: 18px;">🔄</span> Move items between categories seamlessly</li>
-          <li style="display: flex; align-items: center; gap: 10px;"><span style="color: var(--br); font-size: 18px;">✨</span> Keep the menu organized for fast customer browsing</li>
+        <ul class="mm-feat-list">
+          <li class="mm-feat-row">
+            <span class="mm-feat-ic"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"/></svg></span>
+            Create custom categories for every course
+          </li>
+          <li class="mm-feat-row">
+            <span class="mm-feat-ic"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg></span>
+            Rename categories anytime on demand
+          </li>
+          <li class="mm-feat-row">
+            <span class="mm-feat-ic"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 15 5 5 5-5"/><path d="m7 9 5-5 5 5"/></svg></span>
+            Reorder categories with simple drag &amp; drop
+          </li>
+          <li class="mm-feat-row">
+            <span class="mm-feat-ic"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg></span>
+            Move items between categories seamlessly
+          </li>
+          <li class="mm-feat-row">
+            <span class="mm-feat-ic"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3Z"/></svg></span>
+            Keep the menu structured for fast mobile browsing
+          </li>
         </ul>
+      </div>
+
+      <!-- Category UI Mockup -->
+      <div class="mm-win">
+        <div class="mm-win-bar">
+          <div class="mm-win-dots"><i></i><i></i><i></i></div>
+          <div class="mm-win-ttl">MENU CATEGORIES &amp; REORDERING</div>
+          <span class="mm-win-pill">+ New Category</span>
+        </div>
+        <div class="mm-win-body" style="display: flex; flex-direction: column; gap: 10px;">
+          <div class="mm-cat-row">
+            <div style="display: flex; align-items: center; gap: 11px; font-weight: 700; color: #21160F;">
+              <span style="cursor: grab; color: #A89A8E; letter-spacing: 1px;">⋮⋮</span>
+              <svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11h16a1 1 0 0 1 1 1v.5c0 4.5-4 8.5-9 8.5s-9-4-9-8.5V12a1 1 0 0 1 1-1Z"/><path d="M12 3v4"/><path d="M8 5v2"/><path d="M16 5v2"/></svg>
+              Starters
+            </div>
+            <span class="mm-cat-count">12 Items</span>
+          </div>
+
+          <div class="mm-cat-row active">
+            <div style="display: flex; align-items: center; gap: 11px; font-weight: 700; color: #876039;">
+              <span style="cursor: grabbing; color: #876039; letter-spacing: 1px;">⋮⋮</span>
+              <svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11h16a1 1 0 0 1 1 1v.5c0 4.5-4 8.5-9 8.5s-9-4-9-8.5V12a1 1 0 0 1 1-1Z"/><path d="M12 3v4"/><path d="M8 5v2"/><path d="M16 5v2"/></svg>
+              Main Course
+              <span style="font-size: 10px; font-weight: 700; background: #F6EFE7; color: #876039; padding: 2px 7px; border-radius: 99px;">Dragging</span>
+            </div>
+            <span class="mm-cat-count">18 Items</span>
+          </div>
+
+          <div class="mm-cat-row">
+            <div style="display: flex; align-items: center; gap: 11px; font-weight: 700; color: #21160F;">
+              <span style="cursor: grab; color: #A89A8E; letter-spacing: 1px;">⋮⋮</span>
+              <svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11h16a1 1 0 0 1 1 1v.5c0 4.5-4 8.5-9 8.5s-9-4-9-8.5V12a1 1 0 0 1 1-1Z"/><path d="M12 3v4"/><path d="M8 5v2"/><path d="M16 5v2"/></svg>
+              Biryani
+            </div>
+            <span class="mm-cat-count">8 Items</span>
+          </div>
+
+          <div class="mm-cat-row">
+            <div style="display: flex; align-items: center; gap: 11px; font-weight: 700; color: #21160F;">
+              <span style="cursor: grab; color: #A89A8E; letter-spacing: 1px;">⋮⋮</span>
+              <svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11h16a1 1 0 0 1 1 1v.5c0 4.5-4 8.5-9 8.5s-9-4-9-8.5V12a1 1 0 0 1 1-1Z"/><path d="M12 3v4"/><path d="M8 5v2"/><path d="M16 5v2"/></svg>
+              Noodles &amp; Rice
+            </div>
+            <span class="mm-cat-count">10 Items</span>
+          </div>
+
+          <div class="mm-cat-row">
+            <div style="display: flex; align-items: center; gap: 11px; font-weight: 700; color: #21160F;">
+              <span style="cursor: grab; color: #A89A8E; letter-spacing: 1px;">⋮⋮</span>
+              <svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 22h8"/><path d="M12 11v11"/><path d="m19 3-7 8-7-8Z"/></svg>
+              Beverages
+            </div>
+            <span class="mm-cat-count">15 Items</span>
+          </div>
+
+          <div class="mm-cat-row">
+            <div style="display: flex; align-items: center; gap: 11px; font-weight: 700; color: #21160F;">
+              <span style="cursor: grab; color: #A89A8E; letter-spacing: 1px;">⋮⋮</span>
+              <svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8"/><path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1"/><path d="M2 21h20"/><path d="M7 8v3"/><path d="M12 8v3"/><path d="M17 8v3"/></svg>
+              Desserts
+            </div>
+            <span class="mm-cat-count">9 Items</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -1338,36 +2070,62 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
 <!-- ================= SECTION 9: PRICE MANAGEMENT ================= -->
 <section style="background: var(--bg2);">
   <div class="w">
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;" class="r">
+    <div class="mm-split r">
       <div>
         <div class="eb">PRICE MANAGEMENT</div>
         <h2>Prices Change. <br><span class="sf">Your Menu Shouldn't Have To.</span></h2>
-        <p style="margin: 16px 0 24px;">
+        <p style="margin: 14px 0 24px;">
           Update prices whenever your business changes — without redesigning or replacing your menu.
         </p>
 
-        <ul style="display: flex; flex-direction: column; gap: 12px; font-weight: 600;">
-          <li style="display: flex; align-items: center; gap: 10px;"><span style="color: var(--br);">✓</span> Update prices quickly in seconds</li>
-          <li style="display: flex; align-items: center; gap: 10px;"><span style="color: var(--br);">✓</span> Keep pricing accurate across all customer touchpoints</li>
-          <li style="display: flex; align-items: center; gap: 10px;"><span style="color: var(--br);">✓</span> Avoid outdated physical menus</li>
-          <li style="display: flex; align-items: center; gap: 10px;"><span style="color: var(--br);">✓</span> Maintain pricing consistency across dine-in, takeout and delivery</li>
+        <ul class="mm-feat-list">
+          <li class="mm-feat-row"><span class="mm-check-dot">✓</span> Update prices quickly in seconds</li>
+          <li class="mm-feat-row"><span class="mm-check-dot">✓</span> Keep pricing accurate across all customer touchpoints</li>
+          <li class="mm-feat-row"><span class="mm-check-dot">✓</span> Avoid outdated physical menus &amp; sticker patches</li>
+          <li class="mm-feat-row"><span class="mm-check-dot">✓</span> Maintain pricing consistency across dine-in, takeout and delivery</li>
         </ul>
       </div>
 
       <!-- Interactive Price Change Simulator -->
-      <div class="card" style="padding: 32px; background: #fff;">
-        <div style="font-size: 12px; font-weight: 500; color: var(--br); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px;">LIVE PRICE UPDATE SIMULATOR</div>
-        
-        <div style="padding: 20px; border: 1px solid var(--line); border-radius: 16px; background: var(--bg2); display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
-          <div>
-            <div style="font-weight: 500; font-size: 18px;">Chicken Biryani</div>
-            <div id="price-display" style="font-size: 24px; font-weight: 500; color: var(--br); margin-top: 4px;">₹220</div>
-          </div>
-          <button id="price-btn" onclick="updatePriceSim()" class="btn p" style="padding: 10px 18px; font-size: 13px;">Edit Price</button>
+      <div class="mm-win">
+        <div class="mm-win-bar">
+          <div class="mm-win-dots"><i></i><i></i><i></i></div>
+          <div class="mm-win-ttl">LIVE PRICE UPDATE SIMULATOR</div>
+          <span class="mm-win-pill">Interactive</span>
         </div>
+        <div class="mm-win-body">
+          <div style="padding: 18px; border: 1px solid rgba(135,96,57,0.16); border-radius: 16px; background: #FAF7F3; display: flex; justify-content: space-between; align-items: center; gap: 14px; margin-bottom: 16px; flex-wrap: wrap;">
+            <div style="display: flex; align-items: center; gap: 14px;">
+              <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=240&auto=format&fit=crop&q=80" alt="Chicken Biryani" style="width: 58px; height: 58px; border-radius: 12px; object-fit: cover; border: 1px solid rgba(135,96,57,0.15);">
+              <div>
+                <div style="font-size: 11px; font-weight: 700; color: #876039; text-transform: uppercase; letter-spacing: 0.06em;">Biryani • Best Seller</div>
+                <div style="font-weight: 700; font-size: 17px; color: #21160F; margin-top: 2px;">Chicken Biryani</div>
+                <div id="price-display" style="font-family: 'Outfit', sans-serif; font-size: 24px; font-weight: 700; color: #876039; margin-top: 2px;">₹220</div>
+              </div>
+            </div>
+            <button type="button" id="price-btn" onclick="updatePriceSim()" class="btn p" style="padding: 11px 20px; font-size: 13px; border-radius: 10px;">Edit Price → ₹240</button>
+          </div>
 
-        <div id="price-toast" style="padding: 12px 16px; background: #d1fae5; border: 1px solid #6ee7b7; color: #065f46; border-radius: 10px; font-weight: 700; font-size: 14px; opacity: 0; transition: opacity .3s;">
-          ✓ Price updated successfully to ₹240
+          <!-- 3-Channel Live Sync Preview -->
+          <div style="font-size: 11px; font-weight: 700; color: #76675D; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px;">Synced Live Across All Channels</div>
+          <div class="mm-sync-channels">
+            <div class="mm-chan-box">
+              <div class="mm-chan-lbl">QR Dine-In</div>
+              <div class="mm-chan-price mm-synced-price">₹220</div>
+            </div>
+            <div class="mm-chan-box">
+              <div class="mm-chan-lbl">Takeaway</div>
+              <div class="mm-chan-price mm-synced-price">₹220</div>
+            </div>
+            <div class="mm-chan-box">
+              <div class="mm-chan-lbl">POS Billing</div>
+              <div class="mm-chan-price mm-synced-price">₹220</div>
+            </div>
+          </div>
+
+          <div id="price-toast" style="padding: 12px 15px; background: #ECFDF5; border: 1px solid #A7F3D0; color: #065F46; border-radius: 12px; font-weight: 700; font-size: 13px; opacity: 0; transform: translateY(4px); transition: all 0.25s ease;">
+            ✓ Price updated to ₹240 and synced across QR Menu, Takeaway &amp; POS!
+          </div>
         </div>
       </div>
     </div>
@@ -1380,55 +2138,82 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
     <div class="hd r">
       <div class="eb">AVAILABILITY MANAGEMENT</div>
       <h2>Sold Out? <span class="sf">Turn It Off.</span></h2>
-      <p>When an item isn't available, simply change its availability. Customers can see the current menu status instantly.</p>
+      <p>When an item isn't available, simply toggle its availability. Customers see the exact live menu status immediately.</p>
     </div>
 
     <!-- Toggle Switches Mockup -->
-    <div class="win r" style="max-width: 760px; margin: 0 auto 32px; box-shadow: var(--shadow-lg);">
-      <div class="wb">
-        <div class="dots"><i></i><i></i><i></i></div>
-        <div class="ttl">ITEM AVAILABILITY CONTROLS</div>
-        <div style="color: var(--green); font-weight: 700;">LIVE CONTROL</div>
+    <div class="mm-win r" style="max-width: 780px; margin: 0 auto 28px;">
+      <div class="mm-win-bar">
+        <div class="mm-win-dots"><i></i><i></i><i></i></div>
+        <div class="mm-win-ttl">ITEM AVAILABILITY CONTROLS</div>
+        <span class="mm-win-pill green" id="avail-summary-pill">3 Available • 1 Sold Out</span>
       </div>
-      <div style="padding: 24px; background: #fff; display: flex; flex-direction: column; gap: 14px;">
+      <div class="mm-win-body" style="display: flex; flex-direction: column; gap: 12px;">
 
-        <div style="display: flex; justify-content: space-between; align-items: center; padding: 14px 18px; border: 1px solid var(--line); border-radius: 12px; background: #fff;">
-          <div style="font-weight: 700; font-size: 16px;">Chicken Biryani</div>
+        <div class="mm-avail-row">
+          <div class="mm-avail-dish">
+            <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=160&auto=format&fit=crop&q=80" alt="Chicken Biryani" class="mm-avail-thumb">
+            <div>
+              <div style="font-weight: 700; font-size: 15.5px; color: #21160F;">Chicken Biryani</div>
+              <div style="font-size: 12px; color: #76675D;">Biryani • ₹240</div>
+            </div>
+          </div>
           <div style="display: flex; align-items: center; gap: 14px;">
-            <span style="color: var(--green); font-weight: 500; font-size: 13px;">● Available</span>
-            <div class="tgl-sw on" onclick="this.classList.toggle('on')"><div class="tgl-knob"></div></div>
+            <span class="mm-avail-badge on">● Available</span>
+            <div class="tgl-sw on" onclick="toggleAvailRow(this)"><div class="tgl-knob"></div></div>
           </div>
         </div>
 
-        <div style="display: flex; justify-content: space-between; align-items: center; padding: 14px 18px; border: 1px solid var(--line); border-radius: 12px; background: #fff;">
-          <div style="font-weight: 700; font-size: 16px;">Paneer Tikka</div>
+        <div class="mm-avail-row">
+          <div class="mm-avail-dish">
+            <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=160&auto=format&fit=crop&q=80" alt="Paneer Tikka" class="mm-avail-thumb">
+            <div>
+              <div style="font-weight: 700; font-size: 15.5px; color: #21160F;">Paneer Tikka</div>
+              <div style="font-size: 12px; color: #76675D;">Starters • ₹190</div>
+            </div>
+          </div>
           <div style="display: flex; align-items: center; gap: 14px;">
-            <span style="color: var(--green); font-weight: 500; font-size: 13px;">● Available</span>
-            <div class="tgl-sw on" onclick="this.classList.toggle('on')"><div class="tgl-knob"></div></div>
+            <span class="mm-avail-badge on">● Available</span>
+            <div class="tgl-sw on" onclick="toggleAvailRow(this)"><div class="tgl-knob"></div></div>
           </div>
         </div>
 
-        <div style="display: flex; justify-content: space-between; align-items: center; padding: 14px 18px; border: 1px solid #fca5a5; border-radius: 12px; background: #fff5f5;">
-          <div style="font-weight: 700; font-size: 16px; color: var(--ink);">Mutton Biryani</div>
+        <div class="mm-avail-row is-off">
+          <div class="mm-avail-dish">
+            <img src="https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=160&auto=format&fit=crop&q=80" alt="Mutton Biryani" class="mm-avail-thumb">
+            <div>
+              <div style="font-weight: 700; font-size: 15.5px; color: #21160F;">Mutton Biryani</div>
+              <div style="font-size: 12px; color: #76675D;">Biryani • ₹340</div>
+            </div>
+          </div>
           <div style="display: flex; align-items: center; gap: 14px;">
-            <span style="color: var(--red); font-weight: 500; font-size: 13px;">○ Unavailable</span>
-            <div class="tgl-sw" onclick="this.classList.toggle('on')"><div class="tgl-knob"></div></div>
+            <span class="mm-avail-badge off">○ Unavailable</span>
+            <div class="tgl-sw" onclick="toggleAvailRow(this)"><div class="tgl-knob"></div></div>
           </div>
         </div>
 
-        <div style="display: flex; justify-content: space-between; align-items: center; padding: 14px 18px; border: 1px solid var(--line); border-radius: 12px; background: #fff;">
-          <div style="font-weight: 700; font-size: 16px;">Fresh Lime Soda</div>
+        <div class="mm-avail-row">
+          <div class="mm-avail-dish">
+            <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=160&auto=format&fit=crop&q=80" alt="Fresh Lime Soda" class="mm-avail-thumb">
+            <div>
+              <div style="font-weight: 700; font-size: 15.5px; color: #21160F;">Fresh Lime Soda</div>
+              <div style="font-size: 12px; color: #76675D;">Beverages • ₹80</div>
+            </div>
+          </div>
           <div style="display: flex; align-items: center; gap: 14px;">
-            <span style="color: var(--green); font-weight: 500; font-size: 13px;">● Available</span>
-            <div class="tgl-sw on" onclick="this.classList.toggle('on')"><div class="tgl-knob"></div></div>
+            <span class="mm-avail-badge on">● Available</span>
+            <div class="tgl-sw on" onclick="toggleAvailRow(this)"><div class="tgl-knob"></div></div>
           </div>
         </div>
 
       </div>
     </div>
 
-    <div style="text-align: center; max-width: 600px; margin: auto; padding: 16px; background: var(--bg2); border-radius: 16px; border: 1px solid var(--line);" class="r">
-      <p style="font-weight: 700; color: var(--br);">✨ Keep your menu accurate, even during busy service hours.</p>
+    <div style="text-align: center;" class="r">
+      <div style="display: inline-flex; align-items: center; gap: 8px; padding: 11px 22px; background: #FAF6F0; border-radius: 999px; border: 1px solid rgba(135,96,57,0.2); font-size: 13.5px; font-weight: 700; color: #876039;">
+        <svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3Z"/></svg>
+        Click any toggle above — keep your menu accurate even during peak rush hours.
+      </div>
     </div>
   </div>
 </section>
@@ -1438,66 +2223,83 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
   <div class="w">
     <div class="hd r">
       <h2>Let Your Food <span class="sf">Sell Itself.</span></h2>
-      <p>Add high-quality images and details to give customers a better idea of what they're ordering.</p>
+      <p>Add high-quality images, portion variants, and add-ons to boost order value effortlessly.</p>
     </div>
 
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;">
+    <div class="mm-split r">
       <!-- Customer Card Preview -->
-      <div class="card" style="padding: 0; max-width: 440px; margin: auto; box-shadow: var(--shadow-lg);">
-        <div style="height: 240px; background-image: url('https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=800&auto=format&fit=crop&q=80'); background-size: cover; background-position: center; position: relative;">
-          <span style="position: absolute; top: 16px; left: 16px; background: var(--br); color: #fff; padding: 4px 12px; border-radius: 8px; font-weight: 500; font-size: 11px;">★ TODAY'S SPECIAL</span>
+      <div style="background: #FFFFFF; border-radius: 24px; overflow: hidden; max-width: 440px; width: 100%; margin: 0 auto; border: 1px solid rgba(135,96,57,0.16); box-shadow: 0 20px 48px rgba(33,22,15,0.09);">
+        <div style="height: 250px; background-image: url('https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=800&auto=format&fit=crop&q=80'); background-size: cover; background-position: center; position: relative;">
+          <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0) 45%, rgba(0,0,0,0.45) 100%);"></div>
+          <span style="position: absolute; top: 16px; left: 16px; background: #876039; color: #fff; padding: 5px 12px; border-radius: 999px; font-weight: 700; font-size: 11px; letter-spacing: 0.04em; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">★ TODAY'S SPECIAL</span>
+          <span style="position: absolute; top: 16px; right: 16px; background: rgba(255,255,255,0.92); color: #21160F; padding: 4px 10px; border-radius: 999px; font-weight: 700; font-size: 11.5px; backdrop-filter: blur(6px);">4.9 ★ (240+)</span>
         </div>
         <div style="padding: 24px;">
           <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 8px;">
-            <h3 style="font-size: 22px;">Chicken Biryani</h3>
-            <span style="font-size: 20px; font-weight: 500; color: var(--br);">₹240</span>
+            <div>
+              <h3 style="font-size: 22px; margin: 0; color: #21160F;">Chicken Biryani</h3>
+              <div style="font-size: 12px; color: #76675D; margin-top: 3px;">Serves 1–2 • Medium Spice • 20 mins</div>
+            </div>
+            <span style="font-family: 'Outfit', sans-serif; font-size: 22px; font-weight: 700; color: #876039;">₹240</span>
           </div>
-          <p style="font-size: 14px; margin-bottom: 20px;">Aromatic basmati rice, tender chicken and traditional spices.</p>
-          <button class="btn p" style="width: 100%; justify-content: center;">Add +</button>
+          <p style="font-size: 14px; color: #6E6157; line-height: 1.55; margin: 12px 0 20px;">Aromatic long-grain basmati rice layered with tender spiced chicken, saffron, and fried onions.</p>
+          <button type="button" class="btn p" style="width: 100%; justify-content: center; border-radius: 12px; padding: 13px;">Add to Order +</button>
         </div>
       </div>
 
       <!-- Item Variants & Add-ons Details -->
-      <div class="win" style="box-shadow: var(--shadow-lg);">
-        <div class="wb">
-          <div class="dots"><i></i><i></i><i></i></div>
-          <div class="ttl">ITEM VARIANTS & ADD-ONS CONFIGURATION</div>
-          <div></div>
+      <div class="mm-win">
+        <div class="mm-win-bar">
+          <div class="mm-win-dots"><i></i><i></i><i></i></div>
+          <div class="mm-win-ttl">ITEM VARIANTS &amp; ADD-ONS</div>
+          <span class="mm-win-pill">Customizer</span>
         </div>
-        <div style="padding: 24px; background: #fff;">
-          <h3 style="font-size: 20px; margin-bottom: 6px;">Chicken Pizza</h3>
-          <p style="font-size: 13px; margin-bottom: 20px;">Classic hand-tossed pizza topped with chicken, mozzarella and herbs.</p>
+        <div class="mm-win-body">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+            <div>
+              <h3 style="font-size: 20px; margin: 0 0 4px; color: #21160F;">Chicken Pizza</h3>
+              <p style="font-size: 13px; margin: 0; color: #6E6157;">Classic hand-tossed pizza with grilled chicken, mozzarella &amp; herbs.</p>
+            </div>
+          </div>
 
           <div style="margin-bottom: 20px;">
-            <div style="font-weight: 500; font-size: 11px; letter-spacing: 0.1em; color: var(--mute); text-transform: uppercase; margin-bottom: 10px;">SIZE OPTIONS</div>
-            <div style="display: flex; gap: 10px;">
-              <div style="flex: 1; padding: 10px; border: 1px solid var(--line); border-radius: 10px; text-align: center; cursor: pointer;">
-                <div style="font-weight: 700;">Regular</div>
-                <div style="color: var(--br); font-weight: 500; margin-top: 2px;">₹220</div>
+            <div style="font-weight: 700; font-size: 11px; letter-spacing: 0.08em; color: #76675D; text-transform: uppercase; margin-bottom: 10px;">Select Size (Required)</div>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;" id="mm-size-group">
+              <div class="mm-size-opt" data-price="220" onclick="selectMmSize(this)" style="padding: 12px 10px; border: 1.5px solid rgba(135,96,57,0.18); border-radius: 12px; text-align: center; cursor: pointer; background: #fff; transition: all 0.2s;">
+                <div style="font-weight: 700; font-size: 14px; color: #21160F;">Regular</div>
+                <div style="color: #876039; font-weight: 700; font-size: 14px; margin-top: 3px;">₹220</div>
               </div>
-              <div style="flex: 1; padding: 10px; border: 2px solid var(--br); border-radius: 10px; text-align: center; background: var(--bg2); cursor: pointer;">
-                <div style="font-weight: 500; color: var(--br);">Medium</div>
-                <div style="color: var(--br); font-weight: 500; margin-top: 2px;">₹320</div>
+              <div class="mm-size-opt active" data-price="320" onclick="selectMmSize(this)" style="padding: 12px 10px; border: 2px solid #876039; border-radius: 12px; text-align: center; cursor: pointer; background: #FAF6F0; transition: all 0.2s;">
+                <div style="font-weight: 700; font-size: 14px; color: #876039;">Medium</div>
+                <div style="color: #876039; font-weight: 700; font-size: 14px; margin-top: 3px;">₹320</div>
               </div>
-              <div style="flex: 1; padding: 10px; border: 1px solid var(--line); border-radius: 10px; text-align: center; cursor: pointer;">
-                <div style="font-weight: 700;">Large</div>
-                <div style="color: var(--br); font-weight: 500; margin-top: 2px;">₹420</div>
+              <div class="mm-size-opt" data-price="420" onclick="selectMmSize(this)" style="padding: 12px 10px; border: 1.5px solid rgba(135,96,57,0.18); border-radius: 12px; text-align: center; cursor: pointer; background: #fff; transition: all 0.2s;">
+                <div style="font-weight: 700; font-size: 14px; color: #21160F;">Large</div>
+                <div style="color: #876039; font-weight: 700; font-size: 14px; margin-top: 3px;">₹420</div>
               </div>
             </div>
           </div>
 
-          <div>
-            <div style="font-weight: 500; font-size: 11px; letter-spacing: 0.1em; color: var(--mute); text-transform: uppercase; margin-bottom: 10px;">ADD-ONS</div>
-            <div style="display: flex; flex-direction: column; gap: 8px;">
-              <label style="display: flex; justify-content: space-between; padding: 10px 14px; border: 1px solid var(--line); border-radius: 10px; cursor: pointer;">
-                <span><input type="checkbox" checked> Extra Cheese</span>
-                <span style="font-weight: 500; color: var(--br);">+₹40</span>
+          <div style="margin-bottom: 20px;">
+            <div style="font-weight: 700; font-size: 11px; letter-spacing: 0.08em; color: #76675D; text-transform: uppercase; margin-bottom: 10px;">Popular Add-Ons</div>
+            <div style="display: flex; flex-direction: column; gap: 9px;">
+              <label style="display: flex; justify-content: space-between; align-items: center; padding: 11px 14px; border: 1px solid rgba(135,96,57,0.16); border-radius: 11px; background: #FAF8F5; cursor: pointer; font-weight: 600; font-size: 14px; color: #21160F;">
+                <span style="display: inline-flex; align-items: center; gap: 10px;"><input type="checkbox" class="mm-addon-chk" data-price="40" checked onchange="calcMmTotal()" style="accent-color: #876039; width: 16px; height: 16px;"> Extra Mozzarella Cheese</span>
+                <span style="font-weight: 700; color: #876039;">+₹40</span>
               </label>
-              <label style="display: flex; justify-content: space-between; padding: 10px 14px; border: 1px solid var(--line); border-radius: 10px; cursor: pointer;">
-                <span><input type="checkbox" checked> Extra Chicken</span>
-                <span style="font-weight: 500; color: var(--br);">+₹70</span>
+              <label style="display: flex; justify-content: space-between; align-items: center; padding: 11px 14px; border: 1px solid rgba(135,96,57,0.16); border-radius: 11px; background: #FAF8F5; cursor: pointer; font-weight: 600; font-size: 14px; color: #21160F;">
+                <span style="display: inline-flex; align-items: center; gap: 10px;"><input type="checkbox" class="mm-addon-chk" data-price="70" checked onchange="calcMmTotal()" style="accent-color: #876039; width: 16px; height: 16px;"> Extra Grilled Chicken</span>
+                <span style="font-weight: 700; color: #876039;">+₹70</span>
               </label>
             </div>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; padding: 14px 16px; background: #21160F; color: #FFFFFF; border-radius: 13px;">
+            <div>
+              <div style="font-size: 11px; color: #D5C7B8; text-transform: uppercase; letter-spacing: 0.06em;">Configured Total</div>
+              <div id="mm-config-total" style="font-family: 'Outfit', sans-serif; font-size: 20px; font-weight: 700; color: #FFFFFF;">₹430</div>
+            </div>
+            <span style="background: #876039; color: #FFFFFF; font-size: 12.5px; font-weight: 700; padding: 8px 16px; border-radius: 9px;">Auto-Calculated ✓</span>
           </div>
         </div>
       </div>
@@ -1509,34 +2311,79 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
 <section>
   <div class="w">
     <div class="hd r">
-      <div class="eb">PROMOTIONS & HIGHLIGHTS</div>
+      <div class="eb">PROMOTIONS &amp; HIGHLIGHTS</div>
       <h2>Put Your Best Sellers <span class="sf">in the Spotlight.</span></h2>
       <p>Highlight signature dishes, today's specials and promotional items so customers notice them first.</p>
     </div>
 
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px;">
-      <div class="card" style="padding: 20px;">
-        <span style="background: #fef3c7; color: #92400e; font-size: 11px; font-weight: 500; padding: 4px 10px; border-radius: 6px; text-transform: uppercase;">★ TODAY'S SPECIAL</span>
-        <h4 style="font-size: 18px; margin: 12px 0 4px;">Chicken Biryani</h4>
-        <p style="font-weight: 500; color: var(--br); font-size: 16px;">₹240</p>
+    <div class="mm-spot-grid r">
+      <div class="mm-spot-card">
+        <div class="mm-spot-media">
+          <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=500&auto=format&fit=crop&q=80" alt="Chicken Biryani">
+          <span class="mm-spot-tag" style="background: rgba(254, 243, 199, 0.95); color: #92400E;">★ TODAY'S SPECIAL</span>
+        </div>
+        <div class="mm-spot-body">
+          <h4>Chicken Biryani</h4>
+          <p class="mm-spot-desc">Signature dum-cooked basmati biryani served with raita &amp; salan.</p>
+          <div class="mm-spot-foot">
+            <span class="mm-spot-price">₹240</span>
+            <span class="mm-spot-stat">142 orders today</span>
+          </div>
+        </div>
       </div>
 
-      <div class="card" style="padding: 20px;">
-        <span style="background: #dbeafe; color: #1e40af; font-size: 11px; font-weight: 500; padding: 4px 10px; border-radius: 6px; text-transform: uppercase;">🔥 BEST SELLER</span>
-        <h4 style="font-size: 18px; margin: 12px 0 4px;">Paneer Butter Masala</h4>
-        <p style="font-weight: 500; color: var(--br); font-size: 16px;">₹220</p>
+      <div class="mm-spot-card">
+        <div class="mm-spot-media">
+          <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=500&auto=format&fit=crop&q=80" alt="Paneer Butter Masala">
+          <span class="mm-spot-tag" style="background: rgba(219, 234, 254, 0.95); color: #1E40AF;">
+            <svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+            BEST SELLER
+          </span>
+        </div>
+        <div class="mm-spot-body">
+          <h4>Paneer Butter Masala</h4>
+          <p class="mm-spot-desc">Soft cottage cheese simmered in velvety spiced tomato-cashew gravy.</p>
+          <div class="mm-spot-foot">
+            <span class="mm-spot-price">₹220</span>
+            <span class="mm-spot-stat">98 orders today</span>
+          </div>
+        </div>
       </div>
 
-      <div class="card" style="padding: 20px;">
-        <span style="background: #d1fae5; color: #065f46; font-size: 11px; font-weight: 500; padding: 4px 10px; border-radius: 6px; text-transform: uppercase;">✨ NEW</span>
-        <h4 style="font-size: 18px; margin: 12px 0 4px;">Truffle Garlic Naan</h4>
-        <p style="font-weight: 500; color: var(--br); font-size: 16px;">₹110</p>
+      <div class="mm-spot-card">
+        <div class="mm-spot-media">
+          <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500&auto=format&fit=crop&q=80" alt="Truffle Garlic Naan">
+          <span class="mm-spot-tag" style="background: rgba(209, 250, 229, 0.95); color: #065F46;">
+            <svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3Z"/></svg>
+            NEW
+          </span>
+        </div>
+        <div class="mm-spot-body">
+          <h4>Truffle Garlic Naan</h4>
+          <p class="mm-spot-desc">Tandoor-baked naan brushed with roasted garlic butter &amp; herbs.</p>
+          <div class="mm-spot-foot">
+            <span class="mm-spot-price">₹110</span>
+            <span class="mm-spot-stat">Chef's Pick</span>
+          </div>
+        </div>
       </div>
 
-      <div class="card" style="padding: 20px;">
-        <span style="background: #fce7f3; color: #9d174d; font-size: 11px; font-weight: 500; padding: 4px 10px; border-radius: 6px; text-transform: uppercase;">👑 POPULAR</span>
-        <h4 style="font-size: 18px; margin: 12px 0 4px;">Mango Lassi</h4>
-        <p style="font-weight: 500; color: var(--br); font-size: 16px;">₹90</p>
+      <div class="mm-spot-card">
+        <div class="mm-spot-media">
+          <img src="https://images.unsplash.com/photo-1546173159-315724a31696?w=500&auto=format&fit=crop&q=80" alt="Mango Lassi">
+          <span class="mm-spot-tag" style="background: rgba(252, 231, 243, 0.95); color: #9D174D;">
+            <svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m2 4 3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14"/></svg>
+            POPULAR
+          </span>
+        </div>
+        <div class="mm-spot-body">
+          <h4>Mango Lassi</h4>
+          <p class="mm-spot-desc">Chilled Alphonso mango yogurt smoothie with a hint of cardamom.</p>
+          <div class="mm-spot-foot">
+            <span class="mm-spot-price">₹90</span>
+            <span class="mm-spot-stat">Top Add-on</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -1550,42 +2397,83 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
       <p>What you manage on your dashboard is immediately reflected on your customer's screen.</p>
     </div>
 
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center;" class="r">
+    <div class="mm-sync-grid r">
       <!-- LEFT - ADMIN -->
-      <div class="win" style="box-shadow: var(--shadow-lg);">
-        <div class="wb" style="background: var(--ink); color: #fff;">
-          <div class="dots"><i></i><i></i><i></i></div>
-          <div class="ttl" style="color: #fff;">ADMIN DASHBOARD</div>
-          <div style="color: var(--br-gold);">ADMIN CONTROL</div>
+      <div class="mm-win">
+        <div class="mm-win-bar dark">
+          <div class="mm-win-dots"><i></i><i></i><i></i></div>
+          <div class="mm-win-ttl">ADMIN DASHBOARD</div>
+          <span style="font-size: 10.5px; font-weight: 700; color: #E2C094; background: rgba(226,192,148,0.14); padding: 4px 10px; border-radius: 999px;">ADMIN CONTROL</span>
         </div>
-        <div style="padding: 24px; background: #fff;">
-          <div style="padding: 14px; border: 1px solid var(--line); border-radius: 12px; margin-bottom: 14px;">
-            <div style="font-weight: 700; margin-bottom: 4px;">Chicken Biryani</div>
-            <div style="display: flex; items-center; gap: 8px;">
-              <span style="text-decoration: line-through; color: var(--mute);">₹220</span>
-              <span style="color: var(--br); font-weight: 500; font-size: 16px;">₹240</span>
+        <div class="mm-win-body" style="display: flex; flex-direction: column; gap: 14px;">
+          <div style="padding: 15px 16px; border: 1px solid rgba(135,96,57,0.16); border-radius: 14px; background: #FAF8F5;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <span style="font-weight: 700; font-size: 15px; color: #21160F;">Chicken Biryani</span>
+              <span style="font-size: 11px; font-weight: 700; color: #876039; background: #F3E8DC; padding: 3px 9px; border-radius: 999px;">Price Updated</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <span style="text-decoration: line-through; color: #9E8F84; font-size: 14px; font-weight: 600;">₹220</span>
+              <span style="color: #876039; font-weight: 800; font-size: 18px;">→ ₹240</span>
             </div>
           </div>
-          <div style="display: flex; justify-content: space-between; align-items: center; padding: 14px; border: 1px solid var(--line); border-radius: 12px;">
-            <span style="font-weight: 700;">Status Toggle</span>
-            <span style="color: var(--red); font-weight: 500;">Available → Unavailable</span>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; padding: 15px 16px; border: 1px solid #FECDD3; border-radius: 14px; background: #FFF7F7;">
+            <div>
+              <div style="font-weight: 700; font-size: 14.5px; color: #21160F;">Status Toggle</div>
+              <div style="font-size: 12px; color: #76675D; margin-top: 2px;">Marked sold out for dinner rush</div>
+            </div>
+            <span class="mm-avail-badge off">Available → Sold Out</span>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; color: #15803D; padding: 9px 12px; background: #ECFDF5; border-radius: 10px;">
+            <span>●</span> Published to all QR tables &amp; online ordering in &lt; 1 sec
           </div>
         </div>
       </div>
 
-      <!-- RIGHT - CUSTOMER -->
-      <div class="ph-frame" style="margin: auto; width: 100%; max-width: 320px;">
-        <div class="ph-inner" style="height: 280px;">
-          <div class="ph-header">
-            <h6>CUSTOMER MOBILE MENU</h6>
+      <!-- CENTER - SYNC CONNECTOR -->
+      <div class="mm-sync-bridge">
+        <div class="mm-sync-circle" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+        </div>
+        <span class="mm-sync-caption">Instant Sync</span>
+      </div>
+
+      <!-- RIGHT - CUSTOMER PHONE -->
+      <div class="mm-live-phone">
+        <div class="mm-live-phone-inner">
+          <div style="width: 56px; height: 5px; background: #E7E0D8; border-radius: 99px; margin: 0 auto 12px;"></div>
+          <div style="text-align: center; margin-bottom: 12px;">
+            <div style="font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 700; color: #21160F;">Customer Mobile Menu</div>
+            <div style="font-size: 10.5px; color: #76675D;">Table 04 • Live QR View</div>
           </div>
-          <div class="ph-item" style="opacity: 0.7;">
-            <div class="ph-img" style="background-image: url('https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=300&auto=format&fit=crop&q=80');"></div>
-            <div class="ph-info">
-              <h5>Chicken Biryani</h5>
-              <p>₹240</p>
+
+          <div style="display: flex; gap: 5px; justify-content: center; margin-bottom: 12px;">
+            <span style="font-size: 9.5px; font-weight: 700; padding: 4px 10px; border-radius: 99px; background: #876039; color: #fff;">All</span>
+            <span style="font-size: 9.5px; font-weight: 700; padding: 4px 10px; border-radius: 99px; background: #F4EFEA; color: #6E6157;">Biryani</span>
+            <span style="font-size: 9.5px; font-weight: 700; padding: 4px 10px; border-radius: 99px; background: #F4EFEA; color: #6E6157;">Mains</span>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <!-- Synced Unavailable Item -->
+            <div style="display: flex; align-items: center; gap: 10px; padding: 10px; border: 1px solid #FECDD3; border-radius: 13px; background: #FFF8F8; opacity: 0.85;">
+              <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=160&auto=format&fit=crop&q=80" alt="Chicken Biryani" style="width: 46px; height: 46px; border-radius: 10px; object-fit: cover; filter: grayscale(35%); flex: none;">
+              <div style="flex: 1; min-width: 0;">
+                <div style="font-size: 12px; font-weight: 700; color: #21160F;">Chicken Biryani</div>
+                <div style="font-size: 11px; font-weight: 700; color: #876039; margin-top: 2px;">₹240</div>
+                <span style="display: inline-block; margin-top: 4px; font-size: 9px; font-weight: 700; background: #FFE4E6; color: #BE123C; padding: 2px 7px; border-radius: 99px;">Currently Unavailable</span>
+              </div>
             </div>
-            <span class="ph-badge unavail">Currently Unavailable</span>
+
+            <!-- Available Context Item -->
+            <div style="display: flex; align-items: center; gap: 10px; padding: 10px; border: 1px solid rgba(135,96,57,0.14); border-radius: 13px; background: #FAF8F5;">
+              <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=160&auto=format&fit=crop&q=80" alt="Paneer Butter Masala" style="width: 46px; height: 46px; border-radius: 10px; object-fit: cover; flex: none;">
+              <div style="flex: 1; min-width: 0;">
+                <div style="font-size: 12px; font-weight: 700; color: #21160F;">Paneer Masala</div>
+                <div style="font-size: 11px; font-weight: 700; color: #876039; margin-top: 2px;">₹220</div>
+                <span style="display: inline-block; margin-top: 4px; font-size: 9px; font-weight: 700; background: #DCFCE7; color: #15803D; padding: 2px 7px; border-radius: 99px;">● Available</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1599,42 +2487,62 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
     <div class="hd r">
       <div class="eb">MULTI-MENU SUPPORT</div>
       <h2>Different Menus. <span class="sf">One Platform.</span></h2>
-      <p>Create and manage menus for different dining experiences, service areas or business requirements.</p>
+      <p>Create and manage separate menus for dine-in, takeaway, delivery, breakfast, or seasonal specials.</p>
     </div>
 
     <!-- Interactive Menu Selector -->
-    <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 32px; flex-wrap: wrap;" class="r">
-      <button onclick="switchMenu('dine-in')" class="btn p" id="m-btn-dine-in" style="padding: 10px 20px; font-size: 14px;">DINE-IN</button>
-      <button onclick="switchMenu('takeaway')" class="btn o" id="m-btn-takeaway" style="padding: 10px 20px; font-size: 14px;">TAKEAWAY</button>
-      <button onclick="switchMenu('delivery')" class="btn o" id="m-btn-delivery" style="padding: 10px 20px; font-size: 14px;">DELIVERY</button>
-      <button onclick="switchMenu('breakfast')" class="btn o" id="m-btn-breakfast" style="padding: 10px 20px; font-size: 14px;">BREAKFAST</button>
-      <button onclick="switchMenu('special')" class="btn o" id="m-btn-special" style="padding: 10px 20px; font-size: 14px;">SPECIAL</button>
+    <div style="text-align: center;" class="r">
+      <div class="mm-tab-bar">
+        <button type="button" onclick="switchMenu('dine-in')" class="mm-tab-btn active" id="m-btn-dine-in">DINE-IN</button>
+        <button type="button" onclick="switchMenu('takeaway')" class="mm-tab-btn" id="m-btn-takeaway">TAKEAWAY</button>
+        <button type="button" onclick="switchMenu('delivery')" class="mm-tab-btn" id="m-btn-delivery">DELIVERY</button>
+        <button type="button" onclick="switchMenu('breakfast')" class="mm-tab-btn" id="m-btn-breakfast">BREAKFAST</button>
+        <button type="button" onclick="switchMenu('special')" class="mm-tab-btn" id="m-btn-special">SPECIAL</button>
+      </div>
     </div>
 
     <!-- Menu Structure Preview Window -->
-    <div class="win r" style="max-width: 800px; margin: auto; box-shadow: var(--shadow-lg);">
-      <div class="wb">
-        <div class="dots"><i></i><i></i><i></i></div>
-        <div class="ttl" id="menu-title-display">DINE-IN MENU STRUCTURE</div>
-        <div></div>
+    <div class="mm-win r" style="max-width: 840px; margin: auto;">
+      <div class="mm-win-bar">
+        <div class="mm-win-dots"><i></i><i></i><i></i></div>
+        <div class="mm-win-ttl" id="menu-title-display">DINE-IN MENU STRUCTURE</div>
+        <span class="mm-win-pill green">● Active Menu</span>
       </div>
-      <div style="padding: 28px; background: #fff;" id="menu-structure-content">
-        <div style="font-weight: 500; color: var(--br); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px;">STARTERS</div>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 24px;">
-          <div style="padding: 10px; border: 1px solid var(--line); border-radius: 8px; font-weight: 700;">Chicken 65 <span style="float: right; color: var(--br);">₹180</span></div>
-          <div style="padding: 10px; border: 1px solid var(--line); border-radius: 8px; font-weight: 700;">Paneer Tikka <span style="float: right; color: var(--br);">₹190</span></div>
+      <div class="mm-win-body" id="menu-structure-content">
+        <div style="font-weight: 700; color: #876039; font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px;">STARTERS</div>
+        <div class="mm-menu-grid">
+          <div class="mm-menu-dish">
+            <div><div style="font-weight: 700; color: #21160F;">Chicken 65</div><div style="font-size: 12px; color: #76675D;">Crispy spiced boneless starter</div></div>
+            <span style="font-family: 'Outfit', sans-serif; font-weight: 700; color: #876039; font-size: 16px;">₹180</span>
+          </div>
+          <div class="mm-menu-dish">
+            <div><div style="font-weight: 700; color: #21160F;">Paneer Tikka</div><div style="font-size: 12px; color: #76675D;">Char-grilled smoky cottage cheese</div></div>
+            <span style="font-family: 'Outfit', sans-serif; font-weight: 700; color: #876039; font-size: 16px;">₹190</span>
+          </div>
         </div>
 
-        <div style="font-weight: 500; color: var(--br); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px;">MAIN COURSE</div>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 24px;">
-          <div style="padding: 10px; border: 1px solid var(--line); border-radius: 8px; font-weight: 700;">Butter Chicken <span style="float: right; color: var(--br);">₹260</span></div>
-          <div style="padding: 10px; border: 1px solid var(--line); border-radius: 8px; font-weight: 700;">Paneer Butter Masala <span style="float: right; color: var(--br);">₹220</span></div>
+        <div style="font-weight: 700; color: #876039; font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px;">MAIN COURSE</div>
+        <div class="mm-menu-grid">
+          <div class="mm-menu-dish">
+            <div><div style="font-weight: 700; color: #21160F;">Butter Chicken</div><div style="font-size: 12px; color: #76675D;">Creamy tandoori tomato gravy</div></div>
+            <span style="font-family: 'Outfit', sans-serif; font-weight: 700; color: #876039; font-size: 16px;">₹260</span>
+          </div>
+          <div class="mm-menu-dish">
+            <div><div style="font-weight: 700; color: #21160F;">Paneer Butter Masala</div><div style="font-size: 12px; color: #76675D;">Rich cashew &amp; butter masala</div></div>
+            <span style="font-family: 'Outfit', sans-serif; font-weight: 700; color: #876039; font-size: 16px;">₹220</span>
+          </div>
         </div>
 
-        <div style="font-weight: 500; color: var(--br); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px;">BIRYANI</div>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-          <div style="padding: 10px; border: 1px solid var(--line); border-radius: 8px; font-weight: 700;">Chicken Biryani <span style="float: right; color: var(--br);">₹240</span></div>
-          <div style="padding: 10px; border: 1px solid var(--line); border-radius: 8px; font-weight: 700;">Mutton Biryani <span style="float: right; color: var(--br);">₹340</span></div>
+        <div style="font-weight: 700; color: #876039; font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px;">BIRYANI</div>
+        <div class="mm-menu-grid" style="margin-bottom: 0;">
+          <div class="mm-menu-dish">
+            <div><div style="font-weight: 700; color: #21160F;">Chicken Biryani</div><div style="font-size: 12px; color: #76675D;">Served with raita &amp; mirchi salan</div></div>
+            <span style="font-family: 'Outfit', sans-serif; font-weight: 700; color: #876039; font-size: 16px;">₹240</span>
+          </div>
+          <div class="mm-menu-dish">
+            <div><div style="font-weight: 700; color: #21160F;">Mutton Biryani</div><div style="font-size: 12px; color: #76675D;">Slow-cooked tender lamb &amp; saffron</div></div>
+            <span style="font-family: 'Outfit', sans-serif; font-weight: 700; color: #876039; font-size: 16px;">₹340</span>
+          </div>
         </div>
       </div>
     </div>
@@ -1648,36 +2556,48 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
       <h2>Less Menu Maintenance. <span class="sf">More Time for Your Business.</span></h2>
     </div>
 
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px;">
-      <div class="card" style="padding: 28px;">
-        <div class="ic" style="margin-bottom: 18px;">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    <div class="mm-ben-grid r">
+      <div class="mm-ben-card">
+        <div class="mm-ben-head">
+          <div class="mm-val-ic">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <span class="mm-ben-tag">0 Reprints</span>
         </div>
-        <h3 style="font-size: 20px; margin-bottom: 8px;">Save Time</h3>
+        <h3>Save Time</h3>
         <p>Make menu changes instantly without rebuilding or reprinting physical menus.</p>
       </div>
 
-      <div class="card" style="padding: 28px;">
-        <div class="ic" style="margin-bottom: 18px;">
-          <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      <div class="mm-ben-card">
+        <div class="mm-ben-head">
+          <div class="mm-val-ic">
+            <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <span class="mm-ben-tag">100% Sync</span>
         </div>
-        <h3 style="font-size: 20px; margin-bottom: 8px;">Reduce Errors</h3>
+        <h3>Reduce Errors</h3>
         <p>Keep prices, item descriptions, and availability accurate across your restaurant.</p>
       </div>
 
-      <div class="card" style="padding: 28px;">
-        <div class="ic" style="margin-bottom: 18px;">
-          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      <div class="mm-ben-card">
+        <div class="mm-ben-head">
+          <div class="mm-val-ic">
+            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <span class="mm-ben-tag">Mobile-First</span>
         </div>
-        <h3 style="font-size: 20px; margin-bottom: 8px;">Improve Customer Experience</h3>
-        <p>Give customers clear, updated, and visual menu information on their phones.</p>
+        <h3>Better Guest Experience</h3>
+        <p>Give customers clear, visual, always-updated menu information on their phones.</p>
       </div>
 
-      <div class="card" style="padding: 28px;">
-        <div class="ic" style="margin-bottom: 18px;">
-          <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+      <div class="mm-ben-card">
+        <div class="mm-ben-head">
+          <div class="mm-val-ic">
+            <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <span class="mm-ben-tag">Higher AOV</span>
         </div>
-        <h3 style="font-size: 20px; margin-bottom: 8px;">Promote More</h3>
+        <h3>Promote More</h3>
         <p>Highlight specials, best sellers and new dishes to increase average order value.</p>
       </div>
     </div>
@@ -1692,84 +2612,100 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
       <h2>Built for the Way <span class="sf">Your Business Serves.</span></h2>
     </div>
 
-    <div class="ind-grid r">
-      <div class="ind-card">
-        <div class="ind-img" style="background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&auto=format&fit=crop&q=80');">
-          <div class="ind-overlay"></div>
+    <div class="mm-ind-grid r">
+      <div class="mm-ind-card">
+        <div class="mm-ind-media">
+          <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&auto=format&fit=crop&q=80" alt="Restaurants">
+          <div class="mm-ind-scrim"></div>
+          <span class="mm-ind-pill">Fine &amp; Casual Dining</span>
         </div>
-        <div class="ind-content">
+        <div class="mm-ind-body">
           <h4>Restaurants</h4>
           <p>Manage large menus and everyday multi-course operations.</p>
         </div>
       </div>
 
-      <div class="ind-card">
-        <div class="ind-img" style="background-image: url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=600&auto=format&fit=crop&q=80');">
-          <div class="ind-overlay"></div>
+      <div class="mm-ind-card">
+        <div class="mm-ind-media">
+          <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=600&auto=format&fit=crop&q=80" alt="Cafés">
+          <div class="mm-ind-scrim"></div>
+          <span class="mm-ind-pill">Coffee &amp; Bistro</span>
         </div>
-        <div class="ind-content">
+        <div class="mm-ind-body">
           <h4>Cafés</h4>
           <p>Showcase beverages, snacks, specialty coffees and daily specials.</p>
         </div>
       </div>
 
-      <div class="ind-card">
-        <div class="ind-img" style="background-image: url('https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&auto=format&fit=crop&q=80');">
-          <div class="ind-overlay"></div>
+      <div class="mm-ind-card">
+        <div class="mm-ind-media">
+          <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&auto=format&fit=crop&q=80" alt="Bakeries">
+          <div class="mm-ind-scrim"></div>
+          <span class="mm-ind-pill">Fresh Daily Batches</span>
         </div>
-        <div class="ind-content">
+        <div class="mm-ind-body">
           <h4>Bakeries</h4>
           <p>Present fresh cakes, pastries, breads and seasonal products.</p>
         </div>
       </div>
 
-      <div class="ind-card">
-        <div class="ind-img" style="background-image: url('https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=600&auto=format&fit=crop&q=80');">
-          <div class="ind-overlay"></div>
+      <div class="mm-ind-card">
+        <div class="mm-ind-media">
+          <img src="https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=600&auto=format&fit=crop&q=80" alt="QSR">
+          <div class="mm-ind-scrim"></div>
+          <span class="mm-ind-pill">Fast Service</span>
         </div>
-        <div class="ind-content">
+        <div class="mm-ind-body">
           <h4>QSR</h4>
           <p>Keep high-volume fast food menus simple, clear and quick.</p>
         </div>
       </div>
 
-      <div class="ind-card">
-        <div class="ind-img" style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&auto=format&fit=crop&q=80');">
-          <div class="ind-overlay"></div>
+      <div class="mm-ind-card">
+        <div class="mm-ind-media">
+          <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&auto=format&fit=crop&q=80" alt="Hotels">
+          <div class="mm-ind-scrim"></div>
+          <span class="mm-ind-pill">In-Room &amp; Dining</span>
         </div>
-        <div class="ind-content">
+        <div class="mm-ind-body">
           <h4>Hotels</h4>
           <p>Manage extensive in-room dining and hotel restaurant menus.</p>
         </div>
       </div>
 
-      <div class="ind-card">
-        <div class="ind-img" style="background-image: url('https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=600&auto=format&fit=crop&q=80');">
-          <div class="ind-overlay"></div>
+      <div class="mm-ind-card">
+        <div class="mm-ind-media">
+          <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=600&auto=format&fit=crop&q=80" alt="Cloud Kitchens">
+          <div class="mm-ind-scrim"></div>
+          <span class="mm-ind-pill">Multi-Brand</span>
         </div>
-        <div class="ind-content">
+        <div class="mm-ind-body">
           <h4>Cloud Kitchens</h4>
           <p>Present delivery-focused menus across multiple digital brands.</p>
         </div>
       </div>
 
-      <div class="ind-card">
-        <div class="ind-img" style="background-image: url('https://images.unsplash.com/photo-1513104890138-7c749659a591?w=600&auto=format&fit=crop&q=80');">
-          <div class="ind-overlay"></div>
+      <div class="mm-ind-card">
+        <div class="mm-ind-media">
+          <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=600&auto=format&fit=crop&q=80" alt="Pizzerias">
+          <div class="mm-ind-scrim"></div>
+          <span class="mm-ind-pill">Custom Toppings</span>
         </div>
-        <div class="ind-content">
+        <div class="mm-ind-body">
           <h4>Pizzerias</h4>
           <p>Show crust sizes, toppings, add-ons and crust customizations.</p>
         </div>
       </div>
 
-      <div class="ind-card">
-        <div class="ind-img" style="background-image: url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&auto=format&fit=crop&q=80');">
-          <div class="ind-overlay"></div>
+      <div class="mm-ind-card">
+        <div class="mm-ind-media">
+          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&auto=format&fit=crop&q=80" alt="Food Courts">
+          <div class="mm-ind-scrim"></div>
+          <span class="mm-ind-pill">Multi-Counter</span>
         </div>
-        <div class="ind-content">
+        <div class="mm-ind-body">
           <h4>Food Courts</h4>
-          <p>Keep multiple food counters & categories organized.</p>
+          <p>Keep multiple food counters &amp; categories organized.</p>
         </div>
       </div>
     </div>
@@ -1780,25 +2716,48 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
 <section style="background: var(--bg2);">
   <div class="w">
     <div class="hd r">
+      <div class="eb">UNIFIED ECOSYSTEM</div>
       <h2>Your Menu <span class="sf">Connects Everything.</span></h2>
-      <p>A menu is where every restaurant order begins. Geni Menu connects it with the rest of your restaurant operations.</p>
+      <p>A menu is where every restaurant order begins. Geni Menu connects it with every step of your operations.</p>
     </div>
 
-    <!-- ECOSYSTEM FLOW -->
-    <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 48px;" class="r">
-      <div style="padding: 14px 20px; background: var(--br); color: #fff; font-weight: 500; border-radius: 12px; box-shadow: var(--shadow-sm);">MENU</div>
-      <div style="align-self: center; color: var(--br); font-size: 20px;">→</div>
-      <div style="padding: 14px 20px; background: #fff; border: 1px solid var(--line); font-weight: 700; border-radius: 12px;">ORDERS</div>
-      <div style="align-self: center; color: var(--br); font-size: 20px;">→</div>
-      <div style="padding: 14px 20px; background: #fff; border: 1px solid var(--line); font-weight: 700; border-radius: 12px;">TABLES</div>
-      <div style="align-self: center; color: var(--br); font-size: 20px;">→</div>
-      <div style="padding: 14px 20px; background: #fff; border: 1px solid var(--line); font-weight: 700; border-radius: 12px;">KITCHEN</div>
-      <div style="align-self: center; color: var(--br); font-size: 20px;">→</div>
-      <div style="padding: 14px 20px; background: #fff; border: 1px solid var(--line); font-weight: 700; border-radius: 12px;">POS</div>
-      <div style="align-self: center; color: var(--br); font-size: 20px;">→</div>
-      <div style="padding: 14px 20px; background: #fff; border: 1px solid var(--line); font-weight: 700; border-radius: 12px;">PAYMENTS</div>
-      <div style="align-self: center; color: var(--br); font-size: 20px;">→</div>
-      <div style="padding: 14px 20px; background: #fff; border: 1px solid var(--line); font-weight: 700; border-radius: 12px;">REPORTS</div>
+    <!-- ECOSYSTEM 7-STEP VISUAL FLOW -->
+    <div class="mm-eco-grid r">
+      <div class="mm-eco-step active">
+        <span class="mm-eco-num">01</span>
+        <img src="{{ asset('assets/images/workflow/step-1-menu.png') }}" alt="Menu" class="mm-eco-img">
+        <div class="mm-eco-title">MENU</div>
+      </div>
+      <div class="mm-eco-step">
+        <span class="mm-eco-num">02</span>
+        <img src="{{ asset('assets/images/workflow/step-2-order.png') }}" alt="Orders" class="mm-eco-img">
+        <div class="mm-eco-title">ORDERS</div>
+      </div>
+      <div class="mm-eco-step">
+        <span class="mm-eco-num">03</span>
+        <img src="{{ asset('assets/images/workflow/step-4-table.png') }}" alt="Tables" class="mm-eco-img">
+        <div class="mm-eco-title">TABLES</div>
+      </div>
+      <div class="mm-eco-step">
+        <span class="mm-eco-num">04</span>
+        <img src="{{ asset('assets/images/workflow/step-3-kitchen.png') }}" alt="Kitchen" class="mm-eco-img">
+        <div class="mm-eco-title">KITCHEN</div>
+      </div>
+      <div class="mm-eco-step">
+        <span class="mm-eco-num">05</span>
+        <img src="{{ asset('assets/images/workflow/step-5-billing.png') }}" alt="POS" class="mm-eco-img">
+        <div class="mm-eco-title">POS</div>
+      </div>
+      <div class="mm-eco-step">
+        <span class="mm-eco-num">06</span>
+        <img src="{{ asset('assets/images/workflow/step-6-payment.png') }}" alt="Payments" class="mm-eco-img">
+        <div class="mm-eco-title">PAYMENTS</div>
+      </div>
+      <div class="mm-eco-step">
+        <span class="mm-eco-num">07</span>
+        <img src="{{ asset('assets/images/workflow/step-7-reports.png') }}" alt="Reports" class="mm-eco-img">
+        <div class="mm-eco-title">REPORTS</div>
+      </div>
     </div>
   </div>
 </section>
@@ -1807,63 +2766,64 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
 <section>
   <div class="w">
     <div class="hd r">
+      <div class="eb">CONNECTED MODULES</div>
       <h2>Seamlessly Connected to <span class="sf">Geni Menu Features.</span></h2>
     </div>
 
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
-      <div class="card" style="padding: 24px;">
-        <div class="ic" style="margin-bottom: 14px;">
+    <div class="mm-conn-grid r">
+      <a href="{{ route('features.reservation-management') }}" class="mm-conn-card">
+        <div class="mm-val-ic" style="margin-bottom: 16px;">
           <svg viewBox="0 0 24 24"><path d="M16 2v4M8 2v4M3 10h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/></svg>
         </div>
         <h4>Reservation Management</h4>
-        <p style="font-size: 14px; margin: 6px 0 14px;">Manage table bookings and seating schedules.</p>
-        <a href="{{ route('features.reservation-management') }}" style="color: var(--br); font-weight: 700; font-size: 14px;">Explore →</a>
-      </div>
+        <p>Manage table bookings, guest details, and seating schedules effortlessly.</p>
+        <span class="mm-conn-link">Explore Feature <span>→</span></span>
+      </a>
 
-      <div class="card" style="padding: 24px;">
-        <div class="ic" style="margin-bottom: 14px;">
+      <a href="{{ route('features.table-management') }}" class="mm-conn-card">
+        <div class="mm-val-ic" style="margin-bottom: 16px;">
           <svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M6 12v7M18 12v7"/></svg>
         </div>
         <h4>Table Management</h4>
-        <p style="font-size: 14px; margin: 6px 0 14px;">Organize floor plans and table statuses.</p>
-        <a href="{{ route('features.table-management') }}" style="color: var(--br); font-weight: 700; font-size: 14px;">Explore →</a>
-      </div>
+        <p>Organize live floor plans, QR table tags, and real-time occupancy statuses.</p>
+        <span class="mm-conn-link">Explore Feature <span>→</span></span>
+      </a>
 
-      <div class="card" style="padding: 24px; border-color: var(--br);">
-        <div class="ic" style="margin-bottom: 14px; background: var(--br); color: #fff;">
+      <a href="{{ route('features.order-management') }}" class="mm-conn-card featured">
+        <div class="mm-val-ic" style="margin-bottom: 16px; background: #876039; color: #FFFFFF;">
           <svg viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/></svg>
         </div>
         <h4>Order Management</h4>
-        <p style="font-size: 14px; margin: 6px 0 14px;">Move menu selections into an organized order workflow.</p>
-        <a href="{{ route('features.order-management') }}" style="color: var(--br); font-weight: 500; font-size: 14px;">Explore →</a>
-      </div>
+        <p>Move menu selections directly into a unified dine-in, takeaway &amp; delivery pipeline.</p>
+        <span class="mm-conn-link">Explore Feature <span>→</span></span>
+      </a>
 
-      <div class="card" style="padding: 24px;">
-        <div class="ic" style="margin-bottom: 14px;">
+      <a href="{{ route('features.kot-management') }}" class="mm-conn-card">
+        <div class="mm-val-ic" style="margin-bottom: 16px;">
           <svg viewBox="0 0 24 24"><path d="M4 18h16a1 1 0 0 0 1-1A9 9 0 0 0 3 17a1 1 0 0 0 1 1z"/></svg>
         </div>
         <h4>KOT Management</h4>
-        <p style="font-size: 14px; margin: 6px 0 14px;">Send tickets straight to the kitchen display.</p>
-        <a href="{{ route('features.kot-management') }}" style="color: var(--br); font-weight: 700; font-size: 14px;">Explore →</a>
-      </div>
+        <p>Send structured digital kitchen tickets straight to your prep stations &amp; KDS.</p>
+        <span class="mm-conn-link">Explore Feature <span>→</span></span>
+      </a>
 
-      <div class="card" style="padding: 24px;">
-        <div class="ic" style="margin-bottom: 14px;">
+      <a href="{{ route('features.pos-management') }}" class="mm-conn-card">
+        <div class="mm-val-ic" style="margin-bottom: 16px;">
           <svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="10" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
         </div>
         <h4>POS Management</h4>
-        <p style="font-size: 14px; margin: 6px 0 14px;">Speed up billing and checkout with integrated POS.</p>
-        <a href="{{ route('features.pos-management') }}" style="color: var(--br); font-weight: 700; font-size: 14px;">Explore →</a>
-      </div>
+        <p>Speed up billing, split checks, and multi-mode checkout with integrated POS.</p>
+        <span class="mm-conn-link">Explore Feature <span>→</span></span>
+      </a>
 
-      <div class="card" style="padding: 24px;">
-        <div class="ic" style="margin-bottom: 14px;">
+      <a href="{{ route('features.inventory-management') }}" class="mm-conn-card">
+        <div class="mm-val-ic" style="margin-bottom: 16px;">
           <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
         </div>
         <h4>Inventory Management</h4>
-        <p style="font-size: 14px; margin: 6px 0 14px;">Track recipe ingredients and stock usage.</p>
-        <a href="{{ route('features.inventory-management') }}" style="color: var(--br); font-weight: 700; font-size: 14px;">Explore →</a>
-      </div>
+        <p>Track recipe ingredients, stock deductions, and automated low-stock alerts.</p>
+        <span class="mm-conn-link">Explore Feature <span>→</span></span>
+      </a>
     </div>
   </div>
 </section>
@@ -1976,24 +2936,84 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
 
 
 <script>
-// Interactive Price Change Simulation
+// Interactive Price Change Simulation (syncs all 3 channels)
 function updatePriceSim() {
   const priceDisplay = document.getElementById('price-display');
   const priceToast = document.getElementById('price-toast');
   const priceBtn = document.getElementById('price-btn');
+  const syncedEls = document.querySelectorAll('.mm-synced-price');
 
   if (priceDisplay.innerText === '₹220') {
     priceDisplay.innerText = '₹240';
+    syncedEls.forEach(el => { el.innerText = '₹240'; el.style.color = '#876039'; });
     priceToast.style.opacity = '1';
+    priceToast.style.transform = 'translateY(0)';
     priceBtn.innerText = 'Reset Price';
   } else {
     priceDisplay.innerText = '₹220';
+    syncedEls.forEach(el => { el.innerText = '₹220'; el.style.color = '#21160F'; });
     priceToast.style.opacity = '0';
-    priceBtn.innerText = 'Edit Price';
+    priceToast.style.transform = 'translateY(4px)';
+    priceBtn.innerText = 'Edit Price → ₹240';
   }
 }
 
+// Interactive Availability Row Toggle
+function toggleAvailRow(toggleEl) {
+  toggleEl.classList.toggle('on');
+  const isOn = toggleEl.classList.contains('on');
+  const row = toggleEl.closest('.mm-avail-row');
+  const badge = row.querySelector('.mm-avail-badge');
+  if (isOn) {
+    row.classList.remove('is-off');
+    badge.className = 'mm-avail-badge on';
+    badge.innerText = '● Available';
+  } else {
+    row.classList.add('is-off');
+    badge.className = 'mm-avail-badge off';
+    badge.innerText = '○ Unavailable';
+  }
+  const allRows = document.querySelectorAll('.mm-avail-row');
+  let avail = 0;
+  allRows.forEach(r => { if (!r.classList.contains('is-off')) avail++; });
+  const soldOut = allRows.length - avail;
+  const pill = document.getElementById('avail-summary-pill');
+  if (pill) pill.innerText = `${avail} Available • ${soldOut} Sold Out`;
+}
+
+// Interactive Size & Add-on Total Calculator
+function selectMmSize(el) {
+  document.querySelectorAll('.mm-size-opt').forEach(opt => {
+    opt.classList.remove('active');
+    opt.style.border = '1.5px solid rgba(135,96,57,0.18)';
+    opt.style.background = '#fff';
+    opt.firstElementChild.style.color = '#21160F';
+  });
+  el.classList.add('active');
+  el.style.border = '2px solid #876039';
+  el.style.background = '#FAF6F0';
+  el.firstElementChild.style.color = '#876039';
+  calcMmTotal();
+}
+
+function calcMmTotal() {
+  const activeSize = document.querySelector('.mm-size-opt.active');
+  let total = activeSize ? parseInt(activeSize.dataset.price, 10) : 320;
+  document.querySelectorAll('.mm-addon-chk:checked').forEach(chk => {
+    total += parseInt(chk.dataset.price, 10);
+  });
+  const totalEl = document.getElementById('mm-config-total');
+  if (totalEl) totalEl.innerText = '₹' + total;
+}
+
 // Interactive Menu Selector Switcher
+function mmDishCard(name, desc, price) {
+  return `<div class="mm-menu-dish">
+    <div><div style="font-weight: 700; color: #21160F;">${name}</div><div style="font-size: 12px; color: #76675D;">${desc}</div></div>
+    <span style="font-family: 'Outfit', sans-serif; font-weight: 700; color: #876039; font-size: 16px;">${price}</span>
+  </div>`;
+}
+
 function switchMenu(type) {
   const titleDisplay = document.getElementById('menu-title-display');
   const content = document.getElementById('menu-structure-content');
@@ -2002,58 +3022,59 @@ function switchMenu(type) {
   btns.forEach(b => {
     const btn = document.getElementById('m-btn-' + b);
     if (btn) {
-      if (b === type) {
-        btn.className = 'btn p';
-      } else {
-        btn.className = 'btn o';
-      }
+      btn.className = b === type ? 'mm-tab-btn active' : 'mm-tab-btn';
     }
   });
 
   if (type === 'dine-in') {
     titleDisplay.innerText = 'DINE-IN MENU STRUCTURE';
     content.innerHTML = `
-      <div style="font-weight: 500; color: var(--br); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px;">STARTERS</div>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 24px;">
-        <div style="padding: 10px; border: 1px solid var(--line); border-radius: 8px; font-weight: 700;">Chicken 65 <span style="float: right; color: var(--br);">₹180</span></div>
-        <div style="padding: 10px; border: 1px solid var(--line); border-radius: 8px; font-weight: 700;">Paneer Tikka <span style="float: right; color: var(--br);">₹190</span></div>
+      <div style="font-weight: 700; color: #876039; font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px;">STARTERS</div>
+      <div class="mm-menu-grid">
+        ${mmDishCard('Chicken 65', 'Crispy spiced boneless starter', '₹180')}
+        ${mmDishCard('Paneer Tikka', 'Char-grilled smoky cottage cheese', '₹190')}
       </div>
-      <div style="font-weight: 500; color: var(--br); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px;">BIRYANI & MAINS</div>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-        <div style="padding: 10px; border: 1px solid var(--line); border-radius: 8px; font-weight: 700;">Chicken Biryani <span style="float: right; color: var(--br);">₹240</span></div>
-        <div style="padding: 10px; border: 1px solid var(--line); border-radius: 8px; font-weight: 700;">Paneer Butter Masala <span style="float: right; color: var(--br);">₹220</span></div>
+      <div style="font-weight: 700; color: #876039; font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px;">MAIN COURSE</div>
+      <div class="mm-menu-grid">
+        ${mmDishCard('Butter Chicken', 'Creamy tandoori tomato gravy', '₹260')}
+        ${mmDishCard('Paneer Butter Masala', 'Rich cashew & butter masala', '₹220')}
+      </div>
+      <div style="font-weight: 700; color: #876039; font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px;">BIRYANI</div>
+      <div class="mm-menu-grid" style="margin-bottom: 0;">
+        ${mmDishCard('Chicken Biryani', 'Served with raita & mirchi salan', '₹240')}
+        ${mmDishCard('Mutton Biryani', 'Slow-cooked tender lamb & saffron', '₹340')}
       </div>`;
   } else if (type === 'takeaway') {
     titleDisplay.innerText = 'TAKEAWAY EXPRESS MENU';
     content.innerHTML = `
-      <div style="font-weight: 500; color: var(--br); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px;">QUICK COMBO PACKS</div>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 24px;">
-        <div style="padding: 10px; border: 1px solid var(--line); border-radius: 8px; font-weight: 700;">Biryani Box + Thums Up <span style="float: right; color: var(--br);">₹280</span></div>
-        <div style="padding: 10px; border: 1px solid var(--line); border-radius: 8px; font-weight: 700;">Paneer Naan Combo <span style="float: right; color: var(--br);">₹230</span></div>
+      <div style="font-weight: 700; color: #876039; font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px;">QUICK COMBO PACKS</div>
+      <div class="mm-menu-grid" style="margin-bottom: 0;">
+        ${mmDishCard('Biryani Box + Beverage', 'Spill-proof pack with chilled drink', '₹280')}
+        ${mmDishCard('Paneer Naan Combo', '2 Butter Naans + Paneer Masala', '₹230')}
       </div>`;
   } else if (type === 'delivery') {
     titleDisplay.innerText = 'ONLINE DELIVERY MENU';
     content.innerHTML = `
-      <div style="font-weight: 500; color: var(--br); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px;">DELIVERY PACKS</div>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-        <div style="padding: 10px; border: 1px solid var(--line); border-radius: 8px; font-weight: 700;">Family Biryani Pack <span style="float: right; color: var(--br);">₹850</span></div>
-        <div style="padding: 10px; border: 1px solid var(--line); border-radius: 8px; font-weight: 700;">Party Starter Platter <span style="float: right; color: var(--br);">₹690</span></div>
+      <div style="font-weight: 700; color: #876039; font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px;">DELIVERY PACKS</div>
+      <div class="mm-menu-grid" style="margin-bottom: 0;">
+        ${mmDishCard('Family Biryani Bucket', 'Serves 4 • Includes raita & dessert', '₹850')}
+        ${mmDishCard('Party Starter Platter', 'Assorted kebabs & tikka dips', '₹690')}
       </div>`;
   } else if (type === 'breakfast') {
     titleDisplay.innerText = 'MORNING BREAKFAST MENU';
     content.innerHTML = `
-      <div style="font-weight: 500; color: var(--br); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px;">SOUTH INDIAN SPECIALS</div>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-        <div style="padding: 10px; border: 1px solid var(--line); border-radius: 8px; font-weight: 700;">Masala Dosa + Filter Coffee <span style="float: right; color: var(--br);">₹110</span></div>
-        <div style="padding: 10px; border: 1px solid var(--line); border-radius: 8px; font-weight: 700;">Idli Vada Combo <span style="float: right; color: var(--br);">₹80</span></div>
+      <div style="font-weight: 700; color: #876039; font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px;">SOUTH INDIAN SPECIALS</div>
+      <div class="mm-menu-grid" style="margin-bottom: 0;">
+        ${mmDishCard('Masala Dosa + Filter Coffee', 'Crispy ghee roast with sambar & chutneys', '₹110')}
+        ${mmDishCard('Idli Vada Combo', '3 soft idlis, medu vada & filter coffee', '₹80')}
       </div>`;
   } else if (type === 'special') {
     titleDisplay.innerText = 'FESTIVE & SEASONAL SPECIALS';
     content.innerHTML = `
-      <div style="font-weight: 500; color: var(--br); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px;">CHEF'S SIGNATURE</div>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-        <div style="padding: 10px; border: 1px solid var(--line); border-radius: 8px; font-weight: 700;">Special Mutton Nalli Nihari <span style="float: right; color: var(--br);">₹420</span></div>
-        <div style="padding: 10px; border: 1px solid var(--line); border-radius: 8px; font-weight: 700;">Saffron Kheer <span style="float: right; color: var(--br);">₹140</span></div>
+      <div style="font-weight: 700; color: #876039; font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px;">CHEF'S SIGNATURE</div>
+      <div class="mm-menu-grid" style="margin-bottom: 0;">
+        ${mmDishCard('Special Mutton Nalli Nihari', 'Overnight slow-braised royal curry', '₹420')}
+        ${mmDishCard('Saffron Badam Kheer', 'Chilled slow-reduced saffron pudding', '₹140')}
       </div>`;
   }
 }

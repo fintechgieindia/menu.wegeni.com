@@ -1273,7 +1273,7 @@ h1, h2, h3, h4, h5 {
                         {{-- Column: Incoming --}}
                         <div class="kanban-col col-incoming">
                             <div class="kanban-col-head">
-                                <span>⏳ Incoming</span>
+                                <span><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 22h14"/><path d="M5 2h14"/><path d="M17 22v-4.172a2 2 0 0 0-.586-1.414L12 12l-4.414 4.414A2 2 0 0 0 7 17.828V22"/><path d="M7 2v4.172a2 2 0 0 0 .586 1.414L12 12l4.414-4.414A2 2 0 0 0 17 6.172V2"/></svg> Incoming</span>
                                 <span class="col-badge">2</span>
                             </div>
                             <div class="kanban-cards">
@@ -1305,7 +1305,7 @@ h1, h2, h3, h4, h5 {
                         {{-- Column: Preparing --}}
                         <div class="kanban-col col-preparing">
                             <div class="kanban-col-head">
-                                <span>🔥 Preparing</span>
+                                <span><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg> Preparing</span>
                                 <span class="col-badge">2</span>
                             </div>
                             <div class="kanban-cards">
@@ -1337,7 +1337,7 @@ h1, h2, h3, h4, h5 {
                         {{-- Column: Ready --}}
                         <div class="kanban-col col-ready">
                             <div class="kanban-col-head">
-                                <span>✅ Ready</span>
+                                <span><svg class="gm-theme-icon gm-ok" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Ready</span>
                                 <span class="col-badge">2</span>
                             </div>
                             <div class="kanban-cards">
@@ -1393,28 +1393,28 @@ h1, h2, h3, h4, h5 {
     <div class="container">
         <div class="value-strip-grid">
             <div class="value-item" data-aos="fade-up" data-aos-delay="0">
-                <div class="value-icon">📋</div>
+                <div class="value-icon"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg></div>
                 <div class="value-text">
                     <h4>Live Order Board</h4>
                     <p>Every order visible in real time, across all channels</p>
                 </div>
             </div>
             <div class="value-item" data-aos="fade-up" data-aos-delay="80">
-                <div class="value-icon">🔗</div>
+                <div class="value-icon"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
                 <div class="value-text">
                     <h4>All Channels in One Queue</h4>
                     <p>Dine-in, takeaway, Swiggy & Zomato — unified</p>
                 </div>
             </div>
             <div class="value-item" data-aos="fade-up" data-aos-delay="160">
-                <div class="value-icon">⏱️</div>
+                <div class="value-icon"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/><path d="M10 2h4"/></svg>️</div>
                 <div class="value-text">
                     <h4>SLA Prep Timers</h4>
                     <p>Colour-coded alerts before orders breach time limits</p>
                 </div>
             </div>
             <div class="value-item" data-aos="fade-up" data-aos-delay="240">
-                <div class="value-icon">📲</div>
+                <div class="value-icon"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg></div>
                 <div class="value-text">
                     <h4>Auto Customer Alerts</h4>
                     <p>SMS customers the moment their order is ready</p>
@@ -1439,28 +1439,28 @@ h1, h2, h3, h4, h5 {
 
                 <div class="showcase-points">
                     <div class="showcase-point">
-                        <div class="sp-icon">🎯</div>
+                        <div class="sp-icon"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
                         <div class="sp-text">
                             <h4>Drag-and-Drop Status Updates</h4>
                             <p>Move orders between Incoming → Preparing → Ready with a single tap — from tablet, phone or desktop.</p>
                         </div>
                     </div>
                     <div class="showcase-point">
-                        <div class="sp-icon">🌐</div>
+                        <div class="sp-icon"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></div>
                         <div class="sp-text">
                             <h4>Online Aggregator Pull-In</h4>
                             <p>Swiggy, Zomato and your own website orders appear automatically — no manual re-entry, ever.</p>
                         </div>
                     </div>
                     <div class="showcase-point">
-                        <div class="sp-icon">✏️</div>
+                        <div class="sp-icon"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg>️</div>
                         <div class="sp-text">
                             <h4>Mid-Flow Order Edits</h4>
                             <p>Guest wants to swap Paneer for Chicken after the KOT fires? Update in the board, kitchen sees it instantly.</p>
                         </div>
                     </div>
                     <div class="showcase-point">
-                        <div class="sp-icon">🔔</div>
+                        <div class="sp-icon"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></div>
                         <div class="sp-text">
                             <h4>Steward & Counter Alerts</h4>
                             <p>When an order moves to Ready, the assigned steward gets a buzz and the customer gets an SMS.</p>
@@ -1478,7 +1478,7 @@ h1, h2, h3, h4, h5 {
                 <div class="showcase-kanban">
                     <div class="sk-topbar">
                         <div class="sk-topbar-left">
-                            <div class="sk-title">🍽️ Geni Order Board</div>
+                            <div class="sk-title"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>️ Geni Order Board</div>
                             <div class="sk-live-dot">LIVE</div>
                         </div>
                         <div class="sk-stats">
@@ -1492,7 +1492,7 @@ h1, h2, h3, h4, h5 {
                         {{-- Incoming --}}
                         <div class="sk-col sk-incoming">
                             <div class="sk-col-head">
-                                <span>⏳ Incoming</span>
+                                <span><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 22h14"/><path d="M5 2h14"/><path d="M17 22v-4.172a2 2 0 0 0-.586-1.414L12 12l-4.414 4.414A2 2 0 0 0 7 17.828V22"/><path d="M7 2v4.172a2 2 0 0 0 .586 1.414L12 12l4.414-4.414A2 2 0 0 0 17 6.172V2"/></svg> Incoming</span>
                                 <span class="sk-count">2</span>
                             </div>
                             <div class="sk-cards">
@@ -1524,7 +1524,7 @@ h1, h2, h3, h4, h5 {
                         {{-- Preparing --}}
                         <div class="sk-col sk-preparing">
                             <div class="sk-col-head">
-                                <span>🔥 Preparing</span>
+                                <span><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg> Preparing</span>
                                 <span class="sk-count">2</span>
                             </div>
                             <div class="sk-cards">
@@ -1556,7 +1556,7 @@ h1, h2, h3, h4, h5 {
                         {{-- Ready --}}
                         <div class="sk-col sk-ready">
                             <div class="sk-col-head">
-                                <span>✅ Ready</span>
+                                <span><svg class="gm-theme-icon gm-ok" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Ready</span>
                                 <span class="sk-count">2</span>
                             </div>
                             <div class="sk-cards">
@@ -1611,25 +1611,25 @@ h1, h2, h3, h4, h5 {
         <div class="how-steps">
             <div class="how-step" data-aos="fade-up" data-aos-delay="0">
                 <div class="how-step-num">1</div>
-                <div class="how-step-icon">📥</div>
+                <div class="how-step-icon"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg></div>
                 <h4>Order Arrives</h4>
                 <p>A new order — whether placed by a waiter, at the counter, or pulled in from Swiggy/Zomato — instantly appears in the <strong>Incoming</strong> column with full details.</p>
             </div>
             <div class="how-step" data-aos="fade-up" data-aos-delay="100">
                 <div class="how-step-num">2</div>
-                <div class="how-step-icon">🖨️</div>
+                <div class="how-step-icon"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect width="12" height="8" x="6" y="14"/></svg>️</div>
                 <h4>KOT Fires to Kitchen</h4>
                 <p>With one tap, the KOT is accepted and printed at the relevant kitchen station. A prep timer starts immediately so the team knows the SLA.</p>
             </div>
             <div class="how-step" data-aos="fade-up" data-aos-delay="200">
                 <div class="how-step-num">3</div>
-                <div class="how-step-icon">🔥</div>
+                <div class="how-step-icon"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></div>
                 <h4>Kitchen Prepares</h4>
                 <p>The order moves to <strong>Preparing</strong>. The timer counts up, turning amber at 70% of the SLA window — alerting the kitchen before it's too late.</p>
             </div>
             <div class="how-step" data-aos="fade-up" data-aos-delay="300">
                 <div class="how-step-num">4</div>
-                <div class="how-step-icon">✅</div>
+                <div class="how-step-icon"><svg class="gm-theme-icon gm-ok" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg></div>
                 <h4>Ready & Delivered</h4>
                 <p>Kitchen marks it Ready. The steward gets a buzz, the takeaway customer gets an SMS, and the order card moves to the <strong>Ready</strong> column for confirmation.</p>
             </div>
@@ -1650,32 +1650,32 @@ h1, h2, h3, h4, h5 {
 
         <div class="feature-grid">
             <div class="feature-card" data-aos="fade-up" data-aos-delay="0">
-                <div class="fc-icon">📋</div>
+                <div class="fc-icon"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg></div>
                 <h3>Live Order Status Board</h3>
                 <p>Track every order from receipt to delivery on one live Kanban board. Incoming, Preparing, and Ready columns give your whole team instant clarity — no radio calls, no guesswork.</p>
             </div>
             <div class="feature-card" data-aos="fade-up" data-aos-delay="80">
-                <div class="fc-icon">🔗</div>
+                <div class="fc-icon"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
                 <h3>Multi-Channel Aggregation</h3>
                 <p>Dine-in tables, takeaway counter, and online delivery platforms (Swiggy, Zomato, your own site) all feed into one unified queue. Eliminate the chaos of juggling separate tablets.</p>
             </div>
             <div class="feature-card" data-aos="fade-up" data-aos-delay="160">
-                <div class="fc-icon">⏱️</div>
+                <div class="fc-icon"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/><path d="M10 2h4"/></svg>️</div>
                 <h3>Prep Timer Alerts</h3>
                 <p>Every order gets a configurable SLA timer. Colour shifts from green to amber when 70% of prep time has elapsed — so the kitchen acts before a customer complaint happens.</p>
             </div>
             <div class="feature-card" data-aos="fade-up" data-aos-delay="240">
-                <div class="fc-icon">✏️</div>
+                <div class="fc-icon"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg>️</div>
                 <h3>Modify Orders Mid-Flow</h3>
                 <p>Guests change their minds. Add a dish, remove an ingredient, or substitute an item even after the KOT is dispatched. The kitchen sees the update immediately — no confusion.</p>
             </div>
             <div class="feature-card" data-aos="fade-up" data-aos-delay="320">
-                <div class="fc-icon">🎫</div>
+                <div class="fc-icon"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/></svg></div>
                 <h3>Token & Queue Management</h3>
                 <p>Issue digital or printed counter tokens for takeaway customers. The board shows their token number, order status, and triggers a counter display announcement when ready.</p>
             </div>
             <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
-                <div class="fc-icon">📲</div>
+                <div class="fc-icon"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg></div>
                 <h3>Customer Notification</h3>
                 <p>When a takeaway or delivery order is marked Ready, an auto-SMS goes to the customer's phone instantly — reducing counter crowding and "is my order ready?" calls by over 60%.</p>
             </div>
@@ -1726,37 +1726,568 @@ h1, h2, h3, h4, h5 {
             <p>Most restaurants are still managing multi-channel orders through shouting, paper slips, and separate third-party tablets. Here's what changes.</p>
         </div>
 
-        <div class="compare-grid" data-aos="fade-up" data-aos-delay="100">
-            {{-- Old Way --}}
-            <div class="compare-col old">
-                <div class="compare-col-head">
-                    <div class="compare-icon">😓</div>
-                    <h3>Without Geni Menu</h3>
+        <style>
+          /* --- Comparison Section: Running Orders the Hard Way vs Geni Way (matching Menu/Reservation/Waiter/Table/POS UI) --- */
+          .ord-cmp-wrap {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            align-items: stretch;
+          }
+
+          .ord-cmp-center-arrow {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 20;
+            pointer-events: none;
+          }
+
+          .ord-center-arrow-circle {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #876039;
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 18px rgba(135, 96, 57, 0.4);
+            border: 3px solid #FFFFFF;
+          }
+          .ord-center-arrow-circle svg { width: 20px; height: 20px; }
+
+          .ord-cmp-card {
+            border-radius: 24px;
+            padding: 26px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+          }
+          .ord-cmp-traditional {
+            background: #FFFDFC;
+            border: 1.5px solid #FECDD3;
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.04);
+          }
+          .ord-cmp-digital {
+            background: #FFFFFF;
+            border: 1.5px solid rgba(135, 96, 57, 0.28);
+            box-shadow: 0 14px 40px rgba(135, 96, 57, 0.08);
+          }
+
+          .ord-cmp-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 22px;
+          }
+          .ord-badge-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+          }
+          .ord-badge-icon svg { width: 18px; height: 18px; }
+          .ord-badge-red { background: #FEE2E2; color: #DC2626; }
+          .ord-badge-brown { background: #6F4522; color: #FFFFFF; }
+
+          .ord-cmp-title {
+            font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+            font-size: 19px;
+            font-weight: 700;
+            margin: 0 0 2px;
+            line-height: 1.2;
+          }
+          .ord-cmp-title.text-red { color: #991B1B; }
+          .ord-cmp-title.text-brown { color: #21160F; }
+          .ord-cmp-subtitle { font-size: 12.5px; color: #76675D; margin: 0; }
+
+          .ord-split-body {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 16px;
+            align-items: stretch;
+            flex: 1;
+          }
+          .ord-cmp-digital .ord-split-body {
+            grid-template-columns: 1fr 1.05fr;
+            gap: 14px;
+          }
+
+          /* Left: Paper Order Slips Clipboard */
+          .ord-paper-visual {
+            background: #F8F4EE;
+            border-radius: 16px;
+            border: 1px solid #EADBCE;
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+          }
+          .ord-paper-board {
+            width: 100%;
+            background: #845A3C;
+            border-radius: 12px;
+            padding: 10px 8px 8px;
+            box-shadow: 0 6px 16px rgba(42, 24, 13, 0.2);
+          }
+          .ord-paper-clip {
+            width: 32px;
+            height: 8px;
+            background: #C4B5A5;
+            border-radius: 3px;
+            margin: 0 auto 6px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+          }
+          .ord-paper-sheet {
+            background: #FFFDF9;
+            border-radius: 6px;
+            padding: 10px 8px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            border: 1px solid #EBE1D3;
+          }
+          .ord-paper-header {
+            font-family: 'Outfit', serif;
+            font-weight: 600;
+            font-size: 10.5px;
+            letter-spacing: 1.5px;
+            text-align: center;
+            color: #2A1C14;
+            border-bottom: 1.5px solid #2A1C14;
+            padding-bottom: 4px;
+            margin-bottom: 7px;
+          }
+          .ord-paper-slot-title {
+            font-size: 7.5px;
+            font-weight: 700;
+            color: #876039;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            margin: 6px 0 3px;
+          }
+          .ord-paper-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 7.5px;
+            color: #4A3E38;
+            padding: 2.5px 0;
+            border-bottom: 1px dashed #EDE4D8;
+          }
+          .ord-paper-row:last-child { border-bottom: none; }
+          .ord-paper-row.struck span { text-decoration: line-through; color: #A89A90; }
+          .ord-paper-row .err-tag { color: #DC2626; font-weight: 700; }
+
+          /* 5 Pain Point Cards */
+          .ord-points-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            justify-content: space-between;
+          }
+          .ord-point-card {
+            background: #FFFFFF;
+            border: 1px solid #FEE2E2;
+            border-radius: 12px;
+            padding: 9px 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+          }
+          .ord-point-card:hover {
+            transform: translateX(2px);
+            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.08);
+          }
+          .ord-point-ico {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #FEE2E2;
+            color: #DC2626;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+          }
+          .ord-point-ico svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+          .ord-point-txt { display: flex; flex-direction: column; min-width: 0; }
+          .ord-point-txt b { font-size: 13px; font-weight: 700; color: #21160F; line-height: 1.25; }
+          .ord-point-txt span { font-size: 11px; color: #76675D; line-height: 1.3; }
+
+          /* Right Card: 3 Workflow Steps */
+          .ord-wf-steps {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 6px;
+          }
+          .ord-wf-card {
+            background: #FFFFFF;
+            border: 1px solid rgba(135, 96, 57, 0.2);
+            border-radius: 14px;
+            padding: 12px 14px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 2px 8px rgba(135, 96, 57, 0.04);
+            transition: transform 0.2s ease, border-color 0.2s ease;
+          }
+          .ord-wf-card:hover { transform: translateY(-2px); border-color: #876039; }
+          .ord-wf-ico {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background: #FBF6EE;
+            color: #876039;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            border: 1px solid rgba(135, 96, 57, 0.18);
+          }
+          .ord-wf-ico svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+          .ord-wf-txt { display: flex; flex-direction: column; min-width: 0; }
+          .ord-wf-txt b { font-size: 13px; font-weight: 600; color: #21160F; line-height: 1.25; }
+          .ord-wf-txt span { font-size: 11.5px; color: #76675D; line-height: 1.3; }
+          .ord-wf-arrow { text-align: center; font-size: 15px; font-weight: 500; color: #876039; line-height: 1; }
+
+          /* Right Card: Smartphone Live Order Pipeline Mockup */
+          .ord-phone-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          .ord-phone-mockup {
+            width: 100%;
+            max-width: 224px;
+            background: #1C1510;
+            border-radius: 28px;
+            padding: 7px;
+            box-shadow: 0 16px 36px rgba(28, 20, 15, 0.28);
+            border: 2px solid #362920;
+          }
+          .ord-phone-screen {
+            background: #FFFFFF;
+            border-radius: 22px;
+            padding: 10px 9px 12px;
+            overflow: hidden;
+          }
+          .ord-phone-island {
+            width: 38px;
+            height: 4px;
+            background: #1C1510;
+            border-radius: 4px;
+            margin: 0 auto 6px;
+          }
+          .ord-phone-header { text-align: center; margin-bottom: 7px; }
+          .ord-phone-title { font-family: 'Outfit', sans-serif; font-size: 13.5px; font-weight: 600; color: #21160F; line-height: 1.2; }
+          .ord-phone-sub { font-size: 8px; color: #76675D; }
+          .ord-phone-tabs {
+            display: flex;
+            gap: 3.5px;
+            margin-bottom: 8px;
+            justify-content: center;
+          }
+          .ord-tab-pill {
+            font-size: 7.5px;
+            font-weight: 700;
+            padding: 2.5px 7px;
+            border-radius: 12px;
+            background: #FAF7F2;
+            color: #6E6157;
+            white-space: nowrap;
+          }
+          .ord-tab-active { background: #875A38; color: #FFFFFF; }
+
+          .ord-live-list {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+          }
+          .ord-live-row {
+            padding: 6px 7px;
+            background: #FAF8F5;
+            border: 1px solid #EFE8DE;
+            border-radius: 9px;
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+          }
+          .ord-lv-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 4px;
+          }
+          .ord-lv-name { font-size: 9.5px; font-weight: 700; color: #21160F; }
+          .ord-lv-badge {
+            font-size: 6.5px;
+            font-weight: 700;
+            padding: 1.5px 5px;
+            border-radius: 4px;
+          }
+          .ord-lv-badge.prep { background: #FEF3C7; color: #B45309; }
+          .ord-lv-badge.ready { background: #DCFCE7; color: #16A34A; }
+          .ord-lv-badge.del { background: #DBEAFE; color: #1D4ED8; }
+          .ord-lv-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 7.5px;
+            color: #76675D;
+          }
+          .ord-lv-src { font-weight: 700; color: #876039; }
+
+          .ord-bottom-cta {
+            margin-top: 16px;
+            display: flex;
+            justify-content: center;
+          }
+          .ord-bottom-cta-badge {
+            background: linear-gradient(135deg, #6f4e2d 0%, #876039 100%);
+            color: #FFFFFF;
+            font-size: 11.5px;
+            font-weight: 600;
+            padding: 7px 20px;
+            border-radius: 99px;
+            box-shadow: 0 4px 14px rgba(135, 96, 57, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+          }
+          .ord-bottom-cta-badge svg { width: 14px; height: 14px; stroke: #FFFFFF; fill: none; stroke-width: 2; }
+
+          @media (max-width: 1080px) {
+            .ord-cmp-wrap { grid-template-columns: 1fr; gap: 36px; }
+            .ord-cmp-center-arrow { display: none; }
+          }
+          @media (max-width: 640px) {
+            .ord-split-body, .ord-cmp-digital .ord-split-body { grid-template-columns: 1fr; gap: 16px; }
+            .ord-paper-visual { max-width: 260px; margin: 0 auto; }
+          }
+        </style>
+
+        <div class="ord-cmp-wrap" data-aos="fade-up" data-aos-delay="100">
+            <!-- Center Transition Arrow -->
+            <div class="ord-cmp-center-arrow">
+                <div class="ord-center-arrow-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
                 </div>
-                <ul class="compare-list">
-                    <li data-icon="❌">3 separate tablets for Swiggy, Zomato and your own site — all beeping at once</li>
-                    <li data-icon="❌">Handwritten KOTs lost between the waiter and the kitchen pass</li>
-                    <li data-icon="❌">No visibility on how long an order has been in the kitchen</li>
-                    <li data-icon="❌">Takeaway customers crowding the counter with no idea when their food is ready</li>
-                    <li data-icon="❌">Order edits cause confusion — kitchen may prepare the wrong version</li>
-                    <li data-icon="❌">Manager has to physically walk to kitchen to check on order status</li>
-                </ul>
             </div>
 
-            {{-- Geni Way --}}
-            <div class="compare-col new">
-                <div class="compare-col-head">
-                    <div class="compare-icon">😊</div>
-                    <h3>With Geni Menu</h3>
+            {{-- LEFT CARD: Without Geni Menu --}}
+            <div class="ord-cmp-card ord-cmp-traditional">
+                <div class="ord-cmp-header">
+                    <div class="ord-badge-icon ord-badge-red">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="ord-cmp-title text-red">Without Geni Menu</h3>
+                        <p class="ord-cmp-subtitle">Paper KOTs, beeping tablets and kitchen confusion</p>
+                    </div>
                 </div>
-                <ul class="compare-list">
-                    <li data-icon="✅">All channels in one Kanban board — one screen, one team, one workflow</li>
-                    <li data-icon="✅">Digital KOTs dispatched instantly to kitchen printer or KDS screen</li>
-                    <li data-icon="✅">Live prep timers — amber alerts fire before SLA is breached</li>
-                    <li data-icon="✅">Auto-SMS to takeaway customers the moment their order is Ready</li>
-                    <li data-icon="✅">Mid-flow edits pushed to kitchen in real time with no confusion</li>
-                    <li data-icon="✅">Manager sees full order pipeline on phone from anywhere in the restaurant</li>
-                </ul>
+
+                <div class="ord-split-body">
+                    <!-- Left: Paper KOT Slips Clipboard -->
+                    <div class="ord-paper-visual">
+                        <div class="ord-paper-board">
+                            <div class="ord-paper-clip"></div>
+                            <div class="ord-paper-sheet">
+                                <div class="ord-paper-header">ORDER SLIPS</div>
+
+                                <div class="ord-paper-slot-title">Online Tablets</div>
+                                <div class="ord-paper-row"><span>Swiggy #401</span><span class="err-tag">Beep!</span></div>
+                                <div class="ord-paper-row"><span>Zomato #218</span><span class="err-tag">Missed</span></div>
+
+                                <div class="ord-paper-slot-title">Kitchen Pass</div>
+                                <div class="ord-paper-row struck"><span>T-05 KOT</span><b>Lost!</b></div>
+                                <div class="ord-paper-row"><span>Edit #109</span><span class="err-tag">Wrong!</span></div>
+
+                                <div class="ord-paper-slot-title">Counter</div>
+                                <div class="ord-paper-row"><span>Takeaway</span><b>Waiting</b></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: 5 Pain Points -->
+                    <div class="ord-points-list">
+                        <div class="ord-point-card">
+                            <div class="ord-point-ico">
+                                <svg viewBox="0 0 24 24"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
+                            </div>
+                            <div class="ord-point-txt">
+                                <b>3 Separate Beeping Tablets</b>
+                                <span>Swiggy, Zomato &amp; website ringing at once</span>
+                            </div>
+                        </div>
+
+                        <div class="ord-point-card">
+                            <div class="ord-point-ico">
+                                <svg viewBox="0 0 24 24"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"/></svg>
+                            </div>
+                            <div class="ord-point-txt">
+                                <b>Handwritten KOTs Lost</b>
+                                <span>Slips misplaced between waiter &amp; kitchen</span>
+                            </div>
+                        </div>
+
+                        <div class="ord-point-card">
+                            <div class="ord-point-ico">
+                                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            </div>
+                            <div class="ord-point-txt">
+                                <b>No Prep Time Visibility</b>
+                                <span>No idea how long orders sit in the kitchen</span>
+                            </div>
+                        </div>
+
+                        <div class="ord-point-card">
+                            <div class="ord-point-ico">
+                                <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg>
+                            </div>
+                            <div class="ord-point-txt">
+                                <b>Takeaway Counter Crowds</b>
+                                <span>Guests waiting with zero pickup updates</span>
+                            </div>
+                        </div>
+
+                        <div class="ord-point-card">
+                            <div class="ord-point-ico">
+                                <svg viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+                            </div>
+                            <div class="ord-point-txt">
+                                <b>Confusing Mid-Flow Edits</b>
+                                <span>Kitchen prepares outdated order versions</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {{-- RIGHT CARD: With Geni Menu --}}
+            <div class="ord-cmp-card ord-cmp-digital">
+                <div class="ord-cmp-header">
+                    <div class="ord-badge-icon ord-badge-brown">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="ord-cmp-title text-brown">With Geni Menu</h3>
+                        <p class="ord-cmp-subtitle">Unified Kanban pipeline, instant KOTs &amp; live alerts</p>
+                    </div>
+                </div>
+
+                <div class="ord-split-body">
+                    <!-- Left: 3 Connected Workflow Steps -->
+                    <div class="ord-wf-steps">
+                        <div class="ord-wf-card">
+                            <div class="ord-wf-ico">
+                                <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                            </div>
+                            <div class="ord-wf-txt">
+                                <b>All Channels in One Board</b>
+                                <span>Dine-in, takeaway, Swiggy &amp; Zomato unified</span>
+                            </div>
+                        </div>
+
+                        <div class="ord-wf-arrow">&darr;</div>
+
+                        <div class="ord-wf-card">
+                            <div class="ord-wf-ico">
+                                <svg viewBox="0 0 24 24"><path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6Z"/><line x1="6" x2="18" y1="17" y2="17"/></svg>
+                            </div>
+                            <div class="ord-wf-txt">
+                                <b>Instant Digital KOT &amp; Timers</b>
+                                <span>Live edits + amber SLA prep alerts</span>
+                            </div>
+                        </div>
+
+                        <div class="ord-wf-arrow">&darr;</div>
+
+                        <div class="ord-wf-card">
+                            <div class="ord-wf-ico">
+                                <svg viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+                            </div>
+                            <div class="ord-wf-txt">
+                                <b>Auto-Alerts &amp; Mobile View</b>
+                                <span>Ready SMS to guests + live manager phone</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Smartphone Live Order Pipeline Mockup -->
+                    <div class="ord-phone-visual">
+                        <div class="ord-phone-mockup">
+                            <div class="ord-phone-screen">
+                                <div class="ord-phone-island"></div>
+                                <div class="ord-phone-header">
+                                    <div class="ord-phone-title">Live Orders</div>
+                                    <div class="ord-phone-sub">All channels in one pipeline</div>
+                                </div>
+                                <div class="ord-phone-tabs">
+                                    <span class="ord-tab-pill ord-tab-active">All</span>
+                                    <span class="ord-tab-pill">Prep</span>
+                                    <span class="ord-tab-pill">Ready</span>
+                                </div>
+                                <div class="ord-live-list">
+                                    <div class="ord-live-row">
+                                        <div class="ord-lv-top">
+                                            <span class="ord-lv-name">Order #1240</span>
+                                            <span class="ord-lv-badge prep">Prep 6m</span>
+                                        </div>
+                                        <div class="ord-lv-meta">
+                                            <span>3 Items &bull; ₹740</span>
+                                            <span class="ord-lv-src">Table 04</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="ord-live-row">
+                                        <div class="ord-lv-top">
+                                            <span class="ord-lv-name">Order #1241</span>
+                                            <span class="ord-lv-badge ready">Ready</span>
+                                        </div>
+                                        <div class="ord-lv-meta">
+                                            <span>2 Items &bull; ₹310</span>
+                                            <span class="ord-lv-src">Takeaway</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="ord-live-row">
+                                        <div class="ord-lv-top">
+                                            <span class="ord-lv-name">Order #1242</span>
+                                            <span class="ord-lv-badge del">Dispatched</span>
+                                        </div>
+                                        <div class="ord-lv-meta">
+                                            <span>4 Items &bull; ₹920</span>
+                                            <span class="ord-lv-src">Zomato</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ord-bottom-cta">
+                    <div class="ord-bottom-cta-badge">
+                        <svg viewBox="0 0 24 24"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3Z"/></svg>
+                        <span>One Screen, One Team, One Workflow!</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -1837,21 +2368,21 @@ h1, h2, h3, h4, h5 {
         </div>
         <div class="cross-links-grid">
             <a href="{{ route('features.kot-management') }}" class="cross-card" data-aos="fade-up" data-aos-delay="0">
-                <div class="cross-icon">🖨️</div>
+                <div class="cross-icon"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect width="12" height="8" x="6" y="14"/></svg>️</div>
                 <div class="cross-text">
                     <h4>KOT Management</h4>
                     <p>Auto-print or display kitchen tickets the moment an order is accepted on the board.</p>
                 </div>
             </a>
             <a href="{{ route('features.pos-management') }}" class="cross-card" data-aos="fade-up" data-aos-delay="80">
-                <div class="cross-icon">🧾</div>
+                <div class="cross-icon"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"/><path d="M16 8h-6"/><path d="M16 12h-6"/><path d="M12 16h-2"/></svg></div>
                 <div class="cross-text">
                     <h4>POS & Billing</h4>
                     <p>When an order is marked complete, billing flows straight into the POS — no double entry.</p>
                 </div>
             </a>
             <a href="{{ route('features.table-management') }}" class="cross-card" data-aos="fade-up" data-aos-delay="160">
-                <div class="cross-icon">🗺️</div>
+                <div class="cross-icon"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/><line x1="9" x2="9" y1="3" y2="18"/><line x1="15" x2="15" y1="6" y2="21"/></svg>️</div>
                 <div class="cross-text">
                     <h4>Table Management</h4>
                     <p>See which tables have active orders on the floor plan, and link order status to table state.</p>

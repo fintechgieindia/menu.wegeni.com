@@ -316,10 +316,10 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
         </p>
 
         <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 24px;">
-          <span style="background: var(--bg2); padding: 8px 16px; border-radius: 99px; border: 1px solid var(--line); font-size: 13px; font-weight: 700;">🍔 Burgers & Combos</span>
-          <span style="background: var(--bg2); padding: 8px 16px; border-radius: 99px; border: 1px solid var(--line); font-size: 13px; font-weight: 700;">🍕 Pizza & Garlic Bread</span>
-          <span style="background: var(--bg2); padding: 8px 16px; border-radius: 99px; border: 1px solid var(--line); font-size: 13px; font-weight: 700;">🍗 Fried Chicken</span>
-          <span style="background: var(--bg2); padding: 8px 16px; border-radius: 99px; border: 1px solid var(--line); font-size: 13px; font-weight: 700;">🍟 Fries & Shakes</span>
+          <span style="background: var(--bg2); padding: 8px 16px; border-radius: 99px; border: 1px solid var(--line); font-size: 13px; font-weight: 700;"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11h16a1 1 0 0 1 1 1v.5c0 4.5-4 8.5-9 8.5s-9-4-9-8.5V12a1 1 0 0 1 1-1Z"/><path d="M12 3v4"/><path d="M8 5v2"/><path d="M16 5v2"/></svg> Burgers & Combos</span>
+          <span style="background: var(--bg2); padding: 8px 16px; border-radius: 99px; border: 1px solid var(--line); font-size: 13px; font-weight: 700;"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 11h.01"/><path d="M11 15h.01"/><path d="M16 16h.01"/><path d="m2 16 20 6-6-20A20 20 0 0 0 2 16"/></svg> Pizza & Garlic Bread</span>
+          <span style="background: var(--bg2); padding: 8px 16px; border-radius: 99px; border: 1px solid var(--line); font-size: 13px; font-weight: 700;"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11h16a1 1 0 0 1 1 1v.5c0 4.5-4 8.5-9 8.5s-9-4-9-8.5V12a1 1 0 0 1 1-1Z"/><path d="M12 3v4"/><path d="M8 5v2"/><path d="M16 5v2"/></svg> Fried Chicken</span>
+          <span style="background: var(--bg2); padding: 8px 16px; border-radius: 99px; border: 1px solid var(--line); font-size: 13px; font-weight: 700;"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11h16a1 1 0 0 1 1 1v.5c0 4.5-4 8.5-9 8.5s-9-4-9-8.5V12a1 1 0 0 1 1-1Z"/><path d="M12 3v4"/><path d="M8 5v2"/><path d="M16 5v2"/></svg> Fries & Shakes</span>
         </div>
 
         <a href="{{ route('features.menu-management') }}" class="btn p">Explore Menu Management →</a>
@@ -450,25 +450,25 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 
     <div class="g4">
       <div class="card" style="padding: 24px; text-align: center;">
-        <div style="font-size: 32px; margin-bottom: 12px;">🍽️</div>
+        <div style="font-size: 32px; margin-bottom: 12px;"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>️</div>
         <h3 style="font-size: 18px; margin-bottom: 6px;">DINE-IN</h3>
         <p style="font-size: 13.5px;">Table-based ordering, QR scan & table-side service.</p>
       </div>
 
       <div class="card" style="padding: 24px; text-align: center;">
-        <div style="font-size: 32px; margin-bottom: 12px;">🛍️</div>
+        <div style="font-size: 32px; margin-bottom: 12px;"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>️</div>
         <h3 style="font-size: 18px; margin-bottom: 6px;">TAKEAWAY</h3>
         <p style="font-size: 13.5px;">Quick counter ordering, token display & fast collection.</p>
       </div>
 
       <div class="card" style="padding: 24px; text-align: center;">
-        <div style="font-size: 32px; margin-bottom: 12px;">📦</div>
+        <div style="font-size: 32px; margin-bottom: 12px;"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" x2="12" y1="22.08" y2="12"/></svg></div>
         <h3 style="font-size: 18px; margin-bottom: 6px;">PICKUP</h3>
         <p style="font-size: 13.5px;">Organized order packing and customer counter retrieval.</p>
       </div>
 
       <div class="card" style="padding: 24px; text-align: center;">
-        <div style="font-size: 32px; margin-bottom: 12px;">🛵</div>
+        <div style="font-size: 32px; margin-bottom: 12px;"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="6.5" cy="17.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/><path d="M9 17.5h6"/><path d="M14 17.5V9h3l2 4"/><path d="M6.5 15V9h4"/></svg></div>
         <h3 style="font-size: 18px; margin-bottom: 6px;">DELIVERY</h3>
         <p style="font-size: 13.5px;">Manage delivery order packing & dispatch from the same POS.</p>
       </div>

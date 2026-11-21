@@ -493,66 +493,566 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
       </div>
     </div>
 
-    <!-- Comparison Grid -->
-    <div class="g2" style="gap: 28px;">
-      <!-- Left: Traditional Inventory -->
-      <div style="background: #fff; padding: 32px; border-radius: 20px; border: 1px solid #fee2e2;">
-        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
-          <div style="width: 38px; height: 38px; border-radius: 10px; background: #fee2e2; color: #dc2626; display: grid; place-items: center; font-weight: 500;">✕</div>
-          <h3 style="font-size: 20px; color: #991b1b;">Traditional Inventory</h3>
+    <style>
+      /* --- Comparison Section: Traditional Inventory vs Geni Menu Inventory (matching Menu/Reservation/Waiter/Table/POS/Order/KOT UI) --- */
+      .inv-cmp-wrap {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+        align-items: stretch;
+      }
+
+      .inv-cmp-center-arrow {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 20;
+        pointer-events: none;
+      }
+
+      .inv-center-arrow-circle {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: var(--br, #876039);
+        color: #FFFFFF;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 18px rgba(135, 96, 57, 0.4);
+        border: 3px solid #FFFFFF;
+      }
+      .inv-center-arrow-circle svg { width: 20px; height: 20px; }
+
+      .inv-cmp-card {
+        border-radius: 24px;
+        padding: 26px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+      }
+      .inv-cmp-traditional {
+        background: #FFFDFC;
+        border: 1.5px solid #FECDD3;
+        box-shadow: 0 10px 30px rgba(220, 38, 38, 0.04);
+      }
+      .inv-cmp-digital {
+        background: #FFFFFF;
+        border: 1.5px solid rgba(135, 96, 57, 0.28);
+        box-shadow: 0 14px 40px rgba(135, 96, 57, 0.08);
+      }
+
+      .inv-cmp-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 22px;
+      }
+      .inv-badge-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .inv-badge-icon svg { width: 18px; height: 18px; }
+      .inv-badge-red { background: #FEE2E2; color: #DC2626; }
+      .inv-badge-brown { background: #6F4522; color: #FFFFFF; }
+
+      .inv-cmp-title {
+        font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+        font-size: 19px;
+        font-weight: 700;
+        margin: 0 0 2px;
+        line-height: 1.2;
+      }
+      .inv-cmp-title.text-red { color: #991B1B; }
+      .inv-cmp-title.text-brown { color: #21160F; }
+      .inv-cmp-subtitle { font-size: 12.5px; color: #76675D; margin: 0; }
+
+      .inv-split-body {
+        display: grid;
+        grid-template-columns: 1fr 1.3fr;
+        gap: 16px;
+        align-items: stretch;
+        flex: 1;
+      }
+      .inv-cmp-digital .inv-split-body {
+        grid-template-columns: 1fr 1.05fr;
+        gap: 14px;
+      }
+
+      /* Left: Paper Stock Log Clipboard */
+      .inv-paper-visual {
+        background: #F8F4EE;
+        border-radius: 16px;
+        border: 1px solid #EADBCE;
+        padding: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+      .inv-paper-board {
+        width: 100%;
+        background: #845A3C;
+        border-radius: 12px;
+        padding: 10px 8px 8px;
+        box-shadow: 0 6px 16px rgba(42, 24, 13, 0.2);
+      }
+      .inv-paper-clip {
+        width: 32px;
+        height: 8px;
+        background: #C4B5A5;
+        border-radius: 3px;
+        margin: 0 auto 6px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+      }
+      .inv-paper-sheet {
+        background: #FFFDF9;
+        border-radius: 6px;
+        padding: 10px 8px;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        border: 1px solid #EBE1D3;
+      }
+      .inv-paper-header {
+        font-family: 'Outfit', serif;
+        font-weight: 600;
+        font-size: 10.5px;
+        letter-spacing: 1.5px;
+        text-align: center;
+        color: #2A1C14;
+        border-bottom: 1.5px solid #2A1C14;
+        padding-bottom: 4px;
+        margin-bottom: 7px;
+      }
+      .inv-paper-slot-title {
+        font-size: 7.5px;
+        font-weight: 700;
+        color: #876039;
+        letter-spacing: 0.6px;
+        text-transform: uppercase;
+        margin: 6px 0 3px;
+      }
+      .inv-paper-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 7.5px;
+        color: #4A3E38;
+        padding: 2.5px 0;
+        border-bottom: 1px dashed #EDE4D8;
+      }
+      .inv-paper-row:last-child { border-bottom: none; }
+      .inv-paper-row.struck span { text-decoration: line-through; color: #A89A90; }
+      .inv-paper-row .err-tag { color: #DC2626; font-weight: 700; }
+
+      /* 5 Pain Point Cards */
+      .inv-points-list {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        justify-content: space-between;
+      }
+      .inv-point-card {
+        background: #FFFFFF;
+        border: 1px solid #FEE2E2;
+        border-radius: 12px;
+        padding: 9px 12px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      .inv-point-card:hover {
+        transform: translateX(2px);
+        box-shadow: 0 4px 12px rgba(220, 38, 38, 0.08);
+      }
+      .inv-point-ico {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: #FEE2E2;
+        color: #DC2626;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .inv-point-ico svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+      .inv-point-txt { display: flex; flex-direction: column; min-width: 0; }
+      .inv-point-txt b { font-size: 13px; font-weight: 700; color: #21160F; line-height: 1.25; }
+      .inv-point-txt span { font-size: 11px; color: #76675D; line-height: 1.3; }
+
+      /* Right Card: 3 Workflow Steps */
+      .inv-wf-steps {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 6px;
+      }
+      .inv-wf-card {
+        background: #FFFFFF;
+        border: 1px solid rgba(135, 96, 57, 0.2);
+        border-radius: 14px;
+        padding: 12px 14px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        box-shadow: 0 2px 8px rgba(135, 96, 57, 0.04);
+        transition: transform 0.2s ease, border-color 0.2s ease;
+      }
+      .inv-wf-card:hover { transform: translateY(-2px); border-color: #876039; }
+      .inv-wf-ico {
+        width: 38px;
+        height: 38px;
+        border-radius: 10px;
+        background: #FBF6EE;
+        color: #876039;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        border: 1px solid rgba(135, 96, 57, 0.18);
+      }
+      .inv-wf-ico svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+      .inv-wf-txt { display: flex; flex-direction: column; min-width: 0; }
+      .inv-wf-txt b { font-size: 13px; font-weight: 600; color: #21160F; line-height: 1.25; }
+      .inv-wf-txt span { font-size: 11.5px; color: #76675D; line-height: 1.3; }
+      .inv-wf-arrow { text-align: center; font-size: 15px; font-weight: 500; color: #876039; line-height: 1; }
+
+      /* Right Card: Smartphone Live Stock Monitor Mockup */
+      .inv-phone-visual {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .inv-phone-mockup {
+        width: 100%;
+        max-width: 224px;
+        background: #1C1510;
+        border-radius: 28px;
+        padding: 7px;
+        box-shadow: 0 16px 36px rgba(28, 20, 15, 0.28);
+        border: 2px solid #362920;
+      }
+      .inv-phone-screen {
+        background: #FFFFFF;
+        border-radius: 22px;
+        padding: 10px 9px 12px;
+        overflow: hidden;
+      }
+      .inv-phone-island {
+        width: 38px;
+        height: 4px;
+        background: #1C1510;
+        border-radius: 4px;
+        margin: 0 auto 6px;
+      }
+      .inv-phone-header { text-align: center; margin-bottom: 7px; }
+      .inv-phone-title { font-family: 'Outfit', sans-serif; font-size: 13.5px; font-weight: 600; color: #21160F; line-height: 1.2; }
+      .inv-phone-sub { font-size: 8px; color: #76675D; }
+      .inv-phone-tabs {
+        display: flex;
+        gap: 3.5px;
+        margin-bottom: 8px;
+        justify-content: center;
+      }
+      .inv-tab-pill {
+        font-size: 7.5px;
+        font-weight: 700;
+        padding: 2.5px 7px;
+        border-radius: 12px;
+        background: #FAF7F2;
+        color: #6E6157;
+        white-space: nowrap;
+      }
+      .inv-tab-active { background: #875A38; color: #FFFFFF; }
+
+      .inv-live-list {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .inv-live-row {
+        padding: 6px 7px;
+        background: #FAF8F5;
+        border: 1px solid #EFE8DE;
+        border-radius: 9px;
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+      }
+      .inv-lv-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 4px;
+      }
+      .inv-lv-name { font-size: 9.5px; font-weight: 700; color: #21160F; }
+      .inv-lv-badge {
+        font-size: 6.5px;
+        font-weight: 700;
+        padding: 1.5px 5px;
+        border-radius: 4px;
+      }
+      .inv-lv-badge.low { background: #FEF3C7; color: #B45309; }
+      .inv-lv-badge.ok { background: #DCFCE7; color: #16A34A; }
+      .inv-lv-badge.crit { background: #FEE2E2; color: #DC2626; }
+      .inv-lv-meta {
+        display: flex;
+        justify-content: space-between;
+        font-size: 7.5px;
+        color: #76675D;
+      }
+      .inv-lv-qty { font-weight: 700; color: #876039; }
+
+      .inv-bottom-cta {
+        margin-top: 16px;
+        display: flex;
+        justify-content: center;
+      }
+      .inv-bottom-cta-badge {
+        background: linear-gradient(135deg, #6f4e2d 0%, #876039 100%);
+        color: #FFFFFF;
+        font-size: 11.5px;
+        font-weight: 600;
+        padding: 7px 20px;
+        border-radius: 99px;
+        box-shadow: 0 4px 14px rgba(135, 96, 57, 0.3);
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .inv-bottom-cta-badge svg { width: 14px; height: 14px; stroke: #FFFFFF; fill: none; stroke-width: 2; }
+
+      @media (max-width: 1080px) {
+        .inv-cmp-wrap { grid-template-columns: 1fr; gap: 36px; }
+        .inv-cmp-center-arrow { display: none; }
+      }
+      @media (max-width: 640px) {
+        .inv-split-body, .inv-cmp-digital .inv-split-body { grid-template-columns: 1fr; gap: 16px; }
+        .inv-paper-visual { max-width: 260px; margin: 0 auto; }
+      }
+    </style>
+
+    <!-- Comparison Grid (Matching Menu/Reservation/Waiter/Table/POS/Order/KOT UI) -->
+    <div class="inv-cmp-wrap">
+      <!-- Center Transition Arrow -->
+      <div class="inv-cmp-center-arrow">
+        <div class="inv-center-arrow-circle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
         </div>
-        <ul style="display: flex; flex-direction: column; gap: 14px; font-size: 15px; color: var(--mute);">
-          <li style="display: flex; align-items: center; gap: 10px;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-            Manual stock checking causing errors
-          </li>
-          <li style="display: flex; align-items: center; gap: 10px;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-            Scattered purchase records across paper bills
-          </li>
-          <li style="display: flex; align-items: center; gap: 10px;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-            Difficult consumption visibility during peak service
-          </li>
-          <li style="display: flex; align-items: center; gap: 10px;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-            Unexpected shortages during high dish demand
-          </li>
-          <li style="display: flex; align-items: center; gap: 10px;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-            Higher waste risk from untracked spoilage
-          </li>
-        </ul>
+      </div>
+
+      <!-- Left: Traditional Inventory -->
+      <div class="inv-cmp-card inv-cmp-traditional">
+        <div class="inv-cmp-header">
+          <div class="inv-badge-icon inv-badge-red">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </div>
+          <div>
+            <h3 class="inv-cmp-title text-red">Traditional Inventory</h3>
+            <p class="inv-cmp-subtitle">Manual stock counts, paper bills &amp; rush shortages</p>
+          </div>
+        </div>
+
+        <div class="inv-split-body">
+          <!-- Left: Paper Stock Log Clipboard -->
+          <div class="inv-paper-visual">
+            <div class="inv-paper-board">
+              <div class="inv-paper-clip"></div>
+              <div class="inv-paper-sheet">
+                <div class="inv-paper-header">STOCK LOG</div>
+
+                <div class="inv-paper-slot-title">Kitchen Store</div>
+                <div class="inv-paper-row"><span>Paneer</span><span class="err-tag">Out!</span></div>
+                <div class="inv-paper-row struck"><span>Chicken 10kg</span><b>Check?</b></div>
+
+                <div class="inv-paper-slot-title">Dry Store</div>
+                <div class="inv-paper-row"><span>Paper Bills</span><span class="err-tag">Missing</span></div>
+                <div class="inv-paper-row"><span>Spoilage</span><span class="err-tag">Untracked</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: 5 Pain Points -->
+          <div class="inv-points-list">
+            <div class="inv-point-card">
+              <div class="inv-point-ico">
+                <svg viewBox="0 0 24 24"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg>
+              </div>
+              <div class="inv-point-txt">
+                <b>Manual Stock Errors</b>
+                <span>Hand-counted stock sheets drift from reality</span>
+              </div>
+            </div>
+
+            <div class="inv-point-card">
+              <div class="inv-point-ico">
+                <svg viewBox="0 0 24 24"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"/></svg>
+              </div>
+              <div class="inv-point-txt">
+                <b>Scattered Paper Bills</b>
+                <span>Supplier receipts buried in folders &amp; drawers</span>
+              </div>
+            </div>
+
+            <div class="inv-point-card">
+              <div class="inv-point-ico">
+                <svg viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+              </div>
+              <div class="inv-point-txt">
+                <b>Zero Peak Visibility</b>
+                <span>No clarity on live ingredient consumption</span>
+              </div>
+            </div>
+
+            <div class="inv-point-card">
+              <div class="inv-point-ico">
+                <svg viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+              </div>
+              <div class="inv-point-txt">
+                <b>Unexpected Shortages</b>
+                <span>Running out of key dishes mid-dinner rush</span>
+              </div>
+            </div>
+
+            <div class="inv-point-card">
+              <div class="inv-point-ico">
+                <svg viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+              </div>
+              <div class="inv-point-txt">
+                <b>Higher Spoilage Waste</b>
+                <span>Untracked expiry &amp; over-ordering hurts margins</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- Right: Geni Menu Inventory -->
-      <div style="background: #fff; padding: 32px; border-radius: 20px; border: 1.5px solid var(--br); box-shadow: var(--shadow-sm);">
-        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
-          <div style="width: 38px; height: 38px; border-radius: 10px; background: var(--br-light); color: var(--br); display: grid; place-items: center; font-weight: 500;">✓</div>
-          <h3 style="font-size: 20px; color: var(--br);">Geni Menu Inventory</h3>
+      <div class="inv-cmp-card inv-cmp-digital">
+        <div class="inv-cmp-header">
+          <div class="inv-badge-icon inv-badge-brown">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          <div>
+            <h3 class="inv-cmp-title text-brown">Geni Menu Inventory</h3>
+            <p class="inv-cmp-subtitle">Central stock tracking, recipe sync &amp; smart alerts</p>
+          </div>
         </div>
-        <ul style="display: flex; flex-direction: column; gap: 14px; font-size: 15px; color: var(--ink); font-weight: 600;">
-          <li style="display: flex; align-items: center; gap: 10px;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Central stock view for all ingredients
-          </li>
-          <li style="display: flex; align-items: center; gap: 10px;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Clear ingredient tracking in standard units
-          </li>
-          <li style="display: flex; align-items: center; gap: 10px;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Purchase visibility and stock receipt logs
-          </li>
-          <li style="display: flex; align-items: center; gap: 10px;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Low-stock awareness with clear alert levels
-          </li>
-          <li style="display: flex; align-items: center; gap: 10px;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Connected restaurant kitchen operations
-          </li>
-        </ul>
+
+        <div class="inv-split-body">
+          <!-- Left: 3 Connected Workflow Steps -->
+          <div class="inv-wf-steps">
+            <div class="inv-wf-card">
+              <div class="inv-wf-ico">
+                <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" x2="12" y1="22.08" y2="12"/></svg>
+              </div>
+              <div class="inv-wf-txt">
+                <b>Central Stock &amp; Units</b>
+                <span>All ingredients tracked in kg, L &amp; packs</span>
+              </div>
+            </div>
+
+            <div class="inv-wf-arrow">&darr;</div>
+
+            <div class="inv-wf-card">
+              <div class="inv-wf-ico">
+                <svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg>
+              </div>
+              <div class="inv-wf-txt">
+                <b>Connected Kitchen Sync</b>
+                <span>Purchases, receipts &amp; dish usage linked</span>
+              </div>
+            </div>
+
+            <div class="inv-wf-arrow">&darr;</div>
+
+            <div class="inv-wf-card">
+              <div class="inv-wf-ico">
+                <svg viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+              </div>
+              <div class="inv-wf-txt">
+                <b>Smart Low-Stock Alerts</b>
+                <span>Reorder warnings before shortages happen</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Smartphone Live Stock Monitor Mockup -->
+          <div class="inv-phone-visual">
+            <div class="inv-phone-mockup">
+              <div class="inv-phone-screen">
+                <div class="inv-phone-island"></div>
+                <div class="inv-phone-header">
+                  <div class="inv-phone-title">Stock Monitor</div>
+                  <div class="inv-phone-sub">Real-time kitchen inventory</div>
+                </div>
+                <div class="inv-phone-tabs">
+                  <span class="inv-tab-pill inv-tab-active">All</span>
+                  <span class="inv-tab-pill">Low</span>
+                  <span class="inv-tab-pill">In Stock</span>
+                </div>
+                <div class="inv-live-list">
+                  <div class="inv-live-row">
+                    <div class="inv-lv-top">
+                      <span class="inv-lv-name">Fresh Paneer</span>
+                      <span class="inv-lv-badge low">Low Stock</span>
+                    </div>
+                    <div class="inv-lv-meta">
+                      <span>Min: 5.0 kg</span>
+                      <span class="inv-lv-qty">3.5 kg left</span>
+                    </div>
+                  </div>
+
+                  <div class="inv-live-row">
+                    <div class="inv-lv-top">
+                      <span class="inv-lv-name">Basmati Rice</span>
+                      <span class="inv-lv-badge ok">In Stock</span>
+                    </div>
+                    <div class="inv-lv-meta">
+                      <span>Min: 15 kg</span>
+                      <span class="inv-lv-qty">48 kg left</span>
+                    </div>
+                  </div>
+
+                  <div class="inv-live-row">
+                    <div class="inv-lv-top">
+                      <span class="inv-lv-name">Cooking Oil</span>
+                      <span class="inv-lv-badge crit">Reorder</span>
+                    </div>
+                    <div class="inv-lv-meta">
+                      <span>Min: 10 L</span>
+                      <span class="inv-lv-qty">4.0 L left</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="inv-bottom-cta">
+          <div class="inv-bottom-cta-badge">
+            <svg viewBox="0 0 24 24"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3Z"/></svg>
+            <span>Know Your Stock Before You Need It!</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -1057,7 +1557,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
             <td style="font-weight: 700;">Onion</td>
             <td>30 kg</td>
             <td style="font-weight: 500; color: var(--amber-text);">28 kg</td>
-            <td><span style="color: var(--amber-text); font-weight: 500;">⚠ Short 2 kg</span></td>
+            <td><span style="color: var(--amber-text); font-weight: 500;"><svg class="gm-theme-icon gm-warn" viewBox="0 0 24 24" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg> Short 2 kg</span></td>
           </tr>
         </tbody>
       </table>
@@ -1083,7 +1583,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
       <!-- Alert Card 1 -->
       <div class="card" style="padding: 24px; border-top: 4px solid var(--amber);">
         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px;">
-          <div style="width: 36px; height: 36px; border-radius: 10px; background: var(--amber-bg); color: var(--amber-text); display: grid; place-items: center; font-weight: 500;">⚠</div>
+          <div style="width: 36px; height: 36px; border-radius: 10px; background: var(--amber-bg); color: var(--amber-text); display: grid; place-items: center; font-weight: 500;"><svg class="gm-theme-icon gm-warn" viewBox="0 0 24 24" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></div>
           <div>
             <h4 style="font-size: 18px; color: var(--amber-text);">Chicken</h4>
             <div style="font-size: 12px; color: var(--mute);">Meat Category</div>
@@ -1098,7 +1598,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
       <!-- Alert Card 2 -->
       <div class="card" style="padding: 24px; border-top: 4px solid var(--amber);">
         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px;">
-          <div style="width: 36px; height: 36px; border-radius: 10px; background: var(--amber-bg); color: var(--amber-text); display: grid; place-items: center; font-weight: 500;">⚠</div>
+          <div style="width: 36px; height: 36px; border-radius: 10px; background: var(--amber-bg); color: var(--amber-text); display: grid; place-items: center; font-weight: 500;"><svg class="gm-theme-icon gm-warn" viewBox="0 0 24 24" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></div>
           <div>
             <h4 style="font-size: 18px; color: var(--amber-text);">Paneer</h4>
             <div style="font-size: 12px; color: var(--mute);">Dairy Category</div>
@@ -1113,7 +1613,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
       <!-- Alert Card 3 -->
       <div class="card" style="padding: 24px; border-top: 4px solid var(--red);">
         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px;">
-          <div style="width: 36px; height: 36px; border-radius: 10px; background: var(--red-bg); color: var(--red-text); display: grid; place-items: center; font-weight: 500;">🚨</div>
+          <div style="width: 36px; height: 36px; border-radius: 10px; background: var(--red-bg); color: var(--red-text); display: grid; place-items: center; font-weight: 500;"><svg class="gm-theme-icon gm-warn" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18v-6a5 5 0 1 1 10 0v6"/><path d="M5 21a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-1a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2Z"/><path d="M12 2v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg></div>
           <div>
             <h4 style="font-size: 18px; color: var(--red-text);">Tomato</h4>
             <div style="font-size: 12px; color: var(--mute);">Vegetables Category</div>
@@ -1313,7 +1813,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
         <div style="padding: 10px; background: var(--green-bg); border-radius: 8px; text-align: center; font-size: 12px; font-weight: 700; color: var(--green-text);">Rice ✓</div>
         <div style="padding: 10px; background: var(--green-bg); border-radius: 8px; text-align: center; font-size: 12px; font-weight: 700; color: var(--green-text);">Chicken ✓</div>
         <div style="padding: 10px; background: var(--green-bg); border-radius: 8px; text-align: center; font-size: 12px; font-weight: 700; color: var(--green-text);">Onion ✓</div>
-        <div style="padding: 10px; background: var(--red-bg); border-radius: 8px; text-align: center; font-size: 12px; font-weight: 700; color: var(--red-text);">Tomato ⚠ (3 kg)</div>
+        <div style="padding: 10px; background: var(--red-bg); border-radius: 8px; text-align: center; font-size: 12px; font-weight: 700; color: var(--red-text);">Tomato <svg class="gm-theme-icon gm-warn" viewBox="0 0 24 24" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg> (3 kg)</div>
       </div>
 
       <div style="background: var(--bg2); padding: 14px; border-radius: 10px; font-size: 14px; font-weight: 700; color: var(--ink); text-align: center;">

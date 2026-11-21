@@ -9,25 +9,21 @@
 
 @section('content')
 
-{{-- Google Fonts --}}
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
 <style>
 :root {
   --br: #876039;
   --br-dark: #6f4e2d;
-  --br-light: #fbf7f2;
+  --br-light: #FAF6EF;
   --bg: #ffffff;
-  --bg2: #f9f6f0;
-  --ink: #241A14;
-  --mute: #6F665E;
-  --line: rgba(135, 96, 57, 0.14);
-  --shadow-sm: 0 4px 20px rgba(36, 26, 20, 0.04);
-  --shadow-md: 0 16px 40px rgba(36, 26, 20, 0.08);
-  --shadow-lg: 0 26px 50px rgba(36, 26, 20, 0.12);
+  --bg2: #FAF7F2;
+  --ink: #21160F;
+  --mute: #6E6157;
+  --line: rgba(135, 96, 57, 0.16);
+  --shadow-sm: 0 4px 20px rgba(33, 22, 15, 0.04);
+  --shadow-md: 0 16px 40px rgba(33, 22, 15, 0.08);
+  --shadow-lg: 0 26px 50px rgba(33, 22, 15, 0.12);
   --green: #10B981;
 }
 
@@ -35,8 +31,8 @@
 html { scroll-behavior: smooth; }
 body {
   margin: 0;
-  font-family: var(--font-body);
-  font-size: 16px;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  font-size: 15.5px;
   line-height: 1.65;
   color: var(--ink);
   background: var(--bg) !important;
@@ -46,16 +42,17 @@ body {
 
 h1, h2, h3, h4, h5 {
   margin: 0;
-  font-family: var(--font-heading);
-  font-weight: 500;
-  line-height: 1.15;
+  font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
+  line-height: 1.18;
   letter-spacing: -0.02em;
   color: var(--ink);
 }
-h1 { font-size: clamp(36px, 5vw, 56px); }
-h2 { font-size: clamp(28px, 3.8vw, 44px); }
-h3 { font-size: 20px; font-weight: 700; }
-p { margin: 0; color: var(--mute); font-size: 16px; line-height: 1.65; }
+h1 { font-size: clamp(34px, 4.8vw, 52px); font-weight: 600; }
+h2 { font-size: clamp(26px, 3.6vw, 40px); font-weight: 600; }
+h3 { font-size: 20px; font-weight: 600; }
+h4 { font-size: 17px; font-weight: 600; }
+p { margin: 0; color: var(--mute); font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; font-size: 15.5px; line-height: 1.65; }
 a { color: inherit; text-decoration: none; }
 ul { list-style: none; margin: 0; padding: 0; }
 
@@ -63,9 +60,10 @@ ul { list-style: none; margin: 0; padding: 0; }
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 12px;
-  letter-spacing: .16em;
-  font-weight: 500;
+  letter-spacing: .14em;
+  font-weight: 600;
   text-transform: uppercase;
   color: var(--br);
   margin-bottom: 16px;
@@ -81,11 +79,11 @@ section { padding: clamp(60px, 7vw, 96px) 0; background: var(--bg); position: re
 section.alt { background: var(--bg2); }
 
 .hd { max-width: 760px; margin: 0 auto 52px; text-align: center; }
-.hd p { margin-top: 14px; font-size: 18px; }
+.hd p { margin-top: 14px; font-size: 17px; }
 .hd.left { text-align: left; margin-left: 0; max-width: 600px; }
 
 /* Buttons */
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 28px; border-radius: 12px; font-family: var(--font-body); font-weight: 700; font-size: 15px; border: 1px solid var(--br); transition: .25s ease; cursor: pointer; text-decoration: none; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 28px; border-radius: 12px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 15px; border: 1px solid var(--br); transition: .25s ease; cursor: pointer; text-decoration: none; }
 .btn.p { background: linear-gradient(135deg, #876039 0%, #a87646 100%); color: #fff; box-shadow: 0 4px 16px rgba(135,96,57,0.28); }
 .btn.p:hover { transform: translateY(-2px); background: linear-gradient(135deg, #6f4e2d 0%, #876039 100%); box-shadow: 0 8px 24px rgba(135,96,57,0.38); }
 .btn.o { color: var(--br); background: transparent; }
@@ -115,9 +113,9 @@ section.alt { background: var(--bg2); }
 .c-form-box p { font-size: 15px; margin-bottom: 32px; }
 
 .fm-grp { margin-bottom: 20px; }
-.fm-grp label { display: block; font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+.fm-grp label { display: block; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 8px; }
 .fm-grp label span { color: #EF4444; }
-.fm-grp input, .fm-grp select, .fm-grp textarea { width: 100%; padding: 14px 16px; border: 1px solid var(--line); border-radius: 12px; font-family: var(--font-body); font-size: 15px; color: var(--ink); background: var(--bg); transition: .2s; }
+.fm-grp input, .fm-grp select, .fm-grp textarea { width: 100%; padding: 14px 16px; border: 1px solid var(--line); border-radius: 12px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; color: var(--ink); background: var(--bg); transition: .2s; }
 .fm-grp input:focus, .fm-grp select:focus, .fm-grp textarea:focus { outline: none; border-color: var(--br); box-shadow: 0 0 0 4px rgba(135,96,57,0.1); }
 .fm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 
