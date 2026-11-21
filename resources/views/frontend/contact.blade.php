@@ -90,27 +90,32 @@ section.alt { background: var(--bg2); }
 .btn.o:hover { background: var(--bg2); transform: translateY(-2px); }
 
 /* SVG Icons */
-.icon-svg { width: 24px; height: 24px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.icon-svg { width: 24px; height: 24px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; display: inline-block; vertical-align: middle; flex-shrink: 0; }
 
 /* 3. HERO */
-.hero { padding-top: 40px; padding-bottom: 40px; text-align: center; }
-.hero-btns { display: flex; gap: 16px; justify-content: center; margin-top: 28px; flex-wrap: wrap; }
-.hero-dash { max-width: 900px; margin: 36px auto 0; position: relative; }
-.hero-dash img { width: 100%; border-radius: 20px; box-shadow: var(--shadow-lg); border: 1px solid var(--line); }
+.hero { padding: 64px 0 54px; position: relative; }
+.hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 48px; align-items: center; }
+.hero-content { text-align: left; }
+.hero-content h1 { text-align: left; font-size: clamp(32px, 3.8vw, 48px); line-height: 1.18; margin-top: 14px; margin-bottom: 0; font-family: 'Outfit', sans-serif; font-weight: 700; color: var(--ink); }
+.hero-content p { text-align: left; margin: 18px 0 28px; font-size: 16.5px; line-height: 1.6; color: var(--muted); }
+.hero-btns { display: flex; gap: 14px; justify-content: flex-start; margin-top: 0; flex-wrap: wrap; }
+.hero-trust { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; padding-top: 24px; border-top: 1px solid rgba(135, 96, 57, 0.15); }
+.trust-item { display: inline-flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 600; color: #4A3E36; background: rgba(255, 255, 255, 0.8); padding: 7px 14px; border-radius: 999px; border: 1px solid rgba(135, 96, 57, 0.14); }
+
+.hero-visual { position: relative; display: flex; justify-content: center; }
+.hero-img-card { position: relative; width: 100%; max-width: 480px; border-radius: 24px; box-shadow: 0 24px 50px -12px rgba(135, 96, 57, 0.22), 0 0 0 1px rgba(135, 96, 57, 0.12); background: #fff; }
+.hero-img-card img { width: 100%; height: 380px; object-fit: cover; border-radius: 24px; display: block; }
+.hero-badge { position: absolute; background: rgba(255, 255, 255, 0.96); backdrop-filter: blur(12px); padding: 10px 16px; border-radius: 14px; box-shadow: 0 12px 28px rgba(33, 22, 15, 0.12); border: 1px solid rgba(135, 96, 57, 0.15); display: flex; align-items: center; gap: 12px; z-index: 2; }
+.badge-top { top: 20px; left: -20px; }
+.badge-bottom { bottom: 20px; right: -16px; }
+.badge-dot { width: 10px; height: 10px; border-radius: 50%; background: #10B981; box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25); }
+.badge-icon { width: 34px; height: 34px; border-radius: 10px; background: rgba(135, 96, 57, 0.1); color: var(--br); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 
 /* 4 & 5. MAIN CONTACT & FORM */
-.contact-wrap { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: start; }
-.help-card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 24px; margin-bottom: 20px; display: flex; gap: 16px; transition: .2s; }
-.help-card:hover { border-color: var(--br); box-shadow: var(--shadow-md); transform: translateY(-2px); }
-.help-card .ic { width: 48px; height: 48px; flex-shrink: 0; background: var(--bg2); border-radius: 12px; color: var(--br); display: grid; place-items: center; }
-.help-card h3 { font-size: 18px; margin-bottom: 4px; }
-.help-card p { font-size: 14px; margin-bottom: 12px; }
-.help-card a { font-size: 14px; font-weight: 500; color: var(--br); display: inline-flex; align-items: center; gap: 4px; }
-.help-card a:hover { text-decoration: underline; }
-
-.c-form-box { background: #fff; border: 1px solid var(--line); border-radius: 24px; padding: 40px; box-shadow: var(--shadow-lg); }
+.contact-wrap { max-width: 900px; margin: 0 auto; }
+.c-form-box { background: #fff; border: 1px solid var(--line); border-radius: 24px; padding: 48px; box-shadow: var(--shadow-lg); width: 100%; }
 .c-form-box h2 { font-size: 28px; margin-bottom: 8px; }
-.c-form-box p { font-size: 15px; margin-bottom: 32px; }
+.c-form-box p { font-size: 15px; }
 
 .fm-grp { margin-bottom: 20px; }
 .fm-grp label { display: block; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 8px; }
@@ -119,9 +124,39 @@ section.alt { background: var(--bg2); }
 .fm-grp input:focus, .fm-grp select:focus, .fm-grp textarea:focus { outline: none; border-color: var(--br); box-shadow: 0 0 0 4px rgba(135,96,57,0.1); }
 .fm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 
-.chk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.chk-item { display: flex; align-items: flex-start; gap: 8px; font-size: 14px; color: var(--mute); cursor: pointer; }
-.chk-item input { margin-top: 4px; accent-color: var(--br); width: 16px; height: 16px; }
+.chk-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.chk-item { display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--ink); cursor: pointer; user-select: none; }
+.chk-item input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 6px;
+    border: 1.5px solid rgba(135, 96, 57, 0.35);
+    background-color: #fff;
+    cursor: pointer;
+    margin: 0;
+    flex-shrink: 0;
+    transition: all .2s ease;
+    color: var(--br) !important;
+    accent-color: var(--br) !important;
+}
+.chk-item input[type="checkbox"]:hover {
+    border-color: var(--br);
+}
+.chk-item input[type="checkbox"]:checked {
+    background-color: var(--br) !important;
+    border-color: var(--br) !important;
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e") !important;
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.chk-item input[type="checkbox"]:focus {
+    outline: none !important;
+    border-color: var(--br) !important;
+    box-shadow: 0 0 0 3px rgba(135, 96, 57, 0.2) !important;
+}
 
 .fm-submit { width: 100%; margin-top: 12px; }
 .fm-note { font-size: 13px; color: var(--mute); text-align: center; margin-top: 16px; }
@@ -157,11 +192,134 @@ section.alt { background: var(--bg2); }
 .ind-card p { font-size: 14px; margin-bottom: 16px; min-height: 44px; }
 .ind-link { font-size: 13px; font-weight: 500; color: var(--br); }
 
-/* 9. CONTACT INFORMATION */
-.info-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
-.info-card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 24px; text-align: center; }
-.info-lbl { font-size: 11px; font-weight: 500; color: var(--mute); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 8px; }
-.info-val { font-size: 16px; font-weight: 700; color: var(--ink); }
+/* 9. CONTACT INFORMATION CARDS - REDESIGNED */
+.touch-grid { max-width: 860px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+.touch-card {
+    background: #ffffff;
+    border: 1.5px solid rgba(135, 96, 57, 0.16);
+    border-radius: 20px;
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 8px 24px rgba(33, 22, 15, 0.04);
+    transition: all .25s ease;
+    position: relative;
+    overflow: hidden;
+}
+.touch-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #876039, #c18a55);
+    opacity: 0;
+    transition: opacity .25s ease;
+}
+.touch-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(135, 96, 57, 0.4);
+    box-shadow: 0 18px 40px rgba(135, 96, 57, 0.12);
+}
+.touch-card:hover::before {
+    opacity: 1;
+}
+.touch-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.touch-ic {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #FAF4ED 0%, #F4EAE0 100%);
+    border: 1px solid rgba(135, 96, 57, 0.2);
+    color: #876039;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+}
+.touch-badge {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: #876039;
+    background: rgba(135, 96, 57, 0.08);
+    padding: 5px 12px;
+    border-radius: 99px;
+}
+.touch-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: #6E6157;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    margin-bottom: 6px;
+}
+.touch-val {
+    font-size: 22px;
+    font-weight: 700;
+    color: #21160F;
+    font-family: 'Outfit', sans-serif;
+    margin-bottom: 10px;
+    line-height: 1.25;
+    word-break: break-all;
+}
+.touch-val a {
+    color: #21160F;
+    transition: color .2s;
+}
+.touch-val a:hover {
+    color: #876039;
+}
+.touch-desc {
+    font-size: 14px;
+    color: #6E6157;
+    line-height: 1.55;
+    margin-bottom: 24px;
+}
+.touch-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: auto;
+}
+.touch-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: .2s ease;
+    flex: 1;
+    text-align: center;
+}
+.touch-btn.primary {
+    background: linear-gradient(135deg, #876039 0%, #a87646 100%);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(135, 96, 57, 0.2);
+}
+.touch-btn.primary:hover {
+    background: linear-gradient(135deg, #6f4e2d 0%, #876039 100%);
+    transform: translateY(-1px);
+}
+.touch-btn.secondary {
+    background: #FAF7F2;
+    color: #876039;
+    border: 1px solid rgba(135, 96, 57, 0.22);
+}
+.touch-btn.secondary:hover {
+    background: #f4eee6;
+    border-color: #876039;
+}
 
 /* 10. OFFICE LOCATION */
 .office-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
@@ -182,18 +340,29 @@ section.alt { background: var(--bg2); }
 
 /* Responsive */
 @media (max-width: 1024px) {
-  .contact-wrap, .demo-wrap, .office-wrap { grid-template-columns: 1fr; gap: 36px; }
-  .why-grid, .ind-grid, .info-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+  .hero-content { text-align: center; }
+  .hero-content h1, .hero-content p { text-align: center; }
+  .hero-btns { justify-content: center; }
+  .hero-trust { justify-content: center; }
+  .badge-top { left: 12px; top: 12px; }
+  .badge-bottom { right: 12px; bottom: 12px; }
+  .demo-wrap, .office-wrap { grid-template-columns: 1fr; gap: 36px; }
+  .why-grid, .ind-grid, .touch-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 640px) {
   .w { padding: 0 16px; }
+  .hero { padding: 40px 0 30px; }
+  .hero-img-card img { height: 260px; }
+  .hero-badge { position: static; margin: 10px 0; width: fit-content; }
+  .hero-visual { flex-direction: column; align-items: center; }
   .fm-grid, .chk-grid { grid-template-columns: 1fr; }
-  .why-grid, .ind-grid, .info-grid { grid-template-columns: 1fr; }
+  .why-grid, .ind-grid, .touch-grid { grid-template-columns: 1fr; }
+  .touch-actions { flex-direction: column; }
   .hero-btns { flex-direction: column; }
   .hero-btns .btn { width: 100%; }
-  .c-form-box { padding: 22px 16px; border-radius: 16px; }
-  .help-card { padding: 18px 16px; }
+  .c-form-box { padding: 24px 18px; border-radius: 16px; }
   .map-box { height: 260px; }
   .faq-item { padding: 16px; }
   .faq-item summary { font-size: 14.5px; }
@@ -203,16 +372,55 @@ section.alt { background: var(--bg2); }
 {{-- 3. HERO --}}
 <section class="hero alt">
     <div class="w">
-        <div class="eb">Contact Geni Menu</div>
-        <h1>Let’s Build a Smarter Restaurant Business.</h1>
-        <p style="max-width:640px; margin:16px auto 0;">Have questions about Geni Menu, pricing, features or the right solution for your business? Talk to our team and discover how Geni Menu can help you manage your restaurant operations more efficiently.</p>
-        <div class="hero-btns">
-            <a href="https://wa.me/919047555066?text=Hi%2C%20I%20would%20like%20to%20book%20a%20demo%20for%20Geni%20Menu." target="_blank" rel="noopener" class="btn p">Book a Demo →</a>
-            <a href="#form" class="btn o" style="background:#fff;">Talk to Sales →</a>
-        </div>
-        
-        <div class="hero-dash">
-            <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1200&q=80" alt="Contact Geni Menu Team">
+        <div class="hero-grid">
+            <div class="hero-content">
+                <div class="eb">Contact Geni Menu</div>
+                <h1>Let’s Build a <span style="color: var(--br);">Smarter Restaurant</span> Business.</h1>
+                <p>Have questions about Geni Menu, pricing, features or the right solution for your business? Talk to our team and discover how Geni Menu can help you manage your restaurant operations more efficiently.</p>
+                <div class="hero-btns">
+                    <a href="https://wa.me/918667205661?text=Hi%2C%20I%20would%20like%20to%20book%20a%20demo%20for%20Geni%20Menu." target="_blank" rel="noopener" class="btn p">Book a Demo &rarr;</a>
+                    <a href="#form" class="btn o" style="background:#fff;">Talk to Sales &darr;</a>
+                </div>
+                
+                <div class="hero-trust">
+                    <div class="trust-item">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--br);"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                        <span>15-Min Live Demo</span>
+                    </div>
+                    <div class="trust-item">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--br);"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        <span>Direct Call & WhatsApp</span>
+                    </div>
+                    <div class="trust-item">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--br);"><path d="M3 21h18M3 7v14M21 7v14M9 3h6v4H9zM9 11h2M9 15h2M13 11h2M13 15h2"/></svg>
+                        <span>Single & Multi-Outlet</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="hero-img-card">
+                    <img src="https://images.unsplash.com/photo-1525182008055-f88b95ff7980?auto=format&fit=crop&w=1000&q=80" alt="Contact Geni Menu Support & Sales Team">
+                    
+                    <div class="hero-badge badge-top">
+                        <span class="badge-dot"></span>
+                        <div>
+                            <strong style="display:block; font-size:13.5px; color:#21160F; font-family:'Outfit', sans-serif;">Support & Sales Active</strong>
+                            <small style="color:#64748B; font-size:11px;">Direct Team Assistance</small>
+                        </div>
+                    </div>
+
+                    <div class="hero-badge badge-bottom">
+                        <div class="badge-icon">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        </div>
+                        <div>
+                            <small style="color: #64748B; font-size: 11px; font-weight: 500; display: block;">Quick Call</small>
+                            <a href="tel:+918667205661" style="color: #21160F; font-weight: 700; font-size: 14.5px; text-decoration: none;">+91 86672 05661</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -220,41 +428,12 @@ section.alt { background: var(--bg2); }
 {{-- 4 & 5. MAIN CONTACT & FORM --}}
 <section id="form">
     <div class="w contact-wrap">
-        <div>
-            <h2 style="margin-bottom:16px;">We’re Here to Help</h2>
-            <p style="margin-bottom:48px;">Whether you are starting a new restaurant, managing an existing outlet or growing into multiple branches, our team can help you find the right Geni Menu setup.</p>
-            
-            <div class="help-card">
-                <div class="ic"><svg class="icon-svg"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
-                <div>
-                    <h3>Sales & Demo</h3>
-                    <p>Want to see Geni Menu in action?</p>
-                    <a href="https://wa.me/919047555066?text=Hi%2C%20I%20would%20like%20to%20book%20a%20demo%20for%20Geni%20Menu." target="_blank" rel="noopener">Book a Demo →</a>
-                </div>
-            </div>
-            
-            <div class="help-card">
-                <div class="ic"><svg class="icon-svg"><path d="M15.05 5A5 5 0 0 1 19 8.95M15.05 1A9 9 0 0 1 23 8.94m-1 7.98v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
-                <div>
-                    <h3>Product Support</h3>
-                    <p>Already using Geni Menu and need assistance?</p>
-                    <a href="mailto:we@wegeni.com">Contact Support →</a>
-                </div>
-            </div>
-
-            <div class="help-card">
-                <div class="ic"><svg class="icon-svg"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
-                <div>
-                    <h3>Business Enquiries</h3>
-                    <p>Have a partnership, integration or business enquiry?</p>
-                    <a href="mailto:business@wegeni.com">Talk to Our Team →</a>
-                </div>
-            </div>
+        <div class="hd" style="text-align: center; margin-bottom: 36px;">
+            <h2 style="font-size: clamp(28px, 3.5vw, 40px); margin-bottom: 12px;">We’re Here to Help</h2>
+            <p style="font-size: 16px; max-width: 680px; margin: 0 auto; color: var(--muted); line-height: 1.6;">Whether you are starting a new restaurant, managing an existing outlet or growing into multiple branches, our team can help you find the right Geni Menu setup.</p>
         </div>
 
         <div class="c-form-box">
-            <h2>Tell Us About Your Business</h2>
-            <p>Fill in your details and our team will get back to you.</p>
 
             @if (session('success'))
                 <div class="alert-success">
@@ -378,28 +557,28 @@ section.alt { background: var(--bg2); }
             <p style="margin-bottom:40px;">A quick product walkthrough can help you understand how Geni Menu can fit into your everyday restaurant operations.</p>
             
             <div class="demo-feat">
-                <div class="ic"><svg class="icon-svg"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+                <div class="ic"><svg viewBox="0 0 24 24" class="icon-svg"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
                 <div>
                     <h4>Explore the Platform</h4>
                     <p>See the key Geni Menu modules.</p>
                 </div>
             </div>
             <div class="demo-feat">
-                <div class="ic"><svg class="icon-svg"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
+                <div class="ic"><svg viewBox="0 0 24 24" class="icon-svg"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
                 <div>
                     <h4>Understand Your Workflow</h4>
                     <p>See how different operations connect.</p>
                 </div>
             </div>
             <div class="demo-feat">
-                <div class="ic"><svg class="icon-svg"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div>
+                <div class="ic"><svg viewBox="0 0 24 24" class="icon-svg"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div>
                 <div>
                     <h4>Explore Plans</h4>
                     <p>Understand Standard, Premium and Enterprise options.</p>
                 </div>
             </div>
             <div class="demo-feat">
-                <div class="ic"><svg class="icon-svg"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+                <div class="ic"><svg viewBox="0 0 24 24" class="icon-svg"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
                 <div>
                     <h4>Ask Your Questions</h4>
                     <p>Discuss your specific business requirements with the team.</p>
@@ -407,7 +586,7 @@ section.alt { background: var(--bg2); }
             </div>
             
             <div style="margin-top:40px;">
-                <a href="https://wa.me/919047555066?text=Hi%2C%20I%20would%20like%20to%20book%20a%20demo%20for%20Geni%20Menu." target="_blank" rel="noopener" class="btn p">Book a Demo →</a>
+                <a href="https://wa.me/918667205661?text=Hi%2C%20I%20would%20like%20to%20book%20a%20demo%20for%20Geni%20Menu." target="_blank" rel="noopener" class="btn p">Book a Demo →</a>
             </div>
         </div>
 
@@ -417,123 +596,78 @@ section.alt { background: var(--bg2); }
     </div>
 </section>
 
-{{-- 7. WHY TALK TO US --}}
+{{-- 7. WHY TALK TO US / CONSULTATION CTA --}}
 <section>
-    <div class="w">
-        <div class="hd">
+    <div class="w" style="text-align: center;">
+        <div class="hd" style="margin-bottom: 28px;">
             <h2>Not Sure Which Geni Menu Setup You Need?</h2>
             <p>Tell us about your business and we can help you understand the available solution and features.</p>
         </div>
 
-        <div class="why-grid">
-            <div class="why-card">
-                <div class="ic"><svg class="icon-svg"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg></div>
-                <h4>Choose the Right Features</h4>
-                <p>Identify the features relevant to your restaurant operations.</p>
-            </div>
-            <div class="why-card">
-                <div class="ic"><svg class="icon-svg"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
-                <h4>Understand the Plans</h4>
-                <p>Explore Standard, Premium and Enterprise options.</p>
-            </div>
-            <div class="why-card">
-                <div class="ic"><svg class="icon-svg"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
-                <h4>Plan for Growth</h4>
-                <p>Understand how Geni Menu can support additional outlets and operations as your business grows.</p>
-            </div>
-            <div class="why-card">
-                <div class="ic"><svg class="icon-svg"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
-                <h4>Get Product Guidance</h4>
-                <p>Discuss your specific requirements with the Geni Menu team.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-{{-- 8. BUSINESS TYPES --}}
-<section class="alt">
-    <div class="w">
-        <div class="hd">
-            <h2>Built for Different Food Businesses</h2>
-            <p>Whatever your food business model, explore the Geni Menu solution designed around your operations.</p>
-        </div>
-
-        <div class="ind-grid">
-            <div class="ind-card">
-                <div class="ind-ic">
-                    <svg viewBox="0 0 24 24"><path d="M4 9h16M5 9v10M19 9v10M9 9V5h6v4M7 15h10"/></svg>
-                </div>
-                <h4>Dine-in Restaurants</h4>
-                <p>Manage tables, menus, dine-in orders, KOT and billing.</p>
-                <a href="{{ route('solutions.dine-in-restaurant') }}" class="ind-link">Explore Solutions →</a>
-            </div>
-            <div class="ind-card">
-                <div class="ind-ic">
-                    <svg viewBox="0 0 24 24"><path d="M21.21 15.89A10 10 0 1 1 8 2.83M22 12A10 10 0 0 0 12 2v10z"/></svg>
-                </div>
-                <h4>Pizzerias</h4>
-                <p>Manage specialty menus, orders, kitchen workflows and billing.</p>
-                <a href="{{ route('solutions.pizzerias') }}" class="ind-link">Explore Solutions →</a>
-            </div>
-            <div class="ind-card">
-                <div class="ind-ic">
-                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                </div>
-                <h4>QSRs</h4>
-                <p>Manage fast-moving orders, POS, kitchen and daily operations.</p>
-                <a href="{{ route('solutions.qsr-restaurant') }}" class="ind-link">Explore Solutions →</a>
-            </div>
-            <div class="ind-card">
-                <div class="ind-ic">
-                    <svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
-                </div>
-                <h4>Bakeries</h4>
-                <p>Manage products, cake orders, customers, billing and inventory.</p>
-                <a href="{{ route('solutions.bakery') }}" class="ind-link">Explore Solutions →</a>
-            </div>
-            <div class="ind-card">
-                <div class="ind-ic">
-                    <svg viewBox="0 0 24 24"><path d="M17 3v3H7V3M9 6v15M15 6v15"/><path d="M6 3h12l-2 18H8z"/><path d="M11 0L10 6"/></svg>
-                </div>
-                <h4>Juice & Snack Shops</h4>
-                <p>Manage beverages, quick snacks, POS billing and daily stock.</p>
-                <a href="{{ route('solutions.juice-and-snacks') }}" class="ind-link">Explore Solutions →</a>
-            </div>
-            <div class="ind-card">
-                <div class="ind-ic">
-                    <svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><path d="M9 22v-4h6v4M8 6h.01M16 6h.01M12 6h.01M12 10h.01M16 10h.01M8 10h.01M12 14h.01M16 14h.01M8 14h.01"/></svg>
-                </div>
-                <h4>Office Canteens</h4>
-                <p>Manage employee food orders, corporate counters and billing.</p>
-                <a href="{{ route('solutions.office-canteen') }}" class="ind-link">Explore Solutions →</a>
-            </div>
+        <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+            <a href="https://wa.me/918667205661?text=Hi%2C%20I%20am%20not%20sure%20which%20Geni%20Menu%20setup%20I%20need.%20Can%20you%20help%20me%3F" target="_blank" rel="noopener" class="btn p" style="display: inline-flex; align-items: center; gap: 10px;">
+                <svg style="width: 20px; height: 20px; fill: currentColor;" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                Chat on WhatsApp →
+            </a>
         </div>
     </div>
 </section>
 
 {{-- 9. CONTACT INFORMATION --}}
-<section>
+<section class="alt">
     <div class="w">
-        <div class="hd">
+        <div class="hd" style="margin-bottom: 44px;">
             <h2>Get in Touch</h2>
+            <p>Connect with our team directly for product queries, demos or corporate partnerships.</p>
         </div>
 
-        <div class="info-grid">
-            <div class="info-card">
-                <div class="info-lbl">SALES</div>
-                <div class="info-val"><a href="mailto:business@wegeni.com" style="color:inherit;">business@wegeni.com</a></div>
+        <div class="touch-grid">
+            <div class="touch-card">
+                <div>
+                    <div class="touch-top">
+                        <div class="touch-ic">
+                            <svg viewBox="0 0 24 24" class="icon-svg" style="width:22px; height:22px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        </div>
+                        <span class="touch-badge">Sales & Enquiries</span>
+                    </div>
+                    <div class="touch-title">Phone & WhatsApp</div>
+                    <div class="touch-val">
+                        <a href="tel:+918667205661">+91 86672 05661</a>
+                    </div>
+                    <p class="touch-desc">Speak directly with our solutions team to discuss features, pricing, or to schedule a live product demo.</p>
+                </div>
+                <div class="touch-actions">
+                    <a href="tel:+918667205661" class="touch-btn primary">
+                        <svg viewBox="0 0 24 24" style="width:16px; height:16px;" class="icon-svg"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        Call Now
+                    </a>
+                    <a href="https://wa.me/918667205661?text=Hi%2C%20I%20would%20like%20to%20connect%20regarding%20Geni%20Menu." target="_blank" rel="noopener" class="touch-btn secondary">
+                        <svg style="width:16px; height:16px; fill:currentColor;" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                        WhatsApp
+                    </a>
+                </div>
             </div>
-            <div class="info-card">
-                <div class="info-lbl">SALES & ENQUIRIES</div>
-                <div class="info-val"><a href="tel:+919047555066" style="color:inherit;">+91 90475 55066</a></div>
-            </div>
-            <div class="info-card">
-                <div class="info-lbl">BUSINESS ENQUIRIES</div>
-                <div class="info-val"><a href="mailto:business@wegeni.com" style="color:inherit;">business@wegeni.com</a></div>
-            </div>
-            <div class="info-card">
-                <div class="info-lbl">CUSTOMER SUPPORT</div>
-                <div class="info-val"><a href="mailto:we@wegeni.com" style="color:inherit;">we@wegeni.com</a></div>
+
+            <div class="touch-card">
+                <div>
+                    <div class="touch-top">
+                        <div class="touch-ic">
+                            <svg viewBox="0 0 24 24" class="icon-svg" style="width:22px; height:22px;"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                        </div>
+                        <span class="touch-badge">Business Enquiries</span>
+                    </div>
+                    <div class="touch-title">Email Correspondence</div>
+                    <div class="touch-val">
+                        <a href="mailto:business@wegeni.com">business@wegeni.com</a>
+                    </div>
+                    <p class="touch-desc">For strategic collaborations, franchise enquiries, partner integrations, or general corporate discussions.</p>
+                </div>
+                <div class="touch-actions">
+                    <a href="mailto:business@wegeni.com" class="touch-btn primary" style="width: 100%;">
+                        <svg viewBox="0 0 24 24" style="width:16px; height:16px;" class="icon-svg"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                        Send Email →
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -571,31 +705,31 @@ section.alt { background: var(--bg2); }
 
         <div class="faq-list">
             <details class="faq-item">
-                <summary>What is Geni Menu? <svg class="icon-svg"><path d="M6 9l6 6 6-6"/></svg></summary>
+                <summary>What is Geni Menu? <svg viewBox="0 0 24 24" class="icon-svg"><path d="M6 9l6 6 6-6"/></svg></summary>
                 <p>Geni Menu is a restaurant and food-business management platform that brings menu, orders, billing, kitchen, inventory, customers and reports together.</p>
             </details>
             <details class="faq-item">
-                <summary>Can I get a product demo? <svg class="icon-svg"><path d="M6 9l6 6 6-6"/></svg></summary>
+                <summary>Can I get a product demo? <svg viewBox="0 0 24 24" class="icon-svg"><path d="M6 9l6 6 6-6"/></svg></summary>
                 <p>Yes. You can request a demo to explore Geni Menu and understand how it fits your business.</p>
             </details>
             <details class="faq-item">
-                <summary>Which businesses can use Geni Menu? <svg class="icon-svg"><path d="M6 9l6 6 6-6"/></svg></summary>
+                <summary>Which businesses can use Geni Menu? <svg viewBox="0 0 24 24" class="icon-svg"><path d="M6 9l6 6 6-6"/></svg></summary>
                 <p>Geni Menu is designed for restaurants, QSRs, cafés, bakeries, sweet shops, juice shops, ice cream shops, tea shops, pizzerias, canteens and other food businesses.</p>
             </details>
             <details class="faq-item">
-                <summary>How do I choose the right plan? <svg class="icon-svg"><path d="M6 9l6 6 6-6"/></svg></summary>
+                <summary>How do I choose the right plan? <svg viewBox="0 0 24 24" class="icon-svg"><path d="M6 9l6 6 6-6"/></svg></summary>
                 <p>You can compare Standard, Premium and Enterprise plans based on your business requirements and the features you need.</p>
             </details>
             <details class="faq-item">
-                <summary>Can Geni Menu support multiple branches? <svg class="icon-svg"><path d="M6 9l6 6 6-6"/></svg></summary>
+                <summary>Can Geni Menu support multiple branches? <svg viewBox="0 0 24 24" class="icon-svg"><path d="M6 9l6 6 6-6"/></svg></summary>
                 <p>Multi-branch capabilities are available in applicable plans.</p>
             </details>
             <details class="faq-item">
-                <summary>Can I contact the team for pricing? <svg class="icon-svg"><path d="M6 9l6 6 6-6"/></svg></summary>
+                <summary>Can I contact the team for pricing? <svg viewBox="0 0 24 24" class="icon-svg"><path d="M6 9l6 6 6-6"/></svg></summary>
                 <p>Yes. Contact the sales team to discuss your business requirements and applicable pricing.</p>
             </details>
             <details class="faq-item">
-                <summary>How can I get technical support? <svg class="icon-svg"><path d="M6 9l6 6 6-6"/></svg></summary>
+                <summary>How can I get technical support? <svg viewBox="0 0 24 24" class="icon-svg"><path d="M6 9l6 6 6-6"/></svg></summary>
                 <p>Existing customers can contact the designated Geni Menu support channel for assistance.</p>
             </details>
         </div>
@@ -608,7 +742,7 @@ section.alt { background: var(--bg2); }
         <h2>Your Restaurant. Smarter by Design.</h2>
         <p>Ready to simplify your restaurant operations? Talk to the Geni Menu team and find the right solution for your business.</p>
         <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:32px;">
-            <a href="https://wa.me/919047555066?text=Hi%2C%20I%20would%20like%20to%20book%20a%20demo%20for%20Geni%20Menu." target="_blank" rel="noopener" class="btn p">Book a Demo →</a>
+            <a href="https://wa.me/918667205661?text=Hi%2C%20I%20would%20like%20to%20book%20a%20demo%20for%20Geni%20Menu." target="_blank" rel="noopener" class="btn p">Book a Demo →</a>
             <a href="#form" class="btn o" style="background:transparent; border:1.5px solid #876039; color:#876039;">Get Started →</a>
         </div>
     </div>
