@@ -1,3 +1,11 @@
+@php
+$meta = [
+    'title' => 'Pizzeria & Specialty Food POS Software | Geni Menu',
+    'description' => 'Manage pizzas, burgers, pasta, sandwiches, desserts and specialty food products along with sizes, crusts, toppings, combos, KOTs, tables, billing, inventory and reports from one connected platform.',
+    'keywords' => 'pizzeria POS software, pizza shop billing software, pizza topping customization POS, specialty food restaurant POS, pizza KOT system, Geni Menu',
+];
+@endphp
+
 @extends('layouts.frontend-master')
 
 @section('content')
@@ -5,57 +13,56 @@
 {{-- Google Fonts --}}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,600;1,700&display=swap" rel="stylesheet">
-{{-- Bootstrap Icons --}}
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600;1,700&display=swap" rel="stylesheet">
 
 <style>
 :root {
   --br: #876039;
   --br-dark: #6f4e2d;
-  --br-light: #fbf7f2;
+  --br-light: #FBF6EE;
   --br-gold: #b88e56;
   --bg: #ffffff;
-  --bg2: #f9f6f0;
-  --bg3: #f1ebe5;
-  --ink: #241A14;
-  --mute: #6F665E;
-  --line: rgba(135, 96, 57, 0.14);
+  --bg2: #FAF7F2;
+  --bg3: #F5EFE6;
+  --ink: #21160F;
+  --mute: #6E6157;
+  --line: rgba(135, 96, 57, 0.16);
   --card: #ffffff;
-  --shadow-sm: 0 4px 20px rgba(36, 26, 20, 0.04);
-  --shadow-md: 0 16px 40px rgba(36, 26, 20, 0.08);
-  --shadow-lg: 0 26px 50px rgba(36, 26, 20, 0.12);
-  --green: #10B981;
-  --blue: #3B82F6;
-  --amber: #F59E0B;
-  --red: #EF4444;
+  --shadow-sm: 0 4px 20px rgba(33, 22, 15, 0.04);
+  --shadow-md: 0 16px 40px rgba(33, 22, 15, 0.08);
+  --shadow-lg: 0 24px 54px rgba(33, 22, 15, 0.12);
+  --green: #15803D;
+  --green-bg: #ECFDF5;
+  --amber: #B45309;
+  --amber-bg: #FFFBEB;
+  --blue: #1D4ED8;
+  --blue-bg: #EFF6FF;
+  --red: #B91C1C;
+  --red-bg: #FEF2F2;
 }
 
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  margin: 0;
-  font: 400 16px/1.65 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+.pz-page * { box-sizing: border-box; }
+.pz-page {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   color: var(--ink);
-  background: var(--bg) !important;
-  overflow-x: hidden;
+  background: var(--bg);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
-h1, h2, h3, h4, h5 {
+.pz-page h1, .pz-page h2, .pz-page h3, .pz-page h4 {
   margin: 0;
   font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
   font-weight: 500;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+  line-height: 1.14;
+  letter-spacing: -0.025em;
   color: var(--ink);
 }
-h1 { font-size: clamp(36px, 5vw, 62px); }
-h2 { font-size: clamp(28px, 3.8vw, 44px); }
-h3 { font-size: 20px; font-weight: 700; }
-p { margin: 0; color: var(--mute); font-size: 16px; line-height: 1.65; }
-a { color: inherit; text-decoration: none; }
-ul { list-style: none; margin: 0; padding: 0; }
+.pz-page h1 { font-size: clamp(34px, 4.6vw, 56px); }
+.pz-page h2 { font-size: clamp(28px, 3.6vw, 44px); }
+.pz-page h3 { font-size: 20px; font-weight: 600; }
+.pz-page p { margin: 0; color: var(--mute); font-size: 16px; line-height: 1.65; }
+.pz-page a { text-decoration: none; color: inherit; }
 
 .sf {
   font-family: 'Playfair Display', Georgia, serif;
@@ -68,1063 +75,1038 @@ ul { list-style: none; margin: 0; padding: 0; }
   padding-right: 4px;
 }
 
+.w { max-width: 1240px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+.pz-sec { padding: clamp(56px, 6.5vw, 92px) 0; background: var(--bg); position: relative; overflow: hidden; }
+.pz-sec.alt { background: var(--bg2); }
+.pz-sec.border-b { border-bottom: 1px solid var(--line); }
+
 .eb {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 12px;
-  letter-spacing: .16em;
-  font-weight: 500;
-  text-transform: uppercase;
-  color: var(--br);
-  margin-bottom: 16px;
-  background: linear-gradient(135deg, #fbf7f2 0%, #f4efe9 100%);
-  padding: 7px 18px;
-  border-radius: 99px;
-  border: 1px solid rgba(135, 96, 57, 0.22);
-  box-shadow: 0 2px 10px rgba(135, 96, 57, 0.08);
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 12px; letter-spacing: .14em; font-weight: 700; text-transform: uppercase;
+  color: var(--br); margin-bottom: 16px; background: var(--br-light);
+  padding: 7px 16px; border-radius: 99px; border: 1px solid rgba(135, 96, 57, 0.22);
 }
+.hd { max-width: 760px; margin: 0 auto 48px; text-align: center; }
+.hd p { margin-top: 14px; font-size: 17px; }
 
-.w { max-width: 1240px; margin: auto; padding: 0 24px; position: relative; z-index: 1; }
-section { padding: clamp(60px, 7vw, 96px) 0; background: var(--bg); position: relative; overflow: hidden; }
-section.alt { background: var(--bg2); }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 14px 28px; border-radius: 12px; font: 700 15px 'Plus Jakarta Sans', sans-serif;
+  border: 1.5px solid var(--br); transition: .25s ease; cursor: pointer;
+}
+.btn.p { background: linear-gradient(135deg, #876039 0%, #a87646 100%); color: #fff; box-shadow: 0 4px 16px rgba(135, 96, 57, 0.28); }
+.btn.p:hover { transform: translateY(-2px); background: linear-gradient(135deg, #6f4e2d 0%, #876039 100%); box-shadow: 0 8px 24px rgba(135, 96, 57, 0.36); }
+.btn.o { color: var(--br); background: #fff; }
+.btn.o:hover { background: var(--br); color: #fff; transform: translateY(-2px); }
 
-.hd { max-width: 760px; margin: 0 auto 52px; text-align: center; }
-.hd.left { text-align: left; margin: 0 0 40px; }
-.hd p { margin-top: 14px; font-size: 18px; }
+.bc { padding: 16px 0; background: var(--bg2); border-bottom: 1px solid var(--line); font-size: 13.5px; color: var(--mute); font-weight: 600; }
+.bc .w { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.bc a:hover { color: var(--br); }
+.bc .sep { opacity: 0.5; }
+.bc .cur { color: var(--br); font-weight: 700; }
 
-/* Buttons */
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 28px; border-radius: 12px; font: 700 15px 'Plus Jakarta Sans', sans-serif; border: 1px solid var(--br); transition: .25s ease; cursor: pointer; text-decoration: none; }
-.btn.p { background: linear-gradient(135deg, #876039 0%, #a87646 100%); color: #fff; box-shadow: 0 4px 16px rgba(135,96,57,0.28); }
-.btn.p:hover { transform: translateY(-2px); background: linear-gradient(135deg, #6f4e2d 0%, #876039 100%); box-shadow: 0 8px 24px rgba(135,96,57,0.38); }
-.btn.o { color: var(--br); background: transparent; }
-.btn.o:hover { background: var(--bg2); transform: translateY(-2px); }
+.r { opacity: 0; transform: translateY(20px); transition: opacity .65s ease, transform .65s ease; }
+.r.on { opacity: 1; transform: none; }
 
-/* Badges */
-.badge { font-size: 11px; font-weight: 500; padding: 4px 10px; border-radius: 8px; text-transform: uppercase; display: inline-block; letter-spacing: .04em; }
-.badge.ready { background: #d1fae5; color: #047857; }
-.badge.preparing { background: #ffedd5; color: #c2410c; }
-.badge.new { background: #eff6ff; color: #1d4ed8; }
-.badge.soldout { background: #fee2e2; color: #b91c1c; }
-.badge.occupied { background: #fee2e2; color: #b91c1c; }
-.badge.reserved { background: #ffedd5; color: #c2410c; }
-.badge.available { background: #d1fae5; color: #047857; }
+/* Hero */
+.rm-hero { padding: clamp(48px, 6vw, 84px) 0; background: linear-gradient(180deg, var(--bg2) 0%, #ffffff 100%); border-bottom: 1px solid var(--line); }
+.rm-hero-grid { display: grid; grid-template-columns: 1fr 1.12fr; gap: 52px; align-items: center; }
+.rm-hero-sub { font-size: 17.5px; margin: 20px 0 30px; max-width: 540px; color: var(--mute); }
+.rm-hero-cta { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 34px; }
+.rm-hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; padding-top: 24px; border-top: 1px solid var(--line); }
+.rm-hero-stat strong { display: block; font-family: 'Outfit', sans-serif; font-size: 21px; font-weight: 600; color: var(--br); line-height: 1.2; }
+.rm-hero-stat span { font-size: 12.5px; font-weight: 600; color: var(--mute); }
 
-/* Bootstrap Icons sizing */
-.bi { font-size: inherit; line-height: 1; vertical-align: middle; }
-.ic .bi { font-size: 26px; color: var(--br); }
-.sm-icon .bi { font-size: 32px; color: var(--br); }
-.wf-node .bi { font-size: 22px; display: block; margin-bottom: 4px; }
-.ot-step .bi { font-size: 16px; }
-.eb .bi { font-size: 14px; }
+.rm-hero-media { position: relative; border-radius: 26px; overflow: hidden; box-shadow: var(--shadow-lg); border: 1px solid rgba(135, 96, 57, 0.2); background: #1C1510; aspect-ratio: 4 / 3; }
+.rm-hero-media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; }
+.rm-hero-media:hover img { transform: scale(1.03); }
+.rm-hero-scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(33, 22, 15, 0.12) 0%, rgba(33, 22, 15, 0.04) 45%, rgba(33, 22, 15, 0.62) 100%); pointer-events: none; }
+.rm-hero-pill { position: absolute; top: 18px; left: 18px; display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 99px; background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(10px); font-size: 12px; font-weight: 700; color: var(--ink); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.14); }
+.rm-live-dot { width: 8px; height: 8px; border-radius: 50%; background: #16A34A; box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.22); }
+.rm-hero-float { position: absolute; left: 18px; right: 18px; bottom: 18px; background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(12px); border: 1px solid rgba(135, 96, 57, 0.2); border-radius: 16px; padding: 14px 18px; display: flex; align-items: center; justify-content: space-between; gap: 14px; box-shadow: 0 12px 30px rgba(33, 22, 15, 0.18); }
+.rm-hero-float-left { display: flex; align-items: center; gap: 12px; }
+.rm-hero-float-ico { width: 40px; height: 40px; border-radius: 11px; background: var(--br-light); color: var(--br); border: 1px solid rgba(135, 96, 57, 0.2); display: grid; place-items: center; flex: none; }
+.rm-hero-float-ico svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; }
+.rm-hero-float-ttl { font-size: 13.5px; font-weight: 700; color: var(--ink); line-height: 1.25; }
+.rm-hero-float-sub { font-size: 12px; color: var(--mute); }
+.rm-hero-float-tag { font-size: 11px; font-weight: 700; padding: 5px 11px; border-radius: 99px; background: var(--amber-bg); color: var(--amber); white-space: nowrap; }
 
-/* ---------------- BREADCRUMB ---------------- */
-.bc { padding: 18px 0 16px; background: var(--bg); border-bottom: 1px solid var(--line); font-size: 14px; color: var(--mute); font-weight: 600; }
-.bc .w { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-.bc a { color: var(--mute); transition: color .2s; }
-.bc a:hover { color: var(--ink); }
-.bc span.cur { color: var(--ink); font-weight: 700; }
+/* Value Strip */
+.rm-val-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.rm-val-card { background: var(--bg2); border: 1px solid var(--line); border-radius: 18px; padding: 24px; transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+.rm-val-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: rgba(135, 96, 57, 0.32); background: #fff; }
+.rm-val-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+.rm-ic { width: 46px; height: 46px; border-radius: 13px; background: #fff; color: var(--br); border: 1px solid var(--line); display: grid; place-items: center; transition: .25s ease; }
+.rm-ic svg { width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.rm-val-card:hover .rm-ic, .rm-ben-card:hover .rm-ic { background: var(--br); color: #fff; border-color: var(--br); }
+.rm-num { font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 700; color: var(--br); opacity: 0.75; letter-spacing: 0.06em; }
+.rm-val-card h3 { font-size: 17.5px; margin-bottom: 8px; }
+.rm-val-card p { font-size: 14px; }
 
-/* ---------------- HERO ---------------- */
-.hero { padding: 60px 0 90px; }
-.hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
-.hero-ctx p { font-size: 18px; margin: 20px 0 32px; max-width: 540px; }
-.hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+/* Window Chrome & Badges */
+.rm-win { background: #fff; border: 1px solid var(--line); border-radius: 22px; overflow: hidden; box-shadow: var(--shadow-md); }
+.rm-win-bar { display: flex; align-items: center; justify-content: space-between; padding: 13px 20px; background: var(--bg2); border-bottom: 1px solid var(--line); gap: 12px; flex-wrap: wrap; }
+.rm-win-dots { display: flex; gap: 6px; }
+.rm-win-dots i { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.rm-win-dots i:nth-child(1) { background: #ff5f56; }
+.rm-win-dots i:nth-child(2) { background: #ffbd2e; }
+.rm-win-dots i:nth-child(3) { background: #27c93f; }
+.rm-win-ttl { font-family: 'Outfit', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--br); }
+.rm-win-body { padding: 24px; }
 
-.hero-ui { background: #fff; border: 1px solid var(--line); border-radius: 24px; box-shadow: var(--shadow-lg); overflow: hidden; position: relative; }
-.hero-ui-hdr { background: var(--bg2); padding: 16px 20px; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; }
-.hero-ui-hdr-title { font-weight: 500; font-size: 14px; color: var(--ink); display: flex; align-items: center; gap: 8px; }
-.hero-ui-grid { padding: 20px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.pz-badge { font-size: 10.5px; font-weight: 700; padding: 4px 10px; border-radius: 99px; text-transform: uppercase; letter-spacing: .04em; display: inline-block; }
+.pz-badge.ready { background: var(--green-bg); color: var(--green); }
+.pz-badge.preparing { background: var(--amber-bg); color: var(--amber); }
+.pz-badge.soldout { background: var(--red-bg); color: var(--red); }
 
-.hu-stat { padding: 16px; border-radius: 12px; border: 1px solid var(--line); background: var(--bg); box-shadow: var(--shadow-sm); }
-.hu-stat-lbl { font-size: 11px; font-weight: 500; color: var(--mute); text-transform: uppercase; margin-bottom: 4px; }
-.hu-stat-val { font-size: 24px; font-weight: 500; color: var(--ink); }
+/* Menu Tabs & Grid */
+.pz-tabs { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 28px; }
+.pz-tab { padding: 9px 18px; border-radius: 99px; border: 1px solid var(--line); background: #fff; color: var(--mute); font: 700 13.5px 'Plus Jakarta Sans', sans-serif; cursor: pointer; transition: .2s ease; }
+.pz-tab.active, .pz-tab:hover { background: var(--br); color: #fff; border-color: var(--br); }
+.pz-menu-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 44px; }
+.pz-prod-card { display: flex; align-items: center; gap: 16px; padding: 16px; border: 1px solid var(--line); border-radius: 18px; background: #fff; transition: .25s ease; }
+.pz-prod-card:hover { border-color: var(--br); box-shadow: var(--shadow-sm); transform: translateY(-2px); }
+.pz-prod-img { width: 88px; height: 88px; border-radius: 14px; object-fit: cover; flex-shrink: 0; }
+.pz-prod-ctx { flex: 1; }
+.pz-prod-ctx h4 { font-size: 16.5px; font-weight: 700; margin-bottom: 4px; }
+.pz-prod-ctx p { font-size: 13px; margin-bottom: 8px; line-height: 1.45; }
+.pz-prod-ft { display: flex; justify-content: space-between; align-items: center; }
 
-/* ---------------- SECTION 4: FEATURES ---------------- */
-.eco-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.eco-card { padding: 28px; background: #fff; border: 1px solid var(--line); border-radius: 20px; transition: .3s; }
-.eco-card:hover { transform: translateY(-4px); border-color: var(--br); box-shadow: var(--shadow-md); }
-.eco-card h3 { margin: 18px 0 8px; font-size: 16px; }
-.eco-card p { font-size: 14px; color: var(--mute); }
-.ic { width: 48px; height: 48px; border-radius: 13px; background: var(--bg2); color: var(--br); display: grid; place-items: center; border: 1px solid var(--line); transition: .3s ease; }
-.eco-card:hover .ic { background: var(--br); color: #fff; border-color: var(--br); }
+/* Customizer & Combos */
+.pz-split { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: start; }
+.pz-opt-lbl { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; color: var(--mute); margin: 14px 0 8px; }
+.pz-opt-lbl:first-child { margin-top: 0; }
+.pz-opt-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.pz-opt-btn { padding: 10px 8px; border-radius: 11px; border: 1.5px solid var(--line); background: var(--bg2); color: var(--ink); font: 700 12.5px 'Plus Jakarta Sans', sans-serif; cursor: pointer; text-align: center; transition: .2s ease; }
+.pz-opt-btn span { display: block; font-size: 11px; color: var(--mute); font-weight: 600; margin-top: 2px; }
+.pz-opt-btn.active { background: var(--br-light); border-color: var(--br); color: var(--br); }
+.pz-opt-btn.active span { color: var(--br); }
+.pz-custom-total { margin-top: 18px; padding: 14px 16px; border-radius: 14px; background: var(--bg2); border: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; }
+.pz-custom-total strong { font-family: 'Outfit', sans-serif; font-size: 22px; color: var(--br); }
 
-/* ---------------- SECTION 5: MENU ---------------- */
-.menu-tabs { display: flex; gap: 12px; margin-bottom: 32px; flex-wrap: wrap; justify-content: center; }
-.menu-tab { padding: 10px 24px; border-radius: 99px; font-weight: 700; font-size: 15px; cursor: pointer; border: 1px solid var(--line); background: #fff; color: var(--mute); transition: .2s; }
-.menu-tab.act { background: var(--br); color: #fff; border-color: var(--br); }
-.menu-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
-.pc-card { display: flex; align-items: center; gap: 16px; padding: 16px; border: 1px solid var(--line); border-radius: 16px; background: #fff; transition: .2s; }
-.pc-card:hover { border-color: var(--br); box-shadow: var(--shadow-sm); }
-.pc-img { width: 100px; height: 100px; border-radius: 12px; object-fit: cover; }
-.pc-ctx { flex: 1; }
-.pc-ctx h4 { font-size: 16px; margin-bottom: 4px; }
-.pc-ctx p { font-size: 13px; color: var(--mute); margin-bottom: 8px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-.pc-ft { display: flex; justify-content: space-between; align-items: center; }
+.pz-combo-box { padding: 14px; border: 1.5px dashed rgba(135, 96, 57, 0.35); border-radius: 14px; background: var(--br-light); text-align: center; font-weight: 700; font-size: 15px; color: var(--ink); }
+.pz-combo-plus { text-align: center; font-family: 'Outfit', sans-serif; font-size: 18px; font-weight: 700; color: var(--br); margin: 8px 0; }
 
-/* ---------------- SECTION 6 & 17: VARIATIONS & COMBOS ---------------- */
-.two-col-flow { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
-.v-card, .combo-card { background: #fff; border: 1px solid var(--line); border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-md); }
-.v-hdr, .combo-hdr { background: var(--bg2); padding: 16px 20px; border-bottom: 1px solid var(--line); font-weight: 500; }
-.v-body, .combo-body { padding: 20px; font-size: 14px; }
-.v-sec { margin-bottom: 16px; }
-.v-sec-title { font-size: 11px; font-weight: 500; color: var(--mute); text-transform: uppercase; margin-bottom: 8px; }
-.v-item { display: flex; justify-content: space-between; margin-bottom: 6px; padding: 6px 10px; background: var(--bg2); border-radius: 8px; }
-.v-item.act { background: var(--br-light); color: var(--br); font-weight: 700; border: 1px solid rgba(135,96,57,0.2); }
+/* 3-Col POS + Order + KOT */
+.pz-trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; align-items: start; }
+.pz-bill-row { display: flex; justify-content: space-between; align-items: center; padding: 9px 0; border-bottom: 1px dashed var(--line); font-size: 13.5px; }
+.pz-bill-row small { display: block; font-size: 11.5px; color: var(--mute); }
+.pz-bill-total { display: flex; justify-content: space-between; padding: 14px 0 10px; font-family: 'Outfit', sans-serif; font-size: 20px; font-weight: 700; color: var(--br); }
+.pz-pay-btn { width: 100%; padding: 12px; border-radius: 10px; background: var(--br); color: #fff; border: none; font: 700 13.5px 'Plus Jakarta Sans', sans-serif; cursor: pointer; transition: .2s ease; }
+.pz-pay-btn:hover { background: var(--br-dark); }
+.pz-pay-note { margin-top: 10px; font-size: 12px; font-weight: 700; color: var(--green); background: var(--green-bg); padding: 8px 10px; border-radius: 10px; text-align: center; display: none; }
 
-.combo-item { padding: 16px; border: 1px dashed var(--line); border-radius: 12px; margin-bottom: 12px; text-align: center; }
-.combo-plus { color: var(--mute); font-weight: 500; font-size: 18px; margin: 8px 0; }
+.pz-step-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 16px; }
+.pz-step-btn { padding: 9px 6px; border-radius: 10px; border: 1px solid var(--line); background: var(--bg2); color: var(--mute); font: 700 11.5px 'Plus Jakarta Sans', sans-serif; cursor: pointer; text-align: center; }
+.pz-step-btn.done { background: var(--br-light); border-color: var(--br); color: var(--br); }
 
-/* ---------------- SECTION 7, 8, 9, 10: POS, ORDERS, KOT, PEAK ---------------- */
-.bill-panel, .order-panel, .kot-panel { background: #fff; border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow-md); overflow: hidden; }
-.bp-hdr, .op-hdr, .kp-hdr { padding: 16px 20px; background: var(--bg2); border-bottom: 1px solid var(--line); font-weight: 500; font-size: 15px; display: flex; justify-content: space-between; }
-.bp-body, .op-body, .kp-body { padding: 20px; }
-.bp-item { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; font-size: 14px; }
-.bp-item-qty { font-size: 12px; color: var(--mute); display: block; }
-.bp-total { display: flex; justify-content: space-between; padding: 16px 0; border-top: 2px dashed var(--line); margin-top: 8px; font-weight: 500; font-size: 20px; color: var(--br); }
+.pz-kot-mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 14px; background: var(--bg2); border: 1px dashed rgba(135, 96, 57, 0.35); border-radius: 12px; padding: 14px; list-style: none; margin: 12px 0 0; }
+.pz-kot-mono li { padding: 5px 0; border-bottom: 1px dashed var(--line); }
+.pz-kot-mono li:last-child { border-bottom: none; }
 
-.ot-flow { display: flex; gap: 8px; margin-top: 24px; }
-.ot-step { flex: 1; text-align: center; font-size: 10px; font-weight: 500; text-transform: uppercase; padding: 8px 4px; border-radius: 6px; background: var(--bg2); color: var(--mute); border: 1px solid var(--line); display: flex; flex-direction: column; align-items: center; gap: 4px; }
-.ot-step svg { width: 14px; height: 14px; }
-.ot-step.done { background: var(--br-light); color: var(--br); border-color: var(--br); }
+/* Service Modes, Rush & Tables */
+.pz-sm-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 18px; }
+.pz-sm-card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 18px; text-align: center; }
+.pz-sm-card h4 { font-size: 15px; font-weight: 700; margin: 10px 0 4px; }
+.pz-sm-card p { font-size: 12.5px; }
+.pz-rush-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.pz-rush-card { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 16px 10px; text-align: center; }
+.pz-rush-card strong { display: block; font-family: 'Outfit', sans-serif; font-size: 26px; font-weight: 600; color: var(--br); line-height: 1.15; }
+.pz-rush-card span { font-size: 11px; font-weight: 700; color: var(--mute); text-transform: uppercase; }
 
-.fest-dash { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-.fd-card { padding: 20px; background: #fff; border: 1px solid var(--line); border-radius: 16px; text-align: center; box-shadow: var(--shadow-sm); }
-.fd-val { font-size: 32px; font-weight: 500; color: var(--br); line-height: 1.2; }
-.fd-lbl { font-size: 12px; font-weight: 700; color: var(--mute); text-transform: uppercase; }
+.pz-table-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.pz-t-card { background: var(--bg2); border: 1.5px solid var(--line); border-radius: 14px; padding: 16px; }
+.pz-t-card.occ { border-color: rgba(185, 28, 28, 0.3); background: #fff; }
+.pz-t-card.res { border-color: rgba(180, 83, 9, 0.3); background: #fff; }
+.pz-t-card.avl { border-color: rgba(21, 128, 61, 0.3); background: #fff; }
+.pz-t-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.pz-t-meta { display: flex; justify-content: space-between; font-size: 12.5px; color: var(--mute); font-weight: 600; }
 
-/* ---------------- SECTION 11 & 12: SERVICE MODES & TABLES ---------------- */
-.sm-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 40px; }
-.sm-card { padding: 24px; background: #fff; border: 1px solid var(--line); border-radius: 16px; text-align: center; transition: .2s; }
-.sm-card:hover { border-color: var(--br); box-shadow: var(--shadow-md); }
-.sm-icon { width: 48px; height: 48px; margin: 0 auto 16px; background: var(--bg2); border-radius: 12px; display: grid; place-items: center; color: var(--br); }
+/* Availability, Inventory, Customer & Multi-Branch */
+.pz-avail-list { display: flex; flex-direction: column; gap: 8px; }
+.pz-avail-row { display: flex; justify-content: space-between; align-items: center; padding: 11px 14px; border-radius: 12px; border: 1px solid var(--line); background: #fff; font-size: 14px; font-weight: 600; cursor: pointer; transition: .2s ease; }
+.pz-avail-row:hover { border-color: var(--br); }
+.pz-avail-row.out { background: var(--red-bg); border-color: rgba(185, 28, 28, 0.22); }
 
-.table-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-.t-card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 20px; }
-.t-hdr { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
-.t-name { font-size: 18px; font-weight: 500; color: var(--ink); }
-.t-det { font-size: 13px; color: var(--mute); display: flex; justify-content: space-between; margin-bottom: 8px; }
+.pz-inv-table { width: 100%; border-collapse: collapse; }
+.pz-inv-table th { text-align: left; font-size: 11px; font-weight: 700; color: var(--mute); text-transform: uppercase; letter-spacing: .06em; padding: 10px 12px; background: var(--bg2); border-bottom: 1px solid var(--line); }
+.pz-inv-table td { padding: 10px 12px; font-size: 13.5px; border-bottom: 1px solid var(--line); }
+.pz-inv-table tr:last-child td { border-bottom: none; }
 
-/* ---------------- SECTION 13 & 14: AVAILABILITY & INVENTORY ---------------- */
-.avail-list { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 12px; box-shadow: var(--shadow-md); }
-.avail-item { display: flex; justify-content: space-between; padding: 12px 16px; border-bottom: 1px solid var(--bg2); font-weight: 600; font-size: 14px; }
-.avail-item:last-child { border: none; }
+.pz-mini-card { background: var(--bg2); border: 1px solid var(--line); border-radius: 16px; padding: 18px; margin-top: 18px; }
+.pz-mini-list { list-style: none; padding: 0; margin: 10px 0 0; font-size: 13.5px; }
+.pz-mini-list li { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px dashed var(--line); }
+.pz-mini-list li:last-child { border-bottom: none; }
 
-.inv-table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 16px; overflow: hidden; border: 1px solid var(--line); box-shadow: var(--shadow-md); }
-.inv-table th { background: var(--bg2); padding: 12px 16px; text-align: left; font-size: 12px; font-weight: 500; color: var(--mute); text-transform: uppercase; border-bottom: 1px solid var(--line); }
-.inv-table td { padding: 12px 16px; font-size: 14px; border-bottom: 1px solid var(--bg2); }
-.inv-table tr:last-child td { border-bottom: none; }
+/* Dark Editorial Business Reports Banner */
+.rm-dark-banner { background: linear-gradient(135deg, #21160F 0%, #342318 100%); border-radius: 26px; padding: clamp(28px, 4vw, 48px); color: #fff; box-shadow: var(--shadow-lg); position: relative; overflow: hidden; }
+.rm-dark-banner::after { content: ''; position: absolute; right: -80px; top: -80px; width: 280px; height: 280px; border-radius: 50%; background: radial-gradient(circle, rgba(184, 142, 86, 0.24) 0%, transparent 70%); pointer-events: none; }
+.rm-dark-top { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; margin-bottom: 28px; padding-bottom: 24px; border-bottom: 1px solid rgba(255, 255, 255, 0.12); }
+.rm-dark-top h2 { color: #fff; font-size: clamp(26px, 3vw, 36px); }
+.rm-dark-top p { color: rgba(255, 255, 255, 0.72); max-width: 520px; margin-top: 8px; }
+.rm-dark-kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 28px; }
+.rm-dark-kpi { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 16px; padding: 18px 20px; }
+.rm-dark-kpi strong { display: block; font-family: 'Outfit', sans-serif; font-size: 26px; font-weight: 600; color: #F5EFE6; line-height: 1.15; }
+.rm-dark-kpi span { font-size: 11.5px; font-weight: 700; color: rgba(255, 255, 255, 0.65); text-transform: uppercase; letter-spacing: .06em; }
+.pz-bars { height: 140px; display: grid; grid-template-columns: repeat(7, 1fr); align-items: end; gap: 14px; padding-bottom: 26px; border-bottom: 1px solid rgba(255, 255, 255, 0.16); }
+.pz-bar-col { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; position: relative; }
+.pz-bar-fill { width: 100%; max-width: 56px; background: linear-gradient(180deg, #d7ac71 0%, #876039 100%); border-radius: 8px 8px 0 0; }
+.pz-bar-lbl { position: absolute; bottom: -22px; font-size: 11px; font-weight: 600; color: rgba(255, 255, 255, 0.72); }
 
-/* ---------------- SECTION 15, 16, 18: REPORTS & CUSTOMERS ---------------- */
-.reports-preview { background: #fff; border: 1px solid var(--line); border-radius: 24px; padding: 36px; box-shadow: var(--shadow-lg); }
-.rp-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 32px; }
-.rp-stat-card { background: var(--bg2); border: 1px solid var(--line); border-radius: 14px; padding: 16px; }
-.rp-val { font-size: 24px; font-weight: 500; color: var(--ink); }
-.rp-lbl { font-size: 12px; font-weight: 700; color: var(--mute); }
+/* Benefits 3x2 */
+.rm-ben-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.rm-ben-card { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 26px; transition: .25s ease; }
+.rm-ben-card:hover { transform: translateY(-4px); border-color: rgba(135, 96, 57, 0.34); box-shadow: var(--shadow-md); }
+.rm-ben-card h3 { font-size: 18px; margin: 16px 0 8px; }
+.rm-ben-card p { font-size: 14px; }
 
-.cust-card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 20px; box-shadow: var(--shadow-md); }
+/* Photo Cards & Pills */
+.rm-ind-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-bottom: 22px; }
+.rm-ind-card { position: relative; border-radius: 18px; overflow: hidden; aspect-ratio: 4 / 3; border: 1px solid var(--line); box-shadow: var(--shadow-sm); }
+.rm-ind-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.55s ease; display: block; }
+.rm-ind-card:hover img { transform: scale(1.07); }
+.rm-ind-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 35%, rgba(24, 16, 10, 0.84) 100%); }
+.rm-ind-cap { position: absolute; left: 16px; right: 16px; bottom: 14px; z-index: 2; color: #fff; }
+.rm-ind-cap strong { display: block; font-family: 'Outfit', sans-serif; font-size: 16px; font-weight: 600; }
+.rm-ind-cap span { font-size: 12px; color: rgba(255, 255, 255, 0.8); }
+.pz-model-pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+.pz-model-pill { padding: 9px 16px; border-radius: 99px; background: #fff; border: 1px solid var(--line); font-size: 13px; font-weight: 700; color: var(--ink); }
 
-/* ---------------- SECTION 19: WORKFLOW ---------------- */
-.workflow-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; max-width: 900px; margin: 0 auto; }
-.wf-node { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; background: #fff; border: 1px solid var(--line); padding: 10px 16px; border-radius: 99px; box-shadow: var(--shadow-sm); }
-.wf-node svg { color: var(--br); width: 16px; height: 16px; }
-.wf-arrow { color: var(--mute); font-size: 16px; display: flex; align-items: center; }
+/* Connected Ecosystem 7-step */
+.rm-eco-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 12px; }
+.rm-eco-card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 18px 10px; text-align: center; transition: .25s ease; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.rm-eco-card:hover { transform: translateY(-4px); border-color: var(--br); box-shadow: var(--shadow-sm); }
+.rm-eco-num { font-family: 'Outfit', sans-serif; font-size: 11px; font-weight: 700; color: var(--br); opacity: 0.7; }
+.rm-eco-ico { width: 44px; height: 44px; border-radius: 12px; background: var(--br-light); display: grid; place-items: center; padding: 7px; }
+.rm-eco-ico img { width: 100%; height: 100%; object-fit: contain; }
+.rm-eco-lbl { font-size: 12px; font-weight: 700; color: var(--ink); line-height: 1.25; }
 
-/* ---------------- SECTION 20: BUILT FOR ---------------- */
-.concept-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.concept-card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 24px; }
-.concept-icon { font-size: 32px; margin-bottom: 16px; }
-.concept-card h3 { font-size: 18px; margin-bottom: 8px; }
-.concept-card p { font-size: 14px; }
+/* FAQ Accordion */
+.rm-faq-list { max-width: 840px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+.rm-faq-item { background: #fff; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; transition: border-color .2s ease, box-shadow .2s ease; }
+.rm-faq-item.open { border-color: var(--br); box-shadow: var(--shadow-sm); }
+.rm-faq-q { width: 100%; text-align: left; background: none; border: none; padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; font: 700 16px 'Plus Jakarta Sans', sans-serif; color: var(--ink); cursor: pointer; }
+.rm-faq-q svg { width: 20px; height: 20px; color: var(--br); flex-shrink: 0; transition: transform .25s ease; }
+.rm-faq-item.open .rm-faq-q svg { transform: rotate(180deg); }
+.rm-faq-a { display: none; padding: 0 24px 20px; font-size: 15px; line-height: 1.65; color: var(--mute); }
+.rm-faq-item.open .rm-faq-a { display: block; }
 
-/* ---------------- SECTION 21: BENEFITS ---------------- */
-.benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.b-card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 24px; }
-
-/* ---------------- SECTION 22 & 23: CUSTOMER & MOBILE ---------------- */
-.phone-mockup { max-width: 300px; margin: 0 auto; background: #111; border: 6px solid #222; border-radius: 40px; padding: 12px; box-shadow: var(--shadow-lg); }
-.phone-inner { background: #fff; border-radius: 28px; height: 560px; overflow: hidden; position: relative; }
-.pi-hdr { background: var(--bg2); padding: 16px; text-align: center; font-weight: 500; border-bottom: 1px solid var(--line); }
-.pi-body { padding: 16px; }
-.pi-card { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 12px; margin-bottom: 12px; box-shadow: var(--shadow-sm); }
-
-/* ---------------- SECTION 24: IDEAL FOR ---------------- */
-.industry-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-.ind-card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 16px; text-align: center; font-weight: 700; font-size: 14px; transition: .2s; }
-.ind-card:hover { border-color: var(--br); box-shadow: var(--shadow-md); color: var(--br); }
-
-/* ---------------- SECTION 25 & 26: BRANCHES & CONNECTED ---------------- */
-.mb-panel { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 24px; box-shadow: var(--shadow-md); }
-.mb-row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--line); }
-.mb-row:last-child { border-bottom: none; }
-.mb-val { font-weight: 500; color: var(--br); }
-
-.conn-grid { display: grid; grid-template-columns: repeat(8, 1fr); gap: 12px; text-align: center; }
-.conn-card { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 16px 8px; font-size: 11px; font-weight: 700; }
-.conn-card svg { margin-bottom: 8px; color: var(--br); }
-
-/* ---------------- FAQ ---------------- */
-.faq-list { max-width: 840px; margin: auto; display: flex; flex-direction: column; gap: 16px; }
-.faq-item { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 20px 24px; cursor: pointer; transition: .2s; }
-.faq-item summary { font-weight: 700; font-size: 16px; display: flex; justify-content: space-between; align-items: center; list-style: none; }
-.faq-item summary::-webkit-details-marker { display: none; }
-.faq-item p { margin-top: 12px; font-size: 15px; color: var(--mute); }
-
-/* ---------------- CTA ---------------- */
-.cta-sec { padding: 100px 0; background: linear-gradient(135deg, #FAF4ED 0%, #EFE4D6 50%, #FAF4ED 100%); color: #21160F; text-align: center; position: relative; overflow: hidden; border-top: 1px solid rgba(135, 96, 57, 0.16); }
-.cta-box { position: relative; z-index: 2; max-width: 760px; margin: auto; }
-.cta-box h2 { color: #21160F; margin-bottom: 16px; }
-.cta-box p { color: #6E6157; }
+/* Final CTA */
+.rm-cta { background: linear-gradient(135deg, #876039 0%, #6f4e2d 100%); padding: clamp(64px, 7vw, 96px) 0; text-align: center; color: #fff; }
+.rm-cta h2 { color: #fff; margin-bottom: 14px; }
+.rm-cta p { color: rgba(255, 255, 255, 0.86); max-width: 620px; margin: 0 auto 30px; font-size: 17px; }
+.rm-cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.btn.wht { background: #fff; color: var(--br-dark); border-color: #fff; }
+.btn.wht:hover { background: var(--br-light); transform: translateY(-2px); }
+.btn.ghost-wht { background: transparent; color: #fff; border-color: rgba(255, 255, 255, 0.55); }
+.btn.ghost-wht:hover { background: rgba(255, 255, 255, 0.14); border-color: #fff; transform: translateY(-2px); }
 
 /* Responsive */
 @media (max-width: 1024px) {
-  .hero-grid, .two-col-flow { grid-template-columns: 1fr; gap: 48px; }
-  .eco-grid, .concept-grid { grid-template-columns: repeat(2, 1fr); }
-  .sm-grid, .benefits-grid { grid-template-columns: repeat(2, 1fr); }
-  .fest-dash, .rp-stats { grid-template-columns: repeat(2, 1fr); }
-  .industry-grid { grid-template-columns: repeat(2, 1fr); }
-  .conn-grid { grid-template-columns: repeat(4, 1fr); }
+  .rm-hero-grid, .pz-split, .pz-trio { grid-template-columns: 1fr; gap: 32px; }
+  .rm-val-grid, .rm-dark-kpis, .rm-ind-grid, .pz-rush-grid { grid-template-columns: repeat(2, 1fr); }
+  .rm-ben-grid { grid-template-columns: repeat(2, 1fr); }
+  .rm-eco-grid { grid-template-columns: repeat(4, 1fr); }
 }
-
-@media (max-width: 768px) {
-  .bc { padding: 14px 0 14px; }
-  .w { padding: 0 16px; }
-  .win { min-width: 0 !important; width: 100%; overflow-x: auto; }
-}
-
 @media (max-width: 640px) {
-  .eco-grid, .concept-grid, .benefits-grid, .industry-grid, .rp-stats { grid-template-columns: 1fr; }
-  .sm-grid, .fest-dash { grid-template-columns: 1fr; }
-  .menu-grid, .table-grid { grid-template-columns: 1fr; }
-  .conn-grid { grid-template-columns: 1fr; }
-  .inv-table { display: block; overflow-x: auto; white-space: nowrap; }
-  .workflow-grid { flex-direction: column; align-items: center; }
-  .wf-arrow { transform: rotate(90deg); }
-  .hero-btns { flex-direction: column; }
-  .hero-btns .btn { width: 100%; }
-}
-
-@media (max-width: 480px) {
-  .btn { width: 100%; }
+  .w { padding: 0 16px; }
+  .rm-val-grid, .pz-menu-grid, .pz-opt-row, .pz-sm-grid, .pz-table-grid, .pz-rush-grid, .rm-dark-kpis, .rm-ben-grid, .rm-ind-grid { grid-template-columns: 1fr; }
+  .rm-eco-grid { grid-template-columns: repeat(2, 1fr); }
+  .rm-hero-stats { grid-template-columns: 1fr; gap: 12px; }
+  .rm-hero-cta .btn, .rm-cta-btns .btn { width: 100%; }
+  .rm-hero-float { flex-direction: column; align-items: flex-start; }
 }
 </style>
 
-{{-- BREADCRUMB --}}
-<div class="bc">
-  <div class="w">
-    <a href="{{ url('/') }}">Home</a>
-    <span>/</span>
-    <a href="{{ route('features') }}">Solutions</a>
-    <span>/</span>
-    <span class="cur">Pizzerias & Specialty Food Shops</span>
-  </div>
+<div class="pz-page">
+  {{-- BREADCRUMB --}}
+  <nav class="bc" aria-label="Breadcrumb">
+    <div class="w">
+      <a href="{{ url('/') }}">Home</a>
+      <span class="sep">/</span>
+      <a href="{{ route('solutions') }}">Solutions</a>
+      <span class="sep">/</span>
+      <span class="cur">Pizzerias &amp; Specialty Food Shops</span>
+    </div>
+  </nav>
+
+  {{-- HERO --}}
+  <section class="rm-hero">
+    <div class="w rm-hero-grid">
+      <div>
+        <div class="eb">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M15 11h.01"/><path d="M11 15h.01"/><path d="M16 16h.01"/><path d="m2 16 20 6-6-20A20 20 0 0 0 2 16"/></svg>
+          PIZZERIA &amp; SPECIALTY FOOD SOLUTION
+        </div>
+        <h1>Your Specialty Menu. <span class="sf">Your Orders.</span> Your Business.</h1>
+        <p class="rm-hero-sub">Manage pizzas, burgers, pasta, sandwiches, desserts and specialty food products, along with orders, billing, customers, inventory and daily operations from one connected platform.</p>
+        <div class="rm-hero-cta">
+          <a href="{{ route('restaurant_signup') }}" class="btn p">Get Started →</a>
+          <a href="{{ route('contact.us') }}" class="btn o">Book a Demo →</a>
+        </div>
+        <div class="rm-hero-stats">
+          <div class="rm-hero-stat">
+            <strong>₹86,450</strong>
+            <span>Live daily shop sales</span>
+          </div>
+          <div class="rm-hero-stat">
+            <strong>18 Active</strong>
+            <span>9 Preparing · 6 Ready</span>
+          </div>
+          <div class="rm-hero-stat">
+            <strong>Margherita</strong>
+            <span>Top-selling signature item</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="rm-hero-media">
+        <img src="{{ asset('assets/images/pizzerias-hero.jpg') }}" alt="Artisan pizzeria counter with freshly baked Margherita pizza, kraft box, and mounted tablet POS">
+        <div class="rm-hero-scrim"></div>
+        <div class="rm-hero-pill">
+          <span class="rm-live-dot"></span>
+          Live · 18 Active Orders · Oven Queue Synced
+        </div>
+        <div class="rm-hero-float">
+          <div class="rm-hero-float-left">
+            <div class="rm-hero-float-ico">
+              <svg viewBox="0 0 24 24"><path d="M15 11h.01"/><path d="M11 15h.01"/><path d="m2 16 20 6-6-20A20 20 0 0 0 2 16"/></svg>
+            </div>
+            <div>
+              <div class="rm-hero-float-ttl">ORDER #4068 · Takeaway · Priya</div>
+              <div class="rm-hero-float-sub">1× Large Farmhouse Pizza, 1× Garlic Bread, 2× Cold Coffee</div>
+            </div>
+          </div>
+          <span class="rm-hero-float-tag">KOT #3056</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{-- VALUE STRIP (01 - 04) --}}
+  <section class="pz-sec border-b">
+    <div class="w">
+      <div class="hd r">
+        <div class="eb">Built for Specialty Food Businesses</div>
+        <h2>Everything Your Specialty Food <span class="sf">Business Needs.</span></h2>
+        <p>Manage your products, customer orders, billing, kitchen workflow, inventory and business reports from one connected platform.</p>
+      </div>
+      <div class="rm-val-grid">
+        <div class="rm-val-card r">
+          <div class="rm-val-top">
+            <div class="rm-ic"><svg viewBox="0 0 24 24"><path d="M15 11h.01"/><path d="M11 15h.01"/><path d="m2 16 20 6-6-20A20 20 0 0 0 2 16"/></svg></div>
+            <span class="rm-num">01</span>
+          </div>
+          <h3>Signature Menu &amp; Options</h3>
+          <p>Organize pizzas, burgers, pasta, sizes, crusts, toppings and add-ons with crisp images and live availability.</p>
+        </div>
+        <div class="rm-val-card r">
+          <div class="rm-val-top">
+            <div class="rm-ic"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+            <span class="rm-num">02</span>
+          </div>
+          <h3>Combos &amp; Counter POS</h3>
+          <p>Build high-value pizza combos and process dine-in, takeaway and pickup bills without queue delays.</p>
+        </div>
+        <div class="rm-val-card r">
+          <div class="rm-val-top">
+            <div class="rm-ic"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+            <span class="rm-num">03</span>
+          </div>
+          <h3>KOT &amp; Table Sync</h3>
+          <p>Connect every custom pizza order directly to the oven station and keep seated dining tables organized.</p>
+        </div>
+        <div class="rm-val-card r">
+          <div class="rm-val-top">
+            <div class="rm-ic"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+            <span class="rm-num">04</span>
+          </div>
+          <h3>Stock &amp; Multi-Outlet Reports</h3>
+          <p>Track pizza flour, mozzarella, sauces, boxes, repeat customers and branch-wise daily sales performance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{-- SIGNATURE MENU + INTERACTIVE CUSTOMIZER & COMBOS --}}
+  <section class="pz-sec alt border-b">
+    <div class="w">
+      <div class="hd r">
+        <div class="eb">Menu &amp; Product Customization</div>
+        <h2>Put Your Signature Products <span class="sf">at the Centre.</span></h2>
+        <p>Create a structured digital catalogue around the products your customers come back for — with sizes, crusts, toppings and value combos.</p>
+      </div>
+
+      <div class="pz-tabs r" id="pzMenuTabs">
+        <button type="button" class="pz-tab active" onclick="filterPzMenu('all', this)">All Items</button>
+        <button type="button" class="pz-tab" onclick="filterPzMenu('pizza', this)">Pizza</button>
+        <button type="button" class="pz-tab" onclick="filterPzMenu('burger', this)">Burgers</button>
+        <button type="button" class="pz-tab" onclick="filterPzMenu('pasta', this)">Pasta</button>
+        <button type="button" class="pz-tab" onclick="filterPzMenu('all', this)">Sandwiches &amp; Wraps</button>
+        <button type="button" class="pz-tab" onclick="filterPzMenu('all', this)">Sides &amp; Desserts</button>
+      </div>
+
+      <div class="pz-menu-grid r" id="pzMenuGrid">
+        <div class="pz-prod-card" data-cat="pizza">
+          <img class="pz-prod-img" src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=240&q=80" alt="Margherita Pizza" referrerpolicy="no-referrer">
+          <div class="pz-prod-ctx">
+            <h4>Margherita Pizza</h4>
+            <p>Classic delight with 100% real mozzarella cheese and signature tomato sauce.</p>
+            <div class="pz-prod-ft">
+              <strong style="color:var(--br);">From ₹299</strong>
+              <span class="pz-badge ready">Available</span>
+            </div>
+          </div>
+        </div>
+        <div class="pz-prod-card" data-cat="pizza">
+          <img class="pz-prod-img" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=240&q=80" alt="Farmhouse Pizza" referrerpolicy="no-referrer">
+          <div class="pz-prod-ctx">
+            <h4>Farmhouse Pizza</h4>
+            <p>Loaded with fresh mushrooms, onions, crisp capsicum, and sliced tomatoes.</p>
+            <div class="pz-prod-ft">
+              <strong style="color:var(--br);">From ₹399</strong>
+              <span class="pz-badge ready">Available</span>
+            </div>
+          </div>
+        </div>
+        <div class="pz-prod-card" data-cat="burger">
+          <img class="pz-prod-img" src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=240&q=80" alt="Signature Chicken Burger" referrerpolicy="no-referrer">
+          <div class="pz-prod-ctx">
+            <h4>Signature Chicken Burger</h4>
+            <p>Juicy chicken patty, fresh lettuce, tomatoes, and our special sauce.</p>
+            <div class="pz-prod-ft">
+              <strong style="color:var(--br);">₹249</strong>
+              <span class="pz-badge ready">Available</span>
+            </div>
+          </div>
+        </div>
+        <div class="pz-prod-card" data-cat="pasta">
+          <img class="pz-prod-img" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=240&q=80" alt="Creamy Alfredo Pasta" referrerpolicy="no-referrer">
+          <div class="pz-prod-ctx">
+            <h4>Creamy Alfredo Pasta</h4>
+            <p>Rich and creamy white sauce pasta with bell peppers and olives.</p>
+            <div class="pz-prod-ft">
+              <strong style="color:var(--br);">₹349</strong>
+              <span class="pz-badge ready">Available</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {{-- Interactive Customizer + Combo Builder --}}
+      <div class="pz-split">
+        <div class="rm-win r">
+          <div class="rm-win-bar">
+            <div class="rm-win-dots"><i></i><i></i><i></i></div>
+            <div class="rm-win-ttl">Margherita Pizza · Interactive Builder</div>
+          </div>
+          <div class="rm-win-body">
+            <div class="pz-opt-lbl">1. Select Size</div>
+            <div class="pz-opt-row" id="pzSizeRow">
+              <button type="button" class="pz-opt-btn" data-price="299" onclick="pickPzSize(this)">Regular<span>₹299</span></button>
+              <button type="button" class="pz-opt-btn active" data-price="449" onclick="pickPzSize(this)">Medium<span>₹449</span></button>
+              <button type="button" class="pz-opt-btn" data-price="599" onclick="pickPzSize(this)">Large<span>₹599</span></button>
+            </div>
+
+            <div class="pz-opt-lbl">2. Select Crust</div>
+            <div class="pz-opt-row" id="pzCrustRow">
+              <button type="button" class="pz-opt-btn active" data-price="0" onclick="pickPzCrust(this)">Classic Hand Tossed<span>Included</span></button>
+              <button type="button" class="pz-opt-btn" data-price="0" onclick="pickPzCrust(this)">Thin Crust<span>Included</span></button>
+              <button type="button" class="pz-opt-btn" data-price="80" onclick="pickPzCrust(this)">Cheese Burst<span>+₹80</span></button>
+            </div>
+
+            <div class="pz-opt-lbl">3. Toppings &amp; Add-ons (Multi-select)</div>
+            <div class="pz-opt-row" id="pzAddonRow">
+              <button type="button" class="pz-opt-btn" data-price="60" onclick="togglePzAddon(this)">Extra Cheese<span>+₹60</span></button>
+              <button type="button" class="pz-opt-btn" data-price="40" onclick="togglePzAddon(this)">Jalapeño<span>+₹40</span></button>
+              <button type="button" class="pz-opt-btn" data-price="149" onclick="togglePzAddon(this)">Garlic Bread<span>+₹149</span></button>
+            </div>
+
+            <div class="pz-custom-total">
+              <div>
+                <div style="font-size:12px; font-weight:700; color:var(--mute);">LIVE CUSTOMIZED PRICE</div>
+                <div style="font-size:12.5px; color:var(--ink);" id="pzCustomSummary">Medium · Classic Hand Tossed</div>
+              </div>
+              <strong id="pzCustomTotal">₹449</strong>
+            </div>
+            <div style="font-size:11.5px; color:var(--mute); margin-top:10px; text-align:center;">* Illustrative customization options.</div>
+          </div>
+        </div>
+
+        <div class="rm-win r">
+          <div class="rm-win-bar">
+            <div class="rm-win-dots"><i></i><i></i><i></i></div>
+            <div class="rm-win-ttl">Special Offers · Pizza Combo</div>
+            <span class="pz-badge ready">₹699</span>
+          </div>
+          <div class="rm-win-body">
+            <h3 style="margin-bottom:8px;">Build Better Combos Around Your Best Sellers.</h3>
+            <p style="font-size:14px; margin-bottom:18px;">Merchandise attractive combos to increase average order value across dine-in and takeaway.</p>
+            <div class="pz-combo-box">1 Medium Pizza</div>
+            <div class="pz-combo-plus">+</div>
+            <div class="pz-combo-box">1 Garlic Bread</div>
+            <div class="pz-combo-plus">+</div>
+            <div class="pz-combo-box">2 Beverages</div>
+            <div style="font-size:11.5px; color:var(--mute); margin-top:16px; text-align:center;">* Combos and discounts depend on product support.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{-- SYNCHRONIZED POS + ORDER + KOT --}}
+  <section class="pz-sec border-b">
+    <div class="w">
+      <div class="hd r">
+        <div class="eb">Counter, Orders &amp; Oven Sync</div>
+        <h2>Every Order. Clear From <span class="sf">Start to Finish.</span></h2>
+        <p>Keep your billing counter, kitchen oven and order dispatch perfectly synchronized.</p>
+      </div>
+
+      <div class="pz-trio r">
+        {{-- POS --}}
+        <div class="rm-win">
+          <div class="rm-win-bar">
+            <div class="rm-win-dots"><i></i><i></i><i></i></div>
+            <div class="rm-win-ttl">Counter POS · Bill #5092</div>
+          </div>
+          <div class="rm-win-body">
+            <div class="pz-bill-row"><div><strong>Margherita Pizza</strong><small>Medium | Classic</small></div><strong>₹449</strong></div>
+            <div class="pz-bill-row"><div><strong>Garlic Bread</strong><small>× 1</small></div><strong>₹149</strong></div>
+            <div class="pz-bill-row"><div><strong>Cold Coffee</strong><small>× 2</small></div><strong>₹240</strong></div>
+            <div class="pz-bill-row"><div><strong>Brownie</strong><small>× 1</small></div><strong>₹120</strong></div>
+            <div class="pz-bill-total"><span>TOTAL</span><span>₹958</span></div>
+            <button type="button" class="pz-pay-btn" onclick="pzPayPrint()">Pay &amp; Print</button>
+            <div class="pz-pay-note" id="pzPayNote">✓ Bill #5092 settled (₹958) · KOT #3056 fired!</div>
+          </div>
+        </div>
+
+        {{-- Order --}}
+        <div class="rm-win">
+          <div class="rm-win-bar">
+            <div class="rm-win-dots"><i></i><i></i><i></i></div>
+            <div class="rm-win-ttl">ORDER #4068 · Takeaway</div>
+            <span class="pz-badge preparing" id="pzOrderBadge">Preparing</span>
+          </div>
+          <div class="rm-win-body">
+            <div style="font-size:13px; color:var(--mute); margin-bottom:12px;">Customer: <strong style="color:var(--ink);">Priya</strong></div>
+            <ul style="list-style:none; padding:0; margin:0; font-size:14px;">
+              <li style="padding:6px 0; border-bottom:1px dashed var(--line);">1 × Large Farmhouse Pizza</li>
+              <li style="padding:6px 0; border-bottom:1px dashed var(--line);">1 × Garlic Bread</li>
+              <li style="padding:6px 0;">2 × Cold Coffee</li>
+            </ul>
+            <div class="pz-step-3" id="pzStepRow">
+              <button type="button" class="pz-step-btn done" onclick="setPzStep(1)">1. New</button>
+              <button type="button" class="pz-step-btn done" onclick="setPzStep(2)">2. KOT</button>
+              <button type="button" class="pz-step-btn" onclick="setPzStep(3)">3. Ready</button>
+            </div>
+          </div>
+        </div>
+
+        {{-- KOT --}}
+        <div class="rm-win">
+          <div class="rm-win-bar">
+            <div class="rm-win-dots"><i></i><i></i><i></i></div>
+            <div class="rm-win-ttl">KOT #3056</div>
+            <span class="pz-badge preparing">Oven Station</span>
+          </div>
+          <div class="rm-win-body">
+            <div style="font-weight:700; font-size:14px;">ORDER #4068</div>
+            <ul class="pz-kot-mono">
+              <li>[1] Lrg Farmhouse Pz</li>
+              <li>[1] Garlic Bread</li>
+            </ul>
+            <div style="font-size:11.5px; color:var(--mute); text-align:center; margin-top:16px;">* KOT workflow where supported.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{-- SERVICE MODES, RUSH HOURS & TABLES --}}
+  <section class="pz-sec alt border-b">
+    <div class="w pz-split">
+      <div class="r">
+        <div class="eb">Service Modes &amp; Peak Rush</div>
+        <h2>One Order Flow. <span class="sf">Multiple Ways to Serve.</span></h2>
+        <p style="margin:12px 0 22px;">Manage high order volumes easily across dine-in, takeaway and pickup — whether it's lunch hour, evening snacks, or weekend dinner time.</p>
+
+        <div class="pz-sm-grid">
+          <div class="pz-sm-card">
+            <div class="rm-ic" style="margin:0 auto;"><svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg></div>
+            <h4>Dine-In</h4>
+            <p>Connect tables, orders &amp; billing.</p>
+          </div>
+          <div class="pz-sm-card">
+            <div class="rm-ic" style="margin:0 auto;"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg></div>
+            <h4>Takeaway</h4>
+            <p>Organized from creation to pickup.</p>
+          </div>
+          <div class="pz-sm-card">
+            <div class="rm-ic" style="margin:0 auto;"><svg viewBox="0 0 24 24"><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="18.5" cy="17.5" r="3.5"/><path d="M15 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-3 11.5V14l-3-3 4-3 2 3h2"/></svg></div>
+            <h4>Pickup</h4>
+            <p>Track until ready for collection.</p>
+          </div>
+        </div>
+
+        <div class="pz-rush-grid">
+          <div class="pz-rush-card"><strong>18</strong><span>New</span></div>
+          <div class="pz-rush-card"><strong>9</strong><span>Preparing</span></div>
+          <div class="pz-rush-card"><strong>6</strong><span>Ready</span></div>
+          <div class="pz-rush-card"><strong style="color:var(--green);">74</strong><span>Completed</span></div>
+        </div>
+      </div>
+
+      <div class="rm-win r">
+        <div class="rm-win-bar">
+          <div class="rm-win-dots"><i></i><i></i><i></i></div>
+          <div class="rm-win-ttl">Table Management · Dine-In Floor</div>
+        </div>
+        <div class="rm-win-body">
+          <div class="pz-table-grid">
+            <div class="pz-t-card avl">
+              <div class="pz-t-top"><strong>Table 01</strong><span class="pz-badge ready">Available</span></div>
+              <div class="pz-t-meta"><span>2 Seats</span><span>--</span></div>
+            </div>
+            <div class="pz-t-card occ">
+              <div class="pz-t-top"><strong>Table 02</strong><span class="pz-badge soldout">Occupied</span></div>
+              <div class="pz-t-meta"><span>4 Seats</span><strong style="color:var(--ink);">₹958</strong></div>
+            </div>
+            <div class="pz-t-card res">
+              <div class="pz-t-top"><strong>Table 03</strong><span class="pz-badge preparing">Reserved</span></div>
+              <div class="pz-t-meta"><span>6 Seats</span><strong style="color:var(--ink);">7:30 PM</strong></div>
+            </div>
+            <div class="pz-t-card occ">
+              <div class="pz-t-top"><strong>Table 04</strong><span class="pz-badge soldout">Occupied</span></div>
+              <div class="pz-t-meta"><span>4 Seats</span><strong style="color:var(--ink);">₹1,420</strong></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{-- AVAILABILITY, INVENTORY, CUSTOMER & MULTI-BRANCH --}}
+  <section class="pz-sec border-b">
+    <div class="w">
+      <div class="hd r">
+        <div class="eb">Availability, Stock &amp; Multi-Outlet</div>
+        <h2>Know What Goes Into <span class="sf">Every Order.</span></h2>
+        <p>Keep signature items updated in real time, monitor pizza ingredients and boxes, know repeat customers and track multi-branch sales.</p>
+      </div>
+
+      <div class="pz-split">
+        <div class="rm-win r">
+          <div class="rm-win-bar">
+            <div class="rm-win-dots"><i></i><i></i><i></i></div>
+            <div class="rm-win-ttl">Menu Availability · Tap to Toggle</div>
+          </div>
+          <div class="rm-win-body">
+            <div class="pz-avail-list">
+              <div class="pz-avail-row" onclick="togglePzAvail(this)"><span>Margherita Pizza</span><span class="pz-badge ready">Available</span></div>
+              <div class="pz-avail-row" onclick="togglePzAvail(this)"><span>Farmhouse Pizza</span><span class="pz-badge ready">Available</span></div>
+              <div class="pz-avail-row" onclick="togglePzAvail(this)"><span>Garlic Bread</span><span class="pz-badge ready">Available</span></div>
+              <div class="pz-avail-row out" onclick="togglePzAvail(this)"><span>Cheesecake</span><span class="pz-badge soldout">Sold Out</span></div>
+              <div class="pz-avail-row" onclick="togglePzAvail(this)"><span>Chicken Wings</span><span class="pz-badge ready">Available</span></div>
+              <div class="pz-avail-row" onclick="togglePzAvail(this)"><span>Cold Coffee</span><span class="pz-badge ready">Available</span></div>
+            </div>
+
+            <div class="pz-mini-card">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <div><strong style="font-size:15.5px; display:block;">Priya Kumar</strong><span style="font-size:12px; color:var(--mute);">Recent Customer Activity</span></div>
+                <div style="text-align:right;"><span style="font-size:10.5px; font-weight:700; color:var(--mute); text-transform:uppercase;">Total Orders</span><strong style="display:block; font-size:18px; color:var(--br);">14</strong></div>
+              </div>
+              <ul class="pz-mini-list">
+                <li><span>Farmhouse Pizza</span><strong>Favourite</strong></li>
+                <li><span>Garlic Bread</span><strong>Ordered 9×</strong></li>
+                <li><span>Brownie</span><strong>Ordered 5×</strong></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="rm-win r">
+          <div class="rm-win-bar">
+            <div class="rm-win-dots"><i></i><i></i><i></i></div>
+            <div class="rm-win-ttl">Ingredients Inventory &amp; Branches</div>
+          </div>
+          <div class="rm-win-body">
+            <table class="pz-inv-table">
+              <thead>
+                <tr><th>Ingredient</th><th>Stock</th><th>Status</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>Pizza Flour</strong></td><td>45 kg</td><td><span class="pz-badge ready">In Stock</span></td></tr>
+                <tr><td><strong>Mozzarella</strong></td><td>18 kg</td><td><span class="pz-badge ready">In Stock</span></td></tr>
+                <tr><td><strong>Tomato Sauce</strong></td><td>22 L</td><td><span class="pz-badge ready">In Stock</span></td></tr>
+                <tr><td><strong>Chicken</strong></td><td>25 kg</td><td><span class="pz-badge ready">In Stock</span></td></tr>
+                <tr><td><strong>Pizza Boxes</strong></td><td>350 pcs</td><td><span class="pz-badge ready">In Stock</span></td></tr>
+                <tr><td><strong>Dips</strong></td><td>6 L</td><td><span class="pz-badge soldout">Low</span></td></tr>
+              </tbody>
+            </table>
+
+            <div class="pz-mini-card">
+              <div style="font-size:11.5px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--mute);">Multi-Branch Daily Sales</div>
+              <ul class="pz-mini-list">
+                <li><span>Tiruchengode</span><strong style="color:var(--br);">₹86,450</strong></li>
+                <li><span>Namakkal</span><strong style="color:var(--br);">₹74,280</strong></li>
+                <li><span>Salem</span><strong style="color:var(--br);">₹1,08,650</strong></li>
+              </ul>
+              <div style="font-size:11px; color:var(--mute); margin-top:8px;">* Multi-branch capabilities depend on applicable plan.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{-- DARK EDITORIAL BUSINESS REPORTS --}}
+  <section class="pz-sec alt border-b">
+    <div class="w">
+      <div class="rm-dark-banner r">
+        <div class="rm-dark-top">
+          <div>
+            <div class="eb" style="background:rgba(255,255,255,0.1); color:#e6c594; border-color:rgba(230,197,148,0.28);">Business Reports</div>
+            <h2>Turn Everyday Sales Into <span class="sf" style="-webkit-text-fill-color:#e6c594;">Better Decisions.</span></h2>
+            <p>Understand your best sellers, order volume, average ticket size and weekly sales trends from your dashboard or smartphone.</p>
+          </div>
+          <span class="pz-badge ready" style="background:rgba(22,163,74,0.2); color:#86efac;">● Live Shop Analytics</span>
+        </div>
+
+        <div class="rm-dark-kpis">
+          <div class="rm-dark-kpi"><strong>₹86,450</strong><span>Today's Sales</span></div>
+          <div class="rm-dark-kpi"><strong>94</strong><span>Total Orders</span></div>
+          <div class="rm-dark-kpi"><strong>₹920</strong><span>Avg Order Value</span></div>
+          <div class="rm-dark-kpi"><strong>Margherita</strong><span>Best Seller</span></div>
+        </div>
+
+        <div class="pz-bars">
+          <div class="pz-bar-col"><div class="pz-bar-fill" style="height:40%;"></div><span class="pz-bar-lbl">Mon</span></div>
+          <div class="pz-bar-col"><div class="pz-bar-fill" style="height:60%;"></div><span class="pz-bar-lbl">Tue</span></div>
+          <div class="pz-bar-col"><div class="pz-bar-fill" style="height:85%;"></div><span class="pz-bar-lbl">Wed</span></div>
+          <div class="pz-bar-col"><div class="pz-bar-fill" style="height:100%;"></div><span class="pz-bar-lbl">Thu</span></div>
+          <div class="pz-bar-col"><div class="pz-bar-fill" style="height:70%;"></div><span class="pz-bar-lbl">Fri</span></div>
+          <div class="pz-bar-col"><div class="pz-bar-fill" style="height:50%;"></div><span class="pz-bar-lbl">Sat</span></div>
+          <div class="pz-bar-col"><div class="pz-bar-fill" style="height:90%;"></div><span class="pz-bar-lbl">Sun</span></div>
+        </div>
+        <div style="text-align:center; margin-top:26px; font-size:11.5px; color:rgba(255,255,255,0.48);">* Illustrative demo data shown for weekly sales trend.</div>
+      </div>
+    </div>
+  </section>
+
+  {{-- KEY BENEFITS (01 - 06) --}}
+  <section class="pz-sec border-b">
+    <div class="w">
+      <div class="hd r">
+        <div class="eb">Key Benefits</div>
+        <h2>Built for Businesses With a <span class="sf">Signature Menu.</span></h2>
+      </div>
+      <div class="rm-ben-grid">
+        <div class="rm-ben-card r">
+          <div class="rm-val-top"><div class="rm-ic"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/></svg></div><span class="rm-num">01</span></div>
+          <h3>Flexible Product Management</h3>
+          <p>Organize your signature products, categories and availability.</p>
+        </div>
+        <div class="rm-ben-card r">
+          <div class="rm-val-top"><div class="rm-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4"/></svg></div><span class="rm-num">02</span></div>
+          <h3>Product Variations</h3>
+          <p>Manage sizes, toppings, add-ons and other options where supported.</p>
+        </div>
+        <div class="rm-ben-card r">
+          <div class="rm-val-top"><div class="rm-ic"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><span class="rm-num">03</span></div>
+          <h3>Faster Billing</h3>
+          <p>Process dine-in, takeaway and supported orders efficiently.</p>
+        </div>
+        <div class="rm-ben-card r">
+          <div class="rm-val-top"><div class="rm-ic"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><span class="rm-num">04</span></div>
+          <h3>Kitchen Coordination</h3>
+          <p>Connect orders with kitchen workflows where supported.</p>
+        </div>
+        <div class="rm-ben-card r">
+          <div class="rm-val-top"><div class="rm-ic"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div><span class="rm-num">05</span></div>
+          <h3>Inventory Visibility</h3>
+          <p>Monitor important ingredients and supplies.</p>
+        </div>
+        <div class="rm-ben-card r">
+          <div class="rm-val-top"><div class="rm-ic"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div><span class="rm-num">06</span></div>
+          <h3>Business Insights</h3>
+          <p>Understand product, order and sales performance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{-- BUILT FOR FOCUSED FOOD CONCEPTS --}}
+  <section class="pz-sec alt border-b">
+    <div class="w">
+      <div class="hd r">
+        <div class="eb">Ideal For</div>
+        <h2>One Platform. <span class="sf">Different Food Concepts.</span></h2>
+      </div>
+      <div class="rm-ind-grid r">
+        <div class="rm-ind-card">
+          <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=700&q=80" alt="Pizzerias" referrerpolicy="no-referrer">
+          <div class="rm-ind-cap"><strong>Pizzerias</strong><span>Pizzas, toppings, crusts, sides &amp; combos</span></div>
+        </div>
+        <div class="rm-ind-card">
+          <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80" alt="Burger & Fast Food" referrerpolicy="no-referrer">
+          <div class="rm-ind-cap"><strong>Burger &amp; Fast Food</strong><span>Burgers, sides, takeaway &amp; billing</span></div>
+        </div>
+        <div class="rm-ind-card">
+          <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=700&q=80" alt="Pasta & Italian" referrerpolicy="no-referrer">
+          <div class="rm-ind-cap"><strong>Pasta &amp; Italian</strong><span>Pasta, starters, mains &amp; dine-in</span></div>
+        </div>
+        <div class="rm-ind-card">
+          <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=700&q=80" alt="Sandwich, Wraps & Dessert Cafes" referrerpolicy="no-referrer">
+          <div class="rm-ind-cap"><strong>Sandwiches &amp; Dessert Cafés</strong><span>Quick-service wraps, snacks &amp; desserts</span></div>
+        </div>
+      </div>
+      <div class="pz-model-pills r">
+        <span class="pz-model-pill">Pizzerias</span>
+        <span class="pz-model-pill">Pizza &amp; Pasta Restaurants</span>
+        <span class="pz-model-pill">Burger Shops</span>
+        <span class="pz-model-pill">Sandwich Shops</span>
+        <span class="pz-model-pill">Wrap &amp; Roll Shops</span>
+        <span class="pz-model-pill">Pasta Restaurants</span>
+        <span class="pz-model-pill">Fast Food Outlets</span>
+        <span class="pz-model-pill">Snack Shops</span>
+        <span class="pz-model-pill">Dessert Cafés</span>
+        <span class="pz-model-pill">Specialty Cafés</span>
+        <span class="pz-model-pill">Casual Dining Concepts</span>
+        <span class="pz-model-pill">Multi-Outlet Businesses</span>
+      </div>
+    </div>
+  </section>
+
+  {{-- CONNECTED ECOSYSTEM (7 MODULES) --}}
+  <section class="pz-sec border-b">
+    <div class="w">
+      <div class="hd r">
+        <div class="eb">Connected Ecosystem</div>
+        <h2>Everything Works Better <span class="sf">Together.</span></h2>
+        <p>From menu selection and custom toppings to oven KOTs, billing, inventory and daily reports.</p>
+      </div>
+      <div class="rm-eco-grid r">
+        <a href="{{ route('features.menu-management') }}" class="rm-eco-card">
+          <span class="rm-eco-num">01</span>
+          <div class="rm-eco-ico"><img src="{{ asset('assets/images/workflow/step-1-menu.png') }}" alt="Digital Menu"></div>
+          <span class="rm-eco-lbl">Digital Menu</span>
+        </a>
+        <a href="{{ route('features.table-management') }}" class="rm-eco-card">
+          <span class="rm-eco-num">02</span>
+          <div class="rm-eco-ico"><img src="{{ asset('assets/images/workflow/step-4-table.png') }}" alt="Table &amp; Floor"></div>
+          <span class="rm-eco-lbl">Table &amp; Floor</span>
+        </a>
+        <a href="{{ route('features.order-management') }}" class="rm-eco-card">
+          <span class="rm-eco-num">03</span>
+          <div class="rm-eco-ico"><img src="{{ asset('assets/images/workflow/step-2-order.png') }}" alt="Order Flow"></div>
+          <span class="rm-eco-lbl">Order Flow</span>
+        </a>
+        <a href="{{ route('features.kot-management') }}" class="rm-eco-card">
+          <span class="rm-eco-num">04</span>
+          <div class="rm-eco-ico"><img src="{{ asset('assets/images/workflow/step-3-kitchen.png') }}" alt="KOT &amp; Kitchen"></div>
+          <span class="rm-eco-lbl">KOT &amp; Kitchen</span>
+        </a>
+        <a href="{{ route('features.pos-management') }}" class="rm-eco-card">
+          <span class="rm-eco-num">05</span>
+          <div class="rm-eco-ico"><img src="{{ asset('assets/images/workflow/step-5-billing.png') }}" alt="POS Billing"></div>
+          <span class="rm-eco-lbl">POS Billing</span>
+        </a>
+        <a href="{{ route('features.inventory-management') }}" class="rm-eco-card">
+          <span class="rm-eco-num">06</span>
+          <div class="rm-eco-ico"><img src="{{ asset('assets/images/workflow/step-6-payment.png') }}" alt="Inventory"></div>
+          <span class="rm-eco-lbl">Inventory</span>
+        </a>
+        <a href="{{ route('features.reports') }}" class="rm-eco-card">
+          <span class="rm-eco-num">07</span>
+          <div class="rm-eco-ico"><img src="{{ asset('assets/images/workflow/step-7-reports.png') }}" alt="Reports"></div>
+          <span class="rm-eco-lbl">Reports</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  {{-- FAQ (ALL 9 ITEMS) --}}
+  <section class="pz-sec alt">
+    <div class="w">
+      <div class="hd r">
+        <div class="eb">Frequently Asked Questions</div>
+        <h2>Pizzeria &amp; Specialty Food <span class="sf">FAQ.</span></h2>
+      </div>
+      <div class="rm-faq-list r">
+        <div class="rm-faq-item open">
+          <button type="button" class="rm-faq-q" onclick="toggleFaq(this)">
+            <span>1. Can Geni Menu manage a pizzeria?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="rm-faq-a">Yes. Geni Menu can help manage pizza products, menu categories, orders, billing, inventory and supported restaurant operations.</div>
+        </div>
+        <div class="rm-faq-item">
+          <button type="button" class="rm-faq-q" onclick="toggleFaq(this)">
+            <span>2. Can I manage pizza sizes and toppings?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="rm-faq-a">Product variations such as sizes, toppings and add-ons can be represented where supported.</div>
+        </div>
+        <div class="rm-faq-item">
+          <button type="button" class="rm-faq-q" onclick="toggleFaq(this)">
+            <span>3. Can I manage burger and pasta menus?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="rm-faq-a">Yes. Geni Menu can organize different food categories and products within the menu management workflow.</div>
+        </div>
+        <div class="rm-faq-item">
+          <button type="button" class="rm-faq-q" onclick="toggleFaq(this)">
+            <span>4. Can I manage takeaway orders?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="rm-faq-a">Yes. Takeaway orders can be handled through the supported order-management workflow.</div>
+        </div>
+        <div class="rm-faq-item">
+          <button type="button" class="rm-faq-q" onclick="toggleFaq(this)">
+            <span>5. Can I connect orders with the kitchen?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="rm-faq-a">KOT and kitchen workflows can connect orders to preparation where supported.</div>
+        </div>
+        <div class="rm-faq-item">
+          <button type="button" class="rm-faq-q" onclick="toggleFaq(this)">
+            <span>6. Can I manage dine-in tables?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="rm-faq-a">Yes. Table management can help manage table availability, occupancy and associated orders where applicable.</div>
+        </div>
+        <div class="rm-faq-item">
+          <button type="button" class="rm-faq-q" onclick="toggleFaq(this)">
+            <span>7. Can I track ingredients?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="rm-faq-a">Inventory management can help monitor ingredients, stock levels and stock movement.</div>
+        </div>
+        <div class="rm-faq-item">
+          <button type="button" class="rm-faq-q" onclick="toggleFaq(this)">
+            <span>8. Can I manage multiple outlets?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="rm-faq-a">Multi-branch functionality is available where supported by the applicable plan.</div>
+        </div>
+        <div class="rm-faq-item">
+          <button type="button" class="rm-faq-q" onclick="toggleFaq(this)">
+            <span>9. Can I view my best-selling products?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="rm-faq-a">Yes. Supported reports can provide visibility into product and sales performance.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{-- FINAL CTA --}}
+  <section class="rm-cta">
+    <div class="w r">
+      <h2>Ready to Run Your Specialty Food Business Smarter?</h2>
+      <p>Manage your menu, orders, kitchen, billing, customers, inventory and business insights from one connected platform with Geni Menu.</p>
+      <div class="rm-cta-btns">
+        <a href="{{ route('restaurant_signup') }}" class="btn wht">Get Started →</a>
+        <a href="{{ route('contact.us') }}" class="btn ghost-wht">Book a Demo →</a>
+      </div>
+    </div>
+  </section>
 </div>
 
-{{-- HERO --}}
-<section class="hero alt">
-  <div class="w hero-grid">
-    <div class="hero-ctx">
-      <div class="eb">
-        <i class="bi bi-shop"></i>
-        PIZZERIA & SPECIALTY FOOD SOLUTION
-      </div>
-      <h1>Your Specialty Menu. <span class="sf">Your Orders.</span> Your Business.</h1>
-      <p>Manage pizzas, burgers, pasta, sandwiches, desserts and specialty food products, along with orders, billing, customers, inventory and daily operations from one connected platform.</p>
-      <div class="hero-btns">
-        <a href="{{ route('contact.us') }}" class="btn p">Get Started →</a>
-        <a href="{{ route('contact.us') }}" class="btn o">Book a Demo</a>
-      </div>
-    </div>
+<script>
+function toggleFaq(btn) {
+  const item = btn.closest('.rm-faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.rm-faq-item').forEach(el => el.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
 
-    <div class="hero-ui">
-      <div class="hero-ui-hdr">
-        <div class="hero-ui-hdr-title">
-          <i class="bi bi-display" style="font-size:16px; color:var(--br);"></i>
-          Geni Menu — Shop Dashboard
-        </div>
-        <span class="badge ready">Live</span>
-      </div>
-      <div class="hero-ui-grid">
-        <div class="hu-stat">
-          <div class="hu-stat-lbl">Today's Sales</div>
-          <div class="hu-stat-val">₹86,450</div>
-        </div>
-        <div class="hu-stat">
-          <div class="hu-stat-lbl">Active Orders</div>
-          <div class="hu-stat-val">18</div>
-        </div>
-        <div class="hu-stat">
-          <div class="hu-stat-lbl">Preparing</div>
-          <div class="hu-stat-val">9</div>
-        </div>
-        <div class="hu-stat">
-          <div class="hu-stat-lbl">Ready</div>
-          <div class="hu-stat-val">6</div>
-        </div>
-        <div class="hu-stat" style="grid-column:1/-1;">
-          <div class="hu-stat-lbl">Best Seller</div>
-          <div class="hu-stat-val" style="font-size:18px;">Margherita Pizza</div>
-        </div>
-        <div class="hu-stat" style="grid-column:1/-1;">
-          <div class="hu-stat-lbl">Low Stock</div>
-          <div class="hu-stat-val" style="font-size:18px; color:var(--red);">4 Items</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+function filterPzMenu(cat, btn) {
+  document.querySelectorAll('#pzMenuTabs .pz-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('#pzMenuGrid .pz-prod-card').forEach(card => {
+    card.style.display = (cat === 'all' || card.dataset.cat === cat) ? 'flex' : 'none';
+  });
+}
 
-{{-- SECTION 4: FEATURES --}}
-<section>
-  <div class="w">
-    <div class="hd">
-      <div class="eb">Built for Specialty Food Businesses</div>
-      <h2>Everything Your Specialty Food Business Needs.</h2>
-      <p>Manage your products, customer orders, billing, kitchen workflow, inventory and business reports from one connected platform.</p>
-    </div>
+function recalcPzCustom() {
+  const sizeBtn = document.querySelector('#pzSizeRow .pz-opt-btn.active');
+  const crustBtn = document.querySelector('#pzCrustRow .pz-opt-btn.active');
+  const addonBtns = document.querySelectorAll('#pzAddonRow .pz-opt-btn.active');
+  let total = Number(sizeBtn?.dataset.price || 449) + Number(crustBtn?.dataset.price || 0);
+  const parts = [
+    sizeBtn?.childNodes[0]?.textContent?.trim() || 'Medium',
+    crustBtn?.childNodes[0]?.textContent?.trim() || 'Classic Hand Tossed'
+  ];
+  addonBtns.forEach(a => {
+    total += Number(a.dataset.price || 0);
+    parts.push('+ ' + (a.childNodes[0]?.textContent?.trim() || 'Add-on'));
+  });
+  const totalEl = document.getElementById('pzCustomTotal');
+  const sumEl = document.getElementById('pzCustomSummary');
+  if (totalEl) totalEl.textContent = '₹' + total;
+  if (sumEl) sumEl.textContent = parts.join(' · ');
+}
 
-    <div class="eco-grid">
-      <div class="eco-card">
-        <div class="ic"><i class="bi bi-grid-3x3-gap-fill"></i></div>
-        <h3>Product & Menu</h3>
-        <p>Organize your signature products, categories, prices and availability.</p>
-      </div>
-      <div class="eco-card">
-        <div class="ic"><i class="bi bi-menu-button-wide-fill"></i></div>
-        <h3>Digital Menu</h3>
-        <p>Present products with images, descriptions, pricing and options.</p>
-      </div>
-      <div class="eco-card">
-        <div class="ic"><i class="bi bi-receipt-cutoff"></i></div>
-        <h3>Order Management</h3>
-        <p>Track orders from creation to preparation, pickup or service.</p>
-      </div>
-      <div class="eco-card">
-        <div class="ic"><i class="bi bi-cash-coin"></i></div>
-        <h3>POS & Billing</h3>
-        <p>Process counter, dine-in and supported takeaway transactions.</p>
-      </div>
-      <div class="eco-card">
-        <div class="ic"><i class="bi bi-list-check"></i></div>
-        <h3>KOT Management</h3>
-        <p>Connect orders with kitchen preparation where supported.</p>
-      </div>
-      <div class="eco-card">
-        <div class="ic"><i class="bi bi-table"></i></div>
-        <h3>Table Management</h3>
-        <p>Manage table availability and dining service where applicable.</p>
-      </div>
-      <div class="eco-card">
-        <div class="ic"><i class="bi bi-people-fill"></i></div>
-        <h3>Customers</h3>
-        <p>Maintain customer details and order history.</p>
-      </div>
-      <div class="eco-card">
-        <div class="ic"><i class="bi bi-box-seam-fill"></i></div>
-        <h3>Inventory</h3>
-        <p>Track ingredients, supplies and stock movement.</p>
-      </div>
-      <div class="eco-card">
-        <div class="ic"><i class="bi bi-bar-chart-fill"></i></div>
-        <h3>Reports</h3>
-        <p>Understand sales, orders, product performance and business activity.</p>
-      </div>
-    </div>
-  </div>
-</section>
+function pickPzSize(btn) {
+  document.querySelectorAll('#pzSizeRow .pz-opt-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  recalcPzCustom();
+}
+function pickPzCrust(btn) {
+  document.querySelectorAll('#pzCrustRow .pz-opt-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  recalcPzCustom();
+}
+function togglePzAddon(btn) {
+  btn.classList.toggle('active');
+  recalcPzCustom();
+}
 
-{{-- SECTION 5: MENU --}}
-<section class="alt">
-  <div class="w">
-    <div class="hd">
-      <div class="eb">Menu Management</div>
-      <h2>Put Your Signature Products at the Centre.</h2>
-      <p>Create a structured digital catalogue around the products your customers come back for.</p>
-    </div>
+function pzPayPrint() {
+  const note = document.getElementById('pzPayNote');
+  if (note) note.style.display = 'block';
+}
 
-    <div class="menu-tabs">
-      <div class="menu-tab act"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 11h.01"/><path d="M11 15h.01"/><path d="M16 16h.01"/><path d="m2 16 20 6-6-20A20 20 0 0 0 2 16"/></svg> Pizza</div>
-      <div class="menu-tab"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11h16a1 1 0 0 1 1 1v.5c0 4.5-4 8.5-9 8.5s-9-4-9-8.5V12a1 1 0 0 1 1-1Z"/><path d="M12 3v4"/><path d="M8 5v2"/><path d="M16 5v2"/></svg> Burgers</div>
-      <div class="menu-tab"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11h16a1 1 0 0 1 1 1v.5c0 4.5-4 8.5-9 8.5s-9-4-9-8.5V12a1 1 0 0 1 1-1Z"/><path d="M12 3v4"/><path d="M8 5v2"/><path d="M16 5v2"/></svg> Pasta</div>
-      <div class="menu-tab"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11h16a1 1 0 0 1 1 1v.5c0 4.5-4 8.5-9 8.5s-9-4-9-8.5V12a1 1 0 0 1 1-1Z"/><path d="M12 3v4"/><path d="M8 5v2"/><path d="M16 5v2"/></svg> Sandwiches & Wraps</div>
-      <div class="menu-tab"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11h16a1 1 0 0 1 1 1v.5c0 4.5-4 8.5-9 8.5s-9-4-9-8.5V12a1 1 0 0 1 1-1Z"/><path d="M12 3v4"/><path d="M8 5v2"/><path d="M16 5v2"/></svg> Sides & Snacks</div>
-      <div class="menu-tab"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8"/><path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1"/><path d="M2 21h20"/><path d="M7 8v3"/><path d="M12 8v3"/><path d="M17 8v3"/></svg> Desserts</div>
-    </div>
+function setPzStep(step) {
+  document.querySelectorAll('#pzStepRow .pz-step-btn').forEach((b, i) => b.classList.toggle('done', i < step));
+  const badge = document.getElementById('pzOrderBadge');
+  if (badge) {
+    const map = [
+      { txt: 'New', cls: 'pz-badge preparing' },
+      { txt: 'Preparing', cls: 'pz-badge preparing' },
+      { txt: 'Ready', cls: 'pz-badge ready' }
+    ];
+    const info = map[step - 1] || map[1];
+    badge.className = info.cls;
+    badge.textContent = info.txt;
+  }
+}
 
-    <div class="menu-grid">
-      <div class="pc-card">
-        <img class="pc-img" src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=200&q=80" alt="Margherita Pizza" referrerpolicy="no-referrer">
-        <div class="pc-ctx">
-          <h4>Margherita Pizza</h4>
-          <p>Classic delight with 100% real mozzarella cheese and signature tomato sauce.</p>
-          <div class="pc-ft">
-            <span style="font-weight: 500; color:var(--br);">From ₹299</span>
-            <span class="badge ready">Available</span>
-          </div>
-        </div>
-      </div>
-      <div class="pc-card">
-        <img class="pc-img" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=200&q=80" alt="Farmhouse Pizza" referrerpolicy="no-referrer">
-        <div class="pc-ctx">
-          <h4>Farmhouse Pizza</h4>
-          <p>Loaded with fresh mushrooms, onions, crisp capsicum, and sliced tomatoes.</p>
-          <div class="pc-ft">
-            <span style="font-weight: 500; color:var(--br);">From ₹399</span>
-            <span class="badge ready">Available</span>
-          </div>
-        </div>
-      </div>
-      <div class="pc-card">
-        <img class="pc-img" src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=200&q=80" alt="Burger" referrerpolicy="no-referrer">
-        <div class="pc-ctx">
-          <h4>Signature Chicken Burger</h4>
-          <p>Juicy chicken patty, fresh lettuce, tomatoes, and our special sauce.</p>
-          <div class="pc-ft">
-            <span style="font-weight: 500; color:var(--br);">₹249</span>
-            <span class="badge ready">Available</span>
-          </div>
-        </div>
-      </div>
-      <div class="pc-card">
-        <img class="pc-img" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=200&q=80" alt="Pasta" referrerpolicy="no-referrer">
-        <div class="pc-ctx">
-          <h4>Creamy Alfredo Pasta</h4>
-          <p>Rich and creamy white sauce pasta with bell peppers and olives.</p>
-          <div class="pc-ft">
-            <span style="font-weight: 500; color:var(--br);">₹349</span>
-            <span class="badge ready">Available</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+function togglePzAvail(row) {
+  const badge = row.querySelector('.pz-badge');
+  const isOut = row.classList.toggle('out');
+  badge.className = isOut ? 'pz-badge soldout' : 'pz-badge ready';
+  badge.textContent = isOut ? 'Sold Out' : 'Available';
+}
 
-{{-- SECTION 6 & 17: VARIATIONS & COMBOS --}}
-<section>
-  <div class="w two-col-flow">
-    {{-- Variations --}}
-    <div>
-      <div class="eb">Product Customization</div>
-      <h3 style="font-size:28px; margin-bottom:12px;">Give Customers More Ways to Build Their Order.</h3>
-      <p style="margin-bottom:24px;">Manage product sizes, flavours, toppings, add-ons and other options where supported.</p>
-      
-      <div class="v-card">
-        <div class="v-hdr">MARGHERITA PIZZA</div>
-        <div class="v-body">
-          <div class="v-sec">
-            <div class="v-sec-title">Size</div>
-            <div class="v-item"><span>Regular</span><span>₹299</span></div>
-            <div class="v-item act"><span>Medium</span><span>₹449</span></div>
-            <div class="v-item"><span>Large</span><span>₹599</span></div>
-          </div>
-          <div class="v-sec">
-            <div class="v-sec-title">Crust</div>
-            <div class="v-item act"><span>Classic Hand Tossed</span></div>
-            <div class="v-item"><span>Thin Crust</span></div>
-            <div class="v-item"><span>Cheese Burst</span></div>
-          </div>
-          <div class="v-sec">
-            <div class="v-sec-title">Toppings & Add-ons</div>
-            <div class="v-item"><span>Extra Cheese</span></div>
-            <div class="v-item"><span>Jalapeño</span></div>
-            <div class="v-item"><span>Garlic Bread</span></div>
-          </div>
-          <div style="font-size:11px; color:var(--mute); text-align:center; margin-top:16px;">* Illustrative customization options.</div>
-        </div>
-      </div>
-    </div>
-
-    {{-- Combos --}}
-    <div>
-      <div class="eb">Special Offers</div>
-      <h3 style="font-size:28px; margin-bottom:12px;">Build Better Combos Around Your Best Sellers.</h3>
-      <p style="margin-bottom:24px;">Merchandise attractive combos to increase average order value.</p>
-
-      <div class="combo-card">
-        <div class="combo-hdr" style="display:flex; justify-content:space-between;">
-          <span>PIZZA COMBO</span>
-          <span style="color:var(--br);">₹699</span>
-        </div>
-        <div class="combo-body">
-          <div class="combo-item">1 Medium Pizza</div>
-          <div class="combo-plus">+</div>
-          <div class="combo-item">1 Garlic Bread</div>
-          <div class="combo-plus">+</div>
-          <div class="combo-item">2 Beverages</div>
-          
-          <div style="font-size:11px; color:var(--mute); text-align:center; margin-top:24px;">* Combos and discounts depend on product support.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-{{-- SECTION 7, 8, 9: POS, ORDERS, KOT --}}
-<section class="alt">
-  <div class="w">
-    <div class="hd">
-      <h2>Every Order. Clear From Start to Finish.</h2>
-      <p>Keep your billing counter, kitchen and order dispatch perfectly synchronized.</p>
-    </div>
-
-    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:24px; align-items:start;">
-      
-      {{-- POS --}}
-      <div class="bill-panel">
-        <div class="bp-hdr"><span>Counter POS</span><span>Bill #5092</span></div>
-        <div class="bp-body">
-          <div class="bp-item">
-            <div>Margherita Pizza<span class="bp-item-qty">Medium | Classic</span></div>
-            <strong style="color:var(--ink);">₹449</strong>
-          </div>
-          <div class="bp-item">
-            <div>Garlic Bread<span class="bp-item-qty">× 1</span></div>
-            <strong style="color:var(--ink);">₹149</strong>
-          </div>
-          <div class="bp-item">
-            <div>Cold Coffee<span class="bp-item-qty">× 2</span></div>
-            <strong style="color:var(--ink);">₹240</strong>
-          </div>
-          <div class="bp-item">
-            <div>Brownie<span class="bp-item-qty">× 1</span></div>
-            <strong style="color:var(--ink);">₹120</strong>
-          </div>
-          <div class="bp-total" style="font-size:16px;">
-            <span>TOTAL</span>
-            <span>₹958</span>
-          </div>
-          <div style="text-align:center; padding:12px; background:var(--br); color:#fff; font-weight:700; border-radius:8px; margin-top:16px; cursor:pointer;">Pay & Print</div>
-        </div>
-      </div>
-
-      {{-- Order --}}
-      <div class="order-panel">
-        <div class="op-hdr">
-          <div><span style="display:block;">ORDER #4068</span><span style="font-size:12px; font-weight:600; color:var(--mute);">Takeaway | Priya</span></div>
-          <span class="badge preparing">Preparing</span>
-        </div>
-        <div class="op-body">
-          <ul style="font-size:14px; margin-bottom:24px;">
-            <li style="margin-bottom:8px;">1 × Large Farmhouse Pizza</li>
-            <li style="margin-bottom:8px;">1 × Garlic Bread</li>
-            <li style="margin-bottom:8px;">2 × Cold Coffee</li>
-          </ul>
-          
-          <div class="ot-flow">
-            <div class="ot-step done"><i class="bi bi-file-text-fill"></i> New</div>
-            <div class="ot-step done"><i class="bi bi-check-square-fill"></i> KOT</div>
-            <div class="ot-step"><i class="bi bi-check-circle-fill"></i> Ready</div>
-          </div>
-        </div>
-      </div>
-
-      {{-- KOT --}}
-      <div class="kot-panel">
-        <div class="kp-hdr">
-          <span style="color:var(--br);">KOT #3056</span>
-          <span class="badge preparing">Preparing</span>
-        </div>
-        <div class="kp-body">
-          <div style="font-weight: 500; margin-bottom:12px;">ORDER #4068</div>
-          <ul style="font-size:14px; margin-bottom:24px; font-family:monospace; font-size:15px; color:var(--ink);">
-            <li style="margin-bottom:8px;">[1] Lrg Farmhouse Pz</li>
-            <li style="margin-bottom:8px;">[1] Garlic Bread</li>
-          </ul>
-          <div style="font-size:11px; color:var(--mute); text-align:center; margin-top:24px;">* KOT workflow where supported.</div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-{{-- SECTION 10: PEAK --}}
-<section>
-  <div class="w">
-    <div class="hd">
-      <div class="eb">Peak Hours</div>
-      <h2>Stay in Control During the Rush.</h2>
-      <p>Manage high order volumes easily, whether it's lunch hour, evening snacks, or weekend dinner time.</p>
-    </div>
-
-    <div class="fest-dash">
-      <div class="fd-card">
-        <div class="fd-val">18</div>
-        <div class="fd-lbl">New Orders</div>
-      </div>
-      <div class="fd-card">
-        <div class="fd-val">9</div>
-        <div class="fd-lbl">Preparing</div>
-      </div>
-      <div class="fd-card">
-        <div class="fd-val">6</div>
-        <div class="fd-lbl">Ready</div>
-      </div>
-      <div class="fd-card">
-        <div class="fd-val" style="color:var(--green);">74</div>
-        <div class="fd-lbl">Completed</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-{{-- SECTION 11 & 12: SERVICE MODES & TABLES --}}
-<section class="alt">
-  <div class="w">
-    <div class="hd">
-      <div class="eb">Service Modes</div>
-      <h2>One Order Flow. Multiple Ways to Serve.</h2>
-    </div>
-
-    <div class="sm-grid">
-      <div class="sm-card">
-        <div class="sm-icon"><i class="bi bi-cup-hot-fill"></i></div>
-        <h3 style="margin-bottom:8px;">Dine-In</h3>
-        <p style="font-size:14px;">Connect tables, orders and billing for seated guests.</p>
-      </div>
-      <div class="sm-card">
-        <div class="sm-icon"><i class="bi bi-bag-fill"></i></div>
-        <h3 style="margin-bottom:8px;">Takeaway</h3>
-        <p style="font-size:14px;">Keep takeaway orders organized from creation to pickup.</p>
-      </div>
-      <div class="sm-card">
-        <div class="sm-icon"><i class="bi bi-bicycle"></i></div>
-        <h3 style="margin-bottom:8px;">Pickup</h3>
-        <p style="font-size:14px;">Track orders until they are ready for customer collection.</p>
-      </div>
-    </div>
-
-    <div style="max-width:800px; margin:0 auto;">
-      <div class="hd" style="margin-bottom:24px;">
-        <div class="eb">Table Management</div>
-        <h2>Keep Dine-In Service Organized.</h2>
-      </div>
-      
-      <div class="table-grid">
-        <div class="t-card" style="border-color:rgba(16,185,129,0.3);">
-          <div class="t-hdr"><span class="t-name">Table 01</span><span class="badge available">Available</span></div>
-          <div class="t-det"><span>2 Seats</span><span>--</span></div>
-        </div>
-        <div class="t-card" style="border-color:rgba(185,28,28,0.3);">
-          <div class="t-hdr"><span class="t-name">Table 02</span><span class="badge occupied">Occupied</span></div>
-          <div class="t-det"><span>4 Seats</span><span>₹958</span></div>
-        </div>
-        <div class="t-card" style="border-color:rgba(245,158,11,0.3);">
-          <div class="t-hdr"><span class="t-name">Table 03</span><span class="badge reserved">Reserved</span></div>
-          <div class="t-det"><span>6 Seats</span><span>7:30 PM</span></div>
-        </div>
-        <div class="t-card" style="border-color:rgba(185,28,28,0.3);">
-          <div class="t-hdr"><span class="t-name">Table 04</span><span class="badge occupied">Occupied</span></div>
-          <div class="t-det"><span>4 Seats</span><span>₹1,420</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-{{-- SECTION 13 & 14: AVAILABILITY & INVENTORY --}}
-<section>
-  <div class="w two-col-flow">
-    {{-- Availability --}}
-    <div>
-      <div class="eb">Menu Availability</div>
-      <h3 style="font-size:28px; margin-bottom:12px;">Keep Your Signature Products Available.</h3>
-      <p style="margin-bottom:24px;">Update product availability in real-time or clearly mark items as sold out.</p>
-      
-      <div class="avail-list">
-        <div class="avail-item"><span>Margherita Pizza</span><span class="badge ready">Available</span></div>
-        <div class="avail-item"><span>Farmhouse Pizza</span><span class="badge ready">Available</span></div>
-        <div class="avail-item"><span>Garlic Bread</span><span class="badge ready">Available</span></div>
-        <div class="avail-item" style="background:#fef2f2;"><span>Cheesecake</span><span class="badge soldout">Sold Out</span></div>
-        <div class="avail-item"><span>Chicken Wings</span><span class="badge ready">Available</span></div>
-        <div class="avail-item"><span>Cold Coffee</span><span class="badge ready">Available</span></div>
-      </div>
-    </div>
-
-    {{-- Inventory --}}
-    <div>
-      <div class="eb">Inventory Management</div>
-      <h3 style="font-size:28px; margin-bottom:12px;">Know What Goes Into Every Order.</h3>
-      <p style="margin-bottom:24px;">Keep visibility into key ingredients and supplies used across your specialty menu.</p>
-
-      <table class="inv-table">
-        <thead>
-          <tr>
-            <th>Ingredient</th>
-            <th>Stock</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>Pizza Flour</td><td>45 kg</td><td><span class="badge ready">In Stock</span></td></tr>
-          <tr><td>Mozzarella</td><td>18 kg</td><td><span class="badge ready">In Stock</span></td></tr>
-          <tr><td>Tomato Sauce</td><td>22 L</td><td><span class="badge ready">In Stock</span></td></tr>
-          <tr><td>Chicken</td><td>25 kg</td><td><span class="badge ready">In Stock</span></td></tr>
-          <tr><td>Pizza Boxes</td><td>350 pcs</td><td><span class="badge ready">In Stock</span></td></tr>
-          <tr><td>Dips</td><td>6 L</td><td><span class="badge low" style="background:#fef2f2; color:#b91c1c;">Low</span></td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-{{-- SECTION 15, 16, 18: REPORTS & CUSTOMERS --}}
-<section class="alt">
-  <div class="w">
-    <div class="hd">
-      <div class="eb">Business Reports</div>
-      <h2>Turn Everyday Sales Into Better Decisions.</h2>
-      <p>Understand your best sellers, order volume, and business performance.</p>
-    </div>
-
-    <div class="reports-preview">
-      <div class="rp-stats">
-        <div class="rp-stat-card">
-          <div class="rp-lbl">TODAY'S SALES</div>
-          <div class="rp-val">₹86,450</div>
-        </div>
-        <div class="rp-stat-card">
-          <div class="rp-lbl">TOTAL ORDERS</div>
-          <div class="rp-val">94</div>
-        </div>
-        <div class="rp-stat-card">
-          <div class="rp-lbl">AVG ORDER VALUE</div>
-          <div class="rp-val">₹920</div>
-        </div>
-        <div class="rp-stat-card">
-          <div class="rp-lbl">BEST SELLER</div>
-          <div class="rp-val" style="font-size:18px; margin-top:6px;">Margherita Pizza</div>
-        </div>
-      </div>
-      
-      <div style="display:flex; justify-content:space-between; align-items:flex-end; height:120px; padding:0 20px; border-bottom:1px solid var(--line);">
-        <div style="width:40px; background:var(--br); height:40%; border-radius:4px 4px 0 0;"></div>
-        <div style="width:40px; background:var(--br); height:60%; border-radius:4px 4px 0 0;"></div>
-        <div style="width:40px; background:var(--br); height:85%; border-radius:4px 4px 0 0;"></div>
-        <div style="width:40px; background:var(--br); height:100%; border-radius:4px 4px 0 0;"></div>
-        <div style="width:40px; background:var(--br); height:70%; border-radius:4px 4px 0 0;"></div>
-        <div style="width:40px; background:var(--br); height:50%; border-radius:4px 4px 0 0;"></div>
-        <div style="width:40px; background:var(--br); height:90%; border-radius:4px 4px 0 0;"></div>
-      </div>
-      <div style="text-align:center; font-size:11px; color:var(--mute); margin-top:16px;">* Illustrative demo data shown for weekly sales trend.</div>
-    </div>
-
-    <div style="margin-top:64px; max-width:600px; margin-left:auto; margin-right:auto;">
-      <div class="hd" style="margin-bottom:24px;">
-        <div class="eb">Customer Management</div>
-        <h2>Know Your Customers Beyond the Order.</h2>
-      </div>
-      <div class="cust-card">
-        <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--line); padding-bottom:12px; margin-bottom:12px;">
-          <div>
-            <strong style="display:block; font-size:18px; color:var(--ink);">Priya Kumar</strong>
-          </div>
-          <div style="text-align:right;">
-            <span style="font-size:11px; font-weight: 500; color:var(--mute);">TOTAL ORDERS</span>
-            <strong style="display:block; font-size:18px; color:var(--br);">14</strong>
-          </div>
-        </div>
-        <div style="font-size:12px; font-weight: 500; color:var(--mute); margin-bottom:8px; text-transform:uppercase;">Recent Orders:</div>
-        <ul style="font-size:13px; color:var(--ink); font-weight:600;">
-          <li style="margin-bottom:4px;">Farmhouse Pizza</li>
-          <li style="margin-bottom:4px;">Garlic Bread</li>
-          <li style="margin-bottom:4px;">Brownie</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-{{-- SECTION 19: WORKFLOW --}}
-<section>
-  <div class="w">
-    <div class="hd">
-      <div class="eb">One Connected Workflow</div>
-      <h2>From Menu Selection to Completed Order.</h2>
-    </div>
-
-    <div class="workflow-grid">
-      <div class="wf-node"><i class="bi bi-menu-button-wide-fill"></i> Menu</div>
-      <div class="wf-arrow">→</div>
-      <div class="wf-node"><i class="bi bi-person-fill"></i> Customer</div>
-      <div class="wf-arrow">→</div>
-      <div class="wf-node"><i class="bi bi-receipt-cutoff"></i> Order</div>
-      <div class="wf-arrow">→</div>
-      <div class="wf-node"><i class="bi bi-list-check"></i> KOT</div>
-      <div class="wf-arrow">→</div>
-      <div class="wf-node"><i class="bi bi-fire"></i> Kitchen</div>
-      <div class="wf-arrow">→</div>
-      <div class="wf-node"><i class="bi bi-check-circle-fill"></i> Ready</div>
-      <div class="wf-arrow">→</div>
-      <div class="wf-node"><i class="bi bi-cash-coin"></i> Billing</div>
-      <div class="wf-arrow">→</div>
-      <div class="wf-node"><i class="bi bi-credit-card-2-front-fill"></i> Payment</div>
-      <div class="wf-arrow">→</div>
-      <div class="wf-node"><i class="bi bi-bag-check-fill"></i> Pickup / Serve</div>
-    </div>
-  </div>
-</section>
-
-{{-- SECTION 20 & 21: CONCEPTS & BENEFITS --}}
-<section class="alt">
-  <div class="w">
-    <div class="hd">
-      <h2>One Platform. Different Food Concepts.</h2>
-    </div>
-
-    <div class="concept-grid">
-      <div class="concept-card">
-        <div class="concept-icon"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 11h.01"/><path d="M11 15h.01"/><path d="M16 16h.01"/><path d="m2 16 20 6-6-20A20 20 0 0 0 2 16"/></svg></div>
-        <h3>Pizzerias</h3>
-        <p>Manage pizzas, toppings, crusts, sides, combos, orders and billing.</p>
-      </div>
-      <div class="concept-card">
-        <div class="concept-icon"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11h16a1 1 0 0 1 1 1v.5c0 4.5-4 8.5-9 8.5s-9-4-9-8.5V12a1 1 0 0 1 1-1Z"/><path d="M12 3v4"/><path d="M8 5v2"/><path d="M16 5v2"/></svg></div>
-        <h3>Burger & Fast Food</h3>
-        <p>Manage burgers, sides, combos, takeaway orders and counter billing.</p>
-      </div>
-      <div class="concept-card">
-        <div class="concept-icon"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11h16a1 1 0 0 1 1 1v.5c0 4.5-4 8.5-9 8.5s-9-4-9-8.5V12a1 1 0 0 1 1-1Z"/><path d="M12 3v4"/><path d="M8 5v2"/><path d="M16 5v2"/></svg></div>
-        <h3>Pasta & Italian</h3>
-        <p>Organize pasta, starters, mains, desserts and dine-in orders.</p>
-      </div>
-      <div class="concept-card">
-        <div class="concept-icon"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11h16a1 1 0 0 1 1 1v.5c0 4.5-4 8.5-9 8.5s-9-4-9-8.5V12a1 1 0 0 1 1-1Z"/><path d="M12 3v4"/><path d="M8 5v2"/><path d="M16 5v2"/></svg></div>
-        <h3>Sandwich & Wraps</h3>
-        <p>Manage quick-service products, variations and takeaway orders.</p>
-      </div>
-      <div class="concept-card">
-        <div class="concept-icon"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11h16a1 1 0 0 1 1 1v.5c0 4.5-4 8.5-9 8.5s-9-4-9-8.5V12a1 1 0 0 1 1-1Z"/><path d="M12 3v4"/><path d="M8 5v2"/><path d="M16 5v2"/></svg></div>
-        <h3>Snack Shops</h3>
-        <p>Manage snacks, sides, beverages and high-volume counter orders.</p>
-      </div>
-      <div class="concept-card">
-        <div class="concept-icon"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8"/><path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1"/><path d="M2 21h20"/><path d="M7 8v3"/><path d="M12 8v3"/><path d="M17 8v3"/></svg></div>
-        <h3>Dessert Cafés</h3>
-        <p>Manage desserts, beverages, customer orders and billing.</p>
-      </div>
-    </div>
-
-    <div class="hd" style="margin-top:80px;">
-      <h2>Built for Businesses With a Signature Menu.</h2>
-    </div>
-    <div class="benefits-grid">
-      <div class="b-card">
-        <h3 style="margin-bottom:8px; font-size:16px;">01. Flexible Product Management</h3>
-        <p style="font-size:14px;">Organize your signature products, categories and availability.</p>
-      </div>
-      <div class="b-card">
-        <h3 style="margin-bottom:8px; font-size:16px;">02. Product Variations</h3>
-        <p style="font-size:14px;">Manage sizes, toppings, add-ons and other options where supported.</p>
-      </div>
-      <div class="b-card">
-        <h3 style="margin-bottom:8px; font-size:16px;">03. Faster Billing</h3>
-        <p style="font-size:14px;">Process dine-in, takeaway and supported orders efficiently.</p>
-      </div>
-      <div class="b-card">
-        <h3 style="margin-bottom:8px; font-size:16px;">04. Kitchen Coordination</h3>
-        <p style="font-size:14px;">Connect orders with kitchen workflows where supported.</p>
-      </div>
-      <div class="b-card">
-        <h3 style="margin-bottom:8px; font-size:16px;">05. Inventory Visibility</h3>
-        <p style="font-size:14px;">Monitor important ingredients and supplies.</p>
-      </div>
-      <div class="b-card">
-        <h3 style="margin-bottom:8px; font-size:16px;">06. Business Insights</h3>
-        <p style="font-size:14px;">Understand product, order and sales performance.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-{{-- SECTION 22 & 23: CUSTOMER EXP & MOBILE --}}
-<section>
-  <div class="w two-col-flow">
-    {{-- Customer Exp --}}
-    <div style="text-align:center;">
-      <div class="eb">Customer Experience</div>
-      <h3 style="font-size:28px; margin-bottom:12px;">Make Your Signature Menu Easy to Explore.</h3>
-      <p style="margin-bottom:32px;">Browse → Select → Customize → Order</p>
-      
-      <div class="phone-mockup">
-        <div class="phone-inner">
-          <div class="pi-hdr">Specialty Menu</div>
-          <div class="pi-body">
-            <div class="pi-card" style="display:flex; gap:12px; text-align:left;">
-              <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=100&q=80" referrerpolicy="no-referrer" style="width:60px; height:60px; border-radius:8px; object-fit:cover;">
-              <div>
-                <div style="font-weight:700; font-size:14px;">Margherita Pizza</div>
-                <div style="font-size:12px; color:var(--mute); margin-bottom:4px;">Classic delight...</div>
-                <div style="font-weight: 500; color:var(--br); font-size:13px;">₹299</div>
-              </div>
-            </div>
-            <div class="pi-card" style="display:flex; gap:12px; text-align:left;">
-              <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=100&q=80" referrerpolicy="no-referrer" style="width:60px; height:60px; border-radius:8px; object-fit:cover;">
-              <div>
-                <div style="font-weight:700; font-size:14px;">Signature Burger</div>
-                <div style="font-size:12px; color:var(--mute); margin-bottom:4px;">Juicy chicken patty...</div>
-                <div style="font-weight: 500; color:var(--br); font-size:13px;">₹249</div>
-              </div>
-            </div>
-            <div style="text-align:center; padding:12px; background:var(--br); color:#fff; border-radius:8px; font-weight:700; font-size:14px; margin-top:24px;">View Cart</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    {{-- Mobile Admin --}}
-    <div style="text-align:center;">
-      <div class="eb">Mobile Management</div>
-      <h3 style="font-size:28px; margin-bottom:12px;">Your Specialty Food Business at a Glance.</h3>
-      <p style="margin-bottom:32px;">Monitor orders, inventory and sales from anywhere.</p>
-
-      <div class="phone-mockup">
-        <div class="phone-inner" style="background:var(--bg2);">
-          <div class="pi-hdr">Dashboard</div>
-          <div class="pi-body">
-            <div style="background:#fff; border-radius:12px; padding:16px; margin-bottom:12px; border:1px solid var(--line); text-align:left;">
-              <div style="font-size:11px; font-weight:700; color:var(--mute);">TODAY'S SALES</div>
-              <div style="font-size:24px; font-weight: 500; color:var(--ink);">₹86,450</div>
-            </div>
-            <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:12px; text-align:left;">
-              <div style="background:#fff; border-radius:12px; padding:12px; border:1px solid var(--line);">
-                <div style="font-size:11px; font-weight:700; color:var(--mute);">ORDERS</div>
-                <div style="font-size:18px; font-weight: 500;">18</div>
-              </div>
-              <div style="background:#fff; border-radius:12px; padding:12px; border:1px solid var(--line);">
-                <div style="font-size:11px; font-weight:700; color:var(--mute);">PREPARING</div>
-                <div style="font-size:18px; font-weight: 500;">9</div>
-              </div>
-            </div>
-            <div style="background:#fff; border-radius:12px; padding:16px; border:1px solid var(--line); text-align:left;">
-              <div style="font-size:11px; font-weight:700; color:var(--mute);">LOW STOCK</div>
-              <div style="font-size:16px; font-weight: 500; color:var(--red);">4 Items</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-{{-- SECTION 24 & 25: IDEAL FOR & BRANCHES --}}
-<section class="alt">
-  <div class="w">
-    <div class="hd">
-      <h2>Built for Focused Food Concepts.</h2>
-    </div>
-
-    <div class="industry-grid">
-      <div class="ind-card">Pizzerias</div>
-      <div class="ind-card">Pizza & Pasta Restaurants</div>
-      <div class="ind-card">Burger Shops</div>
-      <div class="ind-card">Sandwich Shops</div>
-      <div class="ind-card">Wrap & Roll Shops</div>
-      <div class="ind-card">Pasta Restaurants</div>
-      <div class="ind-card">Fast Food Outlets</div>
-      <div class="ind-card">Snack Shops</div>
-      <div class="ind-card">Dessert Cafés</div>
-      <div class="ind-card">Specialty Cafés</div>
-      <div class="ind-card">Casual Dining Concepts</div>
-      <div class="ind-card">Multi-Outlet Businesses</div>
-    </div>
-
-    <div style="max-width:600px; margin:80px auto 0;">
-      <div class="hd" style="margin-bottom:24px;">
-        <div class="eb">Multi-Branch Management</div>
-        <h2>Growing Beyond One Location? Stay Connected.</h2>
-      </div>
-      <div class="mb-panel">
-        <div style="font-weight: 500; font-size:14px; color:var(--mute); text-transform:uppercase; margin-bottom:12px;">All Locations</div>
-        <div class="mb-row"><span>Tiruchengode</span><span class="mb-val">₹86,450</span></div>
-        <div class="mb-row"><span>Namakkal</span><span class="mb-val">₹74,280</span></div>
-        <div class="mb-row"><span>Salem</span><span class="mb-val">₹1,08,650</span></div>
-        <div style="font-size:11px; color:var(--mute); text-align:center; margin-top:16px;">* Multi-branch capabilities depend on applicable plan.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-{{-- SECTION 26: CONNECTED FEATURES --}}
-<section>
-  <div class="w">
-    <div class="hd">
-      <h2>Everything Works Better Together.</h2>
-    </div>
-
-    <div class="conn-grid">
-      <div class="conn-card"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/></svg><br>Menu</div>
-      <div class="conn-card"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg><br>Orders</div>
-      <div class="conn-card"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg><br>KOT</div>
-      <div class="conn-card"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg><br>POS</div>
-      <div class="conn-card"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 9V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v2"/><path d="M2 11h20"/><path d="M4 11v9h16v-9"/></svg><br>Tables</div>
-      <div class="conn-card"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg><br>Customers</div>
-      <div class="conn-card"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg><br>Inventory</div>
-      <div class="conn-card"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg><br>Reports</div>
-    </div>
-  </div>
-</section>
-
-{{-- SECTION 27: FAQ --}}
-<section class="alt">
-  <div class="w">
-    <div class="hd">
-      <h2>Frequently Asked Questions</h2>
-    </div>
-
-    <div class="faq-list">
-      <details class="faq-item">
-        <summary>Can Geni Menu manage a pizzeria? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
-        <p>Yes. Geni Menu can help manage pizza products, menu categories, orders, billing, inventory and supported restaurant operations.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Can I manage pizza sizes and toppings? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
-        <p>Product variations such as sizes, toppings and add-ons can be represented where supported.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Can I manage burger and pasta menus? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
-        <p>Yes. Geni Menu can organize different food categories and products within the menu management workflow.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Can I manage takeaway orders? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
-        <p>Yes. Takeaway orders can be handled through the supported order-management workflow.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Can I connect orders with the kitchen? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
-        <p>KOT and kitchen workflows can connect orders to preparation where supported.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Can I manage dine-in tables? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
-        <p>Yes. Table management can help manage table availability, occupancy and associated orders where applicable.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Can I track ingredients? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
-        <p>Inventory management can help monitor ingredients, stock levels and stock movement.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Can I manage multiple outlets? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
-        <p>Multi-branch functionality is available where supported by the applicable plan.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Can I view my best-selling products? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
-        <p>Yes. Supported reports can provide visibility into product and sales performance.</p>
-      </details>
-    </div>
-  </div>
-</section>
-
-{{-- FINAL CTA --}}
-<section class="cta-sec">
-  <div class="cta-box">
-    <h2>Ready to Run Your Specialty Food Business Smarter?</h2>
-    <p>Manage your menu, orders, kitchen, billing, customers, inventory and business insights from one connected platform with Geni Menu.</p>
-    <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:32px;">
-      <a href="{{ route('restaurant_signup') }}" class="btn p" style="background:#876039; color:#fff;">Get Started →</a>
-      <a href="{{ route('contact.us') }}" class="btn o" style="background:#fff; border-color:#876039; color:#876039;">Book a Demo</a>
-    </div>
-  </div>
-</section>
+document.addEventListener('DOMContentLoaded', function() {
+  const els = document.querySelectorAll('.pz-page .r');
+  if ('IntersectionObserver' in window) {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('on');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    els.forEach(el => obs.observe(el));
+  } else {
+    els.forEach(el => el.classList.add('on'));
+  }
+});
+</script>
 
 @endsection

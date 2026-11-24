@@ -3097,7 +3097,7 @@ footer li a:hover { color: var(--br); }
                 </div>
                 <div class="mock-phone-row">
                   <span class="mock-phone-item-name">
-                    <img src="https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=100&auto=format&fit=crop&q=80" alt="Artisan Flatbread">
+                    <img src="https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=100&auto=format&fit=crop&q=80" alt="Artisan Crepe">
                     Artisan Crepe
                   </span>
                   <div class="mock-phone-right">

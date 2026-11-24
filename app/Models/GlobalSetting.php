@@ -67,7 +67,15 @@ class GlobalSetting extends BaseModel
 
     public function logoUrl(): Attribute
     {
-        return Attribute::get(fn(): string => $this->logo ? asset_url_local_s3('logo/' . $this->logo) : asset('img/logo.png'));
+        return Attribute::get(function (): string {
+            if ($this->logo) {
+                $localPath = public_path(\App\Helper\Files::UPLOAD_FOLDER . '/logo/' . $this->logo);
+                if (file_exists($localPath) || in_array(config('filesystems.default'), \App\Models\StorageSetting::S3_COMPATIBLE_STORAGE)) {
+                    return asset_url_local_s3('logo/' . $this->logo);
+                }
+            }
+            return asset('img/logo.png');
+        });
     }
 
     public function defaultCurrency(): BelongsTo
@@ -83,10 +91,14 @@ class GlobalSetting extends BaseModel
     public function uploadFavIconAndroidChrome192Url(): Attribute
     {
         return Attribute::get(function (): string {
-            // Use custom favicon if exists, otherwise use default
-            return $this->upload_fav_icon_android_chrome_192
-                ? asset_url_local_s3($this->getFaviconBasePath() . $this->upload_fav_icon_android_chrome_192)
-                : asset('img/favicons/android-chrome-192x192.png');
+            $basePath = $this->getFaviconBasePath();
+            if ($this->upload_fav_icon_android_chrome_192) {
+                $localPath = public_path(\App\Helper\Files::UPLOAD_FOLDER . '/' . $basePath . $this->upload_fav_icon_android_chrome_192);
+                if (file_exists($localPath) || in_array(config('filesystems.default'), \App\Models\StorageSetting::S3_COMPATIBLE_STORAGE)) {
+                    return asset_url_local_s3($basePath . $this->upload_fav_icon_android_chrome_192);
+                }
+            }
+            return asset('img/favicons/android-chrome-192x192.png');
         });
     }
 
@@ -97,10 +109,14 @@ class GlobalSetting extends BaseModel
     public function uploadFavIconAndroidChrome512Url(): Attribute
     {
         return Attribute::get(function (): string {
-            // Use custom favicon if exists, otherwise use default
-            return $this->upload_fav_icon_android_chrome_512
-                ? asset_url_local_s3($this->getFaviconBasePath() . $this->upload_fav_icon_android_chrome_512)
-                : asset('img/favicons/android-chrome-512x512.png');
+            $basePath = $this->getFaviconBasePath();
+            if ($this->upload_fav_icon_android_chrome_512) {
+                $localPath = public_path(\App\Helper\Files::UPLOAD_FOLDER . '/' . $basePath . $this->upload_fav_icon_android_chrome_512);
+                if (file_exists($localPath) || in_array(config('filesystems.default'), \App\Models\StorageSetting::S3_COMPATIBLE_STORAGE)) {
+                    return asset_url_local_s3($basePath . $this->upload_fav_icon_android_chrome_512);
+                }
+            }
+            return asset('img/favicons/android-chrome-512x512.png');
         });
     }
 
@@ -111,10 +127,14 @@ class GlobalSetting extends BaseModel
     public function uploadFavIconAppleTouchIconUrl(): Attribute
     {
         return Attribute::get(function (): string {
-            // Use custom icon if exists, otherwise use default
-            return $this->upload_fav_icon_apple_touch_icon
-                ? asset_url_local_s3($this->getFaviconBasePath() . $this->upload_fav_icon_apple_touch_icon)
-                : asset('img/favicons/apple-touch-icon.png');
+            $basePath = $this->getFaviconBasePath();
+            if ($this->upload_fav_icon_apple_touch_icon) {
+                $localPath = public_path(\App\Helper\Files::UPLOAD_FOLDER . '/' . $basePath . $this->upload_fav_icon_apple_touch_icon);
+                if (file_exists($localPath) || in_array(config('filesystems.default'), \App\Models\StorageSetting::S3_COMPATIBLE_STORAGE)) {
+                    return asset_url_local_s3($basePath . $this->upload_fav_icon_apple_touch_icon);
+                }
+            }
+            return asset('img/favicons/apple-touch-icon.png');
         });
     }
 
@@ -125,11 +145,20 @@ class GlobalSetting extends BaseModel
     public function uploadFavIcon16Url(): Attribute
     {
         return Attribute::get(function (): string {
-            // Use custom favicon if exists, otherwise use default
-            return $this->upload_favicon_16
-                ? asset_url_local_s3($this->getFaviconBasePath() . $this->upload_favicon_16)
-                : asset('img/favicons/favicon-16x16.png');
+            $basePath = $this->getFaviconBasePath();
+            if ($this->upload_favicon_16) {
+                $localPath = public_path(\App\Helper\Files::UPLOAD_FOLDER . '/' . $basePath . $this->upload_favicon_16);
+                if (file_exists($localPath) || in_array(config('filesystems.default'), \App\Models\StorageSetting::S3_COMPATIBLE_STORAGE)) {
+                    return asset_url_local_s3($basePath . $this->upload_favicon_16);
+                }
+            }
+            return asset('img/favicons/favicon-16x16.png');
         });
+    }
+
+    public function uploadFavicon16Url(): Attribute
+    {
+        return $this->uploadFavIcon16Url();
     }
 
     /**
@@ -139,11 +168,20 @@ class GlobalSetting extends BaseModel
     public function uploadFavIcon32Url(): Attribute
     {
         return Attribute::get(function (): string {
-            // Use custom favicon if exists, otherwise use default
-            return $this->upload_favicon_32
-                ? asset_url_local_s3($this->getFaviconBasePath() . $this->upload_favicon_32)
-                : asset('img/favicons/favicon-32x32.png');
+            $basePath = $this->getFaviconBasePath();
+            if ($this->upload_favicon_32) {
+                $localPath = public_path(\App\Helper\Files::UPLOAD_FOLDER . '/' . $basePath . $this->upload_favicon_32);
+                if (file_exists($localPath) || in_array(config('filesystems.default'), \App\Models\StorageSetting::S3_COMPATIBLE_STORAGE)) {
+                    return asset_url_local_s3($basePath . $this->upload_favicon_32);
+                }
+            }
+            return asset('img/favicons/favicon-32x32.png');
         });
+    }
+
+    public function uploadFavicon32Url(): Attribute
+    {
+        return $this->uploadFavIcon32Url();
     }
 
     /**
@@ -153,10 +191,14 @@ class GlobalSetting extends BaseModel
     public function faviconUrl(): Attribute
     {
         return Attribute::get(function (): string {
-            // Use custom favicon if exists, otherwise use default
-            return $this->favicon
-                ? asset_url_local_s3($this->getFaviconBasePath() . $this->favicon)
-                : asset('img/favicons/favicon.ico');
+            $basePath = $this->getFaviconBasePath();
+            if ($this->favicon) {
+                $localPath = public_path(\App\Helper\Files::UPLOAD_FOLDER . '/' . $basePath . $this->favicon);
+                if (file_exists($localPath) || in_array(config('filesystems.default'), \App\Models\StorageSetting::S3_COMPATIBLE_STORAGE)) {
+                    return asset_url_local_s3($basePath . $this->favicon);
+                }
+            }
+            return asset('img/favicons/favicon.ico');
         });
     }
 
@@ -167,10 +209,14 @@ class GlobalSetting extends BaseModel
     public function webmanifestUrl(): Attribute
     {
         return Attribute::get(function (): string {
-            // Use custom webmanifest if exists, otherwise use default
-            return $this->webmanifest
-                ? asset_url_local_s3($this->getFaviconBasePath() . $this->webmanifest)
-                : asset('img/favicons/site.webmanifest');
+            $basePath = $this->getFaviconBasePath();
+            if ($this->webmanifest) {
+                $localPath = public_path(\App\Helper\Files::UPLOAD_FOLDER . '/' . $basePath . $this->webmanifest);
+                if (file_exists($localPath) || in_array(config('filesystems.default'), \App\Models\StorageSetting::S3_COMPATIBLE_STORAGE)) {
+                    return asset_url_local_s3($basePath . $this->webmanifest);
+                }
+            }
+            return asset('img/favicons/site.webmanifest');
         });
     }
 }

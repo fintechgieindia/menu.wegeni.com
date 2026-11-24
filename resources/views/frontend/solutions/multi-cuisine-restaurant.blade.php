@@ -1,3 +1,11 @@
+@php
+$meta = [
+    'title' => 'Multi-Cuisine Restaurant POS & Kitchen Routing Software | Geni Menu',
+    'description' => 'One restaurant, many cuisines, one connected platform. Manage Indian, Chinese, Italian & Continental menus, multi-station KOT routing, combined GST billing, inventory, and cuisine analytics with Geni Menu.',
+    'keywords' => 'multi-cuisine restaurant POS, multi-station KOT routing, Indian Chinese Italian restaurant software, combined table billing, restaurant inventory software, Geni Menu',
+];
+@endphp
+
 @extends('layouts.frontend-master')
 
 @section('content')
@@ -5,62 +13,54 @@
 {{-- Google Fonts --}}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,600;1,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600;1,700&display=swap" rel="stylesheet">
 
 <style>
-/* Master header and footer active */
-
 :root {
   --br: #876039;
   --br-dark: #6f4e2d;
-  --br-light: #f4efe9;
+  --br-light: #FBF6EE;
   --br-gold: #b88e56;
   --bg: #ffffff;
-  --bg2: #f9f6f0;
-  --bg3: #f3ece1;
-  --ink: #241A14;
-  --mute: #6F665E;
-  --line: rgba(135, 96, 57, 0.14);
+  --bg2: #FAF7F2;
+  --bg3: #F5EFE6;
+  --ink: #21160F;
+  --mute: #6E6157;
+  --line: rgba(135, 96, 57, 0.16);
   --card: #ffffff;
-  --shadow-sm: 0 4px 20px rgba(36, 26, 20, 0.04);
-  --shadow-md: 0 16px 40px rgba(36, 26, 20, 0.08);
-  --shadow-lg: 0 26px 50px rgba(36, 26, 20, 0.12);
-  --green: #10B981;
-  --green-bg: #d1fae5;
-  --green-text: #065f46;
-  --amber: #F59E0B;
-  --amber-bg: #fef3c7;
-  --amber-text: #92400e;
-  --red: #EF4444;
-  --red-bg: #fee2e2;
-  --red-text: #991b1b;
+  --shadow-sm: 0 4px 20px rgba(33, 22, 15, 0.04);
+  --shadow-md: 0 16px 40px rgba(33, 22, 15, 0.08);
+  --shadow-lg: 0 24px 54px rgba(33, 22, 15, 0.12);
+  --green: #15803D;
+  --green-bg: #ECFDF5;
+  --amber: #B45309;
+  --amber-bg: #FFFBEB;
+  --blue: #1D4ED8;
+  --blue-bg: #EFF6FF;
 }
 
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  margin: 0;
-  font: 400 16px/1.65 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+.mc-page * { box-sizing: border-box; }
+.mc-page {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   color: var(--ink);
-  background: var(--bg) !important;
-  overflow-x: hidden;
+  background: var(--bg);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
-h1, h2, h3, h4, h5 {
+.mc-page h1, .mc-page h2, .mc-page h3, .mc-page h4 {
   margin: 0;
   font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
   font-weight: 500;
   line-height: 1.14;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.025em;
   color: var(--ink);
 }
-h1 { font-size: clamp(34px, 4.8vw, 58px); }
-h2 { font-size: clamp(28px, 3.6vw, 44px); }
-h3 { font-size: 20px; font-weight: 700; }
-p { margin: 0; color: var(--mute); font-size: 16px; line-height: 1.65; }
-a { color: inherit; text-decoration: none; }
-ul { list-style: none; margin: 0; padding: 0; }
+.mc-page h1 { font-size: clamp(34px, 4.6vw, 56px); }
+.mc-page h2 { font-size: clamp(28px, 3.6vw, 44px); }
+.mc-page h3 { font-size: 20px; font-weight: 600; }
+.mc-page p { margin: 0; color: var(--mute); font-size: 16px; line-height: 1.65; }
+.mc-page a { text-decoration: none; color: inherit; }
 
 .sf {
   font-family: 'Playfair Display', Georgia, serif;
@@ -73,786 +73,511 @@ ul { list-style: none; margin: 0; padding: 0; }
   padding-right: 4px;
 }
 
-.eb {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 12px;
-  letter-spacing: .16em;
-  font-weight: 500;
-  text-transform: uppercase;
-  color: var(--br);
-  margin-bottom: 16px;
-  background: linear-gradient(135deg, #fbf7f2 0%, #f4efe9 100%);
-  padding: 7px 18px;
-  border-radius: 99px;
-  border: 1px solid rgba(135, 96, 57, 0.22);
-  box-shadow: 0 2px 10px rgba(135, 96, 57, 0.08);
-  font-family: 'Plus Jakarta Sans', sans-serif;
-}
+.w { max-width: 1240px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+.mc-sec { padding: clamp(56px, 6.5vw, 92px) 0; background: var(--bg); position: relative; overflow: hidden; }
+.mc-sec.alt { background: var(--bg2); }
+.mc-sec.border-b { border-bottom: 1px solid var(--line); }
 
-.w { max-width: 1240px; margin: auto; padding: 0 24px; position: relative; z-index: 1; }
-section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: relative; overflow: hidden; }
-.hd { max-width: 760px; margin: 0 auto 52px; text-align: center; }
+.eb {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 12px; letter-spacing: .14em; font-weight: 700; text-transform: uppercase;
+  color: var(--br); margin-bottom: 16px; background: var(--br-light);
+  padding: 7px 16px; border-radius: 99px; border: 1px solid rgba(135, 96, 57, 0.22);
+}
+.hd { max-width: 760px; margin: 0 auto 48px; text-align: center; }
 .hd p { margin-top: 14px; font-size: 17px; }
 
-/* ===================== BUTTONS ===================== */
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 28px; border-radius: 12px; font: 700 15px 'Plus Jakarta Sans', sans-serif; border: 1.5px solid var(--br); transition: .25s ease; cursor: pointer; text-decoration: none; }
-.btn.p { background: linear-gradient(135deg, #876039 0%, #a87646 100%); color: #fff; box-shadow: 0 4px 16px rgba(135,96,57,0.28); }
-.btn.p:hover { transform: translateY(-2px); background: linear-gradient(135deg, #6f4e2d 0%, #876039 100%); box-shadow: 0 8px 24px rgba(135,96,57,0.38); }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 14px 28px; border-radius: 12px; font: 700 15px 'Plus Jakarta Sans', sans-serif;
+  border: 1.5px solid var(--br); transition: .25s ease; cursor: pointer;
+}
+.btn.p { background: linear-gradient(135deg, #876039 0%, #a87646 100%); color: #fff; box-shadow: 0 4px 16px rgba(135, 96, 57, 0.28); }
+.btn.p:hover { transform: translateY(-2px); background: linear-gradient(135deg, #6f4e2d 0%, #876039 100%); box-shadow: 0 8px 24px rgba(135, 96, 57, 0.36); }
 .btn.o { color: var(--br); background: #fff; }
 .btn.o:hover { background: var(--br); color: #fff; transform: translateY(-2px); }
 
-/* ===================== BREADCRUMB ===================== */
-.bc { padding: 18px 0 16px; background: var(--bg2); border-bottom: 1px solid var(--line); font-size: 14px; color: var(--mute); font-weight: 600; }
-.bc .w { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-.bc a { color: var(--mute); transition: color .2s; }
+.bc { padding: 16px 0; background: var(--bg2); border-bottom: 1px solid var(--line); font-size: 13.5px; color: var(--mute); font-weight: 600; }
+.bc .w { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 .bc a:hover { color: var(--br); }
-.bc span.cur { color: var(--br); font-weight: 700; }
+.bc .sep { opacity: 0.5; }
+.bc .cur { color: var(--br); font-weight: 700; }
 
-/* ===================== CARDS & UI COMPONENTS ===================== */
-.card { position: relative; overflow: hidden; background: var(--card); border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow-sm); transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease; }
-.card:hover { border-color: rgba(135,96,57,0.3); box-shadow: var(--shadow-md); transform: translateY(-3px); }
+.r { opacity: 0; transform: translateY(20px); transition: opacity .65s ease, transform .65s ease; }
+.r.on { opacity: 1; transform: none; }
 
-.ic { width: 46px; height: 46px; border-radius: 13px; background: var(--bg2); color: var(--br); display: grid; place-items: center; flex: none; border: 1px solid var(--line); transition: .3s ease; }
-.ic svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-.card:hover .ic { background: var(--br); color: #fff; border-color: var(--br); }
+/* Hero */
+.rm-hero { padding: clamp(48px, 6vw, 84px) 0; background: linear-gradient(180deg, var(--bg2) 0%, #ffffff 100%); border-bottom: 1px solid var(--line); }
+.rm-hero-grid { display: grid; grid-template-columns: 1fr 1.12fr; gap: 52px; align-items: center; }
+.rm-hero-sub { font-size: 17.5px; margin: 20px 0 30px; max-width: 540px; color: var(--mute); }
+.rm-hero-cta { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 28px; }
+.mc-cuisine-pills { display: flex; gap: 8px; flex-wrap: wrap; padding-top: 20px; border-top: 1px solid var(--line); }
+.mc-pill { padding: 6px 14px; border-radius: 99px; background: var(--bg2); border: 1px solid var(--line); font-size: 12.5px; font-weight: 700; color: var(--br-dark); }
 
-.win { background: #fff; color: var(--ink); border: 1px solid var(--line); border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-md); font-size: 13px; }
+.rm-hero-media { position: relative; border-radius: 26px; overflow: hidden; box-shadow: var(--shadow-lg); border: 1px solid rgba(135, 96, 57, 0.2); background: #1C1510; aspect-ratio: 4 / 3; }
+.rm-hero-media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; }
+.rm-hero-media:hover img { transform: scale(1.03); }
+.rm-hero-scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(33, 22, 15, 0.14) 0%, rgba(33, 22, 15, 0.05) 45%, rgba(33, 22, 15, 0.64) 100%); pointer-events: none; }
+.rm-hero-pill { position: absolute; top: 18px; left: 18px; display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 99px; background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(10px); font-size: 12px; font-weight: 700; color: var(--ink); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.14); }
+.rm-live-dot { width: 8px; height: 8px; border-radius: 50%; background: #16A34A; box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.22); }
+.rm-hero-float { position: absolute; left: 18px; right: 18px; bottom: 18px; background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(12px); border: 1px solid rgba(135, 96, 57, 0.2); border-radius: 16px; padding: 14px 18px; display: flex; align-items: center; justify-content: space-between; gap: 14px; box-shadow: 0 12px 30px rgba(33, 22, 15, 0.18); }
+.rm-hero-float-left { display: flex; align-items: center; gap: 12px; }
+.rm-hero-float-ico { width: 40px; height: 40px; border-radius: 11px; background: var(--br-light); color: var(--br); border: 1px solid rgba(135, 96, 57, 0.2); display: grid; place-items: center; flex: none; }
+.rm-hero-float-ico svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; }
+.rm-hero-float-ttl { font-size: 13.5px; font-weight: 700; color: var(--ink); line-height: 1.25; }
+.rm-hero-float-sub { font-size: 12px; color: var(--mute); }
+.rm-hero-float-tag { font-size: 11px; font-weight: 700; padding: 5px 11px; border-radius: 99px; background: var(--green-bg); color: var(--green); white-space: nowrap; }
 
-/* Dynamic Flow Pipeline */
-.flow-step { flex: 1; min-width: 90px; text-align: center; position: relative; padding: 12px 6px; }
-.flow-step .num { width: 28px; height: 28px; border-radius: 50%; background: var(--br-light); color: var(--br); font-weight: 500; font-size: 12px; display: grid; place-items: center; margin: 0 auto 8px; border: 1px solid rgba(135,96,57,0.2); }
-.flow-step .lbl { font-size: 11px; font-weight: 500; text-transform: uppercase; color: var(--ink); letter-spacing: 0.04em; }
+/* Value Strip & Cards */
+.rm-val-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.rm-val-card { background: var(--bg2); border: 1px solid var(--line); border-radius: 18px; padding: 24px; transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+.rm-val-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: rgba(135, 96, 57, 0.32); background: #fff; }
+.rm-val-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+.rm-ic { width: 46px; height: 46px; border-radius: 13px; background: #fff; color: var(--br); border: 1px solid var(--line); display: grid; place-items: center; transition: .25s ease; }
+.rm-ic svg { width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.rm-val-card:hover .rm-ic, .rm-ben-card:hover .rm-ic { background: var(--br); color: #fff; border-color: var(--br); }
+.rm-num { font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 700; color: var(--br); opacity: 0.75; letter-spacing: 0.06em; }
+.rm-val-card h3 { font-size: 17.5px; margin-bottom: 8px; }
+.rm-val-card p { font-size: 14px; }
 
-/* FAQ Accordion */
-.faq-list { max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
-.faq-item { background: #fff; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; transition: border-color .2s, box-shadow .2s; }
-.faq-item.open { border-color: var(--br); box-shadow: 0 4px 20px rgba(135,96,57,0.1); }
-.faq-q { padding: 20px 24px; font-size: 16.5px; font-weight: 700; color: var(--ink); cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; gap: 12px; }
-.faq-q svg { width: 20px; height: 20px; transition: transform .3s; stroke: var(--br); flex: none; }
-.faq-item.open .faq-q svg { transform: rotate(180deg); }
-.faq-a { padding: 0 24px; max-height: 0; overflow: hidden; transition: max-height .4s ease, padding .3s; font-size: 15px; color: var(--mute); line-height: 1.65; }
-.faq-item.open .faq-a { max-height: 280px; padding: 16px 24px 20px; border-top: 1px solid rgba(135,96,57,0.08); }
+/* Window Chrome & Dish Cards */
+.rm-win { background: #fff; border: 1px solid var(--line); border-radius: 22px; overflow: hidden; box-shadow: var(--shadow-md); }
+.rm-win-bar { display: flex; align-items: center; justify-content: space-between; padding: 13px 20px; background: var(--bg2); border-bottom: 1px solid var(--line); gap: 12px; flex-wrap: wrap; }
+.rm-win-dots { display: flex; gap: 6px; }
+.rm-win-dots i { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.rm-win-dots i:nth-child(1) { background: #ff5f56; }
+.rm-win-dots i:nth-child(2) { background: #ffbd2e; }
+.rm-win-dots i:nth-child(3) { background: #27c93f; }
+.rm-win-ttl { font-family: 'Outfit', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--br); }
+.rm-win-body { padding: 24px; }
 
-/* Responsive Grid helpers */
-.g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
-.g3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.g4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.rm-filter-group { display: flex; gap: 6px; flex-wrap: wrap; }
+.rm-filter-btn { padding: 6px 13px; border-radius: 99px; border: 1px solid var(--line); background: #fff; color: var(--mute); font: 700 12px 'Plus Jakarta Sans', sans-serif; cursor: pointer; transition: .2s ease; }
+.rm-filter-btn:hover { border-color: var(--br); color: var(--br); }
+.rm-filter-btn.active { background: var(--br); color: #fff; border-color: var(--br); }
 
-@media (max-width: 992px) {
-  .g2, .g3, .g4, .ind-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+.mc-dish-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.mc-dish-card { background: var(--bg2); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; transition: transform .25s ease, box-shadow .25s ease; }
+.mc-dish-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); background: #fff; }
+.mc-dish-img { height: 155px; width: 100%; object-fit: cover; display: block; }
+.mc-dish-body { padding: 16px 18px; }
+
+.rm-split { display: grid; grid-template-columns: 1fr 1.05fr; gap: 36px; align-items: start; }
+.rm-split.center { align-items: center; }
+
+/* Dark Editorial Revenue Banner */
+.mc-rev-banner { position: relative; border-radius: 26px; overflow: hidden; padding: clamp(32px, 4.5vw, 52px); color: #fff; background: #21160F; box-shadow: var(--shadow-lg); }
+.mc-rev-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.25; }
+.mc-rev-scrim { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(33, 22, 15, 0.92) 0%, rgba(111, 78, 45, 0.78) 100%); }
+.mc-rev-inner { position: relative; z-index: 2; }
+.mc-rev-bars { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 28px; }
+.mc-rev-card { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 16px; padding: 20px; }
+.mc-rev-card span { display: block; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255, 255, 255, 0.8); }
+.mc-rev-card strong { display: block; font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 600; color: #fff; margin: 4px 0 8px; }
+.mc-rev-track { height: 6px; background: rgba(255, 255, 255, 0.18); border-radius: 99px; overflow: hidden; }
+.mc-rev-fill { height: 100%; background: #F2D3A8; border-radius: 99px; }
+
+/* Station Cards, Benefits, Ecosystem, FAQ, CTA */
+.rm-ind-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.rm-ind-card { position: relative; border-radius: 20px; overflow: hidden; min-height: 235px; display: flex; flex-direction: column; justify-content: flex-end; padding: 22px; border: 1px solid var(--line); box-shadow: var(--shadow-sm); background: #21160F; }
+.rm-ind-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .55s ease; }
+.rm-ind-card:hover img { transform: scale(1.07); }
+.rm-ind-scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(33, 22, 15, 0.16) 0%, rgba(33, 22, 15, 0.88) 100%); }
+.rm-ind-body { position: relative; z-index: 2; }
+.rm-ind-body h4 { color: #fff; font-size: 18px; font-weight: 600; margin-bottom: 5px; }
+.rm-ind-body p { color: rgba(255, 255, 255, 0.86); font-size: 13.5px; line-height: 1.5; }
+
+.rm-ben-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.rm-ben-card { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 26px; box-shadow: var(--shadow-sm); transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+.rm-ben-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: rgba(135, 96, 57, 0.34); }
+.rm-ben-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+.rm-ben-card h4 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+.rm-ben-card p { font-size: 14.5px; }
+
+.rm-eco-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 12px; }
+.rm-eco-card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 16px 10px; text-align: center; transition: .25s ease; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.rm-eco-card:hover { transform: translateY(-4px); border-color: var(--br); box-shadow: var(--shadow-sm); }
+.rm-eco-step { font-size: 10.5px; font-weight: 700; letter-spacing: 0.08em; color: var(--br); }
+.rm-eco-img { width: 44px; height: 44px; border-radius: 12px; background: var(--bg2); padding: 6px; object-fit: contain; }
+.rm-eco-lbl { font-size: 12.5px; font-weight: 700; color: var(--ink); line-height: 1.25; }
+
+.rm-faq-list { max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+.rm-faq-item { background: #fff; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; transition: border-color .2s, box-shadow .2s; }
+.rm-faq-item.open { border-color: var(--br); box-shadow: var(--shadow-sm); }
+.rm-faq-q { padding: 18px 22px; font-size: 16px; font-weight: 700; color: var(--ink); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 14px; user-select: none; }
+.rm-faq-q svg { width: 18px; height: 18px; stroke: var(--br); transition: transform .25s ease; flex: none; }
+.rm-faq-item.open .rm-faq-q svg { transform: rotate(180deg); }
+.rm-faq-a { display: none; padding: 14px 22px 20px; font-size: 15px; color: var(--mute); line-height: 1.65; border-top: 1px solid rgba(135, 96, 57, 0.08); }
+.rm-faq-item.open .rm-faq-a { display: block; }
+
+.rm-cta { padding: clamp(64px, 7vw, 96px) 0; background: linear-gradient(135deg, #876039 0%, #6f4e2d 100%); color: #fff; text-align: center; position: relative; overflow: hidden; }
+.rm-cta .eb { background: rgba(255, 255, 255, 0.14); border-color: rgba(255, 255, 255, 0.28); color: #fff; }
+.rm-cta h2 { color: #fff; font-size: clamp(30px, 4.2vw, 48px); margin-bottom: 16px; }
+.rm-cta p { color: rgba(255, 255, 255, 0.88); max-width: 640px; margin: 0 auto 32px; font-size: 17.5px; }
+.rm-cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.rm-cta .btn.white { background: #fff; color: var(--br-dark); border-color: #fff; }
+.rm-cta .btn.white:hover { background: var(--br-light); transform: translateY(-2px); }
+.rm-cta .btn.ghost { background: transparent; color: #fff; border-color: rgba(255, 255, 255, 0.55); }
+.rm-cta .btn.ghost:hover { background: rgba(255, 255, 255, 0.14); transform: translateY(-2px); }
+
+@media (max-width: 1080px) {
+  .rm-hero-grid, .rm-split { grid-template-columns: 1fr; gap: 32px; }
+  .rm-val-grid, .mc-rev-bars { grid-template-columns: repeat(2, 1fr); }
+  .rm-eco-grid { grid-template-columns: repeat(4, 1fr); }
 }
-
-@media (max-width: 768px) {
-  .bc { padding: 14px 0 14px; }
-  .w { padding: 0 16px; }
-  .win { min-width: 0 !important; width: 100%; overflow-x: auto; }
+@media (max-width: 820px) {
+  .mc-dish-grid, .rm-ind-grid, .rm-ben-grid { grid-template-columns: 1fr; }
+  .rm-eco-grid { grid-template-columns: repeat(2, 1fr); }
 }
-
 @media (max-width: 640px) {
-  .btn { width: 100%; }
+  .w { padding: 0 16px; }
+  .rm-val-grid, .mc-rev-bars { grid-template-columns: 1fr; }
+  .rm-hero-float { flex-direction: column; align-items: flex-start; }
+  .rm-hero-cta .btn, .rm-cta-btns .btn { width: 100%; }
 }
 </style>
 
-<!-- ================= BREADCRUMB ================= -->
-<div class="bc">
-  <div class="w">
-    <a href="{{ route('home') }}">Home</a>
-    <span>/</span>
-    <span>Solutions</span>
-    <span>/</span>
-    <span class="cur">Multi-Cuisine Restaurant Solution</span>
+<div class="mc-page">
+
+  <!-- ================= BREADCRUMB ================= -->
+  <div class="bc">
+    <div class="w">
+      <a href="{{ route('home') }}">Home</a>
+      <span class="sep">/</span>
+      <a href="{{ route('solutions') }}">Solutions</a>
+      <span class="sep">/</span>
+      <span class="cur">Multi-Cuisine Restaurant Solution</span>
+    </div>
   </div>
+
+  <!-- ================= 1. HERO SECTION ================= -->
+  <section class="rm-hero">
+    <div class="w">
+      <div class="rm-hero-grid">
+        <div>
+          <div class="eb">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            MULTI-CUISINE RESTAURANT SOLUTION
+          </div>
+          <h1>
+            One Restaurant. Many Cuisines.<br>
+            <span class="sf">One Connected Platform.</span>
+          </h1>
+          <p class="rm-hero-sub">
+            Manage diverse menus, table orders, kitchen workflows, billing and restaurant operations from one powerful platform built for multi-cuisine dining rooms.
+          </p>
+
+          <div class="rm-hero-cta">
+            <a href="{{ route('restaurant_signup') }}" onclick="if(typeof openPopup === 'function'){ openPopup(); return false; }" class="btn p">Get Started &rarr;</a>
+            <a href="{{ route('contact.us') }}" class="btn o">Book a Demo</a>
+          </div>
+
+          <div class="mc-cuisine-pills">
+            <span class="mc-pill">Indian &amp; Tandoor</span>
+            <span class="mc-pill">Chinese &amp; Asian Wok</span>
+            <span class="mc-pill">Italian &amp; Continental</span>
+            <span class="mc-pill">Mocktails &amp; Desserts</span>
+          </div>
+        </div>
+
+        <div class="rm-hero-media">
+          <img src="{{ asset('assets/images/multi-cuisine-restaurant-hero.jpg') }}" alt="Multi-cuisine restaurant table with Indian biryani, pizza, noodles and server with tablet">
+          <div class="rm-hero-scrim"></div>
+          <div class="rm-hero-pill">
+            <span class="rm-live-dot"></span>
+            Table T08 &bull; 4 Kitchen Stations Synced
+          </div>
+          <div class="rm-hero-float">
+            <div class="rm-hero-float-left">
+              <div class="rm-hero-float-ico">
+                <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+              </div>
+              <div>
+                <div class="rm-hero-float-ttl">Indian (4) &bull; Chinese Wok (2) &bull; Pizza (1)</div>
+                <div class="rm-hero-float-sub">Auto-split KOTs &bull; Combined Table Bill &#8377;2,460</div>
+              </div>
+            </div>
+            <span class="rm-hero-float-tag">Auto-Routed</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 2. VALUE STRIP (01-04) ================= -->
+  <section class="mc-sec border-b">
+    <div class="w">
+      <div class="rm-val-grid r">
+        <div class="rm-val-card">
+          <div class="rm-val-top"><div class="rm-ic"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg></div><span class="rm-num">01</span></div>
+          <h3>Multi-Cuisine Menu</h3>
+          <p>Organize dishes across cuisines, categories, prices and availability without menu confusion.</p>
+        </div>
+        <div class="rm-val-card">
+          <div class="rm-val-top"><div class="rm-ic"><svg viewBox="0 0 24 24"><path d="M6 13.87A4 4 0 017.41 6a5.11 5.11 0 019.18 0A4 4 0 0118 13.87V21H6v-7.13z"/></svg></div><span class="rm-num">02</span></div>
+          <h3>Multi-Station KOT</h3>
+          <p>Route Indian, Wok, Tandoor, Pizza &amp; Bar items automatically to the right kitchen screen.</p>
+        </div>
+        <div class="rm-val-card">
+          <div class="rm-val-top"><div class="rm-ic"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="6" y1="8" x2="18" y2="8"/><line x1="6" y1="12" x2="14" y2="12"/></svg></div><span class="rm-num">03</span></div>
+          <h3>Combined POS Billing</h3>
+          <p>Handle complex multi-cuisine bills, discounts and GST from one connected POS terminal.</p>
+        </div>
+        <div class="rm-val-card">
+          <div class="rm-val-top"><div class="rm-ic"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg></div><span class="rm-num">04</span></div>
+          <h3>Station Inventory</h3>
+          <p>Track diverse raw ingredients and stock levels across all cuisine preparation counters.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 3. INTERACTIVE MULTI-CUISINE MENU ================= -->
+  <section class="mc-sec alt">
+    <div class="w">
+      <div class="hd r">
+        <div class="eb">MULTI-CUISINE MENU EXPERIENCE</div>
+        <h2>One Menu. <span class="sf">Every Cuisine.</span></h2>
+        <p>Structure your menu by Cuisine &rarr; Category &rarr; Dish so guests and stewards browse large selections effortlessly.</p>
+      </div>
+
+      <div class="rm-win r" style="max-width: 1080px; margin: 0 auto;">
+        <div class="rm-win-bar">
+          <div class="rm-win-dots"><i></i><i></i><i></i></div>
+          <div class="rm-win-ttl">MULTI-CUISINE DIGITAL MENU</div>
+          <div class="rm-filter-group">
+            <button type="button" class="rm-filter-btn active" onclick="filterCuisine('all', this)">All Cuisines</button>
+            <button type="button" class="rm-filter-btn" onclick="filterCuisine('indian', this)">Indian</button>
+            <button type="button" class="rm-filter-btn" onclick="filterCuisine('chinese', this)">Chinese</button>
+            <button type="button" class="rm-filter-btn" onclick="filterCuisine('italian', this)">Italian</button>
+          </div>
+        </div>
+        <div class="rm-win-body">
+          <div class="mc-dish-grid" id="mcDishGrid">
+            <div class="mc-dish-card" data-c="indian">
+              <img class="mc-dish-img" src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=600&q=80" alt="Chicken Dum Biryani">
+              <div class="mc-dish-body">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 6px;"><strong>Chicken Dum Biryani</strong><strong style="color: var(--br);">&#8377;320</strong></div>
+                <p style="font-size: 13px; margin-bottom: 10px;">Aromatic Basmati rice slow-cooked with tender chicken and authentic spices.</p>
+                <span style="font-size: 11px; font-weight: 700; color: var(--green); background: var(--green-bg); padding: 3px 10px; border-radius: 99px;">INDIAN MAIN &bull; In Stock</span>
+              </div>
+            </div>
+            <div class="mc-dish-card" data-c="chinese">
+              <img class="mc-dish-img" src="https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=600&q=80" alt="Veg Hakka Noodles">
+              <div class="mc-dish-body">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 6px;"><strong>Veg Hakka Noodles</strong><strong style="color: var(--br);">&#8377;240</strong></div>
+                <p style="font-size: 13px; margin-bottom: 10px;">Wok-tossed noodles with crisp bell peppers, cabbage and Indo-Chinese sauces.</p>
+                <span style="font-size: 11px; font-weight: 700; color: var(--amber); background: var(--amber-bg); padding: 3px 10px; border-radius: 99px;">CHINESE WOK &bull; In Stock</span>
+              </div>
+            </div>
+            <div class="mc-dish-card" data-c="italian">
+              <img class="mc-dish-img" src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Margherita Pizza">
+              <div class="mc-dish-body">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 6px;"><strong>Margherita Pizza</strong><strong style="color: var(--br);">&#8377;380</strong></div>
+                <p style="font-size: 13px; margin-bottom: 10px;">Wood-fired thin crust topped with fresh mozzarella, San Marzano tomato sauce &amp; basil.</p>
+                <span style="font-size: 11px; font-weight: 700; color: var(--blue); background: var(--blue-bg); padding: 3px 10px; border-radius: 99px;">ITALIAN PIZZA &bull; In Stock</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 4. MULTI-STATION KITCHEN ROUTING (PHOTO CARDS) ================= -->
+  <section class="mc-sec">
+    <div class="w">
+      <div class="hd r">
+        <div class="eb">KITCHEN STATIONS</div>
+        <h2>Keep Every Kitchen Workflow <span class="sf">Organized.</span></h2>
+        <p>When guests at the same table order from different cuisines, Geni Menu routes each dish automatically to the right preparation station.</p>
+      </div>
+
+      <div class="rm-ind-grid r" style="margin-bottom: 36px;">
+        <div class="rm-ind-card">
+          <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=700&q=80" alt="Main Indian Kitchen">
+          <div class="rm-ind-scrim"></div>
+          <div class="rm-ind-body">
+            <h4>Main Indian Kitchen</h4>
+            <p>Tandoor, Biryani &amp; Curries &bull; Chicken Biryani &times; 2, Paneer Tikka &times; 1</p>
+          </div>
+        </div>
+        <div class="rm-ind-card">
+          <img src="https://images.unsplash.com/photo-1552611052-33e04de081de?auto=format&fit=crop&w=700&q=80" alt="Chinese Wok Station">
+          <div class="rm-ind-scrim"></div>
+          <div class="rm-ind-body">
+            <h4>Chinese Wok Station</h4>
+            <p>Noodles, Fried Rice &amp; Starters &bull; Veg Hakka Noodles &times; 2</p>
+          </div>
+        </div>
+        <div class="rm-ind-card">
+          <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=700&q=80" alt="Pizza and Pasta Oven">
+          <div class="rm-ind-scrim"></div>
+          <div class="rm-ind-body">
+            <h4>Pizza &amp; Pasta Oven</h4>
+            <p>Wood-Fired Pizza &amp; Grills &bull; Margherita Pizza &times; 1</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Combined Order + Inventory Split -->
+      <div class="rm-split r">
+        <div class="rm-win">
+          <div class="rm-win-bar">
+            <div class="rm-win-dots"><i></i><i></i><i></i></div>
+            <div class="rm-win-ttl">ONE BILL &bull; TABLE T08 (#ORD-9402)</div>
+            <span style="font-size: 11px; font-weight: 700; color: var(--br);">6 Guests</span>
+          </div>
+          <div class="rm-win-body" style="display: flex; flex-direction: column; gap: 8px; font-size: 13.5px;">
+            <div style="display: flex; justify-content: space-between; padding: 8px 12px; background: var(--bg2); border-radius: 8px;"><span><strong style="color: var(--br);">[Indian]</strong> Chicken Biryani &times; 2</span><strong>&#8377;640</strong></div>
+            <div style="display: flex; justify-content: space-between; padding: 8px 12px; background: var(--bg2); border-radius: 8px;"><span><strong style="color: var(--br);">[Indian]</strong> Paneer Tikka &times; 1 (Less Spicy)</span><strong>&#8377;280</strong></div>
+            <div style="display: flex; justify-content: space-between; padding: 8px 12px; background: var(--bg2); border-radius: 8px;"><span><strong style="color: var(--amber);">[Chinese]</strong> Veg Hakka Noodles &times; 2</span><strong>&#8377;480</strong></div>
+            <div style="display: flex; justify-content: space-between; padding: 8px 12px; background: var(--bg2); border-radius: 8px;"><span><strong style="color: var(--blue);">[Italian]</strong> Margherita Pizza &times; 1</span><strong>&#8377;380</strong></div>
+            <div style="display: flex; justify-content: space-between; padding: 8px 12px; background: var(--bg2); border-radius: 8px;"><span><strong style="color: var(--mute);">[Bar &amp; Desserts]</strong> Lime Soda &times; 3, Brownie &times; 2</span><strong>&#8377;680</strong></div>
+            <div style="display: flex; justify-content: space-between; padding: 12px 14px; background: var(--br-light); border-radius: 10px; font-weight: 700; margin-top: 6px;"><span>Combined GST Grand Total</span><strong style="font-size: 18px; color: var(--br);">&#8377;2,460.00</strong></div>
+          </div>
+        </div>
+
+        <div class="rm-win">
+          <div class="rm-win-bar">
+            <div class="rm-win-dots"><i></i><i></i><i></i></div>
+            <div class="rm-win-ttl">MULTI-CUISINE INGREDIENT TRACKER</div>
+          </div>
+          <div class="rm-win-body" style="display: flex; flex-direction: column; gap: 10px; font-size: 13.5px;">
+            <div style="display: flex; justify-content: space-between; padding: 10px 14px; background: var(--bg2); border-radius: 10px;"><span>Basmati Rice (Indian)</span><strong style="color: var(--green);">45 kg (Healthy)</strong></div>
+            <div style="display: flex; justify-content: space-between; padding: 10px 14px; background: var(--bg2); border-radius: 10px;"><span>Noodles &amp; Soy Sauce (Chinese)</span><strong style="color: var(--green);">28 kg (Healthy)</strong></div>
+            <div style="display: flex; justify-content: space-between; padding: 10px 14px; background: var(--amber-bg); border: 1px solid rgba(180,83,9,0.28); border-radius: 10px;"><span>Mozzarella Cheese (Italian)</span><strong style="color: var(--amber);">4.5 kg (Low Stock)</strong></div>
+            <div style="display: flex; justify-content: space-between; padding: 10px 14px; background: var(--bg2); border-radius: 10px;"><span>Coffee Beans &amp; Lime (Beverages)</span><strong style="color: var(--green);">12 kg (Healthy)</strong></div>
+            <div style="margin-top: 8px; display: flex; gap: 10px; flex-wrap: wrap;">
+              <a href="{{ route('features.kot-management') }}" class="btn o" style="padding: 9px 18px; font-size: 13px;">Explore KOT &rarr;</a>
+              <a href="{{ route('features.inventory-management') }}" class="btn p" style="padding: 9px 18px; font-size: 13px;">Explore Inventory &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 5. CUISINE REVENUE EDITORIAL BANNER ================= -->
+  <section class="mc-sec alt">
+    <div class="w">
+      <div class="mc-rev-banner r">
+        <img class="mc-rev-bg" src="https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?auto=format&fit=crop&w=1400&q=80" alt="Multi-cuisine signature dishes">
+        <div class="mc-rev-scrim"></div>
+        <div class="mc-rev-inner">
+          <div style="text-align: center; max-width: 680px; margin: 0 auto;">
+            <div class="eb" style="background: rgba(255,255,255,0.14); border-color: rgba(255,255,255,0.28); color: #fff;">CUISINE ANALYTICS</div>
+            <h2 style="color: #fff;">Know Which Cuisines <span style="font-family: 'Playfair Display', serif; font-style: italic; color: #F2D3A8;">Drive Revenue.</span></h2>
+            <p style="color: rgba(255,255,255,0.85); margin-top: 10px;">Understand which dishes, cuisines and categories are driving your restaurant's daily sales.</p>
+          </div>
+
+          <div class="mc-rev-bars">
+            <div class="mc-rev-card"><span>Indian &amp; Tandoor (42%)</span><strong>&#8377;20,420</strong><div class="mc-rev-track"><div class="mc-rev-fill" style="width: 84%;"></div></div></div>
+            <div class="mc-rev-card"><span>Chinese &amp; Asian (28%)</span><strong>&#8377;13,610</strong><div class="mc-rev-track"><div class="mc-rev-fill" style="width: 56%;"></div></div></div>
+            <div class="mc-rev-card"><span>Italian &amp; Grills (18%)</span><strong>&#8377;8,750</strong><div class="mc-rev-track"><div class="mc-rev-fill" style="width: 36%;"></div></div></div>
+            <div class="mc-rev-card"><span>Beverages &amp; Desserts (12%)</span><strong>&#8377;5,840</strong><div class="mc-rev-track"><div class="mc-rev-fill" style="width: 24%;"></div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 6. KEY ADVANTAGES (3x2 NUMBERED) ================= -->
+  <section class="mc-sec">
+    <div class="w">
+      <div class="hd r">
+        <div class="eb">KEY ADVANTAGES</div>
+        <h2>Built Around the Way <span class="sf">Multi-Cuisine Restaurants Work.</span></h2>
+      </div>
+
+      <div class="rm-ben-grid r">
+        <div class="rm-ben-card"><div class="rm-ben-head"><div class="rm-ic"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg></div><span class="rm-num">01</span></div><h4>Organized Multi-Cuisine Menu</h4><p>Keep different cuisines structured, categorized and easy to manage.</p></div>
+        <div class="rm-ben-card"><div class="rm-ben-head"><div class="rm-ic"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/></svg></div><span class="rm-num">02</span></div><h4>Clear Table Orders</h4><p>Handle diverse customer orders without losing track of items.</p></div>
+        <div class="rm-ben-card"><div class="rm-ben-head"><div class="rm-ic"><svg viewBox="0 0 24 24"><path d="M6 13.87A4 4 0 017.41 6a5.11 5.11 0 019.18 0A4 4 0 0118 13.87V21H6v-7.13z"/></svg></div><span class="rm-num">03</span></div><h4>Connected Kitchen</h4><p>Keep front-of-house and kitchen station preparation aligned.</p></div>
+        <div class="rm-ben-card"><div class="rm-ben-head"><div class="rm-ic"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M6 8h12M6 12h8"/></svg></div><span class="rm-num">04</span></div><h4>Simplified Billing</h4><p>Process complex multi-item orders through one billing workflow.</p></div>
+        <div class="rm-ben-card"><div class="rm-ben-head"><div class="rm-ic"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg></div><span class="rm-num">05</span></div><h4>Inventory Visibility</h4><p>Stay aware of important ingredients and stock levels across stations.</p></div>
+        <div class="rm-ben-card"><div class="rm-ben-head"><div class="rm-ic"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div><span class="rm-num">06</span></div><h4>Business Insights</h4><p>Understand sales, orders, menu performance and category revenue.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 7. CONNECTED ECOSYSTEM (7-STEP) ================= -->
+  <section class="mc-sec alt">
+    <div class="w">
+      <div class="hd r">
+        <div class="eb">CONNECTED ECOSYSTEM</div>
+        <h2>One Platform for <span class="sf">Every Cuisine &amp; Counter.</span></h2>
+      </div>
+
+      <div class="rm-eco-grid r">
+        <a href="{{ route('features.menu-management') }}" class="rm-eco-card"><span class="rm-eco-step">01</span><img class="rm-eco-img" src="{{ asset('assets/images/workflow/step-1-menu.png') }}" alt="Digital Menu"><span class="rm-eco-lbl">Digital Menu</span></a>
+        <a href="{{ route('features.table-management') }}" class="rm-eco-card"><span class="rm-eco-step">02</span><img class="rm-eco-img" src="{{ asset('assets/images/workflow/step-4-table.png') }}" alt="Tables"><span class="rm-eco-lbl">Table &amp; Floor</span></a>
+        <a href="{{ route('features.order-management') }}" class="rm-eco-card"><span class="rm-eco-step">03</span><img class="rm-eco-img" src="{{ asset('assets/images/workflow/step-2-order.png') }}" alt="Orders"><span class="rm-eco-lbl">Order Flow</span></a>
+        <a href="{{ route('features.kot-management') }}" class="rm-eco-card"><span class="rm-eco-step">04</span><img class="rm-eco-img" src="{{ asset('assets/images/workflow/step-3-kitchen.png') }}" alt="KOT"><span class="rm-eco-lbl">KOT &amp; Kitchen</span></a>
+        <a href="{{ route('features.pos-management') }}" class="rm-eco-card"><span class="rm-eco-step">05</span><img class="rm-eco-img" src="{{ asset('assets/images/workflow/step-5-billing.png') }}" alt="POS"><span class="rm-eco-lbl">POS Billing</span></a>
+        <a href="{{ route('features.inventory-management') }}" class="rm-eco-card"><span class="rm-eco-step">06</span><img class="rm-eco-img" src="{{ asset('assets/images/workflow/step-6-payment.png') }}" alt="Inventory"><span class="rm-eco-lbl">Inventory</span></a>
+        <a href="{{ route('features.reports') }}" class="rm-eco-card"><span class="rm-eco-step">07</span><img class="rm-eco-img" src="{{ asset('assets/images/workflow/step-7-reports.png') }}" alt="Reports"><span class="rm-eco-lbl">Reports</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 8. FAQ (ALL 5 PRESERVED) ================= -->
+  <section class="mc-sec">
+    <div class="w">
+      <div class="hd r">
+        <div class="eb">FREQUENTLY ASKED QUESTIONS</div>
+        <h2>Multi-Cuisine <span class="sf">FAQ.</span></h2>
+        <p>Everything you need to know about Geni Menu for multi-cuisine restaurants.</p>
+      </div>
+
+      <div class="rm-faq-list r">
+        <div class="rm-faq-item open"><div class="rm-faq-q" onclick="toggleFaq(this)">1. Is Geni Menu suitable for multi-cuisine restaurants?<svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div><div class="rm-faq-a">Yes. Geni Menu is designed to handle multi-cuisine dining rooms, helping organize diverse menus, table orders, KOT routing, billing and reports.</div></div>
+        <div class="rm-faq-item"><div class="rm-faq-q" onclick="toggleFaq(this)">2. Can I manage different cuisines in one single menu?<svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div><div class="rm-faq-a">Yes. You can structure your menu by Cuisine (e.g. Indian, Chinese, Italian) and sub-categories (Starters, Main Course, Desserts) for clear browsing.</div></div>
+        <div class="rm-faq-item"><div class="rm-faq-q" onclick="toggleFaq(this)">3. Can dine-in table orders contain items from multiple cuisines?<svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div><div class="rm-faq-a">Yes. Guests seated at the same table can order Biryani, Noodles, Pizza and Desserts under a single unified table order ticket.</div></div>
+        <div class="rm-faq-item"><div class="rm-faq-q" onclick="toggleFaq(this)">4. Can orders be routed to different kitchen preparation stations?<svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div><div class="rm-faq-a">Yes. KOT tickets can route specific items to the Main Indian Kitchen, Chinese Wok, or Pizza Oven printers/screens.</div></div>
+        <div class="rm-faq-item"><div class="rm-faq-q" onclick="toggleFaq(this)">5. How does POS billing handle multi-cuisine orders?<svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div><div class="rm-faq-a">The POS generates one itemized GST invoice listing all dishes by category or cuisine with single-click checkout.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 9. FINAL CTA ================= -->
+  <section class="rm-cta">
+    <div class="w">
+      <div class="eb">UNIFY EVERY KITCHEN STATION</div>
+      <h2>Bring Every Cuisine <span style="font-family: 'Playfair Display', serif; font-style: italic; color: #F5E1C8;">Together.</span></h2>
+      <p>Manage your menus, tables, orders, kitchens, billing, inventory and reports from one connected restaurant platform with Geni Menu.</p>
+      <div class="rm-cta-btns">
+        <a href="{{ route('restaurant_signup') }}" onclick="if(typeof openPopup === 'function'){ openPopup(); return false; }" class="btn white">Get Started &rarr;</a>
+        <a href="{{ route('contact.us') }}" class="btn ghost">Book a Demo</a>
+      </div>
+    </div>
+  </section>
+
 </div>
 
-<!-- ================= HERO SECTION ================= -->
-<section style="padding: 60px 0 80px; background: linear-gradient(180deg, var(--bg2) 0%, #ffffff 100%); border-bottom: 1px solid var(--line);">
-  <div class="w">
-    <div class="g2" style="gap: 50px; align-items: center;">
-      <!-- Hero Left Text -->
-      <div>
-        <div class="eb">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-          MULTI-CUISINE RESTAURANT SOLUTION
-        </div>
-        <h1 style="margin-bottom: 20px;">
-          One Restaurant. Many Cuisines. <br><span class="sf">One Connected Platform.</span>
-        </h1>
-        <p style="font-size: 19px; margin-bottom: 32px; color: var(--mute);">
-          Manage diverse menus, table orders, kitchen workflows, billing and restaurant operations from one powerful platform built for multi-cuisine dining rooms.
-        </p>
-        <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
-          <a href="{{ route('restaurant_signup') }}" class="btn p" style="padding: 16px 36px; font-size: 16px;">Get Started →</a>
-          <a href="{{ route('contact.us') }}" class="btn o" style="padding: 16px 32px; font-size: 16px;">Book a Demo →</a>
-        </div>
-
-        <!-- Multi-cuisine pill badges -->
-        <div style="margin-top: 32px; display: flex; gap: 10px; flex-wrap: wrap;">
-          <span style="background: var(--bg3); border: 1px solid var(--line); color: var(--br-dark); font-size: 12px; font-weight: 500; padding: 6px 14px; border-radius: 99px;">🇮🇳 Indian & Tandoor</span>
-          <span style="background: var(--bg3); border: 1px solid var(--line); color: var(--br-dark); font-size: 12px; font-weight: 500; padding: 6px 14px; border-radius: 99px;"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg> Chinese & Asian</span>
-          <span style="background: var(--bg3); border: 1px solid var(--line); color: var(--br-dark); font-size: 12px; font-weight: 500; padding: 6px 14px; border-radius: 99px;"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 11h.01"/><path d="M11 15h.01"/><path d="M16 16h.01"/><path d="m2 16 20 6-6-20A20 20 0 0 0 2 16"/></svg> Italian & Continental</span>
-          <span style="background: var(--bg3); border: 1px solid var(--line); color: var(--br-dark); font-size: 12px; font-weight: 500; padding: 6px 14px; border-radius: 99px;"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 22h8"/><path d="M12 11v11"/><path d="m19 3-7 8-7-8Z"/></svg> Mocktails & Desserts</span>
-        </div>
-      </div>
-
-      <!-- Hero Right Visual Overlay -->
-      <div style="position: relative;">
-        <div style="border-radius: 24px; overflow: hidden; box-shadow: var(--shadow-lg); border: 1px solid var(--line); position: relative; background: #241a14;">
-          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80" alt="Multi Cuisine Restaurant Operations" referrerpolicy="no-referrer" style="width: 100%; height: 450px; object-fit: cover; opacity: 0.88; display: block;">
-          
-          <!-- Multi-Cuisine Live Dashboard Overlay -->
-          <div style="position: absolute; bottom: 20px; left: 20px; right: 20px; background: rgba(255, 255, 255, 0.96); backdrop-filter: blur(12px); border-radius: 16px; padding: 18px; border: 1px solid var(--line); box-shadow: var(--shadow-md);">
-            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; border-bottom: 1px solid var(--line); padding-bottom: 10px;">
-              <div style="font-weight: 500; font-size: 14px; color: var(--ink); display: flex; align-items: center; gap: 8px;">
-                <span style="width: 10px; height: 10px; border-radius: 50%; background: var(--green); display: inline-block;"></span>
-                MULTI-CUISINE OPERATIONS MONITOR
-              </div>
-              <span style="font-size: 12px; font-weight: 700; color: var(--br);">Table T08 · 6 Guests</span>
-            </div>
-            
-            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; text-align: center;">
-              <div style="background: var(--bg2); padding: 8px; border-radius: 10px; border: 1px solid var(--line);">
-                <div style="font-size: 11px; font-weight: 700; color: var(--mute);">INDIAN KITCHEN</div>
-                <div style="font-size: 14px; font-weight: 500; color: var(--br);">04 Items Prep</div>
-              </div>
-              <div style="background: var(--bg2); padding: 8px; border-radius: 10px; border: 1px solid var(--line);">
-                <div style="font-size: 11px; font-weight: 700; color: var(--mute);">CHINESE WOK</div>
-                <div style="font-size: 14px; font-weight: 500; color: var(--amber);">02 Items Prep</div>
-              </div>
-              <div style="background: var(--bg2); padding: 8px; border-radius: 10px; border: 1px solid var(--line);">
-                <div style="font-size: 11px; font-weight: 700; color: var(--mute);">PIZZA STATION</div>
-                <div style="font-size: 14px; font-weight: 500; color: var(--green-text);">01 Item Ready</div>
-              </div>
-              <div style="background: var(--bg2); padding: 8px; border-radius: 10px; border: 1px solid var(--line);">
-                <div style="font-size: 11px; font-weight: 700; color: var(--mute);">BAR & DESSERTS</div>
-                <div style="font-size: 14px; font-weight: 500; color: var(--blue);">03 Items Ready</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= SECTION 1: BUILT FOR MULTI-CUISINE OPERATIONS ================= -->
-<section style="background: var(--bg2);">
-  <div class="w">
-    <div class="hd">
-      <div class="eb">ENTERPRISE CONTROL</div>
-      <h2>Manage Every Cuisine With Clarity.</h2>
-      <p>From menu organization to table service, kitchen coordination and billing, Geni Menu brings your entire multi-cuisine operation into one connected workspace.</p>
-    </div>
-
-    <div class="g4">
-      <div class="card" style="padding: 24px;">
-        <div class="ic" style="margin-bottom: 16px;">
-          <svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-        </div>
-        <h3 style="font-size: 17px; margin-bottom: 8px;">Multi-Cuisine Menu</h3>
-        <p style="font-size: 13.5px;">Organize dishes across cuisines, categories, prices and availability without menu confusion.</p>
-      </div>
-
-      <div class="card" style="padding: 24px;">
-        <div class="ic" style="margin-bottom: 16px;">
-          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/></svg>
-        </div>
-        <h3 style="font-size: 17px; margin-bottom: 8px;">Table Management</h3>
-        <p style="font-size: 13.5px;">Know which tables are available, reserved, occupied or being cleaned across all dining areas.</p>
-      </div>
-
-      <div class="card" style="padding: 24px;">
-        <div class="ic" style="margin-bottom: 16px;">
-          <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg>
-        </div>
-        <h3 style="font-size: 17px; margin-bottom: 8px;">Order Management</h3>
-        <p style="font-size: 13.5px;">Keep orders from different cuisines organized in one single table order workspace.</p>
-      </div>
-
-      <div class="card" style="padding: 24px;">
-        <div class="ic" style="margin-bottom: 16px;">
-          <svg viewBox="0 0 24 24"><path d="M6 13.87A4 4 0 017.41 6a5.11 5.11 0 019.18 0A4 4 0 0118 13.87V21H6v-7.13z"/></svg>
-        </div>
-        <h3 style="font-size: 17px; margin-bottom: 8px;">KOT Management</h3>
-        <p style="font-size: 14.5px;">Keep kitchen order tickets clear, routed and easy for preparation teams to follow.</p>
-      </div>
-
-      <div class="card" style="padding: 24px;">
-        <div class="ic" style="margin-bottom: 16px;">
-          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-        </div>
-        <h3 style="font-size: 17px; margin-bottom: 8px;">Kitchen Operations</h3>
-        <p style="font-size: 13.5px;">Keep different kitchen station workflows organized during busy lunch and dinner rushes.</p>
-      </div>
-
-      <div class="card" style="padding: 24px;">
-        <div class="ic" style="margin-bottom: 16px;">
-          <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="6" y1="8" x2="18" y2="8"/><line x1="6" y1="12" x2="14" y2="12"/></svg>
-        </div>
-        <h3 style="font-size: 17px; margin-bottom: 8px;">POS & Billing</h3>
-        <p style="font-size: 13.5px;">Handle complex multi-cuisine bills, discounts and taxes from one connected POS terminal.</p>
-      </div>
-
-      <div class="card" style="padding: 24px;">
-        <div class="ic" style="margin-bottom: 16px;">
-          <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
-        </div>
-        <h3 style="font-size: 17px; margin-bottom: 8px;">Inventory Management</h3>
-        <p style="font-size: 13.5px;">Keep track of diverse raw ingredients and stock levels across all your food preparation counters.</p>
-      </div>
-
-      <div class="card" style="padding: 24px;">
-        <div class="ic" style="margin-bottom: 16px;">
-          <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-        </div>
-        <h3 style="font-size: 17px; margin-bottom: 8px;">Reports & Insights</h3>
-        <p style="font-size: 13.5px;">Understand revenue breakdown, top-selling cuisines and category performance with live reports.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= SECTION 2: ONE MENU. EVERY CUISINE. ================= -->
-<section style="background: var(--bg);">
-  <div class="w">
-    <div class="hd">
-      <div class="eb">MULTI-CUISINE MENU EXPERIENCE</div>
-      <h2>One Menu. Every Cuisine.</h2>
-      <p>Give customers an easy way to explore everything your restaurant offers without making the menu feel complicated.</p>
-    </div>
-
-    <!-- Cuisine Tabs Preview -->
-    <div class="win" style="padding: 28px; max-width: 1060px; margin: 0 auto;">
-      <div style="display: flex; gap: 12px; border-bottom: 1px solid var(--line); padding-bottom: 16px; margin-bottom: 24px; overflow-x: auto;">
-        <span style="background: var(--br); color: #fff; font-size: 13px; font-weight: 500; padding: 8px 18px; border-radius: 99px;">🇮🇳 Indian</span>
-        <span style="background: var(--bg2); color: var(--ink); font-size: 13px; font-weight: 700; padding: 8px 18px; border-radius: 99px; border: 1px solid var(--line);"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg> Chinese</span>
-        <span style="background: var(--bg2); color: var(--ink); font-size: 13px; font-weight: 700; padding: 8px 18px; border-radius: 99px; border: 1px solid var(--line);"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 11h.01"/><path d="M11 15h.01"/><path d="M16 16h.01"/><path d="m2 16 20 6-6-20A20 20 0 0 0 2 16"/></svg> Italian</span>
-        <span style="background: var(--bg2); color: var(--ink); font-size: 13px; font-weight: 700; padding: 8px 18px; border-radius: 99px; border: 1px solid var(--line);"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11h16a1 1 0 0 1 1 1v.5c0 4.5-4 8.5-9 8.5s-9-4-9-8.5V12a1 1 0 0 1 1-1Z"/><path d="M12 3v4"/><path d="M8 5v2"/><path d="M16 5v2"/></svg> Continental</span>
-        <span style="background: var(--bg2); color: var(--ink); font-size: 13px; font-weight: 700; padding: 8px 18px; border-radius: 99px; border: 1px solid var(--line);"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 22h8"/><path d="M12 11v11"/><path d="m19 3-7 8-7-8Z"/></svg> Beverages</span>
-        <span style="background: var(--bg2); color: var(--ink); font-size: 13px; font-weight: 700; padding: 8px 18px; border-radius: 99px; border: 1px solid var(--line);"><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8"/><path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1"/><path d="M2 21h20"/><path d="M7 8v3"/><path d="M12 8v3"/><path d="M17 8v3"/></svg> Desserts</span>
-      </div>
-
-      <div class="g3">
-        <div style="background: var(--bg2); border-radius: 14px; padding: 16px; border: 1px solid var(--line);">
-          <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 8px;">
-            <strong style="font-size: 16px; color: var(--ink);">Chicken Dum Biryani</strong>
-            <span style="font-weight: 500; color: var(--br); font-size: 15px;">₹320</span>
-          </div>
-          <p style="font-size: 12.5px; color: var(--mute);">Aromatic Basmati rice slow-cooked with tender chicken and authentic spices.</p>
-          <div style="margin-top: 12px; display: flex; justify-content: space-between; align-items: center;">
-            <span style="font-size: 11px; font-weight: 500; color: var(--green-text); background: var(--green-bg); padding: 2px 8px; border-radius: 99px;">INDIAN MAIN</span>
-            <span style="font-size: 12px; font-weight: 700; color: var(--br);">In Stock</span>
-          </div>
-        </div>
-
-        <div style="background: var(--bg2); border-radius: 14px; padding: 16px; border: 1px solid var(--line);">
-          <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 8px;">
-            <strong style="font-size: 16px; color: var(--ink);">Veg Hakka Noodles</strong>
-            <span style="font-weight: 500; color: var(--br); font-size: 15px;">₹240</span>
-          </div>
-          <p style="font-size: 12.5px; color: var(--mute);">Wok-tossed noodles with crisp bell peppers, cabbage and Indo-Chinese sauces.</p>
-          <div style="margin-top: 12px; display: flex; justify-content: space-between; align-items: center;">
-            <span style="font-size: 11px; font-weight: 500; color: var(--amber-text); background: var(--amber-bg); padding: 2px 8px; border-radius: 99px;">CHINESE WOK</span>
-            <span style="font-size: 12px; font-weight: 700; color: var(--br);">In Stock</span>
-          </div>
-        </div>
-
-        <div style="background: var(--bg2); border-radius: 14px; padding: 16px; border: 1px solid var(--line);">
-          <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 8px;">
-            <strong style="font-size: 16px; color: var(--ink);">Margherita Pizza</strong>
-            <span style="font-weight: 500; color: var(--br); font-size: 15px;">₹380</span>
-          </div>
-          <p style="font-size: 12.5px; color: var(--mute);">Wood-fired thin crust topped with fresh mozzarella, San Marzano tomato sauce & basil.</p>
-          <div style="margin-top: 12px; display: flex; justify-content: space-between; align-items: center;">
-            <span style="font-size: 11px; font-weight: 500; color: #1e40af; background: #dbeafe; padding: 2px 8px; border-radius: 99px;">ITALIAN PIZZA</span>
-            <span style="font-size: 12px; font-weight: 700; color: var(--br);">In Stock</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= SECTION 3: ORGANIZE YOUR MENU ================= -->
-<section style="background: var(--bg2);">
-  <div class="w">
-    <div class="g2" style="gap: 50px; align-items: center;">
-      <div>
-        <div class="eb">STRUCTURED HIERARCHY</div>
-        <h2 style="margin-bottom: 18px;">Keep Every Dish Easy to Find.</h2>
-        <p style="margin-bottom: 24px;">
-          Geni Menu structures complex menus logically so stewards and guests never get confused by large food selections.
-        </p>
-
-        <!-- Hierarchy Diagram -->
-        <div style="background: #fff; padding: 20px; border-radius: 14px; border: 1px solid var(--line); display: flex; flex-direction: column; gap: 10px; font-size: 14px;">
-          <div style="display: flex; align-items: center; gap: 10px; color: var(--br); font-weight: 500;">
-            <span>CUISINE</span>
-            <span style="color: var(--mute);">→</span>
-            <span>CATEGORY</span>
-            <span style="color: var(--mute);">→</span>
-            <span>DISH</span>
-            <span style="color: var(--mute);">→</span>
-            <span>PRICE & AVAILABILITY</span>
-          </div>
-          <div style="border-top: 1px dashed var(--line); padding-top: 8px; font-size: 13px; color: var(--mute);">
-            Example: Indian → Main Course → Chicken Biryani → ₹320 → Available
-          </div>
-          <div style="font-size: 13px; color: var(--mute);">
-            Example: Chinese → Noodles → Veg Hakka Noodles → ₹240 → Available
-          </div>
-        </div>
-      </div>
-
-      <div class="win" style="padding: 24px;">
-        <h4 style="font-size: 15px; margin-bottom: 14px; border-bottom: 1px solid var(--line); padding-bottom: 10px;">MENU MANAGEMENT DASHBOARD</h4>
-        <div style="display: flex; flex-direction: column; gap: 10px;">
-          <div style="display: flex; justify-content: space-between; align-items: center; background: var(--bg2); padding: 10px 14px; border-radius: 8px;">
-            <span>🇮🇳 Indian · Main Course</span>
-            <strong style="color: var(--green-text);">18 Dishes Active</strong>
-          </div>
-          <div style="display: flex; justify-content: space-between; align-items: center; background: var(--bg2); padding: 10px 14px; border-radius: 8px;">
-            <span><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg> Chinese · Wok & Starters</span>
-            <strong style="color: var(--green-text);">14 Dishes Active</strong>
-          </div>
-          <div style="display: flex; justify-content: space-between; align-items: center; background: var(--bg2); padding: 10px 14px; border-radius: 8px;">
-            <span><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 11h.01"/><path d="M11 15h.01"/><path d="M16 16h.01"/><path d="m2 16 20 6-6-20A20 20 0 0 0 2 16"/></svg> Italian · Wood-fired Pizza</span>
-            <strong style="color: var(--green-text);">10 Dishes Active</strong>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= SECTION 4: TABLE MANAGEMENT ================= -->
-<section style="background: var(--bg);">
-  <div class="w">
-    <div class="g2" style="gap: 50px; align-items: center;">
-      <!-- Floor Plan Mockup -->
-      <div class="win" style="padding: 24px;">
-        <div style="display: flex; justify-content: space-between; margin-bottom: 16px; border-bottom: 1px solid var(--line); padding-bottom: 10px;">
-          <strong style="font-size: 15px;">DINING FLOOR OVERVIEW</strong>
-          <span style="font-size: 12px; font-weight: 700; color: var(--br);">8 Tables Active</span>
-        </div>
-        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;">
-          <div style="background: var(--bg2); padding: 12px; text-align: center; border-radius: 8px; border: 1px solid var(--green);"><strong style="font-size: 14px;">T01</strong><span style="display:block; font-size:11px; color:var(--green-text);">Avail</span></div>
-          <div style="background: var(--bg2); padding: 12px; text-align: center; border-radius: 8px; border: 1px solid var(--amber);"><strong style="font-size: 14px;">T02</strong><span style="display:block; font-size:11px; color:var(--amber-text);">Rsvd</span></div>
-          <div style="background: var(--bg2); padding: 12px; text-align: center; border-radius: 8px; border: 1px solid var(--br);"><strong style="font-size: 14px;">T03</strong><span style="display:block; font-size:11px; color:var(--br);">Occ</span></div>
-          <div style="background: var(--bg2); padding: 12px; text-align: center; border-radius: 8px; border: 1px solid var(--green);"><strong style="font-size: 14px;">T04</strong><span style="display:block; font-size:11px; color:var(--green-text);">Avail</span></div>
-          <div style="background: var(--bg2); padding: 12px; text-align: center; border-radius: 8px; border: 1px solid var(--green);"><strong style="font-size: 14px;">T05</strong><span style="display:block; font-size:11px; color:var(--green-text);">Avail</span></div>
-          <div style="background: #fff7ef; padding: 12px; text-align: center; border-radius: 8px; border: 2px solid var(--br);"><strong style="font-size: 14px; color:var(--br);">T06*</strong><span style="display:block; font-size:11px; font-weight: 500; color:var(--br);">Active</span></div>
-          <div style="background: var(--bg2); padding: 12px; text-align: center; border-radius: 8px; border: 1px solid var(--br);"><strong style="font-size: 14px;">T07</strong><span style="display:block; font-size:11px; color:var(--br);">Occ</span></div>
-          <div style="background: var(--bg2); padding: 12px; text-align: center; border-radius: 8px; border: 1px solid var(--amber);"><strong style="font-size: 14px;">T08</strong><span style="display:block; font-size:11px; color:var(--amber-text);">Rsvd</span></div>
-        </div>
-      </div>
-
-      <div>
-        <div class="eb">TABLE VISIBILITY</div>
-        <h2 style="margin-bottom: 18px;">One Dining Floor. Different Guest Preferences.</h2>
-        <p style="margin-bottom: 24px;">
-          Manage every dining table clearly while guests seated together choose dishes from completely different cuisine menus.
-        </p>
-        <a href="{{ route('features.table-management') }}" class="btn p">Explore Table Management →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= SECTION 5: DIVERSE ORDERS ================= -->
-<section style="background: var(--bg2);">
-  <div class="w">
-    <div class="g2" style="gap: 50px; align-items: center;">
-      <div>
-        <div class="eb">MULTI-ITEM ORDERS</div>
-        <h2 style="margin-bottom: 18px;">Different Cuisines. One Clear Order.</h2>
-        <p style="margin-bottom: 24px;">
-          Keep every item together even when guests at the same table choose completely different cuisines during a family dinner or group celebration.
-        </p>
-        <a href="{{ route('features.order-management') }}" class="btn p">Explore Order Management →</a>
-      </div>
-
-      <!-- Complex Table Order Card -->
-      <div class="win" style="padding: 24px;">
-        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--line); padding-bottom: 10px; margin-bottom: 14px;">
-          <strong style="font-size: 16px; color: var(--ink);">TABLE T08 (6 Guests)</strong>
-          <strong style="color: var(--br);">ORDER #ORD-9402</strong>
-        </div>
-
-        <div style="display: flex; flex-direction: column; gap: 8px; font-size: 13.5px; margin-bottom: 16px;">
-          <div style="display: flex; justify-content: space-between;">
-            <span><span style="color: var(--br); font-weight: 500;">[Indian]</span> Chicken Biryani × 2</span>
-            <strong>₹640</strong>
-          </div>
-          <div style="display: flex; justify-content: space-between;">
-            <span><span style="color: var(--br); font-weight: 500;">[Indian]</span> Paneer Tikka × 1</span>
-            <strong>₹280</strong>
-          </div>
-          <div style="display: flex; justify-content: space-between;">
-            <span><span style="color: var(--amber-text); font-weight: 500;">[Chinese]</span> Veg Hakka Noodles × 2</span>
-            <strong>₹480</strong>
-          </div>
-          <div style="display: flex; justify-content: space-between;">
-            <span><span style="color: #1e40af; font-weight: 500;">[Italian]</span> Margherita Pizza × 1</span>
-            <strong>₹380</strong>
-          </div>
-          <div style="display: flex; justify-content: space-between;">
-            <span><span style="color: var(--mute); font-weight: 500;">[Beverages]</span> Fresh Lime Soda × 3</span>
-            <strong>₹270</strong>
-          </div>
-          <div style="display: flex; justify-content: space-between;">
-            <span><span style="color: var(--mute); font-weight: 500;">[Desserts]</span> Brownie × 2</span>
-            <strong>₹410</strong>
-          </div>
-        </div>
-
-        <div style="display: flex; justify-content: space-between; border-top: 1px solid var(--line); padding-top: 10px; font-size: 16px; font-weight: 500; color: var(--ink);">
-          <span>Total Order Value:</span>
-          <span style="color: var(--br);">₹2,460</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= SECTION 6: MULTIPLE KITCHEN WORKFLOWS ================= -->
-<section style="background: var(--bg);">
-  <div class="w">
-    <div class="hd">
-      <div class="eb">KITCHEN STATIONS</div>
-      <h2>Keep Every Kitchen Workflow Organized.</h2>
-      <p>When different cuisines require different preparation areas, keep orders clearly organized for the right kitchen workflow.</p>
-    </div>
-
-    <div class="g3">
-      <div class="card" style="padding: 24px; border-top: 4px solid var(--br);">
-        <h3 style="font-size: 17px; margin-bottom: 8px;">MAIN INDIAN KITCHEN</h3>
-        <p style="font-size: 13px; color: var(--mute); margin-bottom: 12px;">Tandoor, Biryani & Curries Station</p>
-        <div style="background: var(--bg2); padding: 10px; border-radius: 8px; font-size: 13px; font-weight: 700; color: var(--ink);">
-          Chicken Biryani × 2 · Paneer Tikka × 1
-        </div>
-      </div>
-
-      <div class="card" style="padding: 24px; border-top: 4px solid var(--amber);">
-        <h3 style="font-size: 17px; margin-bottom: 8px;">CHINESE WOK STATION</h3>
-        <p style="font-size: 13px; color: var(--mute); margin-bottom: 12px;">Noodles, Fried Rice & Starters</p>
-        <div style="background: var(--bg2); padding: 10px; border-radius: 8px; font-size: 13px; font-weight: 700; color: var(--ink);">
-          Veg Hakka Noodles × 2
-        </div>
-      </div>
-
-      <div class="card" style="padding: 24px; border-top: 4px solid var(--blue);">
-        <h3 style="font-size: 17px; margin-bottom: 8px;">PIZZA & PASTA OVEN</h3>
-        <p style="font-size: 13px; color: var(--mute); margin-bottom: 12px;">Wood-Fired Pizza & Grills</p>
-        <div style="background: var(--bg2); padding: 10px; border-radius: 8px; font-size: 13px; font-weight: 700; color: var(--ink);">
-          Margherita Pizza × 1
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= SECTION 7: KOT MANAGEMENT ================= -->
-<section style="background: var(--bg2);">
-  <div class="w">
-    <div class="g2" style="gap: 50px; align-items: center;">
-      <!-- KOT Ticket Visual -->
-      <div class="win" style="padding: 24px;">
-        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--line); padding-bottom: 10px; margin-bottom: 14px;">
-          <strong style="font-size: 16px; color: var(--br);">KOT #1048</strong>
-          <span style="font-size: 12px; font-weight: 500; color: var(--amber-text); background: var(--amber-bg); padding: 2px 8px; border-radius: 99px;">PREPARING</span>
-        </div>
-        <div style="font-size: 13px; color: var(--mute); margin-bottom: 12px;">Table T08 · 4 Items Routed</div>
-        
-        <div style="font-size: 13.5px; font-weight: 700; color: var(--ink); margin-bottom: 12px;">
-          • Chicken Biryani × 2<br>
-          • Paneer Tikka × 1 (Less Spicy)<br>
-          • Veg Hakka Noodles × 2
-        </div>
-        
-        <div style="background: #fff7ef; padding: 8px 12px; border-radius: 6px; font-size: 12px; color: var(--br-dark);">
-          Special Note: Less spicy for Paneer Tikka
-        </div>
-      </div>
-
-      <div>
-        <div class="eb">KITCHEN TICKETS</div>
-        <h2 style="margin-bottom: 18px;">Clear KOTs for Every Cuisine.</h2>
-        <p style="margin-bottom: 24px;">
-          Give your kitchen team clear order information so preparation stays organized during busy service without lost paper tickets.
-        </p>
-        <a href="{{ route('features.kot-management') }}" class="btn p">Explore KOT Management →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= SECTION 9: BILLING ================= -->
-<section style="background: var(--bg);">
-  <div class="w">
-    <div class="g2" style="gap: 50px; align-items: center;">
-      <div>
-        <div class="eb">POS & BILLING</div>
-        <h2 style="margin-bottom: 18px;">Simple Billing for Complex Orders.</h2>
-        <p style="margin-bottom: 24px;">
-          One Bill. Multiple Cuisines. Print single combined GST invoices or split bills easily for multi-cuisine dining groups.
-        </p>
-        <a href="{{ route('features.pos-management') }}" class="btn p">Explore POS Management →</a>
-      </div>
-
-      <!-- Itemized POS Billing Visual -->
-      <div class="win" style="padding: 24px;">
-        <div style="border-bottom: 1px dashed var(--line); padding-bottom: 10px; margin-bottom: 14px; text-align: center;">
-          <strong style="font-size: 16px; color: var(--ink); display: block;">GENI RESTAURANT POS</strong>
-          <span style="font-size: 12px; color: var(--mute);">Table T08 · Bill #INV-9402</span>
-        </div>
-
-        <div style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; margin-bottom: 14px;">
-          <div style="display: flex; justify-content: space-between; font-weight: 700; color: var(--br);"><span>[Indian]</span><span></span></div>
-          <div style="display: flex; justify-content: space-between;"><span>Chicken Biryani × 2</span><span>₹640</span></div>
-          <div style="display: flex; justify-content: space-between;"><span>Paneer Tikka × 1</span><span>₹280</span></div>
-          
-          <div style="display: flex; justify-content: space-between; font-weight: 700; color: var(--amber-text); margin-top: 4px;"><span>[Chinese]</span><span></span></div>
-          <div style="display: flex; justify-content: space-between;"><span>Veg Hakka Noodles × 2</span><span>₹480</span></div>
-          
-          <div style="display: flex; justify-content: space-between; font-weight: 700; color: #1e40af; margin-top: 4px;"><span>[Italian]</span><span></span></div>
-          <div style="display: flex; justify-content: space-between;"><span>Margherita Pizza × 1</span><span>₹380</span></div>
-        </div>
-
-        <div style="border-top: 1px solid var(--line); padding-top: 10px; display: flex; justify-content: space-between; font-size: 16px; font-weight: 500; color: var(--ink);">
-          <span>Grand Total</span>
-          <span style="color: var(--br);">₹2,460.00</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= SECTION 10: INVENTORY ================= -->
-<section style="background: var(--bg2);">
-  <div class="w">
-    <div class="g2" style="gap: 50px; align-items: center;">
-      <!-- Inventory Dashboard Visual -->
-      <div class="win" style="padding: 24px;">
-        <h4 style="font-size: 15px; margin-bottom: 14px; border-bottom: 1px solid var(--line); padding-bottom: 10px;">MULTI-CUISINE INGREDIENT TRACKER</h4>
-        
-        <div style="display: flex; flex-direction: column; gap: 10px; font-size: 13px;">
-          <div style="display: flex; justify-content: space-between; align-items: center; background: var(--bg2); padding: 8px 12px; border-radius: 6px;">
-            <span>Basmati Rice (Indian)</span><strong style="color: var(--green-text);">45 kg (Healthy)</strong>
-          </div>
-          <div style="display: flex; justify-content: space-between; align-items: center; background: var(--bg2); padding: 8px 12px; border-radius: 6px;">
-            <span>Noodles & Soy Sauce (Chinese)</span><strong style="color: var(--green-text);">28 kg (Healthy)</strong>
-          </div>
-          <div style="display: flex; justify-content: space-between; align-items: center; background: #fef3c7; padding: 8px 12px; border-radius: 6px; border: 1px solid var(--amber);">
-            <span>Mozzarella Cheese (Italian)</span><strong style="color: var(--amber-text);">4.5 kg (Low Stock)</strong>
-          </div>
-          <div style="display: flex; justify-content: space-between; align-items: center; background: var(--bg2); padding: 8px 12px; border-radius: 6px;">
-            <span>Coffee Beans & Lime (Beverages)</span><strong style="color: var(--green-text);">12 kg (Healthy)</strong>
-          </div>
-        </div>
-      </div>
-
-      <div>
-        <div class="eb">STOCK CONTROL</div>
-        <h2 style="margin-bottom: 18px;">Keep Inventory Connected to Restaurant Operations.</h2>
-        <p style="margin-bottom: 24px;">
-          Monitor ingredients and stock levels across all cuisine counters so your team can stay aware of what is available and what needs replenishment.
-        </p>
-        <a href="{{ route('features.inventory-management') }}" class="btn p">Explore Inventory Management →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= SECTION 11: REPORTS & INSIGHTS ================= -->
-<section style="background: var(--bg);">
-  <div class="w">
-    <div class="hd">
-      <div class="eb">CUISINE ANALYTICS</div>
-      <h2>Know What Your Customers Order.</h2>
-      <p>Understand which dishes, cuisines and categories are driving your restaurant's sales and activity.</p>
-    </div>
-
-    <div class="win" style="padding: 28px; max-width: 960px; margin: 0 auto 32px;">
-      <h4 style="font-size: 15px; margin-bottom: 16px;">REVENUE BREAKDOWN BY CUISINE (DEMO DATA)</h4>
-      
-      <div style="display: flex; flex-direction: column; gap: 14px;">
-        <div>
-          <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; margin-bottom: 4px;">
-            <span>🇮🇳 Indian & Tandoor (42%)</span>
-            <span>₹20,420</span>
-          </div>
-          <div style="height: 10px; background: var(--bg2); border-radius: 5px; overflow: hidden;">
-            <div style="width: 42%; height: 100%; background: var(--br);"></div>
-          </div>
-        </div>
-
-        <div>
-          <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; margin-bottom: 4px;">
-            <span><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg> Chinese & Asian (28%)</span>
-            <span>₹13,610</span>
-          </div>
-          <div style="height: 10px; background: var(--bg2); border-radius: 5px; overflow: hidden;">
-            <div style="width: 28%; height: 100%; background: var(--amber);"></div>
-          </div>
-        </div>
-
-        <div>
-          <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; margin-bottom: 4px;">
-            <span><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 11h.01"/><path d="M11 15h.01"/><path d="M16 16h.01"/><path d="m2 16 20 6-6-20A20 20 0 0 0 2 16"/></svg> Italian & Grills (18%)</span>
-            <span>₹8,750</span>
-          </div>
-          <div style="height: 10px; background: var(--bg2); border-radius: 5px; overflow: hidden;">
-            <div style="width: 18%; height: 100%; background: #1e40af;"></div>
-          </div>
-        </div>
-
-        <div>
-          <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; margin-bottom: 4px;">
-            <span><svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 22h8"/><path d="M12 11v11"/><path d="m19 3-7 8-7-8Z"/></svg> Beverages & Desserts (12%)</span>
-            <span>₹5,840</span>
-          </div>
-          <div style="height: 10px; background: var(--bg2); border-radius: 5px; overflow: hidden;">
-            <div style="width: 12%; height: 100%; background: var(--green-text);"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div style="text-align: center;">
-      <a href="{{ route('features.reports') }}" class="btn p">Explore Reports →</a>
-    </div>
-  </div>
-</section>
-
-<!-- ================= SECTION 13: WHY GENI MENU FOR MULTI-CUISINE ================= -->
-<section style="background: var(--bg2);">
-  <div class="w">
-    <div class="hd">
-      <div class="eb">KEY ADVANTAGES</div>
-      <h2>Built Around the Way Multi-Cuisine Restaurants Work.</h2>
-    </div>
-
-    <div class="g3">
-      <div class="card" style="padding: 24px;">
-        <h3 style="font-size: 18px; margin-bottom: 8px;">Organized Multi-Cuisine Menu</h3>
-        <p style="font-size: 14px;">Keep different cuisines structured, categorized and easy to manage.</p>
-      </div>
-
-      <div class="card" style="padding: 24px;">
-        <h3 style="font-size: 18px; margin-bottom: 8px;">Clear Table Orders</h3>
-        <p style="font-size: 14px;">Handle diverse customer orders without losing track of items.</p>
-      </div>
-
-      <div class="card" style="padding: 24px;">
-        <h3 style="font-size: 18px; margin-bottom: 8px;">Connected Kitchen</h3>
-        <p style="font-size: 14px;">Keep front-of-house and kitchen station preparation aligned.</p>
-      </div>
-
-      <div class="card" style="padding: 24px;">
-        <h3 style="font-size: 18px; margin-bottom: 8px;">Simplified Billing</h3>
-        <p style="font-size: 14px;">Process complex multi-item orders through one billing workflow.</p>
-      </div>
-
-      <div class="card" style="padding: 24px;">
-        <h3 style="font-size: 18px; margin-bottom: 8px;">Inventory Visibility</h3>
-        <p style="font-size: 14px;">Stay aware of important ingredients and stock levels across stations.</p>
-      </div>
-
-      <div class="card" style="padding: 24px;">
-        <h3 style="font-size: 18px; margin-bottom: 8px;">Business Insights</h3>
-        <p style="font-size: 14px;">Understand sales, orders, menu performance and category revenue.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= SECTION 17: FAQ ================= -->
-<section style="background: var(--bg);">
-  <div class="w">
-    <div class="hd">
-      <div class="eb">FREQUENTLY ASKED QUESTIONS</div>
-      <h2>Frequently Asked Questions</h2>
-      <p>Everything you need to know about Geni Menu for multi-cuisine restaurants.</p>
-    </div>
-
-    <div class="faq-list">
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          1. Is Geni Menu suitable for multi-cuisine restaurants?
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-        </div>
-        <div class="faq-a">
-          Yes. Geni Menu is designed to handle multi-cuisine dining rooms, helping organize diverse menus, table orders, KOT routing, billing and reports.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          2. Can I manage different cuisines in one single menu?
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-        </div>
-        <div class="faq-a">
-          Yes. You can structure your menu by Cuisine (e.g. Indian, Chinese, Italian) and sub-categories (Starters, Main Course, Desserts) for clear browsing.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          3. Can dine-in table orders contain items from multiple cuisines?
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-        </div>
-        <div class="faq-a">
-          Yes. Guests seated at the same table can order Biryani, Noodles, Pizza and Desserts under a single unified table order ticket.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          4. Can orders be routed to different kitchen preparation stations?
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-        </div>
-        <div class="faq-a">
-          Yes. KOT tickets can route specific items to the Main Indian Kitchen, Chinese Wok, or Pizza Oven printers/screens.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          5. How does POS billing handle multi-cuisine orders?
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-        </div>
-        <div class="faq-a">
-          The POS generates one itemized GST invoice listing all dishes by category or cuisine with single-click checkout.
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= FINAL CTA ================= -->
-<section style="background: linear-gradient(135deg, #FAF4ED 0%, #EFE4D6 50%, #FAF4ED 100%); color: #21160F; text-align: center; padding: 80px 0; border-top: 1px solid rgba(135, 96, 57, 0.16);">
-  <div class="w" style="max-width: 760px;">
-    <h2 style="color: #21160F; font-size: clamp(32px, 4vw, 48px); margin-bottom: 20px;">
-      Bring Every Cuisine <span style="color: #876039; font-family: 'Playfair Display', Georgia, serif; font-style: italic;">Together.</span>
-    </h2>
-    <p style="color: #6E6157; font-size: 18px; margin-bottom: 36px; line-height: 1.6;">
-      Manage your menus, tables, orders, kitchens, billing, inventory and reports from one connected restaurant platform with Geni Menu.
-    </p>
-    <div style="display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap;">
-      <a href="{{ route('restaurant_signup') }}" class="btn p" style="padding: 16px 36px; font-size: 16px; background: #876039; color: #fff;">Get Started →</a>
-      <a href="{{ route('contact.us') }}" class="btn o" style="padding: 16px 32px; font-size: 16px; background: #fff; color: #876039; border: 1.5px solid #876039;">Book a Demo →</a>
-    </div>
-  </div>
-</section>
-
 <script>
+(function() {
+  const els = document.querySelectorAll('.mc-page .r');
+  if (!('IntersectionObserver' in window)) { els.forEach(el => el.classList.add('on')); return; }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  els.forEach(el => io.observe(el));
+})();
+
+function filterCuisine(cuisine, btn) {
+  btn.parentElement.querySelectorAll('.rm-filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('#mcDishGrid .mc-dish-card').forEach(card => {
+    card.style.display = (cuisine === 'all' || card.getAttribute('data-c') === cuisine) ? '' : 'none';
+  });
+}
+
 function toggleFaq(el) {
-  const p = el.parentElement;
-  const isOpen = p.classList.contains('open');
-  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-  if (!isOpen) p.classList.add('open');
+  const item = el.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.rm-faq-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
 }
 </script>
 

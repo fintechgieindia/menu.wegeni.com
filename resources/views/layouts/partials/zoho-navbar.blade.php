@@ -246,6 +246,98 @@
     transform: translateX(-50%) translateY(2px);
   }
 
+  /* Petpooja-style Clean 2-Column Outlet Types / Solutions Dropdown */
+  .geni-pos-nav .nav-menu-item.solutions-item > .nav-menu-btn {
+    padding: 8px 13px;
+    border-radius: 8px;
+    margin: 0 -6px;
+    transition: background 0.18s ease, color 0.18s ease;
+  }
+
+  .geni-pos-nav .nav-menu-item.solutions-item:hover > .nav-menu-btn,
+  .geni-pos-nav .nav-menu-item.solutions-item:focus-within > .nav-menu-btn {
+    background: #FAF3EB;
+    color: #876039;
+  }
+
+  .geni-pos-nav .nav-dropdown.dropdown-solutions {
+    width: 560px;
+    padding: 20px 22px;
+    left: 50%;
+    border-radius: 16px;
+    border: 1px solid rgba(135, 96, 57, 0.16);
+    box-shadow: 0 20px 48px rgba(33, 22, 15, 0.12), 0 4px 14px rgba(33, 22, 15, 0.05);
+    transform: translateX(-50%) translateY(8px);
+  }
+
+  .geni-pos-nav .nav-menu-item:hover .nav-dropdown.dropdown-solutions,
+  .geni-pos-nav .nav-menu-item:focus-within .nav-dropdown.dropdown-solutions {
+    transform: translateX(-50%) translateY(4px);
+  }
+
+  .geni-pos-nav .outlet-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+    row-gap: 6px;
+  }
+
+  .geni-pos-nav .outlet-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 9px 12px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #21160F;
+    transition: background 0.16s ease, color 0.16s ease, transform 0.16s ease;
+  }
+
+  .geni-pos-nav .outlet-item:hover {
+    background: #FAF6F0;
+    color: #876039;
+    transform: translateX(2px);
+  }
+
+  .geni-pos-nav .outlet-illus {
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .geni-pos-nav .outlet-illus svg {
+    width: 34px;
+    height: 34px;
+    display: block;
+    transition: transform 0.18s ease;
+  }
+
+  .geni-pos-nav .outlet-item:hover .outlet-illus svg {
+    transform: scale(1.07);
+  }
+
+  .geni-pos-nav .outlet-label {
+    font-size: 14.5px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+    color: inherit;
+  }
+
+  .geni-pos-nav .outlet-item.outlet-all {
+    background: #FBF6EE;
+    border: 1px dashed rgba(135, 96, 57, 0.28);
+    color: #876039;
+  }
+
+  .geni-pos-nav .outlet-item.outlet-all:hover {
+    background: #F4E9D8;
+    border-style: solid;
+  }
+
   /* Rightmost dropdown alignment */
   .geni-pos-nav .nav-menu-item:last-child .nav-dropdown {
     left: auto;
@@ -772,7 +864,197 @@
           </div>
         </li>
 
-        <!-- 2. Pricing -->
+        <!-- 2. Solutions ⌵ (Petpooja-style 2-Column Illustrated Outlet Menu) -->
+        <li class="nav-menu-item solutions-item">
+          <button type="button" class="nav-menu-btn" aria-haspopup="true">
+            <span>Solutions</span>
+            <svg class="chevron-icon" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M1 1L5 5L9 1"/>
+            </svg>
+          </button>
+          <div class="nav-dropdown dropdown-solutions">
+            <div class="outlet-grid">
+              <!-- 1. Dine-in Restaurant -->
+              <a href="{{ route('solutions.dine-in-restaurant') }}" class="outlet-item">
+                <span class="outlet-illus">
+                  <svg viewBox="0 0 36 36" fill="none">
+                    <path d="M8 22C8 16.5 12.5 12 18 12C23.5 12 28 16.5 28 22H8Z" fill="#EAD5BC"/>
+                    <path d="M5 25H31L29 30H7L5 25Z" fill="#21160F"/>
+                    <path d="M8 22C8 16.5 12.5 12 18 12C23.5 12 28 16.5 28 22M5 22H31M18 12V9M16 9H20" stroke="#21160F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M9 7V11M7.5 7H10.5M27 7V11M25.5 7H28.5" stroke="#876039" stroke-width="1.6" stroke-linecap="round"/>
+                  </svg>
+                </span>
+                <span class="outlet-label">Dine-in Restaurant</span>
+              </a>
+
+              <!-- 2. Quick Service (QSR) -->
+              <a href="{{ route('solutions.qsr-restaurant') }}" class="outlet-item">
+                <span class="outlet-illus">
+                  <svg viewBox="0 0 36 36" fill="none">
+                    <path d="M7 16C7 10.8 11.9 7 18 7C24.1 7 29 10.8 29 16H7Z" fill="#EAD5BC" stroke="#21160F" stroke-width="1.8" stroke-linejoin="round"/>
+                    <rect x="6" y="19" width="24" height="4" rx="2" fill="#876039" stroke="#21160F" stroke-width="1.7"/>
+                    <path d="M8 26H28C28 28.2 26.2 30 24 30H12C9.8 30 8 28.2 8 26Z" fill="#F5E8D7" stroke="#21160F" stroke-width="1.8"/>
+                    <circle cx="14" cy="12" r="1" fill="#21160F"/><circle cx="18" cy="10.5" r="1" fill="#21160F"/><circle cx="22" cy="12" r="1" fill="#21160F"/>
+                  </svg>
+                </span>
+                <span class="outlet-label">Quick Service (QSR)</span>
+              </a>
+
+              <!-- 3. Cloud Kitchen -->
+              <a href="{{ route('solutions.cloud-kitchen') }}" class="outlet-item">
+                <span class="outlet-illus">
+                  <svg viewBox="0 0 36 36" fill="none">
+                    <path d="M11 22H25V28H11V22Z" fill="#EAD5BC" stroke="#21160F" stroke-width="1.8"/>
+                    <path d="M11 22C8.2 21.5 6.5 19 6.5 16.2C6.5 13 9 10.5 12.2 10.5C13.3 8.2 15.5 6.8 18 6.8C20.5 6.8 22.7 8.2 23.8 10.5C27 10.5 29.5 13 29.5 16.2C29.5 19 27.8 21.5 25 22" fill="#FAF3EB" stroke="#21160F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M11 28H25V30H11V28Z" fill="#21160F"/>
+                    <path d="M15 22V25M18 22V25M21 22V25" stroke="#876039" stroke-width="1.5" stroke-linecap="round"/>
+                  </svg>
+                </span>
+                <span class="outlet-label">Cloud Kitchen</span>
+              </a>
+
+              <!-- 4. Family Restaurant -->
+              <a href="{{ route('solutions.family-restaurant') }}" class="outlet-item">
+                <span class="outlet-illus">
+                  <svg viewBox="0 0 36 36" fill="none">
+                    <circle cx="18" cy="19" r="9" fill="#EAD5BC" stroke="#21160F" stroke-width="1.8"/>
+                    <circle cx="18" cy="19" r="5.5" fill="#FAF3EB" stroke="#876039" stroke-width="1.4"/>
+                    <path d="M6 12V18C6 19.5 7 20.5 8 20.5V28M8 12V18M29 12C27.5 12 26.5 14.5 26.5 18.5H29V28" stroke="#21160F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span class="outlet-label">Family Restaurant</span>
+              </a>
+
+              <!-- 5. Multi-Cuisine -->
+              <a href="{{ route('solutions.multi-cuisine-restaurant') }}" class="outlet-item">
+                <span class="outlet-illus">
+                  <svg viewBox="0 0 36 36" fill="none">
+                    <path d="M7 19H29C28.5 25 23.8 29 18 29C12.2 29 7.5 25 7 19Z" fill="#EAD5BC" stroke="#21160F" stroke-width="1.8" stroke-linejoin="round"/>
+                    <path d="M5 19H31" stroke="#21160F" stroke-width="1.8" stroke-linecap="round"/>
+                    <path d="M14 19L24 7M17 19L27 9" stroke="#876039" stroke-width="1.8" stroke-linecap="round"/>
+                    <path d="M11 13C11 11.5 12 10.5 12 9" stroke="#21160F" stroke-width="1.5" stroke-linecap="round"/>
+                  </svg>
+                </span>
+                <span class="outlet-label">Multi-Cuisine</span>
+              </a>
+
+              <!-- 6. Takeaway Restaurant -->
+              <a href="{{ route('solutions.takeaway-restaurant') }}" class="outlet-item">
+                <span class="outlet-illus">
+                  <svg viewBox="0 0 36 36" fill="none">
+                    <path d="M9 13H27L25.5 29H10.5L9 13Z" fill="#EAD5BC" stroke="#21160F" stroke-width="1.8" stroke-linejoin="round"/>
+                    <path d="M14 13V10C14 7.8 15.8 6 18 6C20.2 6 22 7.8 22 10V13" stroke="#21160F" stroke-width="1.8" stroke-linecap="round"/>
+                    <rect x="14" y="18" width="8" height="6" rx="1.5" fill="#FAF3EB" stroke="#876039" stroke-width="1.5"/>
+                  </svg>
+                </span>
+                <span class="outlet-label">Takeaway Restaurant</span>
+              </a>
+
+              <!-- 7. Bakeries & Cake Shops -->
+              <a href="{{ route('solutions.bakery') }}" class="outlet-item">
+                <span class="outlet-illus">
+                  <svg viewBox="0 0 36 36" fill="none">
+                    <path d="M8 17C8 12.5 11.5 10 16 10H24C27.5 10 30 12.5 30 16.5V26H10L8 17Z" fill="#21160F"/>
+                    <path d="M6 18C6 13.8 9 11.5 13 11.5C17 11.5 19.5 13.8 19.5 18V27H6V18Z" fill="#FAF3EB" stroke="#21160F" stroke-width="1.8" stroke-linejoin="round"/>
+                    <path d="M9.5 17C10.5 15.5 14.5 15.5 16 17" stroke="#C89659" stroke-width="1.6" stroke-linecap="round"/>
+                  </svg>
+                </span>
+                <span class="outlet-label">Bakery &amp; Cake Shop</span>
+              </a>
+
+              <!-- 8. Pizzerias & Specialty -->
+              <a href="{{ route('solutions.pizzerias') }}" class="outlet-item">
+                <span class="outlet-illus">
+                  <svg viewBox="0 0 36 36" fill="none">
+                    <path d="M7 27L23 8C26.5 10.5 28.8 14 29.5 18.5L7 27Z" fill="#FAF3EB" stroke="#21160F" stroke-width="1.8" stroke-linejoin="round"/>
+                    <path d="M23 8C26.8 10.5 29.2 14.2 30 19L26.5 20.3C25.8 16.3 23.8 13.2 20.6 10.8L23 8Z" fill="#EAD5BC" stroke="#21160F" stroke-width="1.7" stroke-linejoin="round"/>
+                    <circle cx="18" cy="19" r="2" fill="#876039"/><circle cx="22" cy="16" r="1.6" fill="#21160F"/><circle cx="14" cy="22" r="1.5" fill="#21160F"/>
+                  </svg>
+                </span>
+                <span class="outlet-label">Pizzeria &amp; Specialty</span>
+              </a>
+
+              <!-- 9. Bars & Breweries -->
+              <a href="{{ route('solutions.bars-and-breweries') }}" class="outlet-item">
+                <span class="outlet-illus">
+                  <svg viewBox="0 0 36 36" fill="none">
+                    <rect x="9" y="13" width="14" height="16" rx="2" fill="#EAD5BC" stroke="#21160F" stroke-width="1.8"/>
+                    <path d="M23 16H26.5C27.9 16 29 17.1 29 18.5V23.5C29 24.9 27.9 26 26.5 26H23" stroke="#21160F" stroke-width="1.8" stroke-linecap="round"/>
+                    <path d="M8 13C8 10.5 10 9 12 9.5C13 7.8 15.5 7.2 17.5 8.5C19.5 7.5 22 8.5 22.5 10.5C24 11 24.5 12.2 23.5 13.5H8Z" fill="#FAF3EB" stroke="#21160F" stroke-width="1.7" stroke-linejoin="round"/>
+                    <path d="M13.5 18V25M18.5 18V25" stroke="#876039" stroke-width="1.6" stroke-linecap="round"/>
+                  </svg>
+                </span>
+                <span class="outlet-label">Bar &amp; Brewery</span>
+              </a>
+
+              <!-- 10. Sweet Shop -->
+              <a href="{{ route('solutions.sweet-shop') }}" class="outlet-item">
+                <span class="outlet-illus">
+                  <svg viewBox="0 0 36 36" fill="none">
+                    <path d="M8 19C8 14 12.5 11 18 11C23.5 11 28 14 28 19V27C28 28.1 27.1 29 26 29H10C8.9 29 8 28.1 8 27V19Z" fill="#EAD5BC" stroke="#21160F" stroke-width="1.8"/>
+                    <path d="M8 19C10.5 21 12.5 17 15 19C17.5 21 19.5 17 22 19C24.5 21 26 18 28 19" stroke="#21160F" stroke-width="1.8" stroke-linecap="round"/>
+                    <circle cx="18" cy="9.5" r="2.5" fill="#876039" stroke="#21160F" stroke-width="1.6"/>
+                  </svg>
+                </span>
+                <span class="outlet-label">Sweet &amp; Mithai Shop</span>
+              </a>
+
+              <!-- 11. Juice & Snack Shops -->
+              <a href="{{ route('solutions.juice-and-snacks') }}" class="outlet-item">
+                <span class="outlet-illus">
+                  <svg viewBox="0 0 36 36" fill="none">
+                    <path d="M11 13H25L23 29H13L11 13Z" fill="#EAD5BC" stroke="#21160F" stroke-width="1.8" stroke-linejoin="round"/>
+                    <path d="M9.5 13H26.5L25.5 10H10.5L9.5 13Z" fill="#21160F"/>
+                    <circle cx="18" cy="21" r="3.2" fill="#FAF3EB" stroke="#876039" stroke-width="1.5"/>
+                    <path d="M19 10L21.5 5H24.5" stroke="#21160F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span class="outlet-label">Juice &amp; Snack Shop</span>
+              </a>
+
+              <!-- 12. College Canteen (Last Group) -->
+              <a href="{{ route('solutions.college-canteen') }}" class="outlet-item">
+                <span class="outlet-illus">
+                  <svg viewBox="0 0 36 36" fill="none">
+                    <path d="M5 14L18 8L31 14L18 20L5 14Z" fill="#EAD5BC" stroke="#21160F" stroke-width="1.8" stroke-linejoin="round"/>
+                    <path d="M10 17V24C10 26.5 13.6 28.5 18 28.5C22.4 28.5 26 26.5 26 24V17" fill="#FAF3EB" stroke="#21160F" stroke-width="1.8" stroke-linecap="round"/>
+                    <path d="M29 15V22" stroke="#876039" stroke-width="1.8" stroke-linecap="round"/>
+                  </svg>
+                </span>
+                <span class="outlet-label">College Canteen</span>
+              </a>
+
+              <!-- 13. Office Canteen (Last) -->
+              <a href="{{ route('solutions.office-canteen') }}" class="outlet-item">
+                <span class="outlet-illus">
+                  <svg viewBox="0 0 36 36" fill="none">
+                    <rect x="9" y="7" width="18" height="22" rx="2" fill="#EAD5BC" stroke="#21160F" stroke-width="1.8"/>
+                    <rect x="15" y="23" width="6" height="6" fill="#21160F"/>
+                    <rect x="13" y="11" width="3" height="3" rx="0.5" fill="#FAF3EB" stroke="#21160F" stroke-width="1.3"/>
+                    <rect x="20" y="11" width="3" height="3" rx="0.5" fill="#FAF3EB" stroke="#21160F" stroke-width="1.3"/>
+                    <rect x="13" y="17" width="3" height="3" rx="0.5" fill="#FAF3EB" stroke="#21160F" stroke-width="1.3"/>
+                    <rect x="20" y="17" width="3" height="3" rx="0.5" fill="#FAF3EB" stroke="#21160F" stroke-width="1.3"/>
+                  </svg>
+                </span>
+                <span class="outlet-label">Office Canteen</span>
+              </a>
+
+              <!-- 14. Explore All Outlet Types -->
+              <a href="{{ route('solutions') }}" class="outlet-item outlet-all">
+                <span class="outlet-illus">
+                  <svg viewBox="0 0 36 36" fill="none">
+                    <rect x="7" y="9" width="22" height="19" rx="2.5" fill="#EAD5BC" stroke="#21160F" stroke-width="1.8"/>
+                    <path d="M5 14L8 9H28L31 14C31 15.8 29.5 17 28 17C26.5 17 25.2 15.8 25 14.5C24.8 15.8 23.5 17 22 17C20.5 17 19.2 15.8 19 14.5C18.8 15.8 17.5 17 16 17C14.5 17 13.2 15.8 13 14.5C12.8 15.8 11.5 17 10 17C8.5 17 5 15.8 5 14Z" fill="#21160F"/>
+                    <rect x="14" y="20" width="8" height="8" fill="#FAF3EB" stroke="#876039" stroke-width="1.6"/>
+                  </svg>
+                </span>
+                <span class="outlet-label">All Outlet Types &rarr;</span>
+              </a>
+            </div>
+          </div>
+        </li>
+
+        <!-- 3. Pricing -->
         <li class="nav-menu-item">
           <a href="{{ route('pricing') }}" class="nav-menu-link">Pricing</a>
         </li>
@@ -780,108 +1062,6 @@
         <!-- 4. Contact -->
         <li class="nav-menu-item">
           <a href="{{ route('contact.us') }}" class="nav-menu-link {{ request()->routeIs('contact.us') ? 'nav-active' : '' }}">Contact</a>
-        </li>
-
-        <!-- 5. Solutions ⌵ -->
-        <li class="nav-menu-item">
-          <button type="button" class="nav-menu-btn" aria-haspopup="true">
-            <span>Solutions</span>
-            <svg class="chevron-icon" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M1 1L5 5L9 1"/>
-            </svg>
-          </button>
-          <div class="nav-dropdown dropdown-features">
-            <div class="dropdown-grid">
-              <a href="{{ route('solutions.family-restaurant') }}" class="dropdown-card">
-                <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-                <div>
-                  <div class="card-title">Family Restaurant</div>
-                  <div class="card-desc">Tables, group orders, KOT & POS</div>
-                </div>
-              </a>
-              <a href="{{ route('solutions.dine-in-restaurant') }}" class="dropdown-card">
-                <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M4 9h16M5 9v10M19 9v10M9 9V5h6v4M7 15h10"/></svg></div>
-                <div>
-                  <div class="card-title">Dine-in Restaurant</div>
-                  <div class="card-desc">Table service, digital menu, KOT & billing</div>
-                </div>
-              </a>
-              <a href="{{ route('solutions.multi-cuisine-restaurant') }}" class="dropdown-card">
-                <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M3 18h18M5 12h14v6H5zM12 4v8"/></svg></div>
-                <div>
-                  <div class="card-title">Multi-Cuisine Restaurant</div>
-                  <div class="card-desc">Indian, Chinese, Italian & multi-station KOT</div>
-                </div>
-              </a>
-              <a href="{{ route('solutions.qsr-restaurant') }}" class="dropdown-card">
-                <div class="card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-                <div>
-                  <div class="card-title">Quick Service (QSR)</div>
-                  <div class="card-desc">Fast counter bills, tokens & queue busting</div>
-                </div>
-              </a>
-              <a href="{{ route('solutions.takeaway-restaurant') }}" class="dropdown-card">
-                <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
-                <div>
-                  <div class="card-title">Takeaway Restaurant</div>
-                  <div class="card-desc">Counter orders, KOT & pickup management</div>
-                </div>
-              </a>
-              <a href="{{ route('solutions.college-canteen') }}" class="dropdown-card">
-                <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5zM6 12v5c3 3 9 3 12 0v-5"/></svg></div>
-                <div>
-                  <div class="card-title">College Canteen</div>
-                  <div class="card-desc">Campus food service, multi-counter & tokens</div>
-                </div>
-              </a>
-              <a href="{{ route('solutions.office-canteen') }}" class="dropdown-card">
-                <div class="card-icon"><svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><path d="M9 22v-4h6v4M8 6h.01M16 6h.01M12 6h.01M12 10h.01M16 10h.01M8 10h.01M12 14h.01M16 14h.01M8 14h.01"/></svg></div>
-                <div>
-                  <div class="card-title">Office Canteen</div>
-                  <div class="card-desc">Corporate cafeteria, employee orders & counters</div>
-                </div>
-              </a>
-              <a href="{{ route('solutions.sweet-shop') }}" class="dropdown-card">
-                <div class="card-icon"><svg viewBox="0 0 24 24"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></div>
-                <div>
-                  <div class="card-title">Sweet Shop</div>
-                  <div class="card-desc">Weight-based billing, packing & inventory</div>
-                </div>
-              </a>
-              <a href="{{ route('solutions.bakery') }}" class="dropdown-card">
-                <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
-                <div>
-                  <div class="card-title">Bakeries & Cake Shops</div>
-                  <div class="card-desc">Custom cakes, billing & inventory</div>
-                </div>
-              </a>
-              <a href="{{ route('solutions.juice-and-snacks') }}" class="dropdown-card">
-                <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M17 3v3H7V3M9 6v15M15 6v15"/><path d="M6 3h12l-2 18H8z"/><path d="M11 0L10 6"/></svg></div>
-                <div>
-                  <div class="card-title">Juice & Snack Shops</div>
-                  <div class="card-desc">Fast counter billing & orders</div>
-                </div>
-              </a>
-              <a href="{{ route('solutions.bars-and-breweries') }}" class="dropdown-card">
-                <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M8 22h8M12 11v11M12 11a7 7 0 0 0 7-7V2H5v2a7 7 0 0 0 7 7z"/></svg></div>
-                <div>
-                  <div class="card-title">Bars & Breweries</div>
-                  <div class="card-desc">Table service & billing</div>
-                </div>
-              </a>
-              <a href="{{ route('solutions.pizzerias') }}" class="dropdown-card">
-                <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M21.21 15.89A10 10 0 1 1 8 2.83M22 12A10 10 0 0 0 12 2v10z"/></svg></div>
-                <div>
-                  <div class="card-title">Pizzerias & Specialty Food</div>
-                  <div class="card-desc">Focused menus & fast service</div>
-                </div>
-              </a>
-            </div>
-            <div class="dropdown-footer">
-              <span style="font-size:12px;color:#9ca3af;">Tailored solutions for every food business</span>
-              <a href="{{ route('solutions') }}">Explore all solutions &rarr;</a>
-            </div>
-          </div>
         </li>
 
       </ul>
@@ -950,6 +1130,29 @@
         </div>
       </li>
 
+      <li class="mobile-list-item" id="mobItemSolutions">
+        <button type="button" class="mobile-accordion-btn" onclick="toggleMobSubmenu('mobItemSolutions')">
+          <span>Solutions</span>
+          <svg class="mobile-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+        <div class="mobile-sub-menu">
+          <a href="{{ route('solutions') }}" class="mobile-sub-link" onclick="closeGeniMobile()" style="font-weight: 600; color: #9C6F3E;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg> Explore All Solutions &rarr;</a>
+          <a href="{{ route('solutions.dine-in-restaurant') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><path d="M4 9h16M5 9v10M19 9v10M9 9V5h6v4M7 15h10"/></svg> Dine-in Restaurant</a>
+          <a href="{{ route('solutions.qsr-restaurant') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Quick Service (QSR)</a>
+          <a href="{{ route('solutions.cloud-kitchen') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg> Cloud Kitchen</a>
+          <a href="{{ route('solutions.family-restaurant') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> Family Restaurant</a>
+          <a href="{{ route('solutions.multi-cuisine-restaurant') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><path d="M3 18h18M5 12h14v6H5zM12 4v8"/></svg> Multi-Cuisine Restaurant</a>
+          <a href="{{ route('solutions.takeaway-restaurant') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/></svg> Takeaway Restaurant</a>
+          <a href="{{ route('solutions.bakery') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg> Bakeries & Cake Shops</a>
+          <a href="{{ route('solutions.pizzerias') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><path d="M21.21 15.89A10 10 0 1 1 8 2.83M22 12A10 10 0 0 0 12 2v10z"/></svg> Pizzerias & Specialty Food</a>
+          <a href="{{ route('solutions.bars-and-breweries') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><path d="M8 22h8M12 11v11"/></svg> Bars & Breweries</a>
+          <a href="{{ route('solutions.sweet-shop') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/></svg> Sweet Shop</a>
+          <a href="{{ route('solutions.juice-and-snacks') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><path d="M17 3v3H7V3M9 6v15M15 6v15"/></svg> Juice & Snack Shops</a>
+          <a href="{{ route('solutions.college-canteen') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/></svg> College Canteen</a>
+          <a href="{{ route('solutions.office-canteen') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/></svg> Office Canteen</a>
+        </div>
+      </li>
+
       <li class="mobile-list-item">
         <a href="{{ route('pricing') }}" class="mobile-direct-link" onclick="closeGeniMobile()">
           <span>Pricing</span>
@@ -962,26 +1165,6 @@
           <span>Contact</span>
           <span style="font-size: 13px; color: #9C6F3E;">&rarr;</span>
         </a>
-      </li>
-
-      <li class="mobile-list-item" id="mobItemSolutions">
-        <button type="button" class="mobile-accordion-btn" onclick="toggleMobSubmenu('mobItemSolutions')">
-          <span>Solutions</span>
-          <svg class="mobile-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-        </button>
-        <div class="mobile-sub-menu">
-          <a href="{{ route('solutions') }}" class="mobile-sub-link" onclick="closeGeniMobile()" style="font-weight: 600; color: #9C6F3E;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg> Explore All Solutions &rarr;</a>
-          <a href="{{ route('solutions.family-restaurant') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> Family Restaurant</a>
-          <a href="{{ route('solutions.dine-in-restaurant') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><path d="M4 9h16M5 9v10M19 9v10M9 9V5h6v4M7 15h10"/></svg> Dine-in Restaurant</a>
-          <a href="{{ route('solutions.qsr-restaurant') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Quick Service (QSR)</a>
-          <a href="{{ route('solutions.bakery') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg> Bakeries & Cafes</a>
-          <a href="{{ route('solutions.takeaway-restaurant') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/></svg> Takeaway Restaurant</a>
-          <a href="{{ route('solutions.multi-cuisine-restaurant') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><path d="M3 18h18M5 12h14v6H5zM12 4v8"/></svg> Multi-Cuisine</a>
-          <a href="{{ route('solutions.sweet-shop') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/></svg> Sweet Shop</a>
-          <a href="{{ route('solutions.college-canteen') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/></svg> College Canteen</a>
-          <a href="{{ route('solutions.office-canteen') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/></svg> Office Canteen</a>
-          <a href="{{ route('solutions.bars-and-breweries') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><path d="M8 22h8M12 11v11"/></svg> Bars & Breweries</a>
-        </div>
       </li>
     </ul>
 

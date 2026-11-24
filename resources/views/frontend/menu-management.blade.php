@@ -1848,11 +1848,11 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
                     </div>
                   </div>
 
-                  <!-- Dish 3: Gulab Jamun -->
+                  <!-- Dish 3: Motichoor Ladoo -->
                   <div class="wf-dish-card">
-                    <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=160&auto=format&fit=crop&q=80" alt="Gulab Jamun" class="wf-dish-thumb">
+                    <img src="{{ asset('assets/images/dishes/motichoor-ladoo.jpg') }}" alt="Motichoor Ladoo" class="wf-dish-thumb">
                     <div class="wf-dish-content">
-                      <div class="wf-dish-name">Gulab Jamun</div>
+                      <div class="wf-dish-name">Motichoor Ladoo</div>
                       <div class="wf-dish-desc">Soft and juicy dessert</div>
                       <div class="wf-dish-bottom">
                         <span class="wf-dish-price">₹120</span>
@@ -2352,7 +2352,7 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
 
       <div class="mm-spot-card">
         <div class="mm-spot-media">
-          <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500&auto=format&fit=crop&q=80" alt="Truffle Garlic Naan">
+          <img src="{{ asset('assets/images/dishes/garlic-naan.jpg') }}" alt="Truffle Garlic Naan">
           <span class="mm-spot-tag" style="background: rgba(209, 250, 229, 0.95); color: #065F46;">
             <svg class="gm-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3Z"/></svg>
             NEW

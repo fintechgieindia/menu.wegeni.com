@@ -1,3 +1,11 @@
+@php
+$meta = [
+    'title' => 'Bars, Pubs & Breweries POS Software | Geni Menu',
+    'description' => 'Run every table, every order, and every shift. Manage bar & pub menus, live floor tables, multi-station KOTs, split-bill POS, reservations, stock and daily reports from one connected platform.',
+    'keywords' => 'bar POS software, brewery management system, pub billing software, restobar table management, split bill POS, multi-station KOT, Geni Menu',
+];
+@endphp
+
 @extends('layouts.frontend-master')
 
 @section('content')
@@ -5,1060 +13,976 @@
 {{-- Google Fonts --}}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,600;1,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600;1,700&display=swap" rel="stylesheet">
 
 <style>
 :root {
   --br: #876039;
   --br-dark: #6f4e2d;
-  --br-light: #fbf7f2;
+  --br-light: #FBF6EE;
   --br-gold: #b88e56;
   --bg: #ffffff;
-  --bg2: #f8f6f4;
-  --bg3: #f1ebe5;
-  --dark: #1a1512;
-  --dark2: #241d19;
-  --ink: #2c221c;
-  --mute: #7a6a60;
-  --line: rgba(135, 96, 57, 0.15);
-  --line-dark: rgba(255, 255, 255, 0.1);
+  --bg2: #FAF7F2;
+  --bg3: #F5EFE6;
+  --ink: #21160F;
+  --mute: #6E6157;
+  --line: rgba(135, 96, 57, 0.16);
   --card: #ffffff;
-  --shadow-sm: 0 4px 20px rgba(26, 21, 18, 0.06);
-  --shadow-md: 0 16px 40px rgba(26, 21, 18, 0.12);
-  --shadow-lg: 0 26px 50px rgba(26, 21, 18, 0.18);
-  --green: #10B981;
-  --blue: #3B82F6;
-  --amber: #F59E0B;
-  --red: #EF4444;
+  --shadow-sm: 0 4px 20px rgba(33, 22, 15, 0.04);
+  --shadow-md: 0 16px 40px rgba(33, 22, 15, 0.08);
+  --shadow-lg: 0 24px 54px rgba(33, 22, 15, 0.12);
+  --green: #15803D;
+  --green-bg: #ECFDF5;
+  --amber: #B45309;
+  --amber-bg: #FFFBEB;
+  --blue: #1D4ED8;
+  --blue-bg: #EFF6FF;
+  --red: #B91C1C;
+  --red-bg: #FEF2F2;
 }
 
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  margin: 0;
-  font: 400 16px/1.65 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+.bb-page * { box-sizing: border-box; }
+.bb-page {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   color: var(--ink);
-  background: var(--bg) !important;
-  overflow-x: hidden;
+  background: var(--bg);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
-h1, h2, h3, h4, h5 {
+.bb-page h1, .bb-page h2, .bb-page h3, .bb-page h4 {
   margin: 0;
   font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
   font-weight: 500;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+  line-height: 1.14;
+  letter-spacing: -0.025em;
   color: var(--ink);
 }
-h1 { font-size: clamp(36px, 5vw, 62px); }
-h2 { font-size: clamp(28px, 3.8vw, 44px); }
-h3 { font-size: 20px; font-weight: 700; }
-p { margin: 0; color: var(--mute); font-size: 16px; line-height: 1.65; }
-a { color: inherit; text-decoration: none; }
-ul { list-style: none; margin: 0; padding: 0; }
+.bb-page h1 { font-size: clamp(34px, 4.6vw, 56px); }
+.bb-page h2 { font-size: clamp(28px, 3.6vw, 44px); }
+.bb-page h3 { font-size: 20px; font-weight: 600; }
+.bb-page p { margin: 0; color: var(--mute); font-size: 16px; line-height: 1.65; }
+.bb-page a { text-decoration: none; color: inherit; }
 
 .sf {
   font-family: 'Playfair Display', Georgia, serif;
   font-style: italic;
   font-weight: 700;
-  background: linear-gradient(135deg, #c89659 0%, #a87646 50%, #876039 100%);
+  background: linear-gradient(135deg, #876039 0%, #a87646 50%, #c89659 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
   padding-right: 4px;
 }
-.dark-sec .sf {
-  background: linear-gradient(135deg, #e6c594 0%, #c89659 50%, #a87646 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+
+.w { max-width: 1240px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+.bb-sec { padding: clamp(56px, 6.5vw, 92px) 0; background: var(--bg); position: relative; overflow: hidden; }
+.bb-sec.alt { background: var(--bg2); }
+.bb-sec.border-b { border-bottom: 1px solid var(--line); }
 
 .eb {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 12px;
-  letter-spacing: .16em;
-  font-weight: 500;
-  text-transform: uppercase;
-  color: var(--br);
-  margin-bottom: 16px;
-  background: linear-gradient(135deg, #fbf7f2 0%, #f4efe9 100%);
-  padding: 7px 18px;
-  border-radius: 99px;
-  border: 1px solid rgba(135, 96, 57, 0.22);
-  box-shadow: 0 2px 10px rgba(135, 96, 57, 0.08);
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 12px; letter-spacing: .14em; font-weight: 700; text-transform: uppercase;
+  color: var(--br); margin-bottom: 16px; background: var(--br-light);
+  padding: 7px 16px; border-radius: 99px; border: 1px solid rgba(135, 96, 57, 0.22);
 }
-.dark-sec .eb {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.15);
-  color: #e6c594;
-  box-shadow: none;
+.hd { max-width: 760px; margin: 0 auto 48px; text-align: center; }
+.hd p { margin-top: 14px; font-size: 17px; }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 14px 28px; border-radius: 12px; font: 700 15px 'Plus Jakarta Sans', sans-serif;
+  border: 1.5px solid var(--br); transition: .25s ease; cursor: pointer;
 }
-
-.w { max-width: 1240px; margin: auto; padding: 0 24px; position: relative; z-index: 1; }
-section { padding: clamp(60px, 7vw, 96px) 0; background: var(--bg); position: relative; overflow: hidden; }
-section.alt { background: var(--bg2); }
-section.dark-sec { background: var(--dark); color: #fff; }
-section.dark-sec h1, section.dark-sec h2, section.dark-sec h3, section.dark-sec h4 { color: #fff; }
-section.dark-sec p { color: rgba(255, 255, 255, 0.7); }
-
-.hd { max-width: 760px; margin: 0 auto 52px; text-align: center; }
-.hd.left { text-align: left; margin: 0 0 40px; }
-.hd p { margin-top: 14px; font-size: 18px; }
-
-/* Buttons */
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 28px; border-radius: 12px; font: 700 15px 'Plus Jakarta Sans', sans-serif; border: 1px solid var(--br); transition: .25s ease; cursor: pointer; text-decoration: none; }
-.btn.p { background: linear-gradient(135deg, #876039 0%, #a87646 100%); color: #fff; box-shadow: 0 4px 16px rgba(135,96,57,0.28); }
-.btn.p:hover { transform: translateY(-2px); background: linear-gradient(135deg, #6f4e2d 0%, #876039 100%); box-shadow: 0 8px 24px rgba(135,96,57,0.38); }
+.btn.p { background: linear-gradient(135deg, #876039 0%, #a87646 100%); color: #fff; box-shadow: 0 4px 16px rgba(135, 96, 57, 0.28); }
+.btn.p:hover { transform: translateY(-2px); background: linear-gradient(135deg, #6f4e2d 0%, #876039 100%); box-shadow: 0 8px 24px rgba(135, 96, 57, 0.36); }
 .btn.o { color: var(--br); background: #fff; }
 .btn.o:hover { background: var(--br); color: #fff; transform: translateY(-2px); }
 
-/* Badges */
-.badge { font-size: 11px; font-weight: 500; padding: 4px 10px; border-radius: 8px; text-transform: uppercase; display: inline-block; letter-spacing: .04em; }
-.badge.ready { background: #d1fae5; color: #047857; }
-.badge.preparing { background: #ffedd5; color: #c2410c; }
-.badge.new { background: #eff6ff; color: #1d4ed8; }
-.badge.soldout { background: #fee2e2; color: #b91c1c; }
-.badge.occupied { background: #fee2e2; color: #b91c1c; }
-.badge.reserved { background: #ffedd5; color: #c2410c; }
-.badge.available { background: #d1fae5; color: #047857; }
+.bc { padding: 16px 0; background: var(--bg2); border-bottom: 1px solid var(--line); font-size: 13.5px; color: var(--mute); font-weight: 600; }
+.bc .w { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.bc a:hover { color: var(--br); }
+.bc .sep { opacity: 0.5; }
+.bc .cur { color: var(--br); font-weight: 700; }
 
-/* ---------------- BREADCRUMB ---------------- */
-.bc { padding: 18px 0 16px; background: var(--dark); border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 14px; color: rgba(255,255,255,0.6); font-weight: 600; }
-.bc .w { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-.bc a { color: rgba(255,255,255,0.6); transition: color .2s; }
-.bc a:hover { color: #fff; }
-.bc span.cur { color: #fff; font-weight: 700; }
+.r { opacity: 0; transform: translateY(20px); transition: opacity .65s ease, transform .65s ease; }
+.r.on { opacity: 1; transform: none; }
 
-/* ---------------- HERO ---------------- */
-.hero { padding: 60px 0 90px; }
-.hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: center; }
-.hero-ctx p { font-size: 18px; margin: 20px 0 32px; max-width: 540px; }
-.hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+/* Hero */
+.rm-hero { padding: clamp(48px, 6vw, 84px) 0; background: linear-gradient(180deg, var(--bg2) 0%, #ffffff 100%); border-bottom: 1px solid var(--line); }
+.rm-hero-grid { display: grid; grid-template-columns: 1fr 1.12fr; gap: 52px; align-items: center; }
+.rm-hero-sub { font-size: 17.5px; margin: 20px 0 30px; max-width: 540px; color: var(--mute); }
+.rm-hero-cta { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 34px; }
+.rm-hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; padding-top: 24px; border-top: 1px solid var(--line); }
+.rm-hero-stat strong { display: block; font-family: 'Outfit', sans-serif; font-size: 21px; font-weight: 600; color: var(--br); line-height: 1.2; }
+.rm-hero-stat span { font-size: 12.5px; font-weight: 600; color: var(--mute); }
 
-.hero-ui { background: var(--dark2); border: 1px solid var(--line-dark); border-radius: 24px; box-shadow: var(--shadow-lg); overflow: hidden; position: relative; }
-.hero-ui-hdr { background: rgba(0,0,0,0.2); padding: 16px 20px; border-bottom: 1px solid var(--line-dark); display: flex; justify-content: space-between; align-items: center; }
-.hero-ui-hdr-title { font-weight: 500; font-size: 14px; color: #fff; display: flex; align-items: center; gap: 8px; }
-.hero-ui-grid { padding: 20px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.rm-hero-media { position: relative; border-radius: 26px; overflow: hidden; box-shadow: var(--shadow-lg); border: 1px solid rgba(135, 96, 57, 0.2); background: #1C1510; aspect-ratio: 4 / 3; }
+.rm-hero-media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; }
+.rm-hero-media:hover img { transform: scale(1.03); }
+.rm-hero-scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(33, 22, 15, 0.12) 0%, rgba(33, 22, 15, 0.04) 45%, rgba(33, 22, 15, 0.64) 100%); pointer-events: none; }
+.rm-hero-pill { position: absolute; top: 18px; left: 18px; display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 99px; background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(10px); font-size: 12px; font-weight: 700; color: var(--ink); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.14); }
+.rm-live-dot { width: 8px; height: 8px; border-radius: 50%; background: #16A34A; box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.22); }
+.rm-hero-float { position: absolute; left: 18px; right: 18px; bottom: 18px; background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(12px); border: 1px solid rgba(135, 96, 57, 0.2); border-radius: 16px; padding: 14px 18px; display: flex; align-items: center; justify-content: space-between; gap: 14px; box-shadow: 0 12px 30px rgba(33, 22, 15, 0.18); }
+.rm-hero-float-left { display: flex; align-items: center; gap: 12px; }
+.rm-hero-float-ico { width: 40px; height: 40px; border-radius: 11px; background: var(--br-light); color: var(--br); border: 1px solid rgba(135, 96, 57, 0.2); display: grid; place-items: center; flex: none; }
+.rm-hero-float-ico svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; }
+.rm-hero-float-ttl { font-size: 13.5px; font-weight: 700; color: var(--ink); line-height: 1.25; }
+.rm-hero-float-sub { font-size: 12px; color: var(--mute); }
+.rm-hero-float-tag { font-size: 11px; font-weight: 700; padding: 5px 11px; border-radius: 99px; background: var(--green-bg); color: var(--green); white-space: nowrap; }
 
-.hu-stat { padding: 16px; border-radius: 12px; border: 1px solid var(--line-dark); background: rgba(255,255,255,0.03); }
-.hu-stat-lbl { font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.5); text-transform: uppercase; margin-bottom: 4px; }
-.hu-stat-val { font-size: 24px; font-weight: 500; color: #fff; }
+/* Value Strip */
+.rm-val-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.rm-val-card { background: var(--bg2); border: 1px solid var(--line); border-radius: 18px; padding: 24px; transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+.rm-val-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: rgba(135, 96, 57, 0.32); background: #fff; }
+.rm-val-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+.rm-ic { width: 46px; height: 46px; border-radius: 13px; background: #fff; color: var(--br); border: 1px solid var(--line); display: grid; place-items: center; transition: .25s ease; }
+.rm-ic svg { width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.rm-val-card:hover .rm-ic, .rm-ben-card:hover .rm-ic { background: var(--br); color: #fff; border-color: var(--br); }
+.rm-num { font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 700; color: var(--br); opacity: 0.75; letter-spacing: 0.06em; }
+.rm-val-card h3 { font-size: 17.5px; margin-bottom: 8px; }
+.rm-val-card p { font-size: 14px; }
 
-/* ---------------- SECTION 4: FEATURES ---------------- */
-.eco-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
-.eco-card { padding: 28px; background: #fff; border: 1px solid var(--line); border-radius: 20px; transition: .3s; }
-.eco-card:hover { transform: translateY(-4px); border-color: var(--br); box-shadow: var(--shadow-md); }
-.eco-card h3 { margin: 18px 0 8px; font-size: 16px; }
-.eco-card p { font-size: 14px; color: var(--mute); }
-.ic { width: 48px; height: 48px; border-radius: 13px; background: var(--bg2); color: var(--br); display: grid; place-items: center; border: 1px solid var(--line); transition: .3s ease; }
-.eco-card:hover .ic { background: var(--br); color: #fff; border-color: var(--br); }
+/* Window Chrome & Badges */
+.rm-win { background: #fff; border: 1px solid var(--line); border-radius: 22px; overflow: hidden; box-shadow: var(--shadow-md); }
+.rm-win-bar { display: flex; align-items: center; justify-content: space-between; padding: 13px 20px; background: var(--bg2); border-bottom: 1px solid var(--line); gap: 12px; flex-wrap: wrap; }
+.rm-win-dots { display: flex; gap: 6px; }
+.rm-win-dots i { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.rm-win-dots i:nth-child(1) { background: #ff5f56; }
+.rm-win-dots i:nth-child(2) { background: #ffbd2e; }
+.rm-win-dots i:nth-child(3) { background: #27c93f; }
+.rm-win-ttl { font-family: 'Outfit', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--br); }
+.rm-win-body { padding: 24px; }
 
-/* ---------------- SECTION 5: MENU ---------------- */
-.menu-tabs { display: flex; gap: 12px; margin-bottom: 32px; flex-wrap: wrap; justify-content: center; }
-.menu-tab { padding: 10px 24px; border-radius: 99px; font-weight: 700; font-size: 15px; cursor: pointer; border: 1px solid var(--line); background: #fff; color: var(--mute); transition: .2s; }
-.menu-tab.act { background: var(--br); color: #fff; border-color: var(--br); }
-.menu-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
-.pc-card { display: flex; align-items: center; gap: 16px; padding: 16px; border: 1px solid var(--line); border-radius: 16px; background: #fff; transition: .2s; }
-.pc-card:hover { border-color: var(--br); box-shadow: var(--shadow-sm); }
-.pc-img { width: 80px; height: 80px; border-radius: 12px; object-fit: cover; }
-.pc-ctx { flex: 1; }
-.pc-ctx h4 { font-size: 16px; margin-bottom: 4px; }
-.pc-ctx p { font-size: 13px; color: var(--mute); margin-bottom: 8px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-.pc-ft { display: flex; justify-content: space-between; align-items: center; }
+.bb-badge { font-size: 10.5px; font-weight: 700; padding: 4px 10px; border-radius: 99px; text-transform: uppercase; letter-spacing: .04em; display: inline-block; }
+.bb-badge.ready { background: var(--green-bg); color: var(--green); }
+.bb-badge.preparing { background: var(--amber-bg); color: var(--amber); }
+.bb-badge.soldout { background: var(--red-bg); color: var(--red); }
 
-/* ---------------- SECTION 6: TABLES ---------------- */
-.two-col-flow { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
-.table-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-.t-card { background: var(--dark2); border: 1px solid var(--line-dark); border-radius: 16px; padding: 20px; }
-.t-hdr { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
-.t-name { font-size: 18px; font-weight: 500; color: #fff; }
-.t-det { font-size: 13px; color: rgba(255,255,255,0.6); display: flex; justify-content: space-between; margin-bottom: 8px; }
+/* Menu Tabs & Grid */
+.bb-tabs { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 28px; }
+.bb-tab { padding: 9px 18px; border-radius: 99px; border: 1px solid var(--line); background: #fff; color: var(--mute); font: 700 13.5px 'Plus Jakarta Sans', sans-serif; cursor: pointer; transition: .2s ease; }
+.bb-tab.active, .bb-tab:hover { background: var(--br); color: #fff; border-color: var(--br); }
+.bb-menu-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.bb-prod-card { display: flex; align-items: center; gap: 16px; padding: 16px; border: 1px solid var(--line); border-radius: 18px; background: #fff; transition: .25s ease; }
+.bb-prod-card:hover { border-color: var(--br); box-shadow: var(--shadow-sm); transform: translateY(-2px); }
+.bb-prod-img { width: 84px; height: 84px; border-radius: 14px; object-fit: cover; flex-shrink: 0; }
+.bb-prod-ctx { flex: 1; }
+.bb-prod-ctx h4 { font-size: 16.5px; font-weight: 700; margin-bottom: 4px; }
+.bb-prod-ctx p { font-size: 13px; margin-bottom: 8px; line-height: 1.45; }
+.bb-prod-ft { display: flex; justify-content: space-between; align-items: center; }
 
-/* ---------------- SECTION 7 & 8: TABLE ORDERS & POS ---------------- */
-.order-ticket { background: var(--dark2); border: 1px solid var(--line-dark); border-radius: 16px; padding: 20px; position: relative; color: #fff; }
-.ot-hdr { display: flex; justify-content: space-between; margin-bottom: 16px; border-bottom: 1px solid var(--line-dark); padding-bottom: 12px; }
-.bill-panel { background: #fff; border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow-md); overflow: hidden; }
-.bp-hdr { padding: 16px 20px; background: var(--bg2); border-bottom: 1px solid var(--line); font-weight: 500; font-size: 15px; display: flex; justify-content: space-between; }
-.bp-body { padding: 20px; }
-.bp-item { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; font-size: 14px; }
-.bp-item-qty { font-size: 12px; color: var(--mute); display: block; }
-.bp-total { display: flex; justify-content: space-between; padding: 16px 0; border-top: 2px dashed var(--line); margin-top: 8px; font-weight: 500; font-size: 20px; color: var(--br); }
-.bp-actions { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 16px; }
-.bp-btn { padding: 12px; border-radius: 8px; border: 1px solid var(--line); background: #fff; font-weight: 700; font-size: 13px; cursor: pointer; text-align: center; }
-.bp-btn.p { background: var(--br); color: #fff; border-color: var(--br); }
+/* Split Layouts */
+.bb-split { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: start; }
 
-/* ---------------- SECTION 9 & 10: ORDERS & KOT ---------------- */
-.ot-flow { display: flex; gap: 8px; margin-top: 16px; }
-.ot-step { flex: 1; text-align: center; font-size: 10px; font-weight: 500; text-transform: uppercase; padding: 8px 4px; border-radius: 6px; background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.5); border: 1px solid var(--line-dark); display: flex; flex-direction: column; align-items: center; gap: 4px; }
-.ot-step svg { width: 14px; height: 14px; }
-.ot-step.done { background: rgba(135,96,57,0.2); color: #e6c594; border-color: rgba(135,96,57,0.5); }
+/* Tables, Orders & Split-Bill POS */
+.bb-table-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 18px; }
+.bb-t-card { background: var(--bg2); border: 1.5px solid var(--line); border-radius: 14px; padding: 15px; }
+.bb-t-card.occ { border-color: rgba(185, 28, 28, 0.28); background: #fff; }
+.bb-t-card.res { border-color: rgba(180, 83, 9, 0.28); background: #fff; }
+.bb-t-card.avl { border-color: rgba(21, 128, 61, 0.28); background: #fff; }
+.bb-t-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.bb-t-meta { display: flex; justify-content: space-between; font-size: 12.5px; color: var(--mute); font-weight: 600; }
 
-/* ---------------- SECTION 11 & 12: PEAK & RESERVATIONS ---------------- */
-.fest-dash { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 16px; }
-.fd-card { padding: 20px; background: #fff; border: 1px solid var(--line); border-radius: 16px; text-align: center; }
-.fd-val { font-size: 32px; font-weight: 500; color: var(--br); line-height: 1.2; }
-.fd-lbl { font-size: 12px; font-weight: 700; color: var(--mute); text-transform: uppercase; }
+.bb-step-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; margin-top: 12px; }
+.bb-step-pill { padding: 8px 4px; border-radius: 10px; border: 1px solid var(--line); background: var(--bg2); color: var(--mute); font: 700 11px 'Plus Jakarta Sans', sans-serif; text-align: center; cursor: pointer; }
+.bb-step-pill.done { background: var(--br-light); color: var(--br); border-color: var(--br); }
 
-.res-list { background: #fff; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
-.res-item { display: flex; justify-content: space-between; align-items: center; padding: 16px; border-bottom: 1px solid var(--line); }
-.res-item:last-child { border-bottom: none; }
-.res-time { font-weight: 500; color: var(--br); width: 80px; }
-.res-name { font-weight: 700; flex: 1; }
-.res-guests { color: var(--mute); font-size: 14px; width: 80px; text-align: right; }
+.bb-bill-row { display: flex; justify-content: space-between; align-items: center; padding: 9px 0; border-bottom: 1px dashed var(--line); font-size: 14px; }
+.bb-bill-row small { display: block; font-size: 12px; color: var(--mute); }
+.bb-bill-total { display: flex; justify-content: space-between; align-items: center; padding: 14px 0 10px; font-family: 'Outfit', sans-serif; font-size: 22px; font-weight: 700; color: var(--br); }
+.bb-bill-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
+.bb-act-btn { padding: 12px; border-radius: 10px; border: 1.5px solid var(--line); background: #fff; color: var(--ink); font: 700 13.5px 'Plus Jakarta Sans', sans-serif; cursor: pointer; transition: .2s ease; }
+.bb-act-btn.primary { background: var(--br); color: #fff; border-color: var(--br); }
+.bb-bill-note { margin-top: 12px; font-size: 12.5px; font-weight: 700; padding: 10px 12px; border-radius: 10px; text-align: center; display: none; }
 
-/* ---------------- SECTION 13 & 14: AVAILABILITY & INVENTORY ---------------- */
-.avail-list { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 12px; }
-.avail-item { display: flex; justify-content: space-between; padding: 12px 16px; border-bottom: 1px solid var(--bg2); font-weight: 600; font-size: 14px; }
-.avail-item:last-child { border: none; }
+/* Rush Counters, Multi-Station Kitchens & Reservations */
+.bb-rush-6 { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-bottom: 32px; }
+.bb-rush-box { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 18px 10px; text-align: center; }
+.bb-rush-box strong { display: block; font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 600; color: var(--br); line-height: 1.15; }
+.bb-rush-box span { font-size: 11px; font-weight: 700; color: var(--mute); text-transform: uppercase; }
 
-.inv-table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 16px; overflow: hidden; border: 1px solid var(--line); }
-.inv-table th { background: var(--bg2); padding: 12px 16px; text-align: left; font-size: 12px; font-weight: 500; color: var(--mute); text-transform: uppercase; border-bottom: 1px solid var(--line); }
-.inv-table td { padding: 12px 16px; font-size: 14px; border-bottom: 1px solid var(--bg2); }
-.inv-table tr:last-child td { border-bottom: none; }
+.bb-station-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 16px; }
+.bb-station-card { background: var(--bg2); border: 1px solid var(--line); border-radius: 14px; padding: 14px; }
+.bb-station-card h4 { font-size: 13.5px; font-weight: 700; color: var(--br); margin-bottom: 4px; }
+.bb-station-card strong { font-family: 'Outfit', sans-serif; font-size: 22px; color: var(--ink); }
 
-/* ---------------- SECTION 15 & 16: REPORTS & CUSTOMERS ---------------- */
-.reports-preview { background: var(--dark2); color: #fff; border: 1px solid var(--line-dark); border-radius: 24px; padding: 36px; box-shadow: var(--shadow-lg); }
-.rp-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 32px; }
-.rp-stat-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 16px; }
-.rp-val { font-size: 24px; font-weight: 500; color: #fff; }
-.rp-lbl { font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.6); }
+.bb-res-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
+.bb-res-row:last-child { border-bottom: none; }
+.bb-res-time { font-weight: 700; color: var(--br); width: 86px; }
+.bb-res-name { font-weight: 700; flex: 1; }
+.bb-res-guests { font-size: 13px; color: var(--mute); font-weight: 600; }
 
-.cust-card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 20px; }
+/* Availability, Inventory, Guest History & Branches */
+.bb-avail-list { display: flex; flex-direction: column; gap: 8px; }
+.bb-avail-row { display: flex; justify-content: space-between; align-items: center; padding: 11px 14px; border-radius: 12px; border: 1px solid var(--line); background: #fff; font-size: 14px; font-weight: 600; cursor: pointer; transition: .2s ease; }
+.bb-avail-row.out { background: var(--red-bg); border-color: rgba(185, 28, 28, 0.22); }
 
-/* ---------------- SECTION 17 & 18: KITCHENS & BRANCHES ---------------- */
-.kit-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-.k-card { background: var(--dark2); border: 1px solid var(--line-dark); border-radius: 16px; padding: 20px; color: #fff; }
+.bb-inv-table { width: 100%; border-collapse: collapse; }
+.bb-inv-table th { text-align: left; font-size: 11px; font-weight: 700; color: var(--mute); text-transform: uppercase; letter-spacing: .06em; padding: 10px 12px; background: var(--bg2); border-bottom: 1px solid var(--line); }
+.bb-inv-table td { padding: 10px 12px; font-size: 13.5px; border-bottom: 1px solid var(--line); }
+.bb-inv-table tr:last-child td { border-bottom: none; }
 
-.mb-panel { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 24px; }
-.mb-row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--line); }
-.mb-row:last-child { border-bottom: none; }
-.mb-val { font-weight: 500; color: var(--br); }
+.bb-mini-card { background: var(--bg2); border: 1px solid var(--line); border-radius: 16px; padding: 18px; margin-top: 18px; }
+.bb-mini-list { list-style: none; padding: 0; margin: 10px 0 0; font-size: 13.5px; }
+.bb-mini-list li { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px dashed var(--line); }
+.bb-mini-list li:last-child { border-bottom: none; }
 
-/* ---------------- SECTION 19: BENEFITS ---------------- */
-.benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.b-card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 24px; }
+/* Dark Editorial Business Reports Banner */
+.rm-dark-banner { background: linear-gradient(135deg, #21160F 0%, #342318 100%); border-radius: 26px; padding: clamp(28px, 4vw, 48px); color: #fff; box-shadow: var(--shadow-lg); position: relative; overflow: hidden; }
+.rm-dark-banner::after { content: ''; position: absolute; right: -80px; top: -80px; width: 280px; height: 280px; border-radius: 50%; background: radial-gradient(circle, rgba(184, 142, 86, 0.24) 0%, transparent 70%); pointer-events: none; }
+.rm-dark-top { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; margin-bottom: 28px; padding-bottom: 24px; border-bottom: 1px solid rgba(255, 255, 255, 0.12); }
+.rm-dark-top h2 { color: #fff; font-size: clamp(26px, 3vw, 36px); }
+.rm-dark-top p { color: rgba(255, 255, 255, 0.72); max-width: 520px; margin-top: 8px; }
+.rm-dark-kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 28px; }
+.rm-dark-kpi { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 16px; padding: 18px 20px; }
+.rm-dark-kpi strong { display: block; font-family: 'Outfit', sans-serif; font-size: 26px; font-weight: 600; color: #F5EFE6; line-height: 1.15; }
+.rm-dark-kpi span { font-size: 11.5px; font-weight: 700; color: rgba(255, 255, 255, 0.65); text-transform: uppercase; letter-spacing: .06em; }
+.bb-bars { height: 140px; display: grid; grid-template-columns: repeat(5, 1fr); align-items: end; gap: 16px; padding-bottom: 26px; border-bottom: 1px solid rgba(255, 255, 255, 0.16); }
+.bb-bar-col { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; position: relative; }
+.bb-bar-fill { width: 100%; max-width: 72px; background: linear-gradient(180deg, #e6c594 0%, #876039 100%); border-radius: 8px 8px 0 0; }
+.bb-bar-lbl { position: absolute; bottom: -22px; font-size: 11px; font-weight: 600; color: rgba(255, 255, 255, 0.72); }
 
-/* ---------------- SECTION 20 & 21: JOURNEY & MOBILE ---------------- */
-.journey-flow { display: flex; justify-content: space-between; align-items: center; min-width: 800px; gap: 10px; background: #fff; padding: 32px; border-radius: 24px; border: 1px solid var(--line); overflow-x: auto; margin-bottom: 40px; }
-.jf-node { text-align: center; width: 75px; }
-.jf-icon { width: 48px; height: 48px; border-radius: 14px; background: var(--bg2); color: var(--br); border: 1px solid var(--line); display: grid; place-items: center; margin: 0 auto 10px; }
-.jf-arrow { color: var(--mute); opacity: 0.4; }
+/* Benefits 3x2 */
+.rm-ben-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.rm-ben-card { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 26px; transition: .25s ease; }
+.rm-ben-card:hover { transform: translateY(-4px); border-color: rgba(135, 96, 57, 0.34); box-shadow: var(--shadow-md); }
+.rm-ben-card h3 { font-size: 18px; margin: 16px 0 8px; }
+.rm-ben-card p { font-size: 14px; }
 
-.mob-preview { max-width: 300px; margin: 0 auto; background: #000; border: 4px solid #333; border-radius: 36px; padding: 10px; box-shadow: var(--shadow-lg); }
-.mob-inner { background: var(--dark2); color: #fff; border-radius: 26px; height: 500px; overflow: hidden; padding: 16px; position: relative; }
+/* Photo Cards & Pills */
+.rm-ind-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-bottom: 22px; }
+.rm-ind-card { position: relative; border-radius: 18px; overflow: hidden; aspect-ratio: 4 / 3; border: 1px solid var(--line); box-shadow: var(--shadow-sm); }
+.rm-ind-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.55s ease; display: block; }
+.rm-ind-card:hover img { transform: scale(1.07); }
+.rm-ind-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 35%, rgba(24, 16, 10, 0.84) 100%); }
+.rm-ind-cap { position: absolute; left: 16px; right: 16px; bottom: 14px; z-index: 2; color: #fff; }
+.rm-ind-cap strong { display: block; font-family: 'Outfit', sans-serif; font-size: 16px; font-weight: 600; }
+.rm-ind-cap span { font-size: 12px; color: rgba(255, 255, 255, 0.8); }
+.bb-model-pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+.bb-model-pill { padding: 9px 16px; border-radius: 99px; background: #fff; border: 1px solid var(--line); font-size: 13px; font-weight: 700; color: var(--ink); }
 
-/* ---------------- SECTION 22: IDEAL FOR ---------------- */
-.industry-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-.ind-card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 16px; display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 14px; }
+/* Connected Ecosystem 7-step */
+.rm-eco-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 12px; }
+.rm-eco-card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 18px 10px; text-align: center; transition: .25s ease; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.rm-eco-card:hover { transform: translateY(-4px); border-color: var(--br); box-shadow: var(--shadow-sm); }
+.rm-eco-num { font-family: 'Outfit', sans-serif; font-size: 11px; font-weight: 700; color: var(--br); opacity: 0.7; }
+.rm-eco-ico { width: 44px; height: 44px; border-radius: 12px; background: var(--br-light); display: grid; place-items: center; padding: 7px; }
+.rm-eco-ico img { width: 100%; height: 100%; object-fit: contain; }
+.rm-eco-lbl { font-size: 12px; font-weight: 700; color: var(--ink); line-height: 1.25; }
 
-/* ---------------- SECTION 23: CONNECTED ---------------- */
-.conn-grid { display: grid; grid-template-columns: repeat(9, 1fr); gap: 12px; text-align: center; }
-.conn-card { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 16px 8px; font-size: 11px; font-weight: 700; }
-.conn-card svg { margin-bottom: 8px; color: var(--br); }
+/* FAQ Accordion */
+.rm-faq-list { max-width: 840px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+.rm-faq-item { background: #fff; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; transition: border-color .2s ease, box-shadow .2s ease; }
+.rm-faq-item.open { border-color: var(--br); box-shadow: var(--shadow-sm); }
+.rm-faq-q { width: 100%; text-align: left; background: none; border: none; padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; font: 700 16px 'Plus Jakarta Sans', sans-serif; color: var(--ink); cursor: pointer; }
+.rm-faq-q svg { width: 20px; height: 20px; color: var(--br); flex-shrink: 0; transition: transform .25s ease; }
+.rm-faq-item.open .rm-faq-q svg { transform: rotate(180deg); }
+.rm-faq-a { display: none; padding: 0 24px 20px; font-size: 15px; line-height: 1.65; color: var(--mute); }
+.rm-faq-item.open .rm-faq-a { display: block; }
 
-/* ---------------- FAQ ---------------- */
-.faq-list { max-width: 840px; margin: auto; display: flex; flex-direction: column; gap: 16px; }
-.faq-item { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 20px 24px; cursor: pointer; transition: .2s; }
-.faq-item summary { font-weight: 700; font-size: 16px; display: flex; justify-content: space-between; align-items: center; list-style: none; }
-.faq-item summary::-webkit-details-marker { display: none; }
-.faq-item p { margin-top: 12px; font-size: 15px; color: var(--mute); }
-
-/* ---------------- CTA ---------------- */
-.cta-sec { padding: 100px 0; background: linear-gradient(135deg, #FAF4ED 0%, #EFE4D6 50%, #FAF4ED 100%); position: relative; overflow: hidden; border-top: 1px solid rgba(135, 96, 57, 0.16); text-align: center; }
-.cta-box { max-width: 760px; margin: auto; position: relative; z-index: 2; text-align: center; }
-.cta-box h2 { color: #21160F; margin-bottom: 16px; }
+/* Final CTA */
+.rm-cta { background: linear-gradient(135deg, #876039 0%, #6f4e2d 100%); padding: clamp(64px, 7vw, 96px) 0; text-align: center; color: #fff; }
+.rm-cta h2 { color: #fff; margin-bottom: 14px; }
+.rm-cta p { color: rgba(255, 255, 255, 0.86); max-width: 620px; margin: 0 auto 30px; font-size: 17px; }
+.rm-cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.btn.wht { background: #fff; color: var(--br-dark); border-color: #fff; }
+.btn.wht:hover { background: var(--br-light); transform: translateY(-2px); }
+.btn.ghost-wht { background: transparent; color: #fff; border-color: rgba(255, 255, 255, 0.55); }
+.btn.ghost-wht:hover { background: rgba(255, 255, 255, 0.14); border-color: #fff; transform: translateY(-2px); }
 
 /* Responsive */
 @media (max-width: 1024px) {
-  .hero-grid, .two-col-flow { grid-template-columns: 1fr; gap: 48px; }
-  .eco-grid { grid-template-columns: repeat(2, 1fr); }
-  .fest-dash, .benefits-grid, .kit-grid { grid-template-columns: repeat(2, 1fr); }
-  .industry-grid, .rp-stats { grid-template-columns: repeat(2, 1fr); }
-  .conn-grid { grid-template-columns: repeat(3, 1fr); }
+  .rm-hero-grid, .bb-split { grid-template-columns: 1fr; gap: 36px; }
+  .rm-val-grid, .rm-dark-kpis, .rm-ind-grid { grid-template-columns: repeat(2, 1fr); }
+  .bb-rush-6 { grid-template-columns: repeat(3, 1fr); }
+  .rm-ben-grid { grid-template-columns: repeat(2, 1fr); }
+  .rm-eco-grid { grid-template-columns: repeat(4, 1fr); }
 }
-
-@media (max-width: 768px) {
-  .bc { padding: 14px 0 14px; }
-  .w { padding: 0 16px; }
-}
-
 @media (max-width: 640px) {
-  .eco-grid, .benefits-grid, .industry-grid, .rp-stats, .kit-grid { grid-template-columns: 1fr; }
-  .menu-grid, .table-grid { grid-template-columns: 1fr; }
-  .bp-actions { grid-template-columns: 1fr; }
-  .conn-grid { grid-template-columns: repeat(2, 1fr); }
-  .inv-table { display: block; overflow-x: auto; white-space: nowrap; }
-  .fest-dash { grid-template-columns: 1fr; }
-}
-
-@media (max-width: 480px) {
-  .btn { width: 100%; }
+  .w { padding: 0 16px; }
+  .rm-val-grid, .bb-menu-grid, .bb-table-grid, .bb-station-grid, .bb-rush-6, .rm-dark-kpis, .rm-ben-grid, .rm-ind-grid { grid-template-columns: 1fr; }
+  .bb-step-row { grid-template-columns: repeat(2, 1fr); }
+  .rm-eco-grid { grid-template-columns: repeat(2, 1fr); }
+  .rm-hero-stats { grid-template-columns: 1fr; gap: 12px; }
+  .rm-hero-cta .btn, .rm-cta-btns .btn { width: 100%; }
+  .rm-hero-float { flex-direction: column; align-items: flex-start; }
 }
 </style>
 
-{{-- BREADCRUMB --}}
-<div class="bc">
-  <div class="w">
-    <a href="{{ url('/') }}">Home</a>
-    <span>/</span>
-    <a href="{{ route('features') }}">Solutions</a>
-    <span>/</span>
-    <span class="cur">Bars & Breweries</span>
-  </div>
+<div class="bb-page">
+  {{-- BREADCRUMB --}}
+  <nav class="bc" aria-label="Breadcrumb">
+    <div class="w">
+      <a href="{{ url('/') }}">Home</a>
+      <span class="sep">/</span>
+      <a href="{{ route('solutions') }}">Solutions</a>
+      <span class="sep">/</span>
+      <span class="cur">Bars &amp; Breweries</span>
+    </div>
+  </nav>
+
+  {{-- HERO --}}
+  <section class="rm-hero">
+    <div class="w rm-hero-grid">
+      <div>
+        <div class="eb">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M8 22h8M12 11v11M12 11a7 7 0 0 0 7-7V2H5v2a7 7 0 0 0 7 7z"/></svg>
+          BAR &amp; BREWERY SOLUTION
+        </div>
+        <h1>Run Every Table. <span class="sf">Every Order.</span> Every Shift.</h1>
+        <p class="rm-hero-sub">Manage menus, table service, orders, billing, payments, inventory and daily operations from one connected platform built for modern bars, pubs and breweries.</p>
+        <div class="rm-hero-cta">
+          <a href="{{ route('restaurant_signup') }}" class="btn p">Get Started →</a>
+          <a href="{{ route('contact.us') }}" class="btn o">Book a Demo →</a>
+        </div>
+        <div class="rm-hero-stats">
+          <div class="rm-hero-stat">
+            <strong>₹1,84,650</strong>
+            <span>Live daily floor sales</span>
+          </div>
+          <div class="rm-hero-stat">
+            <strong>18 Active</strong>
+            <span>Occupied tables · 24 open tabs</span>
+          </div>
+          <div class="rm-hero-stat">
+            <strong>4 Stations</strong>
+            <span>Main, Grill, Snacks &amp; Dessert</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="rm-hero-media">
+        <img src="{{ asset('assets/images/bars-and-breweries-hero.jpg') }}" alt="Craft brewery and lounge bar counter with gleaming brass beer taps, freshly poured craft beers, and tablet POS">
+        <div class="rm-hero-scrim"></div>
+        <div class="rm-hero-pill">
+          <span class="rm-live-dot"></span>
+          Live Shift · 18 Active Tables · 11 Kitchen Orders
+        </div>
+        <div class="rm-hero-float">
+          <div class="rm-hero-float-left">
+            <div class="rm-hero-float-ico">
+              <svg viewBox="0 0 24 24"><path d="M8 22h8M12 11v11M12 11a7 7 0 0 0 7-7V2H5v2a7 7 0 0 0 7 7z"/></svg>
+            </div>
+            <div>
+              <div class="rm-hero-float-ttl">TABLE 08 · Bill #4092 · 4 Guests</div>
+              <div class="rm-hero-float-sub">2× Grilled Chicken, Loaded Nachos, 2× Mocktail</div>
+            </div>
+          </div>
+          <span class="rm-hero-float-tag">₹2,171</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{-- VALUE STRIP (01 - 04) --}}
+  <section class="bb-sec border-b">
+    <div class="w">
+      <div class="hd r">
+        <div class="eb">Built For Bars &amp; Breweries</div>
+        <h2>Everything Your Bar Needs. <span class="sf">Connected in One Place.</span></h2>
+        <p>From table orders and food service to billing, inventory and business reports, Geni Menu helps bring your bar operations together in one connected platform.</p>
+      </div>
+      <div class="rm-val-grid">
+        <div class="rm-val-card r">
+          <div class="rm-val-top">
+            <div class="rm-ic"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+            <span class="rm-num">01</span>
+          </div>
+          <h3>Food &amp; Bar Menu</h3>
+          <p>Organize bar snacks, mains, beverages and desserts with real-time pricing and availability.</p>
+        </div>
+        <div class="rm-val-card r">
+          <div class="rm-val-top">
+            <div class="rm-ic"><svg viewBox="0 0 24 24"><path d="M20 9V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v2"/><path d="M2 11h20"/><path d="M4 11v9h16v-9"/></svg></div>
+            <span class="rm-num">02</span>
+          </div>
+          <h3>Live Floor &amp; Reservations</h3>
+          <p>Track occupied tables, open tabs, evening guest reservations and party sizes across the floor.</p>
+        </div>
+        <div class="rm-val-card r">
+          <div class="rm-val-top">
+            <div class="rm-ic"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+            <span class="rm-num">03</span>
+          </div>
+          <h3>Multi-Station KOTs</h3>
+          <p>Route food items seamlessly across Main Kitchen, Grill, Snacks and Dessert stations.</p>
+        </div>
+        <div class="rm-val-card r">
+          <div class="rm-val-top">
+            <div class="rm-ic"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+            <span class="rm-num">04</span>
+          </div>
+          <h3>Split-Bill POS &amp; Stock</h3>
+          <p>Settle or split group tabs effortlessly while tracking kitchen supplies, guest visits and branch sales.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{-- MENU MANAGEMENT --}}
+  <section class="bb-sec alt border-b">
+    <div class="w">
+      <div class="hd r">
+        <div class="eb">Menu Management</div>
+        <h2>One Menu. Every Part of <span class="sf">the Experience.</span></h2>
+        <p>Organize food, bar snacks, non-alcoholic beverages and desserts into a clean digital menu structure.</p>
+      </div>
+
+      <div class="bb-tabs r" id="bbMenuTabs">
+        <button type="button" class="bb-tab active" onclick="filterBbMenu('all', this)">All Items</button>
+        <button type="button" class="bb-tab" onclick="filterBbMenu('snacks', this)">Bar Snacks</button>
+        <button type="button" class="bb-tab" onclick="filterBbMenu('mains', this)">Main Course</button>
+        <button type="button" class="bb-tab" onclick="filterBbMenu('beverages', this)">Beverages</button>
+        <button type="button" class="bb-tab" onclick="filterBbMenu('all', this)">Desserts</button>
+      </div>
+
+      <div class="bb-menu-grid r" id="bbMenuGrid">
+        <div class="bb-prod-card" data-cat="snacks">
+          <img class="bb-prod-img" src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?w=240&q=80" alt="Loaded Fries" referrerpolicy="no-referrer">
+          <div class="bb-prod-ctx">
+            <h4>Loaded Fries</h4>
+            <p>Crispy fries topped with melted cheese, jalapeños and signature sauce.</p>
+            <div class="bb-prod-ft"><strong style="color:var(--br);">₹280</strong><span class="bb-badge ready">Available</span></div>
+          </div>
+        </div>
+        <div class="bb-prod-card" data-cat="snacks">
+          <img class="bb-prod-img" src="https://images.unsplash.com/photo-1513456852971-30c0b8199d4d?w=240&q=80" alt="Classic Nachos" referrerpolicy="no-referrer">
+          <div class="bb-prod-ctx">
+            <h4>Classic Nachos</h4>
+            <p>Tortilla chips with salsa, sour cream, guacamole and cheese.</p>
+            <div class="bb-prod-ft"><strong style="color:var(--br);">₹320</strong><span class="bb-badge ready">Available</span></div>
+          </div>
+        </div>
+        <div class="bb-prod-card" data-cat="mains">
+          <img class="bb-prod-img" src="https://images.unsplash.com/photo-1564834724105-918b73d1b9e0?w=240&q=80" alt="Spicy BBQ Wings" referrerpolicy="no-referrer">
+          <div class="bb-prod-ctx">
+            <h4>Spicy BBQ Wings</h4>
+            <p>Chicken wings tossed in our house-made spicy BBQ sauce.</p>
+            <div class="bb-prod-ft"><strong style="color:var(--br);">₹380</strong><span class="bb-badge ready">Available</span></div>
+          </div>
+        </div>
+        <div class="bb-prod-card" data-cat="beverages">
+          <img class="bb-prod-img" src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=240&q=80" alt="Virgin Mojito" referrerpolicy="no-referrer">
+          <div class="bb-prod-ctx">
+            <h4>Virgin Mojito</h4>
+            <p>Classic refreshing mocktail with mint, lime and soda.</p>
+            <div class="bb-prod-ft"><strong style="color:var(--br);">₹220</strong><span class="bb-badge ready">Available</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{-- LIVE FLOOR TABLES + TABLE 08 ORDER & SPLIT-BILL POS --}}
+  <section class="bb-sec border-b">
+    <div class="w">
+      <div class="hd r">
+        <div class="eb">Tables, Orders &amp; POS Billing</div>
+        <h2>Know Every Table. <span class="sf">Keep Service Moving.</span></h2>
+        <p>Connect orders to specific tables and settle or split group bills cleanly during busy evening hours.</p>
+      </div>
+
+      <div class="bb-split">
+        {{-- Live Floor + Table 08 Order --}}
+        <div class="rm-win r">
+          <div class="rm-win-bar">
+            <div class="rm-win-dots"><i></i><i></i><i></i></div>
+            <div class="rm-win-ttl">Floor Plan &amp; ORDER #5082 · Table 08</div>
+            <span class="bb-badge preparing" id="bbOrderBadge">Preparing</span>
+          </div>
+          <div class="rm-win-body">
+            <div class="bb-table-grid">
+              <div class="bb-t-card occ"><div class="bb-t-top"><strong>Table 01</strong><span class="bb-badge soldout">Occupied</span></div><div class="bb-t-meta"><span>4 Seats</span><strong style="color:var(--ink);">₹1,840</strong></div></div>
+              <div class="bb-t-card avl"><div class="bb-t-top"><strong>Table 02</strong><span class="bb-badge ready">Available</span></div><div class="bb-t-meta"><span>2 Seats</span><span>--</span></div></div>
+              <div class="bb-t-card res"><div class="bb-t-top"><strong>Table 03</strong><span class="bb-badge preparing">Reserved</span></div><div class="bb-t-meta"><span>6 Seats</span><strong style="color:var(--ink);">7:30 PM</strong></div></div>
+              <div class="bb-t-card occ"><div class="bb-t-top"><strong>Table 04</strong><span class="bb-badge soldout">Occupied</span></div><div class="bb-t-meta"><span>4 Seats</span><strong style="color:var(--ink);">₹3,420</strong></div></div>
+            </div>
+
+            <div style="background:var(--bg2); border:1px solid var(--line); border-radius:14px; padding:14px;">
+              <div style="display:flex; justify-content:space-between; font-size:13.5px; font-weight:700; margin-bottom:6px;">
+                <span>TABLE 08 · 4 Guests (4 Items)</span>
+                <span style="color:var(--br);">KOT #3098</span>
+              </div>
+              <div style="font-size:13px; color:var(--mute);">2× Grilled Chicken · 1× Loaded Nachos · 2× Mocktail · 1× Dessert</div>
+              <div class="bb-step-row" id="bbStepRow">
+                <button type="button" class="bb-step-pill done" onclick="setBbStep(1)">Order</button>
+                <button type="button" class="bb-step-pill done" onclick="setBbStep(2)">KOT</button>
+                <button type="button" class="bb-step-pill" onclick="setBbStep(3)">Ready</button>
+                <button type="button" class="bb-step-pill" onclick="setBbStep(4)">Serve</button>
+                <button type="button" class="bb-step-pill" onclick="setBbStep(5)">Bill</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {{-- Interactive Split-Bill POS --}}
+        <div class="rm-win r">
+          <div class="rm-win-bar">
+            <div class="rm-win-dots"><i></i><i></i><i></i></div>
+            <div class="rm-win-ttl">TABLE 08 · Bill #4092</div>
+            <span class="bb-badge ready">Dine-In Tab</span>
+          </div>
+          <div class="rm-win-body">
+            <div class="bb-bill-row"><div><strong>Grilled Chicken</strong><small>× 2</small></div><strong>₹760</strong></div>
+            <div class="bb-bill-row"><div><strong>Loaded Nachos</strong><small>× 1</small></div><strong>₹320</strong></div>
+            <div class="bb-bill-row"><div><strong>Mocktail</strong><small>× 2</small></div><strong>₹440</strong></div>
+            <div class="bb-bill-row"><div><strong>Dessert</strong><small>× 1</small></div><strong>₹320</strong></div>
+            <div class="bb-bill-row" style="color:var(--mute);"><div>Subtotal</div><span>₹1,840</span></div>
+            <div class="bb-bill-row" style="color:var(--mute);"><div>Taxes &amp; Charges</div><span>₹331</span></div>
+            <div class="bb-bill-total"><span>TOTAL</span><span>₹2,171</span></div>
+            <div style="font-size:11.5px; color:var(--mute); text-align:center; margin-bottom:10px;">* Illustrative data. Taxes depend on local configuration.</div>
+            <div class="bb-bill-actions">
+              <button type="button" class="bb-act-btn" onclick="bbBillAction('split')">Split Bill (4 Guests)</button>
+              <button type="button" class="bb-act-btn primary" onclick="bbBillAction('settle')">Settle Payment</button>
+            </div>
+            <div class="bb-bill-note" id="bbBillNote"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{-- PEAK FLOOR METRICS + MULTI-STATION KITCHENS & RESERVATIONS --}}
+  <section class="bb-sec alt border-b">
+    <div class="w">
+      <div class="hd r">
+        <div class="eb">Peak Shift &amp; Evening Planning</div>
+        <h2>Stay in Control When <span class="sf">the Floor Gets Busy.</span></h2>
+        <p>Keep front-of-house staff, reservations and multiple kitchen stations synchronized during peak service hours.</p>
+      </div>
+
+      <div class="bb-rush-6 r">
+        <div class="bb-rush-box"><strong>18</strong><span>Occupied Tables</span></div>
+        <div class="bb-rush-box"><strong>24</strong><span>Open Orders</span></div>
+        <div class="bb-rush-box"><strong>11</strong><span>Preparing</span></div>
+        <div class="bb-rush-box"><strong>7</strong><span>Ready</span></div>
+        <div class="bb-rush-box"><strong>9</strong><span>Reservations</span></div>
+        <div class="bb-rush-box"><strong style="color:var(--green);">86</strong><span>Completed Bills</span></div>
+      </div>
+
+      <div class="bb-split">
+        <div class="rm-win r">
+          <div class="rm-win-bar">
+            <div class="rm-win-dots"><i></i><i></i><i></i></div>
+            <div class="rm-win-ttl">Multiple Kitchen Stations</div>
+          </div>
+          <div class="rm-win-body">
+            <div class="bb-station-grid">
+              <div class="bb-station-card"><h4>Main Kitchen</h4><strong>12</strong> <span style="font-size:12px; color:var(--mute);">Orders</span></div>
+              <div class="bb-station-card"><h4>Grill Station</h4><strong>7</strong> <span style="font-size:12px; color:var(--mute);">Orders</span></div>
+              <div class="bb-station-card"><h4>Snacks Station</h4><strong>8</strong> <span style="font-size:12px; color:var(--mute);">Orders</span></div>
+              <div class="bb-station-card"><h4>Dessert Station</h4><strong>4</strong> <span style="font-size:12px; color:var(--mute);">Orders</span></div>
+            </div>
+            <div style="font-size:12.5px; font-weight:700; color:var(--mute); text-align:center;">Order → Station → Preparation → Ready</div>
+          </div>
+        </div>
+
+        <div class="rm-win r">
+          <div class="rm-win-bar">
+            <div class="rm-win-dots"><i></i><i></i><i></i></div>
+            <div class="rm-win-ttl">Evening Reservations · Plan Ahead</div>
+          </div>
+          <div class="rm-win-body">
+            <div class="bb-res-row"><span class="bb-res-time">7:00 PM</span><span class="bb-res-name">Arun</span><span class="bb-res-guests">4 Guests</span></div>
+            <div class="bb-res-row"><span class="bb-res-time">7:30 PM</span><span class="bb-res-name">Priya</span><span class="bb-res-guests">6 Guests</span></div>
+            <div class="bb-res-row"><span class="bb-res-time">8:00 PM</span><span class="bb-res-name">Karthik</span><span class="bb-res-guests">2 Guests</span></div>
+            <div class="bb-res-row"><span class="bb-res-time">8:30 PM</span><span class="bb-res-name">Meena</span><span class="bb-res-guests">8 Guests</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{-- AVAILABILITY, INVENTORY, GUEST HISTORY & MULTI-BRANCH --}}
+  <section class="bb-sec border-b">
+    <div class="w">
+      <div class="hd r">
+        <div class="eb">Menu Availability, Stock &amp; Multi-Branch</div>
+        <h2>Know What You Have. <span class="sf">Know What Needs Attention.</span></h2>
+        <p>Keep your menu current throughout the shift, monitor kitchen supplies, build guest loyalty and view every branch from one dashboard.</p>
+      </div>
+
+      <div class="bb-split">
+        <div class="rm-win r">
+          <div class="rm-win-bar">
+            <div class="rm-win-dots"><i></i><i></i><i></i></div>
+            <div class="rm-win-ttl">Menu Availability · Tap to Toggle</div>
+          </div>
+          <div class="rm-win-body">
+            <div class="bb-avail-list">
+              <div class="bb-avail-row" onclick="toggleBbAvail(this)"><span>Grilled Chicken</span><span class="bb-badge ready">Available</span></div>
+              <div class="bb-avail-row" onclick="toggleBbAvail(this)"><span>Loaded Nachos</span><span class="bb-badge ready">Available</span></div>
+              <div class="bb-avail-row" onclick="toggleBbAvail(this)"><span>Classic Burger</span><span class="bb-badge ready">Available</span></div>
+              <div class="bb-avail-row out" onclick="toggleBbAvail(this)"><span>Cheesecake</span><span class="bb-badge soldout">Sold Out</span></div>
+              <div class="bb-avail-row" onclick="toggleBbAvail(this)"><span>Fresh Lime Soda</span><span class="bb-badge ready">Available</span></div>
+            </div>
+
+            <div class="bb-mini-card">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <div><strong style="font-size:15.5px; display:block;">Arun Kumar</strong><span style="font-size:12px; color:var(--mute);">Regular Guest Profile</span></div>
+                <div style="text-align:right;"><span style="font-size:10.5px; font-weight:700; color:var(--mute); text-transform:uppercase;">Total Orders</span><strong style="display:block; font-size:18px; color:var(--br);">18</strong></div>
+              </div>
+              <ul class="bb-mini-list">
+                <li><span>Dinner — Table 08</span><strong>4 Guests</strong></li>
+                <li><span>Lunch — Table 12</span><strong>2 Guests</strong></li>
+                <li><span>Dinner — Table 05</span><strong>6 Guests</strong></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="rm-win r">
+          <div class="rm-win-bar">
+            <div class="rm-win-dots"><i></i><i></i><i></i></div>
+            <div class="rm-win-ttl">Inventory &amp; Multi-Branch View</div>
+          </div>
+          <div class="rm-win-body">
+            <table class="bb-inv-table">
+              <thead>
+                <tr><th>Item</th><th>Stock</th><th>Status</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>Chicken</strong></td><td>24 kg</td><td><span class="bb-badge ready">In Stock</span></td></tr>
+                <tr><td><strong>Cheese</strong></td><td>12 kg</td><td><span class="bb-badge ready">In Stock</span></td></tr>
+                <tr><td><strong>Potatoes</strong></td><td>35 kg</td><td><span class="bb-badge ready">In Stock</span></td></tr>
+                <tr><td><strong>Fresh Vegetables</strong></td><td>18 kg</td><td><span class="bb-badge ready">In Stock</span></td></tr>
+                <tr><td><strong>Cooking Oil</strong></td><td>20 L</td><td><span class="bb-badge ready">In Stock</span></td></tr>
+                <tr><td><strong>Sauces</strong></td><td>8 L</td><td><span class="bb-badge soldout">Low</span></td></tr>
+                <tr><td><strong>Food Packaging</strong></td><td>400 pcs</td><td><span class="bb-badge ready">In Stock</span></td></tr>
+              </tbody>
+            </table>
+
+            <div class="bb-mini-card">
+              <div style="font-size:11.5px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--mute);">All Locations · Today</div>
+              <ul class="bb-mini-list">
+                <li><span>Tiruchengode</span><strong style="color:var(--br);">₹1,84,650</strong></li>
+                <li><span>Namakkal</span><strong style="color:var(--br);">₹1,42,300</strong></li>
+                <li><span>Salem</span><strong style="color:var(--br);">₹2,08,450</strong></li>
+              </ul>
+              <div style="font-size:11px; color:var(--mute); margin-top:8px;">* Multi-branch functionality depends on applicable plan.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{-- DARK EDITORIAL BUSINESS REPORTS --}}
+  <section class="bb-sec alt border-b">
+    <div class="w">
+      <div class="rm-dark-banner r">
+        <div class="rm-dark-top">
+          <div>
+            <div class="eb" style="background:rgba(255,255,255,0.1); color:#e6c594; border-color:rgba(230,197,148,0.28);">Business Reports</div>
+            <h2>See How Your Business <span class="sf" style="-webkit-text-fill-color:#e6c594;">Is Performing.</span></h2>
+            <p>Turn everyday sales, table and order data into clear business insights — at the bar counter or on your mobile phone.</p>
+          </div>
+          <span class="bb-badge ready" style="background:rgba(22,163,74,0.2); color:#86efac;">● Live Shift Report</span>
+        </div>
+
+        <div class="rm-dark-kpis">
+          <div class="rm-dark-kpi"><strong>₹1,84,650</strong><span>Today's Sales</span></div>
+          <div class="rm-dark-kpi"><strong>126</strong><span>Total Orders</span></div>
+          <div class="rm-dark-kpi"><strong>₹1,465</strong><span>Avg Order Value</span></div>
+          <div class="rm-dark-kpi"><strong>18</strong><span>Occupied Tables</span></div>
+        </div>
+
+        <div class="bb-bars">
+          <div class="bb-bar-col"><div class="bb-bar-fill" style="height:90%;"></div><span class="bb-bar-lbl">Starters</span></div>
+          <div class="bb-bar-col"><div class="bb-bar-fill" style="height:100%;"></div><span class="bb-bar-lbl">Mains</span></div>
+          <div class="bb-bar-col"><div class="bb-bar-fill" style="height:80%;"></div><span class="bb-bar-lbl">Snacks</span></div>
+          <div class="bb-bar-col"><div class="bb-bar-fill" style="height:60%;"></div><span class="bb-bar-lbl">Beverages</span></div>
+          <div class="bb-bar-col"><div class="bb-bar-fill" style="height:40%;"></div><span class="bb-bar-lbl">Desserts</span></div>
+        </div>
+        <div style="text-align:center; margin-top:26px; font-size:11.5px; color:rgba(255,255,255,0.48);">* Illustrative demo data shown for category performance.</div>
+      </div>
+    </div>
+  </section>
+
+  {{-- KEY BENEFITS (01 - 06) --}}
+  <section class="bb-sec border-b">
+    <div class="w">
+      <div class="hd r">
+        <div class="eb">Key Benefits</div>
+        <h2>Built Around the Way <span class="sf">Hospitality Businesses Operate.</span></h2>
+      </div>
+      <div class="rm-ben-grid">
+        <div class="rm-ben-card r">
+          <div class="rm-val-top"><div class="rm-ic"><svg viewBox="0 0 24 24"><path d="M20 9V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v2"/><path d="M2 11h20"/><path d="M4 11v9h16v-9"/></svg></div><span class="rm-num">01</span></div>
+          <h3>Table-Centric Operations</h3>
+          <p>Connect tables, orders and billing in one workflow.</p>
+        </div>
+        <div class="rm-ben-card r">
+          <div class="rm-val-top"><div class="rm-ic"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><span class="rm-num">02</span></div>
+          <h3>Faster POS &amp; Billing</h3>
+          <p>Keep counter and table billing organized.</p>
+        </div>
+        <div class="rm-ben-card r">
+          <div class="rm-val-top"><div class="rm-ic"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><span class="rm-num">03</span></div>
+          <h3>Kitchen Coordination</h3>
+          <p>Connect front-of-house orders with kitchen workflows where supported.</p>
+        </div>
+        <div class="rm-ben-card r">
+          <div class="rm-val-top"><div class="rm-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><span class="rm-num">04</span></div>
+          <h3>Real-Time Order Visibility</h3>
+          <p>Know what is new, preparing, ready or completed.</p>
+        </div>
+        <div class="rm-ben-card r">
+          <div class="rm-val-top"><div class="rm-ic"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div><span class="rm-num">05</span></div>
+          <h3>Inventory Visibility</h3>
+          <p>Monitor food ingredients and operational supplies.</p>
+        </div>
+        <div class="rm-ben-card r">
+          <div class="rm-val-top"><div class="rm-ic"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div><span class="rm-num">06</span></div>
+          <h3>Business Insights</h3>
+          <p>Understand sales, orders, tables and overall performance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{-- BUILT FOR MODERN HOSPITALITY BUSINESSES --}}
+  <section class="bb-sec alt border-b">
+    <div class="w">
+      <div class="hd r">
+        <div class="eb">Ideal For</div>
+        <h2>Built for Modern <span class="sf">Hospitality Businesses.</span></h2>
+      </div>
+      <div class="rm-ind-grid r">
+        <div class="rm-ind-card">
+          <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=700&q=80" alt="Craft Breweries & Brewpubs" referrerpolicy="no-referrer">
+          <div class="rm-ind-cap"><strong>Breweries &amp; Brewpubs</strong><span>Table tabs, craft food &amp; multi-station KOT</span></div>
+        </div>
+        <div class="rm-ind-card">
+          <img src="https://images.unsplash.com/photo-1572116469696-31de0f17cc34?auto=format&fit=crop&w=700&q=80" alt="Lounge Bars & Restobars" referrerpolicy="no-referrer">
+          <div class="rm-ind-cap"><strong>Restobars &amp; Lounge Bars</strong><span>Evening reservations &amp; split billing</span></div>
+        </div>
+        <div class="rm-ind-card">
+          <img src="https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=700&q=80" alt="Pubs & Gastro Pubs" referrerpolicy="no-referrer">
+          <div class="rm-ind-cap"><strong>Pubs &amp; Gastro Pubs</strong><span>Fast bar snacks, mains &amp; floor sync</span></div>
+        </div>
+        <div class="rm-ind-card">
+          <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=700&q=80" alt="Rooftop Dining & Hotel Bars" referrerpolicy="no-referrer">
+          <div class="rm-ind-cap"><strong>Rooftop &amp; Hotel Bars</strong><span>Multi-zone seating &amp; branch analytics</span></div>
+        </div>
+      </div>
+      <div class="bb-model-pills r">
+        <span class="bb-model-pill">Bars</span>
+        <span class="bb-model-pill">Pubs</span>
+        <span class="bb-model-pill">Breweries</span>
+        <span class="bb-model-pill">Brewpubs</span>
+        <span class="bb-model-pill">Restobars</span>
+        <span class="bb-model-pill">Lounge Bars</span>
+        <span class="bb-model-pill">Sports Bars</span>
+        <span class="bb-model-pill">Gastro Pubs</span>
+        <span class="bb-model-pill">Rooftop Dining &amp; Bars</span>
+        <span class="bb-model-pill">Hotel Bars</span>
+        <span class="bb-model-pill">Multi-Outlet Hospitality Businesses</span>
+      </div>
+    </div>
+  </section>
+
+  {{-- CONNECTED ECOSYSTEM (7 MODULES) --}}
+  <section class="bb-sec border-b">
+    <div class="w">
+      <div class="hd r">
+        <div class="eb">Connected Ecosystem</div>
+        <h2>Everything Works Better <span class="sf">Together.</span></h2>
+        <p>A seamless experience from arrival and table seating to kitchen prep, split billing and daily reports.</p>
+      </div>
+      <div class="rm-eco-grid r">
+        <a href="{{ route('features.menu-management') }}" class="rm-eco-card">
+          <span class="rm-eco-num">01</span>
+          <div class="rm-eco-ico"><img src="{{ asset('assets/images/workflow/step-1-menu.png') }}" alt="Digital Menu"></div>
+          <span class="rm-eco-lbl">Digital Menu</span>
+        </a>
+        <a href="{{ route('features.table-management') }}" class="rm-eco-card">
+          <span class="rm-eco-num">02</span>
+          <div class="rm-eco-ico"><img src="{{ asset('assets/images/workflow/step-4-table.png') }}" alt="Table &amp; Floor"></div>
+          <span class="rm-eco-lbl">Table &amp; Floor</span>
+        </a>
+        <a href="{{ route('features.order-management') }}" class="rm-eco-card">
+          <span class="rm-eco-num">03</span>
+          <div class="rm-eco-ico"><img src="{{ asset('assets/images/workflow/step-2-order.png') }}" alt="Order Flow"></div>
+          <span class="rm-eco-lbl">Order Flow</span>
+        </a>
+        <a href="{{ route('features.kot-management') }}" class="rm-eco-card">
+          <span class="rm-eco-num">04</span>
+          <div class="rm-eco-ico"><img src="{{ asset('assets/images/workflow/step-3-kitchen.png') }}" alt="KOT &amp; Kitchen"></div>
+          <span class="rm-eco-lbl">KOT &amp; Kitchen</span>
+        </a>
+        <a href="{{ route('features.pos-management') }}" class="rm-eco-card">
+          <span class="rm-eco-num">05</span>
+          <div class="rm-eco-ico"><img src="{{ asset('assets/images/workflow/step-5-billing.png') }}" alt="POS Billing"></div>
+          <span class="rm-eco-lbl">POS Billing</span>
+        </a>
+        <a href="{{ route('features.inventory-management') }}" class="rm-eco-card">
+          <span class="rm-eco-num">06</span>
+          <div class="rm-eco-ico"><img src="{{ asset('assets/images/workflow/step-6-payment.png') }}" alt="Inventory"></div>
+          <span class="rm-eco-lbl">Inventory</span>
+        </a>
+        <a href="{{ route('features.reports') }}" class="rm-eco-card">
+          <span class="rm-eco-num">07</span>
+          <div class="rm-eco-ico"><img src="{{ asset('assets/images/workflow/step-7-reports.png') }}" alt="Reports"></div>
+          <span class="rm-eco-lbl">Reports</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  {{-- FAQ (ALL 9 ITEMS) --}}
+  <section class="bb-sec alt">
+    <div class="w">
+      <div class="hd r">
+        <div class="eb">Frequently Asked Questions</div>
+        <h2>Bars &amp; Breweries <span class="sf">FAQ.</span></h2>
+      </div>
+      <div class="rm-faq-list r">
+        <div class="rm-faq-item open">
+          <button type="button" class="rm-faq-q" onclick="toggleFaq(this)">
+            <span>1. Can Geni Menu manage bar and pub menus?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="rm-faq-a">Yes. Geni Menu can help organize food, beverage and other supported menu items with pricing and availability.</div>
+        </div>
+        <div class="rm-faq-item">
+          <button type="button" class="rm-faq-q" onclick="toggleFaq(this)">
+            <span>2. Can I manage tables?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="rm-faq-a">Yes. Table management can help track table availability, occupancy and service status.</div>
+        </div>
+        <div class="rm-faq-item">
+          <button type="button" class="rm-faq-q" onclick="toggleFaq(this)">
+            <span>3. Can I connect orders to tables?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="rm-faq-a">Yes. Table-linked order management can connect customer orders with specific tables where supported.</div>
+        </div>
+        <div class="rm-faq-item">
+          <button type="button" class="rm-faq-q" onclick="toggleFaq(this)">
+            <span>4. Can I manage restaurant reservations?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="rm-faq-a">Yes. Reservation management can help organize guest bookings, party sizes and table allocation.</div>
+        </div>
+        <div class="rm-faq-item">
+          <button type="button" class="rm-faq-q" onclick="toggleFaq(this)">
+            <span>5. Can I manage kitchen orders?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="rm-faq-a">Yes. Order and KOT workflows can connect front-of-house orders with kitchen operations where supported.</div>
+        </div>
+        <div class="rm-faq-item">
+          <button type="button" class="rm-faq-q" onclick="toggleFaq(this)">
+            <span>6. Can I manage billing?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="rm-faq-a">Yes. POS and billing functionality supports restaurant transactions and payments.</div>
+        </div>
+        <div class="rm-faq-item">
+          <button type="button" class="rm-faq-q" onclick="toggleFaq(this)">
+            <span>7. Can I manage inventory?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="rm-faq-a">Yes. Inventory management can help track food ingredients, supplies and stock movement.</div>
+        </div>
+        <div class="rm-faq-item">
+          <button type="button" class="rm-faq-q" onclick="toggleFaq(this)">
+            <span>8. Can I manage multiple branches?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="rm-faq-a">Multi-branch management is available where supported by the applicable Geni Menu plan.</div>
+        </div>
+        <div class="rm-faq-item">
+          <button type="button" class="rm-faq-q" onclick="toggleFaq(this)">
+            <span>9. Can I view business reports?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="rm-faq-a">Yes. Supported reports provide visibility into sales, orders, tables and other business metrics.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{-- FINAL CTA --}}
+  <section class="rm-cta">
+    <div class="w r">
+      <h2>Ready to Run Your Hospitality Business Smarter?</h2>
+      <p>Manage menus, tables, reservations, orders, billing, inventory and business insights from one connected platform with Geni Menu.</p>
+      <div class="rm-cta-btns">
+        <a href="{{ route('restaurant_signup') }}" class="btn wht">Get Started →</a>
+        <a href="{{ route('contact.us') }}" class="btn ghost-wht">Book a Demo →</a>
+      </div>
+    </div>
+  </section>
 </div>
 
-{{-- HERO --}}
-<section class="hero dark-sec">
-  <div class="w hero-grid">
-    <div class="hero-ctx">
-      <div class="eb">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/></svg>
-        BAR & BREWERY SOLUTION
-      </div>
-      <h1>Run Every Table. <span class="sf">Every Order.</span> Every Shift.</h1>
-      <p>Manage menus, table service, orders, billing, payments, inventory and daily operations from one connected platform built for modern bars, pubs and breweries.</p>
-      <div class="hero-btns">
-        <a href="{{ route('contact.us') }}" class="btn p">Get Started →</a>
-        <a href="{{ route('contact.us') }}" class="btn o" style="background:transparent; border-color:rgba(255,255,255,0.2); color:#fff;">Book a Demo</a>
-      </div>
-    </div>
+<script>
+function toggleFaq(btn) {
+  const item = btn.closest('.rm-faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.rm-faq-item').forEach(el => el.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
 
-    <div class="hero-ui">
-      <div class="hero-ui-hdr">
-        <div class="hero-ui-hdr-title">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#e6c594" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
-          Geni Menu — Bar Dashboard
-        </div>
-        <span class="badge ready" style="background:rgba(16,185,129,0.2); color:#34d399;">Live</span>
-      </div>
-      <div class="hero-ui-grid">
-        <div class="hu-stat">
-          <div class="hu-stat-lbl">Today's Sales</div>
-          <div class="hu-stat-val">₹1,84,650</div>
-        </div>
-        <div class="hu-stat">
-          <div class="hu-stat-lbl">Active Tables</div>
-          <div class="hu-stat-val">18</div>
-        </div>
-        <div class="hu-stat">
-          <div class="hu-stat-lbl">Open Orders</div>
-          <div class="hu-stat-val">24</div>
-        </div>
-        <div class="hu-stat">
-          <div class="hu-stat-lbl">Kitchen Orders</div>
-          <div class="hu-stat-val">11</div>
-        </div>
-        <div class="hu-stat">
-          <div class="hu-stat-lbl">Payments</div>
-          <div class="hu-stat-val" style="font-size:18px;">₹1,62,400</div>
-        </div>
-        <div class="hu-stat">
-          <div class="hu-stat-lbl">Low Stock</div>
-          <div class="hu-stat-val" style="font-size:18px; color:#ef4444;">6 Items</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+function filterBbMenu(cat, btn) {
+  document.querySelectorAll('#bbMenuTabs .bb-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('#bbMenuGrid .bb-prod-card').forEach(card => {
+    card.style.display = (cat === 'all' || card.dataset.cat === cat) ? 'flex' : 'none';
+  });
+}
 
-{{-- SECTION 4: FEATURES --}}
-<section class="alt">
-  <div class="w">
-    <div class="hd">
-      <div class="eb">Built For Bars & Breweries</div>
-      <h2>Everything Your Bar Needs. Connected in One Place.</h2>
-      <p>From table orders and food service to billing, inventory and business reports, Geni Menu helps bring your bar operations together in one connected platform.</p>
-    </div>
+function setBbStep(step) {
+  document.querySelectorAll('#bbStepRow .bb-step-pill').forEach((b, i) => b.classList.toggle('done', i < step));
+  const badge = document.getElementById('bbOrderBadge');
+  if (badge) {
+    const labels = ['Ordered', 'Preparing', 'Ready', 'Served', 'Billed'];
+    badge.textContent = labels[step - 1] || 'Preparing';
+    badge.className = step >= 3 ? 'bb-badge ready' : 'bb-badge preparing';
+  }
+}
 
-    <div class="eco-grid">
-      <div class="eco-card">
-        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
-        <h3>1. Menu Management</h3>
-        <p>Organize food, beverages, snacks, desserts and other menu items.</p>
-      </div>
-      <div class="eco-card">
-        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 9V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v2"/><path d="M2 11h20"/><path d="M4 11v9h16v-9"/></svg></div>
-        <h3>2. Table Management</h3>
-        <p>Know table availability, occupancy and current service status.</p>
-      </div>
-      <div class="eco-card">
-        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
-        <h3>3. Order Management</h3>
-        <p>Track orders from creation through preparation and service.</p>
-      </div>
-      <div class="eco-card">
-        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
-        <h3>4. POS & Billing</h3>
-        <p>Manage dine-in billing and everyday transactions.</p>
-      </div>
-      <div class="eco-card">
-        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
-        <h3>5. KOT Management</h3>
-        <p>Send food orders to the appropriate kitchen workflow where supported.</p>
-      </div>
-      <div class="eco-card">
-        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div>
-        <h3>6. Payments</h3>
-        <p>Track payment activity across supported payment methods.</p>
-      </div>
-      <div class="eco-card">
-        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
-        <h3>7. Inventory</h3>
-        <p>Monitor ingredients, supplies and stock movement.</p>
-      </div>
-      <div class="eco-card">
-        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-        <h3>8. Customers</h3>
-        <p>Maintain customer details and order history.</p>
-      </div>
-    </div>
-  </div>
-</section>
+function bbBillAction(mode) {
+  const note = document.getElementById('bbBillNote');
+  if (!note) return;
+  note.style.display = 'block';
+  if (mode === 'split') {
+    note.style.background = 'var(--amber-bg)';
+    note.style.color = 'var(--amber)';
+    note.textContent = 'Split equally across 4 guests: ₹542.75 per guest.';
+  } else {
+    note.style.background = 'var(--green-bg)';
+    note.style.color = 'var(--green)';
+    note.textContent = '✓ Bill #4092 settled (₹2,171) · Table 08 marked Available.';
+  }
+}
 
-{{-- SECTION 5: MENU --}}
-<section>
-  <div class="w">
-    <div class="hd">
-      <div class="eb">Menu Management</div>
-      <h2>One Menu. Every Part of the Experience.</h2>
-      <p>Organize food, bar snacks, non-alcoholic beverages and other items into a clean digital menu structure.</p>
-    </div>
+function toggleBbAvail(row) {
+  const badge = row.querySelector('.bb-badge');
+  const isOut = row.classList.toggle('out');
+  badge.className = isOut ? 'bb-badge soldout' : 'bb-badge ready';
+  badge.textContent = isOut ? 'Sold Out' : 'Available';
+}
 
-    <div class="menu-tabs">
-      <div class="menu-tab act">Bar Snacks</div>
-      <div class="menu-tab">Main Course</div>
-      <div class="menu-tab">Beverages</div>
-      <div class="menu-tab">Desserts</div>
-    </div>
-
-    <div class="menu-grid">
-      <div class="pc-card">
-        <img class="pc-img" src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?w=200&q=80" alt="Fries" referrerpolicy="no-referrer">
-        <div class="pc-ctx">
-          <h4>Loaded Fries</h4>
-          <p>Crispy fries topped with melted cheese, jalapeños and signature sauce.</p>
-          <div class="pc-ft">
-            <span style="font-weight: 500; color:var(--br);">₹280</span>
-            <span class="badge ready">Available</span>
-          </div>
-        </div>
-      </div>
-      <div class="pc-card">
-        <img class="pc-img" src="https://images.unsplash.com/photo-1513456852971-30c0b8199d4d?w=200&q=80" alt="Nachos" referrerpolicy="no-referrer">
-        <div class="pc-ctx">
-          <h4>Classic Nachos</h4>
-          <p>Tortilla chips with salsa, sour cream, guacamole and cheese.</p>
-          <div class="pc-ft">
-            <span style="font-weight: 500; color:var(--br);">₹320</span>
-            <span class="badge ready">Available</span>
-          </div>
-        </div>
-      </div>
-      <div class="pc-card">
-        <img class="pc-img" src="https://images.unsplash.com/photo-1564834724105-918b73d1b9e0?w=200&q=80" alt="Wings" referrerpolicy="no-referrer">
-        <div class="pc-ctx">
-          <h4>Spicy BBQ Wings</h4>
-          <p>Chicken wings tossed in our house-made spicy BBQ sauce.</p>
-          <div class="pc-ft">
-            <span style="font-weight: 500; color:var(--br);">₹380</span>
-            <span class="badge ready">Available</span>
-          </div>
-        </div>
-      </div>
-      <div class="pc-card">
-        <img class="pc-img" src="https://images.unsplash.com/photo-1555507036-ab1f40ce88cb?w=200&q=80" alt="Mocktail" referrerpolicy="no-referrer">
-        <div class="pc-ctx">
-          <h4>Virgin Mojito</h4>
-          <p>Classic refreshing mocktail with mint, lime and soda.</p>
-          <div class="pc-ft">
-            <span style="font-weight: 500; color:var(--br);">₹220</span>
-            <span class="badge ready">Available</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-{{-- SECTION 6 & 7: TABLES & ORDERS --}}
-<section class="dark-sec">
-  <div class="w two-col-flow">
-    {{-- Tables --}}
-    <div>
-      <div class="eb">Table Management</div>
-      <h3 style="font-size:28px; margin-bottom:12px;">Know Every Table. Keep Service Moving.</h3>
-      <p style="margin-bottom:24px;">Track table availability, occupancy and service status across your floor plan.</p>
-      
-      <div class="table-grid">
-        <div class="t-card" style="border-color:rgba(185,28,28,0.5);">
-          <div class="t-hdr"><span class="t-name">Table 01</span><span class="badge occupied">Occupied</span></div>
-          <div class="t-det"><span>4 Seats</span><span>₹1,840</span></div>
-        </div>
-        <div class="t-card" style="border-color:rgba(16,185,129,0.5);">
-          <div class="t-hdr"><span class="t-name">Table 02</span><span class="badge available">Available</span></div>
-          <div class="t-det"><span>2 Seats</span><span>--</span></div>
-        </div>
-        <div class="t-card" style="border-color:rgba(245,158,11,0.5);">
-          <div class="t-hdr"><span class="t-name">Table 03</span><span class="badge reserved">Reserved</span></div>
-          <div class="t-det"><span>6 Seats</span><span>7:30 PM</span></div>
-        </div>
-        <div class="t-card" style="border-color:rgba(185,28,28,0.5);">
-          <div class="t-hdr"><span class="t-name">Table 04</span><span class="badge occupied">Occupied</span></div>
-          <div class="t-det"><span>4 Seats</span><span>₹3,420</span></div>
-        </div>
-      </div>
-    </div>
-
-    {{-- Orders --}}
-    <div>
-      <div class="eb">Table Orders</div>
-      <h3 style="font-size:28px; margin-bottom:12px;">Every Table. Every Order. Clearly Connected.</h3>
-      <p style="margin-bottom:24px;">Connect orders to specific tables so your staff and kitchen stay perfectly synced.</p>
-
-      <div class="order-ticket">
-        <div class="ot-hdr">
-          <span style="font-weight: 500; font-size:16px;">TABLE 08</span>
-          <span class="badge preparing">Preparing</span>
-        </div>
-        
-        <div style="font-size:13px; color:rgba(255,255,255,0.6); margin-bottom:12px;">Guests: 4</div>
-        <ul style="font-size:14px; margin-bottom:16px;">
-          <li style="display:flex; justify-content:space-between; margin-bottom:6px;"><span>2 × Grilled Chicken</span></li>
-          <li style="display:flex; justify-content:space-between; margin-bottom:6px;"><span>1 × Loaded Nachos</span></li>
-          <li style="display:flex; justify-content:space-between; margin-bottom:6px;"><span>2 × Mocktail</span></li>
-          <li style="display:flex; justify-content:space-between; margin-bottom:6px;"><span>1 × Dessert</span></li>
-        </ul>
-        
-        <div style="font-size:11px; font-weight:700; color:rgba(255,255,255,0.4); text-align:center; margin-top:20px;">
-          Table → Order → Kitchen → Billing
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-{{-- SECTION 8 & 9: POS & WORKFLOW --}}
-<section class="alt">
-  <div class="w two-col-flow">
-    {{-- Billing --}}
-    <div>
-      <div class="eb">POS & Billing</div>
-      <h3 style="font-size:28px; margin-bottom:12px;">Fast Billing for Busy Service Hours.</h3>
-      <p style="margin-bottom:24px;">Manage dine-in billing easily, with table selection, product additions and tax calculations.</p>
-
-      <div class="bill-panel">
-        <div class="bp-hdr"><span>TABLE 08</span><span>Bill #4092</span></div>
-        <div class="bp-body">
-          <div class="bp-item">
-            <div>Grilled Chicken<span class="bp-item-qty">× 2</span></div>
-            <strong style="color:var(--ink);">₹760</strong>
-          </div>
-          <div class="bp-item">
-            <div>Loaded Nachos<span class="bp-item-qty">× 1</span></div>
-            <strong style="color:var(--ink);">₹320</strong>
-          </div>
-          <div class="bp-item">
-            <div>Mocktail<span class="bp-item-qty">× 2</span></div>
-            <strong style="color:var(--ink);">₹440</strong>
-          </div>
-          <div class="bp-item">
-            <div>Dessert<span class="bp-item-qty">× 1</span></div>
-            <strong style="color:var(--ink);">₹320</strong>
-          </div>
-          
-          <div style="border-top:1px solid var(--line); margin-top:12px; padding-top:12px; font-size:13px; color:var(--mute);">
-            <div style="display:flex; justify-content:space-between; margin-bottom:4px;"><span>Subtotal</span><span>₹1,840</span></div>
-            <div style="display:flex; justify-content:space-between;"><span>Taxes & Charges</span><span>₹331</span></div>
-          </div>
-
-          <div class="bp-total">
-            <span>TOTAL</span>
-            <span>₹2,171</span>
-          </div>
-          <div style="font-size:11px; color:var(--mute); text-align:center; margin-bottom:12px;">* Illustrative data. Taxes depend on local configuration.</div>
-
-          <div class="bp-actions">
-            <div class="bp-btn">Split Bill</div>
-            <div class="bp-btn p">Settle Payment</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    {{-- Orders Workflow --}}
-    <div>
-      <div class="eb">Order Management</div>
-      <h3 style="font-size:28px; margin-bottom:12px;">Every Order. Clear From Start to Finish.</h3>
-      <p style="margin-bottom:24px;">Track orders from creation through preparation, service and billing.</p>
-
-      <div class="order-ticket" style="background:#fff; color:var(--ink); border-color:var(--line);">
-        <div class="ot-hdr" style="border-color:var(--line);">
-          <div>
-            <span style="font-weight: 500; font-size:16px; display:block;">ORDER #5082</span>
-            <span style="font-size:13px; color:var(--mute);">Table 08</span>
-          </div>
-          <span class="badge preparing">Preparing</span>
-        </div>
-        
-        <div style="font-size:14px; font-weight:700; margin-bottom:16px;">4 Items</div>
-        
-        <div class="ot-flow">
-          <div class="ot-step done" style="background:var(--br-light); color:var(--br); border-color:var(--br);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg> Order</div>
-          <div class="ot-step done" style="background:var(--br-light); color:var(--br); border-color:var(--br);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg> KOT</div>
-          <div class="ot-step" style="background:var(--bg2); color:var(--mute); border-color:var(--line);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> Ready</div>
-          <div class="ot-step" style="background:var(--bg2); color:var(--mute); border-color:var(--line);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5l10 -10"/></svg> Serve</div>
-          <div class="ot-step" style="background:var(--bg2); color:var(--mute); border-color:var(--line);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> Bill</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-{{-- SECTION 10, 11 & 12: KOT, PEAK, RESERVATIONS --}}
-<section>
-  <div class="w">
-    <div class="hd">
-      <h2>Stay in Control When the Floor Gets Busy.</h2>
-      <p>Keep your front-of-house staff and kitchen in sync, even during peak service hours.</p>
-    </div>
-
-    <div class="fest-dash">
-      <div class="fd-card">
-        <div class="fd-val">18</div>
-        <div class="fd-lbl">Occupied Tables</div>
-      </div>
-      <div class="fd-card">
-        <div class="fd-val">24</div>
-        <div class="fd-lbl">Open Orders</div>
-      </div>
-      <div class="fd-card">
-        <div class="fd-val">11</div>
-        <div class="fd-lbl">Preparing</div>
-      </div>
-      <div class="fd-card">
-        <div class="fd-val">7</div>
-        <div class="fd-lbl">Ready</div>
-      </div>
-      <div class="fd-card">
-        <div class="fd-val">9</div>
-        <div class="fd-lbl">Reservations</div>
-      </div>
-      <div class="fd-card">
-        <div class="fd-val" style="color:var(--green);">86</div>
-        <div class="fd-lbl">Completed Bills</div>
-      </div>
-    </div>
-
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:40px;">
-      {{-- KOT --}}
-      <div class="order-ticket" style="background:var(--bg2); border-color:var(--line); color:var(--ink);">
-        <div class="eb">KOT Management</div>
-        <h3 style="margin-bottom:16px;">Keep the Kitchen in Sync.</h3>
-        <div style="background:#fff; padding:16px; border-radius:12px; border:1px solid var(--line);">
-          <div style="display:flex; justify-content:space-between; border-bottom:1px dashed var(--line); padding-bottom:8px; margin-bottom:12px;">
-            <span style="font-weight: 500;">KOT #3098</span>
-            <span style="font-weight: 500; color:var(--br);">TABLE 08</span>
-          </div>
-          <ul style="font-size:14px; margin-bottom:12px;">
-            <li style="display:flex; justify-content:space-between; margin-bottom:4px;"><span>2 × Grilled Chicken</span></li>
-            <li style="display:flex; justify-content:space-between; margin-bottom:4px;"><span>1 × Loaded Nachos</span></li>
-            <li style="display:flex; justify-content:space-between; margin-bottom:4px;"><span>1 × French Fries</span></li>
-          </ul>
-          <span class="badge preparing">Preparing</span>
-        </div>
-      </div>
-
-      {{-- Reservations --}}
-      <div class="res-list">
-        <div style="padding:20px; background:var(--dark); color:#fff;">
-          <div class="eb" style="background:rgba(255,255,255,0.1); border-color:rgba(255,255,255,0.2); color:#e6c594; box-shadow:none;">Reservation Management</div>
-          <h3 style="margin:0; color:#fff;">Plan the Evening Before Guests Arrive.</h3>
-        </div>
-        <div class="res-item">
-          <div class="res-time">7:00 PM</div>
-          <div class="res-name">Arun</div>
-          <div class="res-guests">4 Guests</div>
-        </div>
-        <div class="res-item">
-          <div class="res-time">7:30 PM</div>
-          <div class="res-name">Priya</div>
-          <div class="res-guests">6 Guests</div>
-        </div>
-        <div class="res-item">
-          <div class="res-time">8:00 PM</div>
-          <div class="res-name">Karthik</div>
-          <div class="res-guests">2 Guests</div>
-        </div>
-        <div class="res-item">
-          <div class="res-time">8:30 PM</div>
-          <div class="res-name">Meena</div>
-          <div class="res-guests">8 Guests</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-{{-- SECTION 13 & 14: AVAILABILITY & INVENTORY --}}
-<section class="alt">
-  <div class="w two-col-flow">
-    {{-- Availability --}}
-    <div>
-      <div class="eb">Menu Availability</div>
-      <h3 style="font-size:28px; margin-bottom:12px;">Keep Your Menu Current Throughout the Day.</h3>
-      <p style="margin-bottom:24px;">Update product availability to keep your customer-facing menu accurate where supported.</p>
-      
-      <div class="avail-list">
-        <div class="avail-item"><span>Grilled Chicken</span><span class="badge ready">Available</span></div>
-        <div class="avail-item"><span>Loaded Nachos</span><span class="badge ready">Available</span></div>
-        <div class="avail-item"><span>Classic Burger</span><span class="badge ready">Available</span></div>
-        <div class="avail-item" style="background:#fef2f2;"><span>Cheesecake</span><span class="badge soldout">Sold Out</span></div>
-        <div class="avail-item"><span>Fresh Lime Soda</span><span class="badge ready">Available</span></div>
-      </div>
-    </div>
-
-    {{-- Inventory --}}
-    <div>
-      <div class="eb">Inventory Management</div>
-      <h3 style="font-size:28px; margin-bottom:12px;">Know What You Have. Know What Needs Attention.</h3>
-      <p style="margin-bottom:24px;">Monitor food ingredients, kitchen supplies and packaging inventory.</p>
-
-      <table class="inv-table">
-        <thead>
-          <tr>
-            <th>Item</th>
-            <th>Stock</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>Chicken</td><td>24 kg</td><td><span class="badge ready">In Stock</span></td></tr>
-          <tr><td>Cheese</td><td>12 kg</td><td><span class="badge ready">In Stock</span></td></tr>
-          <tr><td>Potatoes</td><td>35 kg</td><td><span class="badge ready">In Stock</span></td></tr>
-          <tr><td>Fresh Vegetables</td><td>18 kg</td><td><span class="badge ready">In Stock</span></td></tr>
-          <tr><td>Cooking Oil</td><td>20 L</td><td><span class="badge ready">In Stock</span></td></tr>
-          <tr><td>Sauces</td><td>8 L</td><td><span class="badge low">Low</span></td></tr>
-          <tr><td>Food Packaging</td><td>400 pcs</td><td><span class="badge ready">In Stock</span></td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-{{-- SECTION 15 & 16: REPORTS & CUSTOMERS --}}
-<section class="dark-sec">
-  <div class="w">
-    <div class="hd">
-      <div class="eb">Business Reports</div>
-      <h2>See How Your Business Is Performing.</h2>
-      <p>Turn everyday sales, table and order data into clear business insights.</p>
-    </div>
-
-    <div class="reports-preview">
-      <div class="rp-stats">
-        <div class="rp-stat-card">
-          <div class="rp-lbl">TODAY'S SALES</div>
-          <div class="rp-val">₹1,84,650</div>
-        </div>
-        <div class="rp-stat-card">
-          <div class="rp-lbl">TOTAL ORDERS</div>
-          <div class="rp-val">126</div>
-        </div>
-        <div class="rp-stat-card">
-          <div class="rp-lbl">AVG ORDER VALUE</div>
-          <div class="rp-val">₹1,465</div>
-        </div>
-        <div class="rp-stat-card">
-          <div class="rp-lbl">OCCUPIED TABLES</div>
-          <div class="rp-val">18</div>
-        </div>
-      </div>
-      <div style="height:140px; display:flex; align-items:flex-end; gap:16px; border-bottom:1px solid rgba(255,255,255,0.2);">
-        <div style="flex:1; background:#e6c594; height:90%; border-radius:4px 4px 0 0; position:relative;"><span style="position:absolute; bottom:-24px; left:0; right:0; text-align:center; font-size:10px; color:rgba(255,255,255,0.6);">Starters</span></div>
-        <div style="flex:1; background:#e6c594; height:100%; border-radius:4px 4px 0 0; position:relative;"><span style="position:absolute; bottom:-24px; left:0; right:0; text-align:center; font-size:10px; color:rgba(255,255,255,0.6);">Mains</span></div>
-        <div style="flex:1; background:#e6c594; height:80%; border-radius:4px 4px 0 0; position:relative;"><span style="position:absolute; bottom:-24px; left:0; right:0; text-align:center; font-size:10px; color:rgba(255,255,255,0.6);">Snacks</span></div>
-        <div style="flex:1; background:#e6c594; height:60%; border-radius:4px 4px 0 0; position:relative;"><span style="position:absolute; bottom:-24px; left:0; right:0; text-align:center; font-size:10px; color:rgba(255,255,255,0.6);">Beverages</span></div>
-        <div style="flex:1; background:#e6c594; height:40%; border-radius:4px 4px 0 0; position:relative;"><span style="position:absolute; bottom:-24px; left:0; right:0; text-align:center; font-size:10px; color:rgba(255,255,255,0.6);">Desserts</span></div>
-      </div>
-      <div style="text-align:center; margin-top:32px; font-size:11px; color:rgba(255,255,255,0.4);">* Illustrative demo data shown for category performance.</div>
-    </div>
-
-    <div style="margin-top:64px; max-width:600px; margin-left:auto; margin-right:auto;">
-      <div class="hd" style="margin-bottom:24px;">
-        <div class="eb">Customer Management</div>
-        <h2>Know Your Guests. Build Better Experiences.</h2>
-      </div>
-      <div class="cust-card" style="background:var(--dark2); border-color:var(--line-dark);">
-        <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--line-dark); padding-bottom:12px; margin-bottom:12px;">
-          <div>
-            <strong style="display:block; font-size:18px; color:#fff;">Arun Kumar</strong>
-          </div>
-          <div style="text-align:right;">
-            <span style="font-size:11px; font-weight: 500; color:rgba(255,255,255,0.5);">TOTAL ORDERS</span>
-            <strong style="display:block; font-size:18px; color:#e6c594;">18</strong>
-          </div>
-        </div>
-        <div style="font-size:12px; font-weight: 500; color:rgba(255,255,255,0.5); margin-bottom:8px; text-transform:uppercase;">Recent Visits:</div>
-        <ul style="font-size:13px; color:rgba(255,255,255,0.8);">
-          <li style="display:flex; justify-content:space-between; margin-bottom:4px;"><span>Dinner — Table 08</span></li>
-          <li style="display:flex; justify-content:space-between; margin-bottom:4px;"><span>Lunch — Table 12</span></li>
-          <li style="display:flex; justify-content:space-between; margin-bottom:4px;"><span>Dinner — Table 05</span></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-{{-- SECTION 17 & 18: KITCHENS & BRANCHES --}}
-<section class="alt">
-  <div class="w two-col-flow">
-    {{-- Kitchens --}}
-    <div>
-      <div class="eb">Multiple Kitchens</div>
-      <h3 style="font-size:28px; margin-bottom:12px;">Coordinate Multiple Kitchen Stations.</h3>
-      <p style="margin-bottom:24px;">Route orders to the appropriate preparation station where supported.</p>
-      
-      <div class="kit-grid">
-        <div class="k-card">
-          <h4 style="font-size:14px; margin-bottom:8px; color:#e6c594;">Main Kitchen</h4>
-          <span style="font-size:20px; font-weight: 500;">12</span> <span style="font-size:13px; color:rgba(255,255,255,0.6);">Orders</span>
-        </div>
-        <div class="k-card">
-          <h4 style="font-size:14px; margin-bottom:8px; color:#e6c594;">Grill Station</h4>
-          <span style="font-size:20px; font-weight: 500;">7</span> <span style="font-size:13px; color:rgba(255,255,255,0.6);">Orders</span>
-        </div>
-        <div class="k-card">
-          <h4 style="font-size:14px; margin-bottom:8px; color:#e6c594;">Snacks Station</h4>
-          <span style="font-size:20px; font-weight: 500;">8</span> <span style="font-size:13px; color:rgba(255,255,255,0.6);">Orders</span>
-        </div>
-        <div class="k-card">
-          <h4 style="font-size:14px; margin-bottom:8px; color:#e6c594;">Dessert Station</h4>
-          <span style="font-size:20px; font-weight: 500;">4</span> <span style="font-size:13px; color:rgba(255,255,255,0.6);">Orders</span>
-        </div>
-      </div>
-      <div style="font-size:12px; font-weight:700; color:var(--mute); text-align:center; margin-top:16px;">Order → Station → Preparation → Ready</div>
-    </div>
-
-    {{-- Branches --}}
-    <div>
-      <div class="eb">Multi-Branch Management</div>
-      <h3 style="font-size:28px; margin-bottom:12px;">One View Across Every Location.</h3>
-      <p style="margin-bottom:24px;">Monitor branch sales, tables, orders and inventory where multi-branch functionality is enabled.</p>
-
-      <div class="mb-panel">
-        <div style="font-weight: 500; font-size:14px; color:var(--mute); text-transform:uppercase; margin-bottom:12px;">All Locations</div>
-        <div class="mb-row"><span>Tiruchengode</span><span class="mb-val">₹1,84,650</span></div>
-        <div class="mb-row"><span>Namakkal</span><span class="mb-val">₹1,42,300</span></div>
-        <div class="mb-row"><span>Salem</span><span class="mb-val">₹2,08,450</span></div>
-        <div style="font-size:11px; color:var(--mute); text-align:center; margin-top:16px;">* Multi-branch functionality depends on applicable plan.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-{{-- SECTION 19: BENEFITS --}}
-<section>
-  <div class="w">
-    <div class="hd">
-      <h2>Built Around the Way Hospitality Businesses Operate.</h2>
-    </div>
-
-    <div class="benefits-grid">
-      <div class="b-card">
-        <h3 style="margin-bottom:8px; font-size:16px;">01. Table-Centric Operations</h3>
-        <p style="font-size:14px;">Connect tables, orders and billing in one workflow.</p>
-      </div>
-      <div class="b-card">
-        <h3 style="margin-bottom:8px; font-size:16px;">02. Faster POS & Billing</h3>
-        <p style="font-size:14px;">Keep counter and table billing organized.</p>
-      </div>
-      <div class="b-card">
-        <h3 style="margin-bottom:8px; font-size:16px;">03. Kitchen Coordination</h3>
-        <p style="font-size:14px;">Connect front-of-house orders with kitchen workflows where supported.</p>
-      </div>
-      <div class="b-card">
-        <h3 style="margin-bottom:8px; font-size:16px;">04. Real-Time Order Visibility</h3>
-        <p style="font-size:14px;">Know what is new, preparing, ready or completed.</p>
-      </div>
-      <div class="b-card">
-        <h3 style="margin-bottom:8px; font-size:16px;">05. Inventory Visibility</h3>
-        <p style="font-size:14px;">Monitor food ingredients and operational supplies.</p>
-      </div>
-      <div class="b-card">
-        <h3 style="margin-bottom:8px; font-size:16px;">06. Business Insights</h3>
-        <p style="font-size:14px;">Understand sales, orders, tables and overall performance.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-{{-- SECTION 20 & 21: JOURNEY & MOBILE --}}
-<section class="alt">
-  <div class="w">
-    <div class="hd">
-      <div class="eb">Customer Experience</div>
-      <h2>A Better Experience From Arrival to Checkout.</h2>
-    </div>
-
-    <div class="journey-flow">
-      <div class="jf-node"><div class="jf-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1" ry="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/></svg></div><div style="font-size:11px; font-weight:700;">Discover<br>Menu</div></div>
-      <div class="jf-arrow">→</div>
-      <div class="jf-node"><div class="jf-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><div style="font-size:11px; font-weight:700;">Reserve /<br>Arrive</div></div>
-      <div class="jf-arrow">→</div>
-      <div class="jf-node"><div class="jf-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 9V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v2"/><path d="M2 11h20"/><path d="M4 11v9h16v-9"/></svg></div><div style="font-size:11px; font-weight:700;">Get<br>Seated</div></div>
-      <div class="jf-arrow">→</div>
-      <div class="jf-node"><div class="jf-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div style="font-size:11px; font-weight:700;">Place<br>Order</div></div>
-      <div class="jf-arrow">→</div>
-      <div class="jf-node"><div class="jf-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M12 6v6l4 2"/></svg></div><div style="font-size:11px; font-weight:700;">Food<br>Prep</div></div>
-      <div class="jf-arrow">→</div>
-      <div class="jf-node"><div class="jf-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5l10 -10"/></svg></div><div style="font-size:11px; font-weight:700;">Serve</div></div>
-      <div class="jf-arrow">→</div>
-      <div class="jf-node"><div class="jf-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><div style="font-size:11px; font-weight:700;">Bill &<br>Payment</div></div>
-    </div>
-
-    <div class="hd" style="margin-top:80px;">
-      <div class="eb">Mobile Management</div>
-      <h2>Keep Your Business Within Reach.</h2>
-      <p>Monitor your floor activity and key metrics on the go.</p>
-    </div>
-
-    <div class="mob-preview">
-      <div class="mob-inner">
-        <div style="font-weight: 500; font-size:16px; margin-bottom:16px; color:#e6c594;">Bar Dashboard</div>
-        <div style="background:rgba(255,255,255,0.05); border:1px solid var(--line-dark); padding:12px; border-radius:12px; margin-bottom:12px;">
-          <div style="font-size:11px; font-weight:700; color:rgba(255,255,255,0.5);">TODAY'S SALES</div>
-          <div style="font-size:20px; font-weight: 500; color:#fff;">₹1,84,650</div>
-        </div>
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:16px;">
-          <div style="background:rgba(255,255,255,0.05); border:1px solid var(--line-dark); padding:12px; border-radius:12px;">
-            <div style="font-size:11px; font-weight:700; color:rgba(255,255,255,0.5);">ACTIVE TABLES</div>
-            <div style="font-size:20px; font-weight: 500; color:#fff;">18</div>
-          </div>
-          <div style="background:rgba(255,255,255,0.05); border:1px solid var(--line-dark); padding:12px; border-radius:12px;">
-            <div style="font-size:11px; font-weight:700; color:rgba(255,255,255,0.5);">OPEN ORDERS</div>
-            <div style="font-size:20px; font-weight: 500; color:#fff;">24</div>
-          </div>
-          <div style="background:rgba(255,255,255,0.05); border:1px solid var(--line-dark); padding:12px; border-radius:12px;">
-            <div style="font-size:11px; font-weight:700; color:rgba(255,255,255,0.5);">RESERVATIONS</div>
-            <div style="font-size:20px; font-weight: 500; color:#fff;">9</div>
-          </div>
-          <div style="background:rgba(255,255,255,0.05); border:1px solid var(--line-dark); padding:12px; border-radius:12px;">
-            <div style="font-size:11px; font-weight:700; color:rgba(255,255,255,0.5);">LOW STOCK</div>
-            <div style="font-size:20px; font-weight: 500; color:#ef4444;">6</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-{{-- SECTION 22: IDEAL FOR --}}
-<section>
-  <div class="w">
-    <div class="hd">
-      <h2>Built for Modern Hospitality Businesses.</h2>
-    </div>
-
-    <div class="industry-grid">
-      <div class="ind-card"><span>Bars</span></div>
-      <div class="ind-card"><span>Pubs</span></div>
-      <div class="ind-card"><span>Breweries</span></div>
-      <div class="ind-card"><span>Brewpubs</span></div>
-      <div class="ind-card"><span>Restobars</span></div>
-      <div class="ind-card"><span>Lounge Bars</span></div>
-      <div class="ind-card"><span>Sports Bars</span></div>
-      <div class="ind-card"><span>Gastro Pubs</span></div>
-      <div class="ind-card"><span>Rooftop Dining & Bars</span></div>
-      <div class="ind-card"><span>Hotel Bars</span></div>
-      <div class="ind-card" style="grid-column:span 2;"><span>Multi-Outlet Hospitality Businesses</span></div>
-    </div>
-  </div>
-</section>
-
-{{-- SECTION 23: CONNECTED FEATURES --}}
-<section class="alt">
-  <div class="w">
-    <div class="hd">
-      <div class="eb">Connected Platform</div>
-      <h2>Everything Works Better Together.</h2>
-    </div>
-
-    <div class="conn-grid">
-      <div class="conn-card"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/></svg><br>Menu</div>
-      <div class="conn-card"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><br>Reservations</div>
-      <div class="conn-card"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 9V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v2"/><path d="M2 11h20"/><path d="M4 11v9h16v-9"/></svg><br>Tables</div>
-      <div class="conn-card"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg><br>Orders</div>
-      <div class="conn-card"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg><br>KOT</div>
-      <div class="conn-card"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg><br>POS</div>
-      <div class="conn-card"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg><br>Payments</div>
-      <div class="conn-card"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg><br>Inventory</div>
-      <div class="conn-card"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg><br>Reports</div>
-    </div>
-  </div>
-</section>
-
-{{-- SECTION 24: FAQ --}}
-<section>
-  <div class="w">
-    <div class="hd">
-      <h2>Frequently Asked Questions</h2>
-    </div>
-
-    <div class="faq-list">
-      <details class="faq-item">
-        <summary>Can Geni Menu manage bar and pub menus? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
-        <p>Yes. Geni Menu can help organize food, beverage and other supported menu items with pricing and availability.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Can I manage tables? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
-        <p>Yes. Table management can help track table availability, occupancy and service status.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Can I connect orders to tables? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
-        <p>Yes. Table-linked order management can connect customer orders with specific tables where supported.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Can I manage restaurant reservations? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
-        <p>Yes. Reservation management can help organize guest bookings, party sizes and table allocation.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Can I manage kitchen orders? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
-        <p>Yes. Order and KOT workflows can connect front-of-house orders with kitchen operations where supported.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Can I manage billing? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
-        <p>Yes. POS and billing functionality supports restaurant transactions and payments.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Can I manage inventory? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
-        <p>Yes. Inventory management can help track food ingredients, supplies and stock movement.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Can I manage multiple branches? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
-        <p>Multi-branch management is available where supported by the applicable Geni Menu plan.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Can I view business reports? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
-        <p>Yes. Supported reports provide visibility into sales, orders, tables and other business metrics.</p>
-      </details>
-    </div>
-  </div>
-</section>
-
-{{-- FINAL CTA --}}
-<section class="cta-sec">
-  <div class="w cta-box">
-    <h2>Ready to Run Your Hospitality Business Smarter?</h2>
-    <p style="color:#6E6157; max-width:600px; margin:0 auto;">Manage menus, tables, reservations, orders, billing, inventory and business insights from one connected platform with Geni Menu.</p>
-    <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:24px;">
-      <a href="{{ route('restaurant_signup') }}" class="btn p" style="background:#876039; color:#fff;">Get Started →</a>
-      <a href="{{ route('contact.us') }}" class="btn o" style="background:#fff; border-color:#876039; color:#876039;">Book a Demo</a>
-    </div>
-  </div>
-</section>
+document.addEventListener('DOMContentLoaded', function() {
+  const els = document.querySelectorAll('.bb-page .r');
+  if ('IntersectionObserver' in window) {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('on');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    els.forEach(el => obs.observe(el));
+  } else {
+    els.forEach(el => el.classList.add('on'));
+  }
+});
+</script>
 
 @endsection

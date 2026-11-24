@@ -1148,7 +1148,7 @@
           {{-- Card 1: Family Restaurant --}}
           <div class="sol-card solution-item" data-name="Family Restaurant" data-tags="restaurants dine-in table kot pos family">
             <div class="sol-card-media">
-              <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=900&auto=format&fit=crop" alt="Family Restaurant" loading="lazy">
+              <img src="{{ asset('assets/images/family-restaurant-hero.jpg') }}" alt="Family Restaurant" loading="lazy">
               <span class="sol-card-badge">Full Service Dining</span>
             </div>
             <div class="sol-card-body">
@@ -1175,7 +1175,7 @@
           {{-- Card 2: Dine-in Restaurant --}}
           <div class="sol-card solution-item" data-name="Dine-in Restaurant" data-tags="restaurants dine-in table digital menu reservations pos">
             <div class="sol-card-media">
-              <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=900&auto=format&fit=crop" alt="Dine-in Restaurant" loading="lazy">
+              <img src="{{ asset('assets/images/dine-in-restaurant-hero.jpg') }}" alt="Dine-in Restaurant" loading="lazy">
               <span class="sol-card-badge">Smart Table Dining</span>
             </div>
             <div class="sol-card-body">
@@ -1229,7 +1229,7 @@
           {{-- Card 4: Multi-Cuisine Restaurant --}}
           <div class="sol-card solution-item" data-name="Multi-Cuisine Restaurant" data-tags="restaurants multi-cuisine categories kitchen stations kot">
             <div class="sol-card-media">
-              <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=900&auto=format&fit=crop" alt="Multi-Cuisine Restaurant" loading="lazy">
+              <img src="{{ asset('assets/images/multi-cuisine-restaurant-hero.jpg') }}" alt="Multi-Cuisine Restaurant" loading="lazy">
               <span class="sol-card-badge">Multi-Category Kitchen</span>
             </div>
             <div class="sol-card-body">
@@ -1266,7 +1266,7 @@
           {{-- Card 5: QSR --}}
           <div class="sol-card solution-item" data-name="Quick Service Restaurant (QSR)" data-tags="qsr fast food burger counter pos kot speed">
             <div class="sol-card-media">
-              <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=900&auto=format&fit=crop" alt="Quick Service Restaurant" loading="lazy">
+              <img src="{{ asset('assets/images/quick-service-restaurant-hero.jpg') }}" alt="Quick Service Restaurant" loading="lazy">
               <span class="sol-card-badge">High Volume Speed</span>
             </div>
             <div class="sol-card-body">
@@ -1294,7 +1294,7 @@
           {{-- Card 6: Takeaway Restaurant --}}
           <div class="sol-card solution-item" data-name="Takeaway Restaurant" data-tags="qsr takeaway pickup parcel delivery counter">
             <div class="sol-card-media">
-              <img src="https://images.unsplash.com/photo-1526367790999-0150786686a2?q=80&w=900&auto=format&fit=crop" alt="Takeaway Restaurant" loading="lazy">
+              <img src="{{ asset('assets/images/takeaway-restaurants-hero.jpg') }}" alt="Takeaway Restaurant" loading="lazy">
               <span class="sol-card-badge">Parcel &amp; Pickup</span>
             </div>
             <div class="sol-card-body">
@@ -1331,7 +1331,7 @@
           {{-- Card 7: College Canteen --}}
           <div class="sol-card solution-item" data-name="College Canteen" data-tags="canteens college campus student multi-counter">
             <div class="sol-card-media">
-              <img src="https://images.unsplash.com/photo-1567521464027-f127ff144326?q=80&w=900&auto=format&fit=crop" alt="College Canteen" loading="lazy">
+              <img src="{{ asset('assets/images/college-canteen-hero.jpg') }}" alt="College Canteen" loading="lazy">
               <span class="sol-card-badge">Campus Dining</span>
             </div>
             <div class="sol-card-body">
@@ -1358,7 +1358,7 @@
           {{-- Card 8: Office Canteen --}}
           <div class="sol-card solution-item" data-name="Office Canteen" data-tags="canteens corporate office cafeteria lunch tokens">
             <div class="sol-card-media">
-              <img src="https://images.unsplash.com/photo-1577495508048-b635879837f1?q=80&w=900&auto=format&fit=crop" alt="Office Canteen" loading="lazy">
+              <img src="{{ asset('assets/images/office-canteen-hero.jpg') }}" alt="Office Canteen" loading="lazy">
               <span class="sol-card-badge">Corporate Cafeteria</span>
             </div>
             <div class="sol-card-body">
@@ -1395,7 +1395,7 @@
           {{-- Card 9: Sweet Shop --}}
           <div class="sol-card solution-item" data-name="Sweet Shop" data-tags="specialty sweet shop indian mithai snacks retail">
             <div class="sol-card-media">
-              <img src="https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?q=80&w=900&auto=format&fit=crop" alt="Sweet Shop" loading="lazy">
+              <img src="{{ asset('assets/images/sweet-shop-hero.jpg') }}" alt="Sweet Shop" loading="lazy">
               <span class="sol-card-badge">Mithai &amp; Snacks</span>
             </div>
             <div class="sol-card-body">
@@ -1421,7 +1421,7 @@
           {{-- Card 10: Bakeries & Cake Shops --}}
           <div class="sol-card solution-item" data-name="Bakeries & Cake Shops" data-tags="specialty bakery cake pastry custom orders cafe">
             <div class="sol-card-media">
-              <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=900&auto=format&fit=crop" alt="Bakeries & Cake Shops" loading="lazy">
+              <img src="{{ asset('assets/images/bakery-hero.jpg') }}" alt="Bakeries & Cake Shops" loading="lazy">
               <span class="sol-card-badge">Cakes &amp; Bakes</span>
             </div>
             <div class="sol-card-body">
@@ -1447,7 +1447,7 @@
           {{-- Card 11: Juice & Snack Shops --}}
           <div class="sol-card solution-item" data-name="Juice & Snack Shops" data-tags="specialty juice snack fast counter tea chaat">
             <div class="sol-card-media">
-              <img src="https://images.unsplash.com/photo-1622597467836-f3285f2131b8?q=80&w=900&auto=format&fit=crop" alt="Juice & Snack Shops" loading="lazy">
+              <img src="{{ asset('assets/images/juice-and-snacks-hero.jpg') }}" alt="Juice & Snack Shops" loading="lazy">
               <span class="sol-card-badge">Quick Refreshments</span>
             </div>
             <div class="sol-card-body">
@@ -1473,7 +1473,7 @@
           {{-- Card 12: Bars & Breweries --}}
           <div class="sol-card solution-item" data-name="Bars & Breweries" data-tags="specialty hospitality bar brewery pub drinks table">
             <div class="sol-card-media">
-              <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=900&auto=format&fit=crop" alt="Bars & Breweries" loading="lazy">
+              <img src="{{ asset('assets/images/bars-and-breweries-hero.jpg') }}" alt="Bars & Breweries" loading="lazy">
               <span class="sol-card-badge">Pubs &amp; Lounges</span>
             </div>
             <div class="sol-card-body">
@@ -1499,7 +1499,7 @@
           {{-- Card 13: Pizzerias & Specialty Food --}}
           <div class="sol-card solution-item" data-name="Pizzerias & Specialty Food" data-tags="specialty pizzerias pizza oven crust variations kot">
             <div class="sol-card-media">
-              <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=900&auto=format&fit=crop" alt="Pizzerias & Specialty Food" loading="lazy">
+              <img src="{{ asset('assets/images/pizzerias-hero.jpg') }}" alt="Pizzerias & Specialty Food" loading="lazy">
               <span class="sol-card-badge">Artisan Pizzerias</span>
             </div>
             <div class="sol-card-body">
@@ -1577,7 +1577,7 @@
           {{-- Card 15: Cloud Kitchens --}}
           <div class="sol-card solution-item" data-name="Cloud Kitchens" data-tags="growing cloud kitchen dark kitchen multi-brand dispatch">
             <div class="sol-card-media">
-              <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=900&auto=format&fit=crop" alt="Cloud Kitchens" loading="lazy">
+              <img src="{{ asset('assets/images/cloud-kitchen-hero.jpg') }}" alt="Cloud Kitchens" loading="lazy">
               <span class="sol-card-badge">Delivery-First Model</span>
             </div>
             <div class="sol-card-body">

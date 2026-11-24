@@ -65,7 +65,13 @@ class Restaurant extends BaseModel
     public function logoUrl(): Attribute
     {
         return Attribute::get(function (): string {
-            return $this->logo ? asset_url_local_s3('logo/' . $this->logo) : global_setting()->logoUrl;
+            if ($this->logo) {
+                $path = public_path('user-uploads/logo/' . $this->logo);
+                if (file_exists($path)) {
+                    return asset_url_local_s3('logo/' . $this->logo);
+                }
+            }
+            return global_setting()->logo_url;
         });
     }
 
@@ -152,9 +158,13 @@ class Restaurant extends BaseModel
     {
         return Attribute::get(function (): string {
             // Use restaurant's custom favicon if exists, otherwise use global setting
-            return $this->upload_fav_icon_android_chrome_192
-                ? asset_url_local_s3($this->getFaviconBasePath() . $this->upload_fav_icon_android_chrome_192)
-                : global_setting()->upload_fav_icon_android_chrome_192_url;
+            if ($this->upload_fav_icon_android_chrome_192) {
+                $path = public_path('user-uploads/' . $this->getFaviconBasePath() . $this->upload_fav_icon_android_chrome_192);
+                if (file_exists($path)) {
+                    return asset_url_local_s3($this->getFaviconBasePath() . $this->upload_fav_icon_android_chrome_192);
+                }
+            }
+            return global_setting()->upload_fav_icon_android_chrome_192_url;
         });
     }
 
@@ -166,9 +176,13 @@ class Restaurant extends BaseModel
     {
         return Attribute::get(function (): string {
             // Use restaurant's custom favicon if exists, otherwise use global setting
-            return $this->upload_fav_icon_android_chrome_512
-                ? asset_url_local_s3($this->getFaviconBasePath() . $this->upload_fav_icon_android_chrome_512)
-                : global_setting()->upload_fav_icon_android_chrome_512_url;
+            if ($this->upload_fav_icon_android_chrome_512) {
+                $path = public_path('user-uploads/' . $this->getFaviconBasePath() . $this->upload_fav_icon_android_chrome_512);
+                if (file_exists($path)) {
+                    return asset_url_local_s3($this->getFaviconBasePath() . $this->upload_fav_icon_android_chrome_512);
+                }
+            }
+            return global_setting()->upload_fav_icon_android_chrome_512_url;
         });
     }
 
@@ -180,9 +194,13 @@ class Restaurant extends BaseModel
     {
         return Attribute::get(function (): string {
             // Use restaurant's custom icon if exists, otherwise use global setting
-            return $this->upload_fav_icon_apple_touch_icon
-                ? asset_url_local_s3($this->getFaviconBasePath() . $this->upload_fav_icon_apple_touch_icon)
-                : global_setting()->upload_fav_icon_apple_touch_icon_url;
+            if ($this->upload_fav_icon_apple_touch_icon) {
+                $path = public_path('user-uploads/' . $this->getFaviconBasePath() . $this->upload_fav_icon_apple_touch_icon);
+                if (file_exists($path)) {
+                    return asset_url_local_s3($this->getFaviconBasePath() . $this->upload_fav_icon_apple_touch_icon);
+                }
+            }
+            return global_setting()->upload_fav_icon_apple_touch_icon_url;
         });
     }
 
@@ -194,10 +212,19 @@ class Restaurant extends BaseModel
     {
         return Attribute::get(function (): string {
             // Use restaurant's custom favicon if exists, otherwise use global setting
-            return $this->upload_favicon_16
-                ? asset_url_local_s3($this->getFaviconBasePath() . $this->upload_favicon_16)
-                : global_setting()->upload_fav_icon_16_url;
+            if ($this->upload_favicon_16) {
+                $path = public_path('user-uploads/' . $this->getFaviconBasePath() . $this->upload_favicon_16);
+                if (file_exists($path)) {
+                    return asset_url_local_s3($this->getFaviconBasePath() . $this->upload_favicon_16);
+                }
+            }
+            return global_setting()->upload_fav_icon_16_url;
         });
+    }
+
+    public function uploadFavicon16Url(): Attribute
+    {
+        return $this->uploadFavIcon16Url();
     }
 
     /**
@@ -208,10 +235,19 @@ class Restaurant extends BaseModel
     {
         return Attribute::get(function (): string {
             // Use restaurant's custom favicon if exists, otherwise use global setting
-            return $this->upload_favicon_32
-                ? asset_url_local_s3($this->getFaviconBasePath() . $this->upload_favicon_32)
-                : global_setting()->upload_fav_icon_32_url;
+            if ($this->upload_favicon_32) {
+                $path = public_path('user-uploads/' . $this->getFaviconBasePath() . $this->upload_favicon_32);
+                if (file_exists($path)) {
+                    return asset_url_local_s3($this->getFaviconBasePath() . $this->upload_favicon_32);
+                }
+            }
+            return global_setting()->upload_fav_icon_32_url;
         });
+    }
+
+    public function uploadFavicon32Url(): Attribute
+    {
+        return $this->uploadFavIcon32Url();
     }
 
     /**
@@ -222,9 +258,13 @@ class Restaurant extends BaseModel
     {
         return Attribute::get(function (): string {
             // Use restaurant's custom favicon if exists, otherwise use global setting
-            return $this->favicon
-                ? asset_url_local_s3($this->getFaviconBasePath() . $this->favicon)
-                : global_setting()->favicon_url;
+            if ($this->favicon) {
+                $path = public_path('user-uploads/' . $this->getFaviconBasePath() . $this->favicon);
+                if (file_exists($path)) {
+                    return asset_url_local_s3($this->getFaviconBasePath() . $this->favicon);
+                }
+            }
+            return global_setting()->favicon_url;
         });
     }
 
@@ -236,9 +276,13 @@ class Restaurant extends BaseModel
     {
         return Attribute::get(function (): string {
             // Use restaurant's custom webmanifest if exists, otherwise use global setting
-            return $this->webmanifest
-                ? asset_url_local_s3($this->getFaviconBasePath() . $this->webmanifest)
-                : global_setting()->webmanifest_url;
+            if ($this->webmanifest) {
+                $path = public_path('user-uploads/' . $this->getFaviconBasePath() . $this->webmanifest);
+                if (file_exists($path)) {
+                    return asset_url_local_s3($this->getFaviconBasePath() . $this->webmanifest);
+                }
+            }
+            return global_setting()->webmanifest_url;
         });
     }
 }

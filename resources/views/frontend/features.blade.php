@@ -2124,7 +2124,7 @@
         {{-- Card: Menu Management --}}
         <div class="ft-card" data-aos="fade-up">
           <div class="ft-card-media">
-            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=900&auto=format&fit=crop" alt="Menu Management" loading="lazy">
+            <img src="{{ asset('assets/images/menu-management-hero.jpg') }}" alt="Menu Management" loading="lazy">
             <span class="ft-card-tag">Core Menu</span>
           </div>
           <div class="ft-card-body">
@@ -2200,7 +2200,7 @@
         {{-- Card: Order Management --}}
         <div class="ft-card" data-aos="fade-up">
           <div class="ft-card-media">
-            <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=900&auto=format&fit=crop" alt="Order Management" loading="lazy">
+            <img src="{{ asset('assets/images/order-management-hero.jpg') }}" alt="Order Management" loading="lazy">
             <span class="ft-card-tag">Order Pipeline</span>
           </div>
           <div class="ft-card-body">
@@ -2221,7 +2221,7 @@
         {{-- Card: KOT Management --}}
         <div class="ft-card" data-aos="fade-up" data-aos-delay="50">
           <div class="ft-card-media">
-            <img src="https://images.unsplash.com/photo-1578474846511-04ba529f0b88?q=80&w=900&auto=format&fit=crop" alt="KOT Management" loading="lazy">
+            <img src="{{ asset('assets/images/kot-management-hero.jpg') }}" alt="KOT Management" loading="lazy">
             <span class="ft-card-tag">Kitchen Tickets</span>
           </div>
           <div class="ft-card-body">
@@ -2263,7 +2263,7 @@
         {{-- Card: Waiter Requests --}}
         <div class="ft-card" data-aos="fade-up" data-aos-delay="50">
           <div class="ft-card-media">
-            <img src="https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?q=80&w=900&auto=format&fit=crop" alt="Waiter Requests" loading="lazy">
+            <img src="{{ asset('assets/images/waiter-request-hero.jpg') }}" alt="Waiter Requests" loading="lazy">
             <span class="ft-card-tag">Table Calls</span>
           </div>
           <div class="ft-card-body">
@@ -2300,7 +2300,7 @@
         {{-- Card: Table Management --}}
         <div class="ft-card" data-aos="fade-up">
           <div class="ft-card-media">
-            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=900&auto=format&fit=crop" alt="Table Management" loading="lazy">
+            <img src="{{ asset('assets/images/table-management-hero.jpg') }}" alt="Table Management" loading="lazy">
             <span class="ft-card-tag">Dining Floor</span>
           </div>
           <div class="ft-card-body">
@@ -2321,7 +2321,7 @@
         {{-- Card: Reservation Management --}}
         <div class="ft-card" data-aos="fade-up" data-aos-delay="50">
           <div class="ft-card-media">
-            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=900&auto=format&fit=crop" alt="Reservation Management" loading="lazy">
+            <img src="{{ asset('assets/images/reservation-management-hero.jpg') }}" alt="Reservation Management" loading="lazy">
             <span class="ft-card-tag">Guest Bookings</span>
           </div>
           <div class="ft-card-body">
@@ -2355,7 +2355,7 @@
         {{-- Card: POS Management --}}
         <div class="ft-card" data-aos="fade-up">
           <div class="ft-card-media">
-            <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?q=80&w=900&auto=format&fit=crop" alt="POS Management" loading="lazy">
+            <img src="{{ asset('assets/images/pos-management-hero.jpg') }}" alt="POS Management" loading="lazy">
             <span class="ft-card-tag">Fast Billing</span>
           </div>
           <div class="ft-card-body">
@@ -2434,7 +2434,7 @@
         {{-- Card: Inventory Management --}}
         <div class="ft-card" data-aos="fade-up">
           <div class="ft-card-media">
-            <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=900&auto=format&fit=crop" alt="Inventory Management" loading="lazy">
+            <img src="{{ asset('assets/images/inventory-management-hero.jpg') }}" alt="Inventory Management" loading="lazy">
             <span class="ft-card-tag">Stock Control</span>
           </div>
           <div class="ft-card-body">
@@ -2589,7 +2589,7 @@
         {{-- Card: Reports & Analytics --}}
         <div class="ft-card" data-aos="fade-up">
           <div class="ft-card-media">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=900&auto=format&fit=crop" alt="Reports & Analytics" loading="lazy">
+            <img src="{{ asset('assets/images/reports-hero.jpg') }}" alt="Reports & Analytics" loading="lazy">
             <span class="ft-card-tag">Analytics Engine</span>
           </div>
           <div class="ft-card-body">
