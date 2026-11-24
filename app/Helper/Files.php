@@ -54,12 +54,24 @@ class Files
         $uploadedFile->storeAs('temp', $newName);
 
         if (($width && $height) && File::extension($uploadedFile->getClientOriginalName()) !== 'svg') {
-            Image::make($tempPath)
-                ->resize($width, $height, function ($constraint) {
-                    $constraint->aspectRatio();
-                    $constraint->upsize();
-                })
-                ->save();
+            $newExt = strtolower(File::extension($newName));
+            if ($newExt === 'ico') {
+                $image = Image::make($tempPath)
+                    ->resize($width, $height, function ($constraint) {
+                        $constraint->aspectRatio();
+                        $constraint->upsize();
+                    });
+                $pngData = (string) $image->encode('png');
+                $icoData = self::makeIcoFromPng($pngData, $width, $height);
+                File::put($tempPath, $icoData);
+            } else {
+                Image::make($tempPath)
+                    ->resize($width, $height, function ($constraint) {
+                        $constraint->aspectRatio();
+                        $constraint->upsize();
+                    })
+                    ->save();
+            }
         }
 
         Storage::put($newPath, File::get($tempPath), ['public']);
@@ -252,15 +264,25 @@ class Files
 
         // Check if image can be resized
         $fileExt = File::extension($uploadedFile->getClientOriginalName());
+        $newExt = strtolower(File::extension($newName));
         if ($width && $height && !in_array($fileExt, ['svg', 'webp', 'ico'])) {
-
-
-            Image::make($tempPath)
-                ->resize($width, $height, function ($constraint) {
-                    $constraint->aspectRatio();
-                    $constraint->upsize();
-                })
-                ->save();
+            if ($newExt === 'ico') {
+                $image = Image::make($tempPath)
+                    ->resize($width, $height, function ($constraint) {
+                        $constraint->aspectRatio();
+                        $constraint->upsize();
+                    });
+                $pngData = (string) $image->encode('png');
+                $icoData = self::makeIcoFromPng($pngData, $width, $height);
+                File::put($tempPath, $icoData);
+            } else {
+                Image::make($tempPath)
+                    ->resize($width, $height, function ($constraint) {
+                        $constraint->aspectRatio();
+                        $constraint->upsize();
+                    })
+                    ->save();
+            }
         }
 
         // Store processed file
@@ -268,6 +290,17 @@ class Files
 
         // Cleanup
         File::delete($tempPath);
+    }
+
+    public static function makeIcoFromPng($pngData, $width = 32, $height = 32)
+    {
+        $header = pack('vvv', 0, 1, 1);
+        $w = ($width >= 256) ? 0 : $width;
+        $h = ($height >= 256) ? 0 : $height;
+        $size = strlen($pngData);
+        $offset = 22;
+        $dir = pack('CCCCvvVV', $w, $h, 0, 0, 1, 32, $size, $offset);
+        return $header . $dir . $pngData;
     }
 
     public static function fileStore($file, $folder, $generateNewName = '', $uploaded = false, $restaurantId = null)
