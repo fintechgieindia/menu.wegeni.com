@@ -30,13 +30,13 @@ class ThemeSettings extends Component
     public function rules()
     {
         return [
-            'photo' => 'nullable|image|max:1024',
+            'photo' => 'nullable|image|mimes:png,jpg,jpeg,webp,svg|max:2048',
             'upload_fav_icon_android_chrome_192' => 'nullable|image|mimes:png,jpg,jpeg,webp,svg|max:2048',
             'upload_fav_icon_android_chrome_512' => 'nullable|image|mimes:png,jpg,jpeg,webp,svg|max:2048',
             'upload_fav_icon_apple_touch_icon' => 'nullable|image|mimes:png,jpg,jpeg,webp,svg|max:2048',
             'upload_favicon_16' => 'nullable|image|mimes:png,jpg,jpeg,webp,svg|max:2048',
             'upload_favicon_32' => 'nullable|image|mimes:png,jpg,jpeg,webp,svg|max:2048',
-            'favicon' => 'nullable|file|mimes:ico|max:2048',
+            'favicon' => 'nullable|file|mimes:ico,png,jpg,jpeg,webp,svg|max:2048',
             'themeColor' => 'required',
         ];
     }
@@ -107,11 +107,19 @@ class ThemeSettings extends Component
         $this->settings->save();
 
 
+        $faviconBasePath = $this->settings->getFaviconBasePath();
+
         if ($this->photo) {
             $this->settings->logo = Files::uploadLocalOrS3($this->photo, dir: 'logo', width: 150, height: 150);
-        }
 
-        $faviconBasePath = $this->settings->getFaviconBasePath();
+            // Automatically generate all favicons from the uploaded logo if not individually uploaded
+            foreach (GlobalSetting::FAVICONS as $property => $filename) {
+                if (!$this->$property) {
+                    Files::deleteFile($this->settings->$property, $faviconBasePath);
+                    $this->settings->$property = Files::uploadLocalOrS3($this->photo, dir: $faviconBasePath, width: $filename['width'], height: $filename['height'], name: $filename['name']);
+                }
+            }
+        }
 
         foreach (GlobalSetting::FAVICONS as $property => $filename) {
             if ($this->$property) {
