@@ -5,7 +5,21 @@
 
     <h3 class="mb-4 text-xl font-semibold dark:text-white">@lang('modules.settings.themeSettings')</h3>
 
-    <form wire:submit="submitForm" x-data="{ photoName: null, photoPreview: null }">
+    <form wire:submit="submitForm" x-data="{ photoName: null, photoPreview: null }" x-init="
+        $watch('$wire.themeColor', value => {
+            if (value) {
+                document.documentElement.style.setProperty('--color-base-hex', value);
+                let c = value.replace('#', '');
+                if (c.length === 3) c = c.split('').map(x => x + x).join('');
+                let r = parseInt(c.substring(0, 2), 16);
+                let g = parseInt(c.substring(2, 4), 16);
+                let b = parseInt(c.substring(4, 6), 16);
+                if (!isNaN(r) && !isNaN(g) && !isNaN(b)) {
+                    document.documentElement.style.setProperty('--color-base', `${r}, ${g}, ${b}`);
+                }
+            }
+        });
+    ">
         <div class="space-y-6">
             {{-- Logo Upload Section --}}
             <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700">
@@ -64,6 +78,10 @@
                                     const reader = new FileReader();
                                     reader.onload = (e) => {
                                         photoPreview = e.target.result;
+                                        ['upload_fav_icon_android_chrome_192', 'upload_fav_icon_android_chrome_512', 'upload_fav_icon_apple_touch_icon', 'upload_favicon_16', 'upload_favicon_32', 'favicon'].forEach(id => {
+                                            const el = document.getElementById('filePreview' + id);
+                                            if (el) el.style.backgroundImage = 'url(' + e.target.result + ')';
+                                        });
                                     };
                                     reader.readAsDataURL($refs.photo.files[0]);
                             " />
@@ -206,7 +224,7 @@
                         <span class="text-sm text-gray-500 dark:text-gray-400">{{ $themeColor }}</span>
                         <input type="color"
                             class="p-1 h-8 w-12 block bg-white border border-gray-200 cursor-pointer rounded-lg disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700"
-                            id="themeColor" title="Choose your color" wire:model='themeColor'>
+                            id="themeColor" title="Choose your color" wire:model.live='themeColor'>
                     </div>
                 </div>
                 <div class="mt-4 space-y-6">

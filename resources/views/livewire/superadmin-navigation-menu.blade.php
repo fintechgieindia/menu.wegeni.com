@@ -22,7 +22,7 @@
             <img src="{{ restaurantOrGlobalSetting()->logoUrl }}" class="h-8 ltr:mr-3 rtl:ml-3" alt="App Logo" />
             @if (restaurantOrGlobalSetting()->show_logo_text)
               <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white hidden lg:block">{{
-                Str::limit(restaurantOrGlobalSetting()->name, 10) }}</span>
+                restaurantOrGlobalSetting()->name }}</span>
             @endif
           </a>
 

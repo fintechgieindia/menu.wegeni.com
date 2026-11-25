@@ -22,7 +22,7 @@
           <img src="{{ restaurant()->logoUrl }}" class="h-8 ltr:mr-3 rtl:ml-3" alt="" />
 
           @if (restaurant()->show_logo_text)
-          <span class="self-center text-xl font-semibold sm:text-xl whitespace-nowrap dark:text-white hidden lg:block ltr:mr-2 rtl:ml-2">{{ Str::limit(restaurant()->name, 10) }}</span>
+          <span class="self-center text-xl font-semibold sm:text-xl whitespace-nowrap dark:text-white hidden lg:block ltr:mr-2 rtl:ml-2">{{ restaurant()->name }}</span>
           @endif
         </a>
 

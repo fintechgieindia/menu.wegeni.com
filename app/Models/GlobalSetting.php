@@ -156,11 +156,6 @@ class GlobalSetting extends BaseModel
         });
     }
 
-    public function uploadFavicon16Url(): Attribute
-    {
-        return $this->uploadFavIcon16Url();
-    }
-
     /**
      * Get URL for 32x32 favicon
      * Returns custom favicon if available, otherwise falls back to default
@@ -177,11 +172,6 @@ class GlobalSetting extends BaseModel
             }
             return asset('img/favicons/favicon-32x32.png');
         });
-    }
-
-    public function uploadFavicon32Url(): Attribute
-    {
-        return $this->uploadFavIcon32Url();
     }
 
     /**

@@ -222,11 +222,6 @@ class Restaurant extends BaseModel
         });
     }
 
-    public function uploadFavicon16Url(): Attribute
-    {
-        return $this->uploadFavIcon16Url();
-    }
-
     /**
      * Get URL for 32x32 favicon
      * Returns restaurant's custom favicon if available, otherwise falls back to global setting
@@ -243,11 +238,6 @@ class Restaurant extends BaseModel
             }
             return global_setting()->upload_fav_icon_32_url;
         });
-    }
-
-    public function uploadFavicon32Url(): Attribute
-    {
-        return $this->uploadFavIcon32Url();
     }
 
     /**
